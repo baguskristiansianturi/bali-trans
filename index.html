@@ -1,885 +1,249 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>BDM Trans Indonesia — Private Bali Journeys & Experiences</title>
-  <meta name="description" content="Discover Bali your own way with private journeys, activities, tickets and Muslim-friendly travel arrangements by BDM Trans Indonesia.">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BDM Trans Indonesia — Plan Your Journey</title>
+  <meta name="description" content="Discover places, experiences, tours, dining and local services across Indonesia. Clear information, transparent prices and flexible ways to travel.">
   <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo" aria-label="BDM Trans Indonesia">
+      <span class="logo-main">BDM</span>
+      <span class="logo-sub">TRANS INDONESIA</span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a href="pages/search.html">Discover</a>
+      <a href="pages/experiences/index.html">Experiences</a>
+      <a href="pages/tours/index.html">Tours</a>
+      <a href="pages/dining/index.html">Dining</a>
+      <a href="pages/itinerary/build.html">Build Your Day</a>
+    </nav>
+    <a href="pages/booking/step-1.html" class="header-book">Plan Your Journey</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation"><span></span><span></span></button>
+  </div>
+</header>
 
-  <!-- HEADER -->
-  <header class="site-header">
-    <div class="container header-inner">
-
-      <a href="index.html" class="logo">
-        <span class="logo-main">BDM</span>
-        <span class="logo-sub">TRANS INDONESIA</span>
-      </a>
-
-      <nav class="main-nav" id="mainNav">
-        <a href="#discover">Discover Bali</a>
-        <a href="#for-you">For You</a>
-        <a href="#experiences">Experiences</a>
-        <a href="#how">How It Works</a>
-        <a href="#faq">FAQ</a>
-      </nav>
-
-      <a href="pages/booking.html" class="header-book">
-        Plan Your Journey
-      </a>
-
-      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
-        <span></span>
-        <span></span>
-      </button>
-
+<main>
+  <section class="hero">
+    <div class="hero-media"></div>
+    <div class="hero-shade"></div>
+    <div class="container hero-content">
+      <div class="eyebrow light">BDM TRANS INDONESIA</div>
+      <h1>Plan the journey.<br><em>Then enjoy it.</em></h1>
+      <p>Discover where to go, what to do, how much it costs and how to book — with guidance designed around families, couples and Muslim-friendly travel.</p>
+      <form class="hero-search" id="searchForm">
+        <input id="heroSearch" type="search" placeholder="Search a place, experience, tour or activity..." aria-label="Search BDM">
+        <button type="submit">Search</button>
+      </form>
+      <p class="hero-note">Transport is optional. Your journey comes first.</p>
     </div>
-  </header>
+  </section>
 
-
-  <main>
-
-    <!-- HERO -->
-    <section class="hero">
-
-      <div class="hero-image"></div>
-
-      <div class="hero-overlay"></div>
-
-      <div class="container hero-content">
-
-        <p class="eyebrow">PRIVATE BALI JOURNEYS</p>
-
-        <h1>
-          Bali,<br>
-          made personal.
-        </h1>
-
-        <p class="hero-text">
-          Discover Bali through private journeys, meaningful experiences
-          and carefully planned days — at your own pace.
-        </p>
-
-        <div class="hero-actions">
-          <a href="#discover" class="button button-light">
-            Explore Bali
-          </a>
-
-          <a href="pages/booking.html" class="text-link light">
-            Plan your journey <span>→</span>
-          </a>
-        </div>
-
+  <section class="section" id="discover">
+    <div class="container">
+      <div class="section-head">
+        <div><div class="eyebrow">Start here</div><h2>What are you looking for?</h2></div>
+        <p>Start with what you want to experience. Compare information and prices first. Decide how you want to get there later.</p>
       </div>
-
-      <div class="hero-bottom container">
-        <span>Families</span>
-        <span>Couples</span>
-        <span>Muslim-friendly</span>
-        <span>Private travel</span>
+      <div class="category-grid">
+        <a class="category-card" href="pages/experiences/index.html"><span>01</span><strong>Things to do</strong><small>Activities & experiences</small></a>
+        <a class="category-card" href="pages/tours/index.html"><span>02</span><strong>Tours</strong><small>Private & curated journeys</small></a>
+        <a class="category-card" href="pages/tickets/index.html"><span>03</span><strong>Tickets</strong><small>Attractions & activities</small></a>
+        <a class="category-card" href="pages/dining/index.html"><span>04</span><strong>Dining</strong><small>BDM-approved local options</small></a>
+        <a class="category-card" href="pages/destinations/index.html"><span>05</span><strong>Destinations</strong><small>Know before you go</small></a>
+        <a class="category-card" href="pages/guides/index.html"><span>06</span><strong>Guides</strong><small>Practical travel information</small></a>
+        <a class="category-card" href="pages/marketplace/index.html"><span>07</span><strong>Local products</strong><small>Coming soon</small></a>
+        <a class="category-card" href="pages/transport/index.html"><span>08</span><strong>Transport</strong><small>Private travel when needed</small></a>
       </div>
+    </div>
+  </section>
 
-    </section>
-
-
-    <!-- INTRO -->
-    <section class="intro-section" id="discover">
-
-      <div class="container intro-grid">
-
-        <div>
-          <p class="eyebrow dark">DISCOVER BALI</p>
-
-          <h2>
-            There is more<br>
-            than one way<br>
-            to experience Bali.
-          </h2>
-        </div>
-
-        <div class="intro-copy">
-
-          <p class="large-copy">
-            Some come for the beaches. Some for the mountains,
-            culture, food or adventure.
-          </p>
-
-          <p>
-            BDM helps you put those moments together in a way that
-            makes sense for your trip — whether you need a private
-            driver, an activity ticket, a day tour, or simply help
-            arranging the details.
-          </p>
-
-          <a href="pages/activities.html" class="text-link dark">
-            Explore experiences <span>→</span>
-          </a>
-
-        </div>
-
+  <section class="section section-sand">
+    <div class="container">
+      <div class="section-head">
+        <div><div class="eyebrow">Discover Bali</div><h2>Choose the experience first.</h2></div>
+        <p>See the place, schedule, inclusions, price and booking conditions before deciding anything else.</p>
       </div>
-
-    </section>
-
-
-    <!-- BALI EXPERIENCES -->
-    <section class="experience-section">
-
-      <div class="container">
-
-        <div class="section-heading">
-
-          <div>
-            <p class="eyebrow dark">WHAT'S YOUR BALI?</p>
-
-            <h2>
-              Choose what<br>
-              feels right.
-            </h2>
-          </div>
-
-          <p>
-            From quiet mornings to adventurous afternoons,
-            your Bali can be completely different from someone else's.
-          </p>
-
-        </div>
-
-
-        <div class="experience-grid">
-
-          <a href="pages/activities.html" class="experience-card card-large">
-            <div class="card-image image-nature"></div>
-
-            <div class="card-overlay"></div>
-
-            <div class="card-content">
-              <span>01</span>
-              <h3>Nature & Adventure</h3>
-              <p>Rafting, ATV, trekking, waterfalls and more.</p>
-            </div>
-          </a>
-
-
-          <a href="pages/tours.html" class="experience-card">
-            <div class="card-image image-culture"></div>
-
-            <div class="card-overlay"></div>
-
-            <div class="card-content">
-              <span>02</span>
-              <h3>Culture & Ubud</h3>
-              <p>Temples, villages, rice fields and local life.</p>
-            </div>
-          </a>
-
-
-          <a href="pages/activities.html" class="experience-card">
-            <div class="card-image image-beach"></div>
-
-            <div class="card-overlay"></div>
-
-            <div class="card-content">
-              <span>03</span>
-              <h3>Beaches & Sunset</h3>
-              <p>Slow afternoons and beautiful evenings.</p>
-            </div>
-          </a>
-
-
-          <a href="pages/tours.html" class="experience-card">
-            <div class="card-image image-family"></div>
-
-            <div class="card-overlay"></div>
-
-            <div class="card-content">
-              <span>04</span>
-              <h3>Family Days</h3>
-              <p>Flexible days designed around your family.</p>
-            </div>
-          </a>
-
-
-          <a href="pages/tours.html" class="experience-card">
-            <div class="card-image image-couple"></div>
-
-            <div class="card-overlay"></div>
-
-            <div class="card-content">
-              <span>05</span>
-              <h3>For Two</h3>
-              <p>Private moments, without unnecessary schedules.</p>
-            </div>
-          </a>
-
-
-          <a href="pages/activities.html" class="experience-card">
-            <div class="card-image image-wellness"></div>
-
-            <div class="card-overlay"></div>
-
-            <div class="card-content">
-              <span>06</span>
-              <h3>Wellness & Slow Bali</h3>
-              <p>Spa, relaxation and days with room to breathe.</p>
-            </div>
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- FOR WHO -->
-    <section class="for-section" id="for-you">
-
-      <div class="container">
-
-        <div class="section-heading centered">
-
-          <p class="eyebrow dark">MADE FOR THE WAY YOU TRAVEL</p>
-
-          <h2>
-            Not every traveller<br>
-            wants the same Bali.
-          </h2>
-
-        </div>
-
-
-        <div class="for-grid">
-
-          <article class="for-card">
-
-            <span class="for-number">01</span>
-
-            <h3>For Families</h3>
-
-            <p>
-              More space. More flexibility. Less rushing.
-              Plan a day that works for children, parents
-              and everyone in between.
-            </p>
-
-            <a href="pages/tours.html" class="text-link dark">
-              Family journeys <span>→</span>
-            </a>
-
-          </article>
-
-
-          <article class="for-card featured">
-
-            <span class="for-number">02</span>
-
-            <h3>For Two</h3>
-
-            <p>
-              Some days are better without a schedule.
-              Explore together, stop when you want,
-              and leave room for the unexpected.
-            </p>
-
-            <a href="pages/tours.html" class="text-link light">
-              Private journeys <span>→</span>
-            </a>
-
-          </article>
-
-
-          <article class="for-card">
-
-            <span class="for-number">03</span>
-
-            <h3>Muslim-friendly</h3>
-
-            <p>
-              Prayer-friendly planning, halal dining guidance
-              and private transportation when you need it.
-            </p>
-
-            <a href="pages/tours.html" class="text-link dark">
-              Explore Muslim-friendly Bali <span>→</span>
-            </a>
-
-          </article>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- MUSLIM FRIENDLY -->
-    <section class="muslim-section">
-
-      <div class="muslim-image"></div>
-
-      <div class="container muslim-container">
-
-        <div class="muslim-content">
-
-          <p class="eyebrow">TRAVEL WITH CONFIDENCE</p>
-
-          <h2>
-            Bali that works<br>
-            for your way of life.
-          </h2>
-
-          <p>
-            Travelling should not mean leaving your everyday needs
-            behind. We can help arrange a Bali itinerary with
-            practical considerations for Muslim travellers.
-          </p>
-
-          <div class="feature-list">
-
-            <div>
-              <strong>Prayer-friendly planning</strong>
-              <span>Build your day around prayer times.</span>
-            </div>
-
-            <div>
-              <strong>Halal dining guidance</strong>
-              <span>Find suitable places along your route.</span>
-            </div>
-
-            <div>
-              <strong>Private transportation</strong>
-              <span>Travel privately with your own driver.</span>
-            </div>
-
-            <div>
-              <strong>Flexible arrangements</strong>
-              <span>Your day can change when your needs do.</span>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- PRIVATE -->
-    <section class="private-section">
-
-      <div class="container private-grid">
-
-        <div class="private-copy">
-
-          <p class="eyebrow dark">PRIVATE BY DESIGN</p>
-
-          <h2>
-            Your vehicle.<br>
-            Your driver.<br>
-            Your day.
-          </h2>
-
-          <p>
-            BDM is built around private travel rather than
-            shared schedules. You decide how your day should feel.
-          </p>
-
-          <a href="pages/transport.html" class="button button-dark">
-            Explore Private Transport
-          </a>
-
-        </div>
-
-
-        <div class="private-details">
-
-          <div class="private-detail">
-            <span>01</span>
-            <div>
-              <h3>Private</h3>
-              <p>No shared vehicle. No fixed group itinerary.</p>
-            </div>
-          </div>
-
-          <div class="private-detail">
-            <span>02</span>
-            <div>
-              <h3>Flexible</h3>
-              <p>Spend more time where you actually want to be.</p>
-            </div>
-          </div>
-
-          <div class="private-detail">
-            <span>03</span>
-            <div>
-              <h3>Limited availability</h3>
-              <p>Our drivers are limited, so advance planning is encouraged.</p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ACTIVITIES -->
-    <section class="activities-section" id="experiences">
-
-      <div class="container">
-
-        <div class="section-heading">
-
-          <div>
-            <p class="eyebrow dark">EXPERIENCES</p>
-
-            <h2>
-              Start with one thing.<br>
-              Build the rest of your day.
-            </h2>
-          </div>
-
-          <a href="pages/activities.html" class="text-link dark">
-            View all experiences <span>→</span>
-          </a>
-
-        </div>
-
-
-        <div class="activity-feature">
-
-          <div class="activity-photo"></div>
-
-          <div class="activity-content">
-
-            <p class="eyebrow dark">EXAMPLE</p>
-
-            <h3>
-              Ayung River<br>
-              Rafting, Ubud
-            </h3>
-
-            <p>
-              Book the activity on its own, or build a complete
-              Bali day around it.
-            </p>
-
-            <div class="activity-options">
-
-              <div>
-                <strong>Ticket only</strong>
-                <span>Arrange your own transport.</span>
-              </div>
-
-              <div>
-                <strong>Ticket + transfer</strong>
-                <span>Add private transportation.</span>
-              </div>
-
-              <div>
-                <strong>Build your day</strong>
-                <span>Add another experience after rafting.</span>
-              </div>
-
-            </div>
-
-            <a href="pages/rafting-ubud.html" class="button button-dark">
-              Explore Rafting
-            </a>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- REAL JOURNEYS -->
-    <section class="journeys-section">
-
-      <div class="container">
-
-        <div class="journeys-header">
-
-          <div>
-            <p class="eyebrow dark">REAL JOURNEYS</p>
-
-            <h2>
-              Bali is better<br>
-              when it is lived.
-            </h2>
-          </div>
-
-          <p>
-            Follow the journeys, places and people behind BDM.
-            Our social channels document the real trips we create.
-          </p>
-
-        </div>
-
-
-        <div class="journey-gallery">
-
-          <div class="journey-photo photo-one"></div>
-          <div class="journey-photo photo-two"></div>
-          <div class="journey-photo photo-three"></div>
-          <div class="journey-photo photo-four"></div>
-          <div class="journey-photo photo-five"></div>
-
-        </div>
-
-
-        <div class="instagram-row">
-
-          <div>
-            <span>FOLLOW THE JOURNEY</span>
-            <strong>@bdmtrans</strong>
-          </div>
-
-          <a href="#" class="button button-outline">
-            Instagram →
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- WHO BDM -->
-    <section class="about-section">
-
-      <div class="container about-grid">
-
-        <div>
-
-          <p class="eyebrow dark">WHO IS BDM?</p>
-
-          <h2>
-            More than getting<br>
-            from A to B.
-          </h2>
-
-        </div>
-
-        <div class="about-copy">
-
-          <p class="large-copy">
-            BDM Trans Indonesia is a private travel service
-            built around the way people actually experience Bali.
-          </p>
-
-          <p>
-            Transportation is only one part of the journey.
-            We help travellers discover places, arrange experiences,
-            choose activities and create days that feel natural
-            rather than rushed.
-          </p>
-
-          <p>
-            Whether you need one activity ticket or a private
-            journey across Bali, the choice remains yours.
-          </p>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- BOOKING -->
-    <section class="booking-section" id="how">
-
-      <div class="container">
-
-        <div class="booking-header">
-
-          <p class="eyebrow dark">HOW IT WORKS</p>
-
-          <h2>
-            Simple from the<br>
-            first decision.
-          </h2>
-
-        </div>
-
-
-        <div class="booking-steps">
-
-          <div class="booking-step">
-            <span>01</span>
-            <h3>Explore</h3>
-            <p>Discover places, activities and ways to travel.</p>
-          </div>
-
-          <div class="booking-step">
-            <span>02</span>
-            <h3>Choose</h3>
-            <p>Select what you actually want. Nothing unnecessary.</p>
-          </div>
-
-          <div class="booking-step">
-            <span>03</span>
-            <h3>Request</h3>
-            <p>Send your travel details through the booking form.</p>
-          </div>
-
-          <div class="booking-step">
-            <span>04</span>
-            <h3>Availability</h3>
-            <p>We check the requested date and arrangements.</p>
-          </div>
-
-          <div class="booking-step">
-            <span>05</span>
-            <h3>Payment</h3>
-            <p>Once everything is confirmed, complete your payment.</p>
-          </div>
-
-          <div class="booking-step">
-            <span>06</span>
-            <h3>Travel</h3>
-            <p>Your Bali journey is ready.</p>
-          </div>
-
-        </div>
-
-
-        <div class="booking-cta">
-
-          <div>
-            <p class="eyebrow dark">READY WHEN YOU ARE</p>
-
-            <h3>
-              Start planning your Bali.
-            </h3>
-          </div>
-
-          <a href="pages/booking.html" class="button button-dark">
-            Plan Your Journey
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- FAQ -->
-    <section class="faq-section" id="faq">
-
-      <div class="container faq-grid">
-
-        <div>
-          <p class="eyebrow dark">FAQ</p>
-
-          <h2>
-            Before<br>
-            you book.
-          </h2>
-
-          <p>
-            A few things travellers usually want to know.
-          </p>
-        </div>
-
-
-        <div class="faq-list">
-
-          <details>
-            <summary>
-              Do I have to book transportation?
-              <span>+</span>
-            </summary>
-
-            <p>
-              No. Some activities can be booked as ticket-only.
-              You can arrange your own transportation if you prefer.
-            </p>
-          </details>
-
-
-          <details>
-            <summary>
-              Can BDM arrange my entire day?
-              <span>+</span>
-            </summary>
-
-            <p>
-              Yes. Depending on availability, activities,
-              transportation and other arrangements can be combined
-              into one private journey.
-            </p>
-          </details>
-
-
-          <details>
-            <summary>
-              Is BDM suitable for Muslim travellers?
-              <span>+</span>
-            </summary>
-
-            <p>
-              Yes. We can help with prayer-friendly planning,
-              halal dining guidance and private transportation.
-            </p>
-          </details>
-
-
-          <details>
-            <summary>
-              How far in advance should I book?
-              <span>+</span>
-            </summary>
-
-            <p>
-              Advance booking is encouraged, especially for private
-              transportation because driver availability is limited.
-            </p>
-          </details>
-
-
-          <details>
-            <summary>
-              Can I book only an activity?
-              <span>+</span>
-            </summary>
-
-            <p>
-              Yes. If an activity offers ticket-only booking,
-              you can simply purchase the ticket and arrange
-              transportation yourself.
-            </p>
-          </details>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- FINAL CTA -->
-    <section class="final-section">
-
-      <div class="final-image"></div>
-
-      <div class="final-overlay"></div>
-
-      <div class="container final-content">
-
-        <p class="eyebrow">BDM TRANS INDONESIA</p>
-
-        <h2>
-          Your Bali<br>
-          starts with a plan.
-        </h2>
-
-        <p>
-          Explore. Choose. Plan it your way.
-        </p>
-
-        <a href="pages/booking.html" class="button button-light">
-          Plan Your Journey
+      <div class="feature-grid">
+        <a class="feature-card feature-large" href="pages/experiences/rafting-ubud.html">
+          <div class="feature-image rafting"></div>
+          <div class="feature-overlay"><span class="eyebrow light">EXPERIENCE · UBUD</span><h3>Ayung River Rafting</h3><p>From Rp175,000 / person</p></div>
         </a>
-
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <!-- FOOTER -->
-  <footer class="site-footer">
-
-    <div class="container footer-top">
-
-      <div class="footer-brand">
-
-        <div class="logo footer-logo">
-          <span class="logo-main">BDM</span>
-          <span class="logo-sub">TRANS INDONESIA</span>
+        <div class="feature-side">
+          <a class="feature-card" href="pages/experiences/index.html"><div class="feature-image culture"></div><div class="feature-overlay"><span class="eyebrow light">CULTURE</span><h3>Explore Bali differently</h3></div></a>
+          <a class="feature-card" href="pages/tours/index.html"><div class="feature-image coast"></div><div class="feature-overlay"><span class="eyebrow light">TOURS</span><h3>Build a private day</h3></div></a>
         </div>
-
-        <p>
-          Private journeys & experiences<br>
-          across Bali, Indonesia.
-        </p>
-
       </div>
-
-
-      <div class="footer-column">
-
-        <h4>Explore</h4>
-
-        <a href="pages/tours.html">Tours</a>
-        <a href="pages/activities.html">Activities</a>
-        <a href="pages/tickets.html">Tickets</a>
-        <a href="pages/transport.html">Private Transport</a>
-
-      </div>
-
-
-      <div class="footer-column">
-
-        <h4>Travel</h4>
-
-        <a href="#">Bali Guides</a>
-        <a href="#">Muslim-friendly Bali</a>
-        <a href="#">Family Travel</a>
-        <a href="#">Travel Updates</a>
-
-      </div>
-
-
-      <div class="footer-column">
-
-        <h4>Help</h4>
-
-        <a href="#faq">FAQ</a>
-        <a href="pages/booking.html">Booking</a>
-        <a href="#">Help</a>
-        <a href="#">Contact</a>
-
-      </div>
-
     </div>
+  </section>
 
-
-    <div class="container footer-bottom">
-
-      <span>© 2026 BDM Trans Indonesia</span>
-
+  <section class="section">
+    <div class="container two-column">
       <div>
-        <a href="#">Privacy</a>
-        <a href="#">Terms</a>
+        <div class="eyebrow">Travel with context</div>
+        <h2>Know what you're booking before you book it.</h2>
+        <p class="muted">BDM is designed for travelers who may not know the destination yet. We bring together practical information, prices, schedules, local recommendations and booking steps in one place.</p>
+        <div class="feature-list">
+          <div><strong>Clear prices</strong><span>See the applicable price before deciding.</span></div>
+          <div><strong>Real information</strong><span>What is included, where, when and how.</span></div>
+          <div><strong>Built around people</strong><span>Family, couples and Muslim-friendly needs.</span></div>
+          <div><strong>Your choice of transport</strong><span>BDM, another service, public transport or your own vehicle.</span></div>
+        </div>
       </div>
-
+      <div class="photo photo-bali" role="img" aria-label="Bali destination"></div>
     </div>
+  </section>
 
-  </footer>
+  <section class="section section-sand">
+    <div class="container">
+      <div class="section-head">
+        <div><div class="eyebrow">Build your day</div><h2>One experience can become a whole journey.</h2></div>
+        <p>Start with one thing you want to do. Add dining, another experience or private transport when it makes sense.</p>
+      </div>
+      <div class="itinerary-demo">
+        <div class="itinerary-panel">
+          <div class="eyebrow">Example · Ubud</div>
+          <h3>Your Bali day</h3>
+          <div class="timeline">
+            <div><small>09:00</small><strong>Ayung River Rafting</strong><span>Experience · Rp175,000/person</span></div>
+            <div><small>12:30</small><strong>Lunch nearby</strong><span>BDM-approved dining options</span></div>
+            <div><small>14:00</small><strong>Choose your next experience</strong><span>Swing · Spa · Culture · Free time</span></div>
+            <div><small>18:00</small><strong>Dinner or return</strong><span>Choose what fits your day</span></div>
+          </div>
+        </div>
+        <div class="itinerary-panel dark-panel">
+          <div class="eyebrow light">YOUR CHOICES</div>
+          <h3>You stay in control.</h3>
+          <p>Transport is one option — not a requirement.</p>
+          <div class="choice-grid">
+            <div><strong>BDM</strong><span>Private pickup & return</span></div>
+            <div><strong>Your way</strong><span>Taxi, rental, own car</span></div>
+            <div><strong>Skip it</strong><span>Go directly yourself</span></div>
+          </div>
+          <a class="btn btn-light" href="pages/itinerary/build.html">Build Your Day</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <section class="section dark-section">
+    <div class="container">
+      <div class="section-head">
+        <div><div class="eyebrow light">Made around people</div><h2>Travel the way your group actually travels.</h2></div>
+        <p class="dark-muted">The same destination can need very different planning depending on who is traveling.</p>
+      </div>
+      <div class="trust-grid">
+        <div><span>01</span><h3>Families</h3><p>Practical pacing, easier movement, suitable activities and local needs considered together.</p></div>
+        <div><span>02</span><h3>Couples</h3><p>Private experiences, flexible days and space to choose how much you want planned.</p></div>
+        <div><span>03</span><h3>Muslim travelers</h3><p>Muslim-friendly guidance, approved dining options and practical information where it matters.</p></div>
+      </div>
+    </div>
+  </section>
 
-  <script src="js/main.js"></script>
+  <section class="section">
+    <div class="container two-column">
+      <div>
+        <div class="eyebrow">BDM Dining</div>
+        <h2>When you're somewhere unfamiliar, you shouldn't have to guess where to eat.</h2>
+        <p class="muted">Dining recommendations can connect to your itinerary — nearby, along the route, after an activity or close to your hotel.</p>
+        <a class="btn btn-dark" href="pages/dining/index.html">Explore BDM Dining</a>
+      </div>
+      <div class="dining-example">
+        <div class="eyebrow">Example</div>
+        <h3>After rafting</h3>
+        <p class="muted">Finish around 12:30. BDM can show approved dining options based on location, opening hours and route relevance.</p>
+        <div class="feature-list">
+          <div><strong>Restaurant A</strong><span>1.2 km · On route</span></div>
+          <div><strong>Restaurant B</strong><span>2.1 km · Family</span></div>
+          <div><strong>Restaurant C</strong><span>3.4 km · Local cuisine</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <section class="section section-sand" id="coming-soon">
+    <div class="container">
+      <div class="section-head">
+        <div><div class="eyebrow">The BDM network is growing</div><h2>More is coming.</h2></div>
+        <p>New services, products and destinations can appear here as BDM launches them.</p>
+      </div>
+      <div class="coming-grid">
+        <article><span class="pill">Coming Soon</span><h3>Muslim Travel Essentials</h3><p>Selected travel items such as mukena, hijab, sarong and family essentials, prepared before arrival and delivered to your hotel.</p><small>Hotel delivery</small></article>
+        <article><span class="pill">Coming Soon</span><h3>Indonesian Local Goods</h3><p>Food, clothing and selected products from Bali, Bandung and other Indonesian destinations.</p><small>Local products</small></article>
+        <article><span class="pill">Coming Soon</span><h3>More Indonesia</h3><p>BDM is starting from Bali and gradually building a trusted local network across Indonesia.</p><small>New destinations</small></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="promo-slot">
+    <div class="container promo-inner">
+      <div><div class="eyebrow">Promo / Launch / Announcement</div><h2>A place for what's new at BDM.</h2><p>Reserved from the beginning for future campaigns, launches, seasonal offers and important travel updates.</p></div>
+      <a class="btn btn-light" href="pages/guides/travel-updates.html">View Updates</a>
+    </div>
+  </section>
+
+  <section class="transport-band">
+    <div class="container two-column transport-layout">
+      <div>
+        <div class="eyebrow">When you need a private ride</div>
+        <h2>Your journey comes first. The road comes after.</h2>
+        <p class="muted">Choose BDM private transport when you want a more personal way to move between your hotel, airport, activity or destination. You are always free to travel another way.</p>
+        <a class="btn btn-dark" href="pages/transport/index.html">Explore Transport</a>
+      </div>
+      <div class="transport-options">
+        <div><strong>BDM Private</strong><span>Curated private transport</span></div>
+        <div><strong>Other transport</strong><span>Use the service you prefer</span></div>
+        <div><strong>Your own way</strong><span>Drive or travel independently</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><div><div class="eyebrow">How it works</div><h2>Simple enough to understand before you travel.</h2></div><p>Start with what you want to do.</p></div>
+      <div class="steps">
+        <div><b>01</b><h3>Discover</h3><p>Find places, activities, tours, dining and practical guides.</p></div>
+        <div><b>02</b><h3>Choose</h3><p>See details, schedules, inclusions, prices and booking conditions.</p></div>
+        <div><b>03</b><h3>Book</h3><p>Choose options, review the total and complete the booking.</p></div>
+        <div><b>04</b><h3>Travel</h3><p>Follow your itinerary and use the support or transport you selected.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-sand">
+    <div class="container">
+      <div class="section-head"><div><div class="eyebrow">FAQ</div><h2>Before you book.</h2></div></div>
+      <div class="faq">
+        <details><summary>Do I have to use BDM transport?</summary><p>No. Transport is optional. You can use BDM, another service, public transport or your own vehicle.</p></details>
+        <details><summary>Can I book only an activity?</summary><p>Yes. An activity or ticket can be booked independently where available.</p></details>
+        <details><summary>Is BDM only for Muslim travelers?</summary><p>No. BDM is built with Muslim-friendly and family needs in mind while remaining open to travelers who value thoughtful planning.</p></details>
+        <details><summary>Will BDM have products and food?</summary><p>Those areas are part of the planned platform and will be introduced gradually through clearly marked launches and Coming Soon sections.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="container">
+      <div class="eyebrow light">BDM TRANS INDONESIA</div>
+      <h2>Start with where<br>you want to go.</h2>
+      <p>Then let the journey take shape from there.</p>
+      <a class="btn btn-light" href="pages/search.html">Explore BDM</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-top">
+    <div class="footer-brand"><div class="logo"><span class="logo-main">BDM</span><span class="logo-sub">TRANS INDONESIA</span></div><p>Travel guidance, experiences and local services across Indonesia — built around the way you travel.</p></div>
+    <div class="footer-column"><h4>Explore</h4><a href="pages/tours/index.html">Tours</a><a href="pages/experiences/index.html">Experiences</a><a href="pages/tickets/index.html">Tickets</a><a href="pages/transport/index.html">Transport</a></div>
+    <div class="footer-column"><h4>Travel</h4><a href="pages/dining/index.html">BDM Dining</a><a href="pages/guides/index.html">Guides</a><a href="pages/destinations/index.html">Destinations</a><a href="pages/marketplace/index.html">Local Products</a></div>
+    <div class="footer-column"><h4>Account</h4><a href="pages/account/login.html">Login</a><a href="pages/account/dashboard.html">My BDM</a><a href="pages/booking/step-1.html">Booking</a><a href="pages/contact.html">Contact</a></div>
+  </div>
+  <div class="container footer-bottom"><span>© 2026 BDM Trans Indonesia</span><div><a href="pages/privacy.html">Privacy</a><a href="pages/terms.html">Terms</a></div></div>
+</footer>
+<script src="js/main.js"></script>
 </body>
 </html>
