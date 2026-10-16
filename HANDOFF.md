@@ -13,7 +13,7 @@ Lalu periksa kondisi GitHub terkini secara langsung. Dokumen ini adalah catatan 
 
 ## Identitas proyek dan prinsip kerja
 
-- Repository: `baguskristiansianturi/bdm-trans-indonesia`.
+- Repository: `baguskristiansianturi/bali-trans`.
 - Nama kerja website untuk tahap perencanaan: **Bali Travel**. Ini bukan rename repository atau keputusan final nama merek publik.
 - Pemilik menggunakan ponsel Android dengan keterbatasan perangkat; prioritaskan perubahan kecil, mudah ditinjau, dan pengujian mobile.
 - Beri laporan jujur. Jangan menyebut sesuatu selesai, teruji, ter-deploy, atau siap menerima booking tanpa bukti yang sesuai.
@@ -24,23 +24,21 @@ Lalu periksa kondisi GitHub terkini secara langsung. Dokumen ini adalah catatan 
 
 ## Status terakhir yang tercatat
 
-**Tahap: audit statis awal dan perubahan fondasi kecil pada branch kerja. Belum ada verifikasi browser/mobile atau deployment.**
+**Tahap: perbaikan navigasi Wishlist pada PR #2; pemeriksaan statis lulus, menunggu review/merge dan verifikasi browser/mobile.**
 
-- [x] Repository aktif dikonfirmasi: `baguskristiansianturi/bali-trans`; branch default `main`.
-- [x] Roadmap dan handoff diperbarui pada branch `docs/brand-led-bdm-revival-roadmap`, termasuk urutan: audit struktur/komponen bersama → konsistensi halaman → struktur wishlist/account/booking dengan batas fungsi jelas → uji produk Lovina.
-- [x] Branch kerja `work/site-structure-audit` dibuat dari `preview/bali-trans`; `main` tidak diubah.
-- [x] Audit statis mencakup 34 halaman HTML; tidak ditemukan target file lokal `href`/`src` yang hilang pada pemeriksaan ini. Ini bukan bukti bahwa tautan eksternal, interaksi, tampilan, atau alur runtime sudah benar.
-- [x] Homepage hero sekarang mengarah ke katalog Experiences, bukan menjadikan Lovina Dolphin Experience satu-satunya titik utama homepage.
-- [x] Halaman Wishlist dibuat dengan empty state dan penjelasan bahwa penyimpanan/sinkronisasi belum terhubung; link ditambahkan pada nav/footer homepage.
-- [x] JavaScript navigasi mobile diperbaiki agar `aria-expanded` dan label tombol diperbarui saat menu dibuka/ditutup.
-- [x] `AUDIT.md` mencatat ruang lingkup, temuan awal, perubahan, dan hal yang belum diuji.
-- [ ] Header/footer masih diduplikasi dan berbeda antarhalaman; standardisasi global belum selesai.
-- [ ] Halaman Tickets/Tours dan banyak Account masih berisi struktur placeholder; belum siap diperlakukan sebagai katalog/akun operasional.
-- [x] Perubahan awal di-merge ke `preview/bali-trans` melalui [PR #1](https://github.com/baguskristiansianturi/bali-trans/pull/1); `main` tidak diubah.
-- [x] Build job GitHub Actions berhasil untuk commit merge `fc5b16ee0eb445ab5dc1bfbb2373ddb0b1ada407`; deploy job masih berjalan pada pemeriksaan terakhir.
-- [ ] Pengujian browser/mobile, alur Lovina end-to-end, dan hasil deployment final belum diverifikasi.
-- [ ] Kesiapan supplier, harga final, inventaris, dan operasi layanan tetap memerlukan verifikasi terpisah.
-- [ ] Belum ada merge ke `main`.
+- [x] Repository canonical dikonfirmasi: `baguskristiansianturi/bali-trans`; nama `bdm-trans-indonesia` yang tertulis di catatan lama bukan nama canonical yang dikembalikan GitHub. Default branch adalah `main`.
+- [x] Roadmap dan handoff berada pada branch dokumentasi `docs/brand-led-bdm-revival-roadmap`; branch dokumentasi belum di-merge ke `main`.
+- [x] PR #1 ([Improve shared frontend foundations and add wishlist structure](https://github.com/baguskristiansianturi/bali-trans/pull/1)) merged ke `preview/bali-trans` pada commit `fc5b16ee0eb445ab5dc1bfbb2373ddb0b1ada407`; GitHub Actions untuk publish preview dan Pages build/deployment berstatus `success`.
+- [x] Branch kerja `work/shared-navigation-audit-2026-10-17` dibuat dari `preview/bali-trans`.
+- [x] PR #2 ([Make Wishlist reachable from every page header](https://github.com/baguskristiansianturi/bali-trans/pull/2)) dibuka terhadap `preview/bali-trans`; status saat catatan ini ditulis masih **open, belum merged**.
+- [x] Link Wishlist ditambahkan pada header 33 halaman HTML; homepage dan halaman Wishlist dibiarkan karena link sudah ada.
+- [x] Pemeriksaan statis terbaru mencakup 35 halaman HTML dan 840 atribut `href`/`src`; tidak ditemukan target file lokal yang hilang. 33/33 link Wishlist yang baru ditambahkan dipastikan mengarah ke `pages/account/wishlist.html`.
+- [ ] PR #2 belum diuji di browser, belum diverifikasi tampilannya pada ponsel, dan belum ter-deploy.
+- [ ] Standarisasi header/footer belum selesai. Urutan/label navigasi, variasi logo/brand text, footer penuh vs footer checkout, serta CTA masih berbeda antarhalaman.
+- [ ] Uji alur Lovina end-to-end, validasi form, retensi state, keyboard/accessibility runtime, dan tampilan mobile belum dilakukan.
+- [ ] URL live GitHub Pages tidak dapat diperiksa melalui lingkungan tool saat sesi ini; status workflow sukses tidak disamakan dengan verifikasi visual.
+- [ ] Kesiapan supplier, harga final, inventaris, dan operasi layanan masih memerlukan verifikasi terpisah.
+- [ ] `main` tidak diubah; belum ada merge ke `main`.
 
 ## Keputusan produk yang harus dipertahankan
 
@@ -55,14 +53,11 @@ Lalu periksa kondisi GitHub terkini secara langsung. Dokumen ini adalah catatan 
 
 ## Langkah berikutnya yang direkomendasikan
 
-1. Lanjutkan audit konsistensi header/footer, navigasi, judul/subjudul, spacing, CTA, dan tampilan mobile dalam kelompok kecil.
-2. Rapikan pola layout bersama tanpa merusak bagian desain yang sudah bekerja; catat setiap perubahan dan kriterianya.
-3. Lengkapi struktur Wishlist/Account/Booking hanya sejauh UI yang dapat dijelaskan secara jujur; autentikasi, penyimpanan lintas perangkat, ketersediaan real-time, dan pembayaran tetap belum aktif.
-4. Uji Lovina Dolphin Experience melalui alur dari penemuan produk sampai halaman akhir, termasuk validasi, retensi state, dan jalur kembali.
-5. Periksa penyelesaian workflow/deployment untuk PR #1, lalu buka preview di ponsel dan uji navigasi serta wishlist. Jangan menganggap build sukses berarti browser/deployment telah terverifikasi.
-6. Uji alur Lovina dari pemilihan produk hingga halaman akhir, termasuk validasi, retensi state, dan jalur kembali.
-7. Catat pengujian yang benar-benar dijalankan, kendala, status PR/merge/deployment, dan satu langkah berikutnya.
-6. Catat pengujian yang benar-benar dijalankan, kendala, status PR/merge/deployment, dan satu langkah berikutnya.
+1. Periksa PR #2 dan status checks/mergeability aktual. Jangan menganggap perubahan sudah masuk preview sebelum status merged terkonfirmasi.
+2. Setelah PR #2 masuk ke `preview/bali-trans`, periksa workflow publish dan Pages deployment. Lalu uji dari ponsel: menu buka/tutup, link Wishlist dari halaman berbeda, scroll/overflow, dan jalur kembali.
+3. Lanjutkan audit header/footer dalam kelompok kecil: samakan struktur dan label navigasi yang disepakati, identitas logo, CTA, serta footer umum. Pertahankan footer ringkas pada langkah checkout bila memang sengaja dibuat untuk mengurangi distraksi.
+4. Uji Lovina Dolphin Experience dari katalog → detail → pilihan → detail tamu → review → test confirmation. Periksa validasi, state yang tersimpan dalam sesi, tombol kembali, dan pesan yang menegaskan bahwa ini bukan booking/pembayaran nyata.
+5. Catat hasil yang benar-benar diuji dan perbarui `AUDIT.md` serta `HANDOFF.md`. Jangan menandai tampilan browser/mobile atau deployment sebagai terverifikasi hanya dari pemeriksaan kode/workflow.
 
 Jangan melompat langsung membangun planner itinerary/anggaran, marketplace penuh, atau pembayaran otomatis sebelum alur produk awal dan operasi layanan terbukti dibutuhkan.
 
