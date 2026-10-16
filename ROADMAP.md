@@ -24,16 +24,16 @@ Hal-hal yang terlihat dari pemeriksaan statis:
 - Homepage saat ini memperkenalkan BDM sebagai platform untuk menemukan pengalaman, membandingkan informasi, dan merencanakan perjalanan; transport disebut sebagai pilihan, bukan pintu masuk utama.
 - File JavaScript bersama yang diperiksa baru menangani menu mobile dan pengalihan pencarian sederhana.
 - Halaman pembayaran menyebut integrasi pembayaran sebagai pekerjaan masa depan; halaman akun, partner, dan admin juga merupakan fondasi masa depan.
-- Tidak ditemukan dokumen roadmap khusus di repository pada pemeriksaan ini.
+- Tidak ditemukan dokumen roadmap khusus di repository pada pemeriksaan awal sebelum roadmap ini dibuat.
 - Pemeriksaan ini bukan audit visual browser, pengujian alur end-to-end, atau verifikasi deployment.
 
-**Implikasi:** fondasi struktur bisa dipakai kembali, tetapi jangan menganggap tombol booking, pembayaran, akun, portal partner, atau admin sudah menjadi sistem operasional. Status live dan integrasi deployment perlu diperiksa terpisah.
+**Implikasi:** fondasi struktur bisa dipakai kembali, tetapi jangan menganggap tombol booking, pembayaran, akun, portal mitra, atau admin sudah menjadi sistem operasional. Status live dan integrasi deployment perlu diperiksa terpisah.
 
 ## 3. Keputusan strategi yang direkomendasikan
 
-### 3.1 Dahulukan bukti permintaan, bukan kelengkapan platform
+### 3.1 Dahulukan jalur pelanggan inti, bukan kelengkapan platform
 
-Jangan menyelesaikan seluruh marketplace, autentikasi, pembayaran otomatis, partner portal, dan admin sebelum model layanan inti kembali terbukti. Pengembangan itu mahal dalam waktu, pengujian, dan pemeliharaan; saat ini belum ada bukti bahwa semua itu diperlukan untuk menerima pemesanan pertama.
+Jangan menyelesaikan seluruh marketplace, autentikasi, pembayaran otomatis, portal mitra, dan admin sebelum model layanan inti kembali terbukti. Pengembangan itu mahal dalam waktu, pengujian, dan pemeliharaan; saat ini belum ada bukti bahwa semua itu diperlukan untuk menerima pemesanan pertama.
 
 ### 3.2 Pertahankan diferensiasi BDM, bukan hanya kategori produknya
 
@@ -49,7 +49,7 @@ Hipotesis awal:
 - pelanggan Singapura dan Malaysia, berdasarkan pengalaman historis yang diceritakan pemilik;
 - wisatawan yang mengutamakan kepercayaan, kenyamanan, dan layanan personal dibanding memilih tarif terendah.
 
-Ini bukan klaim bahwa seluruh pelanggan saat ini berasal dari segmen tersebut. Uji dengan respons aktual dan data yang bisa dikumpulkan.
+Pemilik melaporkan bahwa BDM dahulu memiliki positioning dan konten yang menonjol di segmen Muslim-friendly Bali, serta engagement Instagram yang konsisten. Itu adalah pengalaman historis yang penting untuk dipelajari, tetapi belum diverifikasi ulang melalui analytics atau riset kompetitor terbaru.
 
 ### 3.4 Pertahankan strategi konten pelanggan dengan persetujuan yang jelas
 
@@ -69,6 +69,20 @@ BDM boleh menjelaskan informasi halal, tempat salat, dan kebutuhan wisatawan Mus
 ### 3.6 Pisahkan kepercayaan pelanggan dari kepercayaan mitra
 
 Pelanggan yang dahulu puas dan mitra yang memiliki persoalan pembayaran adalah dua hubungan berbeda. Jangan menganggap reputasi pelanggan otomatis memulihkan kepercayaan pemasok/mitra. Jangan menerima booking yang kendaraan, penyedia, biaya, atau kesepakatannya belum terkonfirmasi.
+
+### 3.7 Gunakan formulir untuk menyaring dan menyiapkan inquiry, bukan untuk menjanjikan transaksi otomatis
+
+Formulir awal boleh meminta tanggal, jumlah tamu, rencana perjalanan, lokasi jemput, kontak, dan kebutuhan khusus yang relevan. Tujuannya agar permintaan lebih terstruktur dan Mas dapat mengecek ketersediaan sebelum menghubungi calon tamu.
+
+Namun:
+- formulir tidak dapat memastikan seseorang adalah pelanggan asli atau bukan penagih utang;
+- jangan meminta data pribadi berlebihan, dokumen identitas, atau informasi sensitif tanpa kebutuhan yang sah;
+- jangan menggunakan deposit sebagai satu-satunya filter untuk membuktikan niat baik;
+- jangan menerima deposit sebelum ketersediaan, harga, syarat layanan, kebijakan pembatalan/refund, dan cara konfirmasi dijelaskan dengan terang;
+- pada tahap awal, lebih aman memakai formulir permintaan/cek ketersediaan tanpa pembayaran otomatis, lalu mengonfirmasi detail dan kesepakatan secara tertulis;
+- lindungi nomor kontak dan data inquiry, batasi akses, dan jangan memublikasikannya di frontend statis.
+
+Jika nanti ada deposit, alurnya harus didukung kebijakan tertulis, bukti pembayaran, proses refund, keamanan data, dan sistem pencatatan yang dapat diandalkan.
 
 ---
 
@@ -128,11 +142,25 @@ Pelanggan yang dahulu puas dan mitra yang memiliki persoalan pembayaran adalah d
    - informasi praktis untuk keluarga dan wisatawan Muslim yang telah diverifikasi;
    - proses meminta penawaran/cek ketersediaan melalui kanal yang benar-benar dipantau;
    - kebijakan harga, pembayaran, dan pembatalan yang sudah disepakati.
-3. Gunakan CTA yang jujur, misalnya meminta ketersediaan atau merencanakan perjalanan. Jangan menampilkan konfirmasi instan, status kursi/kendaraan, atau pembayaran seolah-olah aktif bila belum terhubung.
+3. Gunakan CTA yang jujur, misalnya meminta ketersediaan atau merencanakan perjalanan. Jangan menampilkan konfirmasi instan, status kendaraan, atau pembayaran seolah-olah aktif bila belum terhubung.
 4. Audit halaman, navigasi, tautan, metadata, gambar, performa ponsel, dan bahasa sebelum mengarahkan trafik.
 5. Pertahankan fondasi visual repository bila sesuai; jangan melakukan redesign besar tanpa bukti bahwa itu meningkatkan kejelasan atau konversi.
 
 **Gerbang selesai:** pengunjung dapat memahami penawaran, memeriksa bukti yang sah, dan menghubungi kanal yang aktif; semua CTA diuji pada ponsel dan desktop. Status deployment harus diverifikasi secara terpisah.
+
+### Tahap 3A — Pratinjau privat sebelum peluncuran
+
+**Wajib dilakukan sebelum website baru dipublikasikan ke domain utama.**
+
+1. Kembangkan perubahan di branch terpisah; jangan langsung mengubah branch produksi.
+2. Gunakan preview yang aksesnya dibatasi jika memungkinkan, misalnya preview hosting dengan password/access control atau lingkungan privat yang sesuai.
+3. GitHub Pages dari repository publik bukan tempat privat: URL bisa dibagikan atau ditemukan, dan halaman dapat muncul di hasil pencarian. Meta robots noindex atau robots.txt bukan perlindungan akses dan tidak menjamin konten tak akan ditemukan.
+4. Jika hanya tersedia GitHub Pages publik, gunakan untuk materi yang memang aman dipublikasikan dan beri penanda noindex sebagai lapisan tambahan, bukan jaminan. Jangan masukkan data pelanggan, harga internal, nomor pribadi, kredensial, atau informasi operasional rahasia.
+5. Untuk mengurangi kemungkinan URL preview mengganggu hasil pencarian BDM Trans, jangan menautkannya dari domain utama, jangan kirim sitemap, gunakan noindex jika sesuai, dan jangan anggap itu cukup untuk privasi. Pilihan terbaik untuk review sensitif tetap preview yang dilindungi akses.
+6. Uji website dari ponsel Mas sebelum persetujuan peluncuran: navigasi, isi produk, form, tombol WhatsApp/kontak, kondisi kosong, kesalahan input, dan semua tautan.
+7. Lakukan peluncuran hanya setelah Mas menyetujui hasil dan domain tujuan dipastikan.
+
+**Gerbang selesai:** ada URL pratinjau yang bisa direview dengan risiko publikasi yang dipahami; tidak ada klaim bahwa noindex menjadikan situs privat.
 
 ### Tahap 4 — Ukur perjalanan calon pelanggan hingga pemesanan
 
@@ -148,11 +176,13 @@ Pelanggan yang dahulu puas dan mitra yang memiliki persoalan pembayaran adalah d
 
 **Mulai hanya setelah layanan awal dapat dipenuhi secara konsisten.**
 
-1. Tambahkan paket keluarga/itinerary yang benar-benar memiliki penyedia dan biaya jelas.
-2. Tambahkan rekomendasi dining, aktivitas, tiket, atau destinasi hanya bila informasi dapat diperiksa dan membantu pelanggan.
-3. Bedakan layanan milik/dioperasikan langsung oleh BDM dari layanan pihak ketiga.
-4. Untuk mitra, tetapkan standar kualitas, harga, ketersediaan, pembayaran, pembatalan, dan mekanisme keluhan sebelum menampilkan produk mereka.
-5. Jangan membangun marketplace besar hanya karena kategori halaman sudah ada di frontend.
+1. Mas akan memberikan contoh website pembanding untuk membantu mengidentifikasi kategori dan struktur produk yang relevan. Gunakan sebagai referensi riset kategori dan kelengkapan informasi, bukan sebagai sumber untuk menyalin teks, foto, harga, susunan khas, atau desain.
+2. Kategori produk yang sama boleh dijual oleh beberapa bisnis; BDM perlu membuat penamaan, copywriting, pilihan, visual, harga, syarat, dan pengalaman sendiri sesuai layanan nyata.
+3. Tambahkan paket keluarga/itinerary yang benar-benar memiliki penyedia dan biaya jelas.
+4. Tambahkan rekomendasi dining, aktivitas, tiket, atau destinasi hanya bila informasi dapat diperiksa dan membantu pelanggan.
+5. Bedakan layanan milik/dioperasikan langsung oleh BDM dari layanan pihak ketiga.
+6. Untuk mitra, tetapkan standar kualitas, harga, ketersediaan, pembayaran, pembatalan, dan mekanisme keluhan sebelum menampilkan produk mereka.
+7. Jangan membangun marketplace besar hanya karena kategori halaman sudah ada di frontend.
 
 **Gerbang selesai:** tiap produk baru memiliki sumber pasokan yang jelas, informasi akurat, margin yang masuk akal, proses booking, dan penanggung jawab layanan.
 
@@ -191,10 +221,11 @@ Autentikasi, pembayaran, penyimpanan data pribadi, backup, kontrol akses, audit 
 | 2 | Audit aset lama dan validasi Instagram/WhatsApp | Paling dekat dengan bukti permintaan historis dan tidak memerlukan backend |
 | 3 | Siapkan kalkulasi biaya, mitra, syarat, dan SOP | Melindungi pelanggan, kas, dan reputasi |
 | 4 | Tentukan website MVP dan kanal inquiry | Mengubah minat menjadi inquiry yang bisa ditindaklanjuti |
-| 5 | Catat inquiry sampai margin dan perjalanan selesai | Mengetahui apa yang benar-benar berhasil |
-| 6 | Tambah produk/mitra secara selektif | Memperluas pilihan tanpa kehilangan kendali mutu |
-| 7 | Bangun backend sesuai kebutuhan terbukti | Menghindari biaya dan kompleksitas terlalu dini |
-| 8 | Uji iklan dan pertumbuhan | Dilakukan setelah unit economics dan kapasitas jelas |
+| 5 | Siapkan pratinjau privat dan review mobile | Mencegah peluncuran tak sengaja dan memberi ruang evaluasi |
+| 6 | Catat inquiry sampai margin dan perjalanan selesai | Mengetahui apa yang benar-benar berhasil |
+| 7 | Tambah produk/mitra secara selektif | Memperluas pilihan tanpa kehilangan kendali mutu |
+| 8 | Bangun backend sesuai kebutuhan terbukti | Menghindari biaya dan kompleksitas terlalu dini |
+| 9 | Uji iklan dan pertumbuhan | Dilakukan setelah unit economics dan kapasitas jelas |
 
 ## 6. Indikator yang perlu dicatat
 
@@ -218,6 +249,8 @@ Jangan gunakan reach, likes, atau komentar sebagai pengganti pendapatan atau buk
 - **Informasi Muslim-friendly tidak akurat:** verifikasi restoran, lokasi salat, dan informasi yang berubah; jangan membuat klaim yang tidak dapat dipastikan.
 - **Marketplace dan backend terlalu dini:** jangan mengaktifkan fitur hanya karena halaman desainnya sudah ada.
 - **Website terlihat siap padahal booking belum bekerja:** label status dengan jujur dan uji setiap CTA/alur sebelum dipromosikan.
+- **Preview dianggap privat padahal dapat diakses publik:** jangan taruh data sensitif di preview publik; noindex bukan kontrol akses.
+- **Deposit dijadikan filter calon pelanggan:** deposit tidak membuktikan identitas atau niat baik; gunakan konfirmasi layanan, prosedur tertulis, dan kebijakan refund yang jelas.
 
 ## 8. Batas cakupan dokumen ini
 
@@ -236,5 +269,6 @@ Dokumen ini adalah rancangan roadmap. Dokumen ini **tidak** menyatakan bahwa:
 2. Kumpulkan contoh copywriting/foto historis dan metrik yang masih tersedia.
 3. Audit website `bdmtrans.com` dan akun Instagram sebagai aset terpisah dari audit repository.
 4. Tetapkan layanan awal, wilayah, ketersediaan kendaraan/mitra, kalkulasi biaya, dan syarat booking.
-5. Setelah gerbang di atas jelas, buat checklist implementasi MVP dan kerjakan perubahan kode terkecil yang mendukung jalur inquiry nyata.
-6. Perbarui status hanya setelah perubahan dan pengujian terkait benar-benar dilakukan.
+5. Terima website pembanding yang akan Mas kirim; petakan struktur kategori/produk dan kebutuhan informasinya tanpa menyalin ekspresi kreatif.
+6. Setelah arah dan kebutuhan produk disetujui, buat checklist implementasi MVP dan kerjakan perubahan kode terkecil yang mendukung jalur inquiry nyata.
+7. Perbarui status hanya setelah perubahan dan pengujian terkait benar-benar dilakukan.
