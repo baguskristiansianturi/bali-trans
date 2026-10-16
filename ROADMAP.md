@@ -424,3 +424,86 @@ Nama kerja proyek pada tahap desain adalah **Bali Travel**. Nama repository GitH
 12. Lakukan preview terlindungi, review pemilik, dan peluncuran bertahap setelah kriteria lulus.
 
 **Gerbang selesai keseluruhan:** tidak cukup hanya semua halaman terlihat lengkap. Model data, copy per locale, harga, ketersediaan, status booking, ulasan, dan CTA harus akurat; fitur yang belum terhubung harus diberi status jelas dan tidak menyamar sebagai fungsi aktif.
+
+
+---
+
+## 11. Prioritas peluncuran: tiket dan paket tour dahulu, perencana anggaran kemudian
+
+Bagian ini mencatat arahan terbaru pemilik pada 16 Oktober 2026. Ini memperjelas urutan implementasi; tidak berarti semua fitur atau ketersediaan produk sudah siap.
+
+### 11.1 Urutan komersial tahap awal
+
+**Fokus penjualan pertama:**
+1. Tiket aktivitas/tempat wisata yang dapat dijual mandiri, tanpa mewajibkan pelanggan menyewa mobil atau membeli paket tour.
+2. Paket tour dengan itinerary dan durasi yang jelas, setelah penyedia, harga, kapasitas, ketentuan, dan proses pemenuhannya diverifikasi.
+3. Struktur transportasi dan sewa mobil tetap disiapkan dalam model data/arsitektur, tetapi penjualan langsung dan pemesanan otomatis ditunda sampai ketersediaan armada atau mitra benar-benar dapat dipastikan.
+4. Perencana rute dan anggaran perjalanan adalah fase lanjutan, bukan syarat peluncuran pertama.
+
+Urutan ini dimaksudkan untuk membuat penawaran awal lebih fokus dan memungkinkan validasi produk sebelum membangun fitur perencanaan perjalanan yang kompleks.
+
+### 11.2 Perencana perjalanan dan estimasi biaya — fase lanjutan
+
+Visi jangka panjangnya adalah membantu wisatawan menyusun agenda wisata dan memperkirakan pengeluaran aktivitas di luar tiket pesawat, hotel, dan transportasi yang mereka atur sendiri. Contoh alur: wisatawan memilih area/tujuan seperti Kintamani, melihat tempat yang masuk akal untuk dikunjungi, mengatur urutan dan durasi singgah, lalu sistem memvalidasi apakah rute dan batas waktunya memungkinkan.
+
+Fitur ini perlu mencakup:
+- daftar destinasi dan aktivitas dengan data lokasi, jam operasional, durasi kunjungan perkiraan, batasan, dan sumber yang diverifikasi;
+- rekomendasi rute berdasarkan lokasi, waktu tempuh realistis, waktu kunjungan, jam buka, dan batas perjalanan yang dipilih;
+- aturan kelayakan yang jelas untuk memberi tahu apakah kombinasi tujuan dapat dilakukan, tidak searah, terlalu padat, tutup pada waktu tersebut, atau membutuhkan konfirmasi;
+- kemampuan mengubah urutan tujuan dan menghitung ulang kelayakan;
+- estimasi biaya tiket/aktivitas yang diberi tanggal pemeriksaan dan disclaimer perubahan harga;
+- pemisahan biaya aktivitas dari tiket pesawat, hotel, dan transportasi yang tidak dihitung sistem;
+- penjelasan mengapa suatu kombinasi direkomendasikan atau ditolak, bukan hanya tombol “bisa/tidak bisa”.
+
+**Jangan membangun mesin ini sekarang.** Sebelum implementasi, tentukan data sumber rute, cara mendapatkan jam buka dan durasi, aturan waktu singgah (misalnya batas waktu kunjungan yang dapat diatur pengguna), perlakuan kemacetan, jam operasional, anak/keluarga, dan bagaimana sistem menangani data yang tidak lengkap. Hindari memberi jaminan rute “pasti bisa” jika data lalu lintas, jam buka, atau waktu tempuh tidak real-time/terverifikasi. Harga tiket harus diverifikasi dan diberi waktu pembaruan; jika tidak tersedia, tampilkan “perlu konfirmasi” atau rentang estimasi yang diberi label jelas.
+
+### 11.3 Referensi Bali Golden Tour dan pemeriksaan fakta
+
+Bali Golden Tour digunakan sebagai salah satu referensi lokal untuk memetakan cakupan produk, kategori paket, urutan itinerary, destinasi, dan topik artikel. Anggapan bahwa sumber itu lebih dekat dengan konteks lokal adalah alasan untuk mempelajarinya, bukan bukti otomatis bahwa setiap informasi di sana benar atau terbaru.
+
+Aturan penggunaan:
+- petakan paket dan tempat wisata yang relevan secara luas, tetapi prioritaskan produk yang realistis untuk BDM;
+- gunakan kesamaan tujuan/rute wisata sebagai kategori pasar yang wajar, namun tulis itinerary, copy, struktur halaman, dan pengalaman BDM secara mandiri;
+- jangan menyalin teks, foto, harga, atau ekspresi desain;
+- verifikasi sejarah, budaya, status operasional, harga tiket, aturan kunjungan, dan informasi layanan melalui sumber primer/tepercaya bila tersedia;
+- simpan sumber dan tanggal pemeriksaan untuk fakta yang mudah berubah;
+- jika dua sumber berbeda, jangan pilih yang paling menarik secara pemasaran; telusuri perbedaan dan tulis dengan atribusi/ketidakpastian yang sesuai;
+- buat halaman destinasi dan artikel yang saling terhubung ke paket/tiket yang relevan, tetapi jangan membuat artikel tipis hanya untuk menambah jumlah halaman.
+
+### 11.4 Harga BDM dan perbandingan kompetitor
+
+Pemilik memperkirakan harga BDM untuk beberapa penawaran mungkin sekitar 30–40% lebih tinggi daripada referensi tertentu. Angka tersebut saat ini adalah hipotesis harga, bukan aturan universal yang harus otomatis diterapkan ke semua tiket, paket, atau destinasi.
+
+Sebelum menetapkan harga:
+- bandingkan produk yang benar-benar sebanding dari segi fasilitas, durasi, inclusions/exclusions, kualitas penyedia, privasi, layanan, dan kebijakan;
+- hitung biaya pasokan, komisi, biaya pembayaran, pajak/biaya lain, risiko pembatalan, dan margin minimum;
+- tentukan apakah premium berasal dari layanan/kemudahan yang nyata dan dapat dijelaskan;
+- jangan menaikkan harga tiket pihak ketiga secara seragam tanpa memeriksa ketentuan supplier, aturan distribusi, dan nilai yang diterima pelanggan;
+- tampilkan harga serta pengecualian secara jujur, dan beri label estimasi bila harga belum dikonfirmasi.
+
+Harga lebih tinggi harus didukung nilai layanan yang bisa dibuktikan, bukan hanya positioning premium.
+
+### 11.5 Ketersediaan transportasi saat belum ada armada sendiri
+
+Karena armada belum dimiliki/dikonfirmasi, website tidak boleh menerima booking transportasi sebagai pesanan yang sudah pasti terpenuhi tanpa pengecekan pemasok.
+
+- Siapkan struktur produk dan form permintaan, tetapi gunakan status seperti **perlu konfirmasi** sampai ada kendaraan/mitra yang menyetujui tanggal dan biaya.
+- Buka pemesanan langsung hanya untuk tanggal/layanan yang benar-benar memiliki kapasitas terverifikasi.
+- Jika pemilik membutuhkan waktu untuk membangun jaringan mitra, gunakan batas jendela pemesanan yang transparan, daftar tunggu, atau permintaan ketersediaan manual.
+- Jangan menandai tanggal sebagai **penuh** kecuali memang penuh; status palsu berisiko merusak kepercayaan dan menciptakan ekspektasi yang salah.
+- Jangan menerima uang atau menjanjikan kendaraan sebelum supplier, biaya, syarat, pembatalan, dan penanggung jawab layanan dikonfirmasi.
+- Rancang status ketersediaan yang berbeda: tersedia terverifikasi, perlu konfirmasi, tidak tersedia, dan belum dibuka untuk pemesanan.
+
+### 11.6 Deployment GitHub Pages dan batas keamanan preview
+
+GitHub Pages dapat digunakan untuk review mobile dan demonstrasi frontend statis. Namun, jika repository/Pages bersifat publik, konten pada URL tersebut harus dianggap publik; ini bukan tempat untuk menyimpan data pelanggan, kredensial, aturan komersial rahasia, atau data internal pemasok.
+
+Sebelum deployment:
+1. periksa branch sumber, konfigurasi Pages/workflow, build command bila ada, path aset, tautan relatif, dan halaman yang menjadi entry point;
+2. pastikan data contoh tidak dapat disalahartikan sebagai produk/harga/ketersediaan nyata;
+3. pastikan form dan tombol yang belum memiliki backend tidak berpura-pura menyimpan booking atau memproses pembayaran;
+4. tambahkan status noindex bila sesuai untuk mengurangi pengindeksan, tetapi jangan menganggapnya sebagai akses privat;
+5. uji URL hasil deployment dari ponsel, termasuk navigasi, gambar, CSS/JS, tautan ant halaman, form, error/empty state, dan tampilan mobile;
+6. nyatakan deployment berhasil hanya setelah URL dan hasilnya benar-benar diperiksa.
+
+**Tahap implementasi berikutnya setelah roadmap ditinjau:** audit seluruh halaman dan konfigurasi GitHub Pages yang ada; petakan reuse vs perbaikan; susun data model/konten untuk tiket dan paket tour; lalu isi kerangka halaman secara konsisten, satu tahap terverifikasi pada satu waktu. Jangan langsung mengaktifkan backend, pembayaran, perencana anggaran, atau booking transportasi otomatis.
