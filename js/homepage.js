@@ -5,7 +5,7 @@ if(homeMenuToggle&&homeMainNav){
   homeMenuToggle.addEventListener('click',()=>{
     const expanded=homeMainNav.classList.contains('mobile-open');
     homeMenuToggle.setAttribute('aria-expanded',String(expanded));
-    homeMenuToggle.setAttribute('aria-label',expanded?'Open navigation':'Close navigation');
+    homeMenuToggle.setAttribute('aria-label',expanded?'Close navigation':'Open navigation');
   });
   homeMainNav.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{
     homeMainNav.classList.remove('mobile-open');
