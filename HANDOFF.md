@@ -36,7 +36,9 @@ Lalu periksa kondisi GitHub terkini secara langsung. Dokumen ini adalah catatan 
 - [x] `AUDIT.md` mencatat ruang lingkup, temuan awal, perubahan, dan hal yang belum diuji.
 - [ ] Header/footer masih diduplikasi dan berbeda antarhalaman; standardisasi global belum selesai.
 - [ ] Halaman Tickets/Tours dan banyak Account masih berisi struktur placeholder; belum siap diperlakukan sebagai katalog/akun operasional.
-- [ ] Pengujian browser/mobile, alur Lovina end-to-end, dan deployment GitHub Pages belum diverifikasi.
+- [x] Perubahan awal di-merge ke `preview/bali-trans` melalui [PR #1](https://github.com/baguskristiansianturi/bali-trans/pull/1); `main` tidak diubah.
+- [x] Build job GitHub Actions berhasil untuk commit merge `fc5b16ee0eb445ab5dc1bfbb2373ddb0b1ada407`; deploy job masih berjalan pada pemeriksaan terakhir.
+- [ ] Pengujian browser/mobile, alur Lovina end-to-end, dan hasil deployment final belum diverifikasi.
 - [ ] Kesiapan supplier, harga final, inventaris, dan operasi layanan tetap memerlukan verifikasi terpisah.
 - [ ] Belum ada merge ke `main`.
 
@@ -57,7 +59,9 @@ Lalu periksa kondisi GitHub terkini secara langsung. Dokumen ini adalah catatan 
 2. Rapikan pola layout bersama tanpa merusak bagian desain yang sudah bekerja; catat setiap perubahan dan kriterianya.
 3. Lengkapi struktur Wishlist/Account/Booking hanya sejauh UI yang dapat dijelaskan secara jujur; autentikasi, penyimpanan lintas perangkat, ketersediaan real-time, dan pembayaran tetap belum aktif.
 4. Uji Lovina Dolphin Experience melalui alur dari penemuan produk sampai halaman akhir, termasuk validasi, retensi state, dan jalur kembali.
-5. Buat PR menuju branch preview dan periksa workflow/deployment sebelum menyatakan hasil dapat dilihat di browser. Jangan mengubah `main` tanpa persetujuan.
+5. Periksa penyelesaian workflow/deployment untuk PR #1, lalu buka preview di ponsel dan uji navigasi serta wishlist. Jangan menganggap build sukses berarti browser/deployment telah terverifikasi.
+6. Uji alur Lovina dari pemilihan produk hingga halaman akhir, termasuk validasi, retensi state, dan jalur kembali.
+7. Catat pengujian yang benar-benar dijalankan, kendala, status PR/merge/deployment, dan satu langkah berikutnya.
 6. Catat pengujian yang benar-benar dijalankan, kendala, status PR/merge/deployment, dan satu langkah berikutnya.
 
 Jangan melompat langsung membangun planner itinerary/anggaran, marketplace penuh, atau pembayaran otomatis sebelum alur produk awal dan operasi layanan terbukti dibutuhkan.
