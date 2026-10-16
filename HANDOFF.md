@@ -3,51 +3,37 @@
 **Last updated:** 17 October 2026  
 **Repository:** `baguskristiansianturi/bali-trans`  
 **Working preview branch:** `preview/bali-trans`  
-**Production/main branch:** `main` — do not assume preview changes are present here.
+**Production/main branch:** `main` — separate from preview; do not assume it contains these changes.
 
-## Last verified state
+## Latest verified repository state
 
-- Latest verified preview commit: `fb6d9e0a2d3cca00f37cd69b8ab9e26c520bf294` — “Make Wishlist reachable from every page header”.
-- PR [#2](https://github.com/baguskristiansianturi/bali-trans/pull/2) is merged into `preview/bali-trans`; it is not a merge into `main`.
-- GitHub Actions preview publish run and GitHub Pages build/deployment run for that commit report **success**. This verifies workflow completion, not a manual check of the live page.
-- Static audit in `AUDIT.md`: 35 HTML pages and 840 `href`/`src` attributes checked; no missing local file targets found by the repository-relative scan.
-- Wishlist navigation was added to the 33 pages that did not already have it; the reported static path check was 33/33.
-- `main` is still the original foundation commit in the latest repository commit listing. Do not describe the preview as production or imply the branches are synchronized.
-- `HANDOFF.md` and `ROADMAP.md` were absent from the preview tree before this documentation branch; this file is the first explicit handoff record.
+- Latest preview commit checked: `4ff48c745edf00c6567482c3eff979274ca60d77` — “Update handoff after keyboard accessibility fixes”.
+- PRs #2 through #7 have been merged into `preview/bali-trans`; this does not mean they are merged into `main`.
+- For the latest commit, GitHub Actions reports success for both [preview publish](https://github.com/baguskristiansianturi/bali-trans/actions/runs/38982675105) and [Pages build/deployment](https://github.com/baguskristiansianturi/bali-trans/actions/runs/38982675154). This confirms workflow completion, not manual inspection of the live page.
+- Static audit records 35 HTML pages and 840 `href`/`src` attributes checked, with no missing local targets found by the repository-relative scan.
+- Wishlist links were statically checked on the 33 pages where they were added.
+- PR #5 sets `aria-controls` for the mobile menu at runtime in `js/main.js`. PR #6 adds visible `:focus-visible` styles in `css/style.css`.
 
-## Known limitations — still open
+## Current known gaps
 
-- No browser-based visual verification, mobile/desktop responsive check, keyboard/screen-reader check, or full end-to-end booking test has been confirmed.
-- Header/footer structures and navigation labels are not yet standardized across all pages.
-- The search and Lovina request flow need runtime testing; client-side session storage is not a backend booking system.
+- No confirmed browser-based visual review, narrow-screen/desktop responsive check, keyboard walkthrough, screen-reader check, or end-to-end booking test.
+- Header labels, menu markup, brand wording and footer structures still vary across page families. Do not mass-rewrite these without classifying page exceptions first.
+- Search and Lovina request flow have only been inspected at source level. `sessionStorage` is client-side prototype state, not a backend booking system.
 - Account, wishlist, partner/admin, payment, invoice and booking screens are prototype structures; do not present them as operational services.
-- The prototype includes `noindex` metadata and the preview workflow writes a disallow-all `robots.txt`. Review launch/indexing policy before any public launch. A public GitHub Pages URL is not private.
-- Product details, supplier confirmation, live availability, price, cancellation rules and fulfilment have not been verified.
+- The preview includes `noindex` metadata and the Pages workflow writes a disallow-all `robots.txt`. Preserve this until launch/indexing policy is deliberately reviewed. A public GitHub Pages URL is not private.
+- Supplier details, live availability, price, cancellation rules and fulfilment remain unverified.
 
-## Latest implementation follow-up — 17 October 2026
+## Source-level observations
 
-- PR #5 merged mobile menu `aria-controls` initialization in `js/main.js`: [PR #5](https://github.com/baguskristiansianturi/bali-trans/pull/5).
-- PR #6 merged visible keyboard focus styling in `css/style.css`: [PR #6](https://github.com/baguskristiansianturi/bali-trans/pull/6).
-- Current preview commit: `ea155fe2317d18db1adea213b4dd178c61d01418`.
-- Latest publish and Pages workflows were queued at the last status check:
-  - [Preview publish](https://github.com/baguskristiansianturi/bali-trans/actions/runs/38982632132)
-  - [Pages build/deployment](https://github.com/baguskristiansianturi/bali-trans/actions/runs/38982631800)
-- Previous commit `6cdb79a328e3050a69d739f404830053632c3a58` has successful publish and Pages workflow runs, but that does not prove the newest commit has deployed.
-- Source-level accessibility improvements are in place; browser/mobile/keyboard/screen-reader tests remain outstanding.
-
-## Latest source-audit findings — 17 October 2026
-
-- Rechecked all 35 HTML page sources on baseline `1fc61249263794343ea64427c91a66226b92f8a0`.
-- The preview publish workflow and Pages build/deployment workflow both report success for that commit:
-  - [Preview publish run](https://github.com/baguskristiansianturi/bali-trans/actions/runs/38982276481)
-  - [Pages build/deployment run](https://github.com/baguskristiansianturi/bali-trans/actions/runs/38982276165)
-- Source audit found inconsistent navigation variants (homepage “Travel guides”, most internal pages “Build Your Day”, Wishlist variant “Tickets”) and inconsistent menu-toggle ARIA attributes. Footer markup is present, but page-family structures vary.
-- This is source inspection only. No mobile browser, visual regression, keyboard, screen-reader, or booking-flow test was run. Do not describe those as verified.
+- The shared mobile menu toggles the `mobile-open` class and updates `aria-expanded` and `aria-label`; it also assigns `aria-controls` when both the toggle and navigation exist.
+- The CSS opens the menu at the mobile breakpoint when `.mobile-open` is present. Runtime behaviour, focus handling, and visual overflow remain untested in a real browser.
+- The search form redirects to `pages/search.html` with an encoded query when submitted. Actual results and empty-query behaviour still need browser verification.
+- Lovina flow uses session storage and labels the final state as a test completion, not a real reservation/payment. Verify date validation, state retention, back/refresh and missing-state behaviour in a browser before expanding this pattern.
 
 ## Resume instructions
 
-1. Read this file, `ROADMAP.md`, and the latest `AUDIT.md` before editing.
-2. Confirm the current preview branch head and Actions status; do not rely on old PR descriptions if a newer commit exists.
-3. Continue with the first open roadmap task: a narrow shared header/footer and responsive UX audit. Keep changes in a work branch and open a PR targeting `preview/bali-trans`, not `main`.
-4. After each change, report exactly what was checked (static, automated, browser, or live deployment). Do not call a task complete based on code changes alone.
-5. Update `AUDIT.md` with findings and `HANDOFF.md` with the new commit, test evidence, remaining gaps, and the next concrete action.
+1. Read `HANDOFF.md`, `ROADMAP.md` and `AUDIT.md`, then confirm the latest preview head and workflow statuses.
+2. Continue P0 with a small, evidence-based shared-layout change. First classify navigation/footer variants and intentional exceptions; avoid bulk edits without a clear standard.
+3. Re-run the static local-reference scan after HTML changes.
+4. Next, test homepage search and the Lovina request flow in a browser when a browser-testing environment is available.
+5. Report static checks, automated workflows, live deployment, and manual browser/device checks separately. Never mark untested behaviour as verified.
