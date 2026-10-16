@@ -1,72 +1,70 @@
 # Roadmap — Bali Trans / BDM Trans Indonesia
 
 **Updated:** 17 October 2026  
-**Current scope:** frontend foundation and verification. Keep implementation on `preview/bali-trans` until the prototype is reviewed; do not treat preview work as production-ready.
+**Scope:** frontend foundation and verification. Work on `preview/bali-trans` until the prototype has been reviewed; do not treat it as production-ready.
 
 ## Working rules
 
-- Evidence first: distinguish static checks, automated workflow results, browser/device tests, and live deployment checks.
-- Work in small PRs targeting `preview/bali-trans`; do not merge directly into `main` without an explicit release decision.
-- Do not add real booking, payment, authentication, supplier, or admin claims before the supporting backend and operational process exist.
-- Preserve the experience-led product direction: Discover → Choose → Price → Book → Travel → optional transport. Transport is not the main entry point.
-- Keep the public preview clearly marked as a prototype and preserve the no-index / disallow policy until launch readiness is decided.
+- Evidence first: distinguish source/static checks, automated workflow results, browser/device tests and live deployment checks.
+- Use small PRs targeting `preview/bali-trans`; do not merge into `main` without an explicit release decision.
+- Do not imply real booking, payment, authentication, supplier inventory or admin operations exist before the supporting backend and processes exist.
+- Preserve the experience-led journey: Discover → Choose → Price → Book → Travel → optional transport.
+- Keep `noindex` and the disallow-all preview policy until launch/indexing readiness is deliberately reviewed.
 
 ## Current verified baseline
 
-- Preview head at last check: `fb6d9e0a2d3cca00f37cd69b8ab9e26c520bf294`.
-- PR #2 merged into `preview/bali-trans`; the preview publish and Pages build/deployment workflows for that commit succeeded.
-- Static link audit: 35 HTML pages, 840 `href`/`src` references checked, no missing local targets reported.
-- Wishlist navigation is present in the 33 pages covered by the follow-up static check.
-- Source-level fixes merged: menu toggle receives `aria-controls` from `mainNav`; shared CSS has `:focus-visible` styles.
-- Browser/mobile/keyboard/screen-reader/end-to-end verification is **not yet confirmed**. Latest deployment workflows were queued at last check.
-- `main` remains separate from the preview work and must not be assumed to contain the latest prototype.
+- Preview commit checked: `4ff48c745edf00c6567482c3eff979274ca60d77`.
+- Both workflows for that commit succeeded: [preview publish](https://github.com/baguskristiansianturi/bali-trans/actions/runs/38982675105) and [Pages build/deployment](https://github.com/baguskristiansianturi/bali-trans/actions/runs/38982675154).
+- Static link audit: 35 HTML pages and 840 `href`/`src` attributes checked; no missing local targets were reported.
+- Wishlist navigation links were added to 33 pages and statically checked.
+- Source fixes: mobile menu gets `aria-controls` at runtime; shared CSS has visible `:focus-visible` outlines.
+- Browser/mobile/keyboard/screen-reader/end-to-end verification remains **not confirmed**. `main` is separate from preview.
 
-## Priority order
+## P0 — Shared layout and responsive UX audit (in progress)
 
-### P0 — Shared layout and responsive UX audit (in progress)
+- [x] Compare header/navigation/footer source across 35 HTML pages and record initial findings in `AUDIT.md`.
+- [x] Add a Wishlist link to the 33 pages that lacked one; statically check relative targets.
+- [x] Add runtime `aria-controls` assignment for the shared mobile menu.
+- [x] Add shared keyboard focus-visible styling.
+- [ ] Classify header/footer variants by page family and document justified exceptions (e.g. reduced checkout footer).
+- [ ] Define consistent navigation labels/order and brand wording before applying changes.
+- [ ] Compare page title/subtitle spacing, CTA wording and content width.
+- [ ] Check mobile menu open/close, touch reachability, focus visibility, overflow and narrow/desktop layouts in a browser.
+- [ ] Implement the smallest agreed corrections in a reviewable PR and rerun the static local-reference scan.
 
-- [x] Compare header/navigation/footer source structure across all 35 HTML pages; initial findings are recorded in `AUDIT.md`.
-- [ ] Normalize navigation variants (homepage “Travel guides”, internal “Build Your Day”, Wishlist “Tickets”) while preserving intentional page-specific links and active states.
-- [ ] Standardize menu-toggle accessibility markup (`aria-label`, `aria-expanded`, `aria-controls`) and verify the controlling JavaScript/CSS before bulk edits.
-- [ ] Compare page title/subtitle spacing, CTA wording and content width across all HTML pages.
-- [ ] Record page groups and justified exceptions (for example, a reduced checkout footer) before changing shared patterns.
-- [ ] Identify the smallest consistent header/footer standard; avoid an unreviewed mass rewrite.
-- [ ] Check mobile menu open/close state, touch reachability, keyboard focus, overflow, and layout at narrow and desktop widths.
-- [ ] Implement corrections in a small reviewable PR and rerun the static local-link scan.
+**Exit evidence:** documented page coverage and exceptions; static checks pass; browser/mobile checks reported separately and only claimed when run.
 
-**Exit evidence:** documented page coverage and exceptions; static checks pass; browser/mobile checks are reported separately and are not claimed unless actually run.
+## P1 — Search and Lovina request flow
 
-### P1 — Search and Lovina request flow verification
+- [ ] Test homepage search with empty and non-empty queries and inspect result handling.
+- [ ] Test Lovina selection → guest details → review → final state in a browser.
+- [ ] Verify required fields, date constraints, session-storage behaviour, back/refresh and invalid/missing-state handling.
+- [ ] Ensure the final state clearly says no real reservation/payment was created.
+- [ ] Record device/browser and exact outcomes; fix defects in small PRs.
 
-- [ ] Walk through homepage search to search results with empty and non-empty queries.
-- [ ] Test the Lovina flow from experience selection through guest details, review and final state.
-- [ ] Verify required fields, date constraints, session-storage behaviour, back/refresh behaviour, and invalid/missing-state handling.
-- [ ] Confirm the final state clearly says no reservation/payment is completed unless a real service is connected.
-- [ ] Record browser/device and exact results. Fix defects in small PRs.
+## P2 — Page content and information architecture
 
-### P2 — Page content and IA completeness
-
-- [ ] Replace generic Tickets and Tours foundation copy with honest catalogue empty states or clearly labeled sample content.
-- [ ] Review destination, dining, marketplace, guide and transport pages for useful purpose and clear navigation.
+- [ ] Replace generic Tickets and Tours foundation copy with honest empty states or clearly labelled sample content.
+- [ ] Review destination, dining, marketplace, guide and transport pages for clear purpose and navigation.
 - [ ] Keep unverified suppliers, prices, availability, ratings and policies out of public copy.
-- [ ] Review page titles, descriptions, heading hierarchy and indexation policy after IA stabilizes.
+- [ ] Review titles, descriptions, heading hierarchy and indexation policy after information architecture stabilizes.
 
-### P3 — Booking/product requirements before backend
+## P3 — Booking/product requirements
 
 - [ ] Define booking lifecycle, quote vs confirmed reservation, cancellation/refund rules, guest notifications and support ownership.
 - [ ] Define supplier inventory/availability and pricing source of truth.
-- [ ] Specify account and wishlist expectations, privacy/data retention, authorization and admin/partner roles.
-- [ ] Create acceptance criteria and error states before implementation.
+- [ ] Specify account/wishlist expectations, privacy/data retention, authorization, and admin/partner roles.
+- [ ] Set acceptance criteria and error states before implementation.
 
-### P4 — Backend and production engineering (blocked on requirements)
+## P4 — Backend and production engineering (blocked on requirements)
 
 - [ ] Design Go backend and PostgreSQL schema/API only after booking and operational requirements are reviewed.
-- [ ] Plan authentication, authorization, payment provider integration, email/invoice, audit logs, secrets and data protection.
+- [ ] Plan authentication, authorization, payment provider, email/invoice, audit logs, secrets and data protection.
 - [ ] Add automated tests and staging environments before production deployment.
-- [ ] Decide hosting/deployment and release process; do not treat GitHub Pages as the backend or production booking system.
+- [ ] Decide hosting and release process; GitHub Pages is not a backend or production booking system.
 
 ## Done / not done at this checkpoint
 
-**Verified:** preview workflow success for the listed commit; static relative-reference audit as recorded in `AUDIT.md`; Wishlist links statically resolve.
+**Verified:** source-level changes listed above; static local-reference scan as described; GitHub Actions publish and Pages workflows succeeded for the recorded preview commit.
 
-**Not verified:** live site visual rendering, responsive behaviour, accessibility in a browser/assistive technology, external URLs, functional search/booking end-to-end, operational data, backend, payments, or production readiness.
+**Not verified:** live-site visual rendering, responsive behaviour, accessibility with a browser/assistive technology, external URLs, functional search/booking end-to-end, operational product data, backend, payments or production readiness.
