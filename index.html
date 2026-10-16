@@ -4,247 +4,199 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow, noarchive">
-  <title>Bali Trans — Plan Your Journey</title>
-  <meta name="description" content="Discover places, experiences, tours, dining and local services across Indonesia. Clear information, transparent prices and flexible ways to travel.">
+  <title>Bali Trans — Discover Bali, Plan Your Way</title>
+  <meta name="description" content="Explore Bali experiences, practical travel guides and flexible day plans. Understand the details first, then choose how you want to travel.">
+  <meta name="theme-color" content="#17382f">
+  <link rel="preconnect" href="https://images.unsplash.com">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/homepage.css">
 </head>
 <body>
 <header class="site-header">
   <div class="container header-inner">
-    <a href="index.html" class="logo" aria-label="Bali Trans">
-      <span class="logo-main">Bali</span>
-      <span class="logo-sub">TRANS</span>
+    <a href="index.html" class="logo" aria-label="Bali Trans home">
+      <span class="logo-main">Bali</span><span class="logo-sub">TRANS</span>
     </a>
-    <nav class="main-nav" id="mainNav">
+    <nav class="main-nav" id="mainNav" aria-label="Main navigation">
       <a href="pages/search.html">Discover</a>
       <a href="pages/experiences/index.html">Experiences</a>
       <a href="pages/tours/index.html">Tours</a>
       <a href="pages/dining/index.html">Dining</a>
-      <a href="pages/itinerary/build.html">Build Your Day</a>
+      <a href="pages/guides/index.html">Travel guides</a>
     </nav>
-    <a href="pages/booking/step-1.html" class="header-book">Plan Your Journey</a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation"><span></span><span></span></button>
+    <a href="pages/itinerary/build.html" class="header-book">Plan your day <span aria-hidden="true">↗</span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="mainNav"><span></span><span></span></button>
   </div>
 </header>
 
 <main>
-  <section class="hero">
-    <div class="hero-media"></div>
-    <div class="hero-shade"></div>
-    <div class="container hero-content">
-      <div class="eyebrow light">Bali Trans</div>
-      <h1>Plan the journey.<br><em>Then enjoy it.</em></h1>
-      <p>Discover where to go, what to do, how much it costs and how to book — with guidance designed around families, couples and Muslim-friendly travel.</p>
-      <form class="hero-search" id="searchForm">
-        <input id="heroSearch" type="search" placeholder="Search a place, experience, tour or activity..." aria-label="Search Bali Trans">
-        <button type="submit">Search</button>
+  <section class="home-hero">
+    <div class="home-hero-photo" aria-hidden="true"></div>
+    <div class="home-hero-overlay" aria-hidden="true"></div>
+    <div class="container home-hero-inner">
+      <div class="home-kicker"><span></span> A more thoughtful way to explore Bali</div>
+      <h1>Find your Bali.<br><em>Make it your own.</em></h1>
+      <p class="home-hero-copy">Discover experiences, understand the details and shape a day that works for you. Transport is an option—not a requirement.</p>
+      <form class="home-search" id="searchForm" role="search">
+        <label class="sr-only" for="heroSearch">Search experiences and places</label>
+        <span class="home-search-icon" aria-hidden="true">⌕</span>
+        <input id="heroSearch" type="search" placeholder="Try dolphin watching, Ubud, family activities…" aria-label="Search Bali Trans">
+        <button type="submit">Explore <span aria-hidden="true">→</span></button>
       </form>
-      <p class="hero-note">Transport is optional. Your journey comes first.</p>
+      <div class="home-hero-foot"><span>Experiences</span><i></i><span>Local insight</span><i></i><span>Flexible plans</span></div>
+    </div>
+    <div class="hero-side-note" aria-hidden="true">BALI · INDONESIA</div>
+  </section>
+
+  <section class="home-intro">
+    <div class="container home-intro-inner">
+      <p class="home-overline">Travel starts with a good choice</p>
+      <p class="home-intro-statement">Less guessing. <em>More meaningful days.</em></p>
+      <p class="home-intro-description">Whether you have a full itinerary or just one thing you want to do, start with the experience—not the ride.</p>
     </div>
   </section>
 
-  <section class="section" id="discover">
+  <section class="home-featured section" id="featured">
     <div class="container">
-      <div class="section-head">
-        <div><div class="eyebrow">Start here</div><h2>What are you looking for?</h2></div>
-        <p>Start with what you want to experience. Compare information and prices first. Decide how you want to get there later.</p>
+      <div class="home-section-heading">
+        <div><p class="home-overline">A place to start</p><h2>Meet Bali from<br><em>a different angle.</em></h2></div>
+        <p>Begin with one experience, then decide what else belongs in your day. Check the details and confirm availability before making plans.</p>
       </div>
-      <div class="category-grid">
-        <a class="category-card" href="pages/experiences/index.html"><span>01</span><strong>Things to do</strong><small>Activities & experiences</small></a>
-        <a class="category-card" href="pages/tours/index.html"><span>02</span><strong>Tours</strong><small>Private & curated journeys</small></a>
-        <a class="category-card" href="pages/tickets/index.html"><span>03</span><strong>Tickets</strong><small>Attractions & activities</small></a>
-        <a class="category-card" href="pages/dining/index.html"><span>04</span><strong>Dining</strong><small>Bali Trans-selected local options</small></a>
-        <a class="category-card" href="pages/destinations/index.html"><span>05</span><strong>Destinations</strong><small>Know before you go</small></a>
-        <a class="category-card" href="pages/guides/index.html"><span>06</span><strong>Guides</strong><small>Practical travel information</small></a>
-        <a class="category-card" href="pages/marketplace/index.html"><span>07</span><strong>Local products</strong><small>Coming soon</small></a>
-        <a class="category-card" href="pages/transport/index.html"><span>08</span><strong>Transport</strong><small>Private travel when needed</small></a>
-      </div>
+      <a class="lovina-feature" href="pages/experiences/lovina-dolphin.html">
+        <div class="lovina-feature-image" role="img" aria-label="Ocean and waves near Bali"></div>
+        <div class="lovina-feature-content">
+          <div class="feature-topline"><span class="home-tag">Featured experience</span><span class="feature-location">North Bali <span aria-hidden="true">↗</span></span></div>
+          <div>
+            <p class="home-overline">Sea · Nature · Early morning</p>
+            <h3>Lovina Dolphin<br>Experience</h3>
+            <p>Explore a morning at sea, with optional activity preferences to discuss with the local operator.</p>
+          </div>
+          <div class="feature-bottom"><span>View experience details</span><span class="round-arrow" aria-hidden="true">↗</span></div>
+        </div>
+      </a>
+      <p class="home-disclaimer">Availability, meeting arrangements and pricing require operator confirmation. Submitting the current demo flow does not create a real reservation or payment.</p>
     </div>
   </section>
 
-  <section class="section section-sand">
+  <section class="home-browse section">
     <div class="container">
-      <div class="section-head">
-        <div><div class="eyebrow">Discover Bali</div><h2>Choose the experience first.</h2></div>
-        <p>See the place, schedule, inclusions, price and booking conditions before deciding anything else.</p>
+      <div class="home-section-heading compact">
+        <div><p class="home-overline">Explore at your pace</p><h2>What would you like<br><em>to discover?</em></h2></div>
+        <a class="home-text-link" href="pages/search.html">Browse all <span aria-hidden="true">↗</span></a>
       </div>
-      <div class="feature-grid">
-        <a class="feature-card feature-large" href="pages/experiences/lovina-dolphin.html">
-          <div class="feature-image lovina"></div>
-          <div class="feature-overlay"><span class="eyebrow light">NORTH BALI · SEA EXPERIENCE</span><h3>Lovina Dolphin Experience</h3><p>Quote required · operator confirmation pending</p></div>
+      <div class="browse-grid">
+        <a class="browse-card browse-experiences" href="pages/experiences/index.html">
+          <div class="browse-card-image" aria-hidden="true"></div><div class="browse-number">01 / DO</div>
+          <div class="browse-card-copy"><h3>Things to do</h3><p>Activities and experiences to make a day memorable.</p><span>Explore experiences ↗</span></div>
         </a>
-        <div class="feature-side">
-          <a class="feature-card" href="pages/experiences/index.html"><div class="feature-image culture"></div><div class="feature-overlay"><span class="eyebrow light">CULTURE</span><h3>Explore Bali differently</h3></div></a>
-          <a class="feature-card" href="pages/tours/index.html"><div class="feature-image coast"></div><div class="feature-overlay"><span class="eyebrow light">TOURS</span><h3>Build a private day</h3></div></a>
-        </div>
+        <a class="browse-card browse-tours" href="pages/tours/index.html">
+          <div class="browse-card-image" aria-hidden="true"></div><div class="browse-number">02 / GO</div>
+          <div class="browse-card-copy"><h3>Tours & day trips</h3><p>Ideas for seeing more, with room to plan your way.</p><span>Explore tours ↗</span></div>
+        </a>
+        <a class="browse-card browse-destinations" href="pages/destinations/index.html">
+          <div class="browse-card-image" aria-hidden="true"></div><div class="browse-number">03 / KNOW</div>
+          <div class="browse-card-copy"><h3>Places to visit</h3><p>Get context before choosing where to go next.</p><span>Explore destinations ↗</span></div>
+        </a>
+        <a class="browse-card browse-guides" href="pages/guides/index.html">
+          <div class="browse-card-image" aria-hidden="true"></div><div class="browse-number">04 / PLAN</div>
+          <div class="browse-card-copy"><h3>Travel guides</h3><p>Practical details to help you prepare with confidence.</p><span>Read travel guides ↗</span></div>
+        </a>
       </div>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container two-column">
-      <div>
-        <div class="eyebrow">Travel with context</div>
-        <h2>Know what you're booking before you book it.</h2>
-        <p class="muted">Bali Trans is designed for travelers who may not know the destination yet. We bring together practical information, prices, schedules, local recommendations and booking steps in one place.</p>
-        <div class="feature-list">
-          <div><strong>Clear prices</strong><span>See the applicable price before deciding.</span></div>
-          <div><strong>Real information</strong><span>What is included, where, when and how.</span></div>
-          <div><strong>Built around people</strong><span>Family, couples and Muslim-friendly needs.</span></div>
-          <div><strong>Your choice of transport</strong><span>Bali Trans, another service, public transport or your own vehicle.</span></div>
-        </div>
+  <section class="home-planner section">
+    <div class="container planner-layout">
+      <div class="planner-copy">
+        <p class="home-overline">Your day, your call</p>
+        <h2>One good plan.<br><em>Plenty of possibilities.</em></h2>
+        <p>Start with the main thing you want to do. Add a meal, another stop or private transport only if it helps your day come together.</p>
+        <a class="home-button home-button-light" href="pages/itinerary/build.html">Build your day <span aria-hidden="true">→</span></a>
+        <div class="planner-note"><span class="planner-note-mark">✳</span><span>You can travel with Bali Trans, another provider or independently.</span></div>
       </div>
-      <div class="photo photo-bali" role="img" aria-label="Bali destination"></div>
+      <div class="planner-visual">
+        <div class="planner-image planner-image-main" role="img" aria-label="Tropical Bali coastline"></div>
+        <div class="planner-image planner-image-small" role="img" aria-label="Green tropical landscape"></div>
+        <div class="planner-stamp"><span>YOUR</span><strong>day<br>your way</strong><span>BALI TRANS</span></div>
+        <div class="planner-caption">Leave room for discovery.</div>
+      </div>
     </div>
   </section>
 
-  <section class="section section-sand">
+  <section class="home-values section">
     <div class="container">
-      <div class="section-head">
-        <div><div class="eyebrow">Build your day</div><h2>One experience can become a whole journey.</h2></div>
-        <p>Start with one thing you want to do. Add dining, another experience or private transport when it makes sense.</p>
+      <div class="home-section-heading compact">
+        <div><p class="home-overline">Travel with context</p><h2>Know more before<br><em>you decide.</em></h2></div>
+        <p>Useful travel planning should make choices clearer—not make them for you.</p>
       </div>
-      <div class="itinerary-demo">
-        <div class="itinerary-panel">
-          <div class="eyebrow">Example · Lovina</div>
-          <h3>A flexible Lovina morning</h3>
-          <div class="timeline">
-            <div><small>Morning</small><strong>Lovina Dolphin Experience</strong><span>Operator, time and rate to be confirmed</span></div>
-            <div><small>Optional</small><strong>Snorkeling</strong><span>Optional add-on · confirm operator inclusions</span></div>
-            <div><small>Optional</small><strong>Swimming</strong><span>Subject to sea conditions and operator approval</span></div>
-            <div><small>Plan ahead</small><strong>Transfer or independent travel</strong><span>Choose what fits your day</span></div>
-          </div>
-        </div>
-        <div class="itinerary-panel dark-panel">
-          <div class="eyebrow light">YOUR CHOICES</div>
-          <h3>You stay in control.</h3>
-          <p>Transport is one option — not a requirement.</p>
-          <div class="choice-grid">
-            <div><strong>Bali Trans</strong><span>Private pickup & return</span></div>
-            <div><strong>Your way</strong><span>Taxi, rental, own car</span></div>
-            <div><strong>Skip it</strong><span>Go directly yourself</span></div>
-          </div>
-          <a class="btn btn-light" href="pages/itinerary/build.html">Build Your Day</a>
-        </div>
+      <div class="values-grid">
+        <article><span class="value-index">01</span><div class="value-icon" aria-hidden="true">◎</div><h3>Understand the details</h3><p>Check inclusions, timing, meeting points and conditions before you commit.</p></article>
+        <article><span class="value-index">02</span><div class="value-icon" aria-hidden="true">↗</div><h3>Choose what fits</h3><p>Plan around your group, interests and pace—not a one-size-fits-all itinerary.</p></article>
+        <article><span class="value-index">03</span><div class="value-icon" aria-hidden="true">⌁</div><h3>Keep options open</h3><p>Arrange transport if you need it, or make your own way to the experience.</p></article>
       </div>
     </div>
   </section>
 
-  <section class="section dark-section">
+  <section class="home-travelers section">
+    <div class="container traveler-layout">
+      <div class="traveler-heading"><p class="home-overline">Different people, different needs</p><h2>Make space for<br><em>your kind of travel.</em></h2></div>
+      <div class="traveler-list">
+        <a href="pages/search.html?for=families"><span class="traveler-num">01</span><span><strong>Families</strong><small>Practical details for a smoother day together.</small></span><span class="traveler-arrow">↗</span></a>
+        <a href="pages/search.html?for=couples"><span class="traveler-num">02</span><span><strong>Couples & friends</strong><small>Flexible experiences and time to explore.</small></span><span class="traveler-arrow">↗</span></a>
+        <a href="pages/guides/index.html"><span class="traveler-num">03</span><span><strong>Muslim-friendly planning</strong><small>Look for helpful context around food and travel needs.</small></span><span class="traveler-arrow">↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-dining section">
+    <div class="container dining-layout">
+      <div class="dining-photo" role="img" aria-label="Local food served at a table"></div>
+      <div class="dining-copy"><p class="home-overline">A good day includes good food</p><h2>Find a place<br><em>to pause and eat.</em></h2><p>Dining is part of the journey, too. Explore the dining section as recommendations are added and verified.</p><a class="home-text-link" href="pages/dining/index.html">Explore Bali Trans Dining <span aria-hidden="true">↗</span></a><p class="home-disclaimer">Venue details, opening hours and dietary suitability should be checked directly before visiting.</p></div>
+    </div>
+  </section>
+
+  <section class="home-steps section">
     <div class="container">
-      <div class="section-head">
-        <div><div class="eyebrow light">Made around people</div><h2>Travel the way your group actually travels.</h2></div>
-        <p class="dark-muted">The same destination can need very different planning depending on who is traveling.</p>
+      <div class="home-section-heading compact">
+        <div><p class="home-overline">How Bali Trans works</p><h2>From a first idea<br><em>to your travel day.</em></h2></div>
       </div>
-      <div class="trust-grid">
-        <div><span>01</span><h3>Families</h3><p>Practical pacing, easier movement, suitable activities and local needs considered together.</p></div>
-        <div><span>02</span><h3>Couples</h3><p>Private experiences, flexible days and space to choose how much you want planned.</p></div>
-        <div><span>03</span><h3>Muslim travelers</h3><p>Muslim-friendly guidance, practical food information and local context where it matters.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container two-column">
-      <div>
-        <div class="eyebrow">Bali Trans Dining</div>
-        <h2>When you're somewhere unfamiliar, you shouldn't have to guess where to eat.</h2>
-        <p class="muted">Dining recommendations can connect to your itinerary — nearby, along the route, after an activity or close to your hotel.</p>
-        <a class="btn btn-dark" href="pages/dining/index.html">Explore Bali Trans Dining</a>
-      </div>
-      <div class="dining-example">
-        <div class="eyebrow">Example</div>
-        <h3>Planning around your activity</h3>
-        <p class="muted">This section is an illustrative layout only. Real dining venues, opening hours, distances and suitability must be verified before recommendations are published.</p>
-        <div class="feature-list">
-          <div><strong>Dining option 1 (example only)</strong><span>Example only · venue not selected</span></div>
-          <div><strong>Dining option 2 (example only)</strong><span>Example only · venue not selected</span></div>
-          <div><strong>Dining option 3 (example only)</strong><span>Example only · venue not selected</span></div>
-        </div>
+      <div class="home-step-grid">
+        <article><span>01</span><h3>Discover</h3><p>Find an experience, place or activity that interests you.</p></article>
+        <article><span>02</span><h3>Check</h3><p>Review the available details, inclusions and conditions.</p></article>
+        <article><span>03</span><h3>Plan</h3><p>Choose a date and consider what else you need for the day.</p></article>
+        <article><span>04</span><h3>Confirm</h3><p>Confirm details with the relevant provider before you travel.</p></article>
       </div>
     </div>
   </section>
 
-  <section class="section section-sand" id="coming-soon">
-    <div class="container">
-      <div class="section-head">
-        <div><div class="eyebrow">The Bali Trans network is growing</div><h2>More is coming.</h2></div>
-        <p>New services, products and destinations can appear here as Bali Trans launches them.</p>
-      </div>
-      <div class="coming-grid">
-        <article><span class="pill">Coming Soon</span><h3>Muslim Travel Essentials</h3><p>Selected travel items such as mukena, hijab, sarong and family essentials, prepared before arrival and delivered to your hotel.</p><small>Hotel delivery</small></article>
-        <article><span class="pill">Coming Soon</span><h3>Indonesian Local Goods</h3><p>Food, clothing and selected products from Bali, Bandung and other Indonesian destinations.</p><small>Local products</small></article>
-        <article><span class="pill">Coming Soon</span><h3>More Indonesia</h3><p>Bali Trans is starting from Bali and gradually building a trusted local network across Indonesia.</p><small>New destinations</small></article>
+  <section class="home-faq section">
+    <div class="container faq-layout">
+      <div><p class="home-overline">Good to know</p><h2>A few things<br><em>before you go.</em></h2><p>We want the next step to be clear, especially while the platform is being built.</p></div>
+      <div class="home-faq-list">
+        <details><summary>Do I have to use Bali Trans transport?</summary><p>No. Transport is optional. You can arrange another provider or travel independently.</p></details>
+        <details><summary>Can I book only an activity?</summary><p>That is the intended experience where an activity is available. Check the product page for current booking instructions and provider confirmation requirements.</p></details>
+        <details><summary>Are all prices and reservations live?</summary><p>Not yet. Some pages are prototypes. Where pricing or availability is not confirmed, it should be treated as a request—not a confirmed booking.</p></details>
+        <details><summary>Is Bali Trans only for Muslim travelers?</summary><p>No. The platform welcomes all travelers while including practical Muslim-friendly and family travel considerations where useful.</p></details>
       </div>
     </div>
   </section>
 
-  <section class="promo-slot">
-    <div class="container promo-inner">
-      <div><div class="eyebrow">Promo / Launch / Announcement</div><h2>A place for what's new at Bali Trans.</h2><p>Reserved from the beginning for future campaigns, launches, seasonal offers and important travel updates.</p></div>
-      <a class="btn btn-light" href="pages/guides/travel-updates.html">View Updates</a>
-    </div>
-  </section>
-
-  <section class="transport-band">
-    <div class="container two-column transport-layout">
-      <div>
-        <div class="eyebrow">When you need a private ride</div>
-        <h2>Your journey comes first. The road comes after.</h2>
-        <p class="muted">Choose Bali Trans private transport when you want a more personal way to move between your hotel, airport, activity or destination. You are always free to travel another way.</p>
-        <a class="btn btn-dark" href="pages/transport/index.html">Explore Transport</a>
-      </div>
-      <div class="transport-options">
-        <div><strong>Bali Trans Private</strong><span>Curated private transport</span></div>
-        <div><strong>Other transport</strong><span>Use the service you prefer</span></div>
-        <div><strong>Your own way</strong><span>Drive or travel independently</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="section-head"><div><div class="eyebrow">How it works</div><h2>Simple enough to understand before you travel.</h2></div><p>Start with what you want to do.</p></div>
-      <div class="steps">
-        <div><b>01</b><h3>Discover</h3><p>Find places, activities, tours, dining and practical guides.</p></div>
-        <div><b>02</b><h3>Choose</h3><p>See details, schedules, inclusions, prices and booking conditions.</p></div>
-        <div><b>03</b><h3>Book</h3><p>Choose options, review the total and complete the booking.</p></div>
-        <div><b>04</b><h3>Travel</h3><p>Follow your itinerary and use the support or transport you selected.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-sand">
-    <div class="container">
-      <div class="section-head"><div><div class="eyebrow">FAQ</div><h2>Before you book.</h2></div></div>
-      <div class="faq">
-        <details><summary>Do I have to use Bali Trans transport?</summary><p>No. Transport is optional. You can use Bali Trans, another service, public transport or your own vehicle.</p></details>
-        <details><summary>Can I book only an activity?</summary><p>Yes. An activity or ticket can be booked independently where available.</p></details>
-        <details><summary>Is Bali Trans only for Muslim travelers?</summary><p>No. Bali Trans is built with Muslim-friendly and family needs in mind while remaining open to travelers who value thoughtful planning.</p></details>
-        <details><summary>Will Bali Trans have products and food?</summary><p>Those areas are part of the planned platform and will be introduced gradually through clearly marked launches and Coming Soon sections.</p></details>
-      </div>
-    </div>
-  </section>
-
-  <section class="final-cta">
-    <div class="container">
-      <div class="eyebrow light">Bali Trans</div>
-      <h2>Start with where<br>you want to go.</h2>
-      <p>Then let the journey take shape from there.</p>
-      <a class="btn btn-light" href="pages/search.html">Explore Bali Trans</a>
-    </div>
+  <section class="home-final-cta">
+    <div class="home-final-photo" aria-hidden="true"></div><div class="home-final-overlay" aria-hidden="true"></div>
+    <div class="container home-final-inner"><p class="home-overline">Your next chapter in Bali</p><h2>Start with what<br><em>you want to discover.</em></h2><a class="home-button home-button-light" href="pages/search.html">Explore Bali Trans <span aria-hidden="true">→</span></a></div>
   </section>
 </main>
 
 <footer class="site-footer">
   <div class="container footer-top">
-    <div class="footer-brand"><div class="logo"><span class="logo-main">Bali</span><span class="logo-sub">TRANS</span></div><p>Travel guidance, experiences and local services across Indonesia — built around the way you travel.</p></div>
-    <div class="footer-column"><h4>Explore</h4><a href="pages/tours/index.html">Tours</a><a href="pages/experiences/index.html">Experiences</a><a href="pages/tickets/index.html">Tickets</a><a href="pages/transport/index.html">Transport</a></div>
-    <div class="footer-column"><h4>Travel</h4><a href="pages/dining/index.html">Bali Trans Dining</a><a href="pages/guides/index.html">Guides</a><a href="pages/destinations/index.html">Destinations</a><a href="pages/marketplace/index.html">Local Products</a></div>
-    <div class="footer-column"><h4>Account</h4><a href="pages/account/login.html">Login</a><a href="pages/account/dashboard.html">My Bali Trans</a><a href="pages/booking/step-1.html">Booking</a><a href="pages/contact.html">Contact</a></div>
+    <div class="footer-brand"><a href="index.html" class="logo"><span class="logo-main">Bali</span><span class="logo-sub">TRANS</span></a><p>Experiences, travel guidance and flexible ways to explore Bali—built around the way you travel.</p></div>
+    <div class="footer-column"><h4>Discover</h4><a href="pages/experiences/index.html">Experiences</a><a href="pages/tours/index.html">Tours</a><a href="pages/tickets/index.html">Tickets</a><a href="pages/destinations/index.html">Destinations</a></div>
+    <div class="footer-column"><h4>Plan</h4><a href="pages/itinerary/build.html">Build your day</a><a href="pages/dining/index.html">Dining</a><a href="pages/guides/index.html">Travel guides</a><a href="pages/transport/index.html">Transport</a></div>
+    <div class="footer-column"><h4>Bali Trans</h4><a href="pages/contact.html">Contact</a><a href="pages/account/login.html">Account</a><a href="pages/privacy.html">Privacy</a><a href="pages/terms.html">Terms</a></div>
   </div>
-  <div class="container footer-bottom"><span>© 2026 Bali Trans</span><div><a href="pages/privacy.html">Privacy</a><a href="pages/terms.html">Terms</a></div></div>
+  <div class="container footer-bottom"><span>© 2026 Bali Trans</span><span>Discover thoughtfully. Travel your way.</span></div>
 </footer>
 <script src="js/main.js"></script>
+<script src="js/homepage.js"></script>
 </body>
 </html>
