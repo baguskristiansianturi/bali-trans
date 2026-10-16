@@ -564,4 +564,4 @@ Setelah template dan alur produk lulus pemeriksaan, produk berikutnya harus meng
 
 ### 12.4 Status pekerjaan setelah penetapan urutan ini
 
-Pada saat bagian ini ditambahkan, branch `preview/bali-trans` telah diperiksa secara statis dan branch kerja `work/site-structure-audit` dibuat darinya. Pembuatan branch bukan bukti bahwa audit halaman, perubahan UI, pengujian browser, atau deployment sudah selesai. Semua status tersebut harus diperbarui setelah ada bukti yang sesuai.
+Pada saat bagian ini diperbarui, perubahan awal pada `work/site-structure-audit` telah diajukan dan di-squash-merge ke `preview/bali-trans` melalui PR #1. Build workflow berhasil pada pemeriksaan terakhir, sementara langkah deploy masih berjalan. Audit tautan statis tidak menemukan target file lokal yang hilang pada 34 halaman HTML. Browser/mobile dan alur end-to-end belum diverifikasi. Status deployment harus diperbarui hanya setelah workflow selesai dan URL benar-benar diperiksa.
