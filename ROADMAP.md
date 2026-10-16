@@ -17,7 +17,7 @@ Pengamatan historis adalah dasar hipotesis yang kuat, bukan jaminan jumlah permi
 
 ## 2. Temuan awal dari repository
 
-Repository `baguskristiansianturi/bdm-trans-indonesia` saat ini berisi fondasi frontend berbahasa Inggris dengan halaman Discover, Experiences, Tours, Tickets, Dining, Destinations, Guides, Marketplace, Transport, Build Your Day, Booking, Account, Partner, dan Admin.
+Repository `baguskristiansianturi/bali-trans` saat ini berisi fondasi frontend berbahasa Inggris dengan halaman Discover, Experiences, Tours, Tickets, Dining, Destinations, Guides, Marketplace, Transport, Build Your Day, Booking, Account, Partner, dan Admin.
 
 Hal-hal yang terlihat dari pemeriksaan statis:
 - README menyebut proyek ini sebagai **Frontend Foundation V1** dan menegaskan fokusnya struktur, bukan backend/produksi.
@@ -564,4 +564,4 @@ Setelah template dan alur produk lulus pemeriksaan, produk berikutnya harus meng
 
 ### 12.4 Status pekerjaan setelah penetapan urutan ini
 
-Pada saat bagian ini diperbarui, perubahan awal pada `work/site-structure-audit` telah diajukan dan di-squash-merge ke `preview/bali-trans` melalui PR #1. Build workflow berhasil pada pemeriksaan terakhir, sementara langkah deploy masih berjalan. Audit tautan statis tidak menemukan target file lokal yang hilang pada 34 halaman HTML. Browser/mobile dan alur end-to-end belum diverifikasi. Status deployment harus diperbarui hanya setelah workflow selesai dan URL benar-benar diperiksa.
+Per 17 Oktober 2026, PR #1 telah di-merge ke `preview/bali-trans` melalui commit `fc5b16ee0eb445ab5dc1bfbb2373ddb0b1ada407`; GitHub Actions untuk publikasi preview dan Pages build/deployment berstatus sukses. Ini membuktikan workflow selesai, bukan bahwa URL telah diperiksa secara visual. Audit terbaru pada branch kerja `work/shared-navigation-audit-2026-10-17` mencakup 35 halaman HTML dan 840 atribut `href`/`src`, tanpa target file lokal yang hilang. PR #2 menambahkan link Wishlist pada 33 halaman dan masih terbuka; perubahan PR #2 belum di-merge atau di-deploy. Browser/mobile, aksesibilitas runtime, dan alur end-to-end belum diverifikasi.
