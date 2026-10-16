@@ -78,3 +78,16 @@ Continue the shared-layout audit: compare header/footer, spacing, page headings,
 - This updates the earlier historical note above that the follow-up branch had not yet been merged. The merge target was the preview branch, **not `main`**.
 - `HANDOFF.md` and `ROADMAP.md` did not exist in the preview branch tree at the verified baseline; they are being added in a separate documentation PR.
 - Next priority remains the shared header/footer and responsive UX audit. No browser, device, assistive-technology, or booking end-to-end test is claimed by this re-check.
+
+
+### Header/footer source audit — 17 October 2026
+
+Reviewed source for all 35 HTML pages on `preview/bali-trans` at baseline `1fc61249263794343ea64427c91a66226b92f8a0`. This is a source-level audit, not browser testing.
+
+Findings:
+- The pages do not share one consistent header implementation: navigation links/labels differ by page family. The homepage uses “Travel guides”; most internal pages use “Build Your Day”; the Wishlist page has a different “Tickets” navigation item.
+- The menu-toggle markup is inconsistent. Some pages include `aria-label`, `aria-expanded`, and `aria-controls`; other pages omit one or more of these attributes. The admin/account/booking pages do not all expose the same accessible control markup.
+- Footer markup exists across the reviewed pages, but structure/content varies between the homepage and internal page families. Do not assume visual consistency without browser comparison.
+- Relative local `href`/`src` targets remain covered by the previous 840-attribute static audit; no new link-resolution scan was performed in this pass.
+
+Recommended next implementation: standardize the menu-toggle accessibility contract and navigation labels/structure in a small, reviewable change, while preserving intentional page-specific links and active states. Before changing all pages, confirm the shared JavaScript selectors and responsive CSS; validate static links after edits. Browser/mobile and keyboard testing remain outstanding.

@@ -22,9 +22,12 @@
 
 ## Priority order
 
-### P0 — Shared layout and responsive UX audit (next)
+### P0 — Shared layout and responsive UX audit (in progress)
 
-- [ ] Compare header, primary navigation order/labels, footer, page title/subtitle spacing, CTA wording and content width across all HTML pages.
+- [x] Compare header/navigation/footer source structure across all 35 HTML pages; initial findings are recorded in `AUDIT.md`.
+- [ ] Normalize navigation variants (homepage “Travel guides”, internal “Build Your Day”, Wishlist “Tickets”) while preserving intentional page-specific links and active states.
+- [ ] Standardize menu-toggle accessibility markup (`aria-label`, `aria-expanded`, `aria-controls`) and verify the controlling JavaScript/CSS before bulk edits.
+- [ ] Compare page title/subtitle spacing, CTA wording and content width across all HTML pages.
 - [ ] Record page groups and justified exceptions (for example, a reduced checkout footer) before changing shared patterns.
 - [ ] Identify the smallest consistent header/footer standard; avoid an unreviewed mass rewrite.
 - [ ] Check mobile menu open/close state, touch reachability, keyboard focus, overflow, and layout at narrow and desktop widths.
