@@ -30,10 +30,11 @@ Lalu periksa kondisi GitHub terkini secara langsung. Dokumen ini adalah catatan 
 - [x] Roadmap dan handoff berada pada branch dokumentasi `docs/brand-led-bdm-revival-roadmap`; branch dokumentasi belum di-merge ke `main`.
 - [x] PR #1 ([Improve shared frontend foundations and add wishlist structure](https://github.com/baguskristiansianturi/bali-trans/pull/1)) merged ke `preview/bali-trans` pada commit `fc5b16ee0eb445ab5dc1bfbb2373ddb0b1ada407`; GitHub Actions untuk publish preview dan Pages build/deployment berstatus `success`.
 - [x] Branch kerja `work/shared-navigation-audit-2026-10-17` dibuat dari `preview/bali-trans`.
-- [x] PR #2 ([Make Wishlist reachable from every page header](https://github.com/baguskristiansianturi/bali-trans/pull/2)) dibuka terhadap `preview/bali-trans`; status saat catatan ini ditulis masih **open, belum merged**.
+- [x] PR #2 ([Make Wishlist reachable from every page header](https://github.com/baguskristiansianturi/bali-trans/pull/2)) telah di-squash-merge ke `preview/bali-trans` melalui commit `fb6d9e0a2d3cca00f37cd69b8ab9e26c520bf294`.
 - [x] Link Wishlist ditambahkan pada header 33 halaman HTML; homepage dan halaman Wishlist dibiarkan karena link sudah ada.
 - [x] Pemeriksaan statis terbaru mencakup 35 halaman HTML dan 840 atribut `href`/`src`; tidak ditemukan target file lokal yang hilang. 33/33 link Wishlist yang baru ditambahkan dipastikan mengarah ke `pages/account/wishlist.html`.
-- [ ] PR #2 belum diuji di browser, belum diverifikasi tampilannya pada ponsel, dan belum ter-deploy.
+- [ ] Workflow publish dan Pages build/deployment untuk commit `fb6d9e0a2d3cca00f37cd69b8ab9e26c520bf294` masih `in_progress` pada pemeriksaan terakhir; cek ulang sebelum menyatakan deployment selesai.
+- [ ] PR #2 sudah masuk ke branch preview, tetapi tampilan browser/ponsel tetap belum diverifikasi.
 - [ ] Standarisasi header/footer belum selesai. Urutan/label navigasi, variasi logo/brand text, footer penuh vs footer checkout, serta CTA masih berbeda antarhalaman.
 - [ ] Uji alur Lovina end-to-end, validasi form, retensi state, keyboard/accessibility runtime, dan tampilan mobile belum dilakukan.
 - [ ] URL live GitHub Pages tidak dapat diperiksa melalui lingkungan tool saat sesi ini; status workflow sukses tidak disamakan dengan verifikasi visual.
@@ -53,8 +54,8 @@ Lalu periksa kondisi GitHub terkini secara langsung. Dokumen ini adalah catatan 
 
 ## Langkah berikutnya yang direkomendasikan
 
-1. Periksa PR #2 dan status checks/mergeability aktual. Jangan menganggap perubahan sudah masuk preview sebelum status merged terkonfirmasi.
-2. Setelah PR #2 masuk ke `preview/bali-trans`, periksa workflow publish dan Pages deployment. Lalu uji dari ponsel: menu buka/tutup, link Wishlist dari halaman berbeda, scroll/overflow, dan jalur kembali.
+1. Periksa ulang workflow publish dan Pages build/deployment untuk commit `fb6d9e0a2d3cca00f37cd69b8ab9e26c520bf294`; catat hasil akhir yang sebenarnya.
+2. Setelah deployment berhasil, buka preview di ponsel dan uji menu buka/tutup, link Wishlist dari halaman berbeda, scroll/overflow, dan jalur kembali. Jika URL belum dapat diakses, catat sebagai blocker—jangan menyamakan workflow sukses dengan verifikasi visual.
 3. Lanjutkan audit header/footer dalam kelompok kecil: samakan struktur dan label navigasi yang disepakati, identitas logo, CTA, serta footer umum. Pertahankan footer ringkas pada langkah checkout bila memang sengaja dibuat untuk mengurangi distraksi.
 4. Uji Lovina Dolphin Experience dari katalog → detail → pilihan → detail tamu → review → test confirmation. Periksa validasi, state yang tersimpan dalam sesi, tombol kembali, dan pesan yang menegaskan bahwa ini bukan booking/pembayaran nyata.
 5. Catat hasil yang benar-benar diuji dan perbarui `AUDIT.md` serta `HANDOFF.md`. Jangan menandai tampilan browser/mobile atau deployment sebagai terverifikasi hanya dari pemeriksaan kode/workflow.
