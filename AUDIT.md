@@ -91,3 +91,11 @@ Findings:
 - Relative local `href`/`src` targets remain covered by the previous 840-attribute static audit; no new link-resolution scan was performed in this pass.
 
 Recommended next implementation: standardize the menu-toggle accessibility contract and navigation labels/structure in a small, reviewable change, while preserving intentional page-specific links and active states. Before changing all pages, confirm the shared JavaScript selectors and responsive CSS; validate static links after edits. Browser/mobile and keyboard testing remain outstanding.
+
+
+### Keyboard accessibility follow-up — 17 October 2026
+
+- PR #5 merged the runtime assignment of `aria-controls` in `js/main.js`, using the actual `mainNav` element ID. This supplements the existing `aria-expanded` and dynamic `aria-label` updates.
+- PR #6 added `:focus-visible` indicators for links, buttons, form controls, summaries and tabindex elements, including a visible focus indicator for the homepage search field.
+- Both changes are source-level improvements. Browser keyboard traversal, focus visibility against every background, contrast, mobile interaction and screen-reader behaviour are **not verified**.
+- Latest preview commit: `ea155fe2317d18db1adea213b4dd178c61d01418`. The publish and Pages workflows were queued when checked; do not claim this commit deployed until those runs complete successfully.

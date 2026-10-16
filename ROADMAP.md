@@ -17,7 +17,8 @@
 - PR #2 merged into `preview/bali-trans`; the preview publish and Pages build/deployment workflows for that commit succeeded.
 - Static link audit: 35 HTML pages, 840 `href`/`src` references checked, no missing local targets reported.
 - Wishlist navigation is present in the 33 pages covered by the follow-up static check.
-- Browser/mobile/accessibility/end-to-end verification is **not yet confirmed**.
+- Source-level fixes merged: menu toggle receives `aria-controls` from `mainNav`; shared CSS has `:focus-visible` styles.
+- Browser/mobile/keyboard/screen-reader/end-to-end verification is **not yet confirmed**. Latest deployment workflows were queued at last check.
 - `main` remains separate from the preview work and must not be assumed to contain the latest prototype.
 
 ## Priority order
