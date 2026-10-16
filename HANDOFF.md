@@ -24,6 +24,17 @@
 - The prototype includes `noindex` metadata and the preview workflow writes a disallow-all `robots.txt`. Review launch/indexing policy before any public launch. A public GitHub Pages URL is not private.
 - Product details, supplier confirmation, live availability, price, cancellation rules and fulfilment have not been verified.
 
+## Latest implementation follow-up — 17 October 2026
+
+- PR #5 merged mobile menu `aria-controls` initialization in `js/main.js`: [PR #5](https://github.com/baguskristiansianturi/bali-trans/pull/5).
+- PR #6 merged visible keyboard focus styling in `css/style.css`: [PR #6](https://github.com/baguskristiansianturi/bali-trans/pull/6).
+- Current preview commit: `ea155fe2317d18db1adea213b4dd178c61d01418`.
+- Latest publish and Pages workflows were queued at the last status check:
+  - [Preview publish](https://github.com/baguskristiansianturi/bali-trans/actions/runs/38982632132)
+  - [Pages build/deployment](https://github.com/baguskristiansianturi/bali-trans/actions/runs/38982631800)
+- Previous commit `6cdb79a328e3050a69d739f404830053632c3a58` has successful publish and Pages workflow runs, but that does not prove the newest commit has deployed.
+- Source-level accessibility improvements are in place; browser/mobile/keyboard/screen-reader tests remain outstanding.
+
 ## Latest source-audit findings — 17 October 2026
 
 - Rechecked all 35 HTML page sources on baseline `1fc61249263794343ea64427c91a66226b92f8a0`.
