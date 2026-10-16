@@ -24,20 +24,16 @@ Lalu periksa kondisi GitHub terkini secara langsung. Dokumen ini adalah catatan 
 
 ## Status terakhir yang tercatat
 
-**Tahap: dokumentasi strategi dan aturan kerja; belum masuk ke implementasi fitur atau PR kode.**
+**Tahap: memulai audit struktur frontend di branch kerja terpisah; perubahan kode, pengujian browser, dan deployment belum boleh dianggap selesai sebelum diverifikasi.**
 
-- [x] Branch kerja `docs/brand-led-bdm-revival-roadmap` dibuat dari `main`.
-- [x] `ROADMAP.md` dibuat dan berisi strategi, prioritas produk, panduan konten/lokalisasi, pricing, review, availability, dan batasan deployment.
-- [x] `README.md` diperbarui untuk menunjuk ke roadmap.
-- [x] Roadmap menetapkan prioritas peluncuran pada tiket/aktivitas dan paket tour; tiket harus dapat dibeli tanpa wajib menyewa kendaraan.
-- [x] Roadmap mencatat perencana itinerary/anggaran sebagai fase masa depan, bukan pekerjaan sekarang.
-- [x] Aturan kalender ketersediaan mencerminkan kapasitas nyata per tanggal/kendaraan; jangan membuat kelangkaan palsu. Jika belum diketahui, gunakan status seperti “Periksa ketersediaan” atau “Konfirmasi terlebih dahulu”.
-- [x] Aturan komunikasi publik melarang mengungkap cerita internal pembangunan kembali, pencarian mitra, atau kondisi armada.
-- [ ] Belum ada perubahan kode produk/website yang dibuat dalam pekerjaan roadmap ini.
-- [ ] Belum ada PR yang dibuat untuk branch ini pada pemeriksaan terakhir.
-- [ ] Belum ada merge ke `main`.
-- [ ] Belum dilakukan audit visual browser menyeluruh, pengujian end-to-end, atau verifikasi deployment dalam pekerjaan ini.
-- [ ] Kesiapan nyata pemasok, harga, inventaris, dan operasi layanan belum dibuktikan oleh dokumen roadmap.
+- [x] Repository aktif dikonfirmasi: `baguskristiansianturi/bali-trans`; branch default `main`.
+- [x] Branch dokumentasi `docs/brand-led-bdm-revival-roadmap` berisi roadmap dan catatan kelanjutan kerja.
+- [x] Branch kerja implementasi `work/site-structure-audit` dibuat dari `preview/bali-trans`; `main` tidak diubah.
+- [x] Urutan implementasi frontend diperjelas pada roadmap: audit struktur/komponen bersama → konsistensi seluruh halaman → struktur UI wishlist/account/booking dengan batas fungsi yang jelas → uji template dan alur Lovina Dolphin Experience.
+- [ ] Audit seluruh halaman dan tautan belum selesai.
+- [ ] Perubahan kode UI pada branch kerja belum dinyatakan selesai sebelum file yang berubah diperiksa kembali.
+- [ ] Pengujian browser/mobile dan verifikasi deployment belum dilakukan dalam tahap ini.
+- [ ] Ketersediaan supplier, harga final, inventaris, dan kesiapan operasi layanan tetap memerlukan verifikasi terpisah.
 
 ## Keputusan produk yang harus dipertahankan
 
@@ -52,16 +48,14 @@ Lalu periksa kondisi GitHub terkini secara langsung. Dokumen ini adalah catatan 
 
 ## Langkah berikutnya yang direkomendasikan
 
-**Langkah pertama: lakukan pemeriksaan repository terkini sebelum menulis kode.**
+1. Audit halaman/tautan/komponen yang sudah ada pada `work/site-structure-audit`.
+2. Catat reuse vs perbaikan, lalu buat perubahan fondasi kecil dengan kriteria penerimaan yang jelas.
+3. Rapikan konsistensi navigasi, footer, tipografi, spacing, dan mobile tanpa redesign besar yang tidak didukung audit.
+4. Siapkan struktur UI serta status jujur untuk Wishlist, Account, dan Booking; jangan mengklaim autentikasi/persistensi/pembayaran aktif.
+5. Uji Lovina Dolphin Experience melalui template produk yang konsisten setelah fondasi cukup stabil.
+6. Catat hasil pemeriksaan, kendala, status PR, dan deployment yang benar-benar terjadi.
 
-1. Periksa branch default, branch kerja, perubahan terbaru, PR terbuka/tertutup, dan status workflow/deployment yang tersedia.
-2. Cocokkan isi `ROADMAP.md` dan `README.md` dengan repository aktual. Perbarui catatan ini jika status telah berubah.
-3. Audit halaman yang sudah ada untuk menentukan alur MVP terkecil dari menemukan tiket/paket → memahami detail dan harga → mengirim permintaan yang dapat ditindaklanjuti. Jangan menganggap seluruh halaman yang ada harus dilengkapi.
-4. Prioritaskan satu alur mobile yang paling bernilai; tulis kriteria penerimaan dan daftar pengujian sebelum mengubah kode.
-5. Kerjakan dalam branch/PR yang jelas, uji tautan, validasi form, tampilan mobile, dan fallback bila data belum tersedia. Jangan mengaktifkan pembayaran atau mengklaim ketersediaan langsung tanpa backend dan data yang benar.
-6. Setelah perubahan, catat file yang diubah, hasil uji yang benar-benar dijalankan, kendala, status PR/merge, status deployment, serta tugas tunggal berikutnya di dokumen ini.
-
-Jangan melompat langsung membangun planner itinerary/anggaran, marketplace penuh, akun, portal mitra/admin, atau pembayaran otomatis sebelum alur produk awal dan operasi layanan terbukti dibutuhkan.
+Jangan melompat langsung membangun planner itinerary/anggaran, marketplace penuh, atau pembayaran otomatis sebelum alur produk awal dan operasi layanan terbukti dibutuhkan.
 
 ## Format pembaruan status
 
