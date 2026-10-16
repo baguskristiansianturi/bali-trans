@@ -33,11 +33,11 @@ Lalu periksa kondisi GitHub terkini secara langsung. Dokumen ini adalah catatan 
 - [x] PR #2 ([Make Wishlist reachable from every page header](https://github.com/baguskristiansianturi/bali-trans/pull/2)) telah di-squash-merge ke `preview/bali-trans` melalui commit `fb6d9e0a2d3cca00f37cd69b8ab9e26c520bf294`.
 - [x] Link Wishlist ditambahkan pada header 33 halaman HTML; homepage dan halaman Wishlist dibiarkan karena link sudah ada.
 - [x] Pemeriksaan statis terbaru mencakup 35 halaman HTML dan 840 atribut `href`/`src`; tidak ditemukan target file lokal yang hilang. 33/33 link Wishlist yang baru ditambahkan dipastikan mengarah ke `pages/account/wishlist.html`.
-- [ ] Workflow publish dan Pages build/deployment untuk commit `fb6d9e0a2d3cca00f37cd69b8ab9e26c520bf294` masih `in_progress` pada pemeriksaan terakhir; cek ulang sebelum menyatakan deployment selesai.
+- [x] Workflow publish dan Pages build/deployment untuk commit `fb6d9e0a2d3cca00f37cd69b8ab9e26c520bf294` selesai dengan status `success`; [Pages build and deployment run](https://github.com/baguskristiansianturi/bali-trans/actions/runs/38981707689).
 - [ ] PR #2 sudah masuk ke branch preview, tetapi tampilan browser/ponsel tetap belum diverifikasi.
 - [ ] Standarisasi header/footer belum selesai. Urutan/label navigasi, variasi logo/brand text, footer penuh vs footer checkout, serta CTA masih berbeda antarhalaman.
 - [ ] Uji alur Lovina end-to-end, validasi form, retensi state, keyboard/accessibility runtime, dan tampilan mobile belum dilakukan.
-- [ ] URL live GitHub Pages tidak dapat diperiksa melalui lingkungan tool saat sesi ini; status workflow sukses tidak disamakan dengan verifikasi visual.
+- [ ] URL preview `https://baguskristiansianturi.github.io/bali-trans/` belum berhasil diperiksa secara visual melalui lingkungan tool sesi ini. Status workflow sukses tidak disamakan dengan verifikasi visual.
 - [ ] Kesiapan supplier, harga final, inventaris, dan operasi layanan masih memerlukan verifikasi terpisah.
 - [ ] `main` tidak diubah; belum ada merge ke `main`.
 
