@@ -1,6 +1,7 @@
 const menuToggle=document.getElementById('menuToggle');
 const mainNav=document.getElementById('mainNav');
 if(menuToggle&&mainNav){
+  menuToggle.setAttribute('aria-controls',mainNav.id);
   const setMenuState=open=>{
     mainNav.classList.toggle('mobile-open',open);
     menuToggle.setAttribute('aria-expanded',String(open));
