@@ -24,16 +24,21 @@ Lalu periksa kondisi GitHub terkini secara langsung. Dokumen ini adalah catatan 
 
 ## Status terakhir yang tercatat
 
-**Tahap: memulai audit struktur frontend di branch kerja terpisah; perubahan kode, pengujian browser, dan deployment belum boleh dianggap selesai sebelum diverifikasi.**
+**Tahap: audit statis awal dan perubahan fondasi kecil pada branch kerja. Belum ada verifikasi browser/mobile atau deployment.**
 
 - [x] Repository aktif dikonfirmasi: `baguskristiansianturi/bali-trans`; branch default `main`.
-- [x] Branch dokumentasi `docs/brand-led-bdm-revival-roadmap` berisi roadmap dan catatan kelanjutan kerja.
-- [x] Branch kerja implementasi `work/site-structure-audit` dibuat dari `preview/bali-trans`; `main` tidak diubah.
-- [x] Urutan implementasi frontend diperjelas pada roadmap: audit struktur/komponen bersama → konsistensi seluruh halaman → struktur UI wishlist/account/booking dengan batas fungsi yang jelas → uji template dan alur Lovina Dolphin Experience.
-- [ ] Audit seluruh halaman dan tautan belum selesai.
-- [ ] Perubahan kode UI pada branch kerja belum dinyatakan selesai sebelum file yang berubah diperiksa kembali.
-- [ ] Pengujian browser/mobile dan verifikasi deployment belum dilakukan dalam tahap ini.
-- [ ] Ketersediaan supplier, harga final, inventaris, dan kesiapan operasi layanan tetap memerlukan verifikasi terpisah.
+- [x] Roadmap dan handoff diperbarui pada branch `docs/brand-led-bdm-revival-roadmap`, termasuk urutan: audit struktur/komponen bersama → konsistensi halaman → struktur wishlist/account/booking dengan batas fungsi jelas → uji produk Lovina.
+- [x] Branch kerja `work/site-structure-audit` dibuat dari `preview/bali-trans`; `main` tidak diubah.
+- [x] Audit statis mencakup 34 halaman HTML; tidak ditemukan target file lokal `href`/`src` yang hilang pada pemeriksaan ini. Ini bukan bukti bahwa tautan eksternal, interaksi, tampilan, atau alur runtime sudah benar.
+- [x] Homepage hero sekarang mengarah ke katalog Experiences, bukan menjadikan Lovina Dolphin Experience satu-satunya titik utama homepage.
+- [x] Halaman Wishlist dibuat dengan empty state dan penjelasan bahwa penyimpanan/sinkronisasi belum terhubung; link ditambahkan pada nav/footer homepage.
+- [x] JavaScript navigasi mobile diperbaiki agar `aria-expanded` dan label tombol diperbarui saat menu dibuka/ditutup.
+- [x] `AUDIT.md` mencatat ruang lingkup, temuan awal, perubahan, dan hal yang belum diuji.
+- [ ] Header/footer masih diduplikasi dan berbeda antarhalaman; standardisasi global belum selesai.
+- [ ] Halaman Tickets/Tours dan banyak Account masih berisi struktur placeholder; belum siap diperlakukan sebagai katalog/akun operasional.
+- [ ] Pengujian browser/mobile, alur Lovina end-to-end, dan deployment GitHub Pages belum diverifikasi.
+- [ ] Kesiapan supplier, harga final, inventaris, dan operasi layanan tetap memerlukan verifikasi terpisah.
+- [ ] Belum ada merge ke `main`.
 
 ## Keputusan produk yang harus dipertahankan
 
@@ -48,12 +53,12 @@ Lalu periksa kondisi GitHub terkini secara langsung. Dokumen ini adalah catatan 
 
 ## Langkah berikutnya yang direkomendasikan
 
-1. Audit halaman/tautan/komponen yang sudah ada pada `work/site-structure-audit`.
-2. Catat reuse vs perbaikan, lalu buat perubahan fondasi kecil dengan kriteria penerimaan yang jelas.
-3. Rapikan konsistensi navigasi, footer, tipografi, spacing, dan mobile tanpa redesign besar yang tidak didukung audit.
-4. Siapkan struktur UI serta status jujur untuk Wishlist, Account, dan Booking; jangan mengklaim autentikasi/persistensi/pembayaran aktif.
-5. Uji Lovina Dolphin Experience melalui template produk yang konsisten setelah fondasi cukup stabil.
-6. Catat hasil pemeriksaan, kendala, status PR, dan deployment yang benar-benar terjadi.
+1. Lanjutkan audit konsistensi header/footer, navigasi, judul/subjudul, spacing, CTA, dan tampilan mobile dalam kelompok kecil.
+2. Rapikan pola layout bersama tanpa merusak bagian desain yang sudah bekerja; catat setiap perubahan dan kriterianya.
+3. Lengkapi struktur Wishlist/Account/Booking hanya sejauh UI yang dapat dijelaskan secara jujur; autentikasi, penyimpanan lintas perangkat, ketersediaan real-time, dan pembayaran tetap belum aktif.
+4. Uji Lovina Dolphin Experience melalui alur dari penemuan produk sampai halaman akhir, termasuk validasi, retensi state, dan jalur kembali.
+5. Buat PR menuju branch preview dan periksa workflow/deployment sebelum menyatakan hasil dapat dilihat di browser. Jangan mengubah `main` tanpa persetujuan.
+6. Catat pengujian yang benar-benar dijalankan, kendala, status PR/merge/deployment, dan satu langkah berikutnya.
 
 Jangan melompat langsung membangun planner itinerary/anggaran, marketplace penuh, atau pembayaran otomatis sebelum alur produk awal dan operasi layanan terbukti dibutuhkan.
 
