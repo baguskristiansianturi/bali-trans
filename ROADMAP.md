@@ -522,3 +522,46 @@ Contoh perilaku yang diharapkan:
 - Ketersediaan perlu diperiksa ulang sebelum pesanan dianggap terkonfirmasi, dan status/kapasitas harus diperbarui setelah booking diterima agar tidak terjadi pemesanan ganda.
 
 **Batas komunikasi publik:** website dan materi pemasaran hanya membahas layanan, pilihan kendaraan, tanggal, harga, dan ketentuan pelanggan. Jangan menampilkan cerita internal tentang pembangunan kembali bisnis, belum adanya armada, sedang mencari mitra, atau alasan operasional lain yang bukan informasi yang perlu diketahui pelanggan. Informasi yang wajib diketahui agar pelanggan memahami status pesanannya tetap disampaikan secara profesional dan seperlunya; jangan menjanjikan kendaraan sebelum ketersediaannya terkonfirmasi.
+
+---
+
+## 12. Urutan implementasi frontend yang disepakati pemilik — 16 Oktober 2026
+
+Bagian ini memperjelas urutan kerja frontend tanpa membatalkan gerbang operasional dan validasi pada bagian sebelumnya.
+
+### 12.1 Fondasi halaman dan konsistensi lebih dahulu
+
+Sebelum menjadikan Lovina Dolphin Experience sebagai uji produk, audit dan rapikan kerangka situs yang sudah ada. Tujuannya bukan membangun seluruh marketplace operasional sekaligus, melainkan memastikan halaman yang direncanakan memiliki pola navigasi, komponen, responsivitas, aksesibilitas, dan status fungsi yang konsisten.
+
+Urutan kerja:
+
+1. Inventaris seluruh halaman, tautan internal, stylesheet, skrip bersama, komponen header/footer, dan alur yang sudah ada.
+2. Tandai setiap halaman: dipakai pada MVP, struktur pendukung, fase berikutnya, atau belum relevan; jangan menghapus halaman hanya karena belum aktif.
+3. Tetapkan aturan bersama untuk header/nav, footer, container, jarak judul/subjudul/teks, tombol, kartu, breadcrumb, formulir, pesan validasi, keadaan kosong/error/loading, dan perilaku mobile.
+4. Audit setiap halaman menggunakan aturan tersebut; perbaiki inkonsistensi yang terbukti tanpa melakukan redesign menyeluruh yang tidak dibutuhkan.
+5. Siapkan struktur halaman publik dan pendukung yang memang tercatat dalam repository, termasuk About, Contact, Search, katalog tiket/aktivitas, Tours, detail produk, Wishlist, Account, Booking, serta kerangka Partner/Admin. Halaman yang hanya fondasi harus jelas statusnya dan tidak boleh menampilkan data sensitif atau berpura-pura menjadi panel operasional aktif.
+6. Untuk Wishlist, akun, dan checkout, siapkan struktur UI, state kosong, state gagal, ringkasan pilihan/harga, serta status yang masuk akal. Penyimpanan lintas perangkat, autentikasi, ketersediaan real-time, pembayaran, dan operasi admin tetap menunggu backend yang aman dan pengujian nyata.
+7. Periksa metadata dasar, judul dan deskripsi unik yang sesuai halaman, struktur heading, alt gambar, tautan, serta copy yang alami. Jangan menganggap kata kunci saja sebagai bukti SEO atau menulis klaim volume pencarian tanpa riset.
+8. Catat hasil audit dan uji pada branch kerja terpisah; jangan mengubah `main` secara langsung. GitHub Pages publik hanya untuk materi yang aman dipublikasikan.
+
+### 12.2 Uji satu produk setelah kerangka konsisten
+
+Setelah fondasi halaman cukup konsisten untuk diuji, gunakan **Lovina Dolphin Experience** sebagai produk uji pertama untuk menguji template dan alur—bukan sebagai tema utama homepage dan bukan alasan untuk mendesain ulang setiap produk secara terpisah.
+
+Alur yang diperiksa: Discover/search atau kategori → daftar produk → detail produk → pilihan/opsi dan informasi harga → permintaan booking/checkout yang benar-benar tersedia → status/halaman akhir. Wishlist diuji sebagai jalur pendukung. Jika tahap tertentu belum terhubung ke backend, tampilkan penjelasan dan tindakan alternatif yang jujur; jangan membuat konfirmasi booking atau pembayaran palsu.
+
+Setelah template dan alur produk lulus pemeriksaan, produk berikutnya harus menggunakan struktur yang sama dan hanya memerlukan data/konten spesifik, kecuali ada kebutuhan produk yang benar-benar berbeda.
+
+### 12.3 Kriteria penerimaan untuk setiap tahap
+
+- Semua tautan internal yang terkait tahap tersebut mengarah ke halaman yang benar.
+- Navigasi dan footer konsisten serta dapat digunakan dengan sentuhan pada ponsel.
+- Tidak ada horizontal overflow yang tidak disengaja pada lebar layar kecil.
+- Form memberi validasi yang dapat dipahami, dan kegagalan tidak diklaim sebagai keberhasilan.
+- Data contoh, harga, ulasan, ketersediaan, dan status booking tidak disajikan sebagai fakta nyata tanpa verifikasi.
+- Struktur heading, title, description, label form, dan alt gambar diperiksa.
+- Hasil pengujian dicatat terpisah dari pekerjaan yang hanya dibuat; browser/mobile dan deployment hanya ditandai terverifikasi setelah benar-benar diperiksa.
+
+### 12.4 Status pekerjaan setelah penetapan urutan ini
+
+Pada saat bagian ini ditambahkan, branch `preview/bali-trans` telah diperiksa secara statis dan branch kerja `work/site-structure-audit` dibuat darinya. Pembuatan branch bukan bukti bahwa audit halaman, perubahan UI, pengujian browser, atau deployment sudah selesai. Semua status tersebut harus diperbarui setelah ada bukti yang sesuai.
