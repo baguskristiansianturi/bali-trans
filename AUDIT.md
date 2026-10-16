@@ -69,3 +69,12 @@ Continue the shared-layout audit: compare header/footer, spacing, page headings,
 - **No missing local file targets** were found by the repository-relative path check.
 - The 33 newly added Wishlist navigation links were individually checked and all resolve to `pages/account/wishlist.html`.
 - This check cannot establish whether external links respond, JavaScript interactions work, the layout fits mobile screens, or the live site renders correctly.
+
+
+### Repository status re-check — 17 October 2026
+
+- Pull request [#2](https://github.com/baguskristiansianturi/bali-trans/pull/2), “Make Wishlist reachable from every page header”, is now merged into `preview/bali-trans` at `fb6d9e0a2d3cca00f37cd69b8ab9e26c520bf294`.
+- GitHub Actions reports success for the preview publish workflow and Pages build/deployment workflow associated with that preview commit.
+- This updates the earlier historical note above that the follow-up branch had not yet been merged. The merge target was the preview branch, **not `main`**.
+- `HANDOFF.md` and `ROADMAP.md` did not exist in the preview branch tree at the verified baseline; they are being added in a separate documentation PR.
+- Next priority remains the shared header/footer and responsive UX audit. No browser, device, assistive-technology, or booking end-to-end test is claimed by this re-check.
