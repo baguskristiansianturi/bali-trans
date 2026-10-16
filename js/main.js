@@ -1,6 +1,14 @@
 const menuToggle=document.getElementById('menuToggle');
 const mainNav=document.getElementById('mainNav');
-if(menuToggle&&mainNav){menuToggle.addEventListener('click',()=>mainNav.classList.toggle('mobile-open'));}
+if(menuToggle&&mainNav){
+  const setMenuState=open=>{
+    mainNav.classList.toggle('mobile-open',open);
+    menuToggle.setAttribute('aria-expanded',String(open));
+    menuToggle.setAttribute('aria-label',open?'Close navigation':'Open navigation');
+  };
+  setMenuState(false);
+  menuToggle.addEventListener('click',()=>setMenuState(!mainNav.classList.contains('mobile-open')));
+}
 const searchForm=document.getElementById('searchForm');
 if(searchForm){searchForm.addEventListener('submit',e=>{e.preventDefault();const q=document.getElementById('heroSearch')?.value.trim();window.location.href='pages/search.html'+(q?'?q='+encodeURIComponent(q):'')})}
 const BOOKING_KEY='baliTransLovinaRequestV1';
