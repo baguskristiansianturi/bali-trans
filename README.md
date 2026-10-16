@@ -2,6 +2,10 @@
 
 Fondasi awal platform BDM. Fokus versi ini adalah **struktur**, bukan backend/produksi.
 
+## Melanjutkan pekerjaan
+
+Mulai dari [HANDOFF.md](HANDOFF.md) untuk status kerja terakhir, hal yang sudah dan belum diverifikasi, serta langkah berikutnya. Setelah itu baca [ROADMAP.md](ROADMAP.md) untuk keputusan strategi dan batasan proyek.
+
 ## Roadmap kebangkitan
 
 Lihat [ROADMAP.md](ROADMAP.md) untuk rancangan strategi berbasis merek, validasi permintaan, operasi layanan, website MVP, dan tahapan teknis. Dokumen itu berstatus **rancangan untuk ditinjau**, bukan bukti bahwa layanan atau sistem sudah siap.
