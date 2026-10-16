@@ -24,6 +24,15 @@
 - The prototype includes `noindex` metadata and the preview workflow writes a disallow-all `robots.txt`. Review launch/indexing policy before any public launch. A public GitHub Pages URL is not private.
 - Product details, supplier confirmation, live availability, price, cancellation rules and fulfilment have not been verified.
 
+## Latest source-audit findings — 17 October 2026
+
+- Rechecked all 35 HTML page sources on baseline `1fc61249263794343ea64427c91a66226b92f8a0`.
+- The preview publish workflow and Pages build/deployment workflow both report success for that commit:
+  - [Preview publish run](https://github.com/baguskristiansianturi/bali-trans/actions/runs/38982276481)
+  - [Pages build/deployment run](https://github.com/baguskristiansianturi/bali-trans/actions/runs/38982276165)
+- Source audit found inconsistent navigation variants (homepage “Travel guides”, most internal pages “Build Your Day”, Wishlist variant “Tickets”) and inconsistent menu-toggle ARIA attributes. Footer markup is present, but page-family structures vary.
+- This is source inspection only. No mobile browser, visual regression, keyboard, screen-reader, or booking-flow test was run. Do not describe those as verified.
+
 ## Resume instructions
 
 1. Read this file, `ROADMAP.md`, and the latest `AUDIT.md` before editing.
