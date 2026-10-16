@@ -272,3 +272,155 @@ Dokumen ini adalah rancangan roadmap. Dokumen ini **tidak** menyatakan bahwa:
 5. Terima website pembanding yang akan Mas kirim; petakan struktur kategori/produk dan kebutuhan informasinya tanpa menyalin ekspresi kreatif.
 6. Setelah arah dan kebutuhan produk disetujui, buat checklist implementasi MVP dan kerjakan perubahan kode terkecil yang mendukung jalur inquiry nyata.
 7. Perbarui status hanya setelah perubahan dan pengujian terkait benar-benar dilakukan.
+
+
+---
+
+## 10. Roadmap platform: katalog, konten, lokalisasi, harga, dan reputasi
+
+Bagian ini memperluas roadmap produk dan arsitektur berdasarkan kebutuhan terbaru pemilik. Ini adalah rancangan target, bukan klaim bahwa fitur sudah dibangun atau tersedia.
+
+### 10.1 Prinsip produk: satu katalog, beberapa jenis penawaran
+
+Katalog harus membedakan jenis produk, bukan memaksa semuanya masuk ke satu template halaman.
+
+- **Tour package:** paket dengan rencana perjalanan, durasi, urutan tempat, fasilitas, pengecualian, dan ketentuan.
+- **Activity/ticket:** tiket atau aktivitas mandiri yang bisa dibeli tanpa kendaraan atau paket tour.
+- **Private transport/transfer:** layanan kendaraan berdasarkan titik, waktu, kendaraan, dan kebutuhan perjalanan.
+- **Multi-day/custom trip:** paket beberapa hari atau permintaan khusus yang memerlukan pengecekan dan penawaran.
+- **Destination/place guide:** halaman informatif tentang tempat yang dapat ditautkan dari itinerary dan halaman produk.
+- **Optional add-ons:** pemberhentian tambahan, waktu tunggu, penjemputan tambahan, atau layanan tambahan yang memang dapat dipenuhi.
+
+Setiap produk harus memiliki status operasional yang jelas: draft, perlu verifikasi, aktif, tidak tersedia, atau dihentikan. Jangan tampilkan produk sebagai dapat dipesan sebelum harga, penyedia, kapasitas, syarat, dan proses pemenuhannya terverifikasi.
+
+### 10.2 Model konten yang saling terhubung
+
+Rancang hubungan antarentitas sejak awal:
+
+- **Product** memiliki kategori, jenis produk, deskripsi, gambar berizin, pilihan/varian, harga atau aturan harga, fasilitas, pengecualian, ketentuan, dan status.
+- **Tour itinerary** memiliki hari, urutan stop, waktu perkiraan, durasi, catatan, dan relasi ke halaman destinasi.
+- **Destination/place** memiliki nama lokal dan nama alternatif, deskripsi orisinal, lokasi, informasi praktis yang telah diverifikasi, sumber pemeriksaan, gambar berizin, dan halaman terkait.
+- **Activity/ticket option** memiliki jenis tiket, peserta yang berlaku, tanggal/jam bila dibatasi, ketentuan penggunaan, serta batasan dan pengecualian.
+- **Transfer quote** memiliki lokasi jemput dan tujuan, waktu, kendaraan, jumlah penumpang/bagasi, pemberhentian, waktu tunggu, dan rincian biaya.
+- **Review** terhubung ke produk/layanan dan, bila memungkinkan, booking yang telah selesai diverifikasi.
+- **Localized content** menyimpan versi yang ditulis khusus untuk tiap locale, bukan satu teks yang diterjemahkan otomatis pada saat ditampilkan.
+
+Contoh: itinerary Lovina Tour dapat menautkan Pantai Lovina ke halaman destinasi tersendiri. Halaman destinasi menjelaskan apa tempat tersebut, daya tarik, konteks/sejarah yang dapat diverifikasi, waktu kunjungan yang disarankan bila sumbernya memadai, serta produk dan panduan relevan. Tautan harus membantu pengguna memahami perjalanan, bukan sekadar menambah link demi SEO.
+
+Konten sejarah, jam operasional, aturan aktivitas, dan informasi halal/ibadah yang dapat berubah harus memiliki proses verifikasi dan tanggal peninjauan. Jangan mengarang fakta atau menyalin teks dari situs referensi.
+
+### 10.3 Strategi bahasa dan lokalisasi manusiawi
+
+Bahasa adalah bagian dari produk dan UX, bukan lapisan terjemahan otomatis.
+
+Target awal yang direncanakan:
+- **Bahasa Indonesia (id-ID):** alami, jelas, hangat, dan tidak kaku; gunakan istilah yang benar-benar dipakai pelanggan Indonesia.
+- **English (en):** bahasa Inggris internasional yang jelas untuk wisatawan; hindari kalimat yang terasa diterjemahkan kata demi kata.
+- **Singapore English / Singlish:** gaya santai yang sesuai konteks Singapura, digunakan secara selektif di microcopy atau kampanye yang tepat. Jangan menambahkan partikel atau ungkapan Singlish secara berlebihan, jangan mencampurnya dengan Mandarin, dan jangan membuat semua halaman terdengar seperti karikatur.
+- **Bahasa Melayu Malaysia (ms-MY):** penulisan dan kosakata Malaysia, bukan salinan bahasa Indonesia yang hanya mengganti beberapa kata.
+- **Bahasa Arab:** disiapkan sebagai target lokalisasi tersendiri; tentukan locale Arab yang diprioritaskan, arah teks kanan-ke-kiri (RTL), format angka/tanggal, serta aturan harga sebelum implementasi. Jangan menganggap satu versi Arab otomatis cocok untuk semua negara Arab.
+- **Pasar India:** siapkan konten bahasa Inggris yang relevan untuk wisatawan India terlebih dahulu bila itu yang dipilih sebagai bahasa awal; jangan menganggap semua orang India menggunakan Hindi atau memiliki agama/kebutuhan yang sama. Bahasa tambahan ditetapkan berdasarkan data pelanggan, bukan asumsi.
+
+Aturan lokalisasi:
+1. Setiap locale memiliki copywriting, label UI, pesan validasi, email/notifikasi, syarat pemesanan, SEO title/description, dan teks produk yang ditinjau manusia.
+2. Simpan locale dengan kode yang konsisten; jangan menyimpulkan bahasa hanya dari kewarganegaraan.
+3. Buat glossary dan style guide per locale: nada, istilah perjalanan, ejaan, kata yang dihindari, format tanggal/waktu, dan aturan sapaan.
+4. Gunakan review penutur yang memahami konteks lokal sebelum bahasa diterbitkan. AI boleh membantu membuat draf, tetapi bukan menjadi satu-satunya pemeriksa.
+5. Sediakan fallback yang eksplisit jika suatu halaman belum diterjemahkan; jangan mencampur bahasa tanpa sengaja.
+6. Uji layout untuk teks panjang, teks Arab RTL, font, navigasi, form, email, dan halaman checkout.
+7. Hindari mendeteksi agama dari bahasa atau negara. Informasi Muslim-friendly ditampilkan secara faktual dan relevan, tanpa stereotip.
+
+### 10.4 Bahasa, mata uang, dan harga adalah konsep berbeda
+
+Default awal sesuai arahan pemilik:
+- Indonesia → IDR.
+- Singapore English/Singapore market → SGD.
+- English international → USD sebagai default yang direncanakan.
+- Malay Malaysia → MYR.
+- Arabic market → mata uang perlu diputuskan berdasarkan negara/market yang dilayani.
+
+Bahasa tidak boleh menjadi satu-satunya penentu mata uang. Pengguna perlu dapat melihat atau memilih pasar/mata uang dengan jelas. Simpan nilai dasar harga dan aturan konversi secara terpisah; jangan mengubah angka harga dengan mengganti label mata uang saja. Tentukan apakah harga per locale ditetapkan secara komersial atau dihitung dari kurs, kapan kurs diperbarui, pembulatan, pajak/biaya, dan harga akhir saat checkout. Harga yang ditampilkan harus konsisten dari kartu produk hingga ringkasan pemesanan.
+
+### 10.5 Mesin aturan harga untuk airport transfer dan transportasi
+
+Jangan hardcode harga transfer sebagai satu angka per mobil. Rancang aturan harga yang dapat diuji dan dijelaskan. Faktor yang perlu dipertimbangkan:
+
+- titik jemput dan tujuan, termasuk zona/rute dan jarak yang relevan;
+- jenis kendaraan, kapasitas penumpang, serta kapasitas bagasi;
+- tanggal dan waktu layanan, termasuk tarif malam/di luar jam operasional;
+- layanan satu arah atau pulang-pergi;
+- jumlah dan lokasi pemberhentian tambahan;
+- waktu tunggu yang termasuk dalam tarif dan biaya tambahan setelah batas tersebut;
+- tambahan layanan seperti penjemputan multi-lokasi, bila benar-benar ditawarkan;
+- parkir, tol, biaya akses, biaya bandara, atau biaya eksternal lain bila berlaku;
+- pajak, biaya layanan, promosi, serta mata uang;
+- aturan minimum harga, pembulatan, masa berlaku penawaran, dan perubahan rute.
+
+Setiap aturan harus mempunyai prioritas yang tidak ambigu, validasi input, rincian harga yang dapat diterangkan, serta versi dan tanggal berlaku. Sebelum mengirim penawaran, sistem harus dapat menunjukkan komponen biaya—bukan hanya angka total yang sulit dijelaskan.
+
+Jangan menganggap jarak garis lurus sebagai biaya rute yang akurat. Gunakan sumber rute/zonasi yang dipilih dan periksa kasus yang membutuhkan konfirmasi manual. Jika rute, waktu, atau ketersediaan tidak dapat dihitung dengan andal, tandai sebagai perlu konfirmasi, bukan mengarang harga otomatis.
+
+**Gerbang harga:** uji skenario dasar, transfer malam, kendaraan berbeda, tujuan berbeda, pemberhentian tambahan satu-dua jam, perubahan jumlah penumpang/bagasi, dan mata uang berbeda. Pemilik menyetujui aturan komersial sebelum harga digunakan untuk booking nyata.
+
+### 10.6 Ulasan di website dan reputasi produk
+
+Tujuan: membangun kumpulan ulasan BDM sendiri agar calon pelanggan dapat menilai pengalaman dan ulasan membantu halaman produk. Ini tidak berarti ulasan di website otomatis menghasilkan rich result/ranking Google.
+
+Rancang:
+- ulasan terkait produk atau layanan yang benar-benar digunakan;
+- penanda **verified booking/review** hanya bila verifikasi benar-benar dilakukan;
+- rating, teks ulasan, tanggal, bahasa asli, dan locale;
+- permintaan ulasan setelah layanan selesai, tanpa memaksa pelanggan memberi nilai positif;
+- moderasi untuk spam, data pribadi, pelecehan, dan konten yang tidak relevan—bukan menghapus kritik yang sah hanya karena negatif;
+- izin penggunaan foto/nama terpisah dari izin mengirim ulasan;
+- mekanisme pelaporan dan koreksi, serta perlindungan terhadap ulasan palsu;
+- ringkasan rating yang dihitung dari ulasan yang memenuhi aturan;
+- schema markup yang sesuai dengan pedoman mesin pencari, hanya untuk konten yang benar-benar terlihat pada halaman dan memenuhi ketentuan yang berlaku.
+
+Jangan mengarang ulasan, memindahkan testimoni pihak lain seolah-olah ditulis untuk BDM, atau menjanjikan bintang/rich snippets di hasil pencarian. Rating dapat meningkatkan kepercayaan dan menyediakan konten yang bermanfaat, tetapi posisi pencarian dan tampilan rich result tidak dijamin. Ulasan pihak pertama untuk bisnis sendiri juga tidak otomatis memenuhi syarat untuk menampilkan rating bintang di Google Search.
+
+### 10.7 UX untuk pencarian, wishlist, akun, dan checkout
+
+Pelajari pola Klook sebagai referensi interaksi, lalu sesuaikan dengan alur BDM:
+- pencarian/filter harus membedakan tour, tiket aktivitas, transport, dan paket beberapa hari;
+- detail produk menunjukkan harga, pilihan, fasilitas, pengecualian, itinerary, ketentuan, dan ketersediaan yang benar;
+- wishlist harus menyimpan pilihan dengan jelas dan memiliki keadaan kosong serta keadaan gagal;
+- akun dan riwayat booking hanya diaktifkan penuh setelah autentikasi dan penyimpanan backend aman;
+- checkout harus merangkum pilihan, tanggal, peserta, lokasi, add-on, harga, kebijakan, dan langkah berikutnya sebelum pelanggan menyetujui;
+- bedakan permintaan penawaran, booking menunggu konfirmasi, booking dikonfirmasi, pembayaran, pembatalan, refund, dan layanan selesai;
+- jangan menampilkan ketersediaan real-time, timer kelangkaan, atau status pembayaran palsu;
+- semua alur harus mobile-first dan dapat digunakan dengan keyboard/screen reader sejauh relevan.
+
+### 10.8 Arsitektur kode dan kesiapan backend Go + Google Cloud
+
+Target teknis jangka panjang adalah frontend yang tidak terikat pada satu backend, dengan API yang terdokumentasi dan backend Go (Golang) ketika siap. Google Cloud adalah target hosting yang direncanakan, bukan layanan yang dianggap telah dikonfigurasi.
+
+Prinsip:
+- pisahkan UI, data produk, aturan harga, alur booking, lokalisasi, dan integrasi eksternal;
+- definisikan kontrak API dan skema data sebelum fitur frontend bergantung pada backend tertentu;
+- gunakan modular monolith untuk backend awal kecuali kebutuhan terukur membuktikan perlu pemisahan layanan;
+- validasi input dan hitung harga/total di server; jangan mempercayai harga dari browser;
+- simpan uang dengan tipe dan aturan desimal yang aman, beserta kode mata uang eksplisit;
+- gunakan autentikasi, otorisasi, rate limiting, validasi, audit log, backup, observability, dan pengelolaan secrets sebelum menyimpan data pelanggan nyata;
+- buat pengujian unit untuk aturan harga, locale, status booking, dan perhitungan total; tambah pengujian integrasi dan end-to-end sesuai tahap;
+- dokumentasikan keputusan arsitektur dan alasan perubahan agar kode tidak menjadi tambalan yang saling bertentangan;
+- jangan menambahkan microservices, cache, queue, atau infrastruktur kompleks tanpa kebutuhan yang terbukti.
+
+Nama kerja proyek pada tahap desain adalah **Bali Travel**. Nama repository GitHub saat ini tetap `bdm-trans-indonesia` sampai perubahan nama benar-benar dilakukan. Nama kerja internal tidak boleh otomatis muncul sebagai brand publik final.
+
+### 10.9 Urutan implementasi yang disarankan
+
+1. Audit halaman dan kode yang sudah ada; inventarisasi yang dapat dipakai ulang.
+2. Buat peta produk dan model konten: tour, ticket/activity, transport, destination, itinerary, review, locale, dan price rule.
+3. Tetapkan layanan awal dan contoh produk yang benar-benar bisa dipenuhi; isi data contoh yang jelas ditandai sebagai contoh.
+4. Rancang UX halaman inti dengan referensi pola Klook dan konten produk dari riset Bali Golden Tour, tanpa menyalin ekspresi kreatif.
+5. Tulis style guide lokalisasi dan glossary; siapkan contoh copy per locale untuk review manusia.
+6. Rancang aturan harga transport/transfer dan uji dengan skenario yang disetujui pemilik.
+7. Rancang halaman destinasi yang terhubung dengan itinerary dan produk, termasuk proses verifikasi konten.
+8. Tentukan desain ulasan dan bukti booking terverifikasi; pisahkan ulasan pelanggan dari izin penggunaan foto.
+9. Implementasikan frontend modular, mobile-first, dengan keadaan loading/empty/error dan kontrak data yang konsisten.
+10. Definisikan API dan skema backend Go, lalu implementasikan fitur server sesuai prioritas operasional.
+11. Uji lokalisasi, perhitungan harga, form, akun, wishlist, checkout, review, keamanan, aksesibilitas, dan SEO sebelum rilis.
+12. Lakukan preview terlindungi, review pemilik, dan peluncuran bertahap setelah kriteria lulus.
+
+**Gerbang selesai keseluruhan:** tidak cukup hanya semua halaman terlihat lengkap. Model data, copy per locale, harga, ketersediaan, status booking, ulasan, dan CTA harus akurat; fitur yang belum terhubung harus diberi status jelas dan tidak menyamar sebagai fungsi aktif.
