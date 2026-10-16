@@ -84,3 +84,12 @@ button:disabled{opacity:.45;cursor:not-allowed}
 
 /* Mobile navigation opened by the shared header script */
 @media(max-width:900px){.site-header .header-inner{position:relative}.main-nav.mobile-open{display:flex;position:absolute;top:100%;left:0;right:0;background:var(--cream);border:1px solid var(--line);border-top:0;padding:12px 18px 18px;flex-direction:column;gap:0;box-shadow:0 14px 24px rgba(20,35,28,.12)}.main-nav.mobile-open a{padding:12px 0;border-bottom:1px solid var(--line);font-size:14px}.main-nav.mobile-open a:last-child{border-bottom:0}}
+
+/* Lovina dolphin experience prototype */
+.lovina-hero .product-hero-image{background-image:url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1800&q=85');background-position:center 54%}
+.option-checks{display:grid;gap:9px;margin:4px 0}
+.option-check{display:flex;align-items:flex-start;gap:11px;padding:13px;border:1px solid var(--line);background:#fff;cursor:pointer}
+.option-check input{accent-color:var(--forest);margin:3px 0 0}
+.option-check span{display:grid;gap:4px}
+.option-check strong{font-size:12px}
+.option-check small{font-size:11px;line-height:1.45;color:var(--muted)}
