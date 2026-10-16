@@ -507,3 +507,18 @@ Sebelum deployment:
 6. nyatakan deployment berhasil hanya setelah URL dan hasilnya benar-benar diperiksa.
 
 **Tahap implementasi berikutnya setelah roadmap ditinjau:** audit seluruh halaman dan konfigurasi GitHub Pages yang ada; petakan reuse vs perbaikan; susun data model/konten untuk tiket dan paket tour; lalu isi kerangka halaman secara konsisten, satu tahap terverifikasi pada satu waktu. Jangan langsung mengaktifkan backend, pembayaran, perencana anggaran, atau booking transportasi otomatis.
+
+
+### 11.7 Ketersediaan kalender yang akurat dan komunikasi publik
+
+Ketersediaan harus dibedakan berdasarkan **tanggal, jenis kendaraan, durasi, dan kapasitas yang benar-benar terkonfirmasi**. Jangan membuat pola “penuh” yang seragam untuk semua mobil atau semua tanggal demi membatasi permintaan.
+
+Contoh perilaku yang diharapkan:
+- Jika Avanza tidak tersedia pada 28 Oktober, tampilkan tanggal itu sebagai tidak tersedia untuk Avanza.
+- Jika Innova masih tersedia pada tanggal yang sama, tawarkan Innova sebagai alternatif; jika tidak, tampilkan alternatif tanggal yang memang tersedia.
+- Kalender bulan berikutnya harus mengikuti data ketersediaan yang sebenarnya. Tanggal kosong di antara tanggal penuh harus tetap tampak kosong/tersedia jika memang dapat dipesan.
+- Bedakan status **tersedia**, **tidak tersedia**, dan **perlu konfirmasi**. Jangan menyebut tanggal “penuh” jika belum ada data kapasitas yang membuktikannya.
+- Jika kapasitas untuk tanggal tertentu belum dibuka atau belum dapat dipastikan, gunakan mekanisme yang jujur dan tidak menyesatkan, seperti “periksa ketersediaan” atau “konfirmasi terlebih dahulu”; jangan menciptakan kesan permintaan tinggi atau kelangkaan palsu.
+- Ketersediaan perlu diperiksa ulang sebelum pesanan dianggap terkonfirmasi, dan status/kapasitas harus diperbarui setelah booking diterima agar tidak terjadi pemesanan ganda.
+
+**Batas komunikasi publik:** website dan materi pemasaran hanya membahas layanan, pilihan kendaraan, tanggal, harga, dan ketentuan pelanggan. Jangan menampilkan cerita internal tentang pembangunan kembali bisnis, belum adanya armada, sedang mencari mitra, atau alasan operasional lain yang bukan informasi yang perlu diketahui pelanggan. Informasi yang wajib diketahui agar pelanggan memahami status pesanannya tetap disampaikan secara profesional dan seperlunya; jangan menjanjikan kendaraan sebelum ketersediaannya terkonfirmasi.
