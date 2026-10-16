@@ -60,3 +60,12 @@ Continue the shared-layout audit: compare header/footer, spacing, page headings,
 - The broader header/footer audit remains open: navigation item order and labels vary, footer structures differ, and some checkout pages intentionally use a reduced footer.
 - The preview branch at commit `fc5b16ee0eb445ab5dc1bfbb2373ddb0b1ada407` has successful GitHub Actions publish and Pages build/deployment runs. The live URL itself was not verifiable from the current tool environment, and browser/mobile review remains outstanding.
 - No code from this follow-up branch has been merged into `preview/bali-trans` or `main` at the time this note was written.
+
+
+### Full static reference check — 17 October 2026
+
+- Enumerated the current preview baseline and confirmed **35 HTML pages**.
+- Scanned **840 `href`/`src` attributes** across all 35 pages on `work/shared-navigation-audit-2026-10-17`.
+- **No missing local file targets** were found by the repository-relative path check.
+- The 33 newly added Wishlist navigation links were individually checked and all resolve to `pages/account/wishlist.html`.
+- This check cannot establish whether external links respond, JavaScript interactions work, the layout fits mobile screens, or the live site renders correctly.
