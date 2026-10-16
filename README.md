@@ -1,9 +1,9 @@
-# BDM Trans Indonesia — Frontend Foundation V1
+# Bali Trans — Frontend Foundation V1
 
-Fondasi awal platform BDM. Fokus versi ini adalah **struktur**, bukan backend/produksi.
+Fondasi awal website Bali Trans. Fokus versi ini adalah **struktur dan prototipe**, bukan backend/produksi.
 
 ## Prinsip
-BDM adalah platform perjalanan: Discover → Choose → Price → Book → Travel → Optional Transport.
+Bali Trans adalah platform perjalanan: Discover → Choose → Price → Book → Travel → Optional Transport.
 
 Transport bukan pintu masuk utama.
 
@@ -13,14 +13,14 @@ Transport bukan pintu masuk utama.
 - `pages/experiences/` — aktivitas & pengalaman
 - `pages/tours/` — tur
 - `pages/tickets/` — tiket
-- `pages/dining/` — BDM Dining
+- `pages/dining/` — Bali Trans Dining
 - `pages/destinations/` — destinasi
 - `pages/guides/` — panduan & travel updates
 - `pages/marketplace/` — produk lokal / Muslim travel essentials
 - `pages/transport/` — transport opsional
 - `pages/itinerary/` — Build Your Day
 - `pages/booking/` — booking, payment, confirmation, invoice
-- `pages/account/` — login & My BDM
+- `pages/account/` — login & My Bali Trans
 - `pages/partner/` — fondasi partner portal
 - `pages/admin/` — fondasi operasi internal
 - `assets/` — media
