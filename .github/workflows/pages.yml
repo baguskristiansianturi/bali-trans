@@ -1,0 +1,46 @@
+name: Publish Bali Trans preview
+
+on:
+  push:
+    branches:
+      - preview/bali-trans
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: bali-trans-pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out preview branch
+        uses: actions/checkout@v4
+      - name: Prepare static preview only
+        run: |
+          mkdir -p _site
+          cp index.html _site/
+          cp -R css js pages _site/
+          printf 'User-agent: *\nDisallow: /\n' > _site/robots.txt
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy preview
+        id: deployment
+        uses: actions/deploy-pages@v4
