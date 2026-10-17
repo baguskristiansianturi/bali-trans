@@ -333,3 +333,19 @@ Current focus is the homepage only. Updated `index.html` copy to remove demo/pre
 - [ ] Do not start a broad site-wide redesign or move on to secondary page copy until homepage is reviewed and approved.
 
 **Completion standard:** a source edit, commit, passing static check or successful deploy workflow alone is not homepage acceptance. Business truth, working interaction, mobile layout and review status must be reported separately.
+
+
+### Product readiness gate — 17 October 2026
+
+Before a product appears as available to buy, verify its fulfilment owner, supplier/partner, inclusions and exclusions, price basis, availability process, cancellation terms, and the person responsible for the customer. The Lovina dolphin page is explicitly a prototype; its operator, price, schedule, availability and inclusions are unconfirmed. Do not treat the form flow as a real product. The current inspected pages do not establish that activity tickets, half/full-day tours, multi-day packages, Nusa Penida/combination trips, or transport/airport transfer are ready to sell. Mark them as unverified until evidence exists. Custom-itinerary enquiries also need an actual recipient and response process before being advertised as supported.
+
+### Competitor review — decision summary
+
+- Klook's public Bali activity catalogue demonstrates searchable categories, filters, prices, ratings/booked signals, date cues and cancellation/confirmation information. Learn from the decision information; do not imitate marketplace scale or invent signals. https://www.klook.com/en-US/destination/c8-bali/1-things-to-do/
+- Bali Golden Tour demonstrates package-led discovery, private-tour options and a direct custom-itinerary enquiry path. Verify exact current terms before citing any detail as fact. https://baligoldentour.com/
+- Muslim-focused operators such as Halal Bali Tourism and Bali Central Travel make audience needs tangible through family itinerary choices, prayer/meal planning, private trip framing and direct enquiries. Those are competitor claims, not BDM capabilities. https://halalbalitourism.com/ https://bctbali.com/en/
+- BDM's opportunity is not to claim the largest catalogue or instant booking. It is to give families and Muslim travellers clear, verified choices and a transparent enquiry-to-written-quote process. Only advertise prayer-aware routing, halal verification, language support, private transport or other differentiators once operationally confirmed.
+
+### Locale requirement — acceptance criteria
+
+A visible language and currency control must be present in the shared header on desktop and mobile. Indonesian uses natural casual Indonesian + IDR; US English + USD; Singapore English must be adapted to natural Singlish + SGD; Malaysian Malay must use Malaysian usage (not Indonesian Malay) + MYR. These are separate copy variants, not literal translations. Currency preference must not pretend to perform a live conversion or establish a payable price. Arabic remains unresolved. Implement only with a working interaction and verify it; a decorative selector does not pass.
