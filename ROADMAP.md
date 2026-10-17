@@ -136,3 +136,12 @@
 - [ ] Test homepage search and the Lovina request flow in a browser, including invalid/missing state, back/refresh and session-storage behaviour.
 
 **Boundary:** source validation and workflow results are not visual acceptance or proof of live booking/payment functionality.
+
+
+### Site-wide navigation consistency follow-up — 17 October 2026
+
+- [x] Apply a consistent accessible name to the primary navigation landmark across the 35 HTML routes in a reviewable branch.
+- [x] Ensure all mobile menu toggles declare an accessible label, initial expanded state and controlled navigation ID in source markup; shared JavaScript remains responsible for runtime state updates.
+- [x] Expand the static validator to cover all HTML routes for local references and shared navigation markup, while keeping the seven-page content contract scoped to that package.
+- [ ] Review the PR and verify the Actions result before merging into `preview/bali-trans`.
+- [ ] Test menu open/close, focus visibility, touch use and responsive layout in a real mobile/desktop browser; static source checks do not replace these checks.

@@ -6,7 +6,7 @@ from urllib.parse import unquote, urlsplit
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
-PAGES = (
+CONTENT_PAGES = (
     "pages/about.html",
     "pages/contact.html",
     "pages/privacy.html",
@@ -55,8 +55,10 @@ def main():
     checked_refs = 0
     existing_pages = []
     parsed_pages = []
+    all_pages = sorted(p for p in ROOT.rglob("*.html") if ".git" not in p.parts)
 
-    for relative in PAGES:
+    for page in all_pages:
+        relative = page.relative_to(ROOT).as_posix()
         page = ROOT / relative
         if not page.is_file():
             errors.append(f"{relative}: page file is missing")
@@ -74,7 +76,21 @@ def main():
     enforce_layout_contract = LAYOUT_STYLESHEET.is_file()
 
     for relative, page, parser in parsed_pages:
-        if enforce_layout_contract:
+        # Shared navigation contract applies to every HTML route, not only the
+        # seven public content pages. Keep page-specific layout assertions scoped
+        # to the content package until other families are redesigned.
+        navs = [attrs for tag, attrs in parser.attrs if tag == "nav" and attrs.get("id") == "mainNav"]
+        toggles = [attrs for tag, attrs in parser.attrs if tag == "button" and attrs.get("id") == "menuToggle"]
+        if len(navs) != 1:
+            errors.append(f"{relative}: expected exactly one #mainNav, found {len(navs)}")
+        elif not navs[0].get("aria-label", "").strip():
+            errors.append(f"{relative}: #mainNav needs a non-empty accessible name")
+        if len(toggles) != 1:
+            errors.append(f"{relative}: expected exactly one #menuToggle, found {len(toggles)}")
+        elif toggles[0].get("aria-label", "").strip() == "" or toggles[0].get("aria-expanded") not in ("true", "false") or toggles[0].get("aria-controls") != "mainNav":
+            errors.append(f"{relative}: #menuToggle must have aria-label, aria-expanded=true/false and aria-controls=mainNav")
+
+        if enforce_layout_contract and relative in CONTENT_PAGES:
             if parser.h1 != 1:
                 errors.append(f"{relative}: expected exactly one H1, found {parser.h1}")
             if parser.main_open != 1 or parser.main_close != 1:
@@ -136,13 +152,14 @@ def main():
 
     if enforce_layout_contract:
         print(
-            f"Content layout validation passed: {len(existing_pages)} pages; "
-            f"layout contract and {checked_refs} local href/src references checked."
+            f"Site validation passed: {len(existing_pages)} HTML pages; "
+            f"site-wide navigation contract, seven-page content layout contract and "
+            f"{checked_refs} local href/src references checked."
         )
     else:
         print(
-            f"Local reference validation passed: {len(existing_pages)} pages and "
-            f"{checked_refs} href/src references. Layout-contract checks were skipped "
+            f"Site navigation and local-reference validation passed: {len(existing_pages)} HTML pages and "
+            f"{checked_refs} href/src references. Seven-page content layout-contract checks were skipped "
             "because css/content-layout.css is not present in this revision; "
             "the full contract is enforced when the package is included."
         )
