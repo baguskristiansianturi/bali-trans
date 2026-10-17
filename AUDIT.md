@@ -208,3 +208,11 @@ Recommended next implementation: standardize the menu-toggle accessibility contr
 - The complete 35-route source inventory is above. It is not a visual, keyboard, screen-reader or end-to-end audit.
 - No site-wide navigation/footer rewrite was made. The inventory recommends deciding shared labels and intentional exceptions before touching remaining page families.
 - Keep operational limitations explicit: the current preview is noindex, Search is a navigation prototype, Contact has no connected support channel, Privacy/Terms are drafts, Travel Updates has no live feed, and booking/payment/account/admin flows are not live services.
+
+
+### Follow-up implementation: site-wide navigation accessibility consistency — 17 October 2026
+
+- On branch `audit/sitewide-navigation-a11y-2026-10-17`, all 35 HTML routes are being normalized to give `#mainNav` an explicit accessible name and to declare `aria-label`, `aria-expanded="false"` and `aria-controls="mainNav"` on `#menuToggle` in the initial HTML.
+- The shared `js/main.js` menu handler already updates `aria-expanded` and `aria-label` when the menu opens/closes and sets `aria-controls`; the markup update makes the initial state explicit for assistive technologies and source-based checks.
+- The validator is being extended from seven-page-only link scanning to all HTML routes and a site-wide navigation contract. The stricter skip-link/main/content stylesheet contract remains limited to the seven public content pages.
+- Pending: inspect the PR workflow result and deployment after merge. No visual, keyboard, screen-reader or real-device result is claimed by this source audit.
