@@ -68,3 +68,12 @@
 **Verified:** source-level changes listed above; static local-reference scan as described; GitHub Actions publish and Pages workflows succeeded for the recorded preview commit.
 
 **Not verified:** live-site visual rendering, responsive behaviour, accessibility with a browser/assistive technology, external URLs, functional search/booking end-to-end, operational product data, backend, payments or production readiness.
+
+
+### PR-safe content validation — 17 October 2026
+
+- [x] Add a dependency-free Python validator for the seven-page public content layout package.
+- [x] Add a GitHub Actions workflow for PRs targeting `preview/bali-trans` and manual dispatch; it does not deploy.
+- [ ] Review and merge the CI-enablement PR before expecting the workflow to run on future PRs. The workflow cannot validate its own introducing PR while absent from the base branch.
+- [ ] Once enabled, run the validator against PR #10 and resolve any failures before considering merge.
+- [ ] Complete real browser/device, keyboard and screen-reader checks; automated source validation alone is not acceptance.
