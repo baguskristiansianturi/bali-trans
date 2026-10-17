@@ -77,3 +77,12 @@
 - [ ] Review and merge the CI-enablement PR before expecting the workflow to run on future PRs. The workflow cannot validate its own introducing PR while absent from the base branch.
 - [ ] Once enabled, run the validator against PR #10 and resolve any failures before considering merge.
 - [ ] Complete real browser/device, keyboard and screen-reader checks; automated source validation alone is not acceptance.
+
+
+### Validation failure and scope fix — 17 October 2026
+
+- [x] Inspect the first Actions run for PR #11 rather than treating the empty status lookup as inconclusive: run [39004177941](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39004177941) failed because PR #11's merge revision contains the older preview pages, not the seven-page package proposed in PR #10.
+- [x] Adjust the validator to retain local reference checks on the older base while enabling the full page-layout contract only when `css/content-layout.css` is present.
+- [ ] Re-run the workflow after this fix and record its actual result.
+- [ ] Once the workflow is available on the base branch, validate PR #10's seven-page package against the full contract; do not count a skipped contract as a package pass.
+- [ ] Complete real browser/device, keyboard and screen-reader checks; automation does not replace them.
