@@ -131,3 +131,11 @@
 - Do not delete Dining, Guides or marketplace route files until the 35-route inbound-link audit is complete; first remove public promotion and decide whether old URLs should redirect, become articles, or be retired.
 - Verification boundary: changes are source edits only until static validator/link checks and GitHub Actions results are inspected. No browser/device or legal review is claimed.
 - Next: inspect the diff and validator outcome; search all HTML pages for Dining, Guides and Local Products nav/footer links, normalize page-family navigation in a small PR, then replace remaining generic foundation copy with useful content and honest empty states.
+
+
+### New product direction: compact blog-like navigation and locale pairing — 17 October 2026
+
+- User asks for a restrained navbar, similar to a blog/site rather than a crowded list of every category. Core pages and shared layout must be completed before adding more custom pages.
+- Language and currency should be chosen together in one locale preference (not two separate controls). Candidate locale profiles: Bahasa Indonesia + IDR, Bahasa Melayu + MYR, Singapore English + SGD, international/US English + USD. Do not claim language uniquely determines currency; present these as locale defaults and document fallback/formatting/persistence before implementing.
+- Sequence is explicit: (1) simplify and standardize nav/header/footer by page family; (2) complete essential website pages and their real content/states; (3) review UX/UI on mobile and desktop with the user; (4) only then run the Lovina package as a complete end-to-end test. Do not use package QA as a substitute for missing foundation pages.
+- Current PR #20 contains the first information-architecture correction and expanded Terms draft. Automated content-layout workflow passed for its latest commit; browser/device review is still unconfirmed. Continue with small reviewable changes and report each verification level separately.
