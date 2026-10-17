@@ -1,249 +1,52 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BDM Trans Indonesia — Plan Your Journey</title>
-  <meta name="description" content="Discover places, experiences, tours, dining and local services across Indonesia. Clear information, transparent prices and flexible ways to travel.">
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BDM Trans Indonesia — Discover Bali, Your Way</title>
+<meta name="description" content="Find Bali tours, activities and private transport in one place. Explore options, compare details and plan your day with BDM Trans Indonesia.">
+<meta name="theme-color" content="#ffffff">
+<link rel="preconnect" href="https://images.unsplash.com">
+<style>
+:root{--ink:#202124;--muted:#646970;--line:#e7e8ea;--brand:#087f8c;--brand-dark:#066772;--soft:#f5f7f8;--max:1180px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;background:#fff}a{color:inherit;text-decoration:none}button,input{font:inherit}.wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
+header{height:72px;display:flex;align-items:center;border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:20}.head{display:flex;align-items:center;gap:30px}.brand{display:flex;align-items:center;gap:9px;font-weight:850;letter-spacing:-.06em;font-size:25px;margin-right:auto}.brand-mark{display:grid;place-items:center;background:var(--brand);color:white;width:37px;height:37px;border-radius:10px;font-size:17px;letter-spacing:-.04em}.brand small{display:block;font-size:9px;letter-spacing:.13em;color:var(--muted);font-weight:700;margin-top:-5px}.nav{display:flex;gap:26px;font-size:13px;color:#42464a}.nav a:hover{color:var(--brand)}.head-cta,.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:8px;background:var(--brand);color:#fff;font-weight:700;padding:12px 18px;min-height:44px}.head-cta:hover,.btn:hover{background:var(--brand-dark)}.menu{display:none;background:none;border:0;font-size:24px}
+.hero{padding:34px 0 0}.hero-photo{min-height:420px;border-radius:18px;position:relative;overflow:hidden;background:#31433e url('https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=2000&q=85') center 48%/cover;display:flex;align-items:center}.hero-photo:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,25,27,.72),rgba(10,25,27,.14) 78%)}.hero-copy{position:relative;color:#fff;padding:52px;max-width:660px}.eyebrow{font-size:12px;font-weight:750;letter-spacing:.04em;color:var(--brand);text-transform:uppercase}.hero .eyebrow{color:#baf2ee}.hero h1{font-size:clamp(36px,5vw,58px);letter-spacing:-.055em;line-height:1.03;margin:13px 0 14px;max-width:540px}.hero p{font-size:16px;color:#f1f4f4;max-width:460px;margin:0 0 22px}.searchbox{display:flex;background:#fff;padding:6px;border-radius:10px;max-width:610px;box-shadow:0 12px 35px #0002}.searchbox input{flex:1;min-width:0;border:0;outline:0;padding:12px;color:var(--ink);background:transparent}.searchbox button{border:0;border-radius:7px;background:var(--brand);color:#fff;font-weight:750;padding:0 22px;cursor:pointer}
+.section{padding:48px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:22px}.section h2{font-size:26px;letter-spacing:-.04em;line-height:1.15;margin:5px 0 0}.section-head p{color:var(--muted);max-width:400px;font-size:13px;margin:0}.categories{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.category{display:flex;align-items:center;gap:13px;border:1px solid var(--line);padding:17px;border-radius:12px;min-height:82px;transition:border-color .15s,transform .15s}.category:hover{border-color:#9acfd0;transform:translateY(-2px)}.cat-icon{width:43px;height:43px;border-radius:10px;background:#e8f6f5;display:grid;place-items:center;font-size:21px;flex-shrink:0}.category strong{display:block;font-size:14px}.category small{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:#fff;transition:box-shadow .2s,transform .2s}.card:hover{box-shadow:0 10px 28px #1d303014;transform:translateY(-3px)}.card-img{height:190px;background-size:cover;background-position:center}.img-rafting{background-image:url('https://images.unsplash.com/photo-1530866495561-507c6e3f2b1d?auto=format&fit=crop&w=900&q=80')}.img-temple{background-image:url('https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?auto=format&fit=crop&w=900&q=80')}.img-coast{background-image:url('https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=900&q=80')}.card-body{padding:17px}.tag{font-size:11px;color:var(--brand);font-weight:750}.card h3{font-size:18px;letter-spacing:-.025em;margin:6px 0}.card p{font-size:13px;color:var(--muted);margin:0 0 15px}.card-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;border-top:1px solid var(--line);padding-top:13px;font-size:12px}.text-link{color:var(--brand);font-weight:750}.transport{background:var(--soft);border-radius:14px;padding:26px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px}.transport h2{font-size:23px;margin:0 0 6px}.transport p{color:var(--muted);margin:0;font-size:13px;max-width:610px}.footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:12px}.foot-inner{display:flex;align-items:center;justify-content:space-between;gap:18px}.foot-links{display:flex;gap:18px;flex-wrap:wrap}
+@media(max-width:800px){.nav{display:none;position:absolute;top:71px;left:0;right:0;padding:18px 22px;background:white;border-bottom:1px solid var(--line);flex-direction:column;gap:18px}.nav.open{display:flex}.head-cta{display:none}.menu{display:block}.hero{padding-top:18px}.hero-photo{min-height:400px}.hero-copy{padding:30px 24px}.hero h1{font-size:clamp(36px,9vw,49px)}.section{padding:36px 0}.section-head{display:block}.section-head p{margin-top:10px}.categories{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.category{padding:12px;gap:10px;min-height:76px}.cat-icon{width:38px;height:38px}.cards{grid-template-columns:1fr;gap:14px}.card{display:grid;grid-template-columns:36% 1fr}.card-img{height:100%;min-height:175px}.card-body{padding:14px}.card h3{font-size:16px}.card p{font-size:12px;margin-bottom:10px}.transport{align-items:flex-start;flex-direction:column;padding:22px}.foot-inner{align-items:flex-start;flex-direction:column}.wrap{width:min(var(--max),calc(100% - 28px))}}
+@media(max-width:420px){.hero-photo{min-height:420px}.hero-copy{padding:25px 18px}.searchbox input{padding:10px 8px;font-size:13px}.searchbox button{padding:0 14px}.category{align-items:flex-start;flex-direction:column}.cat-icon{width:36px;height:36px}.card{grid-template-columns:34% 1fr}.card-img{min-height:195px}.card-bottom{align-items:flex-start;flex-direction:column;gap:7px}}
+</style>
 </head>
 <body>
-<header class="site-header">
-  <div class="container header-inner">
-    <a href="index.html" class="logo" aria-label="BDM Trans Indonesia">
-      <span class="logo-main">BDM</span>
-      <span class="logo-sub">TRANS INDONESIA</span>
-    </a>
-    <nav class="main-nav" id="mainNav">
-      <a href="pages/search.html">Discover</a>
-      <a href="pages/experiences/index.html">Experiences</a>
-      <a href="pages/tours/index.html">Tours</a>
-      <a href="pages/dining/index.html">Dining</a>
-      <a href="pages/itinerary/build.html">Build Your Day</a>
-    </nav>
-    <a href="pages/booking/step-1.html" class="header-book">Plan Your Journey</a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation"><span></span><span></span></button>
-  </div>
-</header>
-
+<header><div class="wrap head">
+<a class="brand" href="index.html" aria-label="BDM Trans home"><span class="brand-mark">BDM</span><span>BDM<small>TRANS INDONESIA</small></span></a>
+<nav class="nav" id="mainNav"><a href="#discover">Discover</a><a href="pages/experiences/index.html">Activities</a><a href="pages/tours/index.html">Tours</a><a href="pages/transport/index.html">Transport</a></nav>
+<a class="head-cta" href="pages/booking/step-1.html">Plan your trip</a><button class="menu" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+</div></header>
 <main>
-  <section class="hero">
-    <div class="hero-media"></div>
-    <div class="hero-shade"></div>
-    <div class="container hero-content">
-      <div class="eyebrow light">BDM TRANS INDONESIA</div>
-      <h1>Plan the journey.<br><em>Then enjoy it.</em></h1>
-      <p>Discover where to go, what to do, how much it costs and how to book — with guidance designed around families, couples and Muslim-friendly travel.</p>
-      <form class="hero-search" id="searchForm">
-        <input id="heroSearch" type="search" placeholder="Search a place, experience, tour or activity..." aria-label="Search BDM">
-        <button type="submit">Search</button>
-      </form>
-      <p class="hero-note">Transport is optional. Your journey comes first.</p>
-    </div>
-  </section>
-
-  <section class="section" id="discover">
-    <div class="container">
-      <div class="section-head">
-        <div><div class="eyebrow">Start here</div><h2>What are you looking for?</h2></div>
-        <p>Start with what you want to experience. Compare information and prices first. Decide how you want to get there later.</p>
-      </div>
-      <div class="category-grid">
-        <a class="category-card" href="pages/experiences/index.html"><span>01</span><strong>Things to do</strong><small>Activities & experiences</small></a>
-        <a class="category-card" href="pages/tours/index.html"><span>02</span><strong>Tours</strong><small>Private & curated journeys</small></a>
-        <a class="category-card" href="pages/tickets/index.html"><span>03</span><strong>Tickets</strong><small>Attractions & activities</small></a>
-        <a class="category-card" href="pages/dining/index.html"><span>04</span><strong>Dining</strong><small>BDM-approved local options</small></a>
-        <a class="category-card" href="pages/destinations/index.html"><span>05</span><strong>Destinations</strong><small>Know before you go</small></a>
-        <a class="category-card" href="pages/guides/index.html"><span>06</span><strong>Guides</strong><small>Practical travel information</small></a>
-        <a class="category-card" href="pages/marketplace/index.html"><span>07</span><strong>Local products</strong><small>Coming soon</small></a>
-        <a class="category-card" href="pages/transport/index.html"><span>08</span><strong>Transport</strong><small>Private travel when needed</small></a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-sand">
-    <div class="container">
-      <div class="section-head">
-        <div><div class="eyebrow">Discover Bali</div><h2>Choose the experience first.</h2></div>
-        <p>See the place, schedule, inclusions, price and booking conditions before deciding anything else.</p>
-      </div>
-      <div class="feature-grid">
-        <a class="feature-card feature-large" href="pages/experiences/rafting-ubud.html">
-          <div class="feature-image rafting"></div>
-          <div class="feature-overlay"><span class="eyebrow light">EXPERIENCE · UBUD</span><h3>Ayung River Rafting</h3><p>From Rp175,000 / person</p></div>
-        </a>
-        <div class="feature-side">
-          <a class="feature-card" href="pages/experiences/index.html"><div class="feature-image culture"></div><div class="feature-overlay"><span class="eyebrow light">CULTURE</span><h3>Explore Bali differently</h3></div></a>
-          <a class="feature-card" href="pages/tours/index.html"><div class="feature-image coast"></div><div class="feature-overlay"><span class="eyebrow light">TOURS</span><h3>Build a private day</h3></div></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container two-column">
-      <div>
-        <div class="eyebrow">Travel with context</div>
-        <h2>Know what you're booking before you book it.</h2>
-        <p class="muted">BDM is designed for travelers who may not know the destination yet. We bring together practical information, prices, schedules, local recommendations and booking steps in one place.</p>
-        <div class="feature-list">
-          <div><strong>Clear prices</strong><span>See the applicable price before deciding.</span></div>
-          <div><strong>Real information</strong><span>What is included, where, when and how.</span></div>
-          <div><strong>Built around people</strong><span>Family, couples and Muslim-friendly needs.</span></div>
-          <div><strong>Your choice of transport</strong><span>BDM, another service, public transport or your own vehicle.</span></div>
-        </div>
-      </div>
-      <div class="photo photo-bali" role="img" aria-label="Bali destination"></div>
-    </div>
-  </section>
-
-  <section class="section section-sand">
-    <div class="container">
-      <div class="section-head">
-        <div><div class="eyebrow">Build your day</div><h2>One experience can become a whole journey.</h2></div>
-        <p>Start with one thing you want to do. Add dining, another experience or private transport when it makes sense.</p>
-      </div>
-      <div class="itinerary-demo">
-        <div class="itinerary-panel">
-          <div class="eyebrow">Example · Ubud</div>
-          <h3>Your Bali day</h3>
-          <div class="timeline">
-            <div><small>09:00</small><strong>Ayung River Rafting</strong><span>Experience · Rp175,000/person</span></div>
-            <div><small>12:30</small><strong>Lunch nearby</strong><span>BDM-approved dining options</span></div>
-            <div><small>14:00</small><strong>Choose your next experience</strong><span>Swing · Spa · Culture · Free time</span></div>
-            <div><small>18:00</small><strong>Dinner or return</strong><span>Choose what fits your day</span></div>
-          </div>
-        </div>
-        <div class="itinerary-panel dark-panel">
-          <div class="eyebrow light">YOUR CHOICES</div>
-          <h3>You stay in control.</h3>
-          <p>Transport is one option — not a requirement.</p>
-          <div class="choice-grid">
-            <div><strong>BDM</strong><span>Private pickup & return</span></div>
-            <div><strong>Your way</strong><span>Taxi, rental, own car</span></div>
-            <div><strong>Skip it</strong><span>Go directly yourself</span></div>
-          </div>
-          <a class="btn btn-light" href="pages/itinerary/build.html">Build Your Day</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section dark-section">
-    <div class="container">
-      <div class="section-head">
-        <div><div class="eyebrow light">Made around people</div><h2>Travel the way your group actually travels.</h2></div>
-        <p class="dark-muted">The same destination can need very different planning depending on who is traveling.</p>
-      </div>
-      <div class="trust-grid">
-        <div><span>01</span><h3>Families</h3><p>Practical pacing, easier movement, suitable activities and local needs considered together.</p></div>
-        <div><span>02</span><h3>Couples</h3><p>Private experiences, flexible days and space to choose how much you want planned.</p></div>
-        <div><span>03</span><h3>Muslim travelers</h3><p>Muslim-friendly guidance, approved dining options and practical information where it matters.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container two-column">
-      <div>
-        <div class="eyebrow">BDM Dining</div>
-        <h2>When you're somewhere unfamiliar, you shouldn't have to guess where to eat.</h2>
-        <p class="muted">Dining recommendations can connect to your itinerary — nearby, along the route, after an activity or close to your hotel.</p>
-        <a class="btn btn-dark" href="pages/dining/index.html">Explore BDM Dining</a>
-      </div>
-      <div class="dining-example">
-        <div class="eyebrow">Example</div>
-        <h3>After rafting</h3>
-        <p class="muted">Finish around 12:30. BDM can show approved dining options based on location, opening hours and route relevance.</p>
-        <div class="feature-list">
-          <div><strong>Restaurant A</strong><span>1.2 km · On route</span></div>
-          <div><strong>Restaurant B</strong><span>2.1 km · Family</span></div>
-          <div><strong>Restaurant C</strong><span>3.4 km · Local cuisine</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-sand" id="coming-soon">
-    <div class="container">
-      <div class="section-head">
-        <div><div class="eyebrow">The BDM network is growing</div><h2>More is coming.</h2></div>
-        <p>New services, products and destinations can appear here as BDM launches them.</p>
-      </div>
-      <div class="coming-grid">
-        <article><span class="pill">Coming Soon</span><h3>Muslim Travel Essentials</h3><p>Selected travel items such as mukena, hijab, sarong and family essentials, prepared before arrival and delivered to your hotel.</p><small>Hotel delivery</small></article>
-        <article><span class="pill">Coming Soon</span><h3>Indonesian Local Goods</h3><p>Food, clothing and selected products from Bali, Bandung and other Indonesian destinations.</p><small>Local products</small></article>
-        <article><span class="pill">Coming Soon</span><h3>More Indonesia</h3><p>BDM is starting from Bali and gradually building a trusted local network across Indonesia.</p><small>New destinations</small></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="promo-slot">
-    <div class="container promo-inner">
-      <div><div class="eyebrow">Promo / Launch / Announcement</div><h2>A place for what's new at BDM.</h2><p>Reserved from the beginning for future campaigns, launches, seasonal offers and important travel updates.</p></div>
-      <a class="btn btn-light" href="pages/guides/travel-updates.html">View Updates</a>
-    </div>
-  </section>
-
-  <section class="transport-band">
-    <div class="container two-column transport-layout">
-      <div>
-        <div class="eyebrow">When you need a private ride</div>
-        <h2>Your journey comes first. The road comes after.</h2>
-        <p class="muted">Choose BDM private transport when you want a more personal way to move between your hotel, airport, activity or destination. You are always free to travel another way.</p>
-        <a class="btn btn-dark" href="pages/transport/index.html">Explore Transport</a>
-      </div>
-      <div class="transport-options">
-        <div><strong>BDM Private</strong><span>Curated private transport</span></div>
-        <div><strong>Other transport</strong><span>Use the service you prefer</span></div>
-        <div><strong>Your own way</strong><span>Drive or travel independently</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="section-head"><div><div class="eyebrow">How it works</div><h2>Simple enough to understand before you travel.</h2></div><p>Start with what you want to do.</p></div>
-      <div class="steps">
-        <div><b>01</b><h3>Discover</h3><p>Find places, activities, tours, dining and practical guides.</p></div>
-        <div><b>02</b><h3>Choose</h3><p>See details, schedules, inclusions, prices and booking conditions.</p></div>
-        <div><b>03</b><h3>Book</h3><p>Choose options, review the total and complete the booking.</p></div>
-        <div><b>04</b><h3>Travel</h3><p>Follow your itinerary and use the support or transport you selected.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-sand">
-    <div class="container">
-      <div class="section-head"><div><div class="eyebrow">FAQ</div><h2>Before you book.</h2></div></div>
-      <div class="faq">
-        <details><summary>Do I have to use BDM transport?</summary><p>No. Transport is optional. You can use BDM, another service, public transport or your own vehicle.</p></details>
-        <details><summary>Can I book only an activity?</summary><p>Yes. An activity or ticket can be booked independently where available.</p></details>
-        <details><summary>Is BDM only for Muslim travelers?</summary><p>No. BDM is built with Muslim-friendly and family needs in mind while remaining open to travelers who value thoughtful planning.</p></details>
-        <details><summary>Will BDM have products and food?</summary><p>Those areas are part of the planned platform and will be introduced gradually through clearly marked launches and Coming Soon sections.</p></details>
-      </div>
-    </div>
-  </section>
-
-  <section class="final-cta">
-    <div class="container">
-      <div class="eyebrow light">BDM TRANS INDONESIA</div>
-      <h2>Start with where<br>you want to go.</h2>
-      <p>Then let the journey take shape from there.</p>
-      <a class="btn btn-light" href="pages/search.html">Explore BDM</a>
-    </div>
-  </section>
+<section class="hero"><div class="wrap"><div class="hero-photo"><div class="hero-copy"><div class="eyebrow">Your Bali trip starts here</div><h1>Find your kind of Bali.</h1><p>Discover experiences, tours and ways to get around. Choose what suits your trip, without the guesswork.</p><form class="searchbox" id="searchForm"><input id="heroSearch" type="search" placeholder="What would you like to do?" aria-label="Search tours and activities"><button type="submit">Search</button></form></div></div></div></section>
+<section class="section" id="discover"><div class="wrap"><div class="section-head"><div><div class="eyebrow">Explore</div><h2>What do you feel like doing?</h2></div><p>Start with what interests you. The details come next.</p></div>
+<div class="categories">
+<a class="category" href="pages/experiences/index.html"><span class="cat-icon" aria-hidden="true">◈</span><span><strong>Things to do</strong><small>Activities & experiences</small></span></a>
+<a class="category" href="pages/tours/index.html"><span class="cat-icon" aria-hidden="true">⌁</span><span><strong>Day tours</strong><small>Explore at your pace</small></span></a>
+<a class="category" href="pages/tickets/index.html"><span class="cat-icon" aria-hidden="true">▤</span><span><strong>Tickets</strong><small>Attractions & entry</small></span></a>
+<a class="category" href="pages/transport/index.html"><span class="cat-icon" aria-hidden="true">↗</span><span><strong>Private transport</strong><small>Airport & day trips</small></span></a>
+</div></div></section>
+<section class="section" style="background:#f7f9fa"><div class="wrap"><div class="section-head"><div><div class="eyebrow">A place to start</div><h2>Popular ways to explore</h2></div><a class="text-link" href="pages/experiences/index.html">See all experiences →</a></div>
+<div class="cards">
+<a class="card" href="pages/experiences/rafting-ubud.html"><div class="card-img img-rafting" role="img" aria-label="River adventure in Bali"></div><div class="card-body"><span class="tag">UBUD · OUTDOORS</span><h3>Ayung River Rafting</h3><p>Trade the busy roads for a river adventure surrounded by tropical scenery.</p><div class="card-bottom"><span>Experience in Bali</span><span class="text-link">View details →</span></div></div></a>
+<a class="card" href="pages/experiences/index.html"><div class="card-img img-temple" role="img" aria-label="Balinese temple and culture"></div><div class="card-body"><span class="tag">CULTURE</span><h3>Discover Bali's culture</h3><p>Find temples, local traditions and meaningful places to add to your day.</p><div class="card-bottom"><span>Culture & sightseeing</span><span class="text-link">Explore →</span></div></div></a>
+<a class="card" href="pages/tours/index.html"><div class="card-img img-coast" role="img" aria-label="Bali coastline"></div><div class="card-body"><span class="tag">MAKE IT YOURS</span><h3>Plan a private day out</h3><p>Bring a few places together and travel at a pace that works for you.</p><div class="card-bottom"><span>Flexible day tours</span><span class="text-link">Explore →</span></div></div></a>
+</div></div></section>
+<section class="section"><div class="wrap"><div class="transport"><div><h2>Need a ride as well?</h2><p>Arrange private transport for airport pickups, activities or a day exploring Bali. Choose it when it helps — no need to start there.</p></div><a class="btn" href="pages/transport/index.html">Explore transport</a></div></div></section>
 </main>
-
-<footer class="site-footer">
-  <div class="container footer-top">
-    <div class="footer-brand"><div class="logo"><span class="logo-main">BDM</span><span class="logo-sub">TRANS INDONESIA</span></div><p>Travel guidance, experiences and local services across Indonesia — built around the way you travel.</p></div>
-    <div class="footer-column"><h4>Explore</h4><a href="pages/tours/index.html">Tours</a><a href="pages/experiences/index.html">Experiences</a><a href="pages/tickets/index.html">Tickets</a><a href="pages/transport/index.html">Transport</a></div>
-    <div class="footer-column"><h4>Travel</h4><a href="pages/dining/index.html">BDM Dining</a><a href="pages/guides/index.html">Guides</a><a href="pages/destinations/index.html">Destinations</a><a href="pages/marketplace/index.html">Local Products</a></div>
-    <div class="footer-column"><h4>Account</h4><a href="pages/account/login.html">Login</a><a href="pages/account/dashboard.html">My BDM</a><a href="pages/booking/step-1.html">Booking</a><a href="pages/contact.html">Contact</a></div>
-  </div>
-  <div class="container footer-bottom"><span>© 2026 BDM Trans Indonesia</span><div><a href="pages/privacy.html">Privacy</a><a href="pages/terms.html">Terms</a></div></div>
-</footer>
-<script src="js/main.js"></script>
+<footer class="footer"><div class="wrap foot-inner"><a class="brand" href="index.html"><span class="brand-mark">BDM</span><span>BDM<small>TRANS INDONESIA</small></span></a><div class="foot-links"><a href="pages/tours/index.html">Tours</a><a href="pages/experiences/index.html">Activities</a><a href="pages/transport/index.html">Transport</a><a href="pages/booking/step-1.html">Plan your trip</a></div><span>© BDM Trans Indonesia</span></div></footer>
+<script>
+const menu=document.getElementById('menuToggle'),nav=document.getElementById('mainNav');
+if(menu&&nav){menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'Close navigation':'Open navigation');});}
+const form=document.getElementById('searchForm');
+if(form){form.addEventListener('submit',e=>{e.preventDefault();const q=document.getElementById('heroSearch').value.trim();window.location.href='pages/search.html'+(q?'?q='+encodeURIComponent(q):'');});}
+</script>
 </body>
 </html>
