@@ -188,7 +188,7 @@
 ### Navigation and locale
 - [ ] Keep the global navbar deliberately compact and blog-like; do not expose every future product/category as a top-level item. Proposed core: Discover/Experiences, Blog, one clear Plan CTA, and one compact locale control. Wishlist/account links should be secondary unless a tested user journey proves they need global prominence.
 - [ ] Standardize shared header/footer by page family before applying to all routes; preserve justified reduced layouts for checkout/request steps.
-- [ ] Treat language and currency as one **locale preference** control (one selection updates both), not two separate selectors. Initial proposed profiles for review: Bahasa Indonesia → IDR; Bahasa Melayu → MYR; English (Singapore) → SGD; English (international/US default) → USD. These are defaults only: language does not inherently determine currency, so label profiles clearly and let users change the locale as a pair later if required.
+- [ ] Treat language and currency as one **locale preference** control (one selection updates both), not two separate selectors. Initial proposed profiles for review: Bahasa Indonesia → IDR; Bahasa Melayu → MYR; Singlish (Singapore) → SGD; American English (United States) → USD. These are defaults only: language does not inherently determine currency, so label profiles clearly and let users change the locale as a pair later if required.
 - [ ] Do not imply that all pages are translated merely because a locale control exists. Build locale infrastructure and visible selector only after the supported locales, default, persistence, formatting, and untranslated-content fallback are specified.
 
 ### Foundation-page completion before custom pages
@@ -196,3 +196,13 @@
 - [ ] Complete the essentials first: Home, Discover/Search, Experiences, Blog/article detail, About, Contact, Privacy, Terms, and honest 404/empty/error states. Review Tours, Tickets, Destinations and Transport against real product scope before deciding to keep as core navigation or move to secondary links.
 - [ ] Make all public-facing pages purposeful and content-complete; replace generic demo copy with useful copy, or label genuinely unavailable functionality honestly. Verify page title/description, one clear H1, primary CTA, mobile reading width, and consistent header/footer.
 - [ ] Only after the core page set and shared UX/UI are reviewed and accepted should the team test the Lovina booking/request package as one end-to-end journey. No package-level acceptance before the user approves the page experience.
+
+
+## Content foundation correction — approved direction (17 October 2026)
+
+- Singapore profile must use natural, context-appropriate Singlish, not generic/formal English with a Singapore currency label. Malaysia profile must use Bahasa Melayu Malaysia, not Bahasa Indonesia. Indonesia profile must use casual, natural Bahasa Indonesia. United States/international profile must use natural American English, not stiff corporate copy.
+- One locale control selects the language profile and its default currency together: Indonesia → IDR; Malaysia → MYR; Singapore/Singlish → SGD; United States/American English → USD. Keep the pair explicit as a profile; do not imply language alone determines a user's currency in every circumstance.
+- Every in-scope page needs complete conceptual copy before SEO/copy optimization. A concept is acceptable at this stage, but empty “structure ready” placeholders are not. State clearly when real supplier, price, availability, or operational information is not yet confirmed.
+- Reuse a single article content-block system and one representative article layout so the team can review the visual model consistently: title/deck, byline or update date, hero/media, contents where useful, readable body sections, callout/source notes, related articles and a clear next step. Build the block once and reuse it rather than inventing a different layout for every article.
+- Keep the navbar compact and blog-like. Dining and Local Products are not top-level features; useful advice can be published as blog content. Keep the page label “Transport” for now and evaluate the actual scope before considering “Car Rental”.
+- Delivery sequence: complete the shared article/page blocks and conceptual copy for all core pages; review the full UX/UI with the user; only after explicit approval test the Lovina package end-to-end. Do not mark the Lovina package as the next acceptance gate before the foundation review.
