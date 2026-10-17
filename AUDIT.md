@@ -133,3 +133,70 @@ Recommended next implementation: standardize the menu-toggle accessibility contr
 - PR #10 normalizes the seven pages to shorter, locally consistent relative paths, but this should be described as link-path normalization, not as proof that the earlier paths were broken.
 - The current package validator has passed the full contract and local-reference checks on a revision containing `css/content-layout.css` in run [39004560674](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39004560674). A newer run is still needed for the latest head if it contains further page changes.
 
+
+## Complete header/footer source inventory — 17 October 2026
+
+**Scope:** inspected the source of all 35 HTML routes on the current `preview/bali-trans` branch after PR #10 merged. This is a row-by-row source inventory, not browser, responsive, keyboard, screen-reader or end-to-end verification.
+
+**Codes:** `Shared` navigation = Discover / Experiences / Tours / Dining / Build Your Day / Wishlist. `Home` = Discover / Experiences / Tours / Dining / Travel guides / Wishlist. `Wishlist` = Discover / Experiences / Tours / Tickets / Wishlist. Toggle `All` means the source contains `aria-label`, `aria-expanded` and `aria-controls`; `Label` means only `aria-label`; `None` means none of those three attributes is present in initial HTML. Footer `Full` is the standard 14-link footer; `Home` is the homepage's 15-link Discover/Plan/Information variant; `Wish` is the Wishlist's 13-link variant; `Detail` is the experience detail's 12-link variant; `Compact` is the booking-step footer with Privacy and Terms only.
+
+| Route | Nav variant | Logo subtitle | Toggle source attributes | Footer | `aria-current=page` |
+| --- | --- | --- | --- | --- | --- |
+| `index.html` | Home | TRANS | All | Home (15 links) | None |
+| `pages/about.html` | Shared | TRANS | All | Full | None |
+| `pages/contact.html` | Shared | TRANS INDONESIA | All | Full | None |
+| `pages/privacy.html` | Shared | TRANS INDONESIA | All | Full | None |
+| `pages/terms.html` | Shared | TRANS INDONESIA | All | Full | None |
+| `pages/search.html` | Shared | TRANS INDONESIA | All | Full | None |
+| `pages/experiences/index.html` | Shared | TRANS | Label | Full | Experiences |
+| `pages/experiences/lovina-dolphin.html` | Shared | TRANS | Label | Detail (12 links; includes Home) | None |
+| `pages/tickets/index.html` | Shared | TRANS INDONESIA | None | Full | None |
+| `pages/tours/index.html` | Shared | TRANS INDONESIA | None | Full | None |
+| `pages/destinations/index.html` | Shared | TRANS INDONESIA | None | Full | None |
+| `pages/dining/index.html` | Shared | TRANS INDONESIA | None | Full | None |
+| `pages/marketplace/index.html` | Shared | TRANS INDONESIA | None | Full | None |
+| `pages/guides/index.html` | Shared | TRANS INDONESIA | All | Full | None |
+| `pages/guides/travel-updates.html` | Shared | TRANS INDONESIA | All | Full | None |
+| `pages/transport/index.html` | Shared | TRANS INDONESIA | None | Full | None |
+| `pages/itinerary/build.html` | Shared | TRANS INDONESIA | None | Full | None |
+| `pages/itinerary/itinerary.html` | Shared | TRANS INDONESIA | None | Full | None |
+| `pages/account/bookings.html` | Shared | TRANS | None | Full | None |
+| `pages/account/dashboard.html` | Shared | TRANS | None | Full | None |
+| `pages/account/invoices.html` | Shared | TRANS | None | Full | None |
+| `pages/account/journeys.html` | Shared | TRANS | None | Full | None |
+| `pages/account/login.html` | Shared | TRANS | None | Full | None |
+| `pages/account/profile.html` | Shared | TRANS INDONESIA | None | Full | None |
+| `pages/account/register.html` | Shared | TRANS | None | Full | None |
+| `pages/account/reviews.html` | Shared | TRANS INDONESIA | None | Full | None |
+| `pages/account/wishlist.html` | Wishlist | TRANS | All | Wish (13 links) | Wishlist |
+| `pages/booking/step-1.html` | Shared | TRANS | Label | Compact (2 links) | None |
+| `pages/booking/step-2.html` | Shared | TRANS | Label | Compact (2 links) | None |
+| `pages/booking/step-3.html` | Shared | TRANS | Label | Compact (2 links) | None |
+| `pages/booking/confirmation.html` | Shared | TRANS | Label | Compact (2 links) | None |
+| `pages/booking/payment.html` | Shared | TRANS INDONESIA | None | Full | None |
+| `pages/booking/invoice.html` | Shared | TRANS INDONESIA | None | Full | None |
+| `pages/partner/index.html` | Shared | TRANS INDONESIA | None | Full | None |
+| `pages/admin/index.html` | Shared | TRANS INDONESIA | None | Full | None |
+
+### Cross-route findings
+
+- **Navigation labels:** 33 routes use the Shared variant; homepage substitutes “Travel guides” for “Build Your Day”; Wishlist substitutes “Tickets” for both “Dining” and “Build Your Day”. The Wishlist variant is not documented as an intentional product decision yet.
+- **Logo subtitle:** both `TRANS` and `TRANS INDONESIA` are used across the site. The difference is not tied consistently to page family.
+- **Header CTA:** homepage uses “Plan your day” and points to the itinerary builder; most pages use “Plan Your Journey” and point to booking step 1. Lovina detail uses “Plan your journey”; Wishlist uses “Explore experiences”; booking steps use contextual back/detail CTAs. Preserve contextual labels only where the destination warrants them, and normalize generic casing.
+- **Menu toggle:** 7 public content package pages (About, Contact, Privacy, Terms, Search, Guides index, Travel Updates) now contain all three static ARIA attributes after PR #10. Homepage and Wishlist also contain all three. Experiences index/detail and booking steps 1–3/confirmation contain only `aria-label`; the remaining 20 routes contain none in initial HTML. Runtime code may initialize state, but source differences remain.
+- **Navigation naming:** the seven PR #10 content pages explicitly label their nav landmark “Primary navigation”; this has not yet been standardized across the other routes.
+- **Active state:** only Experiences index and Wishlist currently expose `aria-current="page"` in the primary nav. The other 33 routes have no current-page marker in the inspected nav markup. Do not claim active-state consistency.
+- **Footer:** 28 routes use the standard 14-link full footer; homepage uses a 15-link custom footer; Wishlist has a 13-link variant; Lovina detail has a 12-link variant including a Home link; booking steps 1–3 and confirmation use a compact two-link footer. The compact checkout footer is a likely intentional exception, but it still needs visual and task-flow validation.
+- **Footer copy:** generic labels vary, including “My Bali Trans”, “My Bali”, “My account”, “Local Products” and “Local products”. Footer link order is mostly repeated, but homepage and Wishlist use different groupings.
+- **Relative URL clarification:** relative paths such as `../pages/search.html` from a top-level `pages/*.html` file and `../../pages/search.html` from a nested `pages/<family>/index.html` file resolve to `pages/search.html`; these patterns are not inherently broken. PR #10 normalized its seven-page package to shorter relative paths; earlier notes that those prior patterns necessarily created `pages/pages/` targets were overstated.
+- **Prototype caveat:** repeated header/footer markup does not mean account, booking, payment, partner/admin or search operations are live. Keep the prototype limitations in public copy.
+
+### Recommended next implementation (not yet applied)
+
+1. Agree one shared public navigation order and decide whether the homepage and Wishlist variants are intentional.
+2. Approve one logo subtitle and normalize generic CTA casing; retain destination-specific CTA copy where useful.
+3. Add static menu-toggle ARIA attributes consistently to remaining pages, preserving the JS state update.
+4. Add `aria-current="page"` only where a reliable page/current-section rule can be applied; avoid false active states.
+5. Keep the compact booking footer as a documented exception unless browser testing identifies a usability problem.
+6. Implement changes by complete page family in a separate code PR; rerun local-reference validation and test the deployed preview at mobile/desktop widths plus keyboard/focus. No browser/runtime result is claimed by this inventory.
+
