@@ -1,42 +1,23 @@
-# Bali Trans — Frontend Foundation V1
+# BDM Trans — Bali Homepage Reset
 
-Fondasi awal website Bali Trans. Fokus versi ini adalah **struktur dan prototipe**, bukan backend/produksi.
+The preview is intentionally reset to **one homepage** while the visual direction is reviewed. This is a static concept, not a live booking platform.
 
-## Prinsip
-Bali Trans adalah platform perjalanan: Discover → Choose → Price → Book → Travel → Optional Transport.
+## Design direction
+- Color-led editorial travel design: coral, tropical aqua, sunflower yellow, lilac and deep green.
+- Large destination photography and expressive serif display type.
+- Klook-inspired discovery patterns (search, useful categories, experience cards), without copying Klook's branding or adding marketplace complexity.
+- Mobile-first responsive layout with a short path from inspiration to an enquiry.
+- Every visible section should help a visitor discover Bali, understand the offer, or ask about transport.
 
-Transport bukan pintu masuk utama.
+## Current files
+- `index.html` — standalone homepage, styles and interactions in one file.
+- `.github/workflows/pages.yml` — publishes the homepage-only preview.
+- `scripts/validate_content_layout.py` — static structural checks.
+- `HANDOFF.md`, `ROADMAP.md`, `AUDIT.md` — project state and next steps.
 
-## Struktur
-- `index.html` — Home / master experience
-- `pages/search.html` — pencarian
-- `pages/experiences/` — aktivitas & pengalaman
-- `pages/tours/` — tur
-- `pages/tickets/` — tiket
-- `pages/dining/` — Bali Trans Dining
-- `pages/destinations/` — destinasi
-- `pages/guides/` — panduan & travel updates
-- `pages/marketplace/` — produk lokal / Muslim travel essentials
-- `pages/transport/` — transport opsional
-- `pages/itinerary/` — Build Your Day
-- `pages/booking/` — booking, payment, confirmation, invoice
-- `pages/account/` — login & My Bali Trans
-- `pages/partner/` — fondasi partner portal
-- `pages/admin/` — fondasi operasi internal
-- `assets/` — media
-- `css/` — stylesheet
-- `js/` — shared JavaScript
-
-## Tahap berikutnya
-1. Lengkapi seluruh halaman
-2. Audit UX
-3. Audit UI
-4. Audit mobile/desktop
-5. Audit link/navigation
-6. Audit copy & SEO
-7. Audit booking/payment/cancellation
-8. Baru aktifkan fungsi JavaScript
-9. Backend Go + PostgreSQL
-10. Auth, payment, email/invoice, partner/admin
-11. Testing
-12. Deployment Google Cloud
+## Important limitations
+- This is a homepage concept only. Old secondary page routes were removed from the preview branch for the reset.
+- Experience cards are editorial directions, not verified bookable inventory. No real prices or instant bookings are claimed.
+- The WhatsApp enquiry link has no configured business phone number yet; it opens a generic prefilled enquiry and must be connected to the real number before launch.
+- External photos load from Unsplash and require internet access.
+- GitHub Pages preview is noindex/disallowed by the workflow. Do not treat it as production-ready.
