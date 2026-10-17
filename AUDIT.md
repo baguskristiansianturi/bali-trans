@@ -233,3 +233,12 @@ Recommended next implementation: standardize the menu-toggle accessibility contr
 - Wishlist now uses the shared navigation order: Discover / Experiences / Tours / Dining / Build Your Day / Wishlist, with `aria-current="page"` on Wishlist.
 - Static validation passed [run 39008026462](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39008026462); preview publishing succeeded [run 39008045984](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39008045984).
 - Still unverified: mobile menu fit and scrolling, visual responsive layout, keyboard traversal and screen-reader behaviour. Check the Pages deployment workflow separately.
+
+
+### Information architecture review — 17 October 2026
+
+User review identified three premature standalone sections: Dining, Guides, and Local Products. Decision: remove Dining and Local Products from primary navigation and homepage/footer promotion; treat Guides as a Blog/article hub, not a separate product feature. Keep relevant dining and destination guidance as blog articles. Do not delete route files before checking inbound links and deciding redirect/retirement behaviour.
+
+Terms page was a foundation draft listing policy requirements but offering little visitor-facing explanation. It is expanded on branch `work/remove-premature-sections` into a structured working draft covering prototype limitations, information accuracy, enquiries vs confirmed bookings, third-party providers, price/cancellation policies, travel decisions, website availability, privacy and launch review. It must remain marked draft until business details and qualified legal review are complete.
+
+**Verification boundary:** repository source edits do not establish visual consistency, mobile layout, legal validity, working booking operations or deployment success. Run the static content-layout validator and local-reference audit after completing the navigation edits.
