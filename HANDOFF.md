@@ -220,3 +220,13 @@ Updated `index.html` visitor-facing copy and removed the remaining homepage word
 - Localisation required: Indonesian/IDR; US English/USD; Singapore Singlish/SGD; Malaysian Malay/MYR. Arabic is unresolved. Build adapted copy variants, not literal translations.
 - Next execution: (1) reconcile actual preview head and CI; (2) confirm readiness from existing project records; (3) implement a working locale/currency control and complete homepage copy variants; (4) verify homepage only at source and in browser where available; (5) wait for Mas Bagus's review before editing other page families.
 - No browser/mobile visual test is claimed. Documentation changes are not proof of a working selector, accepted homepage, or live deployment.
+
+
+## Latest homepage implementation — 17 October 2026
+
+- Added four homepage tour-inspiration cards: Ubud & Kintamani, Uluwatu sunset, Bedugul & Tanah Lot, and Nusa Penida.
+- Copy is independently written from public Bali Golden Tour tour-category inspiration; no competitor wording, prices, ratings, live availability, or operational claims are copied.
+- Section has responsive card layout and adapted copy/category labels for US English/USD, Indonesian/IDR, Singapore English/SGD, and Malaysian Malay/MYR.
+- Changed files on `preview/bali-trans`: `index.html`, `js/main.js`, `css/homepage.css`. Follow-up roadmap update records this work.
+- The Pages workflow is configured to publish pushes on this branch. The source commits exist, but do not claim live deployment or mobile visual QA until the public page is actually checked.
+- Next: confirm the GitHub Pages publication visually on mobile, then review the tours listing page; keep the rest of the site unchanged until homepage review.
