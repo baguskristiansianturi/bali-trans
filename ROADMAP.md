@@ -379,3 +379,19 @@ A visible language and currency control must be present in the shared header on 
 - [x] JavaScript syntax check passed; source checks confirm the Uluwatu page includes itinerary, inclusion/exclusion, and confirmation sections.
 - [ ] Verify Pages deployment and visually test the home → tour detail → tour index flow on mobile. No live browser/device test or booking backend is claimed.
 - [ ] These remain sample itinerary concepts, not confirmed BDM packages. Do not publish supplier prices or availability until verified.
+
+
+## Whole-site page architecture and content — 17 October 2026
+
+Mas Bagus clarified the acceptance target: the site must be a coherent, populated travel website, not a set of demo pages. Klook is the UX/product-page reference; Bali Golden Tour is a content-depth reference. All visitor-facing pages must explain their purpose, provide relevant information and send visitors to a real next step. Do not fill missing business facts with invented claims.
+
+- [x] Rebuilt `pages/about.html` as a proper About page: positioning, service principles and the discovery → compare → confirm journey.
+- [x] Rebuilt `pages/contact.html` with enquiry categories, the information customers should provide, and explicit replaceable contact placeholders (`+62 8XX-XXXX-XXXX`, official email to be added). No fake working phone/email link is published.
+- [x] Added `pages/faq.html` covering tours, pricing, inclusions, customisation, confirmation, weather/sea conditions, transfers and cancellations.
+- [x] Added FAQ access from the homepage footer and a direct link from the homepage FAQ section.
+- [x] Reused the existing shared content layout and responsive grid styles rather than inventing a separate visual system.
+- [ ] Audit every existing route family (tours, experiences, destinations, tickets, transport, guides, itinerary, booking, payment, account, partner/admin, privacy and terms) for complete customer-facing copy, correct page purpose and honest next actions.
+- [ ] Align header/footer links across page families, while preserving justified checkout/account exceptions.
+- [ ] Replace remaining visitor-facing "prototype/preview" phrasing where it is not needed for honest disclosures; never claim live availability, real booking, support or payment until those operations exist.
+- [ ] Verify every internal link, workflow outcome, deployed Pages build and mobile rendering. This commit is source-level work only; live browser/device QA is not claimed.
+- [ ] Before launch, replace the contact placeholders with confirmed business details and review legal copy against the real operating model.
