@@ -31,8 +31,48 @@ const guestForm=document.getElementById('guestDetailsForm');
 if(guestForm){const b=readBooking();if(!b.date||!b.guests){window.location.replace('../experiences/lovina-dolphin.html')}else{['name','email','phone','country','notes'].forEach(k=>{const el=guestForm.elements[k];if(el&&b[k])el.value=b[k]});showSideSummary()}
 guestForm.addEventListener('submit',e=>{e.preventDefault();if(!guestForm.reportValidity())return;const data=new FormData(guestForm);const next=readBooking();['name','email','phone','country','notes'].forEach(k=>next[k]=String(data.get(k)||'').trim());next.stage='details';saveBooking(next);window.location.href=guestForm.dataset.next||'step-2.html'})}
 if(document.getElementById('reviewDetails')){const b=readBooking();if(!b.name||!b.date){window.location.replace('step-1.html')}else{showSummary('reviewDetails',true);showSideSummary();const btn=document.getElementById('continueToFinish');if(btn)btn.addEventListener('click',()=>{const n=readBooking();n.stage='reviewed';saveBooking(n);window.location.href='step-3.html'})}}
-if(document.getElementById('finalReview')){const b=readBooking();if(!b.name||!b.date){window.location.replace('step-1.html')}else{showSummary('finalReview',true);const ack=document.getElementById('testAcknowledgement');const finish=document.getElementById('finishTestBooking');if(ack&&finish){ack.addEventListener('change',()=>finish.disabled=!ack.checked);finish.addEventListener('click',()=>{if(!ack.checked)return;const n=readBooking();n.stage='request-ready';n.requestPreparedAt=new Date().toISOString();saveBooking(n);window.location.href='confirmation.html'})}}}
-if(document.getElementById('confirmationSummary')){const b=readBooking();const el=document.getElementById('confirmationSummary');if(b.stage!=='test-complete'){el.innerHTML='<p>No completed test was found in this browser session. Start from the activity page.</p><a class="btn btn-dark" href="../experiences/lovina-dolphin.html">Start test</a>'}else{el.innerHTML=summaryRows(b,true)+'<div class="review-row"><span>Test status</span><strong>Front-end flow completed</strong></div><div class="review-row"><span>Real booking / payment</span><strong>Not created</strong></div>'}}
+if(document.getElementById('finalReview')){const b=readBooking();if(!b.name||!b.date){window.location.replace('step-1.html')}else{showSummary('finalReview',true);const ack=document.getElementById('requestAcknowledgement');const finish=document.getElementById('prepareEnquiry');if(ack&&finish){ack.addEventListener('change',()=>finish.disabled=!ack.checked);finish.addEventListener('click',()=>{if(!ack.checked)return;const n=readBooking();n.stage='request-ready';n.requestPreparedAt=new Date().toISOString();saveBooking(n);window.location.href='confirmation.html'})}}}
+if(document.getElementById('confirmationSummary')){
+ const b=readBooking();
+ const el=document.getElementById('confirmationSummary');
+ if(b.stage!=='request-ready'){
+  el.innerHTML='<p>No enquiry summary was found. <a class="btn btn-dark" href="../experiences/lovina-dolphin.html">Choose your experience</a></p>';
+ }else{
+  el.innerHTML=summaryRows(b,true)+'<div class="review-row"><span>Enquiry status</span><strong>Prepared in this browser; not sent</strong></div><div class="review-row"><span>Booking status</span><strong>Not confirmed</strong></div>';
+  const copyBtn=document.getElementById('copyEnquiry');
+  const status=document.getElementById('copyStatus');
+  if(copyBtn){
+   copyBtn.addEventListener('click',async()=>{
+    const msg=[
+     'Bali Trans — Lovina Dolphin Experience enquiry',
+     'Name: '+(b.name||''),
+     'Email: '+(b.email||''),
+     'Phone: '+(b.phone||''),
+     'Country/region: '+(b.country||''),
+     'Preferred date: '+dateLabel(b.date),
+     'Guests: '+(b.guests||2),
+     'Boat: '+boatLabel(b.boatType),
+     'Experience: '+experienceLabel(b.experienceType),
+     'Snorkeling: '+(b.snorkeling?'Requested':'Not requested'),
+     'Swimming: '+(b.swimming?'Requested':'Not requested'),
+     'Pickup/meeting point: '+(b.pickupArea||'Lovina meeting point'),
+     'Notes: '+(b.notes||'None'),
+     'Please confirm availability, itinerary, inclusions, final price and cancellation terms.'
+    ].join('\\n');
+    try{
+     await navigator.clipboard.writeText(msg);
+     if(status)status.textContent='Enquiry details copied. Share them through the official contact channel.';
+    }catch(e){
+     const box=document.createElement('textarea');
+     box.value=msg;box.setAttribute('readonly','');box.style.position='fixed';box.style.opacity='0';
+     document.body.appendChild(box);box.select();
+     const ok=document.execCommand('copy');box.remove();
+     if(status)status.textContent=ok?'Enquiry details copied. Share them through the official contact channel.':'Copy was blocked by your browser. Please select and copy the summary manually.';
+    }
+   });
+  }
+ }
+}
 
 
 /* Locale switching for homepage copy. Currency labels are preferences, not live conversion. */
