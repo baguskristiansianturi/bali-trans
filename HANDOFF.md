@@ -45,3 +45,12 @@
 - Added `.github/workflows/content-layout-check.yml` for pull requests targeting `preview/bali-trans` and manual dispatch. It runs the validator without deploying the site.
 - Important GitHub Actions limitation: because this workflow is introduced on this branch, GitHub will not use it to validate this same PR before it exists on the base branch. It becomes available to future PRs after being reviewed and merged into `preview/bali-trans`. This PR itself has not been CI-tested by the new workflow.
 - Next: review and merge this CI-enablement PR separately if approved, then use the check on PR #10 and future content changes. Browser/device review is still required; static validation cannot replace visual, keyboard or screen-reader testing.
+
+
+### CI failure analysis and validator correction — 17 October 2026
+
+- GitHub Actions run [39004177941](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39004177941) for PR #11 did run and failed. The job checked out GitHub's synthetic merge of PR #11 with the current preview base, which still contains the older versions of the seven pages; the content-layout package and `css/content-layout.css` are only proposed in PR #10.
+- The failure was a validation-scope mismatch, not evidence that PR #10's page package failed: the validator required PR #10's skip-link, main landmark and stylesheet contract while running on a revision that did not contain that package.
+- Updated the validator so local `href/src` checks still run, but package-specific assertions are only enforced when `css/content-layout.css` exists in the checked-out revision. Once the package is included, all seven page contracts remain required.
+- Re-run Actions on the updated PR #11 branch and record the actual outcome. PR #10 still needs the full package checks when the validator is available on the base branch, plus browser/device and keyboard/accessibility review.
+- Do not treat a skipped package-contract run as proof that the seven-page layout passes; the output must explicitly say when those assertions were skipped.
