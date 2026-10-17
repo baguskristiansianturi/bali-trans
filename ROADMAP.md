@@ -168,3 +168,11 @@
 - [x] Verify preview publish succeeded: [run 39008045984](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39008045984).
 - [ ] Confirm the latest Pages deployment result and test menu fit on a narrow mobile viewport.
 - [ ] Complete real mobile/desktop, keyboard and screen-reader checks separately.
+
+
+## Continuation checkpoint — 17 October 2026 (after PR #17)
+
+- Latest explicitly documented preview merge: PR #17 at `508eb060eb5389279ba7b6abbc6c3f3c42ff21e0`, normalizing Wishlist navigation order. This is the last exact app commit recorded in the project notes, not an independently verified current branch head.
+- Static CI evidence: run 39008026462 passed the 35-route navigation/content-layout validation and 852 local references. Preview publishing run 39008045984 passed. Pages deployment status for the newest commit still needs a fresh check.
+- **New task recorded from this review:** reconcile stale top-level baseline statements with the dated PR #13/#15/#17 checkpoints and record actual current branch/Actions state at the next checkpoint. Do not mark the deployment or any browser UX test passed without current evidence.
+- P0 remains in progress: review shared navigation/footer by family; preserve compact booking footers unless browser evidence supports changing them. Then proceed to browser checks and P1 search/Lovina flow.
