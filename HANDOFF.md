@@ -193,3 +193,8 @@ This is a content/source checkpoint, **not** a full-site acceptance. The next ta
 ### Focused legacy-link sweep — 17 October 2026
 
 A source scan of all 35 HTML routes checked linked labels and destinations for the legacy Dining, Local Products, Travel guides and Guides promotions. The identified links were removed or renamed to Blog, and the affected routes were re-read after the changes. This closes the focused promotion sweep only; it does not certify every href/src target, every paragraph of copy, or the retirement/redirect decision for the Dining and Marketplace route files.
+
+
+### Current focus — homepage only (17 October 2026)
+
+Updated `index.html` visitor-facing copy and removed the remaining homepage wording that called the site a preview/prototype or said it was “being built”. Search routes to Discover; guide CTA now says Blog; unavailable Wishlist/Account links were removed from the homepage footer. Booking/payment limitations remain stated plainly without presenting a fake confirmation. Header baseline: Discover / Experiences / Blog plus Plan your day. Next step is to review and finish the homepage only, then wait for Mas Bagus's approval before touching another page. Every later page must reuse the homepage's exact navbar and footer pattern; no one-off variations.
