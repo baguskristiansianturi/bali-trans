@@ -1,0 +1,27 @@
+/* Public content page-family layout. Shared by informational, search and guide pages. */
+.content-page{padding:clamp(42px,7vw,84px) 0}
+.content-page-inner{max-width:1000px;margin:0 auto}
+.content-page .section-title{font:400 clamp(36px,4.7vw,58px)/1.03 var(--serif);letter-spacing:-.04em;margin:12px 0 18px}
+.content-lead{font-size:17px;line-height:1.75;color:var(--muted);max-width:720px}
+.content-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:32px}
+.content-card{display:flex;flex-direction:column;gap:12px;min-height:190px;padding:24px;background:#fff;border:1px solid var(--line);transition:background .18s,border-color .18s}
+.content-card:hover{background:#fbfaf6;border-color:rgba(23,56,47,.35)}
+.content-card .eyebrow{margin-bottom:2px}
+.content-card h2,.content-card h3{font:400 28px/1.08 var(--serif);letter-spacing:-.025em;margin:0}
+.content-card p{font-size:13px;color:var(--muted);margin:0}
+.content-card .content-link{font-size:12px;font-weight:800;color:var(--forest);margin-top:auto;padding-top:8px}
+.content-panel{padding:clamp(24px,4vw,40px);background:#fff;border:1px solid var(--line);margin-top:26px}
+.content-panel h2{font:400 clamp(28px,3.5vw,42px)/1.08 var(--serif);margin:0 0 12px}
+.content-panel p,.content-panel li{color:var(--muted);font-size:14px;line-height:1.8}
+.content-panel ul{padding-left:20px}
+.content-status{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--forest);background:#edf2ed;padding:8px 11px}
+.content-status:before{content:"";width:6px;height:6px;border-radius:50%;background:#66856f}
+.content-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.content-note{border-left:3px solid var(--forest);padding:12px 16px;background:#f1efe8;color:var(--muted);font-size:13px;line-height:1.7;margin-top:20px}
+@media(max-width:760px){.content-page{padding:42px 0}.content-grid{grid-template-columns:1fr;gap:12px}.content-card{min-height:150px;padding:21px}.content-lead{font-size:15px}.content-panel{padding:22px}}
+
+
+/* Keyboard users can bypass the repeated site navigation. */
+.skip-link{position:fixed;top:12px;left:12px;z-index:1000;padding:12px 16px;background:var(--forest);color:#fff;font-size:14px;font-weight:700;transform:translateY(calc(-100% - 20px));transition:transform .15s ease}
+.skip-link:focus-visible{transform:translateY(0);outline:3px solid #b8752b;outline-offset:3px}
+@media(prefers-reduced-motion:reduce){.skip-link{transition:none}}

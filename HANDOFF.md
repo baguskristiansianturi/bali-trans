@@ -54,3 +54,22 @@
 - Updated the validator so local `href/src` checks still run, but package-specific assertions are only enforced when `css/content-layout.css` exists in the checked-out revision. Once the package is included, all seven page contracts remain required.
 - Re-run Actions on the updated PR #11 branch and record the actual outcome. PR #10 still needs the full package checks when the validator is available on the base branch, plus browser/device and keyboard/accessibility review.
 - Do not treat a skipped package-contract run as proof that the seven-page layout passes; the output must explicitly say when those assertions were skipped.
+
+
+### Public content package — consolidated status after CI enablement (17 October 2026)
+
+- PR #10 contains the seven-page public content package: About, Contact, Privacy, Terms, Search, Guides index and Travel Updates, plus `css/content-layout.css`.
+- Source-level checks on the package reported 191 local `href/src` references, 23 unique local targets and no missing targets. The seven pages were also checked for one H1, a balanced main landmark, a skip link to a focusable `#mainContent`, one `mainNav`, one `menuToggle`, the shared stylesheet and usable meta descriptions.
+- PR #11 has now been merged into `preview/bali-trans` at `89dd3deae1fee67e437aac0e5e597264a30ec598`, enabling the new PR validation workflow. The first run on PR #11 failed because its base revision did not contain PR #10's package; after fixing the validator scope, Actions passed local-reference validation while explicitly skipping the package contract.
+- The full validator passed on a package-containing PR #10 revision in [run 39004560674](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39004560674): seven pages, the full layout contract and 191 local href/src references. The current head adds explicit accessible names to all seven primary navigation landmarks; the newest run for the current head is pending at this checkpoint. Keep browser/mobile/desktop rendering, keyboard operation, screen-reader review and live deployment marked unverified until performed.
+- Search remains a navigation prototype; Contact has no connected support channel; Privacy and Terms are drafts; Travel Updates has no live feed. Do not imply operational booking or support.
+
+**Resume next:** inspect PR #10's latest Actions run, fix any real validation failures, then resolve the documentation conflicts caused by the base update. Keep PR #9's navigation/footer inventory separate.
+
+ 
+### Relative URL audit clarification — 17 October 2026
+
+- A later review of browser-relative URL resolution found that earlier notes overstated the relative-link issue. Paths such as `../pages/search.html` from `pages/about.html` and `../../pages/search.html` from nested `pages/<family>/index.html` resolve to the intended `pages/search.html`; they do not inherently create a duplicated `pages/pages/` path.
+- PR #10 normalizes the seven pages to shorter, locally consistent relative paths, but this should be described as link-path normalization, not as proof that the earlier paths were broken.
+- The current package validator has passed the full contract and local-reference checks on a revision containing `css/content-layout.css` in run [39004560674](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39004560674). A newer run is still needed for the latest head if it contains further page changes.
+

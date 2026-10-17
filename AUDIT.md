@@ -115,3 +115,21 @@ Recommended next implementation: standardize the menu-toggle accessibility contr
 - This is a real failure of the initial validator's assumptions about the checked-out revision. It is not evidence that the proposed PR #10 pages failed their contract, because those changes are not included in PR #11.
 - Corrected `scripts/validate_content_layout.py`: local references are still checked; the seven-page layout contract is enforced only when `css/content-layout.css` exists in the checked-out revision. The script explicitly reports when package checks are skipped.
 - Next acceptance evidence: obtain a successful run for the corrected PR #11 branch, then run the full contract on a revision containing PR #10. Keep browser/mobile/desktop, keyboard and screen-reader checks marked unverified until performed.
+
+
+### Public content package and validator follow-up — 17 October 2026
+
+- PR #10's seven pages are About, Contact, Privacy, Terms, Search, Guides index and Travel Updates. The package adds `css/content-layout.css`, page-specific copy, skip links to `#mainContent`, a focusable main landmark, and shared skip-link focus/reduced-motion styling.
+- Static checks recorded 191 local `href/src` references and 23 unique local targets, with no missing targets. Source checks also recorded one H1, one balanced main landmark, one `mainNav`, one `menuToggle`, a shared stylesheet reference and a meaningful meta description on each page.
+- PR #11's first Actions run failed because the infrastructure-only PR's merge revision did not contain PR #10's content package. The validator was corrected to retain local-reference checks and enforce the full page contract only when `css/content-layout.css` is present. The corrected run passed local-reference validation and explicitly reported that package-specific assertions were skipped.
+- PR #11 is now merged into `preview/bali-trans` at `89dd3deae1fee67e437aac0e5e597264a30ec598`. The full validator passed on a package-containing PR #10 revision in [run 39004560674](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39004560674): seven pages, the full layout contract and 191 local href/src references. The current head adds explicit accessible names to all seven primary navigation landmarks; the newest run for the current head is pending at this checkpoint.
+- No browser/mobile/desktop, keyboard traversal, screen-reader, live deployment or end-to-end booking check has been performed. Legal pages remain drafts, Contact is not connected to support, Search is a navigation prototype, and Travel Updates has no live feed.
+- The broader navigation/footer inconsistencies in PR #9 remain a separate audit task; do not infer site-wide consistency from this seven-page package.
+
+ 
+### Relative URL audit clarification — 17 October 2026
+
+- A later review of browser-relative URL resolution found that earlier notes overstated the relative-link issue. Paths such as `../pages/search.html` from `pages/about.html` and `../../pages/search.html` from nested `pages/<family>/index.html` resolve to the intended `pages/search.html`; they do not inherently create a duplicated `pages/pages/` path.
+- PR #10 normalizes the seven pages to shorter, locally consistent relative paths, but this should be described as link-path normalization, not as proof that the earlier paths were broken.
+- The current package validator has passed the full contract and local-reference checks on a revision containing `css/content-layout.css` in run [39004560674](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39004560674). A newer run is still needed for the latest head if it contains further page changes.
+

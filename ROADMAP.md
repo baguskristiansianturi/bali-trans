@@ -86,3 +86,26 @@
 - [ ] Re-run the workflow after this fix and record its actual result.
 - [ ] Once the workflow is available on the base branch, validate PR #10's seven-page package against the full contract; do not count a skipped contract as a package pass.
 - [ ] Complete real browser/device, keyboard and screen-reader checks; automation does not replace them.
+
+
+### Public content package and validation enablement — 17 October 2026
+
+- [x] Implement page-specific content and shared styles for About, Contact, Privacy, Terms, Search, Guides index and Travel Updates.
+- [x] Source-check 191 local `href/src` references across the seven pages; all 23 unique local targets exist.
+- [x] Add skip links, focusable main landmarks, menu-toggle ARIA attributes and shared focus/reduced-motion styles to the seven-page package.
+- [x] Merge PR #11 into `preview/bali-trans` (`89dd3deae1fee67e437aac0e5e597264a30ec598`) to enable PR-safe static validation.
+- [x] Full layout contract passed on a package-containing PR #10 revision in [run 39004560674](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39004560674): seven pages and 191 local href/src references.
+- [ ] Confirm the newest workflow run for the current head, which adds explicit accessible names to all seven primary navigation landmarks; resolve any failure.
+- [ ] Resolve PR #10 documentation conflicts against the updated preview base without dropping either PR's notes.
+- [ ] Review all seven pages together in a real browser at narrow mobile and desktop widths; test keyboard focus/navigation and screen-reader behaviour where available.
+- [ ] Continue PR #9's page-family header/footer audit only after its branch is reconciled with the current base.
+
+**Acceptance boundary:** static source checks do not establish rendered visual quality, runtime accessibility, live deployment, or real booking/support functionality.
+
+ 
+### Relative URL audit clarification — 17 October 2026
+
+- A later review of browser-relative URL resolution found that earlier notes overstated the relative-link issue. Paths such as `../pages/search.html` from `pages/about.html` and `../../pages/search.html` from nested `pages/<family>/index.html` resolve to the intended `pages/search.html`; they do not inherently create a duplicated `pages/pages/` path.
+- PR #10 normalizes the seven pages to shorter, locally consistent relative paths, but this should be described as link-path normalization, not as proof that the earlier paths were broken.
+- The current package validator has passed the full contract and local-reference checks on a revision containing `css/content-layout.css` in run [39004560674](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39004560674). A newer run is still needed for the latest head if it contains further page changes.
+
