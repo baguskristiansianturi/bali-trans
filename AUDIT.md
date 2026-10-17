@@ -125,3 +125,11 @@ Recommended next implementation: standardize the menu-toggle accessibility contr
 - PR #11 is now merged into `preview/bali-trans` at `89dd3deae1fee67e437aac0e5e597264a30ec598`. The full validator still needs to run against PR #10 with the package present.
 - No browser/mobile/desktop, keyboard traversal, screen-reader, live deployment or end-to-end booking check has been performed. Legal pages remain drafts, Contact is not connected to support, Search is a navigation prototype, and Travel Updates has no live feed.
 - The broader navigation/footer inconsistencies in PR #9 remain a separate audit task; do not infer site-wide consistency from this seven-page package.
+
+ 
+### Relative URL audit clarification — 17 October 2026
+
+- A later review of browser-relative URL resolution found that earlier notes overstated the relative-link issue. Paths such as `../pages/search.html` from `pages/about.html` and `../../pages/search.html` from nested `pages/<family>/index.html` resolve to the intended `pages/search.html`; they do not inherently create a duplicated `pages/pages/` path.
+- PR #10 normalizes the seven pages to shorter, locally consistent relative paths, but this should be described as link-path normalization, not as proof that the earlier paths were broken.
+- The current package validator has passed the full contract and local-reference checks on a revision containing `css/content-layout.css` in run [39004560674](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39004560674). A newer run is still needed for the latest head if it contains further page changes.
+
