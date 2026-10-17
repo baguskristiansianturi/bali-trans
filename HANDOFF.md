@@ -148,3 +148,14 @@
 - Transport page placeholder was replaced with substantive conceptual guidance and clear non-live availability language. Search, About, Contact and Privacy copy were also improved in this branch.
 - These are source changes, not a verified deployment. Next: validate local links, remove Dining/Local Products promotion from remaining core footers, inspect remaining foundation pages for placeholder copy, and check the newest Actions run. Locale switching/translations are not implemented yet.
 - Sequence remains: finish core page copy/layout → user UX/UI review → only then end-to-end Lovina package test.
+
+
+### Latest continuation checkpoint — 17 October 2026
+
+- Working branch latest checked commit: `966938b6270c0b0fd53869d620cf4bed1a557711` — “Track foundation copy implementation and remaining gates”.
+- Static content-layout workflow succeeded on that commit: [run 39022227620](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39022227620).
+- A fresh repository-relative link scan across 15 core/public pages found no missing local `href/src` targets. This is a scoped scan, not yet the full 35-route audit.
+- Core source updates in this pass: compact Home/Discover/Experiences/Blog navigation; substantive conceptual copy for Transport, Tours, Tickets, Destinations and Plan your day; populated Blog hub; reusable article styles and representative article; improved About, Contact, Privacy and Discover copy; removed Dining/Local Products promotion from the edited core-page footers.
+- Still not complete: other route families (account, booking, partner/admin), whole-repository link/footer audit, locale selector and actual translations, visual mobile/desktop testing, and live Pages deployment check.
+- Locale voices remain required: casual Bahasa Indonesia; Bahasa Melayu Malaysia; natural Singlish; natural American English. The single language+currency profile control has not been implemented because current page copy is not yet translated into those four distinct voices.
+- Keep the sequence: finish all foundation routes and shared blocks → user reviews UX/UI → only then test the Lovina package end-to-end. Do not claim browser or device verification from CI.
