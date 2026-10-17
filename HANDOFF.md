@@ -239,3 +239,12 @@ Updated `index.html` visitor-facing copy and removed the remaining homepage word
 - Source changes are committed on preview/bali-trans. JavaScript syntax validation passed; the new internal routes for tours and transport were confirmed to exist.
 - Not verified: GitHub Pages live deployment, external image loading, mobile/desktop rendered appearance, and end-to-end navigation in a browser. An attempted live check was unavailable from this environment; do not report deployment as confirmed.
 - Next action: verify the published homepage at https://baguskristiansianturi.github.io/bali-trans/ in a mobile browser. If the new cards appear, review them with Mas Bagus before broadening changes to other page families.
+
+
+## Tour detail usability correction — 17 October 2026
+
+- Mas Bagus identified that clicking a named tour must open actual tour information, not a generic page. The homepage cards have been connected to dedicated detail pages: `pages/tours/uluwatu-sunset.html`, `pages/tours/ubud-kintamani.html`, and `pages/tours/nusa-penida.html`.
+- Each detail page contains a practical suggested itinerary, duration estimate, trip highlights, likely inclusions/exclusions, safety/logistics notes, and explicit confirmation checklist. Pricing and live availability are deliberately not fabricated; the pages say these are planning concepts, not confirmed packages.
+- `pages/tours/index.html` now lists these detail pages and describes the routes instead of presenting only generic tour-planning advice.
+- Source validation: fetched all three detail pages and the updated index/homepage; `js/main.js` parses successfully with `new Function`. The Uluwatu page has all required information sections. This is not a browser visual test or a confirmed Pages deployment.
+- Next: verify the deployed mobile flow from homepage to each detail page and back to the tour index; then continue building detailed pages for remaining services based on researched itineraries. Never imply that the planner or booking workflow submits a real request.
