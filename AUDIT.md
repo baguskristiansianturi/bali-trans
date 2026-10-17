@@ -287,3 +287,10 @@ A repository-wide search of all 35 routes has not been completed after these edi
 ### Focused legacy-link sweep — 17 October 2026
 
 A source scan of all 35 HTML routes checked linked labels and destinations for the legacy Dining, Local Products, Travel guides and Guides promotions. The identified links were removed or renamed to Blog, and the affected routes were re-read after the changes. This closes the focused promotion sweep only; it does not certify every href/src target, every paragraph of copy, or the retirement/redirect decision for the Dining and Marketplace route files.
+
+
+### Homepage marketplace card source check — 17 October 2026
+
+- Source inspection confirms the homepage includes four marketplace-style service cards and the responsive CSS rules are present.
+- JavaScript syntax check passed; tours and transport destination files exist in the same preview branch.
+- Live rendering, external image availability, deployment completion and browser interaction remain unverified. This is a source-level check only.
