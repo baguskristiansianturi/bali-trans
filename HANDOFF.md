@@ -198,3 +198,25 @@ A source scan of all 35 HTML routes checked linked labels and destinations for t
 ### Current focus — homepage only (17 October 2026)
 
 Updated `index.html` visitor-facing copy and removed the remaining homepage wording that called the site a preview/prototype or said it was “being built”. Search routes to Discover; guide CTA now says Blog; unavailable Wishlist/Account links were removed from the homepage footer. Booking/payment limitations remain stated plainly without presenting a fake confirmation. Header baseline: Discover / Experiences / Blog plus Plan your day. Next step is to review and finish the homepage only, then wait for Mas Bagus's approval before touching another page. Every later page must reuse the homepage's exact navbar and footer pattern; no one-off variations.
+
+
+## Session continuation — business-first reset (17 October 2026)
+
+- Working branch: `work/business-first-roadmap-2026-10-17` (created from `preview/bali-trans`).
+- A new business-first recovery section was added to `ROADMAP.md`. It explicitly says the generic homepage is not accepted, puts product fulfilment truth before copy, and makes the visible language + currency selector mandatory in the shared header on mobile and desktop.
+- Recovered guardrails: activity tickets and tour packages are the initial sales focus only where fulfilment is confirmed; car rental/transport is not to be sold as available until fleet/partners and terms are verified; 30–40% premium remains a hypothesis, not blanket pricing.
+- Competitor reference points: Klook (searchable inventory and visible confidence signals), Bali Golden Tour (private packages/custom itinerary enquiries), and Muslim-friendly niche operators (concrete prayer/food/family arrangements). Competitor claims are not BDM promises. See the new roadmap section for source URLs and implications.
+- Locale requirement: Indonesian + IDR, US English + USD, Singapore Singlish + SGD, Malaysian Malay + MYR. These need adapted copy, not literal translations. Arabic remains unresolved.
+- Next: verify actual current branch/PR/workflow state; build product/fulfilment readiness matrix; implement real locale/currency controls; then work on homepage only and wait for Mas Bagus's review before other pages.
+- No browser/device verification or deployment is claimed by this documentation change.
+
+
+### Business-first resume point — 17 October 2026
+
+- PR #21 contains the strategy reset and is still open; do not describe it as merged or deployed.
+- The current homepage is not accepted. The visible language/currency selector is missing, and current generic English copy is not grounded enough in BDM's actual products and operational readiness.
+- Product gate: the Lovina dolphin form is a prototype only. No inspected page confirms an operational ticket, tour package, Nusa Penida/combination product, or transport/airport transfer. Do not advertise these as bookable until fulfilment, price basis, inclusions, availability, cancellation terms and customer-support ownership are confirmed.
+- Competitor review: Klook is a model for searchable product information and confidence signals; Bali Golden Tour for custom itinerary enquiries; Muslim-friendly niche operators for concrete family/prayer/meal needs. Do not copy and do not attribute their operational claims to BDM.
+- Localisation required: Indonesian/IDR; US English/USD; Singapore Singlish/SGD; Malaysian Malay/MYR. Arabic is unresolved. Build adapted copy variants, not literal translations.
+- Next execution: (1) reconcile actual preview head and CI; (2) confirm readiness from existing project records; (3) implement a working locale/currency control and complete homepage copy variants; (4) verify homepage only at source and in browser where available; (5) wait for Mas Bagus's review before editing other page families.
+- No browser/mobile visual test is claimed. Documentation changes are not proof of a working selector, accepted homepage, or live deployment.

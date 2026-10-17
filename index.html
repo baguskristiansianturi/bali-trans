@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-US">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,11 +21,12 @@
       <span class="logo-main">Bali<span class="brand-period">.</span></span><span class="logo-sub">TRANS</span>
     </a>
     <nav class="main-nav" id="mainNav" aria-label="Primary navigation">
-      <a href="pages/search.html">Discover</a>
-      <a href="pages/experiences/index.html">Experiences</a>
-      <a href="pages/guides/index.html">Blog</a>
+      <a href="pages/search.html" data-i18n="navExplore">Explore</a>
+      <a href="pages/experiences/index.html" data-i18n="navExperiences">Experiences</a>
+      <a href="pages/guides/index.html" data-i18n="navGuides">Travel guides</a>
     </nav>
-    <a href="pages/itinerary/build.html" class="header-book">Plan your day <span aria-hidden="true">↗</span></a>
+    <div class="locale-controls"><label class="sr-only" for="siteLocale">Language and currency</label><select id="siteLocale" aria-label="Language and currency"><option value="en-US">English (US) · USD</option><option value="id-ID">Bahasa Indonesia · IDR</option><option value="en-SG">English (Singapore) · SGD</option><option value="ms-MY">Bahasa Melayu · MYR</option></select></div>
+    <a href="pages/search.html" class="header-book" data-i18n="navCta">Explore Bali <span aria-hidden="true">↗</span></a>
     <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="mainNav"><span></span><span></span></button>
   </div>
 </header>
@@ -36,14 +37,14 @@
     <div class="v3-hero-shade" aria-hidden="true"></div>
     <div class="container v3-hero-layout">
       <div class="v3-hero-copy">
-        <p class="v3-eyebrow"><span class="eyebrow-line"></span> Discover Bali, your way</p>
-        <h1>Make your time<br>in Bali <em>count.</em></h1>
-        <p class="v3-hero-lede">Find things to do, discover places worth visiting, and get practical information to help make the most of your time in Bali.</p>
+        <p class="v3-eyebrow"><span class="eyebrow-line"></span> <span data-i18n="heroEyebrow">Plan your Bali trip with more confidence</span></p>
+        <h1 data-i18n-html="heroTitle">Make Bali<br><em>your kind of trip.</em></h1>
+        <p class="v3-hero-lede" data-i18n="heroLede">Start with what you love, find experiences that fit your group, and get the details before you decide.</p>
         <form class="v3-search" id="searchForm" role="search">
           <span class="v3-search-mark" aria-hidden="true">⌕</span>
-          <label class="sr-only" for="heroSearch">Search experiences, activities and places</label>
-          <input id="heroSearch" type="search" placeholder="What would you like to discover?" autocomplete="off">
-          <button type="submit">Explore <span aria-hidden="true">↗</span></button>
+          <label class="sr-only" for="heroSearch" data-i18n="searchLabel">Search experiences, activities and places</label>
+          <input id="heroSearch" type="search" placeholder="What would you like to do in Bali?" data-i18n-placeholder="searchPlaceholder" autocomplete="off">
+          <button type="submit"><span data-i18n="searchButton">Explore experiences</span> <span aria-hidden="true">↗</span></button>
         </form>
         <div class="v3-hero-meta"><span>Experiences</span><span class="meta-dot"></span><span>Places</span><span class="meta-dot"></span><span>Travel planning</span></div>
       </div>
@@ -58,33 +59,33 @@
 
   <section class="v3-intro">
     <div class="container v3-intro-grid">
-      <p class="v3-label">A better way to begin</p>
-      <h2>Start with the <em>experience.</em><br>Build the day around it.</h2>
-      <p class="v3-body">Start with what interests you. Compare your options, check the details that matter, and shape a day around your plans, pace and budget.</p>
+      <p class="v3-label" data-i18n="introLabel">A clearer way to plan</p>
+      <h2 data-i18n-html="introTitle">Start with what matters<br><em>to you.</em></h2>
+      <p class="v3-body" data-i18n="introBody">Tell us what interests you. Explore suitable options, check the important details, and decide at your own pace.</p>
     </div>
   </section>
 
   <section class="v3-explore section" id="discover">
     <div class="container">
       <div class="v3-section-head">
-        <div><p class="v3-label">Explore Bali your way</p><h2>Find your kind<br>of <em>adventure.</em></h2></div>
-        <p class="v3-body">A starting point for every kind of day—from a single activity to a little more exploring.</p>
+        <div><p class="v3-label" data-i18n="categoriesLabel">Choose where to begin</p><h2 data-i18n-html="categoriesTitle">A few ways to<br><em>explore Bali.</em></h2></div>
+        <p class="v3-body" data-i18n="categoriesBody">Start with an activity, explore a day trip, or read up before deciding what suits your group.</p>
       </div>
       <div class="v3-category-grid">
         <a class="v3-category v3-cat-experiences" href="pages/experiences/index.html">
           <div class="v3-cat-photo" aria-hidden="true"></div><span class="v3-cat-number">01 / EXPERIENCE</span>
-          <div class="v3-cat-content"><span class="v3-cat-kicker">Do something memorable</span><h3>Things to do</h3><p>Activities, nature and moments worth making time for.</p><span class="v3-cat-link">Explore experiences <b aria-hidden="true">↗</b></span></div>
+          <div class="v3-cat-content"><span class="v3-cat-kicker" data-i18n="card1Kicker">Find an experience</span><h3 data-i18n="card1Title">Activities & tickets</h3><p data-i18n="card1Body">Explore activity ideas and check the details before making plans.</p><span class="v3-cat-link" data-i18n="card1Link">Explore activities <b aria-hidden="true">↗</b></span></div>
         </a>
         <a class="v3-category v3-cat-tours" href="pages/tours/index.html">
           <div class="v3-cat-photo" aria-hidden="true"></div><span class="v3-cat-number">02 / JOURNEY</span>
-          <div class="v3-cat-content"><span class="v3-cat-kicker">See a little more</span><h3>Tours & day trips</h3><p>Ideas for exploring the island at a pace that suits you.</p><span class="v3-cat-link">Explore tours <b aria-hidden="true">↗</b></span></div>
+          <div class="v3-cat-content"><span class="v3-cat-kicker" data-i18n="card2Kicker">Make a day of it</span><h3 data-i18n="card2Title">Tours & day trips</h3><p data-i18n="card2Body">Get ideas for a day out; arrangements need to be confirmed first.</p><span class="v3-cat-link" data-i18n="card2Link">Explore tour ideas <b aria-hidden="true">↗</b></span></div>
         </a>
         <a class="v3-category v3-cat-places" href="pages/destinations/index.html">
           <div class="v3-cat-photo" aria-hidden="true"></div><span class="v3-cat-number">03 / DISCOVERY</span>
-          <div class="v3-cat-content"><span class="v3-cat-kicker">Know before you go</span><h3>Places to visit</h3><p>Get a feel for where you want to spend your time.</p><span class="v3-cat-link">Explore destinations <b aria-hidden="true">↗</b></span></div>
+          <div class="v3-cat-content"><span class="v3-cat-kicker" data-i18n="card3Kicker">Get to know the island</span><h3 data-i18n="card3Title">Places & guides</h3><p data-i18n="card3Body">Read practical tips and learn what to check before you go.</p><span class="v3-cat-link" data-i18n="card3Link">Read travel guides <b aria-hidden="true">↗</b></span></div>
         </a>
       </div>
-      <div class="v3-category-footer"><span>Not sure where to begin?</span><a href="pages/search.html">Browse all available options <span aria-hidden="true">→</span></a></div>
+      <div class="v3-category-footer"><span data-i18n="browseHint">Not sure where to begin?</span><a href="pages/search.html" data-i18n="browseAll">Browse available options <span aria-hidden="true">→</span></a></div>
     </div>
   </section>
 
@@ -96,12 +97,12 @@
         <div class="v3-photo-stamp"><span>SEA</span><strong>slow<br>mornings</strong><span>DISCOVER MORE</span></div>
       </div>
       <div class="v3-featured-copy">
-        <p class="v3-label">Featured experience · North Bali</p>
-        <h2>Let the day<br>begin <em>at sea.</em></h2>
-        <p class="v3-body">Explore North Bali's coast and learn what to check before arranging a dolphin-watching trip. Boat options, departure times, safety conditions and prices should be confirmed with a verified local provider.</p>
-        <ul class="v3-detail-list"><li><span class="v3-detail-icon">01</span><span><strong>Choose your experience</strong><small>Review activity and boat preferences.</small></span></li><li><span class="v3-detail-icon">02</span><span><strong>Share your preferred date</strong><small>Request details before making plans.</small></span></li><li><span class="v3-detail-icon">03</span><span><strong>Confirm with the operator</strong><small>Availability and price need confirmation.</small></span></li></ul>
-        <a class="v3-primary-button" href="pages/experiences/lovina-dolphin.html">View experience <span aria-hidden="true">↗</span></a>
-        <p class="v3-fine-print">Check all arrangements directly with your chosen provider before travelling. This website does not currently confirm reservations or process payments.</p>
+        <p class="v3-label" data-i18n="featureLabel">North Bali travel guide</p>
+        <h2 data-i18n-html="featureTitle">Before you plan<br>a trip <em>at sea.</em></h2>
+        <p class="v3-body" data-i18n="featureBody">Explore the North Bali coast and learn what to check before arranging a dolphin-watching trip. Boat options, departure times, safety conditions and prices must be confirmed with the operator.</p>
+        <ul class="v3-detail-list"><li><span class="v3-detail-icon">01</span><span><strong data-i18n="featureStep1">Understand the options</strong><small data-i18n="featureStep1Body">Review activity and boat preferences.</small></span></li><li><span class="v3-detail-icon">02</span><span><strong data-i18n="featureStep2">Check your preferred date</strong><small data-i18n="featureStep2Body">Ask about details before making plans.</small></span></li><li><span class="v3-detail-icon">03</span><span><strong data-i18n="featureStep3">Confirm with the operator</strong><small data-i18n="featureStep3Body">Availability and price need confirmation.</small></span></li></ul>
+        <a class="v3-primary-button" href="pages/guides/index.html" data-i18n="featureCta">Read the travel guide <span aria-hidden="true">↗</span></a>
+        <p class="v3-fine-print" data-i18n="featureNote">This is a planning guide, not a confirmed activity offer. Check all arrangements, prices and safety conditions with a provider before travelling.</p>
       </div>
     </div>
   </section>
@@ -109,11 +110,11 @@
   <section class="v3-planning">
     <div class="container v3-planning-layout">
       <div class="v3-planning-copy">
-        <p class="v3-label">Your day, your decisions</p>
-        <h2>Good plans leave<br>room for <em>surprises.</em></h2>
-        <p class="v3-body">Start with one thing you want to do. Add a meal, another stop or transport only when it makes the day better for you.</p>
-        <a class="v3-light-button" href="pages/itinerary/build.html">Plan your day <span aria-hidden="true">→</span></a>
-        <div class="v3-planning-note"><span aria-hidden="true">✳</span><p>Choose the transport that suits your plans, whether you arrange a local provider or travel independently.</p></div>
+        <p class="v3-label" data-i18n="planningLabel">Plan around your group</p>
+        <h2 data-i18n-html="planningTitle">Make room for<br><em>your kind of day.</em></h2>
+        <p class="v3-body" data-i18n="planningBody">Think about your group, interests and pace first. Confirm any transport or activity arrangements before relying on them.</p>
+        <a class="v3-light-button" href="pages/contact.html" data-i18n="planningCta">Ask about your trip <span aria-hidden="true">→</span></a>
+        <div class="v3-planning-note"><span aria-hidden="true">✳</span><p data-i18n="planningNote">Transport is not offered as a confirmed booking through this preview. Please verify providers and arrangements independently.</p></div>
       </div>
       <div class="v3-planning-art" aria-label="A glimpse of Bali">
         <div class="v3-planning-photo v3-plan-photo-one" role="img" aria-label="Tropical green landscape"></div>
@@ -128,10 +129,10 @@
     <div class="container v3-guides-layout">
       <div class="v3-guides-image" role="img" aria-label="Bali tropical landscape and palm trees"></div>
       <div class="v3-guides-copy">
-        <p class="v3-label">A little context goes a long way</p>
-        <h2>Travel with<br>more <em>confidence.</em></h2>
-        <p class="v3-body">Good information makes planning easier. Read practical advice about getting around Bali, understanding local considerations and knowing what to check before you go.</p>
-        <a class="v3-text-link" href="pages/guides/index.html">Read the blog <span aria-hidden="true">↗</span></a>
+        <p class="v3-label" data-i18n="guidesLabel">Useful information before you go</p>
+        <h2 data-i18n-html="guidesTitle">Know more<br><em>before you go.</em></h2>
+        <p class="v3-body" data-i18n="guidesBody">Read practical advice about getting around Bali, understanding local considerations and checking details before you make plans.</p>
+        <a class="v3-text-link" href="pages/guides/index.html" data-i18n="guidesCta">Read travel guides <span aria-hidden="true">↗</span></a>
         <div class="v3-guide-points"><span><b>01</b> Practical travel information</span><span><b>02</b> Places and local context</span><span><b>03</b> Things to check before booking</span></div>
       </div>
     </div>
@@ -139,36 +140,36 @@
 
   <section class="v3-principles section">
     <div class="container">
-      <div class="v3-section-head v3-principles-head"><div><p class="v3-label">A clearer way to travel</p><h2>Thoughtful choices.<br><em>Better days.</em></h2></div><p class="v3-body">Bali Trans brings experiences, destination ideas and practical travel guidance together, so you can make informed choices for your time in Bali.</p></div>
+      <div class="v3-section-head v3-principles-head"><div><p class="v3-label" data-i18n="principlesLabel">Make an informed choice</p><h2 data-i18n-html="principlesTitle">Clear details.<br><em>Better plans.</em></h2></div><p class="v3-body" data-i18n="principlesBody">Bali Trans brings activity ideas, destinations and practical guidance together. Confirm availability and terms before committing to any service.</p></div>
       <div class="v3-principle-grid">
-        <article><span class="v3-principle-no">01</span><div class="v3-principle-symbol" aria-hidden="true">⌕</div><h3>Know the details</h3><p>Understand inclusions, timing and conditions before you commit.</p></article>
-        <article><span class="v3-principle-no">02</span><div class="v3-principle-symbol" aria-hidden="true">↗</div><h3>Choose what fits</h3><p>Make room for your interests, group and preferred pace.</p></article>
-        <article><span class="v3-principle-no">03</span><div class="v3-principle-symbol" aria-hidden="true">◎</div><h3>Keep it flexible</h3><p>Build around your experience, not a one-size-fits-all package.</p></article>
+        <article><span class="v3-principle-no">01</span><div class="v3-principle-symbol" aria-hidden="true">⌕</div><h3 data-i18n="principle1Title">Know the details</h3><p data-i18n="principle1Body">Check inclusions, timing, price and conditions before you commit.</p></article>
+        <article><span class="v3-principle-no">02</span><div class="v3-principle-symbol" aria-hidden="true">↗</div><h3 data-i18n="principle2Title">Choose what fits</h3><p data-i18n="principle2Body">Consider your interests, group size and preferred pace.</p></article>
+        <article><span class="v3-principle-no">03</span><div class="v3-principle-symbol" aria-hidden="true">◎</div><h3 data-i18n="principle3Title">Plan with care</h3><p data-i18n="principle3Body">Use the information available and confirm the arrangements that matter.</p></article>
       </div>
     </div>
   </section>
 
   <section class="v3-faq section">
     <div class="container v3-faq-layout">
-      <div><p class="v3-label">Before you set off</p><h2>Good to<br><em>know.</em></h2><p class="v3-body">A few useful things to know before making your plans.</p><a href="pages/contact.html" class="v3-text-link">Have another question? <span aria-hidden="true">↗</span></a></div>
+      <div><p class="v3-label" data-i18n="faqLabel">Before you make plans</p><h2 data-i18n-html="faqTitle">Good to<br><em>know.</em></h2><p class="v3-body" data-i18n="faqBody">A few important details before you decide what to do next.</p><a href="pages/contact.html" class="v3-text-link" data-i18n="faqCta">Have another question? <span aria-hidden="true">↗</span></a></div>
       <div class="v3-faq-list">
-        <details><summary>Do I have to use Bali Trans transport?</summary><p>No. Transport is optional. You can arrange another provider or travel independently.</p></details>
-        <details><summary>Are prices and availability confirmed?</summary><p>Not always. Check the details shown for each experience and confirm the price, availability, inclusions and conditions with the provider before committing.</p></details>
-        <details><summary>Can I book and pay on this website?</summary><p>Online booking and payment are not currently available. Do not treat a selection on this website as a reservation; confirm arrangements directly with a verified provider.</p></details>
+        <details><summary data-i18n="faq1Q">Can I book a tour directly on this website?</summary><p data-i18n="faq1A">Not at the moment. This preview does not confirm bookings or take payments. Contact a verified provider to confirm the details.</p></details>
+        <details><summary data-i18n="faq2Q">Are prices and availability confirmed?</summary><p data-i18n="faq2A">No live prices or availability are confirmed here. Ask the provider to confirm the price, inclusions, schedule and terms before deciding.</p></details>
+        <details><summary data-i18n="faq3Q">Does sending an enquiry confirm a reservation?</summary><p data-i18n="faq3A">No. An enquiry is not a reservation. Any booking and payment process must be confirmed separately with the service provider.</p></details>
       </div>
     </div>
   </section>
 
   <section class="v3-final">
     <div class="v3-final-image" aria-hidden="true"></div><div class="v3-final-shade" aria-hidden="true"></div>
-    <div class="container v3-final-inner"><p class="v3-label">Start planning your time in Bali</p><h2>Find something<br><em>to look forward to.</em></h2><a href="pages/search.html" class="v3-light-button">Explore Bali Trans <span aria-hidden="true">↗</span></a></div>
+    <div class="container v3-final-inner"><p class="v3-label" data-i18n="finalLabel">Your next step</p><h2 data-i18n-html="finalTitle">Start with what<br><em>interests you.</em></h2><a href="pages/search.html" class="v3-light-button" data-i18n="finalCta">Explore available guides <span aria-hidden="true">↗</span></a></div>
     <span class="v3-final-coordinate" aria-hidden="true">08° 40' S · 115° 12' E</span>
   </section>
 </main>
 
 <footer class="site-footer">
   <div class="container footer-top">
-    <div class="footer-brand"><a href="index.html" class="logo"><span class="logo-main">Bali<span class="brand-period">.</span></span><span class="logo-sub">TRANS</span></a><p>Explore Bali experiences, destination ideas and practical travel guidance in one place.</p></div>
+    <div class="footer-brand"><a href="index.html" class="logo"><span class="logo-main">Bali<span class="brand-period">.</span></span><span class="logo-sub">TRANS</span></a><p data-i18n="footerIntro">Practical Bali travel information and experience ideas to help you plan with care.</p></div>
     <div class="footer-column"><h4>Discover</h4><a href="pages/experiences/index.html">Experiences</a><a href="pages/tours/index.html">Tours & day trips</a><a href="pages/destinations/index.html">Destinations</a><a href="pages/tickets/index.html">Tickets</a></div>
     <div class="footer-column"><h4>Plan</h4><a href="pages/itinerary/build.html">Plan your day</a><a href="pages/transport/index.html">Transport</a><a href="pages/guides/index.html">Blog</a></div>
     <div class="footer-column"><h4>Information</h4><a href="pages/about.html">About</a><a href="pages/contact.html">Contact</a><a href="pages/privacy.html">Privacy</a><a href="pages/terms.html">Terms</a></div>
