@@ -267,3 +267,28 @@ Mas Bagus clarified that the goal is a complete website, not demo/mock pages. Kl
 3. Remove generic demo/preview wording from customer-facing copy where it is unnecessary, but do not claim non-existent live booking, payment, support or inventory.
 4. Run the repository link validator and relevant workflows; inspect the actual Pages site on mobile. Do not say visual QA or deployment is confirmed without evidence.
 5. Replace the contact placeholders only after Mas Bagus supplies/approves the official phone and email details.
+
+
+## Whole-site build pass — continuation note, 17 October 2026
+
+Mas Bagus clarified the target: the site must be a coherent, populated travel website, not a collection of demos. Klook is the UX reference and Bali Golden Tour is a reference for the depth of route/product information.
+
+### Implemented in this pass
+- Rebuilt `pages/about.html`, `pages/contact.html`, and added `pages/faq.html`.
+- Contact page now includes enquiry types, required trip details, and replaceable official-contact placeholders. No phone/email was fabricated.
+- Homepage FAQ section and footer now link to the full FAQ page.
+- Reworded the tour index and the Uluwatu, Ubud–Kintamani and Nusa Penida details into customer-facing itinerary pages; they ask users to confirm final route, operator, inclusions, price and availability without using “sample/prototype” language.
+- Reworded the Lovina experience page and converted its three-step “test booking” path into an enquiry-preparation flow. It stores selections in the current browser session and produces a copyable enquiry summary; it does not send that enquiry or create a reservation.
+- Payment/invoice screens now state the conditions to confirm before paying and no longer present themselves as a test.
+- Updated public footer information links on core page families and the booking/enquiry flow to direct visitors to About, Contact, FAQs and legal information rather than unavailable account features.
+- Source verification: `js/main.js` syntax passed; local `href/src` references on 16 key pages had zero missing local targets. Repository tree currently contains 39 HTML files.
+
+### Important limits
+- The latest Pages publish/deploy workflows are still pending as of the last check. Do not claim the current code is live yet.
+- No real mobile visual test, end-to-end form test, backend enquiry delivery, supplier connection, live availability, payment, or account service has been verified.
+- Contact details remain placeholders and must be replaced with official information before customer launch.
+
+### Continue from here
+1. Confirm the latest Pages publish/deployment result and test the homepage → tour detail → enquiry summary → contact journey on mobile.
+2. Continue the same copy/link review on all remaining HTML routes. Keep account/admin/partner pages unlinked from the public journey until their services actually exist.
+3. Re-run the static local-reference scan across all 39 HTML files, then verify all visible CTAs and mobile navigation in a real browser.
