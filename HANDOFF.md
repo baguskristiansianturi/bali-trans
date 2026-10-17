@@ -104,3 +104,10 @@
 - The updated validator passed in [Actions run 39007631543](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39007631543): 35 HTML pages, site-wide navigation contract, seven-page content layout contract and 852 local `href/src` references.
 - Preview publish succeeded in [run 39007651200](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39007651200); GitHub Pages build/deployment succeeded in [run 39007651001](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39007651001).
 - This is static markup and workflow evidence, not manual visual acceptance. Mobile/desktop rendering, keyboard walkthrough, screen-reader output and real booking-flow behaviour remain unverified.
+
+
+### Strict initial navigation state — follow-up PR in progress, 17 October 2026
+
+- Follow-up branch `audit/strict-navigation-contract-2026-10-17` tightens the initial markup to one exact accessible name (`Primary navigation`) and one exact closed-menu state (`Open navigation`, `aria-expanded="false"`, `aria-controls="mainNav"`) across all 35 HTML routes.
+- The validator now checks these exact values, not merely that the attributes exist. This is a source consistency improvement; runtime and assistive-technology behaviour still require browser testing.
+- The change is not merged or deployed until its PR and Actions results are verified.

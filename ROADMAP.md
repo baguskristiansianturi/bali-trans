@@ -147,3 +147,12 @@
 - [x] Verify preview publish and GitHub Pages build/deployment succeeded: [publish run 39007651200](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39007651200), [Pages run 39007651001](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39007651001).
 - [ ] Test the live preview at mobile/desktop widths, including menu open/close, keyboard focus and screen-reader behaviour.
 - [ ] Test homepage search and the Lovina request flow end-to-end in a real browser. Static checks do not establish runtime behaviour or operational booking readiness.
+
+
+### Strict initial navigation contract — in progress, 17 October 2026
+
+- [x] Normalize the primary navigation landmark label to `Primary navigation` across all 35 routes.
+- [x] Normalize initial mobile menu state to `Open navigation`, `aria-expanded="false"`, and `aria-controls="mainNav"`.
+- [x] Tighten the validator to enforce exact initial values across all HTML routes.
+- [ ] Review the PR and confirm Actions pass before merge.
+- [ ] Complete real mobile/desktop, keyboard and screen-reader testing separately.

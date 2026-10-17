@@ -217,3 +217,10 @@ Recommended next implementation: standardize the menu-toggle accessibility contr
 - The updated validator passed [Actions run 39007631543](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39007631543): site-wide navigation contract, seven-page content layout contract and 852 local `href/src` references.
 - Preview publishing succeeded [run 39007651200](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39007651200), and GitHub Pages build/deployment succeeded [run 39007651001](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39007651001).
 - **Still unverified:** visual quality and responsive overflow on mobile/desktop, real keyboard traversal, screen-reader behaviour, and end-to-end search/Lovina request flow. This audit establishes source and CI outcomes only.
+
+
+### Strict initial navigation contract — follow-up PR in progress, 17 October 2026
+
+- The prior change ensured that every route had accessible navigation/menu attributes; this follow-up makes the initial values identical rather than only present.
+- All routes are set to `aria-label="Primary navigation"` on `#mainNav`; menu toggles start as `aria-label="Open navigation"`, `aria-expanded="false"`, `aria-controls="mainNav"`. The shared script remains responsible for changing the label and expanded state after interaction.
+- Static validation now requires these exact values on every HTML route. This PR remains pending until CI is confirmed; no runtime behaviour is claimed.
