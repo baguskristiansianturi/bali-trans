@@ -368,3 +368,14 @@ A visible language and currency control must be present in the shared header on 
 - [x] JavaScript syntax check passed. The two newly used local destination pages (pages/tours/index.html, pages/transport/index.html) exist in the preview branch.
 - [ ] Confirm the Pages workflow result and inspect the live homepage visually on mobile. External image loading and rendered layout are not confirmed from this environment.
 - [ ] Do not mark the homepage accepted until Mas Bagus reviews the live Pages result.
+
+
+### Tour-detail usability correction — 17 October 2026
+
+- [x] Replaced the generic tour-category click-through with dedicated detail pages for Uluwatu Sunset & Kecak Dance, Ubud & Kintamani, and Nusa Penida.
+- [x] Each page now explains the experience, a stop-by-stop suggested itinerary, approximate planning duration, highlights, potential inclusions/exclusions, practical safety/logistics, and the exact items a traveller must confirm.
+- [x] Homepage cards now open the matching trip detail rather than sending every tour to the same generic page.
+- [x] Tours index now presents real detail links and summaries for the three trip concepts.
+- [x] JavaScript syntax check passed; source checks confirm the Uluwatu page includes itinerary, inclusion/exclusion, and confirmation sections.
+- [ ] Verify Pages deployment and visually test the home → tour detail → tour index flow on mobile. No live browser/device test or booking backend is claimed.
+- [ ] These remain sample itinerary concepts, not confirmed BDM packages. Do not publish supplier prices or availability until verified.
