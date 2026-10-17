@@ -349,3 +349,12 @@ Before a product appears as available to buy, verify its fulfilment owner, suppl
 ### Locale requirement — acceptance criteria
 
 A visible language and currency control must be present in the shared header on desktop and mobile. Indonesian uses natural casual Indonesian + IDR; US English + USD; Singapore English must be adapted to natural Singlish + SGD; Malaysian Malay must use Malaysian usage (not Indonesian Malay) + MYR. These are separate copy variants, not literal translations. Currency preference must not pretend to perform a live conversion or establish a payable price. Arabic remains unresolved. Implement only with a working interaction and verify it; a decorative selector does not pass.
+
+
+## Homepage update — 17 October 2026
+
+- Added an editorial tour-inspiration section to the homepage with four Bali route concepts: Ubud–Kintamani, Uluwatu sunset, Bedugul–Tanah Lot, and Nusa Penida.
+- These themes follow public tour-category patterns used by Bali Golden Tour; copy is independently written. No prices, live availability, operator affiliation, or confirmed package claims are made.
+- Added responsive image cards and localized the section copy/category labels for US English, Indonesian, Singapore English, and Malaysian Malay.
+- The Pages workflow is configured to publish pushes to `preview/bali-trans`. Source changes have been committed to that branch; live visual verification is still pending because the public Pages URL could not be inspected from this session.
+- Next: verify the published homepage on mobile, then review the tours listing before expanding other pages.
