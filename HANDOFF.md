@@ -188,3 +188,8 @@ This is a content/source checkpoint, **not** a full-site acceptance. The next ta
 - Dining and Marketplace routes are no longer promoted in the primary nav/footer links checked during this pass; those pages now provide practical travel guidance. Their route files remain in place pending a complete inbound-link/retirement decision.
 - The latest PR search returned no open PRs. Combined status for the latest checked source commit returned no status entries; this is not a passing CI result. GitHub Pages and browser rendering have not been verified in this turn.
 - Next: complete the full 35-route content/link audit, check all local href/src targets, inspect Actions/deployment, then review the mobile/desktop experience. Do not mark the site-wide copy pass complete until those checks are evidenced.
+
+
+### Focused legacy-link sweep — 17 October 2026
+
+A source scan of all 35 HTML routes checked linked labels and destinations for the legacy Dining, Local Products, Travel guides and Guides promotions. The identified links were removed or renamed to Blog, and the affected routes were re-read after the changes. This closes the focused promotion sweep only; it does not certify every href/src target, every paragraph of copy, or the retirement/redirect decision for the Dining and Marketplace route files.
