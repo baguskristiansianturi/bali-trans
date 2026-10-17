@@ -395,3 +395,19 @@ Mas Bagus clarified the acceptance target: the site must be a coherent, populate
 - [ ] Replace remaining visitor-facing "prototype/preview" phrasing where it is not needed for honest disclosures; never claim live availability, real booking, support or payment until those operations exist.
 - [ ] Verify every internal link, workflow outcome, deployed Pages build and mobile rendering. This commit is source-level work only; live browser/device QA is not claimed.
 - [ ] Before launch, replace the contact placeholders with confirmed business details and review legal copy against the real operating model.
+
+
+## Whole-site build pass — 17 October 2026 (continued)
+
+The current repository tree contains **39 HTML pages**. This is not yet a claim that all 39 are accepted or visually verified.
+
+- [x] Built visitor-facing About, Contact and FAQ pages. Contact uses explicit replaceable details rather than invented business credentials.
+- [x] Added FAQ entry points from the homepage and standardised public information/footer links on the main public page families and the enquiry flow.
+- [x] Reworded the three tour details and tour index so they read as customer-facing route information, not “sample/prototype” pages. They still correctly require confirmation of the operator, final itinerary, price and availability.
+- [x] Reframed the Lovina experience selection and three-step booking mock flow as an enquiry-preparation flow. The final screen now prepares a copyable request summary; it does **not** send a message or create a booking.
+- [x] Changed payment/invoice pages to explain confirmation and payment safety rather than promote a test/preview experience.
+- [x] JavaScript syntax check passed for `js/main.js`.
+- [x] Static local `href/src` scan on 16 key pages reported zero missing local targets.
+- [ ] Complete the same route-by-route copy/link review for every remaining page, especially account/admin/partner and legacy dining/marketplace routes. Keep non-operational account/payment features out of public navigation.
+- [ ] Confirm the latest Pages deployment, then inspect the actual website on a phone. Workflow completion and static link checks do not replace visual or end-to-end testing.
+- [ ] Replace the visible contact placeholders with official business details before customer launch.
