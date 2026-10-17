@@ -168,3 +168,16 @@
 - [x] Verify preview publish succeeded: [run 39008045984](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39008045984).
 - [ ] Confirm the latest Pages deployment result and test menu fit on a narrow mobile viewport.
 - [ ] Complete real mobile/desktop, keyboard and screen-reader checks separately.
+
+
+### Information architecture and existing-page content — 17 October 2026
+
+- [ ] Remove Dining from primary navigation and homepage/footer discovery links; retain useful dining advice as dated blog articles where relevant.
+- [ ] Treat the existing Guides area as the Blog/article hub, not a separate product feature. Article content should be useful, dated, source-backed for factual claims, and not imply a live travel-alert feed.
+- [ ] Remove Local Products/marketplace promotion from primary discovery and footers for this phase; do not expand marketplace scope without a later explicit product decision.
+- [x] Expand the Terms page into a structured, honest working draft covering preview limitations, enquiries, providers, prices/cancellations, travel information, privacy and launch review requirements. It remains a draft, not legally approved or ready for live bookings.
+- [ ] Audit all 35 HTML routes for remaining Dining, Guides and Local Products navigation/footer links and inbound links before deleting or redirecting any pages.
+- [ ] Review existing Experiences, Tours, Tickets, Destinations, Transport, Contact and Privacy pages for useful complete content; replace generic demo/foundation copy and clearly label unavailable services.
+- [ ] Run HTML/local-link validation and content-layout workflow after changes. Browser/mobile/desktop and live deployment checks remain separate acceptance gates.
+
+**Decision recorded:** no standalone Dining or Local Products feature for the current scope; travel guidance belongs in blog articles. Preserve source pages temporarily until route references are audited to avoid broken links.
