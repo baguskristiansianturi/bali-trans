@@ -216,3 +216,22 @@
 - Reuse the shared article content blocks in `css/content-layout.css` and the representative article in `pages/guides/travel-updates.html` for layout review. Replace the placeholder image and add verified sources/review dates before publishing.
 - Keep the global navbar compact: Discover, Experiences, Blog and one Plan CTA. Dining and Local Products are not top-level features; publish relevant advice as blog content. Keep “Transport” as the working label until service scope is assessed.
 - Finish core page copy and shared page-family layouts, then review UX/UI with the user. Only after explicit approval should the Lovina package receive end-to-end acceptance testing.
+
+
+## Foundation content implementation status — 17 October 2026
+
+### Completed as source changes on `work/remove-premature-sections`
+- [x] Homepage primary navigation reduced to Discover, Experiences and Blog, with Plan your day as the separate primary CTA.
+- [x] Core public-page navigation aligned on Home, Discover, Experiences, Blog, About, Contact, Privacy, Transport and the article model.
+- [x] Added reusable article blocks in `css/content-layout.css` and a representative conceptual article with contents, headings, callouts, related content and explicit draft/source caveats.
+- [x] Replaced Transport, Tours, Tickets, Destinations and Plan your day foundation placeholders with substantive concept copy and honest availability/functionality notes.
+- [x] Improved About, Contact, Privacy and Discover conceptual copy; removed Dining/Local Products promotion from the core pages edited in this pass.
+- [x] Updated HANDOFF.md and AUDIT.md to record the locale voice requirement and remaining verification gates.
+
+### Still open — do not mark the foundation complete yet
+- [ ] Audit and normalize every remaining route family, including booking, account, partner and admin screens; some may require intentionally reduced navigation.
+- [ ] Audit every remaining footer and internal link for premature Dining/Local Products promotion and broken destinations.
+- [ ] Implement a single locale-profile control only after the copy strategy is ready for actual language-specific content. Required voices: casual Bahasa Indonesia; Bahasa Melayu Malaysia; natural Singlish; natural American English. Defaults: IDR, MYR, SGD, USD. No selector or translation completeness is claimed yet.
+- [ ] Review the latest content-layout workflow result; it was still in progress at the last check.
+- [ ] Browser/mobile/desktop review and live deployment verification remain outstanding.
+- [ ] User must review and approve the full UX/UI before Lovina end-to-end package testing begins.
