@@ -241,3 +241,24 @@
 - Removed the Dining link from the homepage primary navigation and Plan footer group only; no Dining route files were deleted.
 - This is deliberately narrower than the open PR #20: internal-route navigation and the guide/article hub were not changed in this commit.
 - Recheck local links and the latest Pages workflow before treating this change as deployed. Browser/mobile review remains outstanding.
+
+
+## Visitor-ready copy pass — 17 October 2026
+
+### Completed directly on `preview/bali-trans`
+- Replaced the internal “Structure ready”/“Foundation page” copy on account pages (login, register, dashboard, profile, bookings, journeys, invoices and reviews) with visitor-facing explanations of what is and is not available.
+- Rewrote visitor copy for Tours, Tickets, Destinations, Plan your day, Discover/Search, Transport and the Blog hub to provide practical guidance rather than category-template language.
+- Reworked the representative Blog article so it reads as a usable planning checklist; removed internal notes instructing the editor to add an image or treat the body as concept copy.
+- Replaced internal placeholders on itinerary overview, payment, invoice, partner and admin pages with clear status copy and safer expectations.
+- Repurposed Dining and Marketplace routes as practical travel guidance rather than promoting standalone dining/product catalogue features.
+- Standardized compact Discover / Experiences / Blog navigation on the account and booking pages updated in this pass.
+
+### Still required — do not mark the site-wide copy audit complete
+- [ ] Review all 35 HTML routes for remaining developer-facing language, generic/unfinished copy, contradictory CTAs and unsupported claims. This pass changed many routes but did not complete a full human review of every paragraph on every route.
+- [ ] Reconcile all header/footer variants, including reduced checkout layout and internal partner/admin screens; confirm every CTA matches a real available action.
+- [ ] Validate all local links after edits, run the relevant GitHub Actions workflows and verify the resulting Pages deployment.
+- [ ] Review responsive layout, touch navigation and keyboard focus in a real browser. No visual/browser acceptance is claimed by source edits alone.
+- [ ] Keep locale voice requirements on the roadmap: casual Bahasa Indonesia; Bahasa Melayu Malaysia; natural Singlish; natural American English. Do not claim translations or a locale selector exist yet.
+- [ ] Obtain Mas Bagus's UX/UI review before the Lovina request journey is accepted end-to-end.
+
+**Copy acceptance rule:** visitor-facing copy must be coherent and usable before SEO optimization. Do not expose internal phrases such as “foundation page”, “structure ready”, “concept article”, or editor instructions in published-facing content. Where service data or functionality is not real yet, explain that limitation plainly without turning the whole page into developer notes.
