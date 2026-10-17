@@ -159,3 +159,8 @@
 - Still not complete: other route families (account, booking, partner/admin), whole-repository link/footer audit, locale selector and actual translations, visual mobile/desktop testing, and live Pages deployment check.
 - Locale voices remain required: casual Bahasa Indonesia; Bahasa Melayu Malaysia; natural Singlish; natural American English. The single language+currency profile control has not been implemented because current page copy is not yet translated into those four distinct voices.
 - Keep the sequence: finish all foundation routes and shared blocks → user reviews UX/UI → only then test the Lovina package end-to-end. Do not claim browser or device verification from CI.
+
+
+### Public detail navigation follow-up — 17 October 2026
+
+The compact Discover / Experiences / Blog navigation and Plan your day CTA have also been applied to Terms and the Lovina experience detail. This does not mean the full account, booking, partner or admin route families have been normalized; review those separately and preserve justified reduced checkout layouts.
