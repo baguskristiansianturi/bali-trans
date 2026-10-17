@@ -399,7 +399,7 @@ Mas Bagus clarified the acceptance target: the site must be a coherent, populate
 
 ## Whole-site build pass — 17 October 2026 (continued)
 
-The current repository tree contains **39 HTML pages**. This is not yet a claim that all 39 are accepted or visually verified.
+The current repository tree contains **40 HTML pages**. This is not yet a claim that all 39 are accepted or visually verified.
 
 - [x] Built visitor-facing About, Contact and FAQ pages. Contact uses explicit replaceable details rather than invented business credentials.
 - [x] Added FAQ entry points from the homepage and standardised public information/footer links on the main public page families and the enquiry flow.
@@ -411,3 +411,12 @@ The current repository tree contains **39 HTML pages**. This is not yet a claim 
 - [ ] Complete the same route-by-route copy/link review for every remaining page, especially account/admin/partner and legacy dining/marketplace routes. Keep non-operational account/payment features out of public navigation.
 - [ ] Confirm the latest Pages deployment, then inspect the actual website on a phone. Workflow completion and static link checks do not replace visual or end-to-end testing.
 - [ ] Replace the visible contact placeholders with official business details before customer launch.
+
+
+### Dedicated transfer detail — 17 October 2026
+
+- [x] Added `pages/transport/airport-transfer.html` with service-specific guidance for airport, hotel and harbour transfers, pickup information, vehicle/luggage questions, price components and confirmation checklist.
+- [x] Homepage Airport & Hotel Transfers card now opens this dedicated detail page instead of the general transport category.
+- [x] Transport category links to the new transfer page.
+- [ ] Verify the deployed homepage → transfer detail → contact flow on a phone. The contact phone/email are still explicit placeholders; do not claim a transfer can be booked until official contact and provider details are confirmed.
+- Current repository tree now contains 40 HTML files. This count describes file inventory, not acceptance of all 40 routes.
