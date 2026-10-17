@@ -198,3 +198,14 @@ A source scan of all 35 HTML routes checked linked labels and destinations for t
 ### Current focus — homepage only (17 October 2026)
 
 Updated `index.html` visitor-facing copy and removed the remaining homepage wording that called the site a preview/prototype or said it was “being built”. Search routes to Discover; guide CTA now says Blog; unavailable Wishlist/Account links were removed from the homepage footer. Booking/payment limitations remain stated plainly without presenting a fake confirmation. Header baseline: Discover / Experiences / Blog plus Plan your day. Next step is to review and finish the homepage only, then wait for Mas Bagus's approval before touching another page. Every later page must reuse the homepage's exact navbar and footer pattern; no one-off variations.
+
+
+## Session continuation — business-first reset (17 October 2026)
+
+- Working branch: `work/business-first-roadmap-2026-10-17` (created from `preview/bali-trans`).
+- A new business-first recovery section was added to `ROADMAP.md`. It explicitly says the generic homepage is not accepted, puts product fulfilment truth before copy, and makes the visible language + currency selector mandatory in the shared header on mobile and desktop.
+- Recovered guardrails: activity tickets and tour packages are the initial sales focus only where fulfilment is confirmed; car rental/transport is not to be sold as available until fleet/partners and terms are verified; 30–40% premium remains a hypothesis, not blanket pricing.
+- Competitor reference points: Klook (searchable inventory and visible confidence signals), Bali Golden Tour (private packages/custom itinerary enquiries), and Muslim-friendly niche operators (concrete prayer/food/family arrangements). Competitor claims are not BDM promises. See the new roadmap section for source URLs and implications.
+- Locale requirement: Indonesian + IDR, US English + USD, Singapore Singlish + SGD, Malaysian Malay + MYR. These need adapted copy, not literal translations. Arabic remains unresolved.
+- Next: verify actual current branch/PR/workflow state; build product/fulfilment readiness matrix; implement real locale/currency controls; then work on homepage only and wait for Mas Bagus's review before other pages.
+- No browser/device verification or deployment is claimed by this documentation change.
