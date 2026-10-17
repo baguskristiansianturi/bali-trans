@@ -310,3 +310,11 @@
  .v3-planning-card strong{font-size:20px}
 }
 @media(prefers-reduced-motion:reduce){.homepage-v3 *, .homepage-v3 *:before,.homepage-v3 *:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+/* Visible language and currency selector in the homepage header */
+.homepage-v3 .locale-controls{display:flex;align-items:center;flex:0 0 auto}
+.homepage-v3 .locale-controls select{max-width:170px;min-height:40px;padding:0 8px;border:1px solid var(--v3-line);border-radius:3px;background:var(--v3-paper);color:var(--v3-forest);font:600 10px/1.2 "DM Sans",Arial,sans-serif;cursor:pointer}
+.homepage-v3 .locale-controls select:focus-visible{outline:3px solid #b8752b;outline-offset:3px}
+@media(max-width:1050px){.homepage-v3 .header-inner{gap:14px}.homepage-v3 .main-nav{gap:14px}.homepage-v3 .locale-controls select{max-width:150px}}
+@media(max-width:900px){.homepage-v3 .header-inner{flex-wrap:wrap;padding-top:10px;padding-bottom:10px;gap:10px}.homepage-v3 .logo{margin-right:auto}.homepage-v3 .locale-controls{order:4;width:100%;padding-bottom:3px}.homepage-v3 .locale-controls select{width:100%;max-width:none;min-height:42px}.homepage-v3 .header-book,.homepage-v3 .menu-toggle{order:2}}
+@media(max-width:620px){.homepage-v3 .container{width:calc(100% - 28px)}.homepage-v3 .header-inner{gap:10px}.homepage-v3 .header-book{padding:0 10px;font-size:10px}.homepage-v3 .logo-main{font-size:24px}.homepage-v3 .locale-controls select{font-size:12px}}
