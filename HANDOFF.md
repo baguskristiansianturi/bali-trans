@@ -71,7 +71,7 @@
 
 - A later review of browser-relative URL resolution found that earlier notes overstated the relative-link issue. Paths such as `../pages/search.html` from `pages/about.html` and `../../pages/search.html` from nested `pages/<family>/index.html` resolve to the intended `pages/search.html`; they do not inherently create a duplicated `pages/pages/` path.
 - PR #10 normalizes the seven pages to shorter, locally consistent relative paths, but this should be described as link-path normalization, not as proof that the earlier paths were broken.
-- The current package validator has passed the full contract and local-reference checks on a revision containing `css/content-layout.css` in run [39004560674](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39004560674). A newer run is still needed for the latest head if it contains further page changes.
+- The current package validator has passed the full contract and local-reference checks on a revision containing `css/content-layout.css` in run [39004560674](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39004560674). The full contract passed on PR #10's final head in [run 39004821005](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39004821005): 7 pages and 191 local href/src references.
 
 
 ### Full route inventory checkpoint — 17 October 2026
@@ -85,3 +85,13 @@
 
 **Resume next:** use the complete inventory to agree the site-wide nav/footer contract, then implement a small, reviewable PR by page family. Do not claim responsive layout, keyboard operation, screen-reader behaviour or booking flows are verified without browser testing.
 
+### Final verification checkpoint — 17 October 2026
+
+- PR #11 (static validator/workflow), PR #10 (seven-page public content package) and PR #9 (35-route header/footer source inventory) are all merged into `preview/bali-trans`.
+- PR #10's exact final head passed [workflow run 39004821005](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39004821005): the full layout contract and 191 local href/src references across seven pages.
+- Preview publish and Pages deployment succeeded for `87ff23f` after PR #10. After PR #9's documentation merge, the latest preview publish and Pages deployment runs for `ce445d3` were still in progress when this note was written; recheck them before claiming the latest deployment is live.
+- Source-level inventory now covers all 35 routes and is recorded in AUDIT.md. It identifies navigation and footer variants but does not implement site-wide normalization.
+- Still unverified: browser visual review at mobile/desktop widths, keyboard traversal, screen-reader output, live page visual state, search behaviour and the Lovina request flow. The public content package is statically checked, not fully accepted for UX.
+- The current preview remains a prototype: Search is not a backend, Contact has no connected support channel, Privacy/Terms are drafts, Travel Updates has no live feed, and booking/payment/account/admin operations are not operational.
+
+**Next:** confirm latest preview deployment, then review the seven-page package on a real mobile browser and desktop viewport. After that, agree the navigation/footer standard before changing remaining page families. Never mark browser or operational tests complete without running them.

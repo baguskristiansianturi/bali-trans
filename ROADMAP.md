@@ -107,7 +107,7 @@
 
 - A later review of browser-relative URL resolution found that earlier notes overstated the relative-link issue. Paths such as `../pages/search.html` from `pages/about.html` and `../../pages/search.html` from nested `pages/<family>/index.html` resolve to the intended `pages/search.html`; they do not inherently create a duplicated `pages/pages/` path.
 - PR #10 normalizes the seven pages to shorter, locally consistent relative paths, but this should be described as link-path normalization, not as proof that the earlier paths were broken.
-- The current package validator has passed the full contract and local-reference checks on a revision containing `css/content-layout.css` in run [39004560674](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39004560674). A newer run is still needed for the latest head if it contains further page changes.
+- The current package validator has passed the full contract and local-reference checks on a revision containing `css/content-layout.css` in run [39004560674](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39004560674). The full contract passed on PR #10's final head in [run 39004821005](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39004821005): 7 pages and 191 local href/src references.
 
 
 ### Header/footer inventory — completed source pass (17 October 2026)
@@ -122,3 +122,17 @@
 - [ ] Implement the agreed contract in small PRs; run local reference checks and test mobile/desktop, keyboard/focus and relevant user journeys in a real browser.
 
 **Evidence boundary:** inventory is source-level only. PR #10 is merged and preview publish/Pages deployment workflows succeeded at `87ff23f`; no visual, responsive, keyboard, screen-reader or end-to-end booking test has been performed.
+
+### Final checkpoint after PR #9–#11 — 17 October 2026
+
+- [x] Merge PR #11: static content validator and PR workflow enabled on `preview/bali-trans`.
+- [x] Merge PR #10: seven-page public content package.
+- [x] Full content-layout contract passed on PR #10's final head in [run 39004821005](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39004821005): 7 pages and 191 local href/src references.
+- [x] Merge PR #9: source-level row-by-row header/footer inventory for all 35 HTML routes.
+- [ ] Confirm publish and Pages deployment runs for current preview head `ce445d3`; they were still in progress at the last check.
+- [ ] Review the seven-page package in a real browser at mobile and desktop widths; test keyboard/focus and screen-reader behaviour where available.
+- [ ] Agree shared navigation labels/order, logo subtitle, generic CTA casing and intentional exceptions before making site-wide markup changes.
+- [ ] Standardize missing menu-toggle ARIA attributes and current-page markers by page family after agreement; preserve contextual booking/product CTAs and the compact checkout footer if validated.
+- [ ] Test homepage search and the Lovina request flow in a browser, including invalid/missing state, back/refresh and session-storage behaviour.
+
+**Boundary:** source validation and workflow results are not visual acceptance or proof of live booking/payment functionality.

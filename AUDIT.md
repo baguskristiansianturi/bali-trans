@@ -131,7 +131,7 @@ Recommended next implementation: standardize the menu-toggle accessibility contr
 
 - A later review of browser-relative URL resolution found that earlier notes overstated the relative-link issue. Paths such as `../pages/search.html` from `pages/about.html` and `../../pages/search.html` from nested `pages/<family>/index.html` resolve to the intended `pages/search.html`; they do not inherently create a duplicated `pages/pages/` path.
 - PR #10 normalizes the seven pages to shorter, locally consistent relative paths, but this should be described as link-path normalization, not as proof that the earlier paths were broken.
-- The current package validator has passed the full contract and local-reference checks on a revision containing `css/content-layout.css` in run [39004560674](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39004560674). A newer run is still needed for the latest head if it contains further page changes.
+- The current package validator has passed the full contract and local-reference checks on a revision containing `css/content-layout.css` in run [39004560674](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39004560674). The full contract passed on PR #10's final head in [run 39004821005](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39004821005): 7 pages and 191 local href/src references.
 
 
 ## Complete header/footer source inventory — 17 October 2026
@@ -200,3 +200,11 @@ Recommended next implementation: standardize the menu-toggle accessibility contr
 5. Keep the compact booking footer as a documented exception unless browser testing identifies a usability problem.
 6. Implement changes by complete page family in a separate code PR; rerun local-reference validation and test the deployed preview at mobile/desktop widths plus keyboard/focus. No browser/runtime result is claimed by this inventory.
 
+### Final verification checkpoint — 17 October 2026
+
+- PR #11, #10 and #9 are merged into `preview/bali-trans`; `main` remains a separate production/release branch.
+- PR #10's final head passed [content-layout workflow run 39004821005](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39004821005): 7 target pages, full package contract and 191 local href/src references.
+- Preview publish and Pages deployment succeeded for commit `87ff23f` after PR #10. The runs for the newest preview commit `ce445d3` (after PR #9 documentation merge) were still in progress at the last check.
+- The complete 35-route source inventory is above. It is not a visual, keyboard, screen-reader or end-to-end audit.
+- No site-wide navigation/footer rewrite was made. The inventory recommends deciding shared labels and intentional exceptions before touching remaining page families.
+- Keep operational limitations explicit: the current preview is noindex, Search is a navigation prototype, Contact has no connected support channel, Privacy/Terms are drafts, Travel Updates has no live feed, and booking/payment/account/admin flows are not live services.
