@@ -109,3 +109,16 @@
 - PR #10 normalizes the seven pages to shorter, locally consistent relative paths, but this should be described as link-path normalization, not as proof that the earlier paths were broken.
 - The current package validator has passed the full contract and local-reference checks on a revision containing `css/content-layout.css` in run [39004560674](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39004560674). A newer run is still needed for the latest head if it contains further page changes.
 
+
+### Header/footer inventory — completed source pass (17 October 2026)
+
+- [x] Inspect the header/navigation/footer source for all 35 HTML routes on `preview/bali-trans`.
+- [x] Record each route's nav variant, logo subtitle, static menu-toggle ARIA attributes, footer variant and `aria-current` marker in `AUDIT.md`.
+- [x] Record CTA and footer-copy variations and identify the compact booking footer as a likely intentional exception.
+- [x] Correct the audit note that overstated relative URL breakage: `../pages/...` and `../../pages/...` resolve correctly in the inspected directory contexts; PR #10 normalized paths but did not prove those patterns were broken.
+- [ ] Agree shared nav labels/order, logo subtitle and generic CTA casing before any site-wide markup changes.
+- [ ] Decide whether Wishlist's “Tickets” variant and homepage “Travel guides” variant are intentional.
+- [ ] Standardize static menu-toggle ARIA attributes and current-page markers by page family, while preserving valid exceptions.
+- [ ] Implement the agreed contract in small PRs; run local reference checks and test mobile/desktop, keyboard/focus and relevant user journeys in a real browser.
+
+**Evidence boundary:** inventory is source-level only. PR #10 is merged and preview publish/Pages deployment workflows succeeded at `87ff23f`; no visual, responsive, keyboard, screen-reader or end-to-end booking test has been performed.

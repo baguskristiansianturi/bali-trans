@@ -73,3 +73,15 @@
 - PR #10 normalizes the seven pages to shorter, locally consistent relative paths, but this should be described as link-path normalization, not as proof that the earlier paths were broken.
 - The current package validator has passed the full contract and local-reference checks on a revision containing `css/content-layout.css` in run [39004560674](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39004560674). A newer run is still needed for the latest head if it contains further page changes.
 
+
+### Full route inventory checkpoint — 17 October 2026
+
+- Completed a source-level header/footer inventory for all 35 HTML routes on the current preview branch after PR #10 merged. The row-by-row matrix and variants are in `AUDIT.md`.
+- Confirmed primary nav variants: shared six-item nav on 33 routes; homepage uses “Travel guides”; Wishlist uses “Tickets” and omits “Dining”/“Build Your Day”. Both `TRANS` and `TRANS INDONESIA` subtitles remain in use.
+- Only Experiences index and Wishlist have an `aria-current="page"` marker. Menu-toggle ARIA attributes vary; the seven PR #10 public-content pages now have all three static attributes, but many other routes still omit some or all.
+- Footer variants: 28 standard full footers, one homepage custom footer, one Wishlist footer, one experience-detail footer, and four compact booking-step/confirmation footers.
+- PR #10 is merged into `preview/bali-trans` at `87ff23ff9d509f8f24631061f62ae367bf9b3ecf`. GitHub Actions reports success for [preview publish](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39004849545) and [Pages build/deployment](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39004849189). This confirms workflow completion, not visual or mobile acceptance.
+- The earlier relative-link concern was overstated: `../pages/...` and `../../pages/...` can resolve correctly depending on the source file's directory. PR #10 normalized relative paths on its seven pages; do not repeat the claim that those patterns were necessarily broken.
+
+**Resume next:** use the complete inventory to agree the site-wide nav/footer contract, then implement a small, reviewable PR by page family. Do not claim responsive layout, keyboard operation, screen-reader behaviour or booking flows are verified without browser testing.
+
