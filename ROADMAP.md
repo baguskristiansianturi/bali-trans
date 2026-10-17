@@ -181,3 +181,18 @@
 - [ ] Run HTML/local-link validation and content-layout workflow after changes. Browser/mobile/desktop and live deployment checks remain separate acceptance gates.
 
 **Decision recorded:** no standalone Dining or Local Products feature for the current scope; travel guidance belongs in blog articles. Preserve source pages temporarily until route references are audited to avoid broken links.
+
+
+## Product scope clarification — core website before Lovina package QA (17 October 2026)
+
+### Navigation and locale
+- [ ] Keep the global navbar deliberately compact and blog-like; do not expose every future product/category as a top-level item. Proposed core: Discover/Experiences, Blog, one clear Plan CTA, and one compact locale control. Wishlist/account links should be secondary unless a tested user journey proves they need global prominence.
+- [ ] Standardize shared header/footer by page family before applying to all routes; preserve justified reduced layouts for checkout/request steps.
+- [ ] Treat language and currency as one **locale preference** control (one selection updates both), not two separate selectors. Initial proposed profiles for review: Bahasa Indonesia → IDR; Bahasa Melayu → MYR; English (Singapore) → SGD; English (international/US default) → USD. These are defaults only: language does not inherently determine currency, so label profiles clearly and let users change the locale as a pair later if required.
+- [ ] Do not imply that all pages are translated merely because a locale control exists. Build locale infrastructure and visible selector only after the supported locales, default, persistence, formatting, and untranslated-content fallback are specified.
+
+### Foundation-page completion before custom pages
+- [ ] Inventory all 35 routes and classify: essential public pages, content/blog, conversion/request flow, account prototype, future/parked feature.
+- [ ] Complete the essentials first: Home, Discover/Search, Experiences, Blog/article detail, About, Contact, Privacy, Terms, and honest 404/empty/error states. Review Tours, Tickets, Destinations and Transport against real product scope before deciding to keep as core navigation or move to secondary links.
+- [ ] Make all public-facing pages purposeful and content-complete; replace generic demo copy with useful copy, or label genuinely unavailable functionality honestly. Verify page title/description, one clear H1, primary CTA, mobile reading width, and consistent header/footer.
+- [ ] Only after the core page set and shared UX/UI are reviewed and accepted should the team test the Lovina booking/request package as one end-to-end journey. No package-level acceptance before the user approves the page experience.
