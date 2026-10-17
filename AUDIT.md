@@ -302,3 +302,12 @@ A source scan of all 35 HTML routes checked linked labels and destinations for t
 - Added detail content: suggested stop-by-stop itinerary, approximate duration, trip purpose/highlights, potential inclusions and exclusions, travel/safety notes, and pre-booking verification checklist.
 - Reworked the tours index to show these routes and direct detail links. The pages clearly state that these are planning concepts, not confirmed live inventory; no unsupported supplier price or availability claims are made.
 - JavaScript syntax check passed. Live Pages publication, external image loading, and browser/device visual testing remain unverified.
+
+
+### Complete-site content architecture pass — 17 October 2026
+
+- Replaced the old About page that described the website mainly as a prototype with a visitor-facing explanation of Bali Trans, its intended value and how a traveller should discover, compare and confirm a journey.
+- Replaced the old Contact page that only described missing support with a structured enquiry page: tour/experience questions, transport enquiries, general questions, what information to prepare, and explicit business-contact placeholders.
+- Added a standalone FAQ page with practical answers about requests, prices, inclusions, itinerary changes, booking confirmation, weather/sea conditions, transfers and cancellation policies.
+- Added homepage links to the full FAQ page. These are source changes only; no browser visual or live deployment claim is made.
+- Remaining site-wide gap: this is not yet acceptance of every route. Continue page-by-page review for visitor-ready copy, working links and consistent navigation/footer; verify no page implies unavailable booking/payment/support functions are operational.
