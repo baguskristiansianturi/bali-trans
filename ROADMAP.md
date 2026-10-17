@@ -358,3 +358,13 @@ A visible language and currency control must be present in the shared header on 
 - Added responsive image cards and localized the section copy/category labels for US English, Indonesian, Singapore English, and Malaysian Malay.
 - The Pages workflow is configured to publish pushes to `preview/bali-trans`. Source changes have been committed to that branch; live visual verification is still pending because the public Pages URL could not be inspected from this session.
 - Next: verify the published homepage on mobile, then review the tours listing before expanding other pages.
+
+
+### Homepage marketplace cards — 17 October 2026
+
+- [x] Added a Klook-inspired trip-discovery card grid to the homepage: Ubud–Kintamani, Uluwatu sunset, Nusa Penida, and airport/hotel transfers.
+- [x] Added responsive layouts for desktop, tablet, and narrow mobile widths; cards use local tours/transport routes.
+- [x] Added adapted card copy for US English, casual Indonesian, Singapore English/Singlish, and Malaysian Malay through the existing locale selector.
+- [x] JavaScript syntax check passed. The two newly used local destination pages (pages/tours/index.html, pages/transport/index.html) exist in the preview branch.
+- [ ] Confirm the Pages workflow result and inspect the live homepage visually on mobile. External image loading and rendered layout are not confirmed from this environment.
+- [ ] Do not mark the homepage accepted until Mas Bagus reviews the live Pages result.
