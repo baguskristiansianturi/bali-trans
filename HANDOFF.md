@@ -106,8 +106,10 @@
 - This is static markup and workflow evidence, not manual visual acceptance. Mobile/desktop rendering, keyboard walkthrough, screen-reader output and real booking-flow behaviour remain unverified.
 
 
-### Strict initial navigation state — follow-up PR in progress, 17 October 2026
+### Strict initial navigation contract — verified 17 October 2026
 
-- Follow-up branch `audit/strict-navigation-contract-2026-10-17` tightens the initial markup to one exact accessible name (`Primary navigation`) and one exact closed-menu state (`Open navigation`, `aria-expanded="false"`, `aria-controls="mainNav"`) across all 35 HTML routes.
-- The validator now checks these exact values, not merely that the attributes exist. This is a source consistency improvement; runtime and assistive-technology behaviour still require browser testing.
-- The change is not merged or deployed until its PR and Actions results are verified.
+- PR [#15](https://github.com/baguskristiansianturi/bali-trans/pull/15) is merged into `preview/bali-trans` at `e6508ef864bf1f341a535e33061450b324411733`; `main` remains separate.
+- All 35 HTML routes use `aria-label="Primary navigation"` on `#mainNav`. Each menu toggle starts with `aria-label="Open navigation"`, `aria-expanded="false"` and `aria-controls="mainNav"`. Existing JavaScript changes the label and expanded state during interaction.
+- Exact-value static validation passed in [run 39007861375](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39007861375): 35 HTML pages, seven-page content contract and 852 local `href/src` references.
+- Preview publish succeeded in [run 39007886095](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39007886095); GitHub Pages build/deployment succeeded in [run 39007886174](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39007886174).
+- Still unverified: live visual inspection, mobile/desktop overflow, real keyboard traversal, screen-reader output and end-to-end search/Lovina request flow. Static and deployment workflows are not user-journey acceptance tests.
