@@ -272,3 +272,8 @@
 ### Focused legacy-link sweep — 17 October 2026
 
 A source scan of all 35 HTML routes checked linked labels and destinations for the legacy Dining, Local Products, Travel guides and Guides promotions. The identified links were removed or renamed to Blog, and the affected routes were re-read after the changes. This closes the focused promotion sweep only; it does not certify every href/src target, every paragraph of copy, or the retirement/redirect decision for the Dining and Marketplace route files.
+
+
+### Homepage-first checkpoint — 17 October 2026
+
+Current focus is the homepage only. Updated `index.html` copy to remove demo/preview framing, replace the “being built” statement with visitor-facing value, make the featured North Bali guidance more responsible about confirming details, rename the guide CTA to Blog, clarify that the site does not currently confirm bookings or process payments, and remove unavailable Wishlist/Account links from the homepage footer. The homepage header baseline remains Discover / Experiences / Blog with Plan your day as the CTA. Do not move to another page until Mas Bagus approves the homepage copy, section order and navigation. Once approved, reuse this exact header/footer pattern on every subsequent page rather than inventing per-page variants.
