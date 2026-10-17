@@ -294,3 +294,11 @@ A source scan of all 35 HTML routes checked linked labels and destinations for t
 - Source inspection confirms the homepage includes four marketplace-style service cards and the responsive CSS rules are present.
 - JavaScript syntax check passed; tours and transport destination files exist in the same preview branch.
 - Live rendering, external image availability, deployment completion and browser interaction remain unverified. This is a source-level check only.
+
+
+### Tour detail click-through and content check — 17 October 2026
+
+- Fixed the homepage tour-card destinations so Ubud & Kintamani, Uluwatu Sunset, and Nusa Penida each open a dedicated detail page.
+- Added detail content: suggested stop-by-stop itinerary, approximate duration, trip purpose/highlights, potential inclusions and exclusions, travel/safety notes, and pre-booking verification checklist.
+- Reworked the tours index to show these routes and direct detail links. The pages clearly state that these are planning concepts, not confirmed live inventory; no unsupported supplier price or availability claims are made.
+- JavaScript syntax check passed. Live Pages publication, external image loading, and browser/device visual testing remain unverified.
