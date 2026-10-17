@@ -107,3 +107,11 @@ Recommended next implementation: standardize the menu-toggle accessibility contr
 - Added `.github/workflows/content-layout-check.yml`, triggered by relevant pull requests targeting `preview/bali-trans` and by manual dispatch. It only validates source; it does not deploy.
 - The workflow is currently on branch `ci/content-layout-validation-2026-10-17`. Since GitHub uses workflows present on the base branch for PR events, this workflow cannot validate the PR that introduces it until merged to the base; it will apply to subsequent PRs. Do not claim a passing Actions run for this branch.
 - Manual static verification from PR #10 already checked 191 local references with zero missing targets, but this new script has not yet been run by Actions. Browser/mobile/desktop and assistive-technology checks remain outstanding.
+
+
+### PR #11 validation failure investigation — 17 October 2026
+
+- Inspected failed GitHub Actions run [39004177941](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39004177941) and its job log. It checked 175 local references, but the page-layout assertions failed on all seven old preview pages because the PR #10 package (skip links, focusable `#mainContent`, and `css/content-layout.css`) was not in PR #11's merge revision.
+- This is a real failure of the initial validator's assumptions about the checked-out revision. It is not evidence that the proposed PR #10 pages failed their contract, because those changes are not included in PR #11.
+- Corrected `scripts/validate_content_layout.py`: local references are still checked; the seven-page layout contract is enforced only when `css/content-layout.css` exists in the checked-out revision. The script explicitly reports when package checks are skipped.
+- Next acceptance evidence: obtain a successful run for the corrected PR #11 branch, then run the full contract on a revision containing PR #10. Keep browser/mobile/desktop, keyboard and screen-reader checks marked unverified until performed.
