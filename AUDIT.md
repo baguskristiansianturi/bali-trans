@@ -268,3 +268,10 @@ Terms and Lovina detail now use the compact public navigation pattern. Account, 
 
 - Homepage source change removes its Dining nav/footer links only. Dining pages and other routes remain untouched pending a complete inbound-link audit.
 - This is source-only evidence; no live browser, mobile, keyboard or screen-reader check is claimed.
+
+
+### Visitor-facing copy audit follow-up — 17 October 2026
+
+Source edits on `preview/bali-trans` replaced “Structure ready” / “Foundation page” copy with visitor-facing explanations on account, payment/invoice, partner/admin and itinerary pages. Tours, Tickets, Destinations, Discover/Search, Transport and Blog were revised to give practical planning guidance rather than generic category-template text. The representative planning article now reads as a usable checklist instead of editorial scaffolding. Dining and Marketplace routes have been repurposed as practical guidance rather than promoted as standalone catalogue features. Compact navigation was also applied to the account and booking routes touched in this pass.
+
+**Remaining verification:** this is not proof that every paragraph on all 35 routes is final. Continue route-by-route to identify any remaining developer-facing wording, empty states, inconsistent header/footer labels, and CTAs that suggest unavailable services. Then run local-link validation and inspect GitHub Actions and Pages deployment. Browser/mobile/keyboard/screen-reader behaviour remains unverified. Do not mark site-wide copy acceptance complete until all 35 routes are inspected.
