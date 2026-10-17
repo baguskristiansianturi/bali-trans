@@ -315,7 +315,7 @@ A source scan of all 35 HTML routes checked linked labels and destinations for t
 
 ### Whole-site page and enquiry-flow pass — 17 October 2026
 
-- The current repository tree contains 39 HTML files; earlier 35-page checks are historical and do not cover all files now present.
+- The current repository tree contains 40 HTML files; earlier 35-page checks are historical and do not cover all files now present.
 - Added a complete About page, a structured Contact page with explicit replaceable official-contact placeholders, and a standalone FAQ page.
 - Added FAQ links from the homepage and standardised public information/footer links on the main content page families and enquiry flow.
 - Reworded the three tour detail pages and the tour listing to remove demo-facing “sample/prototype” language while retaining honest requirements to confirm the operator, route, inclusions, price and availability.
@@ -323,3 +323,10 @@ A source scan of all 35 HTML routes checked linked labels and destinations for t
 - Payment and invoice pages now focus on written confirmation and safe payment practices.
 - JavaScript syntax validation passed. Static local `href/src` validation across 16 key pages found zero missing local targets.
 - Not yet verified: full 39-page link/copy scan, current Pages deployment completion, mobile/desktop visual layout, interactive enquiry flow in a real browser, or live contact/backend/payment functionality.
+
+
+### Dedicated transfer service detail — 17 October 2026
+
+- Added `pages/transport/airport-transfer.html` as a substantive transfer service page with route types, required pickup details, luggage/vehicle questions, fare components, delay policies and confirmation checklist.
+- Homepage Airport & Hotel Transfers card now links to this page; transport index links to it as well.
+- The repository tree contains 40 HTML files after this addition. Full route-by-route acceptance is still incomplete; live Pages rendering and mobile end-to-end checks are not yet verified.
