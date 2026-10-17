@@ -225,3 +225,9 @@ Recommended next implementation: standardize the menu-toggle accessibility contr
 - All 35 HTML routes now use the exact same primary navigation label, `Primary navigation`. Every menu toggle starts with `Open navigation`, `aria-expanded="false"` and `aria-controls="mainNav"`; runtime state changes remain in the shared script.
 - Exact-value static validation passed [run 39007861375](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39007861375), checking 35 pages, the seven-page content contract and 852 local references. Preview publishing and Pages deployment also succeeded: [run 39007886095](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39007886095), [run 39007886174](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39007886174).
 - Still unverified: actual responsive visual layout, keyboard traversal, screen-reader output, search interactions and the Lovina request flow in a real browser.
+
+
+### Wishlist navigation variant — follow-up PR, 17 October 2026
+
+- Wishlist previously used Discover / Experiences / Tours / Tickets / Wishlist, omitting Dining and Build Your Day. The follow-up normalizes it to the shared six-item navigation order and retains `aria-current="page"` on Wishlist.
+- This is a source-level consistency correction. Confirm local-link/static CI and check mobile menu fit before calling the full navigation UX verified.

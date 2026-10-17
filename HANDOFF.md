@@ -113,3 +113,9 @@
 - Exact-value static validation passed in [run 39007861375](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39007861375): 35 HTML pages, seven-page content contract and 852 local `href/src` references.
 - Preview publish succeeded in [run 39007886095](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39007886095); GitHub Pages build/deployment succeeded in [run 39007886174](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39007886174).
 - Still unverified: live visual inspection, mobile/desktop overflow, real keyboard traversal, screen-reader output and end-to-end search/Lovina request flow. Static and deployment workflows are not user-journey acceptance tests.
+
+
+### Wishlist navigation consistency follow-up — pending PR, 17 October 2026
+
+- Proposed change replaces Wishlist's one-off five-item primary navigation with the same six-item order used across other non-home routes: Discover, Experiences, Tours, Dining, Build Your Day, Wishlist. The Wishlist link retains `aria-current="page"`.
+- This closes the documented navigation-order exception at source level; link-target validation and the PR workflow must pass before merge. Visual menu fit still needs a real mobile browser check.

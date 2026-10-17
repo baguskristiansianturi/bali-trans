@@ -158,3 +158,10 @@
 - [x] Verify [preview publish run 39007886095](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39007886095) and [Pages deployment run 39007886174](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39007886174) succeeded.
 - [ ] Test real mobile/desktop rendering, menu interaction, keyboard traversal and screen-reader behaviour.
 - [ ] Test homepage search and the Lovina request flow in a real browser. Do not infer operational booking readiness from static checks.
+
+
+### Wishlist navigation consistency — in progress, 17 October 2026
+
+- [x] Align Wishlist navigation to the shared six-item order while retaining its current-page marker.
+- [ ] Confirm all local links and the static navigation contract pass in CI before merge.
+- [ ] Check the expanded menu on a narrow mobile viewport; source checks do not prove that six items fit or scroll accessibly.
