@@ -99,3 +99,11 @@ Recommended next implementation: standardize the menu-toggle accessibility contr
 - PR #6 added `:focus-visible` indicators for links, buttons, form controls, summaries and tabindex elements, including a visible focus indicator for the homepage search field.
 - Both changes are source-level improvements. Browser keyboard traversal, focus visibility against every background, contrast, mobile interaction and screen-reader behaviour are **not verified**.
 - Latest preview commit: `ea155fe2317d18db1adea213b4dd178c61d01418`. The publish and Pages workflows were queued when checked; do not claim this commit deployed until those runs complete successfully.
+
+
+### PR-safe validation workflow setup — 17 October 2026
+
+- Added `scripts/validate_content_layout.py` to check the seven agreed pages for local links/assets, H1/main structure, skip link and focusable main target, unique nav/menu IDs, shared stylesheet and meta description.
+- Added `.github/workflows/content-layout-check.yml`, triggered by relevant pull requests targeting `preview/bali-trans` and by manual dispatch. It only validates source; it does not deploy.
+- The workflow is currently on branch `ci/content-layout-validation-2026-10-17`. Since GitHub uses workflows present on the base branch for PR events, this workflow cannot validate the PR that introduces it until merged to the base; it will apply to subsequent PRs. Do not claim a passing Actions run for this branch.
+- Manual static verification from PR #10 already checked 191 local references with zero missing targets, but this new script has not yet been run by Actions. Browser/mobile/desktop and assistive-technology checks remain outstanding.
