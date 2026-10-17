@@ -139,3 +139,12 @@
 - Language and currency should be chosen together in one locale preference (not two separate controls). Candidate locale profiles: Bahasa Indonesia + IDR, Bahasa Melayu + MYR, Singapore English + SGD, international/US English + USD. Do not claim language uniquely determines currency; present these as locale defaults and document fallback/formatting/persistence before implementing.
 - Sequence is explicit: (1) simplify and standardize nav/header/footer by page family; (2) complete essential website pages and their real content/states; (3) review UX/UI on mobile and desktop with the user; (4) only then run the Lovina package as a complete end-to-end test. Do not use package QA as a substitute for missing foundation pages.
 - Current PR #20 contains the first information-architecture correction and expanded Terms draft. Automated content-layout workflow passed for its latest commit; browser/device review is still unconfirmed. Continue with small reviewable changes and report each verification level separately.
+
+
+### Content foundation progress — 17 October 2026
+
+- User clarified locale voice: Indonesia = casual Bahasa Indonesia; Malaysia = Bahasa Melayu Malaysia; Singapore = natural Singlish; United States = natural American English. One locale profile pairs language and default currency: IDR, MYR, SGD and USD respectively. This does not mean language alone always determines currency.
+- Homepage primary nav is reduced to Discover, Experiences and Blog with one Plan CTA. The Blog hub has conceptual article cards, a shared editorial block system is added to `css/content-layout.css`, and `pages/guides/travel-updates.html` is now the representative concept article layout.
+- Transport page placeholder was replaced with substantive conceptual guidance and clear non-live availability language. Search, About, Contact and Privacy copy were also improved in this branch.
+- These are source changes, not a verified deployment. Next: validate local links, remove Dining/Local Products promotion from remaining core footers, inspect remaining foundation pages for placeholder copy, and check the newest Actions run. Locale switching/translations are not implemented yet.
+- Sequence remains: finish core page copy/layout → user UX/UI review → only then end-to-end Lovina package test.
