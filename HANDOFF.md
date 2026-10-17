@@ -230,3 +230,12 @@ Updated `index.html` visitor-facing copy and removed the remaining homepage word
 - Changed files on `preview/bali-trans`: `index.html`, `js/main.js`, `css/homepage.css`. Follow-up roadmap update records this work.
 - The Pages workflow is configured to publish pushes on this branch. The source commits exist, but do not claim live deployment or mobile visual QA until the public page is actually checked.
 - Next: confirm the GitHub Pages publication visually on mobile, then review the tours listing page; keep the rest of the site unchanged until homepage review.
+
+
+## Latest homepage marketplace change — 17 October 2026
+
+- Added a Klook-inspired discovery grid to index.html with four service cards: Ubud & Kintamani, Uluwatu sunset, Nusa Penida, and airport/hotel transfers.
+- Added responsive card styling to css/homepage.css and four-market adapted text in js/main.js.
+- Source changes are committed on preview/bali-trans. JavaScript syntax validation passed; the new internal routes for tours and transport were confirmed to exist.
+- Not verified: GitHub Pages live deployment, external image loading, mobile/desktop rendered appearance, and end-to-end navigation in a browser. An attempted live check was unavailable from this environment; do not report deployment as confirmed.
+- Next action: verify the published homepage at https://baguskristiansianturi.github.io/bali-trans/ in a mobile browser. If the new cards appear, review them with Mas Bagus before broadening changes to other page families.
