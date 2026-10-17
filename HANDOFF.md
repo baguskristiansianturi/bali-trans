@@ -115,7 +115,9 @@
 - Still unverified: live visual inspection, mobile/desktop overflow, real keyboard traversal, screen-reader output and end-to-end search/Lovina request flow. Static and deployment workflows are not user-journey acceptance tests.
 
 
-### Wishlist navigation consistency follow-up — pending PR, 17 October 2026
+### Wishlist navigation consistency — merged 17 October 2026
 
-- Proposed change replaces Wishlist's one-off five-item primary navigation with the same six-item order used across other non-home routes: Discover, Experiences, Tours, Dining, Build Your Day, Wishlist. The Wishlist link retains `aria-current="page"`.
-- This closes the documented navigation-order exception at source level; link-target validation and the PR workflow must pass before merge. Visual menu fit still needs a real mobile browser check.
+- PR [#17](https://github.com/baguskristiansianturi/bali-trans/pull/17) is merged into `preview/bali-trans` at `508eb060eb5389279ba7b6abbc6c3f3c42ff21e0`; `main` remains separate.
+- Wishlist's primary navigation now matches the shared six-item order: Discover, Experiences, Tours, Dining, Build Your Day, Wishlist. The Wishlist item retains `aria-current="page"`.
+- Static validation passed in [run 39008026462](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39008026462), including 35 HTML pages and 852 local `href/src` references. Preview publish succeeded in [run 39008045984](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39008045984).
+- Check the Pages deployment result separately; responsive fit, keyboard navigation and screen-reader behaviour remain unverified without browser testing.
