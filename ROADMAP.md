@@ -267,3 +267,8 @@
 ### Next execution checkpoint — 17 October 2026
 
 **Next task: finish the full route-by-route acceptance audit, not add features.** Inspect all 35 HTML pages and their shared header/footer for (1) remaining developer-facing/template language, (2) content that reads as a category placeholder rather than useful visitor copy, (3) inconsistent or misleading CTA destinations, (4) Dining/Local Products promotion, and (5) missing local files/assets. Correct issues directly on preview/bali-trans, keep the PR list empty, and update this roadmap only with changes actually applied and verification evidence. Then inspect Actions and deployment; only after that should Mas Bagus review the complete UX/UI before Lovina end-to-end acceptance.
+
+
+### Focused legacy-link sweep — 17 October 2026
+
+A source scan of all 35 HTML routes checked linked labels and destinations for the legacy Dining, Local Products, Travel guides and Guides promotions. The identified links were removed or renamed to Blog, and the affected routes were re-read after the changes. This closes the focused promotion sweep only; it does not certify every href/src target, every paragraph of copy, or the retirement/redirect decision for the Dining and Marketplace route files.
