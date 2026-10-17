@@ -242,3 +242,10 @@ User review identified three premature standalone sections: Dining, Guides, and 
 Terms page was a foundation draft listing policy requirements but offering little visitor-facing explanation. It is expanded on branch `work/remove-premature-sections` into a structured working draft covering prototype limitations, information accuracy, enquiries vs confirmed bookings, third-party providers, price/cancellation policies, travel decisions, website availability, privacy and launch review. It must remain marked draft until business details and qualified legal review are complete.
 
 **Verification boundary:** repository source edits do not establish visual consistency, mobile layout, legal validity, working booking operations or deployment success. Run the static content-layout validator and local-reference audit after completing the navigation edits.
+
+
+## Follow-up: navbar density, locale pairing and foundation-page sequencing — 17 October 2026
+
+User direction: the global navbar should remain compact and blog-like, not expose every category. Language and currency must be selected as one locale preference to avoid two separate user actions. Suggested defaults are Bahasa Indonesia/IDR, Bahasa Melayu/MYR, Singapore English/SGD and international/US English/USD; these are locale profiles, not a universal language-to-currency rule. Do not implement a misleading language-only currency switch or suggest all translations exist until translation coverage is real.
+
+The build sequence is: classify existing routes; standardize header/footer and core pages; finish accurate content, metadata, empty/error states and responsive UX; obtain user UX/UI review; then test the Lovina request/booking package as one journey. Custom product pages and package-level acceptance remain downstream. Keep navigation short; promote only primary discovery, Blog and one primary planning action, while considering wishlist/account and secondary categories in less prominent locations after route-family review.
