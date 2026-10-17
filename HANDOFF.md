@@ -170,3 +170,12 @@ The compact Discover / Experiences / Blog navigation and Plan your day CTA have 
 - A small direct commit removes Dining from the homepage primary navigation and footer group only. The Dining route remains in the repository; no route retirement is implied.
 - This does not merge or replace PR #19 or #20. The broader article-hub and Terms changes remain pending review.
 - Verify the resulting commit's CI and Pages deployment before reporting it live; visual/mobile inspection has not been performed.
+
+
+### Latest continuation checkpoint — visitor-ready copy pass (17 October 2026)
+
+Working branch: `preview/bali-trans`. No new PR was created.
+
+Direct source edits have replaced internal placeholder language across account, payment/invoice, partner/admin, itinerary and several public category pages. Tours, Tickets, Destinations, Discover/Search, Transport and Blog now use more useful visitor-oriented copy. The representative travel-planning article no longer displays editorial scaffolding such as “Concept article” or instructions to add a placeholder image. Dining and Marketplace routes have been repurposed as practical guidance rather than standalone catalogue promotion. Compact Discover / Experiences / Blog navigation was applied to the account and booking page families touched in this pass.
+
+This is a content/source checkpoint, **not** a full-site acceptance. The next task is to finish a route-by-route review of all 35 HTML pages, find any remaining developer-facing or generic template copy, and correct contradictory links/CTAs. Then run static local-link validation and inspect Actions + Pages deployment. No browser/mobile visual verification is claimed. Keep the locale voice requirements explicit: casual Bahasa Indonesia; Bahasa Melayu Malaysia; natural Singlish; natural American English. Do not start Lovina end-to-end acceptance until the foundation pages are reviewed by Mas Bagus.
