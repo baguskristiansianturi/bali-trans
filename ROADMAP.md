@@ -206,3 +206,13 @@
 - Reuse a single article content-block system and one representative article layout so the team can review the visual model consistently: title/deck, byline or update date, hero/media, contents where useful, readable body sections, callout/source notes, related articles and a clear next step. Build the block once and reuse it rather than inventing a different layout for every article.
 - Keep the navbar compact and blog-like. Dining and Local Products are not top-level features; useful advice can be published as blog content. Keep the page label “Transport” for now and evaluate the actual scope before considering “Car Rental”.
 - Delivery sequence: complete the shared article/page blocks and conceptual copy for all core pages; review the full UX/UI with the user; only after explicit approval test the Lovina package end-to-end. Do not mark the Lovina package as the next acceptance gate before the foundation review.
+
+
+## Conceptual content foundation — 17 October 2026
+
+- Singapore locale means natural Singlish, not generic English; Malaysia uses Bahasa Melayu Malaysia; Indonesia uses casual, natural Bahasa Indonesia; United States uses natural American English.
+- A single locale profile selects language and default currency together: Indonesia/IDR, Malaysia/MYR, Singapore/Singlish/SGD, United States/American English/USD. Do not imply the language alone determines currency in all cases.
+- Every in-scope page needs complete conceptual copy before SEO/copy optimisation. Empty “structure ready” sections do not count as complete.
+- Reuse the shared article content blocks in `css/content-layout.css` and the representative article in `pages/guides/travel-updates.html` for layout review. Replace the placeholder image and add verified sources/review dates before publishing.
+- Keep the global navbar compact: Discover, Experiences, Blog and one Plan CTA. Dining and Local Products are not top-level features; publish relevant advice as blog content. Keep “Transport” as the working label until service scope is assessed.
+- Finish core page copy and shared page-family layouts, then review UX/UI with the user. Only after explicit approval should the Lovina package receive end-to-end acceptance testing.
