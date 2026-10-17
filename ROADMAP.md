@@ -170,6 +170,72 @@
 - [ ] Complete real mobile/desktop, keyboard and screen-reader checks separately.
 
 
+### Information architecture and existing-page content — 17 October 2026
+
+- [ ] Remove Dining from primary navigation and homepage/footer discovery links; retain useful dining advice as dated blog articles where relevant.
+- [ ] Treat the existing Guides area as the Blog/article hub, not a separate product feature. Article content should be useful, dated, source-backed for factual claims, and not imply a live travel-alert feed.
+- [ ] Remove Local Products/marketplace promotion from primary discovery and footers for this phase; do not expand marketplace scope without a later explicit product decision.
+- [x] Expand the Terms page into a structured, honest working draft covering preview limitations, enquiries, providers, prices/cancellations, travel information, privacy and launch review requirements. It remains a draft, not legally approved or ready for live bookings.
+- [ ] Audit all 35 HTML routes for remaining Dining, Guides and Local Products navigation/footer links and inbound links before deleting or redirecting any pages.
+- [ ] Review existing Experiences, Tours, Tickets, Destinations, Transport, Contact and Privacy pages for useful complete content; replace generic demo/foundation copy and clearly label unavailable services.
+- [ ] Run HTML/local-link validation and content-layout workflow after changes. Browser/mobile/desktop and live deployment checks remain separate acceptance gates.
+
+**Decision recorded:** no standalone Dining or Local Products feature for the current scope; travel guidance belongs in blog articles. Preserve source pages temporarily until route references are audited to avoid broken links.
+
+
+## Product scope clarification — core website before Lovina package QA (17 October 2026)
+
+### Navigation and locale
+- [ ] Keep the global navbar deliberately compact and blog-like; do not expose every future product/category as a top-level item. Proposed core: Discover/Experiences, Blog, one clear Plan CTA, and one compact locale control. Wishlist/account links should be secondary unless a tested user journey proves they need global prominence.
+- [ ] Standardize shared header/footer by page family before applying to all routes; preserve justified reduced layouts for checkout/request steps.
+- [ ] Treat language and currency as one **locale preference** control (one selection updates both), not two separate selectors. Initial proposed profiles for review: Bahasa Indonesia → IDR; Bahasa Melayu → MYR; Singlish (Singapore) → SGD; American English (United States) → USD. These are defaults only: language does not inherently determine currency, so label profiles clearly and let users change the locale as a pair later if required.
+- [ ] Do not imply that all pages are translated merely because a locale control exists. Build locale infrastructure and visible selector only after the supported locales, default, persistence, formatting, and untranslated-content fallback are specified.
+
+### Foundation-page completion before custom pages
+- [ ] Inventory all 35 routes and classify: essential public pages, content/blog, conversion/request flow, account prototype, future/parked feature.
+- [ ] Complete the essentials first: Home, Discover/Search, Experiences, Blog/article detail, About, Contact, Privacy, Terms, and honest 404/empty/error states. Review Tours, Tickets, Destinations and Transport against real product scope before deciding to keep as core navigation or move to secondary links.
+- [ ] Make all public-facing pages purposeful and content-complete; replace generic demo copy with useful copy, or label genuinely unavailable functionality honestly. Verify page title/description, one clear H1, primary CTA, mobile reading width, and consistent header/footer.
+- [ ] Only after the core page set and shared UX/UI are reviewed and accepted should the team test the Lovina booking/request package as one end-to-end journey. No package-level acceptance before the user approves the page experience.
+
+
+## Content foundation correction — approved direction (17 October 2026)
+
+- Singapore profile must use natural, context-appropriate Singlish, not generic/formal English with a Singapore currency label. Malaysia profile must use Bahasa Melayu Malaysia, not Bahasa Indonesia. Indonesia profile must use casual, natural Bahasa Indonesia. United States/international profile must use natural American English, not stiff corporate copy.
+- One locale control selects the language profile and its default currency together: Indonesia → IDR; Malaysia → MYR; Singapore/Singlish → SGD; United States/American English → USD. Keep the pair explicit as a profile; do not imply language alone determines a user's currency in every circumstance.
+- Every in-scope page needs complete conceptual copy before SEO/copy optimization. A concept is acceptable at this stage, but empty “structure ready” placeholders are not. State clearly when real supplier, price, availability, or operational information is not yet confirmed.
+- Reuse a single article content-block system and one representative article layout so the team can review the visual model consistently: title/deck, byline or update date, hero/media, contents where useful, readable body sections, callout/source notes, related articles and a clear next step. Build the block once and reuse it rather than inventing a different layout for every article.
+- Keep the navbar compact and blog-like. Dining and Local Products are not top-level features; useful advice can be published as blog content. Keep the page label “Transport” for now and evaluate the actual scope before considering “Car Rental”.
+- Delivery sequence: complete the shared article/page blocks and conceptual copy for all core pages; review the full UX/UI with the user; only after explicit approval test the Lovina package end-to-end. Do not mark the Lovina package as the next acceptance gate before the foundation review.
+
+
+## Conceptual content foundation — 17 October 2026
+
+- Singapore locale means natural Singlish, not generic English; Malaysia uses Bahasa Melayu Malaysia; Indonesia uses casual, natural Bahasa Indonesia; United States uses natural American English.
+- A single locale profile selects language and default currency together: Indonesia/IDR, Malaysia/MYR, Singapore/Singlish/SGD, United States/American English/USD. Do not imply the language alone determines currency in all cases.
+- Every in-scope page needs complete conceptual copy before SEO/copy optimisation. Empty “structure ready” sections do not count as complete.
+- Reuse the shared article content blocks in `css/content-layout.css` and the representative article in `pages/guides/travel-updates.html` for layout review. Replace the placeholder image and add verified sources/review dates before publishing.
+- Keep the global navbar compact: Discover, Experiences, Blog and one Plan CTA. Dining and Local Products are not top-level features; publish relevant advice as blog content. Keep “Transport” as the working label until service scope is assessed.
+- Finish core page copy and shared page-family layouts, then review UX/UI with the user. Only after explicit approval should the Lovina package receive end-to-end acceptance testing.
+
+
+## Foundation content implementation status — 17 October 2026
+
+### Completed as source changes on `work/remove-premature-sections`
+- [x] Homepage primary navigation reduced to Discover, Experiences and Blog, with Plan your day as the separate primary CTA.
+- [x] Core public-page navigation aligned on Home, Discover, Experiences, Blog, About, Contact, Privacy, Transport and the article model.
+- [x] Added reusable article blocks in `css/content-layout.css` and a representative conceptual article with contents, headings, callouts, related content and explicit draft/source caveats.
+- [x] Replaced Transport, Tours, Tickets, Destinations and Plan your day foundation placeholders with substantive concept copy and honest availability/functionality notes.
+- [x] Improved About, Contact, Privacy and Discover conceptual copy; removed Dining/Local Products promotion from the core pages edited in this pass.
+- [x] Updated HANDOFF.md and AUDIT.md to record the locale voice requirement and remaining verification gates.
+
+### Still open — do not mark the foundation complete yet
+- [ ] Audit and normalize every remaining route family, including booking, account, partner and admin screens; some may require intentionally reduced navigation.
+- [ ] Audit every remaining footer and internal link for premature Dining/Local Products promotion and broken destinations.
+- [ ] Implement a single locale-profile control only after the copy strategy is ready for actual language-specific content. Required voices: casual Bahasa Indonesia; Bahasa Melayu Malaysia; natural Singlish; natural American English. Defaults: IDR, MYR, SGD, USD. No selector or translation completeness is claimed yet.
+- [ ] Review the latest content-layout workflow result; it was still in progress at the last check.
+- [ ] Browser/mobile/desktop review and live deployment verification remain outstanding.
+- [ ] User must review and approve the full UX/UI before Lovina end-to-end package testing begins.
+
 ### Focused homepage navigation correction — 17 October 2026
 
 - Removed the Dining link from the homepage primary navigation and Plan footer group only; no Dining route files were deleted.
