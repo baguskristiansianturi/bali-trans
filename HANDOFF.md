@@ -281,7 +281,7 @@ Mas Bagus clarified the target: the site must be a coherent, populated travel we
 - Reworded the Lovina experience page and converted its three-step “test booking” path into an enquiry-preparation flow. It stores selections in the current browser session and produces a copyable enquiry summary; it does not send that enquiry or create a reservation.
 - Payment/invoice screens now state the conditions to confirm before paying and no longer present themselves as a test.
 - Updated public footer information links on core page families and the booking/enquiry flow to direct visitors to About, Contact, FAQs and legal information rather than unavailable account features.
-- Source verification: `js/main.js` syntax passed; local `href/src` references on 16 key pages had zero missing local targets. Repository tree currently contains 39 HTML files.
+- Source verification: `js/main.js` syntax passed; local `href/src` references on 16 key pages had zero missing local targets. Repository tree currently contains 40 HTML files.
 
 ### Important limits
 - The latest Pages publish/deploy workflows are still pending as of the last check. Do not claim the current code is live yet.
@@ -292,3 +292,10 @@ Mas Bagus clarified the target: the site must be a coherent, populated travel we
 1. Confirm the latest Pages publish/deployment result and test the homepage → tour detail → enquiry summary → contact journey on mobile.
 2. Continue the same copy/link review on all remaining HTML routes. Keep account/admin/partner pages unlinked from the public journey until their services actually exist.
 3. Re-run the static local-reference scan across all 39 HTML files, then verify all visible CTAs and mobile navigation in a real browser.
+
+
+### Dedicated transfer page — 17 October 2026
+
+- Added `pages/transport/airport-transfer.html` with practical airport/hotel/harbour transfer copy, pickup requirements, vehicle and luggage checks, quote components and confirmation steps.
+- Updated the homepage transfer card and transport listing to link to the dedicated detail page, not just a generic category.
+- Current tree has 40 HTML files. The main homepage journey now has dedicated destinations for Ubud–Kintamani, Uluwatu Sunset, Nusa Penida, and Airport/Hotel Transfers, plus the Lovina experience detail. Still verify the live deployment and mobile click-through.
