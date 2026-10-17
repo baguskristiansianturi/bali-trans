@@ -233,3 +233,12 @@ Recommended next implementation: standardize the menu-toggle accessibility contr
 - Wishlist now uses the shared navigation order: Discover / Experiences / Tours / Dining / Build Your Day / Wishlist, with `aria-current="page"` on Wishlist.
 - Static validation passed [run 39008026462](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39008026462); preview publishing succeeded [run 39008045984](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39008045984).
 - Still unverified: mobile menu fit and scrolling, visual responsive layout, keyboard traversal and screen-reader behaviour. Check the Pages deployment workflow separately.
+
+
+## Verification reconciliation — 17 October 2026 (after PR #17)
+
+- The route inventory and later dated entries supersede the older top-of-file baseline for the documented changes: PR #13 standardized navigation accessible names and toggle attributes; PR #15 tightened exact initial values; PR #17 aligned Wishlist navigation order.
+- Last explicit static result in the notes: run 39008026462 passed for 35 HTML routes and 852 local href/src references. Last explicit preview publish result: run 39008045984 succeeded. The notes do not establish a successful Pages deployment for the same latest checkpoint; verify it independently.
+- Historical inventory rows showing missing toggle attributes are stale relative to PR #13/#15. Refresh the matrix from the actual current tree before using it to plan further markup changes.
+- This source/CI evidence does not establish browser layout, mobile overflow, keyboard operation, screen-reader behaviour, or search/Lovina end-to-end correctness. Keep all of those open until directly tested.
+- New audit action: re-run a current 35-route inventory against the actual preview branch and reconcile the table, then check responsive and keyboard behaviour on deployed preview.
