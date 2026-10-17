@@ -149,10 +149,12 @@
 - [ ] Test homepage search and the Lovina request flow end-to-end in a real browser. Static checks do not establish runtime behaviour or operational booking readiness.
 
 
-### Strict initial navigation contract — in progress, 17 October 2026
+### Strict initial navigation contract — verified 17 October 2026
 
-- [x] Normalize the primary navigation landmark label to `Primary navigation` across all 35 routes.
-- [x] Normalize initial mobile menu state to `Open navigation`, `aria-expanded="false"`, and `aria-controls="mainNav"`.
-- [x] Tighten the validator to enforce exact initial values across all HTML routes.
-- [ ] Review the PR and confirm Actions pass before merge.
-- [ ] Complete real mobile/desktop, keyboard and screen-reader testing separately.
+- [x] Normalize all 35 routes to the exact primary-navigation accessible name and initial closed-menu ARIA state.
+- [x] Enforce exact values in the static validator across all HTML routes.
+- [x] Merge [PR #15](https://github.com/baguskristiansianturi/bali-trans/pull/15) into `preview/bali-trans` at `e6508ef864bf1f341a535e33061450b324411733`.
+- [x] Verify [static validation run 39007861375](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39007861375): 35 HTML pages and 852 local `href/src` references.
+- [x] Verify [preview publish run 39007886095](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39007886095) and [Pages deployment run 39007886174](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39007886174) succeeded.
+- [ ] Test real mobile/desktop rendering, menu interaction, keyboard traversal and screen-reader behaviour.
+- [ ] Test homepage search and the Lovina request flow in a real browser. Do not infer operational booking readiness from static checks.

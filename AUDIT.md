@@ -219,8 +219,9 @@ Recommended next implementation: standardize the menu-toggle accessibility contr
 - **Still unverified:** visual quality and responsive overflow on mobile/desktop, real keyboard traversal, screen-reader behaviour, and end-to-end search/Lovina request flow. This audit establishes source and CI outcomes only.
 
 
-### Strict initial navigation contract — follow-up PR in progress, 17 October 2026
+### Strict initial navigation contract — verified 17 October 2026
 
-- The prior change ensured that every route had accessible navigation/menu attributes; this follow-up makes the initial values identical rather than only present.
-- All routes are set to `aria-label="Primary navigation"` on `#mainNav`; menu toggles start as `aria-label="Open navigation"`, `aria-expanded="false"`, `aria-controls="mainNav"`. The shared script remains responsible for changing the label and expanded state after interaction.
-- Static validation now requires these exact values on every HTML route. This PR remains pending until CI is confirmed; no runtime behaviour is claimed.
+- PR [#15](https://github.com/baguskristiansianturi/bali-trans/pull/15) is merged into `preview/bali-trans` at `e6508ef864bf1f341a535e33061450b324411733`; `main` is unchanged.
+- All 35 HTML routes now use the exact same primary navigation label, `Primary navigation`. Every menu toggle starts with `Open navigation`, `aria-expanded="false"` and `aria-controls="mainNav"`; runtime state changes remain in the shared script.
+- Exact-value static validation passed [run 39007861375](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39007861375), checking 35 pages, the seven-page content contract and 852 local references. Preview publishing and Pages deployment also succeeded: [run 39007886095](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39007886095), [run 39007886174](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39007886174).
+- Still unverified: actual responsive visual layout, keyboard traversal, screen-reader output, search interactions and the Lovina request flow in a real browser.
