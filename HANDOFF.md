@@ -121,3 +121,13 @@
 - Wishlist's primary navigation now matches the shared six-item order: Discover, Experiences, Tours, Dining, Build Your Day, Wishlist. The Wishlist item retains `aria-current="page"`.
 - Static validation passed in [run 39008026462](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39008026462), including 35 HTML pages and 852 local `href/src` references. Preview publish succeeded in [run 39008045984](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39008045984).
 - Check the Pages deployment result separately; responsive fit, keyboard navigation and screen-reader behaviour remain unverified without browser testing.
+
+
+### Scope correction: simplify navigation and complete existing content — 17 October 2026
+
+- User direction: Dining and Local Products are not needed as standalone features at this stage. Practical guidance belongs in blog articles, not a separate Guides product/menu. Prioritize completing existing pages (especially Terms) instead of creating more demo/foundation pages.
+- Working branch: `work/remove-premature-sections`, based on `preview/bali-trans`; production `main` remains untouched.
+- This branch begins by removing Dining and Local Products from homepage navigation/footer, relabelling the article hub as Blog, and expanding Terms into a structured draft. The Terms page remains explicitly non-final because the legal operator identity, real booking/payment process, cancellation/refund rules and applicable legal review are not confirmed.
+- Do not delete Dining, Guides or marketplace route files until the 35-route inbound-link audit is complete; first remove public promotion and decide whether old URLs should redirect, become articles, or be retired.
+- Verification boundary: changes are source edits only until static validator/link checks and GitHub Actions results are inspected. No browser/device or legal review is claimed.
+- Next: inspect the diff and validator outcome; search all HTML pages for Dining, Guides and Local Products nav/footer links, normalize page-family navigation in a small PR, then replace remaining generic foundation copy with useful content and honest empty states.
