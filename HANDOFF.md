@@ -121,3 +121,11 @@
 - Wishlist's primary navigation now matches the shared six-item order: Discover, Experiences, Tours, Dining, Build Your Day, Wishlist. The Wishlist item retains `aria-current="page"`.
 - Static validation passed in [run 39008026462](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39008026462), including 35 HTML pages and 852 local `href/src` references. Preview publish succeeded in [run 39008045984](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39008045984).
 - Check the Pages deployment result separately; responsive fit, keyboard navigation and screen-reader behaviour remain unverified without browser testing.
+
+
+### Verified continuation checkpoint — 17 October 2026 (after PR #17)
+
+- Re-read the three project notes on `preview/bali-trans`. Their historical entries are not fully synchronized: the top-level baseline still points to older commit `4ff48c7`, while later sections record PRs #13, #15 and #17 and newer validation/deployment evidence. Treat the later dated entries as historical evidence, not proof of the current deployment state.
+- The latest explicit application change recorded in the notes is PR #17, Wishlist navigation consistency, merged to preview at `508eb060eb5389279ba7b6abbc6c3f3c42ff21e0`. The latest recorded static validator result is run 39008026462 (35 HTML routes / 852 local href-src references); preview publish run 39008045984 succeeded. A matching latest Pages deployment success is not established in the notes.
+- Production branch `main` remains separate. No changes to `main` are authorized by this checkpoint.
+- Next verified work is to reconcile the current preview head and latest Actions statuses, then continue P0: validate route-family navigation/footer standards without breaking the compact booking footer exception. Browser/device tests remain open.
