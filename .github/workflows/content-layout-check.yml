@@ -1,13 +1,11 @@
-name: Validate public content layout
+name: Validate homepage structure
 
 on:
   pull_request:
     branches:
       - preview/bali-trans
     paths:
-      - "pages/**"
-      - "css/**"
-      - "js/**"
+      - "index.html"
       - "scripts/validate_content_layout.py"
       - ".github/workflows/content-layout-check.yml"
   workflow_dispatch:
@@ -16,12 +14,12 @@ permissions:
   contents: read
 
 concurrency:
-  group: content-layout-check-${{ github.event.pull_request.number || github.ref }}
+  group: homepage-check-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
   validate:
-    name: Static content layout checks
+    name: Static homepage checks
     runs-on: ubuntu-latest
     steps:
       - name: Check out source
@@ -30,5 +28,5 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.x"
-      - name: Validate links and page structure
+      - name: Validate homepage structure
         run: python scripts/validate_content_layout.py
