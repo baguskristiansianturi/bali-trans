@@ -138,10 +138,12 @@
 **Boundary:** source validation and workflow results are not visual acceptance or proof of live booking/payment functionality.
 
 
-### Site-wide navigation consistency follow-up — 17 October 2026
+### Site-wide navigation consistency — verified 17 October 2026
 
-- [x] Apply a consistent accessible name to the primary navigation landmark across the 35 HTML routes in a reviewable branch.
-- [x] Ensure all mobile menu toggles declare an accessible label, initial expanded state and controlled navigation ID in source markup; shared JavaScript remains responsible for runtime state updates.
-- [x] Expand the static validator to cover all HTML routes for local references and shared navigation markup, while keeping the seven-page content contract scoped to that package.
-- [ ] Review the PR and verify the Actions result before merging into `preview/bali-trans`.
-- [ ] Test menu open/close, focus visibility, touch use and responsive layout in a real mobile/desktop browser; static source checks do not replace these checks.
+- [x] Normalize accessible names for primary navigation and initial ARIA attributes for the mobile menu across all 35 HTML routes.
+- [x] Expand static validation to all HTML routes for local references and the shared navigation contract, while retaining the seven-page content layout contract.
+- [x] Merge [PR #13](https://github.com/baguskristiansianturi/bali-trans/pull/13) into `preview/bali-trans` at `b4889983891b4b0cd6ee2f5c9bf7f005d4f4f73f`.
+- [x] Verify static checks passed: [run 39007631543](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39007631543), 35 HTML pages and 852 local `href/src` references.
+- [x] Verify preview publish and GitHub Pages build/deployment succeeded: [publish run 39007651200](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39007651200), [Pages run 39007651001](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39007651001).
+- [ ] Test the live preview at mobile/desktop widths, including menu open/close, keyboard focus and screen-reader behaviour.
+- [ ] Test homepage search and the Lovina request flow end-to-end in a real browser. Static checks do not establish runtime behaviour or operational booking readiness.

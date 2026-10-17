@@ -97,9 +97,10 @@
 **Next:** confirm latest preview deployment, then review the seven-page package on a real mobile browser and desktop viewport. After that, agree the navigation/footer standard before changing remaining page families. Never mark browser or operational tests complete without running them.
 
 
-### Site-wide navigation accessibility consistency PR — 17 October 2026
+### Site-wide navigation accessibility consistency — verified 17 October 2026
 
-- Working branch: `audit/sitewide-navigation-a11y-2026-10-17`, based on preview commit `6306b9cb66c990135b2c8e2e9d14ad7734c34269`.
-- Proposed source change adds an explicit accessible name to each `#mainNav` landmark and ensures each `#menuToggle` has `aria-label`, initial `aria-expanded="false"` and `aria-controls="mainNav"` across the 35 HTML routes. Existing menu JavaScript continues to update the expanded state and label at runtime.
-- The static validator is expanded to scan all HTML routes for local `href/src` targets and the shared navigation contract, while retaining the stricter content-layout checks for the seven-page public content package.
-- These are source-level changes on a PR branch. Do not call them merged, CI-passing, deployed or browser-tested until those outcomes are checked separately. Runtime mobile menu, keyboard and screen-reader behaviour still requires browser testing.
+- PR [#13](https://github.com/baguskristiansianturi/bali-trans/pull/13) is merged into `preview/bali-trans` at `b4889983891b4b0cd6ee2f5c9bf7f005d4f4f73f`. `main` remains separate.
+- The PR normalized all 35 HTML routes: each `#mainNav` has an accessible name, and each `#menuToggle` declares `aria-label`, `aria-expanded="false"` and `aria-controls="mainNav"` in initial markup. The shared JavaScript continues updating the expanded state and label at runtime.
+- The updated validator passed in [Actions run 39007631543](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39007631543): 35 HTML pages, site-wide navigation contract, seven-page content layout contract and 852 local `href/src` references.
+- Preview publish succeeded in [run 39007651200](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39007651200); GitHub Pages build/deployment succeeded in [run 39007651001](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39007651001).
+- This is static markup and workflow evidence, not manual visual acceptance. Mobile/desktop rendering, keyboard walkthrough, screen-reader output and real booking-flow behaviour remain unverified.

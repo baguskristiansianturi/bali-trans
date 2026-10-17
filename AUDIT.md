@@ -210,9 +210,10 @@ Recommended next implementation: standardize the menu-toggle accessibility contr
 - Keep operational limitations explicit: the current preview is noindex, Search is a navigation prototype, Contact has no connected support channel, Privacy/Terms are drafts, Travel Updates has no live feed, and booking/payment/account/admin flows are not live services.
 
 
-### Follow-up implementation: site-wide navigation accessibility consistency — 17 October 2026
+### Site-wide navigation accessibility consistency — verified 17 October 2026
 
-- On branch `audit/sitewide-navigation-a11y-2026-10-17`, all 35 HTML routes are being normalized to give `#mainNav` an explicit accessible name and to declare `aria-label`, `aria-expanded="false"` and `aria-controls="mainNav"` on `#menuToggle` in the initial HTML.
-- The shared `js/main.js` menu handler already updates `aria-expanded` and `aria-label` when the menu opens/closes and sets `aria-controls`; the markup update makes the initial state explicit for assistive technologies and source-based checks.
-- The validator is being extended from seven-page-only link scanning to all HTML routes and a site-wide navigation contract. The stricter skip-link/main/content stylesheet contract remains limited to the seven public content pages.
-- Pending: inspect the PR workflow result and deployment after merge. No visual, keyboard, screen-reader or real-device result is claimed by this source audit.
+- PR [#13](https://github.com/baguskristiansianturi/bali-trans/pull/13) is merged into `preview/bali-trans` at `b4889983891b4b0cd6ee2f5c9bf7f005d4f4f73f`; it does not change `main`.
+- Across all 35 HTML routes, primary navigation landmarks now have explicit accessible names. Every mobile menu toggle has `aria-label`, initial `aria-expanded="false"` and `aria-controls="mainNav"` in source markup. The existing shared JavaScript still handles runtime open/close state.
+- The updated validator passed [Actions run 39007631543](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39007631543): site-wide navigation contract, seven-page content layout contract and 852 local `href/src` references.
+- Preview publishing succeeded [run 39007651200](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39007651200), and GitHub Pages build/deployment succeeded [run 39007651001](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39007651001).
+- **Still unverified:** visual quality and responsive overflow on mobile/desktop, real keyboard traversal, screen-reader behaviour, and end-to-end search/Lovina request flow. This audit establishes source and CI outcomes only.
