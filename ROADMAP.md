@@ -168,3 +168,10 @@
 - [x] Verify preview publish succeeded: [run 39008045984](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39008045984).
 - [ ] Confirm the latest Pages deployment result and test menu fit on a narrow mobile viewport.
 - [ ] Complete real mobile/desktop, keyboard and screen-reader checks separately.
+
+
+### Focused homepage navigation correction — 17 October 2026
+
+- Removed the Dining link from the homepage primary navigation and Plan footer group only; no Dining route files were deleted.
+- This is deliberately narrower than the open PR #20: internal-route navigation and the guide/article hub were not changed in this commit.
+- Recheck local links and the latest Pages workflow before treating this change as deployed. Browser/mobile review remains outstanding.
