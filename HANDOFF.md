@@ -54,3 +54,14 @@
 - Updated the validator so local `href/src` checks still run, but package-specific assertions are only enforced when `css/content-layout.css` exists in the checked-out revision. Once the package is included, all seven page contracts remain required.
 - Re-run Actions on the updated PR #11 branch and record the actual outcome. PR #10 still needs the full package checks when the validator is available on the base branch, plus browser/device and keyboard/accessibility review.
 - Do not treat a skipped package-contract run as proof that the seven-page layout passes; the output must explicitly say when those assertions were skipped.
+
+
+### Public content package — consolidated status after CI enablement (17 October 2026)
+
+- PR #10 contains the seven-page public content package: About, Contact, Privacy, Terms, Search, Guides index and Travel Updates, plus `css/content-layout.css`.
+- Source-level checks on the package reported 191 local `href/src` references, 23 unique local targets and no missing targets. The seven pages were also checked for one H1, a balanced main landmark, a skip link to a focusable `#mainContent`, one `mainNav`, one `menuToggle`, the shared stylesheet and usable meta descriptions.
+- PR #11 has now been merged into `preview/bali-trans` at `89dd3deae1fee67e437aac0e5e597264a30ec598`, enabling the new PR validation workflow. The first run on PR #11 failed because its base revision did not contain PR #10's package; after fixing the validator scope, Actions passed local-reference validation while explicitly skipping the package contract.
+- PR #10 must now be rechecked by the enabled workflow on a revision containing the package. Keep browser/mobile/desktop rendering, keyboard operation, screen-reader review and live deployment marked unverified until performed.
+- Search remains a navigation prototype; Contact has no connected support channel; Privacy and Terms are drafts; Travel Updates has no live feed. Do not imply operational booking or support.
+
+**Resume next:** inspect PR #10's latest Actions run, fix any real validation failures, then resolve the documentation conflicts caused by the base update. Keep PR #9's navigation/footer inventory separate.

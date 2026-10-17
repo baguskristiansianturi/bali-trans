@@ -115,3 +115,13 @@ Recommended next implementation: standardize the menu-toggle accessibility contr
 - This is a real failure of the initial validator's assumptions about the checked-out revision. It is not evidence that the proposed PR #10 pages failed their contract, because those changes are not included in PR #11.
 - Corrected `scripts/validate_content_layout.py`: local references are still checked; the seven-page layout contract is enforced only when `css/content-layout.css` exists in the checked-out revision. The script explicitly reports when package checks are skipped.
 - Next acceptance evidence: obtain a successful run for the corrected PR #11 branch, then run the full contract on a revision containing PR #10. Keep browser/mobile/desktop, keyboard and screen-reader checks marked unverified until performed.
+
+
+### Public content package and validator follow-up — 17 October 2026
+
+- PR #10's seven pages are About, Contact, Privacy, Terms, Search, Guides index and Travel Updates. The package adds `css/content-layout.css`, page-specific copy, skip links to `#mainContent`, a focusable main landmark, and shared skip-link focus/reduced-motion styling.
+- Static checks recorded 191 local `href/src` references and 23 unique local targets, with no missing targets. Source checks also recorded one H1, one balanced main landmark, one `mainNav`, one `menuToggle`, a shared stylesheet reference and a meaningful meta description on each page.
+- PR #11's first Actions run failed because the infrastructure-only PR's merge revision did not contain PR #10's content package. The validator was corrected to retain local-reference checks and enforce the full page contract only when `css/content-layout.css` is present. The corrected run passed local-reference validation and explicitly reported that package-specific assertions were skipped.
+- PR #11 is now merged into `preview/bali-trans` at `89dd3deae1fee67e437aac0e5e597264a30ec598`. The full validator still needs to run against PR #10 with the package present.
+- No browser/mobile/desktop, keyboard traversal, screen-reader, live deployment or end-to-end booking check has been performed. Legal pages remain drafts, Contact is not connected to support, Search is a navigation prototype, and Travel Updates has no live feed.
+- The broader navigation/footer inconsistencies in PR #9 remain a separate audit task; do not infer site-wide consistency from this seven-page package.
