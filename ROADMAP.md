@@ -277,3 +277,59 @@ A source scan of all 35 HTML routes checked linked labels and destinations for t
 ### Homepage-first checkpoint — 17 October 2026
 
 Current focus is the homepage only. Updated `index.html` copy to remove demo/preview framing, replace the “being built” statement with visitor-facing value, make the featured North Bali guidance more responsible about confirming details, rename the guide CTA to Blog, clarify that the site does not currently confirm bookings or process payments, and remove unavailable Wishlist/Account links from the homepage footer. The homepage header baseline remains Discover / Experiences / Blog with Plan your day as the CTA. Do not move to another page until Mas Bagus approves the homepage copy, section order and navigation. Once approved, reuse this exact header/footer pattern on every subsequent page rather than inventing per-page variants.
+
+
+## Business-first recovery — 17 October 2026 (priority reset)
+
+**This section supersedes the technical-cleanup sequence above whenever business strategy and customer journey are still unresolved.** The current homepage is not accepted as complete. Do not keep polishing generic copy or bulk-building secondary pages before the business proposition and homepage journey are grounded.
+
+### Business model and guardrails
+
+- BDM Trans / Bali Driver Muslim has operated since 2011. Position the site around a trustworthy, thoughtful Bali trip-planning and experience service for families and Muslim travellers; avoid generic travel-marketplace wording.
+- Initial commercial focus: activity tickets and tour packages, subject to operational confirmation. Private tours/custom itineraries may be enquiry-led if fulfilment and partner readiness are verified.
+- Car rental/transport must not be presented as currently bookable until the vehicle fleet or fulfilment partners, coverage, prices and operating terms are confirmed.
+- The previously discussed 30–40% premium is a pricing hypothesis only. Validate per product against inclusion, provider cost, competitor price and customer value; never apply it as a blanket rule.
+- Website's initial conversion should collect a qualified enquiry. No claim of instant booking, live inventory, confirmed availability, online payment, supplier verification, halal certification or guaranteed support unless evidence and operations support it.
+- Keep preview noindex/disallow-all policy until a deliberate launch and indexation review.
+
+### Target audience and differentiation
+
+- Primary audience to validate: families and Muslim travellers who value clarity, comfort, trust and a trip shaped to their pace.
+- The differentiated offer must be expressed through verified service details and useful trip planning, not unsupported claims. Confirm which Muslim-friendly requirements BDM can actually deliver (halal meal verification, prayer-aware itinerary, language support, private vehicle/guide) before promising them.
+- Instagram can build familiarity and trust; the website should explain options and turn interest into a clear, low-friction enquiry.
+
+### Competitor research — implications, not copy
+
+- **Klook**: large searchable activity catalogue, visible price/rating/booked signals, filters, immediate-date cues, instant confirmation and cancellation labels. Lesson: customers need comparable product details and confidence signals. BDM should not imitate marketplace scale or display unsupported reviews, prices or availability. Source: https://www.klook.com/en-US/destination/c8-bali/1-things-to-do/
+- **Bali Golden Tour**: private tour/package discovery and custom itinerary enquiry, with direct contact and explanations of what's included. Lesson: make the path from interest to a tailored quote explicit; verify its current pages and policies before using specific claims. Reference site: https://baligoldentour.com/
+- **Muslim-friendly niche operators** (including Halal Bali Tourism and Bali Central Travel): make practical differentiators concrete—prayer-aware routes, food arrangements, private family trips, sample itineraries and a direct enquiry process. These are competitor claims, not BDM capabilities; only promise what BDM can verify and fulfil. Sources: https://halalbalitourism.com/ and https://bctbali.com/en/
+- Do not copy competitor wording, page structure or brand. Before pricing any item, record product, operator/partner, inclusions/exclusions, operating status, lead time, price basis, cancellation terms and evidence/source.
+
+### Homepage acceptance direction (not yet approved)
+
+1. State clearly who BDM Trans is and what a visitor can request.
+2. Give the visitor a few useful paths: activities/tickets, tour packages/private itinerary enquiry, and practical destination guidance. Do not imply car rental is available unless confirmed.
+3. Show real, fulfilable product examples with useful details; if a product is only a concept, label it as such and keep it out of sales listings.
+4. Explain how enquiry, quotation, availability confirmation and any later deposit/payment work.
+5. Add clear trust information based on verifiable business history, service area, contact and policies; do not use invented testimonials or generic trust slogans.
+6. End with a direct next step that fits the page. No fake booking or payment controls.
+
+### Mandatory locale + currency requirement
+
+- Visible language and currency controls must both be available in the shared navbar/header (including mobile), not hidden in a footer or omitted.
+- Locales: Indonesian (natural casual Indonesian) + IDR; United States English + USD; Singapore English adapted to natural Singlish + SGD; Malaysian Malay (Malaysia's own usage, not Indonesian Malay) + MYR.
+- These are separate localisation variants, not literal translations. Currency display must not imply live conversion or a confirmed payable price. If prices are not verified, state enquiry/quote required instead of fabricating converted amounts.
+- Arabic is unresolved; do not add or remove it based on assumption.
+- Persist the selected locale/currency consistently across pages only after the interaction and storage approach is specified and tested.
+
+### Immediate work order
+
+- [ ] Verify actual preview branch head, open PRs and latest workflow results; reconcile stale or conflicting baseline notes in this file and HANDOFF.
+- [ ] Build a product/fulfilment readiness matrix before deciding which homepage cards can sell: activity/ticket, day tour, multi-day package, Nusa Penida, combinations, private vehicle/airport transfer; mark each confirmed, enquiry-only, concept or blocked. Do not claim any is operational without evidence.
+- [ ] Turn competitor findings into a compact comparison matrix: audience, product taxonomy, price transparency, trust evidence, enquiry/booking steps, localisation, mobile discovery; record opportunities specific to BDM.
+- [ ] Implement the shared visible locale + currency selector as a focused, reviewable change only after confirming current header variants and mobile layout. Test its actual interaction; no inert selector.
+- [ ] Redesign/rewrite **homepage only** using the validated business proposition and readiness matrix. Keep the current homepage explicitly unapproved until Mas Bagus reviews it.
+- [ ] Run available source/static checks and CI. Report deployment workflow and browser/device visual checks separately. Do not mark mobile UX complete without a real rendered browser check.
+- [ ] Do not start a broad site-wide redesign or move on to secondary page copy until homepage is reviewed and approved.
+
+**Completion standard:** a source edit, commit, passing static check or successful deploy workflow alone is not homepage acceptance. Business truth, working interaction, mobile layout and review status must be reported separately.
