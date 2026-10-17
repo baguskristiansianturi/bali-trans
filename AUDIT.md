@@ -249,3 +249,12 @@ Terms page was a foundation draft listing policy requirements but offering littl
 User direction: the global navbar should remain compact and blog-like, not expose every category. Language and currency must be selected as one locale preference to avoid two separate user actions. Suggested defaults are Bahasa Indonesia/IDR, Bahasa Melayu/MYR, Singapore English/SGD and international/US English/USD; these are locale profiles, not a universal language-to-currency rule. Do not implement a misleading language-only currency switch or suggest all translations exist until translation coverage is real.
 
 The build sequence is: classify existing routes; standardize header/footer and core pages; finish accurate content, metadata, empty/error states and responsive UX; obtain user UX/UI review; then test the Lovina request/booking package as one journey. Custom product pages and package-level acceptance remain downstream. Keep navigation short; promote only primary discovery, Blog and one primary planning action, while considering wishlist/account and secondary categories in less prominent locations after route-family review.
+
+
+### Content foundation changes — 17 October 2026
+
+The working branch now includes a reusable editorial article style in `css/content-layout.css`, a conceptual representative article at `pages/guides/travel-updates.html`, a populated Blog hub, and replacement of the Transport foundation placeholder with visitor-facing conceptual copy. Homepage primary navigation has been shortened. About, Contact, Privacy and Discover copy has also been adjusted.
+
+Locale requirement is now explicit: casual Bahasa Indonesia / IDR; Bahasa Melayu Malaysia / MYR; natural Singlish / SGD; natural American English / USD. A single control must choose a locale profile and its default currency together. No locale switcher or complete translations should be claimed yet.
+
+Static link validation, workflow status, browser responsiveness and deployment still need separate verification. Article image/source details are deliberately marked as pending rather than presented as verified.
