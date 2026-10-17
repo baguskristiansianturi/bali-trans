@@ -282,3 +282,8 @@ Source edits on `preview/bali-trans` replaced “Structure ready” / “Foundat
 The latest pass updated visitor-facing copy on the homepage, Blog/article, Tours, Tickets, Destinations, Discover/Search, Transport, itinerary, account, booking, payment/invoice, partner/admin, Dining and Marketplace routes. It also aligned compact Discover / Experiences / Blog navigation on additional account, booking, itinerary, partner/admin and legacy secondary routes, and removed Dining/Local Products promotion from the footer links inspected in this pass.
 
 A repository-wide search of all 35 routes has not been completed after these edits. Remaining acceptance work: inspect every route for internal/editor-facing phrases and inconsistent CTAs; verify all local references; check GitHub Actions and Pages deployment; then do browser-based mobile/desktop, keyboard and assistive-technology review. The latest queried combined commit status returned an empty statuses array, so no CI pass can be claimed. No open PRs were returned by the current PR search.
+
+
+### Focused legacy-link sweep — 17 October 2026
+
+A source scan of all 35 HTML routes checked linked labels and destinations for the legacy Dining, Local Products, Travel guides and Guides promotions. The identified links were removed or renamed to Blog, and the affected routes were re-read after the changes. This closes the focused promotion sweep only; it does not certify every href/src target, every paragraph of copy, or the retirement/redirect decision for the Dining and Marketplace route files.
