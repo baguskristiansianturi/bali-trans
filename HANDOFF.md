@@ -248,3 +248,22 @@ Updated `index.html` visitor-facing copy and removed the remaining homepage word
 - `pages/tours/index.html` now lists these detail pages and describes the routes instead of presenting only generic tour-planning advice.
 - Source validation: fetched all three detail pages and the updated index/homepage; `js/main.js` parses successfully with `new Function`. The Uluwatu page has all required information sections. This is not a browser visual test or a confirmed Pages deployment.
 - Next: verify the deployed mobile flow from homepage to each detail page and back to the tour index; then continue building detailed pages for remaining services based on researched itineraries. Never imply that the planner or booking workflow submits a real request.
+
+
+## Whole-site page architecture — latest work, 17 October 2026
+
+Mas Bagus clarified that the goal is a complete website, not demo/mock pages. Klook is the UX reference and Bali Golden Tour is a reference for depth of tour content. Every page should answer the visitor's questions and lead to a valid next step. Do not invent business facts.
+
+### Completed in this pass
+- Rewrote `pages/about.html` with a clear brand purpose, service principles and discovery/compare/confirm flow.
+- Rewrote `pages/contact.html` with enquiry categories, what details to provide and replaceable contact placeholders. Official WhatsApp/phone is shown as `+62 8XX-XXXX-XXXX`; email is explicitly marked to be added. No made-up working contact is claimed.
+- Added `pages/faq.html` for common questions about tour requests, price/inclusions, customisation, booking confirmation, weather/sea conditions, transfers and cancellations.
+- Added FAQ links to the homepage footer and homepage FAQ section.
+- Source changes committed on `preview/bali-trans`; the three updated/created pages and homepage link targets must still be checked by static validation and in a real mobile browser.
+
+### Continue from here
+1. Audit each existing page family for real visitor-facing copy and purposeful links, not just page existence.
+2. Align global navigation/footer links without damaging booking/account-specific layouts.
+3. Remove generic demo/preview wording from customer-facing copy where it is unnecessary, but do not claim non-existent live booking, payment, support or inventory.
+4. Run the repository link validator and relevant workflows; inspect the actual Pages site on mobile. Do not say visual QA or deployment is confirmed without evidence.
+5. Replace the contact placeholders only after Mas Bagus supplies/approves the official phone and email details.
