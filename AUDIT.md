@@ -258,3 +258,8 @@ The working branch now includes a reusable editorial article style in `css/conte
 Locale requirement is now explicit: casual Bahasa Indonesia / IDR; Bahasa Melayu Malaysia / MYR; natural Singlish / SGD; natural American English / USD. A single control must choose a locale profile and its default currency together. No locale switcher or complete translations should be claimed yet.
 
 Static link validation, workflow status, browser responsiveness and deployment still need separate verification. Article image/source details are deliberately marked as pending rather than presented as verified.
+
+
+### Detail navigation follow-up — 17 October 2026
+
+Terms and Lovina detail now use the compact public navigation pattern. Account, booking, partner and admin route families remain outside the completed pass and still need classification. Do not treat this as a site-wide route audit.
