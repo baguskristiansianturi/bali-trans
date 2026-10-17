@@ -37,3 +37,11 @@
 3. Re-run the static local-reference scan after HTML changes.
 4. Next, test homepage search and the Lovina request flow in a browser when a browser-testing environment is available.
 5. Report static checks, automated workflows, live deployment, and manual browser/device checks separately. Never mark untested behaviour as verified.
+
+
+### PR-safe static validation setup — 17 October 2026
+
+- Added `scripts/validate_content_layout.py`, a Python-standard-library validator for the seven public content pages. It checks local `href`/`src` targets, one H1, one balanced main landmark, skip-link target markup, unique menu/nav IDs, shared stylesheet and meta description.
+- Added `.github/workflows/content-layout-check.yml` for pull requests targeting `preview/bali-trans` and manual dispatch. It runs the validator without deploying the site.
+- Important GitHub Actions limitation: because this workflow is introduced on this branch, GitHub will not use it to validate this same PR before it exists on the base branch. It becomes available to future PRs after being reviewed and merged into `preview/bali-trans`. This PR itself has not been CI-tested by the new workflow.
+- Next: review and merge this CI-enablement PR separately if approved, then use the check on PR #10 and future content changes. Browser/device review is still required; static validation cannot replace visual, keyboard or screen-reader testing.
