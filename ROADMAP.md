@@ -94,7 +94,8 @@
 - [x] Source-check 191 local `href/src` references across the seven pages; all 23 unique local targets exist.
 - [x] Add skip links, focusable main landmarks, menu-toggle ARIA attributes and shared focus/reduced-motion styles to the seven-page package.
 - [x] Merge PR #11 into `preview/bali-trans` (`89dd3deae1fee67e437aac0e5e597264a30ec598`) to enable PR-safe static validation.
-- [ ] Confirm the new workflow runs against PR #10 with `css/content-layout.css` present and the full seven-page contract enforced; resolve any failures.
+- [x] Full layout contract passed on a package-containing PR #10 revision in [run 39004560674](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39004560674): seven pages and 191 local href/src references.
+- [ ] Confirm the newest workflow run for the current head, which adds explicit accessible names to all seven primary navigation landmarks; resolve any failure.
 - [ ] Resolve PR #10 documentation conflicts against the updated preview base without dropping either PR's notes.
 - [ ] Review all seven pages together in a real browser at narrow mobile and desktop widths; test keyboard focus/navigation and screen-reader behaviour where available.
 - [ ] Continue PR #9's page-family header/footer audit only after its branch is reconciled with the current base.
