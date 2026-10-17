@@ -83,12 +83,12 @@ def main():
         toggles = [attrs for tag, attrs in parser.attrs if tag == "button" and attrs.get("id") == "menuToggle"]
         if len(navs) != 1:
             errors.append(f"{relative}: expected exactly one #mainNav, found {len(navs)}")
-        elif not navs[0].get("aria-label", "").strip():
-            errors.append(f"{relative}: #mainNav needs a non-empty accessible name")
+        elif navs[0].get("aria-label") != "Primary navigation":
+            errors.append(f"{relative}: #mainNav must use aria-label=Primary navigation")
         if len(toggles) != 1:
             errors.append(f"{relative}: expected exactly one #menuToggle, found {len(toggles)}")
-        elif toggles[0].get("aria-label", "").strip() == "" or toggles[0].get("aria-expanded") not in ("true", "false") or toggles[0].get("aria-controls") != "mainNav":
-            errors.append(f"{relative}: #menuToggle must have aria-label, aria-expanded=true/false and aria-controls=mainNav")
+        elif toggles[0].get("aria-label") != "Open navigation" or toggles[0].get("aria-expanded") != "false" or toggles[0].get("aria-controls") != "mainNav":
+            errors.append(f"{relative}: #menuToggle must start with aria-label=Open navigation, aria-expanded=false and aria-controls=mainNav")
 
         if enforce_layout_contract and relative in CONTENT_PAGES:
             if parser.h1 != 1:
