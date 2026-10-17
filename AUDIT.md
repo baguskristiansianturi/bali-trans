@@ -227,7 +227,9 @@ Recommended next implementation: standardize the menu-toggle accessibility contr
 - Still unverified: actual responsive visual layout, keyboard traversal, screen-reader output, search interactions and the Lovina request flow in a real browser.
 
 
-### Wishlist navigation variant — follow-up PR, 17 October 2026
+### Wishlist navigation consistency — merged 17 October 2026
 
-- Wishlist previously used Discover / Experiences / Tours / Tickets / Wishlist, omitting Dining and Build Your Day. The follow-up normalizes it to the shared six-item navigation order and retains `aria-current="page"` on Wishlist.
-- This is a source-level consistency correction. Confirm local-link/static CI and check mobile menu fit before calling the full navigation UX verified.
+- PR [#17](https://github.com/baguskristiansianturi/bali-trans/pull/17) is merged into `preview/bali-trans` at `508eb060eb5389279ba7b6abbc6c3f3c42ff21e0`; `main` is unchanged.
+- Wishlist now uses the shared navigation order: Discover / Experiences / Tours / Dining / Build Your Day / Wishlist, with `aria-current="page"` on Wishlist.
+- Static validation passed [run 39008026462](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39008026462); preview publishing succeeded [run 39008045984](https://github.com/baguskristiansianturi/bali-trans/actions/runs/39008045984).
+- Still unverified: mobile menu fit and scrolling, visual responsive layout, keyboard traversal and screen-reader behaviour. Check the Pages deployment workflow separately.
