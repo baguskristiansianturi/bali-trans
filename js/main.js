@@ -58,7 +58,7 @@ if(document.getElementById('confirmationSummary')){
      'Pickup/meeting point: '+(b.pickupArea||'Lovina meeting point'),
      'Notes: '+(b.notes||'None'),
      'Please confirm availability, itinerary, inclusions, final price and cancellation terms.'
-    ].join('\\n');
+    ].join('\n');
     try{
      await navigator.clipboard.writeText(msg);
      if(status)status.textContent='Enquiry details copied. Share them through the official contact channel.';
