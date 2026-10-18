@@ -1652,6 +1652,7 @@
             if (!panel) return;
             const opening = panel.classList.contains('hidden');
             closeHeaderSearch();
+            closeLocaleMenu();
             panel.classList.toggle('hidden', !opening);
             if (button) button.setAttribute('aria-expanded', String(opening));
             if (icon) icon.className = opening ? 'fas fa-xmark text-lg' : 'fas fa-bars text-lg';
@@ -1674,6 +1675,7 @@
             if (!panel) return;
             const opening = panel.classList.contains('hidden');
             closeMobileMenu();
+            closeLocaleMenu();
             panel.classList.toggle('hidden', !opening);
             if (button) button.setAttribute('aria-expanded', String(opening));
             if (icon) icon.className = opening ? 'fas fa-xmark text-lg' : 'fas fa-search text-lg';
