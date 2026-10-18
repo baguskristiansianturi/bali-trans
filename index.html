@@ -1033,7 +1033,7 @@
                                             <div>
                                                 <h4 class="font-extrabold text-slate-900 text-sm leading-snug">${item.title}</h4>
                                                 <span class="text-xs text-slate-400 block mt-1">Tanggal: ${item.date} • Pilihan: ${item.optionName}</span>
-                                                <span class="text-xs font-extrabold text-slate-900 block mt-1">${curr.format(item.unitPriceIDR)} ${item.priceMode === 'group' ? '/ mobil (total pilihan)' : '/ orang'}</span>
+                                                <span class="text-xs font-extrabold text-slate-900 block mt-1">Total paket: ${curr.format(item.unitPriceIDR)}</span>
                                                 <span class="text-[11px] text-slate-500 block mt-1">${item.guestCount || item.quantity} tamu</span>
                                                 ${item.vehicleName ? `<span class="text-[11px] text-slate-600 block mt-1">Kendaraan: ${item.vehicleName}</span>` : ''}
                                                 ${item.addons && item.addons.length ? `<span class="text-[11px] text-slate-600 block mt-1">Tambahan: ${item.addons.map(addon => addon.name).join(', ')}</span>` : ''}
@@ -1207,51 +1207,24 @@
                     </div>
                 `;
             } else {
-                // STEP 3: DIGITAL E-VOUCHER SCREEN
-                const refCode = 'BALI-' + Math.floor(100000 + Math.random() * 900000);
-                setTimeout(() => {
-                    document.getElementById('qrcodeContainer').innerHTML = '';
-                    new QRCode(document.getElementById("qrcodeContainer"), {
-                        text: refCode,
-                        width: 120,
-                        height: 120
-                    });
-                }, 100);
-
+                const refCode = 'BT-' + Math.floor(100000 + Math.random() * 900000);
+                const paymentLabels = {'bank-transfer':'Bank transfer','card':'Credit / debit card','arrival':'Bayar di tempat'};
                 return `
-                    <div class="bg-white p-6 sm:p-8 rounded-3xl border-2 border-emerald-500 shadow-xl space-y-6 text-center">
-                        <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-2xl mx-auto">✓</div>
-                        <div>
-                            <span class="text-xs font-extrabold text-emerald-600 uppercase tracking-widest block mb-1">Booking Confirmed!</span>
-                            <h2 class="text-2xl font-black text-slate-900">Your Bali E-Voucher is Ready</h2>
-                            <p class="text-xs text-slate-500 mt-1">Order Ref: <strong class="text-slate-900">${refCode}</strong></p>
+                    <div class="bg-white p-6 sm:p-8 rounded-3xl border border-emerald-200 shadow-sm space-y-6">
+                        <div class="text-center"><div class="w-14 h-14 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center text-2xl mx-auto mb-3"><i class="fas fa-clipboard-check"></i></div><p class="text-xs font-extrabold uppercase tracking-widest text-emerald-700">Langkah 3 dari 3</p><h2 class="text-2xl font-black text-slate-900 mt-1">Tinjau pemesanan Anda</h2><p class="text-sm text-slate-500 mt-2">Referensi: <strong class="text-slate-800">${refCode}</strong></p></div>
+                        <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5 space-y-3">
+                            <div class="flex justify-between gap-4 text-sm"><span class="text-slate-500">Nama pemesan</span><strong class="text-right">${checkoutGuestDetails.name || '—'}</strong></div>
+                            <div class="flex justify-between gap-4 text-sm"><span class="text-slate-500">Email</span><strong class="text-right break-all">${checkoutGuestDetails.email || '—'}</strong></div>
+                            <div class="flex justify-between gap-4 text-sm"><span class="text-slate-500">WhatsApp</span><strong class="text-right">${checkoutGuestDetails.phone || '—'}</strong></div>
+                            <div class="flex justify-between gap-4 text-sm"><span class="text-slate-500">Penjemputan</span><strong class="text-right">${checkoutGuestDetails.hotel || '—'}</strong></div>
+                            <div class="flex justify-between gap-4 text-sm"><span class="text-slate-500">Kendaraan</span><strong class="text-right">${cartState[0]?.vehicleName || '—'}</strong></div>
+                            <div class="flex justify-between gap-4 text-sm"><span class="text-slate-500">Tamu</span><strong class="text-right">${cartState[0]?.guestCount || 1} orang</strong></div>
+                            <div class="flex justify-between gap-4 text-sm"><span class="text-slate-500">Aktivitas tambahan</span><strong class="text-right">${cartState[0]?.addons?.length ? cartState[0].addons.map(addon => addon.name).join(', ') : 'Tidak ada'}</strong></div>
+                            <div class="flex justify-between gap-4 text-sm"><span class="text-slate-500">Metode pembayaran</span><strong class="text-right">${paymentLabels[selectedPaymentMethod] || paymentLabels['bank-transfer']}</strong></div>
+                            <div class="border-t border-slate-200 pt-4 flex justify-between gap-4"><span class="font-extrabold text-slate-900">Total pemesanan</span><strong class="text-xl text-orange-600">${curr.format(totalIDR)}</strong></div>
                         </div>
-
-                        <!-- Digital QR Voucher Card -->
-                        <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200 text-left max-w-md mx-auto space-y-4">
-                            <div class="flex items-center justify-between pb-3 border-b border-slate-200">
-                                <div>
-                                    <span class="text-[10px] uppercase font-bold text-slate-400 block">Lead Traveler</span>
-                                    <span class="text-xs font-extrabold text-slate-900">${document.getElementById('guestName')?.value || 'John Doe'}</span>
-                                </div>
-                                <div id="qrcodeContainer" class="p-1 bg-white rounded"></div>
-                            </div>
-                            <div>
-                                <span class="text-[10px] uppercase font-bold text-slate-400 block">Booked Experiences</span>
-                                <ul class="text-xs font-bold text-slate-800 space-y-1 mt-1">
-                                    ${cartState.map(i => `<li>• ${i.title} (${i.quantity}x)</li>`).join('')}
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-col sm:flex-row gap-3 justify-center">
-                            <button onclick="showToast('E-Voucher PDF downloaded to device!')" class="bg-slate-900 text-white text-xs font-extrabold px-6 py-3 rounded-2xl hover:bg-slate-800 transition">
-                                <i class="fas fa-download mr-1"></i> Download Voucher PDF
-                            </button>
-                            <a href="https://wa.me/?text=Hi%20Bali Trans,%20I%20have%20booking%20code%20${refCode}" target="_blank" class="bg-emerald-500 text-white text-xs font-extrabold px-6 py-3 rounded-2xl hover:bg-emerald-600 transition flex items-center justify-center gap-1">
-                                <i class="fab fa-whatsapp"></i> Send to WhatsApp Concierge
-                            </a>
-                        </div>
+                        <p class="text-sm leading-6 text-slate-600">Ketersediaan, detail pembayaran, dan konfirmasi akhir tetap perlu disepakati dengan Bali Trans sebelum perjalanan.</p>
+                        <div class="flex flex-col sm:flex-row gap-3"><button onclick="advanceCheckoutStep(2)" class="sm:w-1/3 border border-slate-300 text-slate-700 font-extrabold py-3.5 px-5 rounded-2xl text-sm">Kembali ke pembayaran</button><button onclick="showToast('Rincian siap ditinjau. Hubungi Bali Trans untuk konfirmasi pesanan.')" class="flex-1 bg-orange-500 hover:bg-orange-600 text-white font-extrabold py-3.5 px-6 rounded-2xl text-sm">Selesaikan peninjauan</button></div>
                     </div>
                 `;
             }
@@ -1262,6 +1235,8 @@
            ========================================================================== */
         
         let currentDetailQty = 1;
+        let selectedPaymentMethod = 'bank-transfer';
+        let checkoutGuestDetails = {};
 
         function changeCurrency(val) {
             currentCurrency = val;
@@ -1488,10 +1463,62 @@
             }
         }
 
+        function updateCheckoutPricing() {
+            const item = cartState[0];
+            if (!item) return;
+            const guests = item.guestCount || 1;
+            const vehicleInput = document.querySelector('input[name="checkoutVehicle"]:checked');
+            const vehicle = vehicleInput ? {
+                id: vehicleInput.value,
+                name: vehicleInput.dataset.vehicleName || vehicleInput.value,
+                surcharge: Number(vehicleInput.dataset.surcharge || 0)
+            } : {id: guests >= 6 ? 'hiace' : 'avanza', name: guests >= 6 ? 'Toyota HiAce' : 'Toyota Avanza', surcharge: guests >= 6 ? 500000 : 0};
+            if (guests >= 6 && vehicle.id !== 'hiace') {
+                const hiace = document.querySelector('input[name="checkoutVehicle"][value="hiace"]');
+                if (hiace) hiace.checked = true;
+                vehicle.id = 'hiace'; vehicle.name = 'Toyota HiAce'; vehicle.surcharge = 500000;
+            }
+            const addons = Array.from(document.querySelectorAll('input[name="checkoutAddon"]:checked')).map(input => ({
+                id: input.value,
+                name: input.dataset.label || input.value,
+                priceIDR: Number(input.dataset.price || 0),
+                priceMode: input.dataset.mode || 'person'
+            }));
+            const addonsTotal = addons.reduce((sum, addon) => sum + (addon.priceMode === 'person' ? addon.priceIDR * guests : addon.priceIDR), 0);
+            const baseTotal = (item.basePricePerPersonIDR || 462500) * guests;
+            const total = baseTotal + vehicle.surcharge + addonsTotal;
+            item.vehicleId = vehicle.id;
+            item.vehicleName = vehicle.name;
+            item.vehicleSurchargeIDR = vehicle.surcharge;
+            item.addons = addons;
+            item.unitPriceIDR = total;
+            const curr = CURRENCY_RATES[currentCurrency];
+            const totalEl = document.getElementById('checkoutTotalPrice');
+            if (totalEl) totalEl.innerText = curr.format(total);
+            const extrasEl = document.getElementById('checkoutExtrasTotal');
+            if (extrasEl) extrasEl.innerText = curr.format(vehicle.surcharge + addonsTotal);
+            updateBadges();
+        }
+
         function advanceCheckoutStep(step) {
+            if (currentCheckoutStep === 1 && step === 2) {
+                const name = document.getElementById('guestName')?.value.trim() || '';
+                const email = document.getElementById('guestEmail')?.value.trim() || '';
+                const phone = document.getElementById('guestPhone')?.value.trim() || '';
+                const hotel = document.getElementById('guestHotel')?.value.trim() || '';
+                if (!name || !email || !phone || !hotel) {
+                    showToast('Lengkapi nama, email, WhatsApp, dan lokasi penjemputan terlebih dahulu.');
+                    return;
+                }
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    showToast('Periksa kembali alamat email Anda.');
+                    return;
+                }
+                checkoutGuestDetails = {name, email, phone, hotel};
+            }
             currentCheckoutStep = step;
             const container = document.getElementById('checkoutStepContainer');
-            let grandTotal = cartState.reduce((sum, item) => sum + (item.unitPriceIDR * item.quantity), 0);
+            const grandTotal = cartState.reduce((sum, item) => sum + (item.unitPriceIDR * item.quantity), 0);
             if (container) container.innerHTML = renderCheckoutStepContent(step, grandTotal);
         }
 
