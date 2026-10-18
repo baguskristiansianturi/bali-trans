@@ -72,9 +72,7 @@
         <div class="w-full md:w-auto flex items-center justify-between md:justify-end space-x-4 text-xs">
             <span id="countdownTimer" class="font-bold">Plan your Bali trip</span>
             <div class="flex items-center space-x-3 border-l border-white/30 pl-3">
-                <a href="https://wa.me/" target="_blank" class="hover:underline flex items-center gap-1">
-                    <i class="fab font-bold fa-whatsapp text-emerald-300"></i> WhatsApp Concierge
-                </a>
+                <span id="topLiveChatStatus" class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs sm:text-sm font-semibold" role="status" aria-live="polite"><span id="topLiveChatDot" class="h-2 w-2 rounded-full bg-slate-300"></span><i class="far fa-comments"></i><span id="topLiveChatLabel">Live Chat</span><span aria-hidden="true">·</span><span id="topLiveChatState">Offline</span></span>
             </div>
         </div>
     </div>
@@ -89,7 +87,6 @@
           </button>
 
           <div class="flex items-center gap-1.5 sm:gap-2">
-            <button type="button" onclick="toggleLiveChat(event)" id="liveChatButton" aria-controls="liveChatPanel" aria-expanded="false" class="h-10 px-3 rounded-full border border-slate-200 hover:bg-slate-50 flex items-center gap-2 text-sm font-bold text-slate-700"><span id="liveChatDot" class="w-2 h-2 rounded-full bg-slate-400"></span><i class="far fa-comments text-base"></i><span class="hidden sm:inline" id="liveChatButtonLabel">Live chat</span><span class="text-xs font-semibold text-slate-500" id="liveChatButtonStatus">Offline</span></button>
             <div class="relative" id="localeControl">
               <button type="button" onclick="toggleLocaleMenu(event)" id="localeButton" aria-label="Language and currency" aria-controls="localeMenu" aria-expanded="false" class="h-10 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center gap-2 px-3 text-sm font-bold"><span id="localeCurrentFlag" class="text-lg">🇮🇩</span><span id="localeCurrentCode">IDR</span><i class="fas fa-chevron-down text-[10px]"></i></button>
               <div id="localeMenu" class="hidden absolute right-0 top-full mt-2 w-64 rounded-2xl border border-slate-200 bg-white p-2 shadow-xl z-[60]">
@@ -119,7 +116,6 @@
           </div>
         </div>
       </div>
-      <div id="liveChatPanel" class="hidden border-t border-slate-100 bg-white shadow-xl"><div class="max-w-7xl mx-auto px-4 py-4"><div class="max-w-md ml-auto rounded-2xl border border-slate-200 bg-white p-4 shadow-sm"><div class="flex items-center justify-between gap-3 mb-3"><div><p class="font-extrabold text-slate-900">Bali Trans Live Chat</p><p class="text-xs text-slate-500" id="liveChatPanelStatus">Our team is currently offline</p></div><button type="button" onclick="toggleLiveChat(event)" aria-label="Close live chat" class="w-8 h-8 rounded-full hover:bg-slate-100"><i class="fas fa-xmark"></i></button></div><p id="liveChatMessage" class="text-sm leading-relaxed text-slate-600 mb-4">We’re away right now. Send us a WhatsApp message and we’ll get back to you.</p><a href="https://wa.me/628218187917" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-4 py-3 text-sm font-bold text-white hover:bg-emerald-700"><i class="fab fa-whatsapp"></i><span id="liveChatCta">Continue on WhatsApp</span></a></div></div></div>
       <div id="mobileMenuPanel" class="hidden border-t border-slate-100 bg-white shadow-xl">
         <div class="max-w-7xl mx-auto px-4 py-3">
           <div class="grid grid-cols-2 gap-2">
@@ -1532,54 +1528,19 @@
           hi:{"Beranda":"होम","Tur & Layanan":"टूर और सेवाएँ","Tentang Kami":"हमारे बारे में","Kontak":"संपर्क करें","Pesan sekarang":"अभी बुक करें","Lihat detail":"विवरण देखें","Lihat semua":"सभी देखें","Pelajari lebih lanjut":"और जानें","Baca selengkapnya":"और पढ़ें","Mulai dari":"शुरुआती कीमत","per orang":"प्रति व्यक्ति","Tur populer":"लोकप्रिय टूर","Destinasi pilihan":"शीर्ष गंतव्य","Butuh bantuan?":"मदद चाहिए?","Kirim pesan":"संदेश भेजें","Explore Bali":"बाली घूमें","Home":"होम","Tours & Services":"टूर और सेवाएँ","About Us":"हमारे बारे में","Contact":"संपर्क करें","Book now":"अभी बुक करें","Book Now":"अभी बुक करें","View details":"विवरण देखें","View all":"सभी देखें","Learn more":"और जानें","Read more":"और पढ़ें","From":"शुरुआती कीमत","per person":"प्रति व्यक्ति","Popular tours":"लोकप्रिय टूर","Top destinations":"शीर्ष गंतव्य","Need help?":"मदद चाहिए?","Send message":"संदेश भेजें","Offline":"ऑफ़लाइन","Live chat":"लाइव चैट","Continue on WhatsApp":"WhatsApp पर जारी रखें"}
         };
         function translateCopy(value){if(!value)return value;let out=value;if(currentLanguage==='id'){Object.keys(BALI_TRANSLATIONS).sort((a,b)=>b.length-a.length).forEach(k=>out=out.split(k).join(BALI_TRANSLATIONS[k]));}else if(currentLanguage==='en'){const rev={};Object.keys(BALI_TRANSLATIONS).forEach(k=>{if(!rev[BALI_TRANSLATIONS[k]])rev[BALI_TRANSLATIONS[k]]=k;});Object.keys(rev).sort((a,b)=>b.length-a.length).forEach(k=>out=out.split(k).join(rev[k]));}else{const map=EXTRA_LOCALE_COPY[currentLanguage]||{};Object.keys(map).sort((a,b)=>b.length-a.length).forEach(k=>out=out.split(k).join(map[k]));}return out;}
-        function toggleLiveChat(event){if(event)event.stopPropagation();const panel=document.getElementById('liveChatPanel'),button=document.getElementById('liveChatButton');if(!panel)return;const opening=panel.classList.contains('hidden');closeMobileMenu();closeHeaderSearch();closeLocaleMenu();panel.classList.toggle('hidden',!opening);if(button)button.setAttribute('aria-expanded',String(opening));updateLiveChatStatus();}
-        // Front-end preview is offline by default. Live presence needs an admin/chat backend.
-        window.BALI_TRANS_ADMIN_ONLINE=window.BALI_TRANS_ADMIN_ONLINE===true;
-        function updateLiveChatStatus(){const online=window.BALI_TRANS_ADMIN_ONLINE===true;const dot=document.getElementById('liveChatDot'),status=document.getElementById('liveChatButtonStatus'),ps=document.getElementById('liveChatPanelStatus'),msg=document.getElementById('liveChatMessage');if(dot)dot.className='w-2 h-2 rounded-full '+(online?'bg-emerald-500':'bg-slate-400');if(status)status.textContent=online?'Online':'Offline';if(ps)ps.textContent=online?'Our team is online now':'Our team is currently offline';if(msg)msg.textContent=online?'Our team is available. Message us on WhatsApp to start a conversation.':'We’re away right now. Send us a WhatsApp message and we’ll get back to you.';if(typeof applyLanguageCopy==='function')applyLanguageCopy(document.getElementById('liveChatPanel')||document);}
-        function applyLanguageCopy(root = document) {
-            if (!root) return;
-            const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
-            const nodes = [];
-            while (walker.nextNode()) nodes.push(walker.currentNode);
-            nodes.forEach(node => {
-                if (node.parentElement && !['SCRIPT','STYLE','SELECT','OPTION'].includes(node.parentElement.tagName)) {
-                    if (!originalTextNodes.has(node)) originalTextNodes.set(node, node.nodeValue);
-                    const original = originalTextNodes.get(node);
-                    const translated = translateCopy(original);
-                    if (translated !== node.nodeValue) node.nodeValue = translated;
-                }
-            });
-            root.querySelectorAll && root.querySelectorAll('[placeholder],[aria-label],[title]').forEach(el => {
-                if (!originalAttributes.has(el)) originalAttributes.set(el, {});
-                ['placeholder','aria-label','title'].forEach(attr => {
-                    const saved = originalAttributes.get(el);
-                    if (saved[attr] === undefined) saved[attr] = el.getAttribute(attr);
-                    const original = saved[attr];
-                    if (original) el.setAttribute(attr, translateCopy(original));
-                });
-            });
-            document.documentElement.lang = currentLanguage;
-            document.title = currentLanguage === 'id' ? 'Bali Trans | Tur, Aktivitas & Transportasi Privat di Bali' : 'Bali Trans | Bali Tours, Activities & Private Transport';
+        // Presence display: offline by default until a real admin-presence service is connected.
+        window.BALI_TRANS_ADMIN_ONLINE = window.BALI_TRANS_ADMIN_ONLINE === true;
+        function updateLiveChatStatus() {
+            const online = window.BALI_TRANS_ADMIN_ONLINE === true;
+            const dot = document.getElementById('topLiveChatDot');
+            const state = document.getElementById('topLiveChatState');
+            const label = document.getElementById('topLiveChatLabel');
+            const badge = document.getElementById('topLiveChatStatus');
+            if (dot) dot.className = 'h-2 w-2 rounded-full ' + (online ? 'bg-emerald-400' : 'bg-slate-300');
+            if (state) state.textContent = online ? 'Online' : 'Offline';
+            if (label) label.textContent = currentLanguage === 'id' ? 'Live Chat' : 'Live Chat';
+            if (badge) badge.setAttribute('aria-label', 'Live Chat ' + (online ? 'Online' : 'Offline'));
         }
-        function syncLocaleSelector(){const c=LOCALE_SETTINGS[currentLanguage]||LOCALE_SETTINGS.id;const f=document.getElementById('localeCurrentFlag'),code=document.getElementById('localeCurrentCode');if(f)f.textContent=c.flag;if(code)code.textContent=c.code;Object.keys(LOCALE_SETTINGS).forEach(k=>{const el=document.getElementById('localeCheck'+k.charAt(0).toUpperCase()+k.slice(1));if(el)el.classList.toggle('hidden',k!==currentLanguage);});}
-        function toggleLocaleMenu(event) {
-            if (event) event.stopPropagation();
-            const menu = document.getElementById('localeMenu');
-            const button = document.getElementById('localeButton');
-            if (!menu) return;
-            const opening = menu.classList.contains('hidden');
-            closeMobileMenu();
-            closeHeaderSearch();
-            menu.classList.toggle('hidden', !opening);
-            if (button) button.setAttribute('aria-expanded', String(opening));
-        }
-        function closeLocaleMenu() {
-            const menu = document.getElementById('localeMenu');
-            const button = document.getElementById('localeButton');
-            if (menu) menu.classList.add('hidden');
-            if (button) button.setAttribute('aria-expanded', 'false');
-        }
-        function changeLocale(language){currentLanguage=LOCALE_SETTINGS[language]?language:'id';currentCurrency=LOCALE_SETTINGS[currentLanguage].currency;try{localStorage.setItem('baliTransLanguage',currentLanguage);}catch(e){}syncLocaleSelector();closeLocaleMenu();document.documentElement.lang=LOCALE_SETTINGS[currentLanguage].lang;document.documentElement.dir=LOCALE_SETTINGS[currentLanguage].dir;navigateTo('home');if(typeof applyLanguageCopy==='function')applyLanguageCopy(document);if(typeof updateLiveChatStatus==='function')updateLiveChatStatus();showToast(LOCALE_SETTINGS[currentLanguage].name+' · '+currentCurrency);}
         function changeLanguage(language) { changeLocale(language); }
         document.addEventListener('DOMContentLoaded',function(){syncLocaleSelector();document.documentElement.dir=LOCALE_SETTINGS[currentLanguage].dir;updateLiveChatStatus();});
 
