@@ -2079,7 +2079,7 @@
                 {title:'Nusa Islands Snorkelling & Diving',location:'Nusa Islands · Marine activities',key:'place:island-snorkelling-diving',terms:'nusa snorkelling diving'}
             ];
             const packageMatches = BALI_PACKAGES.filter(p => [p.title,p.location,p.categoryName,p.category,...(p.highlights||[])].filter(Boolean).join(' ').toLocaleLowerCase().includes(term)).slice(0,5);
-            const destinationMatches = destinations.filter(d => (d.title+' '+d.location+' '+d.terms).toLocaleLowerCase().includes(term)).slice(0,5);
+            const destinationMatches = destinations.filter(d => (d.title+' '+d.location+' '+d.terms).toLocaleLowerCase().includes(term)).sort((a,b) => Number(b.key.startsWith('place:')) - Number(a.key.startsWith('place:'))).slice(0,5);
             const results = [
                 ...packageMatches.map(p => ({title:p.title,location:p.location,image:p.heroImage,action:`navigateTo('detail','${String(p.id).replace(/[^a-zA-Z0-9_-]/g,'')}'); closeHeaderSearch();`})),
                 ...destinationMatches.map(d => ({title:d.title,location:d.location,image:'',action:`navigateTo('discovery','${d.key}'); closeHeaderSearch();`}))
@@ -2119,7 +2119,7 @@
                 {terms:['medewi'],key:'place:medewi'},{terms:['rambut siwi'],key:'place:rambut-siwi'},{terms:['bunut bolong'],key:'place:bunut-bolong'},{terms:['perancak'],key:'place:perancak'},{terms:['gilimanuk'],key:'place:gilimanuk'},{terms:['west bali national park'],key:'place:west-bali-national-park'},
                 {terms:['kelingking','crystal bay'],key:'place:kelingking-crystal-bay'},{terms:['diamond beach','atuh beach'],key:'place:diamond-atuh'},{terms:['nusa lembongan','mangrove'],key:'place:nusa-lembongan'},{terms:['nusa ceningan','yellow bridge'],key:'place:nusa-ceningan'}
             ];
-            const match = destinations.find(item => item.terms.some(term => q.includes(term)));
+            const match = destinations.filter(item => item.terms.some(term => q.includes(term))).sort((a,b) => Number(b.key.startsWith('place:')) - Number(a.key.startsWith('place:')))[0];
             if (match) { navigateTo('discovery', match.key); return; }
             navigateTo('packages');
             setTimeout(() => {
