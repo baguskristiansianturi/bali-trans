@@ -97,7 +97,9 @@ Ini adalah backlog editorial untuk riset dan seleksi, bukan instruksi menerbitka
 6. **Berapa Lama Sebaiknya Menginap di Lovina?** — bantu pembaca memilih durasi berdasarkan minat dan rute realistis.
 
 ### Cluster 2 — pantai dan destinasi Bali Utara
-7. **50 Tempat Wisata di Bali Utara: Peta Pilihan Berdasarkan Area dan Jenis Wisata** — halaman komprehensif hanya jika setiap tempat diverifikasi; kelompokkan per area dan jangan menyebut semua lokasi sebagai dekat Lovina.
+
+**Catatan koreksi riset:** jangan menetapkan target “50 tempat” sebelum daftar nyata disusun dan diverifikasi satu per satu. Sumber resmi yang ditemukan sejauh ini belum membuktikan adanya 50 destinasi berbeda yang layak masuk daftar. Dinas Pariwisata Provinsi Bali memiliki daftar daya tarik wisata Buleleng yang lebih lama dan mencantumkan sejumlah destinasi, sementara Indonesia Travel memberi contoh destinasi Lovina dan sekitarnya; ini bahan awal, bukan bukti untuk klaim angka 50. Hitung hanya lokasi berbeda yang relevan, verifikasi wilayah administratif, akses, dan status kunjungan, lalu tentukan judul sesuai jumlah yang benar-benar lolos.
+7. **Tempat Wisata di Bali Utara: Daftar Destinasi yang Terverifikasi** — halaman komprehensif hanya jika setiap tempat diverifikasi; kelompokkan per area dan jangan menyebut semua lokasi sebagai dekat Lovina.
 8. **Pantai-Pantai di Bali Utara: Perbedaan Lokasi dan Karakternya** — cakupan jelas, bukan sekadar daftar nama.
 9. **Tempat Wisata Dekat Pantai Lovina yang Bisa Dikunjungi dalam Setengah Hari**
 10. **Air Terjun di Bali Utara: Lokasi, Akses, dan Hal yang Perlu Disiapkan**
