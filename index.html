@@ -240,8 +240,8 @@
                 rating: null,
                 reviewCount: 0,
                 originalPriceIDR: 0,
-                priceIDR: 175000,
-                badge: '2 Pilihan Pemesanan',
+                priceIDR: 462500,
+                badge: 'Paket Privat',
                 instantConfirmation: false,
                 freeCancellation: false,
                 hotelTransfer: false,
@@ -255,24 +255,24 @@
                 ],
                 highlights: [
                     'Berangkat dini hari untuk menyaksikan matahari terbit dan mencari lumba-lumba liar di perairan Lovina.',
-                    'Pilih tiket Dolphin saja jika datang sendiri ke titik temu di Lovina, atau pilih paket all-in dengan transportasi pribadi dari area penjemputan yang disepakati.',
-                    'Paket all-in dirancang mencakup perjalanan perahu, transportasi pribadi pulang-pergi, tiket masuk destinasi dalam itinerary, dan makan siang.',
+                    'Perjalanan privat dari area penjemputan yang disepakati, termasuk aktivitas utama dolphin watching dan kebutuhan pokok dalam itinerary.',
+                    'Paket mencakup perjalanan perahu, transportasi pribadi pulang-pergi, tiket masuk untuk destinasi yang termasuk dalam itinerary, dan makan siang.',
                     'Lumba-lumba adalah satwa liar; kemunculannya tidak dapat dijamin. Urutan dan waktu kunjungan bisa berubah karena cuaca, kondisi laut, dan lalu lintas.'
                 ],
                 itinerary: [
-                    { time: '03.30', title: 'Penjemputan hotel (paket all-in)', desc: 'Perkiraan waktu mulai dari area Bali Selatan/Ubud. Jam akhir dikonfirmasi berdasarkan lokasi jemput.' },
+                    { time: '03.30', title: 'Penjemputan hotel', desc: 'Perkiraan waktu mulai dari area Bali Selatan/Ubud. Jam akhir dikonfirmasi berdasarkan lokasi jemput.' },
                     { time: '05.50', title: 'Tiba di Lovina', desc: 'Bersiap di tepi pantai dan mengikuti arahan kapten perahu.' },
                     { time: '06.00', title: 'Dolphin watching saat sunrise', desc: 'Naik perahu tradisional untuk mencari lumba-lumba di habitat alaminya. Durasi dan kondisi laut dapat bervariasi.' },
-                    { time: '09.00', title: 'Wanagiri Hidden Hills', desc: 'Persinggahan panorama perbukitan dan danau di Bali Utara (paket all-in).' },
-                    { time: '10.30', title: 'Handara Gate', desc: 'Persinggahan foto di gerbang ikonik kawasan Bedugul (paket all-in).' },
-                    { time: '11.30', title: 'Pura Ulun Danu Beratan', desc: 'Kunjungan ke pura tepi danau; waktu kunjungan mengikuti kondisi perjalanan (paket all-in).' },
-                    { time: '12.30', title: 'Makan siang', desc: 'Makan siang termasuk pada paket all-in; pilihan menu dan tempat dikonfirmasi sebelum keberangkatan.' },
+                    { time: '09.00', title: 'Wanagiri Hidden Hills', desc: 'Persinggahan panorama perbukitan dan danau di Bali Utara sesuai itinerary yang dipilih.' },
+                    { time: '10.30', title: 'Handara Gate', desc: 'Persinggahan foto di gerbang ikonik kawasan Bedugul sesuai itinerary yang dipilih.' },
+                    { time: '11.30', title: 'Pura Ulun Danu Beratan', desc: 'Kunjungan ke pura tepi danau jika termasuk dalam rencana perjalanan.' },
+                    { time: '12.30', title: 'Makan siang', desc: 'Waktu makan siang; pilihan menu dan tempat dikonfirmasi sebelum keberangkatan.' },
                     { time: '13.30–15.00', title: 'Perjalanan kembali', desc: 'Perkiraan kembali ke hotel. Durasi bergantung pada lokasi antar dan kondisi lalu lintas.' }
                 ],
                 options: [
-                    { id: 'lovina-all-in', name: 'Paket Tour Lovina — transportasi pribadi', priceIDR: 1850000, priceMode: 'group', maxGuests: 4, desc: 'Paket perjalanan privat pulang-pergi dengan sopir dan aktivitas dolphin watching. Anda dapat menambahkan kunjungan destinasi Bali Utara, snorkeling, atau swim with dolphin sesuai pilihan.', includes: ['Mobil pribadi pulang-pergi untuk 1–4 tamu', 'Sopir, bahan bakar dan parkir', 'Perjalanan perahu dolphin watching'], excludes: ['Kunjungan destinasi tambahan jika tidak dipilih', 'Snorkeling dan swim with dolphin jika tidak dipilih', 'Pengeluaran pribadi dan makan di luar kesepakatan'] }
+                    { id: 'lovina-standard', name: 'Paket Tour Lovina', priceIDR: 462500, priceMode: 'person', maxGuests: 7, desc: 'Harga per orang untuk perjalanan Lovina dengan transportasi privat dan dolphin watching. Tambahan aktivitas dan upgrade kendaraan dapat dipilih saat checkout.', includes: ['Transportasi pribadi pulang-pergi', 'Driver, bahan bakar dan parkir', 'Perjalanan perahu dolphin watching', 'Tiket masuk destinasi yang termasuk dalam itinerary', 'Makan siang sesuai kesepakatan'], excludes: ['Kunjungan destinasi opsional yang tidak dipilih', 'Snorkeling atau swim with dolphin jika tidak dipilih', 'Pengeluaran pribadi'] }
                 ],
-                pricingNote: 'Rincian harga, area jemput, ketersediaan, menu makan, dan ketentuan perjalanan akan dikonfirmasi sebelum pembayaran.'
+                pricingNote: 'Area penjemputan, ketersediaan, menu makan, dan rincian perjalanan dikonfirmasi sebelum pembayaran.'
             }
         ];
 
@@ -836,61 +836,15 @@
                             </section>
 
                             <section id="pilihan-paket" class="detail-section bg-white rounded-2xl border border-slate-200 p-5 sm:p-7 scroll-mt-20">
-                                <h2 class="text-xl font-extrabold text-slate-950">Sesuaikan pengalaman Lovina</h2>
-                                <p class="text-sm text-slate-500 mt-2 mb-5">Paket Tour Lovina sudah mencakup transportasi pribadi dan dolphin watching. Pilih tambahan sesuai rencana Anda.</p>
-                                <div class="space-y-4">
-                                    ${pkg.options.map((opt, index) => `
-                                        <label class="block rounded-2xl border-2 p-4 sm:p-5 cursor-pointer transition ${index === 0 ? 'border-orange-500 bg-orange-50/40' : 'border-slate-200 hover:border-slate-300'}">
-                                            <div class="flex items-start gap-3">
-                                                <input type="radio" name="packageOption" value="${opt.id}" ${index === 0 ? 'checked' : ''} onchange="updatePackageOptionDetails()" class="mt-1 accent-orange-500">
-                                                <div class="min-w-0 flex-1">
-                                                    <div class="flex flex-col sm:flex-row sm:justify-between gap-2">
-                                                        <h3 class="font-extrabold text-slate-900">${opt.name}</h3>
-                                                        <span class="font-black text-slate-950 whitespace-nowrap">${curr.format(opt.priceIDR)} <small class="text-xs text-slate-500 font-semibold">${opt.priceMode === 'group' ? '/ mobil' : '/ orang'}</small></span>
-                                                    </div>
-                                                    <p class="text-sm leading-6 text-slate-600 mt-2">${opt.desc}</p>
-                                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
-                                                        <div class="rounded-xl bg-emerald-50 p-3"><h4 class="text-xs font-extrabold text-emerald-800 mb-2">Termasuk</h4><ul class="space-y-1 text-xs leading-5 text-emerald-950">${opt.includes.map(item => `<li>✓ ${item}</li>`).join('')}</ul></div>
-                                                        <div class="rounded-xl bg-slate-50 p-3"><h4 class="text-xs font-extrabold text-slate-700 mb-2">Belum termasuk</h4><ul class="space-y-1 text-xs leading-5 text-slate-600">${opt.excludes.map(item => `<li>• ${item}</li>`).join('')}</ul></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </label>
-                                    `).join('')}
+                                <h2 class="text-xl font-extrabold text-slate-950">Harga per orang sudah termasuk</h2>
+                                <p class="text-sm text-slate-500 mt-2 mb-5">Paket utama sudah mencakup kebutuhan perjalanan yang tercantum di bawah. Pilihan kendaraan dan aktivitas tambahan dapat disesuaikan saat checkout.</p>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                    <div class="flex items-center gap-3 rounded-xl bg-emerald-50 p-3"><span class="w-10 h-10 rounded-xl bg-white text-emerald-700 flex items-center justify-center"><i class="fas fa-car-side text-lg"></i></span><span class="text-sm font-bold text-emerald-950">Transportasi pribadi pulang-pergi</span></div>
+                                    <div class="flex items-center gap-3 rounded-xl bg-emerald-50 p-3"><span class="w-10 h-10 rounded-xl bg-white text-emerald-700 flex items-center justify-center"><i class="fas fa-water text-lg"></i></span><span class="text-sm font-bold text-emerald-950">Perahu dolphin watching</span></div>
+                                    <div class="flex items-center gap-3 rounded-xl bg-emerald-50 p-3"><span class="w-10 h-10 rounded-xl bg-white text-emerald-700 flex items-center justify-center"><i class="fas fa-user-tie text-lg"></i></span><span class="text-sm font-bold text-emerald-950">Driver, bahan bakar & parkir</span></div>
+                                    <div class="flex items-center gap-3 rounded-xl bg-emerald-50 p-3"><span class="w-10 h-10 rounded-xl bg-white text-emerald-700 flex items-center justify-center"><i class="fas fa-ticket text-lg"></i></span><span class="text-sm font-bold text-emerald-950">Tiket destinasi dalam itinerary</span></div>
+                                    <div class="flex items-center gap-3 rounded-xl bg-emerald-50 p-3"><span class="w-10 h-10 rounded-xl bg-white text-emerald-700 flex items-center justify-center"><i class="fas fa-utensils text-lg"></i></span><span class="text-sm font-bold text-emerald-950">Makan siang sesuai kesepakatan</span></div>
                                 </div>
-
-                                <div id="vehicleChoiceWrap" class="mt-5 rounded-2xl border border-slate-200 p-4 sm:p-5">
-                                    <h3 class="font-extrabold text-slate-900">Pilih jenis mobil</h3>
-                                    <p class="text-xs leading-5 text-slate-500 mt-1 mb-3">Pilih kendaraan sesuai kenyamanan dan kebutuhan perjalanan Anda.</p>
-                                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                                        <label class="vehicle-choice border-2 border-orange-500 bg-orange-50 rounded-xl p-3 cursor-pointer"><input type="radio" name="vehicleType" value="avanza" checked onchange="updateBookingCalculation()" class="accent-orange-500"><span class="block font-bold text-sm mt-2">Toyota Avanza</span><span class="block text-xs text-slate-500">Standar • termasuk</span></label>
-                                        <label class="vehicle-choice border-2 border-slate-200 rounded-xl p-3 cursor-pointer"><input type="radio" name="vehicleType" value="innova" onchange="updateBookingCalculation()" class="accent-orange-500"><span class="block font-bold text-sm mt-2">Toyota Innova</span><span class="block text-xs text-slate-500">Upgrade +Rp300.000</span></label>
-                                        <label class="vehicle-choice border-2 border-slate-200 rounded-xl p-3 cursor-pointer"><input type="radio" name="vehicleType" value="alphard" onchange="updateBookingCalculation()" class="accent-orange-500"><span class="block font-bold text-sm mt-2">Toyota Alphard</span><span class="block text-xs text-slate-500">Upgrade +Rp1.500.000</span></label>
-                                    </div>
-                                </div>
-
-                                <div id="addonsWrap" class="mt-4 rounded-2xl border border-slate-200 p-4 sm:p-5">
-                                    <h3 class="font-extrabold text-slate-900">Tambahan aktivitas & kunjungan</h3>
-                                    <p class="text-xs text-slate-500 mt-1 mb-3">Buka pilihan untuk melihat rincian dan menambahkannya ke perjalanan.</p>
-                                    <div class="space-y-2">
-                                        <details class="rounded-xl border border-slate-200 p-3">
-                                            <summary class="flex cursor-pointer list-none items-center justify-between gap-3"><span class="font-bold text-sm">Kunjungan tempat wisata Bali Utara</span><span class="text-xs font-semibold text-slate-600 whitespace-nowrap">+Rp350.000 / mobil <i class="fas fa-chevron-down ml-1"></i></span></summary>
-                                            <p class="text-sm text-slate-600 leading-6 mt-3">Tambahkan kunjungan ke Wanagiri, Handara Gate, dan Ulun Danu Beratan dalam rute perjalanan.</p>
-                                            <label class="mt-3 flex items-center gap-2 text-sm font-semibold"><input type="checkbox" name="lovinaAddon" value="sightseeing" data-label="Kunjungan tempat wisata Bali Utara" data-price="350000" onchange="updateBookingCalculation()" class="accent-orange-500"> Tambahkan ke perjalanan</label>
-                                        </details>
-                                        <details class="rounded-xl border border-slate-200 p-3">
-                                            <summary class="flex cursor-pointer list-none items-center justify-between gap-3"><span class="font-bold text-sm">Snorkeling</span><span class="text-xs font-semibold text-slate-600 whitespace-nowrap">+Rp250.000 / orang <i class="fas fa-chevron-down ml-1"></i></span></summary>
-                                            <p class="text-sm text-slate-600 leading-6 mt-3">Tambahkan aktivitas snorkeling sebagai bagian dari pengalaman laut di Lovina.</p>
-                                            <label class="mt-3 flex items-center gap-2 text-sm font-semibold"><input type="checkbox" name="lovinaAddon" value="snorkeling" data-label="Snorkeling" data-price="250000" onchange="updateBookingCalculation()" class="accent-orange-500"> Tambahkan ke perjalanan</label>
-                                        </details>
-                                        <details class="rounded-xl border border-slate-200 p-3">
-                                            <summary class="flex cursor-pointer list-none items-center justify-between gap-3"><span class="font-bold text-sm">Swim with dolphin</span><span class="text-xs font-semibold text-slate-600 whitespace-nowrap">+Rp350.000 / orang <i class="fas fa-chevron-down ml-1"></i></span></summary>
-                                            <p class="text-sm text-slate-600 leading-6 mt-3">Pilihan aktivitas tambahan yang bergantung pada aturan operator, keselamatan, dan kondisi di lokasi.</p>
-                                            <label class="mt-3 flex items-center gap-2 text-sm font-semibold"><input type="checkbox" name="lovinaAddon" value="swim-dolphin" data-label="Swim with dolphin" data-price="350000" onchange="updateBookingCalculation()" class="accent-orange-500"> Tambahkan ke perjalanan</label>
-                                        </details>
-                                    </div>
-                                </div>
-                                <p class="text-xs leading-5 text-amber-900 bg-amber-50 rounded-xl p-3 mt-5"><i class="fas fa-circle-info mr-1"></i>${pkg.pricingNote}</p>
                             </section>
 
                             <section id="itinerary" class="detail-section bg-white rounded-2xl border border-slate-200 p-5 sm:p-7 scroll-mt-20">
