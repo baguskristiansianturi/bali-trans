@@ -2105,18 +2105,9 @@
         }
 
         function initHomeInteractivity() {
-            // Flash sale countdown timer logic
-            let timerSeconds = 30252;
+            // Keep the announcement useful and honest; do not display a fabricated sale countdown.
             const timerElem = document.getElementById('countdownTimer');
-            if (timerElem) {
-                setInterval(() => {
-                    timerSeconds--;
-                    const h = Math.floor(timerSeconds / 3600);
-                    const m = Math.floor((timerSeconds % 3600) / 60);
-                    const s = timerSeconds % 60;
-                    timerElem.innerText = `Offer ends in: ${String(h).padStart(2, '0')}h ${String(m).padStart(2, '0')}m ${String(s).padStart(2, '0')}s`;
-                }, 1000);
-            }
+            if (timerElem) timerElem.textContent = 'Plan your Bali trip';
         }
 
         /* INITIAL APP LAUNCH
