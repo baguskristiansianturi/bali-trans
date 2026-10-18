@@ -347,17 +347,17 @@
         const BALI_BLOGS = [
             {
                 id: 'blog-1',
-                title: 'The Ultimate First-Timer’s Bali Travel Guide (2026 Edition)',
+                title: 'A Practical First-Time Guide to Bali',
                 category: 'Guide',
                 readTime: '6 min read',
                 author: 'Siti Rahma',
                 date: 'Oct 12, 2026',
                 image: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80',
-                snippet: 'Everything you need to know about Visa on Arrival, best neighborhoods to stay, currency tips, and avoiding tourist traps in Bali.',
+                snippet: 'A starting point for choosing where to stay, checking entry requirements, planning local transport and preparing for your first visit.',
                 content: `
                     <p class="mb-4">Planning your dream vacation to Bali in 2026? Known as the Island of the Gods, Bali continues to top global travel wishlists. Whether you seek spiritual retreats in Ubud, party beaches in Canggu, or pristine underwater coral reefs in Nusa Penida, this guide has you covered.</p>
                     <h3 class="text-xl font-bold text-slate-900 mb-2">1. Entry Requirements & E-Visa</h3>
-                    <p class="mb-4">Travelers from over 90 countries can obtain a 30-day Visa on Arrival (VoA) either at Ngurah Rai International Airport or online prior to arrival. Ensure your passport is valid for at least 6 months.</p>
+                    <p class="mb-4">Entry requirements depend on your passport and travel plans. Check the latest visa and passport rules through official Indonesian immigration sources before departure rather than relying on an old checklist.</p>
                     <h3 class="text-xl font-bold text-slate-900 mb-2">2. Choosing Where to Stay</h3>
                     <ul class="list-disc pl-5 mb-4 space-y-1">
                         <li><strong>Canggu & Seminyak:</strong> Beach clubs, trendy cafes, surfing, vibrant nightlife.</li>
@@ -371,13 +371,13 @@
             },
             {
                 id: 'blog-2',
-                title: 'Top 7 Instagrammable Spots in Nusa Penida & How to Visit Them',
+                title: 'Nusa Penida Highlights: Kelingking, Diamond Beach & Atuh',
                 category: 'Destinations',
                 readTime: '4 min read',
                 author: 'Alex Rivera',
                 date: 'Sep 28, 2026',
                 image: 'https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=800&q=80',
-                snippet: 'Discover Kelingking Beach, Diamond Beach, Atuh, and the famous treehouse with step-by-step fast boat schedules.',
+                snippet: 'Compare three dramatic coastal stops and plan island transport around road conditions, sea conditions and your boat schedule.',
                 content: `
                     <p class="mb-4">Nusa Penida is a rugged island just 45 minutes off the coast of Bali. It boasts some of the most spectacular coastal cliffs in Southeast Asia.</p>
                     <h3 class="text-xl font-bold text-slate-900 mb-2">Must-Visit Spots:</h3>
@@ -390,13 +390,13 @@
             },
             {
                 id: 'blog-3',
-                title: 'Bali Foodie Guide: 10 Must-Try Balinese Dishes You Can’t Miss',
+                title: 'Balinese Dishes to Try on Your Trip',
                 category: 'Culinary',
                 readTime: '5 min read',
                 author: 'Made Budi',
                 date: 'Sep 15, 2026',
                 image: 'https://images.unsplash.com/photo-1555400038-63f5ba517a47?auto=format&fit=crop&w=800&q=80',
-                snippet: 'From Babi Guling to Duck Bebek Betutu and fresh Jimbaran seafood, indulge your tastebuds in Bali authentic cuisine.',
+                snippet: 'Get to know a few well-known Balinese dishes and coastal seafood options to look out for during your stay.',
                 content: `
                     <p class="mb-4">Balinese cuisine is rich with aromatic spices like turmeric, lemongrass, galangal, and chili paste (Sambal Matah).</p>
                     <p class="mb-4">Do not leave Bali without tasting <strong>Babi Guling</strong> (suckling roast pig), <strong>Bebek Betutu</strong> (slow-roasted spiced duck), and grilling fresh snapper at Jimbaran Bay right on the beach!</p>
@@ -1127,7 +1127,7 @@
                     <div class="text-center max-w-2xl mx-auto mb-10">
                         <span class="text-xs font-extrabold text-klook-orange uppercase tracking-wider">Bali Travel Guides & Tips</span>
                         <h1 class="text-3xl font-extrabold text-slate-900 mt-1">Plan Your Dream Trip to Bali</h1>
-                        <p class="text-slate-500 text-sm mt-2">Curated insider travel tips, food guides, and itinerary advice from local Balinese experts.</p>
+                        <p class="text-slate-500 text-sm mt-2">Practical guides for choosing areas, planning routes and enjoying your time in Bali.</p>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -1174,13 +1174,11 @@
                     <h1 class="text-3xl sm:text-4xl font-black text-slate-900 mt-3 mb-4 leading-tight">${blog.title}</h1>
                     <p class="text-base sm:text-lg leading-relaxed text-slate-600 mb-5">${blog.snippet || ''}</p>
                     <div class="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs text-slate-500 mb-6 pb-6 border-b border-slate-200">
-                        <span>By <strong class="text-slate-700">${blog.author}</strong></span>
-                        <span aria-hidden="true">•</span>
                         <time datetime="${blog.date}">Published ${blog.date}</time>
                         <span aria-hidden="true">•</span>
                         <span>${blog.readTime}</span>
                     </div>
-                    <img src="${blog.image}" alt="${blog.title.replace(/&/g, '&amp;').replace(/"/g, '&quot;')}" class="w-full h-[380px] object-cover rounded-3xl mb-8 shadow-md" loading="lazy">
+                    <img src="${blog.image}" alt="${blog.title.replace(/&/g, '&amp;').replace(/"/g, '&quot;')}" class="w-full h-56 sm:h-80 md:h-[380px] object-cover rounded-3xl mb-8 shadow-md" loading="lazy">
                     <div class="prose max-w-none text-slate-700 text-sm sm:text-base leading-relaxed space-y-4">
                         ${blog.content}
                     </div>
