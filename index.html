@@ -1579,6 +1579,7 @@
                 'Halo Bali Trans, saya ingin menanyakan pemesanan:',
                 '',
                 'Paket: ' + (item.title || 'Lovina Dolphin Tour'),
+                'Link halaman paket: https://baguskristiansianturi.github.io/bali-trans/?tour=lovina-dolphin-tour',
                 'Tanggal: ' + (item.date || 'Belum dipilih'),
                 'Jumlah tamu: ' + (item.guestCount || 1) + ' orang',
                 'Kendaraan: ' + (item.vehicleName || 'Toyota Avanza'),
@@ -1703,7 +1704,12 @@
 
         /* INITIAL APP LAUNCH */
         window.onload = function() {
-            navigateTo('home');
+            const requestedTour = new URLSearchParams(window.location.search).get('tour');
+            if (requestedTour === 'lovina-dolphin-tour') {
+                navigateTo('detail', 'lovina-dolphin-tour');
+            } else {
+                navigateTo('home');
+            }
         };
     </script>
 </body>
