@@ -1188,17 +1188,17 @@
             const blogIndex = BALI_BLOGS.findIndex(item => item.id === blog.id);
             const previousBlog = blogIndex > 0 ? BALI_BLOGS[blogIndex - 1] : null;
             const nextBlog = blogIndex >= 0 && blogIndex < BALI_BLOGS.length - 1 ? BALI_BLOGS[blogIndex + 1] : null;
-            const headingPattern = /<h([23])([^>]*)>([\\s\\S]*?)<\\/h\\1>/gi;
+            const headingPattern = /<h([23])([^>]*)>([\s\S]*?)<\/h\1>/gi;
             const toc = [];
             let headingIndex = 0;
             let articleContent = (blog.content || '').replace(headingPattern, (match, level, attrs, title) => {
                 headingIndex += 1;
                 const id = 'article-section-' + headingIndex;
-                toc.push({ id, title: title.replace(/<[^>]*>/g, '').replace(/^\\d+\\.\\s*/, ''), level: Number(level) });
+                toc.push({ id, title: title.replace(/<[^>]*>/g, '').replace(/^\d+\.\s*/, ''), level: Number(level) });
                 return '<h' + level + attrs + ' id="' + id + '" class="scroll-mt-24">' + title + '</h' + level + '>';
             });
             if (blog.image) {
-                articleContent = articleContent.replace(/<img\\b[^>]*>/gi, tag => tag.includes(blog.image) ? '' : tag);
+                articleContent = articleContent.replace(/<img\b[^>]*>/gi, tag => tag.includes(blog.image) ? '' : tag);
             }
             const relatedBlogs = BALI_BLOGS.filter(item => item.id !== blog.id && item.category === blog.category)
                 .concat(BALI_BLOGS.filter(item => item.id !== blog.id && item.category !== blog.category))
