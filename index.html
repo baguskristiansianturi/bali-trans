@@ -429,12 +429,14 @@
         let selectedCategoryFilter = 'all';
         let currentDetailPackage = BALI_PACKAGES[0];
         let currentCheckoutStep = 1;
+        let currentViewName = null;
 
         /* ==========================================================================
            2. NAVIGATION & ROUTING ENGINE
            ========================================================================== */
         function navigateTo(viewName, params = null) {
             const container = document.getElementById('appContainer');
+            const previousViewName = currentViewName;
             document.body.classList.toggle('checkout-mode', viewName === 'checkout');
             syncLocaleSelector();
 
@@ -481,8 +483,12 @@
                 default:
                     container.innerHTML = renderHomeView();
             }
-            // Swap views at the top instantly, then softly animate the new page in.
-            window.scrollTo(0, 0);
+            // Keep the reader's position when opening another article from the related-stories section.
+            // Other destinations still start at the top as expected.
+            if (!(previousViewName === 'blog-read' && viewName === 'blog-read')) {
+                window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+            }
+            currentViewName = viewName;
             container.classList.remove('page-view-enter');
             void container.offsetWidth;
             container.classList.add('page-view-enter');
