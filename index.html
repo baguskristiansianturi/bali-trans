@@ -447,7 +447,7 @@
                     container.innerHTML = renderBlogListView();
                     break;
                 case 'blog-read':
-                    const blog = BALI_PACKAGES.find(b => b.id === params) || BALI_BLOGS[0];
+                    const blog = BALI_BLOGS.find(b => b.id === params) || BALI_BLOGS[0];
                     container.innerHTML = renderBlogDetailView(blog);
                     break;
                 case 'cart':
