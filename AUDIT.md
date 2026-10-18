@@ -56,3 +56,11 @@ Scope: static source audit and safe refactor of the existing single-page prototy
 4. Decide whether to retain a demo-only booking journey or implement a real inquiry/booking flow.
 5. Run mobile browser QA across homepage swipe/carousels, breadcrumbs/back navigation, search and category filters, package detail/date/options, cart, wishlist, article listing/detail, footer links, currency selector, checkout validation, and empty states.
 6. Merge/deploy only after the branch has passed the agreed checks.
+
+
+## Follow-up UI fixes (2026-10-18)
+
+- Added mobile overflow safeguards and reduced mobile header spacing while preserving horizontal swipe on category/filter strips.
+- Added targeted text-contrast overrides for white text placed on pale backgrounds.
+- Replaced category-tab emoji with Font Awesome icons, removed template-attribution text from the header, and removed flag/cart/close emoji-style placeholders where practical.
+- Automated source validation and a real mobile browser pass are still required before claiming the deployed page is fully verified. Check GitHub Pages after the change is merged; horizontal scrolling inside category strips is intentional, while page-level horizontal overflow is not.
