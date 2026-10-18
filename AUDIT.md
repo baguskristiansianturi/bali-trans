@@ -46,7 +46,7 @@ Scope: static source audit and safe refactor of the existing single-page prototy
 - Confirmed local asset references and script order: Tailwind configuration before Tailwind CDN; data before application logic.
 - Confirmed referenced inline handler names found in the static HTML have corresponding application functions.
 - Confirmed source contains the targeted search, article-route, date/guest validation, and prototype disclaimer fixes.
-- Full browser/mobile interaction testing has **not** been completed in this environment. The new GitHub Actions syntax/reference checks are configured, but their passing result has not yet been confirmed. Do not merge or claim production readiness based on static checks alone.
+- Full browser/mobile interaction testing has **not** been completed in this environment. The GitHub Actions run for commit `bb98be24c7548cb82566ad55a99459133360b585` completed successfully: JavaScript syntax and local asset-reference checks both passed. Do not merge or claim production readiness based on static checks alone.
 
 ## Next steps
 
