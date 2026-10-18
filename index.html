@@ -187,7 +187,7 @@
                 <li><button type="button" onclick="navigateTo('packages')" class="footer-link">Private transport</button></li>
                 <li><button type="button" onclick="navigateTo('cart')" class="footer-link">View my trip list</button></li>
                 <li><button type="button" onclick="navigateTo('contact')" class="footer-link">Ask about availability</button></li>
-                <li><button type="button" onclick="showFooterComingSoon('Airport transfers')" class="footer-link">Airport transfers <span class="footer-planned">Planned</span></button></li>
+                <li><button type="button" onclick="showFooterComingSoon('Airport transfers')" class="footer-link">Airport transfers <span class="footer-coming-soon">Coming Soon</span></button></li>
               </ul>
             </div>
 
@@ -195,10 +195,10 @@
               <h3 class="text-white font-extrabold mb-4 text-xs uppercase tracking-[0.14em]">Help & support</h3>
               <ul class="space-y-3.5">
                 <li><button type="button" onclick="navigateTo('contact')" class="footer-link">Contact our team</button></li>
-                <li><button type="button" onclick="showFooterComingSoon('Frequently asked questions')" class="footer-link">FAQs <span class="footer-planned">Planned</span></button></li>
-                <li><button type="button" onclick="showFooterComingSoon('Booking and payment information')" class="footer-link">Booking & payments <span class="footer-planned">Planned</span></button></li>
-                <li><button type="button" onclick="showFooterComingSoon('Changes and cancellation policy')" class="footer-link">Changes & cancellations <span class="footer-planned">Planned</span></button></li>
-                <li><button type="button" onclick="showFooterComingSoon('Manage booking')" class="footer-link">Manage a booking <span class="footer-planned">Planned</span></button></li>
+                <li><button type="button" onclick="showFooterComingSoon('Frequently asked questions')" class="footer-link">FAQs <span class="footer-coming-soon">Coming Soon</span></button></li>
+                <li><button type="button" onclick="showFooterComingSoon('Booking and payment information')" class="footer-link">Booking & payments <span class="footer-coming-soon">Coming Soon</span></button></li>
+                <li><button type="button" onclick="showFooterComingSoon('Changes and cancellation policy')" class="footer-link">Changes & cancellations <span class="footer-coming-soon">Coming Soon</span></button></li>
+                <li><button type="button" onclick="showFooterComingSoon('Manage booking')" class="footer-link">Manage a booking <span class="footer-coming-soon">Coming Soon</span></button></li>
               </ul>
             </div>
 
@@ -206,9 +206,9 @@
               <h3 class="text-white font-extrabold mb-4 text-xs uppercase tracking-[0.14em]">About us</h3>
               <ul class="space-y-3.5">
                 <li><button type="button" onclick="navigateTo('about')" class="footer-link">About Bali Trans</button></li>
-                <li><button type="button" onclick="showFooterComingSoon('Our local partners')" class="footer-link">Local partners <span class="footer-planned">Planned</span></button></li>
-                <li><button type="button" onclick="showFooterComingSoon('Terms and conditions')" class="footer-link">Terms & conditions <span class="footer-planned">Planned</span></button></li>
-                <li><button type="button" onclick="showFooterComingSoon('Privacy policy')" class="footer-link">Privacy policy <span class="footer-planned">Planned</span></button></li>
+                <li><button type="button" onclick="showFooterComingSoon('Our local partners')" class="footer-link">Local partners <span class="footer-coming-soon">Coming Soon</span></button></li>
+                <li><button type="button" onclick="showFooterComingSoon('Terms and conditions')" class="footer-link">Terms & conditions <span class="footer-coming-soon">Coming Soon</span></button></li>
+                <li><button type="button" onclick="showFooterComingSoon('Privacy policy')" class="footer-link">Privacy policy <span class="footer-coming-soon">Coming Soon</span></button></li>
                 <li><button type="button" onclick="navigateTo('home')" class="footer-link">Back to home</button></li>
               </ul>
             </div>
@@ -233,8 +233,8 @@
     <style>
       .footer-link{display:inline-flex;align-items:center;gap:6px;text-align:left;color:#a8b3c4;font-size:13px;line-height:1.5;transition:color .18s}
       .footer-link:hover,.footer-link:focus{color:#5eead4;outline:none}
-      .footer-planned{display:inline-flex;align-items:center;border:1px solid rgba(148,163,184,.22);border-radius:999px;padding:2px 5px;color:#94a3b8;font-size:9px;font-weight:700;line-height:1.2;white-space:nowrap}
-      @media(max-width:380px){.footer-link{font-size:12px}.footer-planned{font-size:8px}}
+      .footer-coming-soon{display:inline-flex;align-items:center;border:1px solid rgba(45,212,191,.28);border-radius:999px;padding:2px 6px;color:#5eead4;background:rgba(45,212,191,.08);font-size:9px;font-weight:800;line-height:1.2;white-space:nowrap}
+      @media(max-width:380px){.footer-link{font-size:12px}.footer-coming-soon{font-size:8px}}
     </style>
 
     <!-- MOBILE BOTTOM NAVIGATION BAR (KLOOK MOBILE STYLE) -->
@@ -1774,7 +1774,7 @@
             if (localeControl && !localeControl.contains(event.target)) closeLocaleMenu();
         });
         function showFooterComingSoon(sectionName) {
-            showToast(sectionName + ' is being prepared and is not available yet. Please contact our team for current information.');
+            showToast('Bali Trans sedang menjalani upgrade menyeluruh. ' + sectionName + ' akan hadir segera. Untuk bantuan sekarang, silakan hubungi tim kami.');
         }
 
         function showRegisterPrompt() {
