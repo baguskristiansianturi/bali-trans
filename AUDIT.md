@@ -1,0 +1,55 @@
+# Bali Trans — Code and UX Audit
+
+Date: 2026-10-18
+Branch: `refactor/separate-assets-and-audit`
+Scope: static source audit and safe refactor of the existing single-page prototype. This is not a claim that live booking/payment has been tested.
+
+## Confirmed structure issues
+
+- `index.html` previously contained inline Tailwind configuration, custom CSS, and approximately 86 KB of application JavaScript.
+- Application data, route rendering, cart/wishlist state, search, checkout, and UI helpers were mixed in one script.
+- The page is a client-side single-page prototype: several apparent pages are rendered into `#appContainer` by JavaScript, not separate HTML documents.
+- Tailwind is loaded from its CDN at runtime, so extracting files alone does not make the site lightweight. A production build with generated/minified CSS should be evaluated separately.
+- External fonts, Font Awesome, QRCode.js, and Unsplash images remain runtime dependencies.
+
+## Changes on this branch
+
+- Extracted custom CSS to `assets/css/styles.css`.
+- Extracted Tailwind theme configuration to `assets/js/tailwind.config.js` and load it before the Tailwind CDN.
+- Extracted data constants to `assets/js/data.js`.
+- Moved application logic to `assets/js/app.js`.
+- Fixed the homepage search so the entered keyword filters packages, with a clear empty state.
+- Fixed article routing to search `BALI_BLOGS`, rather than `BALI_PACKAGES`.
+- Added basic checkout guest-field validation and activity-date validation.
+- Prevented the “Book now” action from navigating to the cart when validation blocks adding the item.
+- Added a clear prototype-only disclaimer to the generated voucher view; the current UI does not process payments or send real bookings.
+- Prevented duplicate countdown intervals when the homepage is revisited.
+
+## Risks and items requiring business confirmation
+
+- Brand identity is inconsistent: the header/footer still contain “Bali Explorer”, while the page title says “Bali Trans”; older repository documentation refers to “BDM Trans”. The intended final public brand needs confirmation before a copy-wide change.
+- WhatsApp number `6281234567890` appears to be a placeholder and must be confirmed before launch.
+- The UI claims “Verified Booking”, “50,000+ Happy Travelers”, instant confirmation, best-price guarantees, and payment methods without evidence/configuration. These must be removed or substantiated.
+- Social, policy, partner and help links still use `#`.
+- Cart and wishlist state are in memory only and are lost on refresh.
+- Currency rates are hard-coded and should not be presented as live exchange rates.
+- A “PDF downloaded” toast does not actually generate a PDF.
+- QRCode.js is loaded externally; failure of that CDN can break the voucher preview.
+- There is no real backend, booking inventory, email delivery, payment gateway, or server-side validation.
+
+## Verification performed
+
+- Confirmed on the branch that the HTML contains no inline `<style>` blocks or inline application script bodies.
+- Confirmed local asset references and script order: Tailwind configuration before Tailwind CDN; data before application logic.
+- Confirmed referenced inline handler names found in the static HTML have corresponding application functions.
+- Confirmed source contains the targeted search, article-route, date/guest validation, and prototype disclaimer fixes.
+- Full browser/mobile interaction testing and a JavaScript runtime syntax check have **not** been completed in this environment. Do not merge or claim production readiness based on static checks alone.
+
+## Next steps
+
+1. Confirm the public brand name and service model.
+2. Rewrite the homepage, activity/package, article, checkout, footer, and trust copy around that confirmed model.
+3. Replace unverified claims and placeholder contact/social/policy links.
+4. Decide whether to retain a demo-only booking journey or implement a real inquiry/booking flow.
+5. Run mobile browser QA across navigation, search, category filters, detail page, cart, wishlist, currency selector, checkout validation, and empty states.
+6. Merge/deploy only after the branch has passed the agreed checks.
