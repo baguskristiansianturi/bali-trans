@@ -211,6 +211,7 @@
                 <li><button type="button" onclick="showFooterComingSoon('Terms and conditions')" class="footer-link">Terms & conditions <span class="footer-coming-soon">Coming Soon</span></button></li>
                 <li><button type="button" onclick="showFooterComingSoon('Privacy policy')" class="footer-link">Privacy policy <span class="footer-coming-soon">Coming Soon</span></button></li>
                 <li><button type="button" onclick="navigateTo('home')" class="footer-link">Back to home</button></li>
+                <li><button type="button" onclick="navigateTo('image-credits')" class="footer-link">Photo credits</button></li>
               </ul>
             </div>
           </div>
@@ -511,6 +512,9 @@
                     currentCheckoutStep = 1;
                     container.innerHTML = renderCheckoutView();
                     break;
+                case 'image-credits':
+                    container.innerHTML = renderImageCreditsView();
+                    break;
                 default:
                     container.innerHTML = renderHomeView();
             }
@@ -538,7 +542,8 @@
                 blog: ['Bali Travel Guides & Tips | Bali Trans', 'Read Bali travel guides, destination tips, food recommendations and practical advice for planning your trip.'],
                 'blog-read': null,
                 cart: ['Your Trip List | Bali Trans', 'Review the Bali tours and activities you have added to your trip list.'],
-                checkout: ['Booking Enquiry | Bali Trans', 'Review your trip details and prepare a booking enquiry with Bali Trans.']
+                checkout: ['Booking Enquiry | Bali Trans', 'Review your trip details and prepare a booking enquiry with Bali Trans.'],
+                'image-credits': ['Photo Credits | Bali Trans', 'Sources, authors and licenses for destination photographs used on Bali Trans.']
             };
             let selected = metadata[viewName] || metadata.home;
             if (viewName === 'blog-read') {
@@ -586,6 +591,36 @@
                 <div><h2 class="text-2xl font-black text-slate-900 mb-2">Planning a trip to Bali?</h2><p class="text-sm text-slate-600">Tell us what you have in mind and ask about the available options.</p></div>
                 <button onclick="navigateTo('contact')" class="inline-flex items-center justify-center gap-2 bg-klook-orange hover:bg-klook-hover text-white font-bold px-5 py-3 rounded-xl transition">Contact Bali Trans <i class="fas fa-arrow-right"></i></button>
               </div></section>
+            `;
+        }
+
+        function renderImageCreditsView() {
+            const credits = [
+                {name:'Cliff at Uluwatu Temple, Bali',author:'Emma THERY',license:'CC BY-SA 4.0',file:'https://commons.wikimedia.org/wiki/File:Cliff_at_Uluwatu_temple,_Bali.jpg',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/'},
+                {name:'Rice Terraces, Ubud, Bali',author:'Vyacheslav Argenberg',license:'CC BY 4.0',file:'https://commons.wikimedia.org/wiki/File:Rice_terraces,_Ubud,_Bali.jpg',licenseUrl:'https://creativecommons.org/licenses/by/4.0/'},
+                {name:'Tirta Gangga',author:'Umar Khatab Eko Putrawan',license:'CC BY-SA 4.0',file:'https://commons.wikimedia.org/wiki/File:Tirta_Gangga.jpg',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/'},
+                {name:'Lovina Beach Bali',author:'Tisa0603',license:'CC0 1.0',file:'https://commons.wikimedia.org/wiki/File:Lovina_Beach_Bali.jpg',licenseUrl:'https://creativecommons.org/publicdomain/zero/1.0/'},
+                {name:'West Bali National Park Beach from Bali Strait',author:'F. H. Panggabean',license:'CC BY-SA 4.0',file:'https://commons.wikimedia.org/wiki/File:West_Bali_National_Park_Beach_from_Bali_Strait.jpg',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/'},
+                {name:'Kelingking Beach',author:'Siapus',license:'CC BY-SA 4.0',file:'https://commons.wikimedia.org/wiki/File:Kelingking_Beach.jpg',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/'},
+                {name:'Lovina Dolphins',author:'Kahadni',license:'CC BY-SA 4.0',file:'https://commons.wikimedia.org/wiki/File:Lovina-dauphins.jpg',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/'},
+                {name:'Dolphins and Sunrise in Lovina, Indonesia Bali',author:'Michelle Maria',license:'CC BY 3.0',file:'https://commons.wikimedia.org/wiki/File:Dolphins_and_Sunrise_in_Lovina,_Indonesia_Bali_-_panoramio_(3).jpg',licenseUrl:'https://creativecommons.org/licenses/by/3.0/'},
+                {name:'Beach at Lovina, Bali',author:'Ken Eckert',license:'CC BY-SA 4.0',file:'https://commons.wikimedia.org/wiki/File:Beach_at_Lovina,_Bali.jpg',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/'},
+                {name:'Pantai Lovina',author:'Tisa0603',license:'CC0 1.0',file:'https://commons.wikimedia.org/wiki/File:Pantai_Lovina.jpg',licenseUrl:'https://creativecommons.org/publicdomain/zero/1.0/'}
+            ];
+            return `
+                <section class="bg-slate-950 text-white"><div class="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16">
+                    <p class="text-xs font-extrabold uppercase tracking-[.18em] text-teal-300">Bali Trans</p>
+                    <h1 class="mt-3 text-3xl font-black sm:text-4xl">Photo credits</h1>
+                    <p class="mt-4 max-w-3xl text-sm leading-6 text-slate-300">Some destination photographs are sourced from Wikimedia Commons. Credits and license links are listed below. Images are resized for display; the original files and license terms are available from each source page.</p>
+                </div></section>
+                <section class="mx-auto max-w-5xl px-4 py-8 sm:px-6 sm:py-12">
+                    <div class="space-y-3">${credits.map((item,index)=>`
+                        <article class="rounded-2xl border border-slate-200 bg-white p-4 sm:p-5">
+                            <div class="flex items-start gap-3"><span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-teal-50 text-xs font-extrabold text-teal-800">${String(index+1).padStart(2,'0')}</span>
+                            <div class="min-w-0"><h2 class="font-extrabold text-slate-900">${item.name}</h2><p class="mt-1 text-sm text-slate-600">Author: ${item.author} · License: <a class="font-semibold text-teal-700 underline" href="${item.licenseUrl}" target="_blank" rel="noopener noreferrer">${item.license}</a></p><a class="mt-2 inline-flex text-xs font-bold text-slate-500 underline" href="${item.file}" target="_blank" rel="noopener noreferrer">View original source</a></div></div>
+                        </article>`).join('')}</div>
+                    <button type="button" onclick="navigateTo('home')" class="mt-7 rounded-xl bg-teal-600 px-5 py-3 text-sm font-extrabold text-white hover:bg-teal-700">Back to Bali Trans</button>
+                </section>
             `;
         }
 
@@ -2185,7 +2220,7 @@
             const requestedTour = query.get('tour');
             if (requestedTour === 'lovina-dolphin-tour') return { view: 'detail', params: requestedTour };
             const view = query.get('page') || 'home';
-            const supportedViews = ['home','about','contact','packages','discovery','detail','blog','blog-read','cart','checkout'];
+            const supportedViews = ['home','about','contact','packages','discovery','detail','blog','blog-read','cart','checkout','image-credits'];
             return {
                 view: supportedViews.includes(view) ? view : 'home',
                 params: query.get('item') || (view === 'discovery' ? 'region:south' : null)
