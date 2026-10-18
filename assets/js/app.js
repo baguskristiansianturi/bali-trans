@@ -531,10 +531,13 @@
         function renderRegionDirectory() {
           const groups = BALI_REGION_GROUPS.map(function(group) {
             const count = BALI_DESTINATIONS.filter(function(p){ return p.regionKey === group.key; }).length;
-            return '<button type="button" onclick="navigateTo(\'discovery\',\'region:' + group.key + '\')" class="rounded-2xl border border-slate-200 bg-white p-5 text-left shadow-sm hover:border-teal-300"><span class="text-xs font-extrabold uppercase tracking-wider text-teal-700">Wilayah Bali</span><h2 class="mt-2 text-lg font-extrabold text-slate-900">' + placeEscape(group.label) + '</h2><p class="mt-2 text-sm leading-6 text-slate-600">' + placeEscape(group.intro) + '</p><span class="mt-4 block text-xs font-bold text-slate-500">' + count + ' panduan destinasi</span></button>';
+            const cover = BALI_DESTINATIONS.find(function(p){ return p.regionKey === group.key; });
+            const coverHtml = cover ? '<img src="' + cover.image + '" alt="' + placeEscape(group.label) + '" loading="lazy" class="mb-4 h-36 w-full rounded-xl object-cover" onerror="this.onerror=null;this.src=&quot;https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1000&q=80&quot;">' : '';
+            return '<button type="button" onclick="navigateTo(&quot;discovery&quot;,&quot;region:' + group.key + '&quot;)" class="rounded-2xl border border-slate-200 bg-white p-4 text-left shadow-sm hover:border-teal-300"><span class="text-xs font-extrabold uppercase tracking-wider text-teal-700">Wilayah Bali</span>' + coverHtml + '<h2 class="mt-2 text-lg font-extrabold text-slate-900">' + placeEscape(group.label) + '</h2><p class="mt-2 text-sm leading-6 text-slate-600">' + placeEscape(group.intro) + '</p><span class="mt-4 block text-xs font-bold text-slate-500">' + count + ' panduan destinasi</span></button>';
           }).join('');
           return '<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10"><p class="text-xs font-extrabold uppercase tracking-widest text-teal-700">Places to visit</p><h1 class="mt-2 text-3xl sm:text-4xl font-black text-slate-950">Jelajahi Bali berdasarkan wilayah</h1><p class="mt-3 max-w-3xl text-sm leading-7 text-slate-600">Pilih wilayah untuk melihat destinasi yang tersedia. Setiap card membuka panduan detail; informasi operasional tetap perlu dikonfirmasi sebelum berangkat.</p><div class="mt-7 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">' + groups + '</div></section>';
         }
+
         function renderDiscoveryView(key) {
           const keyValue = String(key || 'region:badung');
           const regionMatch = keyValue.match(/^region:([a-z-]+)$/);
