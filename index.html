@@ -420,13 +420,23 @@
         // Reset every possible document scroll root after SPA content replacement.
         // On mobile browsers the layout can settle after innerHTML is assigned, so do it
         // immediately and again after the next paint to keep the new page's content in view.
+        // This is a client-side router: browser-native scroll restoration must not
+        // restore the previous route's footer position after a view has been replaced.
+        if ('scrollRestoration' in window.history) window.history.scrollRestoration = 'manual';
         function resetRouteScroll() {
             const reset = () => {
                 window.scrollTo(0, 0);
                 document.documentElement.scrollTop = 0;
-                if (document.body) document.body.scrollTop = 0;
+                document.documentElement.scrollLeft = 0;
+                if (document.body) {
+                    document.body.scrollTop = 0;
+                    document.body.scrollLeft = 0;
+                }
                 const app = document.getElementById('appContainer');
-                if (app) app.scrollTop = 0;
+                if (app) {
+                    app.scrollTop = 0;
+                    app.scrollLeft = 0;
+                }
             };
             reset();
             window.requestAnimationFrame(() => {
@@ -1029,29 +1039,43 @@
 
         /* VIEW 5: BLOG READ DETAIL */
         function renderBlogDetailView(blog) {
+            const blogIndex = BALI_BLOGS.findIndex(item => item.id === blog.id);
+            const previousBlog = blogIndex > 0 ? BALI_BLOGS[blogIndex - 1] : null;
+            const nextBlog = blogIndex >= 0 && blogIndex < BALI_BLOGS.length - 1 ? BALI_BLOGS[blogIndex + 1] : null;
+            const articleNavigation = (item, label, direction) => item ? `
+                <button type="button" onclick="navigateTo('blog-read', '${item.id}')" class="group w-full min-w-0 text-left rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 hover:border-teal-300 hover:bg-teal-50/40 transition">
+                    <span class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-2">${label}</span>
+                    <span class="flex items-start gap-2 text-sm font-extrabold leading-snug text-slate-800 group-hover:text-klook-orange">${direction === 'previous' ? '<i class="fas fa-arrow-left mt-1 shrink-0"></i>' : ''}<span class="min-w-0">${item.title}</span>${direction === 'next' ? '<i class="fas fa-arrow-right mt-1 shrink-0"></i>' : ''}</span>
+                </button>` : '<div class="hidden sm:block"></div>';
             return `
-                <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
-                    <button onclick="navigateTo('blog')" class="text-xs font-bold text-slate-500 hover:text-slate-900 mb-6 flex items-center gap-2">
-                        ← Back to Travel Guides
+                <article class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+                    <button type="button" onclick="navigateTo('blog')" class="text-xs font-bold text-slate-500 hover:text-slate-900 mb-6 flex items-center gap-2">
+                        <i class="fas fa-arrow-left"></i> Back to Travel Guides
                     </button>
-                    
-                    <span class="bg-orange-100 text-klook-orange text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">${blog.category}</span>
+                    <span class="inline-flex bg-orange-100 text-klook-orange text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">${blog.category}</span>
                     <h1 class="text-3xl sm:text-4xl font-black text-slate-900 mt-3 mb-4 leading-tight">${blog.title}</h1>
-                    
-                    <div class="flex items-center gap-3 text-xs text-slate-400 mb-6 pb-6 border-b border-slate-200">
+                    <p class="text-base sm:text-lg leading-relaxed text-slate-600 mb-5">${blog.snippet || ''}</p>
+                    <div class="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs text-slate-500 mb-6 pb-6 border-b border-slate-200">
                         <span>By <strong class="text-slate-700">${blog.author}</strong></span>
-                        <span>•</span>
-                        <span>Published ${blog.date}</span>
-                        <span>•</span>
+                        <span aria-hidden="true">•</span>
+                        <time datetime="${blog.date}">Published ${blog.date}</time>
+                        <span aria-hidden="true">•</span>
                         <span>${blog.readTime}</span>
                     </div>
-
-                    <img src="${blog.image}" class="w-full h-[380px] object-cover rounded-3xl mb-8 shadow-md">
-
-                    <div class="prose max-w-none text-slate-700 text-sm leading-relaxed space-y-4">
+                    <img src="${blog.image}" alt="${blog.title.replace(/&/g, '&amp;').replace(/"/g, '&quot;')}" class="w-full h-[380px] object-cover rounded-3xl mb-8 shadow-md" loading="lazy">
+                    <div class="prose max-w-none text-slate-700 text-sm sm:text-base leading-relaxed space-y-4">
                         ${blog.content}
                     </div>
-                </div>
+                    <nav aria-label="Article navigation" class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-10 pt-7 border-t border-slate-200">
+                        ${articleNavigation(previousBlog, 'Previous article', 'previous')}
+                        ${articleNavigation(nextBlog, 'Next article', 'next')}
+                    </nav>
+                    <div class="mt-6 text-center">
+                        <button type="button" onclick="navigateTo('blog')" class="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50">
+                            View all travel guides <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </article>
             `;
         }
 
