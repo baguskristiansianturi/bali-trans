@@ -98,3 +98,7 @@ Sources prioritized for this batch:
 - Visit Bali national-parks overview: https://www.visitbali.org/about-bali/national-parks/
 
 This batch confirms basic identity/location for several candidates, not current operating hours, entry fees, operator conduct, transport schedules, trail conditions, or current availability. Those details remain out of scope until checked individually. Menjangan's editorial-region placement and the exact scope of the combined Munduk/Wanagiri page remain explicit taxonomy decisions to resolve.
+
+## Business and domain context
+
+The target public domain is **BDMTrans.com**, planned before December 2026. The project is BDM Trans's own travel website. The destination and activity structure should support BDM Trans's regions, destination guides, activities, itineraries/packages, and transport services; it is not a third-party operator directory. See `content/BDMTRANSDOM_LAUNCH_PLAN.md` for the launch checklist and technical preparation.
