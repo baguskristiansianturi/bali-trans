@@ -368,6 +368,9 @@
                 case 'packages':
                     container.innerHTML = renderPackagesCatalogView();
                     break;
+                case 'discovery':
+                    container.innerHTML = renderDiscoveryView(params || 'region:south');
+                    break;
                 case 'detail':
                     if (params) {
                         const pkg = BALI_PACKAGES.find(p => p.id === params);
@@ -489,6 +492,26 @@
         }
 
         /* VIEW 1: HOME PAGE */
+        function renderDiscoveryView(key) {
+            const pages = {
+                'duration:full-day': { title: 'Full Day Tours in Bali', intro: 'Plan a day of sightseeing and activities within the usual local service window. Route and traffic affect the final duration.', items: ['Ubud and central Bali', 'Uluwatu, Jimbaran and Nusa Dua', 'Custom private day trip'], note: 'The itinerary and service hours will be confirmed on each tour page.' },
+                'duration:long-trip': { title: 'Long Trips Around Bali', intro: 'Long trips go beyond the usual local service zone or require substantially more travel time. Lovina in North Bali is the first route being prepared in this category.', items: ['Lovina Dolphin Tour', 'Wanagiri viewpoints', 'Waterfalls and North Bali stops'], note: 'Long-trip routes may start early and exceed the standard local service hours.' },
+                'service:private-driver': { title: 'Private Driver in Bali', intro: 'Arrange private transport for your own itinerary around Denpasar, Ubud, Nusa Dua, Uluwatu, Jimbaran, Canggu and nearby areas. Lovina is handled as a long trip.', items: ['Flexible pickup and drop-off', 'Choose your own stops', 'Confirm route and duration before booking'], note: 'Route, vehicle and service duration should be confirmed before the trip.' },
+                'region:south': { title: 'Explore South Bali', intro: 'South Bali is known for coastal areas, beaches, sunset viewpoints and temple visits.', items: ['Uluwatu Temple and nearby beaches', 'Jimbaran coast', 'Nusa Dua beaches and water activities', 'Denpasar city sights'], note: 'Destination ideas will grow into detailed guides and bookable services over time.' },
+                'region:central': { title: 'Explore Central Bali', intro: 'Central Bali combines Ubud, cultural stops, green landscapes and outdoor activities.', items: ['Ubud and surrounding villages', 'River rafting experiences', 'Rice terraces and nature stops'], note: 'Individual destination guides and bookable activities will be added as they are prepared.' },
+                'region:north': { title: 'Explore North Bali', intro: 'North Bali is suited to longer journeys, with Lovina, mountain viewpoints and waterfalls spread across a wider area.', items: ['Lovina Dolphin Tour', 'Wanagiri viewpoints', 'Waterfalls around North Bali', 'Bedugul and mountain scenery'], note: 'Lovina is classified as a long trip because of its distance, early departure and time beyond the usual local service zone.' },
+                'region:east': { title: 'Explore East Bali', intro: 'Discover coastal scenery, temples and landscapes in the eastern part of the island.', items: ['Temple and cultural visits', 'Coastal destinations', 'Scenic countryside routes'], note: 'Specific routes, guides and products will be published as they are prepared.' },
+                'region:west': { title: 'Explore West Bali', intro: 'West Bali offers quieter coastal routes and nature-focused journeys that may need additional travel time.', items: ['Coastal stops', 'Nature and countryside', 'Longer private journeys'], note: 'Specific routes, guides and products will be published as they are prepared.' }
+            };
+            const keyValue = String(key || 'region:south');
+            const page = pages[keyValue] || pages['region:south'];
+            const showLovina = keyValue === 'duration:long-trip' || keyValue === 'region:north';
+            const cards = page.items.map(function(item, index) {
+                const isLovina = showLovina && item === 'Lovina Dolphin Tour';
+                return '<article class="rounded-2xl border border-slate-200 bg-white p-5"><span class="text-xs font-bold text-slate-400">' + String(index + 1).padStart(2, '0') + '</span><h2 class="font-extrabold text-slate-900 mt-2">' + item + '</h2>' + (isLovina ? '<p class="text-sm text-slate-600 mt-2">Private long-trip package with dolphin watching and optional stops.</p><button onclick="navigateTo(\'detail\',\'lovina-dolphin-tour\')" class="mt-4 rounded-xl bg-klook-orange px-4 py-2.5 text-sm font-bold text-white">View Lovina Tour</button>' : '') + '</article>';
+            }).join('');
+            return '<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"><button onclick="navigateTo(\'home\')" class="text-sm font-bold text-orange-600 mb-4">← Back to home</button><p class="text-xs font-extrabold uppercase tracking-widest text-orange-600">Bali Trans travel guide</p><h1 class="text-3xl sm:text-4xl font-black text-slate-950 mt-2">' + page.title + '</h1><p class="text-sm sm:text-base text-slate-600 leading-7 max-w-3xl mt-3">' + page.intro + '</p><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-7">' + cards + '</div><p class="mt-6 text-xs leading-6 text-slate-500">' + page.note + '</p><button onclick="navigateTo(\'packages\')" class="mt-5 rounded-xl border border-slate-300 px-4 py-3 text-sm font-bold text-slate-700">Browse available tours</button></div>';
+        }
         function renderHomeView() {
             return `
                 <!-- HERO SECTION WITH KLOOK SEARCH WIDGET -->
@@ -546,6 +569,24 @@
                     </div>
                 </div>
 
+                <!-- Interactive trip discovery -->
+                <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10" aria-label="Explore tours by duration and Bali region">
+                    <div class="mb-5"><span class="text-xs font-extrabold uppercase tracking-widest text-orange-600">Plan your Bali trip</span><h2 class="text-2xl sm:text-3xl font-black text-slate-900 mt-2">Find a trip by duration or destination</h2><p class="text-sm text-slate-600 mt-2 max-w-2xl">Browse full-day tours, longer journeys and places to explore around Bali.</p></div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="rounded-3xl bg-sky-50 border border-sky-100 p-5"><h3 class="font-extrabold text-slate-900 mb-3">By trip duration</h3><div class="flex flex-wrap gap-2">
+                            <button onclick="navigateTo('discovery','duration:full-day')" class="rounded-full bg-white border border-sky-200 px-3 py-2 text-xs font-bold text-sky-900">Full Day Tour</button>
+                            <button onclick="navigateTo('discovery','duration:long-trip')" class="rounded-full bg-white border border-sky-200 px-3 py-2 text-xs font-bold text-sky-900">Long Trip</button>
+                            <button onclick="navigateTo('discovery','service:private-driver')" class="rounded-full bg-white border border-sky-200 px-3 py-2 text-xs font-bold text-sky-900">Private Driver</button>
+                        </div></div>
+                        <div class="rounded-3xl bg-orange-50 border border-orange-100 p-5"><h3 class="font-extrabold text-slate-900 mb-3">Explore Bali by region</h3><div class="flex flex-wrap gap-2">
+                            <button onclick="navigateTo('discovery','region:south')" class="rounded-full bg-white border border-orange-200 px-3 py-2 text-xs font-bold text-orange-900">South Bali</button>
+                            <button onclick="navigateTo('discovery','region:central')" class="rounded-full bg-white border border-orange-200 px-3 py-2 text-xs font-bold text-orange-900">Central Bali</button>
+                            <button onclick="navigateTo('discovery','region:north')" class="rounded-full bg-white border border-orange-200 px-3 py-2 text-xs font-bold text-orange-900">North Bali</button>
+                            <button onclick="navigateTo('discovery','region:east')" class="rounded-full bg-white border border-orange-200 px-3 py-2 text-xs font-bold text-orange-900">East Bali</button>
+                            <button onclick="navigateTo('discovery','region:west')" class="rounded-full bg-white border border-orange-200 px-3 py-2 text-xs font-bold text-orange-900">West Bali</button>
+                        </div></div>
+                    </div>
+                </section>
                 <!-- PRODUCT CATEGORY CAROUSEL: Bali Trans sells tours, activity tickets and experience bundles -->
                 <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-20" aria-label="Browse Bali Trans products">
                     <div class="bg-white rounded-3xl p-4 sm:p-6 klook-shadow border border-slate-100">
