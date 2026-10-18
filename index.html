@@ -12,9 +12,9 @@
                 extend: {
                     colors: {
                         klook: {
-                            orange: '#171717',
-                            hover: '#404040',
-                            light: '#F1F1F1',
+                            orange: '#486A73',
+                            hover: '#354E55',
+                            light: '#EAF0F0',
                             dark: '#111827',
                             gray: '#F5F7FA'
                         }
@@ -34,20 +34,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #F8F8F7; color: #171717; }
+        body { font-family: 'Inter', sans-serif; background-color: #F8F8F7; color: #252A2B; }
         .hide-scrollbar::-webkit-scrollbar { display: none; }
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         .klook-shadow { box-shadow: 0 4px 25px rgba(0,0,0,0.06); }
         .klook-hover { transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); }
-        .klook-hover:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.10); }
-        .active-tab { border-bottom: 3px solid #171717; color: #171717; font-weight: 700; }
-        .badge-gradient { background: linear-gradient(135deg, #171717 0%, #525252 100%); }
+        .klook-hover:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(49,78,85,0.10); }
+        .active-tab { border-bottom: 3px solid #486A73; color: #486A73; font-weight: 700; }
+        .badge-gradient { background: linear-gradient(135deg, #486A73 0%, #91A7A6 100%); }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col pb-16 md:pb-0">
 
     <!-- TOP ANNOUNCEMENT BAR -->
-    <div class="bg-slate-950/95 backdrop-blur-md text-white text-xs sm:text-sm py-2 px-4 text-center font-medium flex justify-between items-center px-4 md:px-12">
+    <div class="bg-slate-900/85 backdrop-blur-md text-white text-xs sm:text-sm py-2 px-4 text-center font-medium flex justify-between items-center px-4 md:px-12">
         <div class="hidden md:flex items-center space-x-2">
             <span class="bg-white/20 px-2 py-0.5 rounded text-xs uppercase tracking-wider font-bold">Explore Bali</span>
             <span>🌴 Discover Bali tours, island trips and private transport.</span>
@@ -81,7 +81,7 @@
                 <!-- Global Search Bar (Header) -->
                 <div class="hidden lg:flex items-center flex-1 max-w-md relative">
                     <i class="fas fa-search absolute left-4 text-slate-400"></i>
-                    <input type="text" id="headerSearchInput" onkeyup="handleGlobalSearch(this.value)" placeholder="Search activities, tours, or spots (e.g. Ubud, ATV)..." class="w-full pl-11 pr-4 py-2.5 bg-slate-100 hover:bg-slate-200/60 focus:bg-white rounded-full text-sm font-medium border border-transparent focus:border-klook-orange focus:outline-none transition-all">
+                    <input type="text" id="headerSearchInput" onkeyup="handleGlobalSearch(this.value)" placeholder="Search tours, activities or destinations..." class="w-full pl-11 pr-4 py-2.5 bg-slate-100 hover:bg-slate-200/60 focus:bg-white rounded-full text-sm font-medium border border-transparent focus:border-klook-orange focus:outline-none transition-all">
                     
                     <!-- Search Results Dropdown -->
                     <div id="searchResultsDropdown" class="hidden absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-2xl border border-slate-100 p-3 z-50 max-h-80 overflow-y-auto">
@@ -103,9 +103,12 @@
 
                     <!-- Navigation Items -->
                     <nav class="hidden md:flex items-center space-x-1 font-semibold text-sm">
-                        <button onclick="navigateTo('home')" class="px-3 py-2 text-slate-700 hover:text-klook-orange rounded-lg transition">Home</button>
-                        <button onclick="navigateTo('packages')" class="px-3 py-2 text-slate-700 hover:text-klook-orange rounded-lg transition">All Activities</button>
-                        <button onclick="navigateTo('blog')" class="px-3 py-2 text-slate-700 hover:text-klook-orange rounded-lg transition">Travel Guides</button>
+                        <button onclick="navigateTo('home')" class="px-2 py-2 text-slate-700 hover:text-klook-orange rounded-lg transition">Home</button>
+                        <button onclick="navigateTo('packages')" class="px-2 py-2 text-slate-700 hover:text-klook-orange rounded-lg transition">Tour Packages</button>
+                        <button onclick="filterByCategory('nusa'); navigateTo('packages')" class="px-2 py-2 text-slate-700 hover:text-klook-orange rounded-lg transition">Nusa Penida</button>
+                        <button onclick="filterByCategory('activities'); navigateTo('packages')" class="px-2 py-2 text-slate-700 hover:text-klook-orange rounded-lg transition">Activities</button>
+                        <button onclick="filterByCategory('charter'); navigateTo('packages')" class="px-2 py-2 text-slate-700 hover:text-klook-orange rounded-lg transition">Car Charter</button>
+                        <button onclick="navigateTo('blog')" class="px-2 py-2 text-slate-700 hover:text-klook-orange rounded-lg transition">Travel Guide</button>
                     </nav>
 
                     <!-- Wishlist Counter -->
@@ -166,11 +169,11 @@
                 <div>
                     <h4 class="text-white font-bold mb-4 text-xs uppercase tracking-wider">Top Activities</h4>
                     <ul class="space-y-2.5 text-xs sm:text-sm">
-                        <li><a href="#" onclick="filterByCategory('water'); navigateTo('packages');" class="hover:text-white transition">Water Sports Tanjung Benoa</a></li>
-                        <li><a href="#" onclick="filterByCategory('temple'); navigateTo('packages');" class="hover:text-white transition">Ubud & Uluwatu Temple Tours</a></li>
-                        <li><a href="#" onclick="filterByCategory('atv'); navigateTo('packages');" class="hover:text-white transition">Quad Bike ATV & Rafting</a></li>
-                        <li><a href="#" onclick="filterByCategory('driver'); navigateTo('packages');" class="hover:text-white transition">Private Driver 10 Hours</a></li>
-                        <li><a href="#" onclick="filterByCategory('nusa'); navigateTo('packages');" class="hover:text-white transition">Nusa Penida Fast Boat</a></li>
+                        <li><a href="#" onclick="filterByCategory('water'); navigateTo('packages');" class="hover:text-white transition">Water Sports & Activities</a></li>
+                        <li><a href="#" onclick="filterByCategory('temple'); navigateTo('packages');" class="hover:text-white transition">Full Day & Half Day Tours</a></li>
+                        <li><a href="#" onclick="filterByCategory('atv'); navigateTo('packages');" class="hover:text-white transition">Adventure & Combination Tours</a></li>
+                        <li><a href="#" onclick="filterByCategory('driver'); navigateTo('packages');" class="hover:text-white transition">Private Car Charter</a></li>
+                        <li><a href="#" onclick="filterByCategory('nusa'); navigateTo('packages');" class="hover:text-white transition">Nusa Penida Tours</a></li>
                     </ul>
                 </div>
 
@@ -178,8 +181,8 @@
                 <div>
                     <h4 class="text-white font-bold mb-4 text-xs uppercase tracking-wider">Useful Links</h4>
                     <ul class="space-y-2.5 text-xs sm:text-sm">
-                        <li><a href="#" onclick="navigateTo('blog')" class="hover:text-white transition">Bali Travel Guides 2026</a></li>
-                        <li><a href="#" onclick="navigateTo('packages')" class="hover:text-white transition">Promo & Flash Deals</a></li>
+                        <li><a href="#" onclick="navigateTo('blog')" class="hover:text-white transition">Bali Bali Travel Guide</a></li>
+                        <li><a href="#" onclick="navigateTo('packages')" class="hover:text-white transition">Request a tour quote</a></li>
                         <li><a href="#" class="hover:text-white transition">Partner With Us</a></li>
                         <li><a href="#" class="hover:text-white transition">FAQ & Help Center</a></li>
                         <li><a href="#" class="hover:text-white transition">Terms & Cancellation Policy</a></li>
@@ -269,8 +272,8 @@
             {
                 id: 'pkg-1',
                 title: 'Ubud Art Village, Tegallalang Rice Terrace & Jungle Swing Day Tour',
-                category: 'temple',
-                categoryName: 'Culture & Temple',
+                category: 'full-day',
+                categoryName: 'Full Day Tour',
                 location: 'Ubud, Gianyar',
                 rating: 4.9,
                 reviewCount: 3420,
@@ -308,13 +311,13 @@
                 id: 'pkg-2',
                 title: 'Nusa Penida All-Inclusive Island Day Tour (West & East Coast)',
                 category: 'nusa',
-                categoryName: 'Nusa Islands',
+                categoryName: 'Nusa Penida Tour',
                 location: 'Nusa Penida Island',
                 rating: 4.95,
                 reviewCount: 5120,
                 originalPriceIDR: 950000,
                 priceIDR: 680000,
-                badge: 'Klook Choice',
+                badge: 'Island Day Tour',
                 instantConfirmation: true,
                 freeCancellation: true,
                 hotelTransfer: true,
@@ -345,8 +348,8 @@
             {
                 id: 'pkg-3',
                 title: 'Mount Batur Sunrise Volcano Trekking with Breakfast & Hot Springs',
-                category: 'atv',
-                categoryName: 'Trekking & Adventure',
+                category: 'activities',
+                categoryName: 'Activities & Adventure',
                 location: 'Kintamani, Bali',
                 rating: 4.88,
                 reviewCount: 2890,
@@ -380,14 +383,14 @@
             {
                 id: 'pkg-4',
                 title: 'Tanjung Benoa Watersports: Parasailing, Jet Ski & Banana Boat',
-                category: 'water',
-                categoryName: 'Water Sports',
+                category: 'activities',
+                categoryName: 'Water Sports & Activities',
                 location: 'Nusa Dua, South Bali',
                 rating: 4.82,
                 reviewCount: 1940,
                 originalPriceIDR: 500000,
                 priceIDR: 320000,
-                badge: 'Flash Deal 35% OFF',
+                badge: 'Watersports Package',
                 instantConfirmation: true,
                 freeCancellation: true,
                 hotelTransfer: false,
@@ -411,15 +414,15 @@
             },
             {
                 id: 'pkg-5',
-                title: 'Full Day Bali Private Car Charter with English Speaking Driver',
-                category: 'driver',
-                categoryName: 'Private Driver',
-                location: 'All Bali Coverage',
+                title: 'Private Car Charter with Local Driver',
+                category: 'charter',
+                categoryName: 'Private Car Charter',
+                location: 'Across Bali',
                 rating: 4.98,
                 reviewCount: 8900,
                 originalPriceIDR: 700000,
                 priceIDR: 520000,
-                badge: 'Super Service',
+                badge: 'Private Charter',
                 instantConfirmation: true,
                 freeCancellation: true,
                 hotelTransfer: true,
@@ -428,8 +431,8 @@
                     'https://images.unsplash.com/photo-1555400038-63f5ba517a47?auto=format&fit=crop&w=800&q=80'
                 ],
                 highlights: [
-                    '10 Hours customizable private car charter anywhere in main island Bali.',
-                    'Fuel, parking fees, highway tolls, and friendly local driver included.',
+                    'Arrange a private car and driver for sightseeing around Bali, with a flexible route based on your plans.',
+                    'Confirm route, duration, vehicle and inclusions with us before booking.',
                     'Clean modern air-conditioned Toyota Avanza or Innova MPV.'
                 ],
                 itinerary: [
@@ -443,8 +446,8 @@
             {
                 id: 'pkg-6',
                 title: 'Ayung River White Water Rafting & Quad Bike ATV Adventure',
-                category: 'atv',
-                categoryName: 'Trekking & Adventure',
+                category: 'combination',
+                categoryName: 'Combination Tour',
                 location: 'Ubud, Bali',
                 rating: 4.91,
                 reviewCount: 4100,
@@ -600,20 +603,20 @@
 
                     <div class="relative max-w-5xl w-full mx-auto px-4 sm:px-6 py-12 text-center z-10">
                         <span class="inline-flex items-center gap-2 bg-white/10 text-white/90 backdrop-blur-md border border-white/20 text-xs font-bold px-3 py-1.5 rounded-full mb-4 uppercase tracking-wider">
-                            <i class="fas fa-bolt text-klook-orange"></i> Find a trip that fits your plans
+                            <i class="fas fa-bolt text-klook-orange"></i> Private tours · Local experiences · Flexible itineraries
                         </span>
                         <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight mb-4 leading-tight">
-                            Your Ultimate Bali Experience <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-white">Starts Here</span>
+                            Discover Bali Your Way <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-white">Starts Here</span>
                         </h1>
                         <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto mb-8 font-medium">
-                            Book top-rated day tours, private drivers, Nusa Penida fast boats, and thrilling water sports with instant e-vouchers.
+                            Explore Bali with private day tours, half-day trips, island adventures, activity combinations and flexible car charter. Tell us what you want to see; we’ll help plan the route.
                         </p>
 
                         <!-- KLOOK TABS & SEARCH CONTAINER -->
                         <div class="bg-white/95 backdrop-blur-md rounded-3xl p-3 sm:p-4 shadow-2xl max-w-4xl mx-auto text-left border border-white/20">
                             <!-- Filter Pill Quick Tabs -->
                             <div class="flex items-center space-x-2 overflow-x-auto pb-3 mb-3 border-b border-slate-100 hide-scrollbar text-xs font-bold">
-                                <button onclick="quickFilterSearch('all')" class="px-4 py-2 bg-klook-orange text-white rounded-full whitespace-nowrap shadow-sm">All Experiences</button>
+                                <button onclick="quickFilterSearch('all')" class="px-4 py-2 bg-klook-orange text-white rounded-full whitespace-nowrap shadow-sm">All Tour Packages</button>
                                 <button onclick="quickFilterSearch('driver')" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-full whitespace-nowrap">🚗 Private Driver</button>
                                 <button onclick="quickFilterSearch('temple')" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-full whitespace-nowrap">⛩️ Ubud & Temples</button>
                                 <button onclick="quickFilterSearch('nusa')" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-full whitespace-nowrap">🏝️ Nusa Penida</button>
@@ -647,32 +650,32 @@
                     </div>
                 </div>
 
-                <!-- CATEGORY ICON PILLS GRID -->
+                <!-- TOUR SERVICE CATEGORIES -->
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-20">
-                    <div class="bg-white rounded-3xl p-6 klook-shadow border border-slate-100 grid grid-cols-3 sm:grid-cols-6 gap-4 text-center">
-                        <div onclick="filterByCategory('temple'); navigateTo('packages');" class="group cursor-pointer p-3 rounded-2xl hover:bg-klook-light transition">
-                            <div class="w-14 h-14 mx-auto rounded-2xl bg-slate-100 text-slate-700 flex items-center justify-center text-2xl mb-2 group-hover:scale-110 transition">⛩️</div>
-                            <span class="text-xs font-bold text-slate-800 group-hover:text-klook-orange">Temple & Art</span>
+                    <div class="bg-white/95 backdrop-blur-xl rounded-3xl p-5 sm:p-6 klook-shadow border border-white/80 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 text-center">
+                        <div onclick="filterByCategory('full-day'); navigateTo('packages');" class="group cursor-pointer p-3 rounded-2xl hover:bg-[#F4EEE4] transition">
+                            <div class="w-14 h-14 mx-auto rounded-2xl bg-[#F4EEE4] text-[#8B7355] flex items-center justify-center text-2xl mb-2 group-hover:scale-105 transition">🚙</div>
+                            <span class="text-xs font-bold text-slate-800 group-hover:text-klook-orange">Full Day Tours</span>
                         </div>
-                        <div onclick="filterByCategory('nusa'); navigateTo('packages');" class="group cursor-pointer p-3 rounded-2xl hover:bg-klook-light transition">
-                            <div class="w-14 h-14 mx-auto rounded-2xl bg-cyan-50 text-cyan-600 flex items-center justify-center text-2xl mb-2 group-hover:scale-110 transition">🏝️</div>
+                        <div onclick="filterByCategory('nusa'); navigateTo('packages');" class="group cursor-pointer p-3 rounded-2xl hover:bg-[#E8F0F4] transition">
+                            <div class="w-14 h-14 mx-auto rounded-2xl bg-[#E8F0F4] text-[#527B91] flex items-center justify-center text-2xl mb-2 group-hover:scale-105 transition">🏝️</div>
                             <span class="text-xs font-bold text-slate-800 group-hover:text-klook-orange">Nusa Penida</span>
                         </div>
-                        <div onclick="filterByCategory('water'); navigateTo('packages');" class="group cursor-pointer p-3 rounded-2xl hover:bg-klook-light transition">
-                            <div class="w-14 h-14 mx-auto rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-2xl mb-2 group-hover:scale-110 transition">🪂</div>
-                            <span class="text-xs font-bold text-slate-800 group-hover:text-klook-orange">Water Sports</span>
+                        <div onclick="filterByCategory('activities'); navigateTo('packages');" class="group cursor-pointer p-3 rounded-2xl hover:bg-[#E9F0E8] transition">
+                            <div class="w-14 h-14 mx-auto rounded-2xl bg-[#E9F0E8] text-[#637B60] flex items-center justify-center text-2xl mb-2 group-hover:scale-105 transition">🌊</div>
+                            <span class="text-xs font-bold text-slate-800 group-hover:text-klook-orange">Activities & Adventure</span>
                         </div>
-                        <div onclick="filterByCategory('driver'); navigateTo('packages');" class="group cursor-pointer p-3 rounded-2xl hover:bg-klook-light transition">
-                            <div class="w-14 h-14 mx-auto rounded-2xl bg-slate-100 text-slate-700 flex items-center justify-center text-2xl mb-2 group-hover:scale-110 transition">🚘</div>
-                            <span class="text-xs font-bold text-slate-800 group-hover:text-klook-orange">Private Driver</span>
+                        <div onclick="filterByCategory('combination'); navigateTo('packages');" class="group cursor-pointer p-3 rounded-2xl hover:bg-[#F2E9E4] transition">
+                            <div class="w-14 h-14 mx-auto rounded-2xl bg-[#F2E9E4] text-[#9A6F55] flex items-center justify-center text-2xl mb-2 group-hover:scale-105 transition">🧗</div>
+                            <span class="text-xs font-bold text-slate-800 group-hover:text-klook-orange">Combination Tours</span>
                         </div>
-                        <div onclick="filterByCategory('atv'); navigateTo('packages');" class="group cursor-pointer p-3 rounded-2xl hover:bg-klook-light transition">
-                            <div class="w-14 h-14 mx-auto rounded-2xl bg-slate-100 text-slate-700 flex items-center justify-center text-2xl mb-2 group-hover:scale-110 transition">🏍️</div>
-                            <span class="text-xs font-bold text-slate-800 group-hover:text-klook-orange">ATV & Rafting</span>
+                        <div onclick="filterByCategory('charter'); navigateTo('packages');" class="group cursor-pointer p-3 rounded-2xl hover:bg-[#ECEDEF] transition">
+                            <div class="w-14 h-14 mx-auto rounded-2xl bg-[#ECEDEF] text-[#5C6870] flex items-center justify-center text-2xl mb-2 group-hover:scale-105 transition">🚘</div>
+                            <span class="text-xs font-bold text-slate-800 group-hover:text-klook-orange">Private Car Charter</span>
                         </div>
-                        <div onclick="navigateTo('blog');" class="group cursor-pointer p-3 rounded-2xl hover:bg-klook-light transition">
-                            <div class="w-14 h-14 mx-auto rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center text-2xl mb-2 group-hover:scale-110 transition">📖</div>
-                            <span class="text-xs font-bold text-slate-800 group-hover:text-klook-orange">Bali Guides</span>
+                        <div onclick="navigateTo('blog');" class="group cursor-pointer p-3 rounded-2xl hover:bg-[#F0EBE3] transition">
+                            <div class="w-14 h-14 mx-auto rounded-2xl bg-[#F0EBE3] text-[#8B7355] flex items-center justify-center text-2xl mb-2 group-hover:scale-105 transition">📖</div>
+                            <span class="text-xs font-bold text-slate-800 group-hover:text-klook-orange">Bali Travel Guide</span>
                         </div>
                     </div>
                 </div>
@@ -681,11 +684,11 @@
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
                     <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
                         <div>
-                            <span class="text-xs font-black text-klook-orange uppercase tracking-wider">Top Recommended Experiences</span>
-                            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Trending Bali Activities</h2>
+                            <span class="text-xs font-black text-klook-orange uppercase tracking-wider">Tours to start with</span>
+                            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Bali Tours & Experiences</h2>
                         </div>
                         <button onclick="navigateTo('packages')" class="inline-flex items-center text-xs font-bold text-klook-orange hover:text-klook-hover gap-2 bg-slate-100 hover:bg-slate-200 px-4 py-2.5 rounded-full transition">
-                            View All Activities <i class="fas fa-arrow-right"></i>
+                            Explore All Tours <i class="fas fa-arrow-right"></i>
                         </button>
                     </div>
 
@@ -706,14 +709,14 @@
                             <div class="flex items-start gap-4 p-6 rounded-3xl bg-slate-50 border border-slate-100">
                                 <div class="w-12 h-12 rounded-2xl bg-slate-100 text-klook-orange flex items-center justify-center text-xl font-bold flex-shrink-0">⚡</div>
                                 <div>
-                                    <h4 class="font-extrabold text-slate-900 mb-1">Instant Voucher Confirmation</h4>
-                                    <p class="text-xs text-slate-500 leading-relaxed">Book in 60 seconds and receive instant digital QR e-vouchers on your smartphone.</p>
+                                    <h4 class="font-extrabold text-slate-900 mb-1">Easy Tour Enquiry</h4>
+                                    <p class="text-xs text-slate-500 leading-relaxed">Send your preferred date, group size and places to visit. We’ll help confirm the itinerary and details before your trip.</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-4 p-6 rounded-3xl bg-slate-50 border border-slate-100">
                                 <div class="w-12 h-12 rounded-2xl bg-slate-100 text-slate-700 flex items-center justify-center text-xl font-bold flex-shrink-0">🏷️</div>
                                 <div>
-                                    <h4 class="font-extrabold text-slate-900 mb-1">Best Price Guarantee</h4>
+                                    <h4 class="font-extrabold text-slate-900 mb-1">Clear Tour Information</h4>
                                     <p class="text-xs text-slate-500 leading-relaxed">Direct partner prices with no hidden booking charges or surprise fees at pickup.</p>
                                 </div>
                             </div>
@@ -721,7 +724,7 @@
                                 <div class="w-12 h-12 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center text-xl font-bold flex-shrink-0">💬</div>
                                 <div>
                                     <h4 class="font-extrabold text-slate-900 mb-1">Talk to us about your trip</h4>
-                                    <p class="text-xs text-slate-500 leading-relaxed">Dedicated local Balinese support team ready to assist your itinerary updates anytime.</p>
+                                    <p class="text-xs text-slate-500 leading-relaxed">Ask about routes, pickup areas, duration and inclusions before confirming your tour.</p>
                                 </div>
                             </div>
                         </div>
@@ -732,7 +735,7 @@
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                     <div class="text-center mb-10">
                         <span class="text-xs font-black text-klook-orange uppercase tracking-wider">Explore Bali experiences</span>
-                        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Loved by 50,000+ Happy Travelers</h2>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Plan a Bali trip that feels like yours</h2>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -791,18 +794,18 @@
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                     <!-- Catalog Header -->
                     <div class="mb-8">
-                        <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Explore All Activities</span>
-                        <h1 class="text-3xl font-extrabold text-slate-900">Bali Tour Packages & Things To Do</h1>
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Explore Tour Packages</span>
+                        <h1 class="text-3xl font-extrabold text-slate-900">Bali Tour Packages & Private Transport</h1>
                     </div>
 
-                    <!-- Category Pills Filter Bar -->
+                    <!-- Tour category filters -->
                     <div class="flex items-center space-x-2 overflow-x-auto pb-4 mb-8 hide-scrollbar border-b border-slate-200">
-                        <button onclick="filterByCategory('all'); navigateTo('packages');" class="px-5 py-2.5 rounded-full text-xs font-bold transition ${selectedCategoryFilter==='all' ? 'bg-slate-900 text-white' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'}">All Experiences (${BALI_PACKAGES.length})</button>
-                        <button onclick="filterByCategory('temple'); navigateTo('packages');" class="px-5 py-2.5 rounded-full text-xs font-bold transition ${selectedCategoryFilter==='temple' ? 'bg-slate-900 text-white' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'}">⛩️ Ubud & Temples</button>
-                        <button onclick="filterByCategory('nusa'); navigateTo('packages');" class="px-5 py-2.5 rounded-full text-xs font-bold transition ${selectedCategoryFilter==='nusa' ? 'bg-slate-900 text-white' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'}">🏝️ Nusa Penida</button>
-                        <button onclick="filterByCategory('water'); navigateTo('packages');" class="px-5 py-2.5 rounded-full text-xs font-bold transition ${selectedCategoryFilter==='water' ? 'bg-slate-900 text-white' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'}">🌊 Water Sports</button>
-                        <button onclick="filterByCategory('driver'); navigateTo('packages');" class="px-5 py-2.5 rounded-full text-xs font-bold transition ${selectedCategoryFilter==='driver' ? 'bg-slate-900 text-white' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'}">🚗 Private Driver</button>
-                        <button onclick="filterByCategory('atv'); navigateTo('packages');" class="px-5 py-2.5 rounded-full text-xs font-bold transition ${selectedCategoryFilter==='atv' ? 'bg-slate-900 text-white' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'}">🏍️ ATV & Rafting</button>
+                        <button onclick="filterByCategory('all'); navigateTo('packages');" class="px-5 py-2.5 rounded-full text-xs font-bold transition ${selectedCategoryFilter==='all' ? 'bg-slate-900 text-white' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'}">All Tour Packages (${BALI_PACKAGES.length})</button>
+                        <button onclick="filterByCategory('full-day'); navigateTo('packages');" class="px-5 py-2.5 rounded-full text-xs font-bold transition ${selectedCategoryFilter==='full-day' ? 'bg-slate-900 text-white' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'}">Full Day Tours</button>
+                        <button onclick="filterByCategory('nusa'); navigateTo('packages');" class="px-5 py-2.5 rounded-full text-xs font-bold transition ${selectedCategoryFilter==='nusa' ? 'bg-slate-900 text-white' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'}">Nusa Penida</button>
+                        <button onclick="filterByCategory('activities'); navigateTo('packages');" class="px-5 py-2.5 rounded-full text-xs font-bold transition ${selectedCategoryFilter==='activities' ? 'bg-slate-900 text-white' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'}">Activities & Adventure</button>
+                        <button onclick="filterByCategory('combination'); navigateTo('packages');" class="px-5 py-2.5 rounded-full text-xs font-bold transition ${selectedCategoryFilter==='combination' ? 'bg-slate-900 text-white' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'}">Combination Tours</button>
+                        <button onclick="filterByCategory('charter'); navigateTo('packages');" class="px-5 py-2.5 rounded-full text-xs font-bold transition ${selectedCategoryFilter==='charter' ? 'bg-slate-900 text-white' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'}">Private Car Charter</button>
                     </div>
 
                     <!-- Catalog Package Cards Grid -->
@@ -816,7 +819,7 @@
         /* CARD RENDERER COMPONENT */
         function renderPackageCards(packages) {
             if (packages.length === 0) {
-                return `<div class="col-span-full text-center py-12 text-slate-400 font-medium">No packages found for this filter.</div>`;
+                return `<div class="col-span-full text-center py-12 text-slate-400 font-medium">No tours in this category yet. Contact us to ask about a custom itinerary.</div>`;
             }
 
             const curr = CURRENCY_RATES[currentCurrency];
@@ -858,7 +861,7 @@
 
                                 <!-- Klook Style Tags -->
                                 <div class="flex flex-wrap gap-1.5 mb-4">
-                                    ${pkg.instantConfirmation ? `<span class="text-[10px] bg-slate-100 font-semibold text-slate-600 px-2 py-0.5 rounded">⚡ Instant Confirmation</span>` : ''}
+                                    ${pkg.instantConfirmation ? `<span class="text-[10px] bg-slate-100 font-semibold text-slate-600 px-2 py-0.5 rounded">⚡ Tour details confirmed with our team</span>` : ''}
                                     ${pkg.freeCancellation ? `<span class="text-[10px] bg-slate-100 font-semibold text-slate-700 px-2 py-0.5 rounded">✓ Free Cancellation</span>` : ''}
                                 </div>
                             </div>
@@ -906,7 +909,7 @@
                                 <i class="fas fa-star text-slate-600"></i> ${pkg.rating} (${pkg.reviewCount} reviews)
                             </span>
                             <span class="flex items-center gap-1"><i class="fas fa-location-dot text-klook-orange"></i> ${pkg.location}</span>
-                            <span class="flex items-center gap-1"><i class="fas fa-bolt text-slate-600"></i> Instant Voucher</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-bolt text-slate-600"></i> Tour enquiry</span>
                         </div>
                     </div>
 
@@ -1031,7 +1034,7 @@
             return `
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                     <div class="text-center max-w-2xl mx-auto mb-10">
-                        <span class="text-xs font-extrabold text-klook-orange uppercase tracking-wider">Bali Travel Guides & Tips</span>
+                        <span class="text-xs font-extrabold text-klook-orange uppercase tracking-wider">Bali Travel Guide</span>
                         <h1 class="text-3xl font-extrabold text-slate-900 mt-1">Plan Your Dream Trip to Bali</h1>
                         <p class="text-slate-500 text-sm mt-2">Curated insider travel tips, food guides, and itinerary advice from local Balinese experts.</p>
                     </div>
@@ -1414,7 +1417,7 @@
                 showToast('Added to Wishlist ❤️');
             }
             updateBadges();
-            if (document.getElementById('appContainer').innerHTML.includes('Trending Bali Activities')) {
+            if (document.getElementById('appContainer').innerHTML.includes('Bali Tours & Experiences')) {
                 document.getElementById('homeFeaturedGrid').innerHTML = renderPackageCards(BALI_PACKAGES);
             }
         }
