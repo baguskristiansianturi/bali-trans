@@ -198,6 +198,7 @@
         let currentDetailPackage = BALI_PACKAGES[0];
         let currentCheckoutStep = 1;
         let currentViewName = null;
+        let currentViewParams = null;
 
         /* ==========================================================================
            2. NAVIGATION & ROUTING ENGINE
@@ -281,6 +282,7 @@
                     initHomeInteractivity();
             }
             currentViewName = viewName;
+            currentViewParams = params;
             if (viewName === 'blog') {
                 const requestedCategory = new URLSearchParams(window.location.search).get('category') || 'All';
                 const validCategories = ['All', ...new Set(BALI_BLOGS.map(blog => blog.category))];
@@ -1629,8 +1631,11 @@
             closeLocaleMenu();
             applyLanguageCopy(document);
             if (typeof updateLiveChatStatus === 'function') updateLiveChatStatus();
-            // Re-render active view so generated cards use the selected locale too.
-            if (typeof navigateTo === 'function') navigateTo('home');
+            // Re-render the current view without sending the visitor back home or
+            // changing the URL/history position when the language is switched.
+            if (typeof navigateTo === 'function') {
+                navigateTo(currentViewName || 'home', currentViewParams, { history: false, scroll: false });
+            }
             setTimeout(() => applyLanguageCopy(document), 80);
         }
         if (!window.__baliTransLocaleObserver) {
