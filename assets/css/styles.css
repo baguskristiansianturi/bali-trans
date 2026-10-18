@@ -29,9 +29,6 @@ img, video, canvas, iframe, svg {
 #appContainer * {
     min-width: 0;
 }
-#appContainer img {
-    height: auto;
-}
 #appContainer .overflow-x-auto {
     max-width: 100%;
     overscroll-behavior-x: contain;
@@ -121,5 +118,49 @@ footer a {
     #wishlistModal > div {
         max-width: 100%;
         max-height: 85dvh;
+    }
+}
+
+@media (max-width: 640px) {
+    header > div > div {
+        gap: 0.35rem;
+    }
+    header .max-w-7xl {
+        padding-left: 0.65rem;
+        padding-right: 0.65rem;
+    }
+    header .max-w-7xl > div {
+        gap: 0.35rem;
+    }
+    header .max-w-7xl > div > div:first-child {
+        gap: 0.4rem;
+        flex-shrink: 1;
+    }
+    header .max-w-7xl > div > div:first-child > div:first-child {
+        width: 2rem;
+        height: 2rem;
+        flex-shrink: 0;
+        border-radius: 0.55rem;
+    }
+    header .max-w-7xl > div > div:first-child .text-xl {
+        font-size: 0.95rem;
+    }
+    header .max-w-7xl > div > div:first-child .text-\\[10px\\] {
+        display: none;
+    }
+    header .max-w-7xl > div > div:last-child {
+        gap: 0.15rem;
+        flex-shrink: 0;
+    }
+    #currencySelector {
+        max-width: 5.2rem;
+        padding: 0.45rem 0.35rem;
+        font-size: 0.68rem;
+    }
+    header button.p-2\\.5 {
+        padding: 0.4rem;
+    }
+    #appContainer .flex.items-center.justify-between {
+        flex-wrap: wrap;
     }
 }
