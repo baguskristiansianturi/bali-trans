@@ -280,7 +280,7 @@
 
                     <!-- Catalog Package Cards Grid -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        ${renderPackageCards(filtered)}
+                        ${filtered.length ? renderPackageCards(filtered) : '<div class="col-span-full rounded-2xl border border-slate-200 bg-white px-6 py-12 text-center"><h2 class="text-lg font-extrabold text-slate-900 mb-2">No matching experiences found</h2><p class="text-sm text-slate-500 mb-5">Try another destination or activity.</p><button onclick="filterByCategory(\'all\'); navigateTo(\'packages\')" class="rounded-full bg-slate-900 px-5 py-3 text-sm font-bold text-white">Clear filters</button></div>'}
                     </div>
                 </div>
             `;
