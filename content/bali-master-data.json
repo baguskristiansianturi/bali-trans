@@ -1,0 +1,1942 @@
+{
+  "schema_version": "1.0",
+  "project": "Bali Trans",
+  "updated_at": "2026-10-18",
+  "purpose": "Single source of truth for Bali destination taxonomy, article/page readiness, activity cross-links, and fact-checking. This is a candidate inventory, not a claim that every attraction, operator, service, or detail is verified.",
+  "status_definitions": {
+    "PLANNED": "Belum dibuat.",
+    "STRUCTURE_READY": "Halaman/struktur sudah ada, isi masih perlu diperiksa.",
+    "CONTENT_DRAFT": "Konten awal tersedia, belum disetujui untuk publikasi.",
+    "FACT_CHECK": "Sedang diverifikasi terhadap sumber yang dapat dipercaya.",
+    "PUBLISHED": "Konten sudah ditinjau dan disetujui untuk ditampilkan.",
+    "UPDATE_REQUIRED": "Konten yang ada perlu diperbaiki.",
+    "UNVERIFIED": "Nama, lokasi, akses, operasi, atau detail belum diverifikasi."
+  },
+  "editorial_regions": [
+    {
+      "id": "south",
+      "name": "Bali Selatan",
+      "slug": "south-bali",
+      "admin_areas": [
+        "Badung",
+        "Denpasar"
+      ],
+      "subregions": [
+        "Kuta & Tuban",
+        "Legian",
+        "Seminyak & Petitenget",
+        "Kerobokan",
+        "Canggu & Berawa",
+        "Pererenan & Seseh",
+        "Jimbaran & Kedonganan",
+        "Pecatu & Uluwatu",
+        "Nusa Dua",
+        "Tanjung Benoa",
+        "Sanur",
+        "Serangan"
+      ],
+      "route": "?page=discovery&item=region%3Asouth",
+      "page_status": "STRUCTURE_READY"
+    },
+    {
+      "id": "central",
+      "name": "Bali Tengah",
+      "slug": "central-bali",
+      "admin_areas": [
+        "Gianyar",
+        "Bangli",
+        "Tabanan"
+      ],
+      "subregions": [
+        "Ubud",
+        "Tegallalang",
+        "Tampaksiring & Pejeng",
+        "Sukawati & Batuan",
+        "Mas & Celuk",
+        "Kintamani",
+        "Penglipuran",
+        "Bedugul",
+        "Jatiluwih",
+        "Batukaru & Pupuan"
+      ],
+      "route": "?page=discovery&item=region%3Acentral",
+      "page_status": "STRUCTURE_READY"
+    },
+    {
+      "id": "east",
+      "name": "Bali Timur",
+      "slug": "east-bali",
+      "admin_areas": [
+        "Karangasem",
+        "Klungkung"
+      ],
+      "subregions": [
+        "Amlapura & Karangasem",
+        "Amed",
+        "Tulamben",
+        "Candidasa & Manggis",
+        "Padangbai",
+        "Sidemen",
+        "Besakih",
+        "Lempuyang",
+        "Mainland Klungkung"
+      ],
+      "route": "?page=discovery&item=region%3Aeast",
+      "page_status": "STRUCTURE_READY"
+    },
+    {
+      "id": "north",
+      "name": "Bali Utara",
+      "slug": "north-bali",
+      "admin_areas": [
+        "Buleleng"
+      ],
+      "subregions": [
+        "Lovina & Kalibukbuk",
+        "Singaraja",
+        "Banjar",
+        "Munduk",
+        "Sukasada & Gitgit",
+        "Sekumpul & Lemukih",
+        "Pemuteran & Gerokgak",
+        "Tejakula"
+      ],
+      "route": "?page=discovery&item=region%3Anorth",
+      "page_status": "STRUCTURE_READY"
+    },
+    {
+      "id": "west",
+      "name": "Bali Barat",
+      "slug": "west-bali",
+      "admin_areas": [
+        "Jembrana",
+        "Buleleng"
+      ],
+      "subregions": [
+        "Medewi & Pekutatan",
+        "Negara & Perancak",
+        "Rambut Siwi",
+        "Gilimanuk",
+        "West Bali National Park"
+      ],
+      "route": "?page=discovery&item=region%3Awest",
+      "page_status": "STRUCTURE_READY"
+    },
+    {
+      "id": "nusa",
+      "name": "Kepulauan Nusa",
+      "slug": "nusa-islands",
+      "admin_areas": [
+        "Klungkung"
+      ],
+      "subregions": [
+        "Nusa Penida Barat",
+        "Nusa Penida Timur",
+        "Nusa Penida Selatan & Tengah",
+        "Nusa Lembongan",
+        "Nusa Ceningan"
+      ],
+      "route": "?page=discovery&item=region%3Anusa",
+      "page_status": "STRUCTURE_READY"
+    }
+  ],
+  "administrative_areas": [
+    {
+      "id": "badung",
+      "name": "Kabupaten Badung",
+      "type": "kabupaten"
+    },
+    {
+      "id": "denpasar",
+      "name": "Kota Denpasar",
+      "type": "kota"
+    },
+    {
+      "id": "gianyar",
+      "name": "Kabupaten Gianyar",
+      "type": "kabupaten"
+    },
+    {
+      "id": "bangli",
+      "name": "Kabupaten Bangli",
+      "type": "kabupaten"
+    },
+    {
+      "id": "tabanan",
+      "name": "Kabupaten Tabanan",
+      "type": "kabupaten"
+    },
+    {
+      "id": "karangasem",
+      "name": "Kabupaten Karangasem",
+      "type": "kabupaten"
+    },
+    {
+      "id": "klungkung",
+      "name": "Kabupaten Klungkung",
+      "type": "kabupaten"
+    },
+    {
+      "id": "buleleng",
+      "name": "Kabupaten Buleleng",
+      "type": "kabupaten"
+    },
+    {
+      "id": "jembrana",
+      "name": "Kabupaten Jembrana",
+      "type": "kabupaten"
+    }
+  ],
+  "destinations": [
+    {
+      "id": "kuta-beach",
+      "name": "Kuta Beach",
+      "region_id": "south",
+      "admin_area_id": "badung",
+      "subregion": "Kuta & Tuban",
+      "type": "destination",
+      "categories": [
+        "surfing",
+        "culture-temples"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "waterbom-bali",
+      "name": "Waterbom Bali",
+      "region_id": "south",
+      "admin_area_id": "badung",
+      "subregion": "Kuta & Tuban",
+      "type": "destination",
+      "categories": [
+        "wildlife-family"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "legian-beach",
+      "name": "Legian Beach",
+      "region_id": "south",
+      "admin_area_id": "badung",
+      "subregion": "Legian",
+      "type": "destination",
+      "categories": [
+        "surfing"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "seminyak-beach",
+      "name": "Seminyak Beach",
+      "region_id": "south",
+      "admin_area_id": "badung",
+      "subregion": "Seminyak & Petitenget",
+      "type": "destination",
+      "categories": [
+        "surfing",
+        "food-drink"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "petitenget-temple",
+      "name": "Petitenget Temple",
+      "region_id": "south",
+      "admin_area_id": "badung",
+      "subregion": "Seminyak & Petitenget",
+      "type": "destination",
+      "categories": [
+        "culture-temples"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "canggu-beaches",
+      "name": "Canggu beaches",
+      "region_id": "south",
+      "admin_area_id": "badung",
+      "subregion": "Canggu & Berawa",
+      "type": "destination",
+      "categories": [
+        "surfing",
+        "food-drink"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "berawa-beach",
+      "name": "Berawa Beach",
+      "region_id": "south",
+      "admin_area_id": "badung",
+      "subregion": "Canggu & Berawa",
+      "type": "destination",
+      "categories": [
+        "surfing",
+        "food-drink"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "pererenan-beach",
+      "name": "Pererenan Beach",
+      "region_id": "south",
+      "admin_area_id": "badung",
+      "subregion": "Pererenan & Seseh",
+      "type": "destination",
+      "categories": [
+        "surfing"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "jimbaran-bay",
+      "name": "Jimbaran Bay",
+      "region_id": "south",
+      "admin_area_id": "badung",
+      "subregion": "Jimbaran & Kedonganan",
+      "type": "destination",
+      "categories": [
+        "food-drink"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "kedonganan-market",
+      "name": "Kedonganan Fish Market",
+      "region_id": "south",
+      "admin_area_id": "badung",
+      "subregion": "Jimbaran & Kedonganan",
+      "type": "destination",
+      "categories": [
+        "food-drink"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "gwk",
+      "name": "Garuda Wisnu Kencana Cultural Park",
+      "region_id": "south",
+      "admin_area_id": "badung",
+      "subregion": "Jimbaran & Kedonganan",
+      "type": "destination",
+      "categories": [
+        "culture-temples",
+        "wildlife-family"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "uluwatu-temple",
+      "name": "Uluwatu Temple",
+      "region_id": "south",
+      "admin_area_id": "badung",
+      "subregion": "Pecatu & Uluwatu",
+      "type": "destination",
+      "categories": [
+        "culture-temples"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "padang-padang-beach",
+      "name": "Padang Padang Beach",
+      "region_id": "south",
+      "admin_area_id": "badung",
+      "subregion": "Pecatu & Uluwatu",
+      "type": "destination",
+      "categories": [
+        "surfing"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "melasti-beach",
+      "name": "Melasti Beach",
+      "region_id": "south",
+      "admin_area_id": "badung",
+      "subregion": "Pecatu & Uluwatu",
+      "type": "destination",
+      "categories": [
+        "surfing"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "nusa-dua-beach",
+      "name": "Nusa Dua Beach",
+      "region_id": "south",
+      "admin_area_id": "badung",
+      "subregion": "Nusa Dua",
+      "type": "destination",
+      "categories": [
+        "watersports"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "tanjung-benoa",
+      "name": "Tanjung Benoa",
+      "region_id": "south",
+      "admin_area_id": "badung",
+      "subregion": "Tanjung Benoa",
+      "type": "destination",
+      "categories": [
+        "watersports",
+        "snorkeling-diving",
+        "boat-island"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "sanur-beach",
+      "name": "Sanur Beach",
+      "region_id": "south",
+      "admin_area_id": "denpasar",
+      "subregion": "Sanur",
+      "type": "destination",
+      "categories": [
+        "snorkeling-diving",
+        "boat-island",
+        "cycling"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "serangan-island",
+      "name": "Serangan Island",
+      "region_id": "south",
+      "admin_area_id": "denpasar",
+      "subregion": "Serangan",
+      "type": "destination",
+      "categories": [
+        "snorkeling-diving",
+        "boat-island"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "bajra-sandhi",
+      "name": "Bajra Sandhi Monument",
+      "region_id": "south",
+      "admin_area_id": "denpasar",
+      "subregion": "Denpasar city",
+      "type": "destination",
+      "categories": [
+        "culture-temples"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "ubud-monkey-forest",
+      "name": "Sacred Monkey Forest Sanctuary",
+      "region_id": "central",
+      "admin_area_id": "gianyar",
+      "subregion": "Ubud",
+      "type": "destination",
+      "categories": [
+        "culture-temples",
+        "wildlife-family"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "ubud-palace",
+      "name": "Ubud Palace",
+      "region_id": "central",
+      "admin_area_id": "gianyar",
+      "subregion": "Ubud",
+      "type": "destination",
+      "categories": [
+        "culture-temples"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "campuhan-ridge",
+      "name": "Campuhan Ridge Walk",
+      "region_id": "central",
+      "admin_area_id": "gianyar",
+      "subregion": "Ubud",
+      "type": "destination",
+      "categories": [
+        "trekking",
+        "cycling"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "tegalalang-terrace",
+      "name": "Tegallalang Rice Terrace",
+      "region_id": "central",
+      "admin_area_id": "gianyar",
+      "subregion": "Tegallalang",
+      "type": "destination",
+      "categories": [
+        "nature-waterfalls",
+        "cycling"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "tirta-empul",
+      "name": "Tirta Empul Temple",
+      "region_id": "central",
+      "admin_area_id": "gianyar",
+      "subregion": "Tampaksiring & Pejeng",
+      "type": "destination",
+      "categories": [
+        "culture-temples"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "goa-gajah",
+      "name": "Goa Gajah",
+      "region_id": "central",
+      "admin_area_id": "gianyar",
+      "subregion": "Ubud & surrounding villages",
+      "type": "destination",
+      "categories": [
+        "culture-temples"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "tegenungan-waterfall",
+      "name": "Tegenungan Waterfall",
+      "region_id": "central",
+      "admin_area_id": "gianyar",
+      "subregion": "Gianyar waterfalls",
+      "type": "destination",
+      "categories": [
+        "nature-waterfalls"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "tibumana-waterfall",
+      "name": "Tibumana Waterfall",
+      "region_id": "central",
+      "admin_area_id": "bangli",
+      "subregion": "Bangli waterfalls",
+      "type": "destination",
+      "categories": [
+        "nature-waterfalls"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "kanto-lampo-waterfall",
+      "name": "Kanto Lampo Waterfall",
+      "region_id": "central",
+      "admin_area_id": "gianyar",
+      "subregion": "Gianyar waterfalls",
+      "type": "destination",
+      "categories": [
+        "nature-waterfalls"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "bali-zoo",
+      "name": "Bali Zoo",
+      "region_id": "central",
+      "admin_area_id": "gianyar",
+      "subregion": "Sukawati & Batuan",
+      "type": "destination",
+      "categories": [
+        "wildlife-family"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "bali-bird-park",
+      "name": "Bali Bird Park",
+      "region_id": "central",
+      "admin_area_id": "gianyar",
+      "subregion": "Sukawati & Batuan",
+      "type": "destination",
+      "categories": [
+        "wildlife-family"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "mount-batur",
+      "name": "Mount Batur",
+      "region_id": "central",
+      "admin_area_id": "bangli",
+      "subregion": "Kintamani",
+      "type": "destination",
+      "categories": [
+        "trekking",
+        "nature-waterfalls"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "lake-batur",
+      "name": "Lake Batur",
+      "region_id": "central",
+      "admin_area_id": "bangli",
+      "subregion": "Kintamani",
+      "type": "destination",
+      "categories": [
+        "nature-waterfalls",
+        "boat-island"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "penglipuran-village",
+      "name": "Penglipuran Village",
+      "region_id": "central",
+      "admin_area_id": "bangli",
+      "subregion": "Penglipuran",
+      "type": "destination",
+      "categories": [
+        "culture-temples"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "tukad-cepung",
+      "name": "Tukad Cepung Waterfall",
+      "region_id": "central",
+      "admin_area_id": "bangli",
+      "subregion": "Bangli waterfalls",
+      "type": "destination",
+      "categories": [
+        "nature-waterfalls"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "ulun-danu-beratan",
+      "name": "Ulun Danu Beratan Temple",
+      "region_id": "central",
+      "admin_area_id": "tabanan",
+      "subregion": "Bedugul",
+      "type": "destination",
+      "categories": [
+        "culture-temples",
+        "nature-waterfalls"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "bali-botanic-garden",
+      "name": "Bali Botanic Garden",
+      "region_id": "central",
+      "admin_area_id": "tabanan",
+      "subregion": "Bedugul",
+      "type": "destination",
+      "categories": [
+        "nature-waterfalls",
+        "wildlife-family"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "jatiluwih-terraces",
+      "name": "Jatiluwih Rice Terraces",
+      "region_id": "central",
+      "admin_area_id": "tabanan",
+      "subregion": "Jatiluwih",
+      "type": "destination",
+      "categories": [
+        "nature-waterfalls",
+        "cycling"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "tanah-lot",
+      "name": "Tanah Lot Temple",
+      "region_id": "central",
+      "admin_area_id": "tabanan",
+      "subregion": "Tanah Lot coast",
+      "type": "destination",
+      "categories": [
+        "culture-temples"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "tirta-gangga",
+      "name": "Tirta Gangga Water Palace",
+      "region_id": "east",
+      "admin_area_id": "karangasem",
+      "subregion": "Amlapura & Karangasem",
+      "type": "destination",
+      "categories": [
+        "culture-temples"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "taman-ujung",
+      "name": "Taman Ujung Water Palace",
+      "region_id": "east",
+      "admin_area_id": "karangasem",
+      "subregion": "Amlapura & Karangasem",
+      "type": "destination",
+      "categories": [
+        "culture-temples"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "lempuyang-temple",
+      "name": "Lempuyang Temple",
+      "region_id": "east",
+      "admin_area_id": "karangasem",
+      "subregion": "Lempuyang",
+      "type": "destination",
+      "categories": [
+        "culture-temples"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "besakih-temple",
+      "name": "Besakih Temple",
+      "region_id": "east",
+      "admin_area_id": "karangasem",
+      "subregion": "Besakih",
+      "type": "destination",
+      "categories": [
+        "culture-temples"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "amed-coast",
+      "name": "Amed coast",
+      "region_id": "east",
+      "admin_area_id": "karangasem",
+      "subregion": "Amed",
+      "type": "destination",
+      "categories": [
+        "snorkeling-diving",
+        "surfing"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "jemeluk-bay",
+      "name": "Jemeluk Bay",
+      "region_id": "east",
+      "admin_area_id": "karangasem",
+      "subregion": "Amed",
+      "type": "destination",
+      "categories": [
+        "snorkeling-diving"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "tulamben-liberty-wreck",
+      "name": "USAT Liberty wreck diving area",
+      "region_id": "east",
+      "admin_area_id": "karangasem",
+      "subregion": "Tulamben",
+      "type": "destination",
+      "categories": [
+        "snorkeling-diving"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "candidasa",
+      "name": "Candidasa",
+      "region_id": "east",
+      "admin_area_id": "karangasem",
+      "subregion": "Candidasa & Manggis",
+      "type": "destination",
+      "categories": [
+        "snorkeling-diving",
+        "boat-island"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "padangbai-blue-lagoon",
+      "name": "Blue Lagoon, Padangbai",
+      "region_id": "east",
+      "admin_area_id": "karangasem",
+      "subregion": "Padangbai",
+      "type": "destination",
+      "categories": [
+        "snorkeling-diving",
+        "boat-island"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "sidemen-valley",
+      "name": "Sidemen Valley",
+      "region_id": "east",
+      "admin_area_id": "karangasem",
+      "subregion": "Sidemen",
+      "type": "destination",
+      "categories": [
+        "nature-waterfalls",
+        "cycling"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "kerta-gosa",
+      "name": "Kerta Gosa Pavilion",
+      "region_id": "east",
+      "admin_area_id": "klungkung",
+      "subregion": "Mainland Klungkung",
+      "type": "destination",
+      "categories": [
+        "culture-temples"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "goa-lawah",
+      "name": "Goa Lawah Temple",
+      "region_id": "east",
+      "admin_area_id": "klungkung",
+      "subregion": "Mainland Klungkung",
+      "type": "destination",
+      "categories": [
+        "culture-temples"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "lovina",
+      "name": "Lovina Beach & Dolphin Watching",
+      "region_id": "north",
+      "admin_area_id": "buleleng",
+      "subregion": "Lovina & Kalibukbuk",
+      "type": "destination",
+      "categories": [
+        "dolphins",
+        "boat-island"
+      ],
+      "route": "?page=discovery&item=place%3Alovina",
+      "page_status": "STRUCTURE_READY",
+      "content_status": "CONTENT_DRAFT",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Dedicated route exists in current SPA. Wildlife ethics, boat practices, meeting points and schedules still need fact-checking."
+    },
+    {
+      "id": "banjar-hot-springs",
+      "name": "Banjar Hot Springs",
+      "region_id": "north",
+      "admin_area_id": "buleleng",
+      "subregion": "Banjar",
+      "type": "destination",
+      "categories": [
+        "nature-waterfalls",
+        "wellness"
+      ],
+      "route": "?page=discovery&item=place%3Abanjar-hot-springs",
+      "page_status": "STRUCTURE_READY",
+      "content_status": "CONTENT_DRAFT",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "brahmavihara-arama",
+      "name": "Brahmavihara-Arama Monastery",
+      "region_id": "north",
+      "admin_area_id": "buleleng",
+      "subregion": "Banjar",
+      "type": "destination",
+      "categories": [
+        "culture-temples"
+      ],
+      "route": "?page=discovery&item=place%3Abrahmavihara-arama",
+      "page_status": "STRUCTURE_READY",
+      "content_status": "CONTENT_DRAFT",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "gitgit-waterfall",
+      "name": "Gitgit Waterfall",
+      "region_id": "north",
+      "admin_area_id": "buleleng",
+      "subregion": "Sukasada & Gitgit",
+      "type": "destination",
+      "categories": [
+        "nature-waterfalls"
+      ],
+      "route": "?page=discovery&item=place%3Agitgit-waterfall",
+      "page_status": "STRUCTURE_READY",
+      "content_status": "CONTENT_DRAFT",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "munduk",
+      "name": "Munduk Waterfalls & Highlands",
+      "region_id": "north",
+      "admin_area_id": "buleleng",
+      "subregion": "Munduk",
+      "type": "destination",
+      "categories": [
+        "nature-waterfalls",
+        "trekking",
+        "cycling"
+      ],
+      "route": "?page=discovery&item=place%3Amunduk",
+      "page_status": "STRUCTURE_READY",
+      "content_status": "CONTENT_DRAFT",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "wanagiri",
+      "name": "Wanagiri Twin Lakes Viewpoint",
+      "region_id": "north",
+      "admin_area_id": "buleleng",
+      "subregion": "Munduk",
+      "type": "destination",
+      "categories": [
+        "nature-waterfalls"
+      ],
+      "route": "?page=discovery&item=place%3Awanagiri",
+      "page_status": "STRUCTURE_READY",
+      "content_status": "CONTENT_DRAFT",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "menjangan",
+      "name": "Menjangan Island & West Bali National Park",
+      "region_id": "north",
+      "admin_area_id": "buleleng",
+      "subregion": "Pemuteran & Gerokgak",
+      "type": "destination",
+      "categories": [
+        "snorkeling-diving",
+        "nature-waterfalls"
+      ],
+      "route": "?page=discovery&item=place%3Amenjangan",
+      "page_status": "STRUCTURE_READY",
+      "content_status": "CONTENT_DRAFT",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Editorially linked to North Bali access, but the national park and coastal geography cross administrative/tourism-region boundaries; verify exact page taxonomy."
+    },
+    {
+      "id": "gedong-kirtya",
+      "name": "Gedong Kirtya Library",
+      "region_id": "north",
+      "admin_area_id": "buleleng",
+      "subregion": "Singaraja",
+      "type": "destination",
+      "categories": [
+        "culture-temples"
+      ],
+      "route": "?page=discovery&item=place%3Agedong-kirtya",
+      "page_status": "STRUCTURE_READY",
+      "content_status": "CONTENT_DRAFT",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "sekumpul-waterfall",
+      "name": "Sekumpul Waterfall",
+      "region_id": "north",
+      "admin_area_id": "buleleng",
+      "subregion": "Sekumpul & Lemukih",
+      "type": "destination",
+      "categories": [
+        "nature-waterfalls",
+        "trekking"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "aling-aling-waterfall",
+      "name": "Aling-Aling Waterfall",
+      "region_id": "north",
+      "admin_area_id": "buleleng",
+      "subregion": "Sukasada & Gitgit",
+      "type": "destination",
+      "categories": [
+        "nature-waterfalls",
+        "trekking"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "pemuteran-beach",
+      "name": "Pemuteran Beach",
+      "region_id": "north",
+      "admin_area_id": "buleleng",
+      "subregion": "Pemuteran & Gerokgak",
+      "type": "destination",
+      "categories": [
+        "snorkeling-diving",
+        "surfing"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "pulaki-temple",
+      "name": "Pulaki Temple",
+      "region_id": "north",
+      "admin_area_id": "buleleng",
+      "subregion": "Pemuteran & Gerokgak",
+      "type": "destination",
+      "categories": [
+        "culture-temples"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "yeh-sanih",
+      "name": "Yeh Sanih natural spring",
+      "region_id": "north",
+      "admin_area_id": "buleleng",
+      "subregion": "Tejakula",
+      "type": "destination",
+      "categories": [
+        "nature-waterfalls"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "medewi-beach",
+      "name": "Medewi Beach",
+      "region_id": "west",
+      "admin_area_id": "jembrana",
+      "subregion": "Medewi & Pekutatan",
+      "type": "destination",
+      "categories": [
+        "surfing"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "rambut-siwi",
+      "name": "Rambut Siwi Temple",
+      "region_id": "west",
+      "admin_area_id": "jembrana",
+      "subregion": "Rambut Siwi",
+      "type": "destination",
+      "categories": [
+        "culture-temples"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "bunut-bolong",
+      "name": "Bunut Bolong tree tunnel",
+      "region_id": "west",
+      "admin_area_id": "jembrana",
+      "subregion": "Medewi & Pekutatan",
+      "type": "destination",
+      "categories": [
+        "nature-waterfalls"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "perancak",
+      "name": "Perancak fishing village",
+      "region_id": "west",
+      "admin_area_id": "jembrana",
+      "subregion": "Negara & Perancak",
+      "type": "destination",
+      "categories": [
+        "culture-temples",
+        "food-drink"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "gilimanuk-bay",
+      "name": "Gilimanuk Bay",
+      "region_id": "west",
+      "admin_area_id": "jembrana",
+      "subregion": "Gilimanuk",
+      "type": "destination",
+      "categories": [
+        "nature-waterfalls",
+        "boat-island"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "west-bali-national-park",
+      "name": "West Bali National Park",
+      "region_id": "west",
+      "admin_area_id": "buleleng",
+      "subregion": "West Bali National Park",
+      "type": "destination",
+      "categories": [
+        "nature-waterfalls",
+        "wildlife-family",
+        "trekking"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "kelingking-beach",
+      "name": "Kelingking Beach",
+      "region_id": "nusa",
+      "admin_area_id": "klungkung",
+      "subregion": "Nusa Penida Barat",
+      "type": "destination",
+      "categories": [
+        "nature-waterfalls"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "broken-beach",
+      "name": "Broken Beach (Pasih Uug)",
+      "region_id": "nusa",
+      "admin_area_id": "klungkung",
+      "subregion": "Nusa Penida Barat",
+      "type": "destination",
+      "categories": [
+        "nature-waterfalls"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "crystal-bay",
+      "name": "Crystal Bay",
+      "region_id": "nusa",
+      "admin_area_id": "klungkung",
+      "subregion": "Nusa Penida Barat",
+      "type": "destination",
+      "categories": [
+        "snorkeling-diving",
+        "boat-island"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "diamond-beach",
+      "name": "Diamond Beach",
+      "region_id": "nusa",
+      "admin_area_id": "klungkung",
+      "subregion": "Nusa Penida Timur",
+      "type": "destination",
+      "categories": [
+        "nature-waterfalls"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "atuh-beach",
+      "name": "Atuh Beach",
+      "region_id": "nusa",
+      "admin_area_id": "klungkung",
+      "subregion": "Nusa Penida Timur",
+      "type": "destination",
+      "categories": [
+        "nature-waterfalls"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "goa-giri-putri",
+      "name": "Goa Giri Putri",
+      "region_id": "nusa",
+      "admin_area_id": "klungkung",
+      "subregion": "Nusa Penida Timur",
+      "type": "destination",
+      "categories": [
+        "culture-temples"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "tembeling",
+      "name": "Tembeling Beach & Forest",
+      "region_id": "nusa",
+      "admin_area_id": "klungkung",
+      "subregion": "Nusa Penida Selatan & Tengah",
+      "type": "destination",
+      "categories": [
+        "nature-waterfalls",
+        "trekking"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "jungutbatu",
+      "name": "Jungutbatu",
+      "region_id": "nusa",
+      "admin_area_id": "klungkung",
+      "subregion": "Nusa Lembongan",
+      "type": "destination",
+      "categories": [
+        "surfing",
+        "boat-island"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "mushroom-bay",
+      "name": "Mushroom Bay",
+      "region_id": "nusa",
+      "admin_area_id": "klungkung",
+      "subregion": "Nusa Lembongan",
+      "type": "destination",
+      "categories": [
+        "snorkeling-diving",
+        "boat-island"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "lembongan-mangroves",
+      "name": "Nusa Lembongan mangrove forest",
+      "region_id": "nusa",
+      "admin_area_id": "klungkung",
+      "subregion": "Nusa Lembongan",
+      "type": "destination",
+      "categories": [
+        "nature-waterfalls",
+        "boat-island"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "yellow-bridge",
+      "name": "Yellow Bridge",
+      "region_id": "nusa",
+      "admin_area_id": "klungkung",
+      "subregion": "Nusa Ceningan",
+      "type": "destination",
+      "categories": [
+        "boat-island"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "blue-lagoon-ceningan",
+      "name": "Blue Lagoon, Nusa Ceningan",
+      "region_id": "nusa",
+      "admin_area_id": "klungkung",
+      "subregion": "Nusa Ceningan",
+      "type": "destination",
+      "categories": [
+        "nature-waterfalls"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "UNVERIFIED",
+      "source_urls": [],
+      "last_checked": null,
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    }
+  ],
+  "activity_categories": [
+    {
+      "id": "watersports",
+      "name": "Water sports",
+      "subcategories": [
+        "Parasailing",
+        "Jet ski",
+        "Banana boat",
+        "Rolling donut",
+        "Flying fish",
+        "Flyboard",
+        "Seawalker",
+        "Glass-bottom boat"
+      ],
+      "region_links": [
+        "south"
+      ],
+      "fact_status": "UNVERIFIED",
+      "note": "Operators, operating status, prices, safety requirements and exact activity locations must be checked individually."
+    },
+    {
+      "id": "snorkeling-diving",
+      "name": "Snorkelling & diving",
+      "subcategories": [
+        "Snorkelling",
+        "Scuba diving",
+        "Freediving",
+        "Manta trips",
+        "Underwater photography"
+      ],
+      "region_links": [
+        "south",
+        "east",
+        "north",
+        "nusa"
+      ],
+      "fact_status": "UNVERIFIED",
+      "note": "Link destinations only where activity and access are confirmed; sea conditions and operators vary."
+    },
+    {
+      "id": "surfing",
+      "name": "Surfing",
+      "subcategories": [
+        "Surf lessons",
+        "Surf spots",
+        "Board rental"
+      ],
+      "region_links": [
+        "south",
+        "west",
+        "nusa"
+      ],
+      "fact_status": "UNVERIFIED"
+    },
+    {
+      "id": "boat-island",
+      "name": "Boat & island trips",
+      "subcategories": [
+        "Fast boat",
+        "Island day trip",
+        "Private boat",
+        "Fishing trip"
+      ],
+      "region_links": [
+        "south",
+        "east",
+        "nusa"
+      ],
+      "fact_status": "UNVERIFIED"
+    },
+    {
+      "id": "culture-temples",
+      "name": "Culture & temples",
+      "subcategories": [
+        "Temple visits",
+        "Traditional dance",
+        "Village visits",
+        "Museums",
+        "Craft workshops"
+      ],
+      "region_links": [
+        "south",
+        "central",
+        "east",
+        "north",
+        "west"
+      ],
+      "fact_status": "UNVERIFIED"
+    },
+    {
+      "id": "nature-waterfalls",
+      "name": "Nature & waterfalls",
+      "subcategories": [
+        "Waterfalls",
+        "Rice terraces",
+        "Lakes",
+        "Forests",
+        "Viewpoints",
+        "Hot springs"
+      ],
+      "region_links": [
+        "central",
+        "east",
+        "north",
+        "west"
+      ],
+      "fact_status": "UNVERIFIED"
+    },
+    {
+      "id": "trekking",
+      "name": "Trekking & hiking",
+      "subcategories": [
+        "Mount Batur",
+        "Mount Agung",
+        "Waterfall trekking",
+        "Village walks"
+      ],
+      "region_links": [
+        "central",
+        "east",
+        "north"
+      ],
+      "fact_status": "UNVERIFIED",
+      "note": "Current access, guide requirements, weather and safety restrictions require verification."
+    },
+    {
+      "id": "rafting-atv",
+      "name": "Rafting & ATV",
+      "subcategories": [
+        "White-water rafting",
+        "ATV",
+        "Buggy",
+        "Off-road jeep"
+      ],
+      "region_links": [
+        "central"
+      ],
+      "fact_status": "UNVERIFIED",
+      "note": "Confirm each commercial operator, exact river/route, inclusions and current operating status."
+    },
+    {
+      "id": "dolphins",
+      "name": "Dolphin watching",
+      "subcategories": [
+        "Early-morning boat trip"
+      ],
+      "region_links": [
+        "north"
+      ],
+      "fact_status": "UNVERIFIED",
+      "note": "Wildlife sightings are never guaranteed; review operator conduct and boat practices."
+    },
+    {
+      "id": "wildlife-family",
+      "name": "Wildlife & family attractions",
+      "subcategories": [
+        "Zoo",
+        "Bird park",
+        "Safari park",
+        "Conservation visit",
+        "Water park"
+      ],
+      "region_links": [
+        "south",
+        "central"
+      ],
+      "fact_status": "UNVERIFIED",
+      "note": "Verify the venue's current name, operating status, animal welfare context and visitor access."
+    },
+    {
+      "id": "cycling",
+      "name": "Cycling",
+      "subcategories": [
+        "Village cycling",
+        "Rice-field cycling",
+        "Mountain biking",
+        "Coastal cycling"
+      ],
+      "region_links": [
+        "south",
+        "central",
+        "north",
+        "west"
+      ],
+      "fact_status": "UNVERIFIED"
+    },
+    {
+      "id": "food-drink",
+      "name": "Food & drink",
+      "subcategories": [
+        "Food tours",
+        "Cooking classes",
+        "Traditional markets",
+        "Seafood",
+        "Coffee farms"
+      ],
+      "region_links": [
+        "south",
+        "central",
+        "east",
+        "north",
+        "west"
+      ],
+      "fact_status": "UNVERIFIED"
+    },
+    {
+      "id": "wellness",
+      "name": "Wellness",
+      "subcategories": [
+        "Spa",
+        "Massage",
+        "Yoga",
+        "Meditation",
+        "Hot springs"
+      ],
+      "region_links": [
+        "south",
+        "central",
+        "east",
+        "north"
+      ],
+      "fact_status": "UNVERIFIED"
+    },
+    {
+      "id": "private-transport",
+      "name": "Private transport",
+      "subcategories": [
+        "Airport transfer",
+        "Private driver",
+        "Inter-region transfer",
+        "Vehicle charter"
+      ],
+      "region_links": [
+        "south",
+        "central",
+        "east",
+        "north",
+        "west",
+        "nusa"
+      ],
+      "fact_status": "UNVERIFIED",
+      "note": "Vehicle types, route coverage, service hours, prices and contact details must be confirmed."
+    }
+  ],
+  "verification_rules": [
+    "Editorial region is a navigation grouping, not an administrative boundary. Preserve the official regency/city separately.",
+    "One physical destination must have one canonical record. Categories and region pages reference its ID instead of creating duplicate records.",
+    "Do not publish operator names, prices, opening hours, transport schedules, safety claims, availability or current operating status without dated sources.",
+    "Use PUBLISHED only after location, spelling, access, description, image rights/source, route, and cross-links have been checked.",
+    "Show 'Baca selengkapnya' only for reviewed, ready articles. Show 'Sedang diperbarui' when a page exists but its article is incomplete.",
+    "Do not use a region page as a substitute for a destination detail page when the destination has a dedicated guide.",
+    "Page routes listed here describe the current query-based SPA. Keep URL changes consistent with the existing navigation system."
+  ]
+}
