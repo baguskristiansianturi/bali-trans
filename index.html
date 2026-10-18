@@ -922,7 +922,7 @@
         /* VIEW 3: PACKAGE DETAIL PAGE */
         function renderDetailView(pkg) {
             const curr = CURRENCY_RATES[currentCurrency];
-            const basePrice = curr.format(pkg.priceIDR);
+            const basePrice = 'Request a quote';
 
             return `
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -988,7 +988,7 @@
                                                         <p class="text-xs text-slate-500 mt-1">${opt.desc}</p>
                                                     </div>
                                                 </div>
-                                                <span class="text-xs font-black text-slate-900">${opt.extraPriceIDR > 0 ? '+' + curr.format(opt.extraPriceIDR) : 'Included'}</span>
+                                                <span class="text-xs font-black text-slate-700">Confirm with team</span>
                                             </div>
                                         </label>
                                     `).join('')}
@@ -1193,8 +1193,8 @@
                                     <span class="font-bold text-slate-900">Confirm with team</span>
                                 </div>
                                 <div class="flex justify-between text-xs text-slate-600">
-                                    <span>Booking fee</span>
-                                    <span class="font-bold text-slate-600">FREE</span>
+                                    <span>Payment at enquiry stage</span>
+                                    <span class="font-bold text-slate-600">Not required</span>
                                 </div>
                                 <div class="border-t border-slate-100 pt-3 flex justify-between items-center">
                                     <span class="font-extrabold text-slate-900 text-sm">Total</span>
