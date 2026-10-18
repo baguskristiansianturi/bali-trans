@@ -1134,10 +1134,10 @@
                 return `
                     <div class="max-w-2xl mx-auto px-4 py-20 text-center">
                         <div class="w-20 h-20 bg-slate-100 text-klook-orange rounded-full flex items-center justify-center text-3xl mx-auto mb-4">🛒</div>
-                        <h2 class="text-2xl font-extrabold text-slate-900 mb-2">Your Cart is Empty</h2>
-                        <p class="text-slate-500 text-sm mb-6">Explore our top Bali experiences and add them to your cart.</p>
+                        <h2 class="text-2xl font-extrabold text-slate-900 mb-2">Your Tour Enquiry List is Empty</h2>
+                        <p class="text-slate-500 text-sm mb-6">Explore our tour packages and add the ones you would like to ask about.</p>
                         <button onclick="navigateTo('packages')" class="bg-klook-orange text-white font-extrabold px-6 py-3 rounded-2xl text-xs shadow-lg shadow-orange-500/20">
-                            Browse Activities Now
+                            Browse Tour Packages
                         </button>
                     </div>
                 `;
@@ -1147,7 +1147,7 @@
 
             return `
                 <div class="max-w-5xl mx-auto px-4 sm:px-6 py-8">
-                    <h1 class="text-2xl font-black text-slate-900 mb-6">Shopping Cart (${cartState.length} Items)</h1>
+                    <h1 class="text-2xl font-black text-slate-900 mb-6">Your Tour Enquiry (${cartState.length} selected)</h1>
 
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
                         <div class="lg:col-span-8 space-y-4">
@@ -1162,7 +1162,7 @@
                                             <div>
                                                 <h4 class="font-extrabold text-slate-900 text-sm leading-snug">${item.title}</h4>
                                                 <span class="text-xs text-slate-400 block mt-1">Date: ${item.date} • Option: ${item.optionName}</span>
-                                                <span class="text-xs font-extrabold text-slate-900 block mt-1">${curr.format(item.unitPriceIDR)} / adult</span>
+                                                <span class="text-xs font-extrabold text-slate-700 block mt-1">Price confirmed by team</span>
                                             </div>
                                         </div>
 
@@ -1173,7 +1173,7 @@
                                                 <button onclick="updateCartQty(${index}, 1)" class="w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 text-xs font-bold">+</button>
                                             </div>
 
-                                            <span class="text-sm font-black text-slate-900">${curr.format(itemTotal)}</span>
+                                            <span class="text-sm font-black text-slate-700">Quote</span>
 
                                             <button onclick="removeFromCart(${index})" class="text-slate-400 hover:text-rose-500 text-xs font-bold">
                                                 <i class="fas fa-trash-alt"></i>
@@ -1187,13 +1187,13 @@
                         <!-- Order Summary Box -->
                         <div class="lg:col-span-4">
                             <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-4">
-                                <h3 class="font-extrabold text-slate-900 text-base">Order Summary</h3>
+                                <h3 class="font-extrabold text-slate-900 text-base">Enquiry Summary</h3>
                                 <div class="flex justify-between text-xs text-slate-600">
-                                    <span>Subtotal</span>
-                                    <span class="font-bold text-slate-900">${curr.format(grandTotal)}</span>
+                                    <span>Tour pricing</span>
+                                    <span class="font-bold text-slate-900">Confirm with team</span>
                                 </div>
                                 <div class="flex justify-between text-xs text-slate-600">
-                                    <span>Service & Voucher Fee</span>
+                                    <span>Booking fee</span>
                                     <span class="font-bold text-slate-600">FREE</span>
                                 </div>
                                 <div class="border-t border-slate-100 pt-3 flex justify-between items-center">
@@ -1485,7 +1485,7 @@
 
             document.getElementById('cartCountBadge').innerText = cartCount;
             document.getElementById('mobileCartBadge').innerText = cartCount;
-            document.getElementById('cartHeaderSubtotal').innerText = curr.format(cartTotal);
+            document.getElementById('cartHeaderSubtotal').innerText = cartCount > 0 ? 'Quote' : curr.format(0);
             document.getElementById('wishlistCountBadge').innerText = wishlistState.length;
         }
 
