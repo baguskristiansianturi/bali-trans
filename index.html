@@ -220,212 +220,46 @@
 
         const BALI_PACKAGES = [
             {
-                id: 'pkg-1',
-                title: 'Ubud Art Village, Tegallalang Rice Terrace & Jungle Swing Day Tour',
-                category: 'temple',
-                categoryName: 'Culture & Temple',
-                location: 'Ubud, Gianyar',
-                rating: 4.9,
-                reviewCount: 3420,
-                originalPriceIDR: 650000,
-                priceIDR: 450000,
-                badge: 'Bestseller',
-                instantConfirmation: true,
-                freeCancellation: true,
-                hotelTransfer: true,
-                heroImage: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1000&q=80',
-                gallery: [
-                    'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80',
-                    'https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=800&q=80',
-                    'https://images.unsplash.com/photo-1555400038-63f5ba517a47?auto=format&fit=crop&w=800&q=80'
-                ],
-                highlights: [
-                    'Swing high above lush tropical green jungle valleys in Tegallalang.',
-                    'Visit Sacred Monkey Forest Sanctuary and historic Ubud Palace.',
-                    'Enjoy hassle-free round-trip hotel pickup in air-conditioned vehicle.',
-                    'Sip authentic Luwak coffee at a traditional Balinese coffee plantation.'
-                ],
-                itinerary: [
-                    { time: '08:30 AM', title: 'Hotel Pickup', desc: 'Direct pick up from Kuta, Seminyak, Canggu, Sanur, or Ubud hotel.' },
-                    { time: '10:00 AM', title: 'Tegallalang Rice Terraces & Swing', desc: 'Explore UNESCO rice terraces and take iconic swing photos.' },
-                    { time: '12:30 PM', title: 'Traditional Balinese Lunch', desc: 'Enjoy authentic Nasi Campur overlooking the valley.' },
-                    { time: '02:00 PM', title: 'Sacred Monkey Forest Sanctuary', desc: 'Walk through ancient temple sanctuary with hundreds of playful macaques.' },
-                    { time: '04:30 PM', title: 'Ubud Art Market & Return', desc: 'Shop local handicrafts before relaxing return drive.' }
-                ],
-                options: [
-                    { id: 'opt-1-1', name: 'Standard Group Tour', extraPriceIDR: 0, desc: 'Shared vehicle, licensed guide, entry tickets included.' },
-                    { id: 'opt-1-2', name: 'VIP Private Driver + Buffet Lunch', extraPriceIDR: 200000, desc: 'Private luxury MPV driver, flexible schedule, gourmet lunch.' }
-                ]
-            },
-            {
-                id: 'pkg-2',
-                title: 'Nusa Penida All-Inclusive Island Day Tour (West & East Coast)',
-                category: 'nusa',
-                categoryName: 'Nusa Islands',
-                location: 'Nusa Penida Island',
-                rating: 4.95,
-                reviewCount: 5120,
-                originalPriceIDR: 950000,
-                priceIDR: 680000,
-                badge: 'Klook Choice',
-                instantConfirmation: true,
-                freeCancellation: true,
-                hotelTransfer: true,
-                heroImage: 'https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=1000&q=80',
-                gallery: [
-                    'https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=800&q=80',
-                    'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=800&q=80',
-                    'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80'
-                ],
-                highlights: [
-                    'Snap world-famous cliff photos at Kelingking T-Rex Beach.',
-                    'Swim in crystal clear natural infinity pools at Angel’s Billabong.',
-                    'Includes fast boat return tickets from Sanur harbor & island private transport.',
-                    'Snorkeling add-on available with Manta Rays at Manta Point.'
-                ],
-                itinerary: [
-                    { time: '06:30 AM', title: 'Hotel Pick-Up & Sanur Harbor Check-in', desc: 'Early transfer to ensure smooth fast boat departure.' },
-                    { time: '08:00 AM', title: 'Fast Boat Ride to Nusa Penida', desc: '45-minute speed boat ride across the Badung Strait.' },
-                    { time: '09:30 AM', title: 'Kelingking Beach Lookout', desc: 'Iconic T-Rex shaped rock formation view.' },
-                    { time: '12:00 PM', title: 'Broken Beach & Angel’s Billabong', desc: 'Marvel at natural archway and emerald lagoon.' },
-                    { time: '04:30 PM', title: 'Return Fast Boat to Bali', desc: 'Arrive back in Sanur harbor and transfer to hotel.' }
-                ],
-                options: [
-                    { id: 'opt-2-1', name: 'West Penida Highlight Tour', extraPriceIDR: 0, desc: 'Includes Kelingking, Broken Beach, Angel Billabong & Crystal Bay.' },
-                    { id: 'opt-2-2', name: 'West + Snorkeling with Manta Rays', extraPriceIDR: 300000, desc: 'Adds 2-hour boat snorkeling session at Manta Point & Gamat Bay.' }
-                ]
-            },
-            {
-                id: 'pkg-3',
-                title: 'Mount Batur Sunrise Volcano Trekking with Breakfast & Hot Springs',
-                category: 'atv',
-                categoryName: 'Trekking & Adventure',
-                location: 'Kintamani, Bali',
-                rating: 4.88,
-                reviewCount: 2890,
-                originalPriceIDR: 700000,
-                priceIDR: 490000,
-                badge: 'Top Rated',
-                instantConfirmation: true,
-                freeCancellation: true,
-                hotelTransfer: true,
-                heroImage: 'https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=1000&q=80',
-                gallery: [
-                    'https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=800&q=80',
-                    'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80'
-                ],
-                highlights: [
-                    'Hike to the summit of active Mount Batur volcano at 1,717m height.',
-                    'Watch unforgettable sunrise with steam-cooked eggs breakfast at the crater.',
-                    'Soak tired muscles in natural volcanic hot spring pools at Toya Devasya.'
-                ],
-                itinerary: [
-                    { time: '02:00 AM', title: 'Night Hotel Pickup', desc: 'Early morning pickup from your Bali hotel.' },
-                    { time: '03:30 AM', title: 'Begin Summit Trek', desc: 'Guided 2-hour climb with headlights and professional mountain guide.' },
-                    { time: '06:00 AM', title: 'Sunrise Summit Breakfast', desc: 'Enjoy hot tea, banana sandwich, and steam eggs.' },
-                    { time: '08:30 AM', title: 'Natural Hot Springs Soak', desc: 'Relaxing hot bath overlooking Lake Batur.' }
-                ],
-                options: [
-                    { id: 'opt-3-1', name: 'Standard Trekking + Hot Springs', extraPriceIDR: 0, desc: 'Includes guide, trekking pole, breakfast, and hot springs ticket.' },
-                    { id: 'opt-3-2', name: '4WD Mount Batur Jeep Sunrise (No Walking)', extraPriceIDR: 250000, desc: 'Ascend the volcanic black lava fields comfortably in a open 4x4 Jeep.' }
-                ]
-            },
-            {
-                id: 'pkg-4',
-                title: 'Tanjung Benoa Watersports: Parasailing, Jet Ski & Banana Boat',
-                category: 'water',
-                categoryName: 'Water Sports',
-                location: 'Nusa Dua, South Bali',
-                rating: 4.82,
-                reviewCount: 1940,
-                originalPriceIDR: 500000,
-                priceIDR: 320000,
-                badge: 'Flash Deal 35% OFF',
-                instantConfirmation: true,
-                freeCancellation: true,
+                id: 'lovina-dolphin-tour',
+                title: 'Lovina Dolphin Sunrise & North Bali Tour',
+                category: 'tour',
+                categoryName: 'Paket Tour',
+                location: 'Lovina, Wanagiri & Bedugul, North Bali',
+                rating: null,
+                reviewCount: 0,
+                originalPriceIDR: 0,
+                priceIDR: 175000,
+                badge: '2 Pilihan Pemesanan',
+                instantConfirmation: false,
+                freeCancellation: false,
                 hotelTransfer: false,
-                heroImage: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80',
+                heroImage: 'https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1200&q=85',
                 gallery: [
-                    'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80'
+                    'https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1200&q=85',
+                    'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1000&q=85',
+                    'https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=1000&q=85'
                 ],
                 highlights: [
-                    'Soar high over Bali tropical coastline with Tandem Parasailing Adventure.',
-                    'Ride top-tier Yamaha Jet Skis with certified instructor.',
-                    'Includes full insurance safety equipment, lockers, and shower facilities.'
+                    'Berangkat dini hari untuk menyaksikan matahari terbit dan mencari lumba-lumba liar di perairan Lovina.',
+                    'Pilih tiket Dolphin saja jika datang sendiri ke titik temu di Lovina, atau pilih paket all-in dengan transportasi pribadi dari area penjemputan yang disepakati.',
+                    'Paket all-in dirancang mencakup perjalanan perahu, transportasi pribadi pulang-pergi, tiket masuk destinasi dalam itinerary, dan makan siang.',
+                    'Lumba-lumba adalah satwa liar; kemunculannya tidak dapat dijamin. Urutan dan waktu kunjungan bisa berubah karena cuaca, kondisi laut, dan lalu lintas.'
                 ],
                 itinerary: [
-                    { time: '09:00 AM', title: 'Arrival & Safety Briefing', desc: 'Check in at watersports desk and gear up with life jackets.' },
-                    { time: '09:30 AM', title: '3 Watersport Activities', desc: 'Consecutive fun sessions on Parasailing, Jet Ski, and Banana Boat.' }
+                    { time: '03.30', title: 'Penjemputan hotel (paket all-in)', desc: 'Perkiraan waktu mulai dari area Bali Selatan/Ubud. Jam akhir dikonfirmasi berdasarkan lokasi jemput.' },
+                    { time: '05.50', title: 'Tiba di Lovina', desc: 'Bersiap di tepi pantai dan mengikuti arahan kapten perahu.' },
+                    { time: '06.00', title: 'Dolphin watching saat sunrise', desc: 'Naik perahu tradisional untuk mencari lumba-lumba di habitat alaminya. Durasi dan kondisi laut dapat bervariasi.' },
+                    { time: '09.00', title: 'Wanagiri Hidden Hills', desc: 'Persinggahan panorama perbukitan dan danau di Bali Utara (paket all-in).' },
+                    { time: '10.30', title: 'Handara Gate', desc: 'Persinggahan foto di gerbang ikonik kawasan Bedugul (paket all-in).' },
+                    { time: '11.30', title: 'Pura Ulun Danu Beratan', desc: 'Kunjungan ke pura tepi danau; waktu kunjungan mengikuti kondisi perjalanan (paket all-in).' },
+                    { time: '12.30', title: 'Makan siang', desc: 'Makan siang termasuk pada paket all-in; pilihan menu dan tempat dikonfirmasi sebelum keberangkatan.' },
+                    { time: '13.30–15.00', title: 'Perjalanan kembali', desc: 'Perkiraan kembali ke hotel. Durasi bergantung pada lokasi antar dan kondisi lalu lintas.' }
                 ],
                 options: [
-                    { id: 'opt-4-1', name: 'Fun Trio Package (Parasail + JetSki + Banana)', extraPriceIDR: 0, desc: 'Complete 3 activity combo pack.' },
-                    { id: 'opt-4-2', name: 'Extreme Sea Walker + Flying Fish Combo', extraPriceIDR: 280000, desc: 'Walk underwater on ocean floor with special air helmet.' }
-                ]
-            },
-            {
-                id: 'pkg-5',
-                title: 'Full Day Bali Private Car Charter with English Speaking Driver',
-                category: 'driver',
-                categoryName: 'Private Driver',
-                location: 'All Bali Coverage',
-                rating: 4.98,
-                reviewCount: 8900,
-                originalPriceIDR: 700000,
-                priceIDR: 520000,
-                badge: 'Super Service',
-                instantConfirmation: true,
-                freeCancellation: true,
-                hotelTransfer: true,
-                heroImage: 'https://images.unsplash.com/photo-1555400038-63f5ba517a47?auto=format&fit=crop&w=1000&q=80',
-                gallery: [
-                    'https://images.unsplash.com/photo-1555400038-63f5ba517a47?auto=format&fit=crop&w=800&q=80'
+                    { id: 'lovina-ticket-only', name: 'Tiket Dolphin saja — datang ke Lovina', priceIDR: 175000, priceMode: 'person', desc: 'Harga contoh per orang. Termasuk perjalanan perahu untuk dolphin watching; transportasi hotel, makan, dan tiket destinasi lain tidak termasuk.', includes: ['Perjalanan perahu dolphin watching', 'Bertemu langsung di titik temu Lovina'], excludes: ['Transportasi hotel', 'Makan dan minuman', 'Tiket Wanagiri, Handara Gate, dan Ulun Danu Beratan'] },
+                    { id: 'lovina-all-in', name: 'Paket All-in — transportasi pribadi + semua itinerary', priceIDR: 1850000, priceMode: 'group', maxGuests: 4, desc: 'Harga contoh per mobil untuk 1–4 tamu. Termasuk mobil pribadi pulang-pergi, sopir, bahan bakar/parkir, perahu dolphin, tiket masuk destinasi dalam itinerary, dan makan siang.', includes: ['Mobil pribadi pulang-pergi untuk 1–4 tamu', 'Sopir, bahan bakar dan parkir', 'Perahu dolphin watching', 'Tiket masuk Wanagiri, Handara Gate, dan Ulun Danu Beratan', 'Makan siang'], excludes: ['Pengeluaran pribadi', 'Makanan/minuman tambahan di luar makan siang', 'Biaya tambahan untuk lokasi jemput di luar area yang disepakati'] }
                 ],
-                highlights: [
-                    '10 Hours customizable private car charter anywhere in main island Bali.',
-                    'Fuel, parking fees, highway tolls, and friendly local driver included.',
-                    'Clean modern air-conditioned Toyota Avanza or Innova MPV.'
-                ],
-                itinerary: [
-                    { time: 'Flexible', title: 'Custom Itinerary', desc: 'You choose where to go: Seminyak, Uluwatu, Tanah Lot, Bedugul, or Kintamani!' }
-                ],
-                options: [
-                    { id: 'opt-5-1', name: 'Standard MPV (1-5 Passengers)', extraPriceIDR: 0, desc: 'Toyota Avanza or Suzuki Ertiga.' },
-                    { id: 'opt-5-2', name: 'Luxury Toyota HiAce Van (Up to 12 Passengers)', extraPriceIDR: 450000, desc: 'Spacious high-roof minibus for big families or groups.' }
-                ]
-            },
-            {
-                id: 'pkg-6',
-                title: 'Ayung River White Water Rafting & Quad Bike ATV Adventure',
-                category: 'atv',
-                categoryName: 'Trekking & Adventure',
-                location: 'Ubud, Bali',
-                rating: 4.91,
-                reviewCount: 4100,
-                originalPriceIDR: 850000,
-                priceIDR: 590000,
-                badge: 'Bestseller',
-                instantConfirmation: true,
-                freeCancellation: true,
-                hotelTransfer: true,
-                heroImage: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1000&q=80',
-                gallery: [
-                    'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80'
-                ],
-                highlights: [
-                    '2 Hours thrilling white water rafting along Ayung River rainforest gorges.',
-                    '2 Hours mud track ATV quad biking through caves, waterfalls, and rice fields.',
-                    'Hot buffet lunch and hot shower facility included.'
-                ],
-                itinerary: [
-                    { time: '08:00 AM', title: 'Hotel Pick Up', desc: 'Pickup and drive to Ubud adventure center.' },
-                    { time: '09:30 AM', title: 'White Water Rafting', desc: 'Conquer Class II & III rapids with experienced rafting guide.' },
-                    { time: '12:30 PM', title: 'Buffet Lunch', desc: 'Indonesian buffet meal overlooking jungle.' },
-                    { time: '01:30 PM', title: 'ATV Quad Bike Ride', desc: 'Ride through mud tracks, tunnels, and river bed.' }
-                ],
-                options: [
-                    { id: 'opt-6-1', name: 'Single ATV Rider + Rafting', extraPriceIDR: 0, desc: '1 Person per ATV bike.' },
-                    { id: 'opt-6-2', name: 'Tandem ATV (2 Persons on 1 ATV) + Rafting', extraPriceIDR: -100000, desc: 'Great option for couples sharing an ATV.' }
-                ]
+                pricingNote: 'Harga pada halaman demo ini masih berupa simulasi untuk menguji alur pemesanan. Harga final, area jemput, ketersediaan, menu makan, dan ketentuan operator harus dikonfirmasi sebelum produk dijual.'
             }
         ];
 
