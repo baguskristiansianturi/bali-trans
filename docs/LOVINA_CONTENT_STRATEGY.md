@@ -1,18 +1,20 @@
-# Strategi Konten Lovina — Internal
+# Strategi Konten Lovina dan Singaraja — Internal
 
 **Status:** Riset awal dan rencana editorial; bukan materi untuk halaman publik.  
-**Tujuan bisnis:** membantu calon wisatawan memahami Lovina dan Bali Utara, lalu secara alami menemukan paket Lovina Dolphin Tour Bali Trans.  
+**Tujuan:** menjangkau orang yang mencari informasi spesifik tentang Singaraja, Lovina, pantai, penginapan, dan pengalaman di Bali Utara; lalu membantu mereka menemukan paket Bali Trans jika sesuai kebutuhan.  
 **Prinsip:** satu artikel untuk satu kebutuhan pencarian yang jelas. Jangan memecah satu topik menjadi artikel tipis hanya demi menambah jumlah halaman.
 
-## 1. Temuan riset awal
+## 1. Cara berpikir riset dan temuan awal
 
-Pencarian web saat ini menunjukkan banyak halaman yang menargetkan panduan Lovina secara luas: lokasi, lumba-lumba, aktivitas, hotel, cara menuju lokasi, dan destinasi sekitar. Situs pariwisata resmi Indonesia juga sudah memiliki halaman tentang Pantai Lovina dan menjelaskan bahwa Lovina adalah kawasan pesisir yang terdiri dari beberapa desa, bukan satu titik pantai saja.
+Jangan mulai dari daftar artikel yang harus dibuat. Mulai dari pertanyaan nyata yang mungkin diketik calon wisatawan: Lovina itu di mana, apa yang ada di sana, pantai mana yang bisa dikunjungi, apakah lebih baik menginap di villa atau hotel, apa yang bisa dilakukan dekat Singaraja, dan bagaimana mengatur perjalanan.
 
-Implikasi:
-- Artikel umum “Panduan Pantai Lovina” sudah ramai persaingan. Bali Trans harus lebih berguna dan lebih terstruktur, bukan sekadar mengulang daftar yang sama.
-- Peluang paling masuk akal untuk situs yang masih membangun otoritas adalah mengembangkan beberapa kebutuhan yang lebih spesifik: tempat wisata sekitar Lovina, pengalaman dolphin watching, dan itinerary Bali Utara.
-- Artikel hotel bisa menarik pencarian dengan niat komersial, tetapi memerlukan pemeriksaan fasilitas, lokasi, kisaran harga, dan kondisi informasi yang terus berubah. Jangan menerbitkannya sebagai daftar “terbaik” tanpa kriteria yang jelas dan bukti yang memadai.
-- Hasil pencarian yang terlihat bukan data volume pencarian atau tingkat kesulitan kata kunci. Validasi prioritas selanjutnya dengan Google Search Console setelah halaman terindeks dan mengumpulkan tayangan.
+Kata kunci luas seperti “Bali” atau “hotel di Bali” cenderung lebih kompetitif. Strategi awal adalah menemukan kueri yang lebih spesifik dan sesuai kebutuhan, lalu menulis artikel yang benar-benar menjawabnya. Contoh kueri dalam dokumen ini adalah hipotesis berdasarkan intent dan hasil pencarian yang terlihat—bukan klaim bahwa volume atau kesulitannya sudah terbukti rendah. Validasi memerlukan Google Search Console dan/atau data riset kata kunci.
+
+Bentuk konten tidak harus selalu berupa panduan SEO formal. Bisa berupa cerita kawasan, pengenalan kota, artikel tentang pantai, atau panduan memilih penginapan. Cerita harus tetap berguna dan faktual; jangan mengarang pengalaman pribadi yang tidak benar-benar terjadi.
+
+Hasil pencarian menunjukkan halaman luas tentang Lovina banyak membahas lokasi, lumba-lumba, aktivitas, hotel, cara menuju lokasi, dan destinasi sekitar. Indonesia Travel menjelaskan bahwa Lovina adalah kawasan pesisir yang terdiri dari beberapa desa, bukan satu titik pantai, dan letaknya dekat Singaraja. Ini membuka ruang untuk mengembangkan topik Lovina bersama konteks Singaraja dan Bali Utara.
+
+Jangan menyebut volume pencarian atau keyword difficulty sebagai fakta tanpa data.
 
 Sumber awal untuk riset:
 - Indonesia Travel — Pantai Lovina: https://www.indonesia.travel/id/id/travel-ideas/marine/pantai-lovina
@@ -22,9 +24,66 @@ Sumber awal untuk riset:
 
 Sumber di atas adalah titik awal, bukan pengganti pemeriksaan fakta untuk setiap artikel. Periksa ulang informasi yang mudah berubah sebelum publikasi.
 
-## 2. Peta artikel dan target pencarian
+## 2. Peta topik dan contoh kueri spesifik
 
-### A. Artikel utama yang sudah ada — perbaiki dahulu
+Contoh berikut adalah hipotesis untuk diteliti, bukan klaim bahwa kata kuncinya pasti rendah persaingan.
+
+### A. Lovina: lokasi dan gambaran kawasan
+- Kueri kandidat: “Lovina di mana”, “Lovina Bali di mana”, “Lovina dekat kota apa”, “Lovina termasuk kabupaten apa”.
+- Kebutuhan: memahami lokasi, hubungan Lovina dengan Singaraja/Buleleng, karakter kawasan, dan gambaran perjalanan.
+- Pertahankan artikel utama yang sudah ada sebagai pengenalan menyeluruh. Jangan membuat artikel baru yang hanya mengulangnya.
+
+### B. Pantai di Lovina dan pesisir Bali Utara
+- Kueri kandidat: “pantai di Lovina”, “pantai dekat Singaraja”, “pantai pasir hitam Lovina”, serta nama pantai/desa spesifik setelah riset lokasi.
+- Kebutuhan: membedakan kawasan Lovina dari satu titik pantai, mengenal suasana dan aktivitas, serta memilih lokasi yang cocok.
+- Jangan menyebut semua pantai di Bali Utara sebagai bagian dari Lovina.
+
+### C. Ada apa di Lovina?
+- Kueri kandidat: “ada apa di Lovina”, “wisata Lovina selain lumba-lumba”, “tempat menarik dekat Lovina”.
+- URL kandidat: /blog/tempat-wisata-lovina-bali/.
+- Pisahkan tempat yang benar-benar dekat dari destinasi yang memerlukan perjalanan lebih jauh.
+
+### D. Menginap di Lovina: hotel, villa, dan area
+- Kueri kandidat: “villa di Lovina”, “hotel di Lovina dekat pantai”, “penginapan Lovina”, “villa dekat Pantai Lovina”, “area menginap di Lovina”.
+- Mulai dengan membantu pembaca memilih area dan tipe akomodasi. Daftar properti spesifik hanya dibuat setelah lokasi, fasilitas, tautan, dan informasi yang berubah diverifikasi.
+- Periksa apakah URL/topik serupa sudah ada sebelum menentukan slug.
+
+### E. Singaraja dan Bali Utara
+- Kueri kandidat: “Singaraja Bali ada apa”, “tempat wisata di Singaraja”, “Singaraja dekat Lovina”, “pantai dekat Singaraja”, “wisata Buleleng”.
+- Format bisa berupa pengenalan kota, cerita kawasan, atau panduan sesuai kebutuhan pencari.
+- Singaraja dapat menjadi pintu masuk ke topik Bali Utara, lalu menghubungkan pembaca ke Lovina dan destinasi lain yang relevan. Hindari halaman kota tipis yang hanya menjadi wadah kata kunci.
+
+### F. Dolphin watching
+- Kueri kandidat: “melihat lumba-lumba di Lovina”, “dolphin tour Lovina”, “jam dolphin Lovina”, “berapa lama tour lumba-lumba Lovina”.
+- URL kandidat: /blog/dolphin-watching-lovina-bali/.
+- Hubungkan ke paket Lovina Dolphin Tour bila relevan. Harga, durasi, fasilitas, dan ketentuan harus sesuai data produk yang benar.
+
+### G. Cerita destinasi
+Cerita tentang pagi di pesisir Lovina, karakter pasir hitam, kehidupan kawasan, atau perjalanan Singaraja–Lovina dapat menjadi konten bernilai jika orisinal dan faktual. Jangan mengarang pengalaman pribadi, dialog, wawancara, atau suasana seolah-olah disaksikan sendiri. Jangan memecah satu cerita menjadi banyak halaman tipis.
+
+## 3. Hubungan antartopik
+
+Bangun cluster berdasarkan hubungan geografis dan kebutuhan pembaca, bukan hanya karena semua artikel mengandung kata “Lovina”.
+- Artikel pengenalan Lovina → pantai, hal yang bisa dilakukan, menginap, Singaraja, dan dolphin watching sesuai konteks.
+- Artikel Singaraja → tempat menarik di kota, pantai/tempat sekitar, dan Lovina bila membantu rencana pembaca.
+- Artikel menginap → pantai, aktivitas, transportasi, dan paket hanya jika relevan.
+- Artikel dolphin watching → panduan Lovina dan halaman paket.
+- Artikel destinasi/cerita → tautan ke informasi lanjutan yang benar-benar membantu.
+- Halaman paket → tautan balik ke informasi yang membantu calon tamu mengambil keputusan.
+
+Tidak semua artikel harus menautkan ke semua artikel lain. Gunakan URL yang benar-benar ada dan periksa URL paket sebelum membuat CTA. Navigasi artikel harus menuju URL tersendiri, bukan scroll ke bagian halaman lain.
+
+## 4. Urutan kerja yang disarankan
+
+1. Audit artikel /blog/pantai-lovina-bali/: isi, akurasi, sumber, metadata, tautan, pengalaman mobile, dan navigasi.
+2. Petakan pertanyaan spesifik dari SERP untuk Lovina dan Singaraja; catat jenis hasil dan kebutuhan yang belum dijawab dengan baik.
+3. Periksa artikel yang sudah ada untuk menghindari duplikasi dan bentrok intent.
+4. Pilih artikel berikutnya berdasarkan kecocokan intent, manfaat bagi pembaca, kemampuan memverifikasi informasi, dan relevansi bisnis—bukan target jumlah artikel.
+5. Kembangkan topik penginapan saat sudut pandangnya jelas dan informasi dapat diverifikasi.
+6. Hubungkan artikel secara kontekstual, periksa href, lalu uji URL langsung dan navigasi di ponsel.
+7. Setelah data tersedia, gunakan Search Console untuk melihat kueri aktual, tayangan, klik, CTR, posisi rata-rata, dan halaman yang mulai mendapat impresi.
+
+## 5. Standar mutu dan pengukuran
 
 - **URL:** `/blog/pantai-lovina-bali/`
 - **Target utama:** Pantai Lovina Bali; Pantai Lovina.
@@ -104,4 +163,4 @@ Gunakan tautan HTML yang benar-benar memiliki `href`. Untuk halaman paket saat i
 - Ukur keberhasilan bisnis juga: klik dari artikel ke halaman paket, pertanyaan yang masuk, dan pemesanan yang benar-benar terjadi.
 - Perbarui artikel ketika informasi penting berubah; jangan mengganti tanggal publikasi tanpa perubahan substantif.
 
-**Kesimpulan kerja:** mulai dengan satu artikel utama yang kuat dan dua artikel pendukung yang benar-benar berbeda intent-nya. Tambahkan itinerary setelah riset rute selesai. Artikel hotel adalah peluang lanjutan, bukan kewajiban. Tujuan akhirnya adalah membantu pembaca merencanakan kunjungan Lovina dan secara alami menemukan paket yang sesuai—bukan menyisipkan promosi di setiap paragraf.
+**Kesimpulan kerja:** mulai dari pertanyaan yang benar-benar dicari orang. Jawab dengan bentuk paling membantu—panduan, penjelasan, atau cerita—lalu bangun hubungan antartopik Lovina, Singaraja, pantai, dan penginapan secara alami. SEO tumbuh dari kecocokan antara kebutuhan pencari dan isi yang berguna, bukan dari menambah halaman sebanyak-banyaknya.
