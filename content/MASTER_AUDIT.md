@@ -84,3 +84,17 @@ Categories must filter/refer to destination IDs, not create parallel copies of t
 3. Add missing destination pages and consistent article/card status behavior.
 4. Research operators as separate records only after destinations and categories are stable.
 5. Update this master data whenever a page is created, corrected, fact-checked, or published.
+
+## First source-check batch — North Bali
+
+On 18 October 2026, the first source-check batch added source links and notes for Lovina, Banjar Hot Springs, Brahmavihara-Arama, Gitgit Waterfall, Munduk, Wanagiri, Menjangan, and Gedong Kirtya. Six additional candidate records were added: Banyumala Waterfall, Lake Tamblingan, Lake Buyan, Melanting Waterfall, Singsing Waterfall, and Kroya Waterfall.
+
+Sources prioritized for this batch:
+- Visit North Bali, the Buleleng Regency tourism portal: https://visitnorthbali.bulelengkab.go.id/
+- Buleleng's official tourism-attraction inventory (2025 PDF): https://visitnorthbali.bulelengkab.go.id/uploads/konten/bank-data_daftar-nama-daya-tarik-wisata-kabupaten-buleleng_20251008_095505.pdf
+- Indonesia Travel destination pages for Lovina and Menjangan: https://www.indonesia.travel/id/id/destination/bali-nusa-tenggara/bali/bali---lovina-beach and https://www.indonesia.travel/id/en/destination/bali-nusa-tenggara/bali/bali---menjangan-island
+- Official Brahmavihara-Arama site: https://www.brahmaviharaarama.org/en
+- Buleleng Culture and Tourism Office page for Gedong Kirtya: https://disbudpar.bulelengkab.go.id/informasi/detail/artikel/gedong-kirtya-87
+- Visit Bali national-parks overview: https://www.visitbali.org/about-bali/national-parks/
+
+This batch confirms basic identity/location for several candidates, not current operating hours, entry fees, operator conduct, transport schedules, trail conditions, or current availability. Those details remain out of scope until checked individually. Menjangan's editorial-region placement and the exact scope of the combined Munduk/Wanagiri page remain explicit taxonomy decisions to resolve.
