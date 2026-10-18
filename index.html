@@ -42,6 +42,25 @@
         body { font-family: 'Inter', sans-serif; background-color: #F8FAFC; color: #1E293B; }
         .hide-scrollbar::-webkit-scrollbar { display: none; }
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        /* Keep article imagery visually consistent across stories and screen sizes. */
+        .article-reading img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            height: auto;
+            max-height: 480px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 1rem;
+            margin: 1.5rem auto;
+        }
+        .article-reading figure { margin: 1.5rem 0; }
+        .article-reading figure img { margin: 0 auto; }
+        @media (max-width: 640px) {
+            .article-reading img { aspect-ratio: 16 / 9; max-height: 280px; border-radius: .875rem; }
+        }
+        .article-reading img + em,
+        .article-reading figcaption { display: block; margin-top: .5rem; font-size: .8125rem; line-height: 1.5; color: #64748b; text-align: center; }
         .klook-shadow { box-shadow: 0 4px 25px rgba(0,0,0,0.06); }
         .klook-hover { transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); }
         #appContainer.page-view-enter { animation: pageViewEnter 240ms cubic-bezier(0.22, 1, 0.36, 1) both; }
