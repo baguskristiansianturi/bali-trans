@@ -1170,48 +1170,6 @@
 
                         <div class="mx-auto mt-8 grid max-w-6xl grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_260px] lg:gap-12">
                             <article class="min-w-0">
-                                ${toc.length >= 4 ? `
-                                    <details class="mb-7 rounded-xl border border-slate-200 bg-slate-50 p-4 sm:p-5" open>
-                                        <summary class="cursor-pointer text-sm font-extrabold text-slate-900">In this guide</summary>
-                                        <ol class="mt-3 list-decimal space-y-2 pl-5">
-                                            ${toc.map(item => '<li class="' + (item.level === 3 ? 'ml-3' : '') + '"><a href="#' + item.id + '" class="text-sm leading-6 text-teal-800 hover:underline">' + item.title + '</a></li>').join('')}
-                                        </ol>
-                                    </details>
-                                ` : ''}
-                                <div class="article-reading max-w-none text-base leading-8 text-slate-700 sm:text-[17px] sm:leading-[1.9]">
-                                    ${articleContent}
-                                </div>
-
-                                <section class="mt-9 rounded-2xl border border-teal-100 bg-teal-50/70 p-5 sm:p-6" aria-label="Plan your Bali trip">
-                                    <p class="text-xs font-extrabold uppercase tracking-wider text-teal-800">Plan your trip</p>
-                                    <h2 class="mt-2 text-xl font-black text-slate-950 sm:text-2xl">Need transport or a tour in Bali?</h2>
-                                    <p class="mt-2 text-sm leading-6 text-slate-600">Explore available tour options and private transport, then check the details that fit your itinerary.</p>
-                                    <a href="?view=packages" class="mt-4 inline-flex items-center gap-2 rounded-full bg-teal-700 px-5 py-3 text-sm font-extrabold text-white transition hover:bg-teal-800">Explore tours and transport <i class="fas fa-arrow-right"></i></a>
-                                </section>
-
-                                <section class="mt-8 flex items-start gap-4 border-y border-slate-200 py-5" aria-label="About the author">
-                                    <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-teal-50 text-teal-800"><i class="fas fa-map-marked-alt text-lg"></i></div>
-                                    <div>
-                                        <h2 class="font-extrabold text-slate-900">Bali Trans Editorial Team</h2>
-                                        <p class="mt-1 text-sm leading-6 text-slate-600">Practical travel information to help guests compare Bali tours and transport options. We aim to make trip details easier to understand before you enquire.</p>
-                                    </div>
-                                </section>
-
-                                <nav aria-label="Previous and next articles" class="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
-                                    ${previousBlog ? '<a href="' + articleUrl(previousBlog.id) + '" class="rounded-xl border border-slate-200 p-4 transition hover:border-teal-300"><span class="text-xs font-bold uppercase tracking-wider text-slate-500"><i class="fas fa-arrow-left mr-1"></i> Previous article</span><span class="mt-2 block font-extrabold leading-snug text-slate-900">' + previousBlog.title + '</span></a>' : '<div></div>'}
-                                    ${nextBlog ? '<a href="' + articleUrl(nextBlog.id) + '" class="rounded-xl border border-slate-200 p-4 transition hover:border-teal-300 sm:text-right"><span class="text-xs font-bold uppercase tracking-wider text-slate-500">Next article <i class="fas fa-arrow-right ml-1"></i></span><span class="mt-2 block font-extrabold leading-snug text-slate-900">' + nextBlog.title + '</span></a>' : '<div></div>'}
-                                </nav>
-                            </article>
-
-                            <aside class="min-w-0">
-                                ${toc.length >= 4 ? `
-                                    <div class="rounded-xl border border-slate-200 bg-white p-4 lg:sticky lg:top-24">
-                                        <h2 class="text-sm font-extrabold text-slate-900">In this guide</h2>
-                                        <ol class="mt-3 space-y-2 border-l-2 border-teal-100 pl-4">
-                                            ${toc.map(item => '<li class="' + (item.level === 3 ? '' : 'font-semibold') + '"><a href="#' + item.id + '" class="text-sm leading-5 text-slate-600 hover:text-teal-700">' + item.title + '</a></li>').join('')}
-                                        </ol>
-                                    </div>
-                                ` : ''}
                                 <div class="mt-4 rounded-xl bg-slate-50 p-4">
                                     <p class="text-xs font-extrabold uppercase tracking-wider text-slate-500">Bali Trans</p>
                                     <p class="mt-2 text-sm leading-6 text-slate-600">Tour ideas and private transport options for exploring Bali at your own pace.</p>
