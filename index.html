@@ -1612,11 +1612,12 @@
             if (dropdown) dropdown.classList.add('hidden');
         }
         document.addEventListener('click', function(event) {
-            const header = document.querySelector('header');
-            if (header && !header.contains(event.target)) {
-                closeMobileMenu();
-                closeHeaderSearch();
-            }
+            const menuPanel = document.getElementById('mobileMenuPanel');
+            const menuButton = document.getElementById('mobileMenuButton');
+            const searchPanel = document.getElementById('headerSearchPanel');
+            const searchButton = document.getElementById('headerSearchButton');
+            if (menuPanel && !menuPanel.contains(event.target) && !menuButton?.contains(event.target)) closeMobileMenu();
+            if (searchPanel && !searchPanel.contains(event.target) && !searchButton?.contains(event.target)) closeHeaderSearch();
         });
         function showRegisterPrompt() {
             showToast('Pendaftaran akun belum aktif. Untuk bantuan pemesanan, silakan hubungi kami melalui Contact.');
