@@ -539,10 +539,11 @@
           const regionKeys=regionAliases[regionMatch[1]]||[regionMatch[1]];
           const selectedGroups=BALI_REGION_GROUPS.filter(function(item){return regionKeys.includes(item.key);});
           if(!selectedGroups.length) return renderRegionDirectory();
-          const group=selectedGroups.length===1?selectedGroups[0]:{
-            label:({south:'Bali Selatan',central:'Bali Tengah',east:'Bali Timur',west:'Bali Barat',north:'Bali Utara'})[regionMatch[1]]||'Bali',
-            intro:({south:'Pantai, kawasan kota, dan tempat wisata di bagian selatan Bali.',central:'Desa budaya, lanskap sawah, pegunungan, dan danau di Bali Tengah.',east:'Pura, pesisir, dan warisan sejarah di Bali Timur.',west:'Pesisir barat dan kawasan konservasi Bali Barat.',north:'Pesisir, air terjun, dan pegunungan di Bali Utara.'})[regionMatch[1]]||'Jelajahi destinasi Bali berdasarkan wilayah.'
-          };
+          const aliasLabels={south:'Bali Selatan',central:'Bali Tengah',east:'Bali Timur',west:'Bali Barat',north:'Bali Utara'};
+          const aliasIntros={south:'Pantai, kawasan kota, dan tempat wisata di bagian selatan Bali.',central:'Desa budaya, lanskap sawah, pegunungan, dan danau di Bali Tengah.',east:'Pura, pesisir, dan warisan sejarah di Bali Timur.',west:'Pesisir barat dan kawasan konservasi Bali Barat.',north:'Pesisir, air terjun, dan pegunungan di Bali Utara.'};
+          const group=aliasLabels[regionMatch[1]]
+            ? {label:aliasLabels[regionMatch[1]],intro:aliasIntros[regionMatch[1]]}
+            : selectedGroups[0];
           const places=BALI_DESTINATIONS.filter(function(p){return regionKeys.includes(p.regionKey);});
           const cards=places.map(function(p){
             const href=regionKeys.length===1 && regionKeys[0]==='buleleng'?'/bali-trans/places/bali-utara/'+p.slug+'/':'?view=place&id='+encodeURIComponent(p.slug);
