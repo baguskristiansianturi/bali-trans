@@ -411,10 +411,27 @@
         /* ==========================================================================
            2. NAVIGATION & ROUTING ENGINE
            ========================================================================== */
-        function navigateTo(viewName, params = null) {
+        function navigateTo(viewName, params = null, navigationOptions = {}) {
             const container = document.getElementById('appContainer');
             document.body.classList.toggle('checkout-mode', viewName === 'checkout');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Treat view changes as page navigation: update browser history and URL,
+            // and reset scroll instantly instead of animating through the old page.
+            if (navigationOptions.history !== false && window.history && window.history.pushState) {
+                const url = new URL(window.location.href);
+                url.searchParams.delete('tour');
+                if (viewName === 'home') {
+                    url.searchParams.delete('page');
+                    url.searchParams.delete('item');
+                } else {
+                    url.searchParams.set('page', viewName);
+                    if (params !== null && params !== undefined && params !== '') url.searchParams.set('item', String(params));
+                    else url.searchParams.delete('item');
+                }
+                const state = { baliTransView: viewName, baliTransParams: params };
+                if (navigationOptions.replace) window.history.replaceState(state, '', url);
+                else if (url.href !== window.location.href) window.history.pushState(state, '', url);
+            }
             syncLocaleSelector();
 
             switch (viewName) {
@@ -462,6 +479,7 @@
             }
             updateBadges();
             applyLanguageCopy(document);
+            window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
         }
 
         /* ==========================================================================
@@ -1944,14 +1962,25 @@
            Render as soon as the HTML is parsed. window.onload waits for every
            image/font/external resource, making the header and footer appear
            before the main view on slower mobile connections. */
-        function startBaliTransApp() {
-            const requestedTour = new URLSearchParams(window.location.search).get('tour');
-            if (requestedTour === 'lovina-dolphin-tour') {
-                navigateTo('detail', 'lovina-dolphin-tour');
-            } else {
-                navigateTo('home');
-            }
+        function readRouteFromUrl() {
+            const query = new URLSearchParams(window.location.search);
+            const requestedTour = query.get('tour');
+            if (requestedTour === 'lovina-dolphin-tour') return { view: 'detail', params: requestedTour };
+            const view = query.get('page') || 'home';
+            const supportedViews = ['home','about','contact','packages','discovery','detail','blog','blog-read','cart','checkout'];
+            return {
+                view: supportedViews.includes(view) ? view : 'home',
+                params: query.get('item') || (view === 'discovery' ? 'region:south' : null)
+            };
         }
+        function startBaliTransApp() {
+            const route = readRouteFromUrl();
+            navigateTo(route.view, route.params, { replace: true });
+        }
+        window.addEventListener('popstate', () => {
+            const route = readRouteFromUrl();
+            navigateTo(route.view, route.params, { history: false });
+        });
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', startBaliTransApp, { once: true });
         } else {
