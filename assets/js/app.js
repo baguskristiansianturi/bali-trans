@@ -294,7 +294,7 @@
         function renderLocationFromUrl(options = {}) {
             const query = new URLSearchParams(window.location.search);
             const legacyTour = query.get('tour');
-            const pathMatch = window.location.pathname.match(/\\/blog\\/([^/]+)\\/?$/);
+            const pathMatch = window.location.pathname.match(/\/blog\/([^/]+)\/?$/);
             const pathArticle = pathMatch ? BALI_BLOGS.find(item => (item.slug || item.id) === decodeURIComponent(pathMatch[1])) : null;
             const viewName = pathArticle ? 'blog-read' : (query.get('view') || (legacyTour ? 'detail' : 'home'));
             const params = pathArticle ? pathArticle.id : (query.get('id') || (viewName === 'detail' ? legacyTour : null));
