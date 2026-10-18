@@ -249,7 +249,9 @@
                     container.innerHTML = renderDiscoveryView(params || 'region:south');
                     break;
                 case 'place':
-                    container.innerHTML = params === 'bali-utara' ? renderNorthBaliHub() : renderPlaceDetail(params);
+                    if (params === 'region-directory') container.innerHTML = renderRegionDirectory();
+                    else if (params === 'bali-utara') container.innerHTML = renderNorthBaliHub();
+                    else container.innerHTML = renderPlaceDetail(params);
                     break;
                 case 'detail':
                     if (params) {
