@@ -73,3 +73,19 @@ Scope: static source audit and safe refactor of the existing single-page prototy
 - Replaced countdown/discount urgency and instant-booking claims with accurate prototype wording.
 - Standardized visible brand text to Bali Trans and replaced homepage category emoji with Font Awesome icons.
 - Automated validation checks source structure only; final visual verification still requires checking the live GitHub Pages page on a phone at narrow viewport widths.
+
+
+## Destination/article hierarchy correction (2026-10-19)
+
+- The region map contains 59 destination slugs across 12 region/island groups.
+- The original destination content array contained only 25 full editorial records. The remaining 34 mapped destinations are now added to the region directory as explicitly unreviewed records; they have no invented destination copy or unverified hero image.
+- Only `pantai-lovina` is currently mapped to a published destination article: `blog/pantai-lovina-bali/index.html`. All other destination cards show **Artikel sedang diaudit** until an article is actually published.
+- Broad region hubs remain pages. Destination-specific detail navigation now goes through the published blog article when available, otherwise to an editorial-status view.
+- The 26 legacy destination-detail HTML URLs under `places/` (including the duplicate Menjangan route) now redirect into the blog article or editorial-status route. The broad `places/bali-utara/` hub is preserved.
+- JavaScript source compilation passed after the routing and directory changes. GitHub Pages workflow run `39177890770` for commit `ea6e6447464e38ff1fbb5688963b2af15f224837` completed successfully. This confirms deployment, not full browser/mobile visual QA.
+
+## Activity inventory gap (2026-10-19)
+
+- Homepage currently has broad interest entry points for culture/temples, beaches/watersports, outdoor adventures, island trips, private transport, and local guides.
+- The current package catalogue is still prototype-sized and does not provide a complete structured inventory for all activity families requested for the eventual site (including adventure, watersports, rafting, safari/wildlife, Bali Zoo, Waterbom, nature, culinary, wellness, nightlife, and family/education).
+- Do not present an activity as available/bookable just because its category exists. Each activity needs either a real published article/detail route or a clear audit status until the content and offer are ready.
