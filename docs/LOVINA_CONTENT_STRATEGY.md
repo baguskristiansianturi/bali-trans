@@ -83,7 +83,61 @@ Tidak semua artikel harus menautkan ke semua artikel lain. Gunakan URL yang bena
 6. Hubungkan artikel secara kontekstual, periksa href, lalu uji URL langsung dan navigasi di ponsel.
 7. Setelah data tersedia, gunakan Search Console untuk melihat kueri aktual, tayangan, klik, CTR, posisi rata-rata, dan halaman yang mulai mendapat impresi.
 
-## 5. Standar mutu dan pengukuran
+
+## 6. Portofolio kandidat 30 artikel — berdasarkan intent, bukan wilayah semata
+
+Ini adalah backlog editorial untuk riset dan seleksi, bukan instruksi menerbitkan 30 halaman sekaligus. Urutan final harus ditentukan setelah audit URL yang sudah ada, pemeriksaan hasil pencarian untuk tiap kueri, dan penilaian apakah kita dapat memberi jawaban yang lebih berguna daripada hasil yang ada. Volume dan tingkat persaingan belum diukur, jadi jangan menyebut kandidat ini sebagai kata kunci terbukti rendah.
+
+### Cluster 1 — Lovina: dasar dan pertanyaan awal
+1. **Pantai Lovina Bali: Lokasi, Suasana, dan Hal yang Perlu Diketahui** — artikel utama yang sudah ada; perbaiki, jangan duplikasi.
+2. **Lovina Ada di Mana? Lokasi, Wilayah, dan Cara Menuju ke Sana** — hanya jika audit menunjukkan intent lokasi belum terjawab memadai oleh artikel utama.
+3. **Pantai Lovina Pasir Hitam atau Putih? Mengenal Karakter Pesisirnya** — verifikasi fakta lokasi dan jangan menggeneralisasi seluruh pesisir.
+4. **Apa yang Bisa Dilakukan di Lovina Selain Melihat Lumba-Lumba?**
+5. **Kapan Waktu yang Cocok Mengunjungi Lovina?** — bedakan cuaca/musim dari jaminan melihat satwa; periksa sumber cuaca dan kondisi lokal.
+6. **Berapa Lama Sebaiknya Menginap di Lovina?** — bantu pembaca memilih durasi berdasarkan minat dan rute realistis.
+
+### Cluster 2 — pantai dan destinasi Bali Utara
+7. **50 Tempat Wisata di Bali Utara: Peta Pilihan Berdasarkan Area dan Jenis Wisata** — halaman komprehensif hanya jika setiap tempat diverifikasi; kelompokkan per area dan jangan menyebut semua lokasi sebagai dekat Lovina.
+8. **Pantai-Pantai di Bali Utara: Perbedaan Lokasi dan Karakternya** — cakupan jelas, bukan sekadar daftar nama.
+9. **Tempat Wisata Dekat Pantai Lovina yang Bisa Dikunjungi dalam Setengah Hari**
+10. **Air Terjun di Bali Utara: Lokasi, Akses, dan Hal yang Perlu Disiapkan**
+11. **Pemandian Air Panas di Sekitar Lovina: Pilihan dan Perbandingan**
+12. **Danau dan Pegunungan Bali Utara: Apakah Cocok Digabung dengan Lovina?**
+13. **Wisata Keluarga di Bali Utara: Memilih Tempat Sesuai Usia dan Waktu**
+14. **Wisata Alam Bali Utara untuk Pengunjung yang Tidak Ingin Terlalu Banyak Berjalan**
+15. **Rute Wisata Bali Utara dari Lovina: Mana yang Dekat dan Mana yang Jauh?**
+
+### Cluster 3 — harga, penginapan, dan keputusan menginap
+16. **Harga Villa di Lovina: Faktor yang Mempengaruhi Biaya per Malam** — cek tarif bertanggal, tipe villa, kapasitas, musim, pajak, dan biaya tambahan; jangan menyajikan satu harga sebagai harga umum.
+17. **Villa Murah di Lovina: Cara Membandingkan Lokasi, Fasilitas, dan Biaya Tambahan** — jangan membuat klaim “termurah” tanpa data pembanding terkini.
+18. **Villa dengan Kolam Renang Pribadi di Lovina: Hal yang Perlu Dicek Sebelum Memesan** — sebut properti hanya setelah fasilitas dikonfirmasi.
+19. **Hotel Dekat Pantai Lovina: Memilih Berdasarkan Lokasi dan Kebutuhan**
+20. **Penginapan di Lovina untuk Keluarga: Kapasitas, Akses, dan Fasilitas**
+21. **Menginap di Lovina atau Singaraja: Mana yang Lebih Cocok untuk Rencana Perjalanan Anda?**
+22. **Biaya Menginap di Lovina: Apa Saja yang Perlu Masuk Anggaran?** — harga dinamis harus diberi tanggal pemeriksaan dan sumber.
+23. **Area Menginap di Lovina: Memilih Berdasarkan Pantai, Makanan, dan Transportasi**
+
+### Cluster 4 — transportasi, itinerary, dan perencanaan
+24. **Cara ke Lovina dari Bandara Ngurah Rai: Pilihan Transportasi dan Pertimbangan Waktu** — verifikasi rute, waktu tempuh, dan biaya sebelum menulis angka.
+25. **Cara Pergi dari Ubud ke Lovina: Rute dan Tempat Singgah yang Masuk Akal**
+26. **Itinerary Bali Utara 1 Hari: Pilih Destinasi Tanpa Terburu-buru**
+27. **Itinerary Lovina 2 Hari 1 Malam: Pantai, Penginapan, dan Aktivitas**
+28. **Perjalanan ke Lovina dengan Anak: Hal yang Perlu Direncanakan**
+29. **Dolphin Watching Lovina: Waktu Berangkat, Persiapan, dan Ekspektasi**
+30. **Transportasi di Lovina: Kapan Perlu Kendaraan Pribadi dan Kapan Tidak?**
+
+### Cara memilih artikel pertama
+
+Jangan otomatis menerbitkan nomor 1 sampai 30 secara berurutan. Untuk tiap kandidat:
+- Periksa kueri aktual dan fitur hasil pencarian (peta, video, daftar hotel, forum, jawaban langsung, dan halaman kompetitor).
+- Cari pola intent yang cukup spesifik dan pastikan artikel bisa menjawabnya dengan lebih lengkap atau lebih jelas.
+- Nilai peluang praktis, bukan hanya dugaan volume: apakah informasi bisa diverifikasi, apakah topik terlalu dikuasai platform besar, apakah halaman kita dapat memiliki sudut yang berbeda, dan apakah ada hubungan alami ke halaman lain.
+- Audit artikel yang sudah ada supaya tidak ada dua URL yang menargetkan pertanyaan yang sama.
+- Gunakan data Search Console setelah tersedia. Jika belum ada data, nyatakan prioritas sebagai hipotesis dan lakukan uji bertahap.
+- Untuk topik harga, hotel, villa, akses, dan waktu tempuh, tampilkan tanggal pemeriksaan dan perbarui saat informasi berubah.
+- Halaman “50 tempat wisata” harus menjadi indeks yang benar-benar berguna: pengelompokan area, ringkasan tiap tempat, jarak/rute yang telah dicek, serta tautan ke artikel khusus bila ada. Jangan menggelembungkan daftar dengan lokasi yang tidak relevan atau tidak terverifikasi.
+
+## 7. Standar mutu dan pengukuran
 
 - **URL:** `/blog/pantai-lovina-bali/`
 - **Target utama:** Pantai Lovina Bali; Pantai Lovina.
