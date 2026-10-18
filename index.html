@@ -700,7 +700,7 @@
                     <div class="absolute inset-0 -z-10 bg-gradient-to-r from-slate-950/90 via-slate-950/65 to-slate-950/25"></div>
                     <div class="mx-auto w-full max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
                         <div class="max-w-3xl">
-                            <span class="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-1.5 text-xs font-bold text-teal-200 backdrop-blur"><i class="fas fa-compass"></i> EXPLORE BALI, REGION BY REGION</span>
+                            <span class="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-1.5 text-xs font-bold text-teal-200 backdrop-blur"><i class="fas fa-compass"></i> DISCOVER BALI</span>
                             <h1 class="mt-5 max-w-2xl text-4xl font-black leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">Find your way around <span class="text-teal-300">Bali</span></h1>
                             <p class="mt-4 max-w-2xl text-sm leading-6 text-slate-200 sm:text-base">From coastal towns and island trips to highland villages and cultural landmarks. Start with an area or search for an activity that fits your plans.</p>
                             <div class="mt-7 flex max-w-2xl flex-col gap-2 rounded-2xl bg-white p-2 shadow-2xl sm:flex-row">
@@ -727,7 +727,7 @@
                 </section>
 
                 <section class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 sm:py-16">
-                    <div class="mb-6 flex items-end justify-between gap-4"><div><p class="text-xs font-extrabold uppercase tracking-[.16em] text-teal-700">Explore by region</p><h2 class="mt-2 text-2xl font-black tracking-tight text-slate-900 sm:text-3xl">Which part of Bali would you like to see?</h2><p class="mt-2 max-w-2xl text-sm leading-6 text-slate-600">Choose a region first. Each area has its own destinations, travel distances and experiences.</p></div></div>
+                    <div class="mb-6 flex items-end justify-between gap-4"><div><p class="text-xs font-extrabold uppercase tracking-[.16em] text-teal-700">Explore by region</p><h2 class="mt-2 text-2xl font-black tracking-tight text-slate-900 sm:text-3xl">Explore places you’ll love in Bali</h2><p class="mt-2 max-w-2xl text-sm leading-6 text-slate-600">From coastal escapes to cultural landmarks and green highlands, find places and experiences for your Bali trip.</p></div></div>
                     <div class="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 lg:grid-cols-3">
                         ${regions.map(region => `<button type="button" onclick="navigateTo('discovery','${region.key}')" class="group w-[78vw] max-w-[320px] shrink-0 snap-start overflow-hidden rounded-2xl border border-slate-200 bg-white text-left shadow-sm transition hover:-translate-y-1 hover:shadow-lg sm:w-auto sm:max-w-none">
                             <div class="relative h-40 overflow-hidden"><img src="${region.image}" alt="${region.title}" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-105"><span class="absolute bottom-3 left-3 rounded-full bg-slate-950/75 px-3 py-1 text-[11px] font-bold text-white">${region.places}</span></div>
