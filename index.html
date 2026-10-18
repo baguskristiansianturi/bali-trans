@@ -64,7 +64,7 @@
 <body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col pb-16 md:pb-0">
 
     <!-- TOP ANNOUNCEMENT BAR -->
-    <div class="bg-gradient-to-r from-orange-600 to-amber-500 text-white text-xs sm:text-sm py-2 px-4 text-center font-medium flex justify-between items-center px-4 md:px-12">
+    <div class="bg-gradient-to-r from-orange-600 to-amber-500 text-white text-xs sm:text-sm py-1.5 px-4 text-center font-medium flex justify-between items-center md:px-12">
         <div class="hidden md:flex items-center space-x-2">
             <span class="bg-white/20 px-2 py-0.5 rounded text-xs uppercase tracking-wider font-bold">Explore Bali</span>
             <span>🌴 Discover Bali tours, island trips and private transport.</span>
@@ -72,7 +72,7 @@
         <div class="w-full md:w-auto flex items-center justify-between md:justify-end space-x-4 text-xs">
             <span id="countdownTimer" class="font-bold">Plan your Bali trip</span>
             <div class="flex items-center space-x-3 border-l border-white/30 pl-3">
-                <span id="topLiveChatStatus" class="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-2.5 py-1 text-xs font-semibold leading-none whitespace-nowrap" role="status" aria-live="polite"><span id="topLiveChatDot" class="h-2 w-2 rounded-full bg-slate-300"></span><i class="far fa-comments"></i><span id="topLiveChatLabel">Live Chat</span><span aria-hidden="true">·</span><span id="topLiveChatState">Offline</span></span>
+                <span id="topLiveChatStatus" class="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-2 py-1 text-[11px] font-semibold leading-none whitespace-nowrap" role="status" aria-live="polite"><span id="topLiveChatDot" class="h-2 w-2 rounded-full bg-slate-300"></span><i class="far fa-comments"></i><span id="topLiveChatLabel">Live Chat</span><span aria-hidden="true">·</span><span id="topLiveChatState">Offline</span></span>
             </div>
         </div>
     </div>
@@ -1528,6 +1528,103 @@
           hi:{"Beranda":"होम","Tur & Layanan":"टूर और सेवाएँ","Tentang Kami":"हमारे बारे में","Kontak":"संपर्क करें","Pesan sekarang":"अभी बुक करें","Lihat detail":"विवरण देखें","Lihat semua":"सभी देखें","Pelajari lebih lanjut":"और जानें","Baca selengkapnya":"और पढ़ें","Mulai dari":"शुरुआती कीमत","per orang":"प्रति व्यक्ति","Tur populer":"लोकप्रिय टूर","Destinasi pilihan":"शीर्ष गंतव्य","Butuh bantuan?":"मदद चाहिए?","Kirim pesan":"संदेश भेजें","Explore Bali":"बाली घूमें","Home":"होम","Tours & Services":"टूर और सेवाएँ","About Us":"हमारे बारे में","Contact":"संपर्क करें","Book now":"अभी बुक करें","Book Now":"अभी बुक करें","View details":"विवरण देखें","View all":"सभी देखें","Learn more":"और जानें","Read more":"और पढ़ें","From":"शुरुआती कीमत","per person":"प्रति व्यक्ति","Popular tours":"लोकप्रिय टूर","Top destinations":"शीर्ष गंतव्य","Need help?":"मदद चाहिए?","Send message":"संदेश भेजें","Offline":"ऑफ़लाइन","Live chat":"लाइव चैट","Continue on WhatsApp":"WhatsApp पर जारी रखें"}
         };
         function translateCopy(value){if(!value)return value;let out=value;if(currentLanguage==='id'){Object.keys(BALI_TRANSLATIONS).sort((a,b)=>b.length-a.length).forEach(k=>out=out.split(k).join(BALI_TRANSLATIONS[k]));}else if(currentLanguage==='en'){const rev={};Object.keys(BALI_TRANSLATIONS).forEach(k=>{if(!rev[BALI_TRANSLATIONS[k]])rev[BALI_TRANSLATIONS[k]]=k;});Object.keys(rev).sort((a,b)=>b.length-a.length).forEach(k=>out=out.split(k).join(rev[k]));}else{const map=EXTRA_LOCALE_COPY[currentLanguage]||{};Object.keys(map).sort((a,b)=>b.length-a.length).forEach(k=>out=out.split(k).join(map[k]));}return out;}
+        // Locale dropdown and page-copy translation helpers.
+        function toggleLocaleMenu(event) {
+            if (event) event.stopPropagation();
+            const menu = document.getElementById('localeMenu');
+            const button = document.getElementById('localeButton');
+            if (!menu) return;
+            const opening = menu.classList.contains('hidden');
+            closeHeaderSearch();
+            closeMobileMenu();
+            menu.classList.toggle('hidden', !opening);
+            if (button) button.setAttribute('aria-expanded', String(opening));
+        }
+        function closeLocaleMenu() {
+            const menu = document.getElementById('localeMenu');
+            const button = document.getElementById('localeButton');
+            if (menu) menu.classList.add('hidden');
+            if (button) button.setAttribute('aria-expanded', 'false');
+        }
+        function syncLocaleSelector() {
+            const setting = LOCALE_SETTINGS[currentLanguage] || LOCALE_SETTINGS.id;
+            const flag = document.getElementById('localeCurrentFlag');
+            const code = document.getElementById('localeCurrentCode');
+            if (flag) flag.textContent = setting.flag;
+            if (code) code.textContent = setting.code;
+            const ids = {id:'localeCheckId',ms:'localeCheckMs',sg:'localeCheckSg',en:'localeCheckEn',ar:'localeCheckAr',hi:'localeCheckHi'};
+            Object.entries(ids).forEach(([lang,id]) => {
+                const el = document.getElementById(id);
+                if (el) el.classList.toggle('hidden', lang !== currentLanguage);
+            });
+            if (document.documentElement) {
+                document.documentElement.lang = setting.lang;
+                document.documentElement.dir = setting.dir;
+            }
+        }
+        function applyLanguageCopy(root) {
+            const scope = root || document;
+            if (!scope || !scope.querySelectorAll) return;
+            const walker = document.createTreeWalker(scope, NodeFilter.SHOW_TEXT, {
+                acceptNode(node) {
+                    if (!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+                    const parent = node.parentElement;
+                    if (!parent || /^(SCRIPT|STYLE|NOSCRIPT|TEXTAREA|INPUT|OPTION)$/i.test(parent.tagName)) return NodeFilter.FILTER_REJECT;
+                    if (parent.closest('[data-no-translate]')) return NodeFilter.FILTER_REJECT;
+                    return NodeFilter.FILTER_ACCEPT;
+                }
+            });
+            const nodes = [];
+            while (walker.nextNode()) nodes.push(walker.currentNode);
+            nodes.forEach(node => {
+                if (!originalTextNodes.has(node)) originalTextNodes.set(node, node.nodeValue);
+                node.nodeValue = translateCopy(originalTextNodes.get(node));
+            });
+            scope.querySelectorAll('input[placeholder],textarea[placeholder],button[aria-label],input[aria-label]').forEach(el => {
+                if (!originalAttributes.has(el)) originalAttributes.set(el, {placeholder:el.getAttribute('placeholder'),aria:el.getAttribute('aria-label')});
+                const attrs = originalAttributes.get(el);
+                if (attrs.placeholder !== null) el.setAttribute('placeholder', translateCopy(attrs.placeholder));
+                if (attrs.aria !== null) el.setAttribute('aria-label', translateCopy(attrs.aria));
+            });
+        }
+        function changeLocale(language) {
+            if (!LOCALE_SETTINGS[language]) return;
+            currentLanguage = language;
+            currentCurrency = LOCALE_SETTINGS[language].currency;
+            try {
+                localStorage.setItem('baliTransLanguage', language);
+                localStorage.setItem('baliTransCurrency', currentCurrency);
+            } catch (e) {}
+            syncLocaleSelector();
+            closeLocaleMenu();
+            applyLanguageCopy(document);
+            if (typeof updateLiveChatStatus === 'function') updateLiveChatStatus();
+            // Re-render active view so generated cards use the selected locale too.
+            if (typeof navigateTo === 'function') navigateTo('home');
+            setTimeout(() => applyLanguageCopy(document), 80);
+        }
+        if (!window.__baliTransLocaleObserver) {
+            window.__baliTransLocaleObserver = new MutationObserver(records => {
+                if (window.__baliTransTranslating) return;
+                window.__baliTransTranslating = true;
+                records.forEach(record => {
+                    record.addedNodes && record.addedNodes.forEach(node => {
+                        if (node.nodeType === Node.ELEMENT_NODE) applyLanguageCopy(node);
+                        else if (node.nodeType === Node.TEXT_NODE && node.parentElement && !/^(SCRIPT|STYLE)$/i.test(node.parentElement.tagName)) {
+                            if (!originalTextNodes.has(node)) originalTextNodes.set(node, node.nodeValue);
+                            node.nodeValue = translateCopy(originalTextNodes.get(node));
+                        }
+                    });
+                });
+                window.__baliTransTranslating = false;
+            });
+            document.addEventListener('DOMContentLoaded', () => {
+                syncLocaleSelector();
+                applyLanguageCopy(document);
+                window.__baliTransLocaleObserver.observe(document.body, {childList:true,subtree:true});
+            }, {once:true});
+        }
+
         // Presence display: offline by default until a real admin-presence service is connected.
         window.BALI_TRANS_ADMIN_ONLINE = window.BALI_TRANS_ADMIN_ONLINE === true;
         function updateLiveChatStatus() {
@@ -1542,7 +1639,7 @@
             if (badge) badge.setAttribute('aria-label', 'Live Chat ' + (online ? 'Online' : 'Offline'));
         }
         function changeLanguage(language) { changeLocale(language); }
-        document.addEventListener('DOMContentLoaded',function(){syncLocaleSelector();document.documentElement.dir=LOCALE_SETTINGS[currentLanguage].dir;updateLiveChatStatus();});
+        document.addEventListener('DOMContentLoaded',function(){syncLocaleSelector();updateLiveChatStatus();});
 
         let recentlyViewedState = [];
         try { recentlyViewedState = JSON.parse(localStorage.getItem('baliTransRecentlyViewed') || '[]'); } catch(e) { recentlyViewedState = []; }
