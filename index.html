@@ -697,7 +697,7 @@
                     <div class="mb-8">
                         <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Produk pertama Bali Trans</span>
                         <h1 class="text-3xl font-extrabold text-slate-900">Paket Tour & Tiket Aktivitas</h1>
-                        <p class="text-sm text-slate-500 mt-2 max-w-2xl">Mulai dari satu produk yang lengkap: Lovina, dengan pilihan tiket dolphin saja atau paket all-in.</p>
+                        <p class="text-sm text-slate-500 mt-2 max-w-2xl">Mulai dari Paket Tour Lovina yang bisa disesuaikan dengan pilihan aktivitas dan kunjungan wisata.</p>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         ${renderPackageCards(BALI_PACKAGES)}
@@ -875,7 +875,7 @@
 
                             <section id="itinerary" class="detail-section bg-white rounded-2xl border border-slate-200 p-5 sm:p-7 scroll-mt-20">
                                 <h2 class="text-xl font-extrabold text-slate-950 mb-2">Itinerary perjalanan</h2>
-                                <p class="text-sm text-slate-500 mb-6">Jadwal perkiraan untuk paket all-in. Tiket dolphin saja hanya mencakup aktivitas perahu di Lovina.</p>
+                                <p class="text-sm text-slate-500 mb-6">Jadwal perjalanan menyesuaikan pilihan aktivitas dan kunjungan yang Anda tambahkan.</p>
                                 <div class="relative border-l-2 border-orange-200 pl-6 ml-2 space-y-6">
                                     ${pkg.itinerary.map(item => `
                                         <div class="relative"><span class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-orange-500 ring-4 ring-orange-100"></span><span class="text-xs font-bold text-orange-600 block mb-1">${item.time}</span><h3 class="font-extrabold text-slate-900">${item.title}</h3><p class="text-sm leading-6 text-slate-600 mt-1">${item.desc}</p></div>
@@ -885,15 +885,15 @@
 
                             <section id="lokasi" class="detail-section bg-white rounded-2xl border border-slate-200 p-5 sm:p-7 scroll-mt-20">
                                 <h2 class="text-xl font-extrabold text-slate-950 mb-3">Lokasi & penjemputan</h2>
-                                <p class="text-sm leading-7 text-slate-600">Aktivitas dolphin berangkat dari kawasan pesisir Lovina, Buleleng, Bali Utara. Untuk tiket saja, tamu perlu datang sendiri ke titik temu yang akan dikonfirmasi setelah pemesanan. Untuk all-in, area jemput dan alamat hotel harus disepakati terlebih dahulu.</p>
+                                <p class="text-sm leading-7 text-slate-600">Perjalanan dimulai dengan penjemputan di area yang disepakati, kemudian menuju pesisir Lovina untuk aktivitas dolphin watching. Lokasi dan waktu penjemputan dikonfirmasi berdasarkan alamat hotel dan tanggal perjalanan.</p>
                                 <div class="rounded-xl bg-slate-50 p-4 mt-4"><p class="text-sm font-bold text-slate-800"><i class="fas fa-location-dot text-orange-500 mr-2"></i>Lovina, Kabupaten Buleleng, Bali</p><p class="text-xs leading-5 text-slate-500 mt-2">Titik temu tepat dan estimasi waktu jemput akan diberikan setelah detail lokasi dan tanggal dikonfirmasi.</p></div>
                             </section>
 
                             <section id="cara-pesan" class="detail-section bg-white rounded-2xl border border-slate-200 p-5 sm:p-7 scroll-mt-20">
                                 <h2 class="text-xl font-extrabold text-slate-950 mb-4">Cara pemesanan</h2>
                                 <ol class="space-y-4">
-                                    <li class="flex gap-3"><span class="flex-shrink-0 w-8 h-8 rounded-full bg-orange-100 text-orange-700 flex items-center justify-center font-extrabold text-sm">1</span><div><h3 class="font-bold">Pilih jenis paket</h3><p class="text-sm text-slate-600 mt-1">Tentukan tiket dolphin saja atau all-in, lalu pilih kendaraan dan layanan tambahan jika tersedia.</p></div></li>
-                                    <li class="flex gap-3"><span class="flex-shrink-0 w-8 h-8 rounded-full bg-orange-100 text-orange-700 flex items-center justify-center font-extrabold text-sm">2</span><div><h3 class="font-bold">Pilih tanggal dan jumlah tamu</h3><p class="text-sm text-slate-600 mt-1">Untuk all-in, sampaikan lokasi jemput. Untuk tiket saja, pastikan dapat tiba di Lovina sesuai waktu pertemuan.</p></div></li>
+                                    <li class="flex gap-3"><span class="flex-shrink-0 w-8 h-8 rounded-full bg-orange-100 text-orange-700 flex items-center justify-center font-extrabold text-sm">1</span><div><h3 class="font-bold">Pilih jenis paket</h3><p class="text-sm text-slate-600 mt-1">Paket sudah mencakup transportasi pribadi dan dolphin watching. Pilih kendaraan, lalu tambahkan kunjungan wisata atau aktivitas laut jika diinginkan.</p></div></li>
+                                    <li class="flex gap-3"><span class="flex-shrink-0 w-8 h-8 rounded-full bg-orange-100 text-orange-700 flex items-center justify-center font-extrabold text-sm">2</span><div><h3 class="font-bold">Pilih tanggal dan jumlah tamu</h3><p class="text-sm text-slate-600 mt-1">Masukkan tanggal perjalanan, jumlah tamu, dan lokasi penjemputan agar rencana perjalanan dapat disesuaikan.</p></div></li>
                                     <li class="flex gap-3"><span class="flex-shrink-0 w-8 h-8 rounded-full bg-orange-100 text-orange-700 flex items-center justify-center font-extrabold text-sm">3</span><div><h3 class="font-bold">Tinjau rincian pesanan</h3><p class="text-sm text-slate-600 mt-1">Periksa cakupan, tambahan biaya, waktu, dan konfirmasi ketersediaan sebelum pembayaran.</p></div></li>
                                 </ol>
                             </section>
@@ -924,7 +924,7 @@
                                     <div class="flex items-center justify-between rounded-xl bg-slate-50 border border-slate-200 p-3"><span id="guestCountHint" class="text-xs text-slate-500">Tiket dihitung per orang</span><div class="flex items-center gap-4"><button type="button" onclick="changeQty(-1)" aria-label="Kurangi tamu" class="w-8 h-8 rounded-full bg-white border border-slate-200 font-bold">−</button><span id="adultQty" class="font-extrabold w-4 text-center">1</span><button type="button" onclick="changeQty(1)" aria-label="Tambah tamu" class="w-8 h-8 rounded-full bg-white border border-slate-200 font-bold">+</button></div></div>
                                 </div>
                                 <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 mt-5">
-                                    <div class="flex justify-between gap-3 text-sm"><span class="text-slate-600">Paket</span><span id="selectedOptionLabel" class="font-bold text-right">Tiket Dolphin saja</span></div>
+                                    <div class="flex justify-between gap-3 text-sm"><span class="text-slate-600">Paket</span><span id="selectedOptionLabel" class="font-bold text-right">Paket Tour Lovina</span></div>
                                     <div class="flex justify-between gap-3 text-sm mt-2"><span class="text-slate-600">Kendaraan / tambahan</span><span id="selectedExtrasLabel" class="font-bold text-right">Tidak ada</span></div>
                                     <div class="border-t border-slate-200 mt-3 pt-3 flex justify-between items-end gap-3"><span class="font-extrabold text-slate-800">Perkiraan total</span><span id="calculatedTotalPrice" class="text-xl font-black text-orange-600 text-right">${basePrice}</span></div>
                                 </div>
@@ -1379,8 +1379,8 @@
                 showToast('Jumlah tamu melebihi kapasitas paket mobil ini.');
                 return;
             }
-            const vehicle = opt.priceMode === 'group' ? getSelectedVehicle() : null;
-            const addons = opt.priceMode === 'group' ? getSelectedAddons() : [];
+            const vehicle = getSelectedVehicle();
+            const addons = getSelectedAddons();
             const addonsTotal = addons.reduce((sum, addon) => sum + (addon.priceMode === 'person' ? addon.priceIDR * currentDetailQty : addon.priceIDR), 0);
             const totalPriceIDR = opt.priceIDR + (vehicle?.priceIDR || 0) + addonsTotal;
             const item = {
