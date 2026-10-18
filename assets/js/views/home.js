@@ -8,13 +8,13 @@ function renderHomeView() {
 
                     <div class="relative max-w-5xl w-full mx-auto px-4 sm:px-6 py-12 text-center z-10">
                         <span class="inline-flex items-center gap-2 bg-orange-500/20 text-orange-300 backdrop-blur-md border border-orange-500/30 text-xs font-bold px-3 py-1.5 rounded-full mb-4 uppercase tracking-wider">
-                            <i class="fas fa-bolt text-klook-orange"></i> Instant Confirmation & Best Price Guaranteed
+                            <i class="fas fa-bolt text-klook-orange"></i> Find experiences for your Bali trip
                         </span>
                         <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight mb-4 leading-tight">
                             Your Ultimate Bali Experience <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-300">Starts Here</span>
                         </h1>
                         <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto mb-8 font-medium">
-                            Book top-rated day tours, private drivers, Nusa Penida fast boats, and thrilling water sports with instant e-vouchers.
+                            Compare tour ideas, island activities and private transport. Review each option before continuing to the demo booking steps.
                         </p>
 
                         <!-- KLOOK TABS & SEARCH CONTAINER -->
@@ -59,27 +59,27 @@ function renderHomeView() {
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-20">
                     <div class="bg-white rounded-3xl p-6 klook-shadow border border-slate-100 grid grid-cols-3 sm:grid-cols-6 gap-4 text-center">
                         <div onclick="filterByCategory('temple'); navigateTo('packages');" class="group cursor-pointer p-3 rounded-2xl hover:bg-klook-light transition">
-                            <div class="w-14 h-14 mx-auto rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-2xl mb-2 group-hover:scale-110 transition">⛩️</div>
+                            <div class="w-14 h-14 mx-auto rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl mb-2 group-hover:scale-105 transition"><i class="fas fa-landmark" aria-hidden="true"></i></div>
                             <span class="text-xs font-bold text-slate-800 group-hover:text-klook-orange">Temple & Art</span>
                         </div>
                         <div onclick="filterByCategory('nusa'); navigateTo('packages');" class="group cursor-pointer p-3 rounded-2xl hover:bg-klook-light transition">
-                            <div class="w-14 h-14 mx-auto rounded-2xl bg-cyan-50 text-cyan-600 flex items-center justify-center text-2xl mb-2 group-hover:scale-110 transition">🏝️</div>
+                            <div class="w-14 h-14 mx-auto rounded-2xl bg-cyan-50 text-cyan-600 flex items-center justify-center text-2xl mb-2 group-hover:scale-110 transition"><i class="fas fa-water" aria-hidden="true"></i></div>
                             <span class="text-xs font-bold text-slate-800 group-hover:text-klook-orange">Nusa Penida</span>
                         </div>
                         <div onclick="filterByCategory('water'); navigateTo('packages');" class="group cursor-pointer p-3 rounded-2xl hover:bg-klook-light transition">
-                            <div class="w-14 h-14 mx-auto rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-2xl mb-2 group-hover:scale-110 transition">🪂</div>
+                            <div class="w-14 h-14 mx-auto rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-2xl mb-2 group-hover:scale-110 transition"><i class="fas fa-life-ring" aria-hidden="true"></i></div>
                             <span class="text-xs font-bold text-slate-800 group-hover:text-klook-orange">Water Sports</span>
                         </div>
                         <div onclick="filterByCategory('driver'); navigateTo('packages');" class="group cursor-pointer p-3 rounded-2xl hover:bg-klook-light transition">
-                            <div class="w-14 h-14 mx-auto rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl mb-2 group-hover:scale-110 transition">🚘</div>
+                            <div class="w-14 h-14 mx-auto rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl mb-2 group-hover:scale-110 transition"><i class="fas fa-car-side" aria-hidden="true"></i></div>
                             <span class="text-xs font-bold text-slate-800 group-hover:text-klook-orange">Private Driver</span>
                         </div>
                         <div onclick="filterByCategory('atv'); navigateTo('packages');" class="group cursor-pointer p-3 rounded-2xl hover:bg-klook-light transition">
-                            <div class="w-14 h-14 mx-auto rounded-2xl bg-orange-50 text-orange-600 flex items-center justify-center text-2xl mb-2 group-hover:scale-110 transition">🏍️</div>
+                            <div class="w-14 h-14 mx-auto rounded-2xl bg-orange-50 text-orange-600 flex items-center justify-center text-2xl mb-2 group-hover:scale-110 transition"><i class="fas fa-motorcycle" aria-hidden="true"></i></div>
                             <span class="text-xs font-bold text-slate-800 group-hover:text-klook-orange">ATV & Rafting</span>
                         </div>
                         <div onclick="navigateTo('blog');" class="group cursor-pointer p-3 rounded-2xl hover:bg-klook-light transition">
-                            <div class="w-14 h-14 mx-auto rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center text-2xl mb-2 group-hover:scale-110 transition">📖</div>
+                            <div class="w-14 h-14 mx-auto rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center text-2xl mb-2 group-hover:scale-110 transition"><i class="fas fa-book-open" aria-hidden="true"></i></div>
                             <span class="text-xs font-bold text-slate-800 group-hover:text-klook-orange">Bali Guides</span>
                         </div>
                     </div>
