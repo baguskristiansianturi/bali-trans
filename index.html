@@ -477,6 +477,39 @@
                     { id: 'opt-6-2', name: 'Tandem ATV (2 Persons on 1 ATV) + Rafting', extraPriceIDR: -100000, desc: 'Great option for couples sharing an ATV.' }
                 ]
             }
+            {
+                id: 'pkg-7',
+                title: 'Tanah Lot Sunset Half-Day Tour',
+                category: 'half-day',
+                categoryName: 'Half Day Tour',
+                location: 'Tanah Lot, Tabanan',
+                rating: 0,
+                reviewCount: 0,
+                originalPriceIDR: 0,
+                priceIDR: 0,
+                badge: 'Half Day Tour',
+                instantConfirmation: false,
+                freeCancellation: false,
+                hotelTransfer: true,
+                heroImage: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1000&q=80',
+                gallery: [
+                    'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80',
+                    'https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=800&q=80'
+                ],
+                highlights: [
+                    'Plan an afternoon visit to the Tanah Lot coastal area and sunset viewpoints.',
+                    'Ask the team to confirm pickup area, route, entrance fees and timing.',
+                    'A private itinerary can be discussed around your travel plans.'
+                ],
+                itinerary: [
+                    { time: 'Afternoon', title: 'Pickup and drive', desc: 'Pickup time and route are confirmed with the team.' },
+                    { time: 'Late afternoon', title: 'Tanah Lot coast', desc: 'Explore the coastal temple area and scenic viewpoints.' },
+                    { time: 'Sunset', title: 'Return transfer', desc: 'Return timing depends on your pickup area and chosen itinerary.' }
+                ],
+                options: [
+                    { id: 'opt-7-1', name: 'Private Half-Day Tour', extraPriceIDR: 0, desc: 'Ask us to confirm availability and inclusions.' }
+                ]
+            },
         ];
 
         const BALI_BLOGS = [
@@ -802,6 +835,7 @@
                     <div class="flex items-center space-x-2 overflow-x-auto pb-4 mb-8 hide-scrollbar border-b border-slate-200">
                         <button onclick="filterByCategory('all'); navigateTo('packages');" class="px-5 py-2.5 rounded-full text-xs font-bold transition ${selectedCategoryFilter==='all' ? 'bg-slate-900 text-white' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'}">All Tour Packages (${BALI_PACKAGES.length})</button>
                         <button onclick="filterByCategory('full-day'); navigateTo('packages');" class="px-5 py-2.5 rounded-full text-xs font-bold transition ${selectedCategoryFilter==='full-day' ? 'bg-slate-900 text-white' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'}">Full Day Tours</button>
+                        <button onclick="filterByCategory('half-day'); navigateTo('packages');" class="px-5 py-2.5 rounded-full text-xs font-bold transition ${selectedCategoryFilter==='half-day' ? 'bg-slate-900 text-white' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'}">Half Day Tours</button>
                         <button onclick="filterByCategory('nusa'); navigateTo('packages');" class="px-5 py-2.5 rounded-full text-xs font-bold transition ${selectedCategoryFilter==='nusa' ? 'bg-slate-900 text-white' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'}">Nusa Penida</button>
                         <button onclick="filterByCategory('activities'); navigateTo('packages');" class="px-5 py-2.5 rounded-full text-xs font-bold transition ${selectedCategoryFilter==='activities' ? 'bg-slate-900 text-white' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'}">Activities & Adventure</button>
                         <button onclick="filterByCategory('combination'); navigateTo('packages');" class="px-5 py-2.5 rounded-full text-xs font-bold transition ${selectedCategoryFilter==='combination' ? 'bg-slate-900 text-white' : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'}">Combination Tours</button>
