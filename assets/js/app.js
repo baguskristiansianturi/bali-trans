@@ -828,7 +828,7 @@
                             <p class="mt-4 max-w-2xl text-base sm:text-lg leading-7 text-slate-600">Practical guides, local flavours and ideas for discovering Bali at your own pace.</p>
                         </div>
 
-                        <a href="?view=blog-read&id=${featured.id}" class="group grid w-full overflow-hidden rounded-3xl bg-white text-left shadow-sm ring-1 ring-slate-200/80 transition hover:shadow-lg md:grid-cols-2">
+                        <a href="${(window.location.pathname.startsWith('/bali-trans/') ? '/bali-trans/' : '/') + 'blog/' + (featured.slug || featured.id) + '/'}" class="group grid w-full overflow-hidden rounded-3xl bg-white text-left shadow-sm ring-1 ring-slate-200/80 transition hover:shadow-lg md:grid-cols-2">
                             <div class="relative min-h-[230px] sm:min-h-[340px] overflow-hidden">
                                 <img src="${featured.image}" alt="${featured.title}" class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]" loading="eager">
                                 <span class="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1.5 text-xs font-extrabold uppercase tracking-wide text-teal-800">Editor's pick</span>
@@ -862,7 +862,7 @@
                         <div class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-7">
                             ${BALI_BLOGS.map((blog, index) => `
                                 <article data-blog-card data-category="${blog.category}" data-title="${blog.title.replace(/"/g, '&quot;')}" data-snippet="${blog.snippet.replace(/"/g, '&quot;')}" class="group flex min-w-0 flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white transition duration-200 hover:-translate-y-1 hover:shadow-lg ">
-                                    <a href="?view=blog-read&id=${blog.id}" class="relative block aspect-[16/10] overflow-hidden text-left">
+                                    <a href="${(window.location.pathname.startsWith('/bali-trans/') ? '/bali-trans/' : '/') + 'blog/' + (blog.slug || blog.id) + '/'}" class="relative block aspect-[16/10] overflow-hidden text-left">
                                         <img src="${blog.image}" alt="${blog.title}" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
                                     </a>
                                     <div class="flex flex-1 flex-col p-5 sm:p-6">
