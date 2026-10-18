@@ -1190,15 +1190,15 @@
                         <div><p class="text-xs font-extrabold uppercase tracking-widest text-orange-600">Langkah 2 dari 3</p><h3 class="text-xl font-extrabold text-slate-900 mt-1">Pilih metode pembayaran</h3><p class="text-sm text-slate-500 mt-2">Pilih cara pembayaran yang paling nyaman. Rincian dan instruksi akan dikonfirmasi bersama pesanan Anda.</p></div>
                         <div class="space-y-3">
                             <label class="flex items-start gap-3 p-4 rounded-2xl border-2 ${selectedPaymentMethod === 'bank-transfer' ? 'border-orange-500 bg-orange-50/50' : 'border-slate-200'} cursor-pointer">
-                                <input type="radio" name="paymentMethod" value="bank-transfer" ${selectedPaymentMethod === 'bank-transfer' ? 'checked' : ''} onchange="selectedPaymentMethod=this.value" class="mt-1 accent-orange-500">
+                                <input type="radio" name="paymentMethod" value="bank-transfer" ${selectedPaymentMethod === 'bank-transfer' ? 'checked' : ''} onchange="selectPaymentMethod(this.value)" class="mt-1 accent-orange-500">
                                 <span class="flex-1"><span class="block text-sm font-extrabold text-slate-900">Bank transfer</span><span class="block text-xs text-slate-500 mt-1">Instruksi rekening diberikan setelah detail pesanan dikonfirmasi.</span></span><i class="fas fa-building-columns text-lg text-slate-500 mt-1"></i>
                             </label>
                             <label class="flex items-start gap-3 p-4 rounded-2xl border-2 ${selectedPaymentMethod === 'card' ? 'border-orange-500 bg-orange-50/50' : 'border-slate-200'} cursor-pointer">
-                                <input type="radio" name="paymentMethod" value="card" ${selectedPaymentMethod === 'card' ? 'checked' : ''} onchange="selectedPaymentMethod=this.value" class="mt-1 accent-orange-500">
+                                <input type="radio" name="paymentMethod" value="card" ${selectedPaymentMethod === 'card' ? 'checked' : ''} onchange="selectPaymentMethod(this.value)" class="mt-1 accent-orange-500">
                                 <span class="flex-1"><span class="block text-sm font-extrabold text-slate-900">Credit / debit card</span><span class="block text-xs text-slate-500 mt-1">Visa, Mastercard, dan kartu yang didukung.</span></span><i class="far fa-credit-card text-lg text-slate-500 mt-1"></i>
                             </label>
                             <label class="flex items-start gap-3 p-4 rounded-2xl border-2 ${selectedPaymentMethod === 'arrival' ? 'border-orange-500 bg-orange-50/50' : 'border-slate-200'} cursor-pointer">
-                                <input type="radio" name="paymentMethod" value="arrival" ${selectedPaymentMethod === 'arrival' ? 'checked' : ''} onchange="selectedPaymentMethod=this.value" class="mt-1 accent-orange-500">
+                                <input type="radio" name="paymentMethod" value="arrival" ${selectedPaymentMethod === 'arrival' ? 'checked' : ''} onchange="selectPaymentMethod(this.value)" class="mt-1 accent-orange-500">
                                 <span class="flex-1"><span class="block text-sm font-extrabold text-slate-900">Bayar di tempat</span><span class="block text-xs text-slate-500 mt-1">Pembayaran kepada driver saat penjemputan, setelah metode ini disetujui ketika konfirmasi.</span></span><i class="fas fa-money-bill-wave text-lg text-slate-500 mt-1"></i>
                             </label>
                         </div>
@@ -1461,6 +1461,17 @@
             } else {
                 modal.classList.add('hidden');
             }
+        }
+
+        function selectPaymentMethod(method) {
+            selectedPaymentMethod = method;
+            document.querySelectorAll('input[name="paymentMethod"]').forEach(input => {
+                const label = input.closest('label');
+                if (!label) return;
+                label.classList.toggle('border-orange-500', input.checked);
+                label.classList.toggle('bg-orange-50/50', input.checked);
+                label.classList.toggle('border-slate-200', !input.checked);
+            });
         }
 
         function updateCheckoutPricing() {
