@@ -447,7 +447,7 @@
                     container.innerHTML = renderBlogListView();
                     break;
                 case 'blog-read':
-                    const blog = BALI_PACKAGES.find(b => b.id === params) || BALI_BLOGS[0];
+                    const blog = BALI_BLOGS.find(b => b.id === params) || BALI_BLOGS[0];
                     container.innerHTML = renderBlogDetailView(blog);
                     break;
                 case 'cart':
@@ -651,136 +651,42 @@
                         </div></div>
                     </div>
                 </section>
-                <!-- PRODUCT CATEGORY CAROUSEL: Bali Trans sells tours, activity tickets and experience bundles -->
-                <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-20" aria-label="Browse Bali Trans products">
-                    <div class="bg-white rounded-3xl p-4 sm:p-6 klook-shadow border border-slate-100">
-                        <div class="flex items-center justify-between gap-4 mb-4">
-                            <div>
-                                <h2 class="text-sm sm:text-base font-extrabold text-slate-900">Find your Bali experience</h2>
-                                <p class="text-xs text-slate-500 mt-1">Tours, activity tickets and things to do in Bali</p>
-                            </div>
-                            <div class="hidden sm:flex items-center gap-2 text-xs font-semibold text-slate-400 shrink-0">
-                                <i class="fas fa-arrows-left-right"></i><span>Swipe to explore</span>
-                            </div>
-                        </div>
-                        <div class="flex gap-3 sm:gap-4 overflow-x-auto snap-x snap-mandatory pb-2 -mx-1 px-1 category-carousel" role="list" aria-label="Bali Trans product categories">
-                            <div role="listitem" class="snap-start shrink-0 w-[112px] sm:w-[132px] text-center p-3 rounded-2xl border border-slate-100 bg-white hover:bg-klook-light transition">
-                                <div class="w-14 h-14 mx-auto rounded-2xl bg-sky-50 text-sky-700 flex items-center justify-center text-2xl mb-2">🗺️</div>
-                                <span class="block text-xs sm:text-sm font-bold leading-snug text-slate-800">Tour Packages</span>
-                            </div>
-                            <div role="listitem" class="snap-start shrink-0 w-[112px] sm:w-[132px] text-center p-3 rounded-2xl border border-slate-100 bg-white hover:bg-klook-light transition">
-                                <div class="w-14 h-14 mx-auto rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center text-2xl mb-2">🎟️</div>
-                                <span class="block text-xs sm:text-sm font-bold leading-snug text-slate-800">Activity Tickets</span>
-                            </div>
-                            <div role="listitem" class="snap-start shrink-0 w-[112px] sm:w-[132px] text-center p-3 rounded-2xl border border-slate-100 bg-white hover:bg-klook-light transition">
-                                <div class="w-14 h-14 mx-auto rounded-2xl bg-cyan-50 text-cyan-700 flex items-center justify-center text-2xl mb-2">🌊</div>
-                                <span class="block text-xs sm:text-sm font-bold leading-snug text-slate-800">Water Sports</span>
-                            </div>
-                            <div role="listitem" class="snap-start shrink-0 w-[112px] sm:w-[132px] text-center p-3 rounded-2xl border border-slate-100 bg-white hover:bg-klook-light transition">
-                                <div class="w-14 h-14 mx-auto rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center text-2xl mb-2">🛶</div>
-                                <span class="block text-xs sm:text-sm font-bold leading-snug text-slate-800">River Rafting</span>
-                            </div>
-                            <div role="listitem" class="snap-start shrink-0 w-[112px] sm:w-[132px] text-center p-3 rounded-2xl border border-slate-100 bg-white hover:bg-klook-light transition">
-                                <div class="w-14 h-14 mx-auto rounded-2xl bg-orange-50 text-orange-700 flex items-center justify-center text-2xl mb-2">🏎️</div>
-                                <span class="block text-xs sm:text-sm font-bold leading-snug text-slate-800">ATV & Adventure</span>
-                            </div>
-                            <div role="listitem" class="snap-start shrink-0 w-[112px] sm:w-[132px] text-center p-3 rounded-2xl border border-slate-100 bg-white hover:bg-klook-light transition">
-                                <div class="w-14 h-14 mx-auto rounded-2xl bg-violet-50 text-violet-700 flex items-center justify-center text-2xl mb-2">🤿</div>
-                                <span class="block text-xs sm:text-sm font-bold leading-snug text-slate-800">Snorkeling & Diving</span>
-                            </div>
-                            <div role="listitem" class="snap-start shrink-0 w-[112px] sm:w-[132px] text-center p-3 rounded-2xl border border-slate-100 bg-white hover:bg-klook-light transition">
-                                <div class="w-14 h-14 mx-auto rounded-2xl bg-teal-50 text-teal-700 flex items-center justify-center text-2xl mb-2">⛴️</div>
-                                <span class="block text-xs sm:text-sm font-bold leading-snug text-slate-800">Boat & Island Trips</span>
-                            </div>
-                            <div role="listitem" class="snap-start shrink-0 w-[112px] sm:w-[132px] text-center p-3 rounded-2xl border border-slate-100 bg-white hover:bg-klook-light transition">
-                                <div class="w-14 h-14 mx-auto rounded-2xl bg-rose-50 text-rose-700 flex items-center justify-center text-2xl mb-2">🎫</div>
-                                <span class="block text-xs sm:text-sm font-bold leading-snug text-slate-800">Combo Deals</span>
-                            </div>
-                        </div>
-                        <p class="text-[11px] text-slate-400 mt-2 sm:hidden">Swipe left or right to see all categories</p>
-                    </div>
+                <!-- HOMEPAGE DISCOVERY SECTIONS: preserve existing visual system -->
+                <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-14">
+                  <div class="flex items-end justify-between gap-4 mb-6"><div><p class="text-xs font-extrabold uppercase tracking-wider text-klook-orange mb-2">Discover Bali</p><h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Destinasi populer</h2><p class="text-sm text-slate-500 mt-2">Temukan tempat yang ingin kamu kunjungi sebelum memilih perjalanan.</p></div><button onclick="navigateTo('discovery','region:south')" class="shrink-0 text-xs sm:text-sm font-bold text-klook-orange">Lihat semua <i class="fas fa-arrow-right ml-1"></i></button></div>
+                  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <button onclick="navigateTo('discovery','region:south')" class="group text-left bg-white rounded-2xl overflow-hidden border border-slate-200 klook-shadow klook-hover"><img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=700&q=80" alt="Tanah Lot" class="w-full h-32 sm:h-44 object-cover"><div class="p-3 sm:p-4"><h3 class="font-extrabold text-sm sm:text-base text-slate-900">Tanah Lot</h3><p class="text-xs text-slate-500 mt-1">Pura ikonik di tepi laut</p></div></button>
+                    <button onclick="navigateTo('discovery','region:south')" class="group text-left bg-white rounded-2xl overflow-hidden border border-slate-200 klook-shadow klook-hover"><img src="https://images.unsplash.com/photo-1558005530-a7958896ec60?auto=format&fit=crop&w=700&q=80" alt="Uluwatu" class="w-full h-32 sm:h-44 object-cover"><div class="p-3 sm:p-4"><h3 class="font-extrabold text-sm sm:text-base text-slate-900">Uluwatu</h3><p class="text-xs text-slate-500 mt-1">Tebing, pantai dan budaya</p></div></button>
+                    <button onclick="navigateTo('discovery','region:central')" class="group text-left bg-white rounded-2xl overflow-hidden border border-slate-200 klook-shadow klook-hover"><img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=700&q=80" alt="Tegallalang" class="w-full h-32 sm:h-44 object-cover"><div class="p-3 sm:p-4"><h3 class="font-extrabold text-sm sm:text-base text-slate-900">Tegallalang</h3><p class="text-xs text-slate-500 mt-1">Terasering dan alam Ubud</p></div></button>
+                    <button onclick="navigateTo('discovery','region:north')" class="group text-left bg-white rounded-2xl overflow-hidden border border-slate-200 klook-shadow klook-hover"><img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=700&q=80" alt="Lovina" class="w-full h-32 sm:h-44 object-cover"><div class="p-3 sm:p-4"><h3 class="font-extrabold text-sm sm:text-base text-slate-900">Lovina</h3><p class="text-xs text-slate-500 mt-1">Pantai dan pengalaman laut</p></div></button>
+                  </div>
                 </section>
-
-                <!-- FEATURED PACKAGES GRID (KLOOK CARDS) -->
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-                    <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
-                        <div>
-                            <span class="text-xs font-black text-klook-orange uppercase tracking-wider">Explore Bali</span>
-                            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Start with Lovina Dolphin Tour</h2>
-                        </div>
-                        <button onclick="navigateTo('packages')" class="inline-flex items-center text-xs font-bold text-klook-orange hover:text-klook-hover gap-2 bg-orange-50 hover:bg-orange-100 px-4 py-2.5 rounded-full transition">
-                            Explore Lovina Tour <i class="fas fa-arrow-right"></i>
-                        </button>
-                    </div>
-
-                    <!-- Package Cards Grid -->
-                    <div id="homeFeaturedGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        ${renderPackageCards(BALI_PACKAGES)}
-                    </div>
-                </div>
-
-                <!-- WHY CHOOSE BALI EXPLORER (KLOOK VALUE PROP) -->
-                <div class="bg-white py-16 border-y border-slate-200">
-                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div class="text-center max-w-2xl mx-auto mb-12">
-                            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">A Clear Way to Plan Your Trip</h2>
-                            <p class="text-slate-500 text-sm mt-2">Choose your trip details, review the options, then contact Bali Trans to confirm availability and final arrangements.</p>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                            <div class="flex items-start gap-4 p-6 rounded-3xl bg-slate-50 border border-slate-100">
-                                <div class="w-12 h-12 rounded-2xl bg-orange-100 text-klook-orange flex items-center justify-center text-xl font-bold flex-shrink-0">⚡</div>
-                                <div>
-                                    <h4 class="font-extrabold text-slate-900 mb-1">Choose Your Trip</h4>
-                                    <p class="text-xs text-slate-500 leading-relaxed">Start with the Lovina Dolphin Tour, then review the itinerary, duration and included services.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-4 p-6 rounded-3xl bg-slate-50 border border-slate-100">
-                                <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl font-bold flex-shrink-0">🏷️</div>
-                                <div>
-                                    <h4 class="font-extrabold text-slate-900 mb-1">Personalize the Details</h4>
-                                    <p class="text-xs text-slate-500 leading-relaxed">Choose the vehicle and any available extras that suit your group and plans.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-4 p-6 rounded-3xl bg-slate-50 border border-slate-100">
-                                <div class="w-12 h-12 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center text-xl font-bold flex-shrink-0">💬</div>
-                                <div>
-                                    <h4 class="font-extrabold text-slate-900 mb-1">Talk to us about your trip</h4>
-                                    <p class="text-xs text-slate-500 leading-relaxed">Send us your travel details so we can discuss the route and confirm the arrangements.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- LOVINA SERVICE PATHS -->
-                <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                    <div class="max-w-2xl mb-7">
-                        <span class="text-xs font-black text-klook-orange uppercase tracking-wider">Your Lovina trip</span>
-                        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2">Choose how you want to travel</h2>
-                        <p class="text-sm text-slate-600 mt-2 leading-6">Some travelers want the whole experience arranged. Others already have a plan and only need transport or a particular activity.</p>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <article class="rounded-3xl border border-orange-200 bg-orange-50 p-5 sm:p-6">
-                            <div class="w-11 h-11 rounded-2xl bg-white text-orange-600 flex items-center justify-center text-xl mb-4">🌅</div>
-                            <h3 class="font-extrabold text-slate-900">All-in Lovina Tour</h3>
-                            <p class="text-sm text-slate-600 leading-6 mt-2">Dolphin watching, private transport, planned sightseeing stops and lunch in one trip.</p>
-                            <button onclick="navigateTo('detail','lovina-dolphin-tour')" class="mt-5 rounded-xl bg-klook-orange px-4 py-3 text-sm font-extrabold text-white hover:bg-klook-hover">View tour details</button>
-                        </article>
-                        <article class="rounded-3xl border border-slate-200 bg-white p-5 sm:p-6">
-                            <div class="w-11 h-11 rounded-2xl bg-sky-50 text-sky-700 flex items-center justify-center text-xl mb-4">🚙</div>
-                            <h3 class="font-extrabold text-slate-900">Private Transport</h3>
-                            <p class="text-sm text-slate-600 leading-6 mt-2">Already planned your stops? Discuss a private vehicle for your Lovina route and travel schedule.</p>
-                            <button onclick="navigateTo('contact')" class="mt-5 rounded-xl border border-slate-300 px-4 py-3 text-sm font-extrabold text-slate-800 hover:border-orange-400">Discuss transport</button>
-                        </article>
-                        <article class="rounded-3xl border border-slate-200 bg-white p-5 sm:p-6">
-                            <div class="w-11 h-11 rounded-2xl bg-teal-50 text-teal-700 flex items-center justify-center text-xl mb-4">🎟️</div>
-                            <h3 class="font-extrabold text-slate-900">Tickets & Activities</h3>
-                            <p class="text-sm text-slate-600 leading-6 mt-2">Looking for a specific activity? Tell us what you want to do so availability and details can be checked.</p>
-                            <button onclick="navigateTo('contact')" class="mt-5 rounded-xl border border-slate-300 px-4 py-3 text-sm font-extrabold text-slate-800 hover:border-orange-400">Ask about activities</button>
-                        </article>
-                    </div>
+                <section class="bg-white border-y border-slate-200 py-12 md:py-14"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                  <div class="flex items-end justify-between gap-4 mb-6"><div><p class="text-xs font-extrabold uppercase tracking-wider text-klook-orange mb-2">Things to do</p><h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Aktivitas populer</h2></div><button onclick="navigateTo('packages')" class="shrink-0 text-xs sm:text-sm font-bold text-klook-orange">Lihat semua <i class="fas fa-arrow-right ml-1"></i></button></div>
+                  <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+                    <button onclick="quickFilterSearch('water')" class="rounded-2xl border border-slate-200 p-4 text-left hover:bg-klook-light"><span class="w-11 h-11 rounded-xl bg-cyan-50 text-cyan-700 flex items-center justify-center text-lg mb-3"><i class="fas fa-water"></i></span><span class="block text-xs sm:text-sm font-extrabold">Aktivitas air</span></button>
+                    <button onclick="quickFilterSearch('temple')" class="rounded-2xl border border-slate-200 p-4 text-left hover:bg-klook-light"><span class="w-11 h-11 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center text-lg mb-3"><i class="fas fa-mountain-sun"></i></span><span class="block text-xs sm:text-sm font-extrabold">Alam & air terjun</span></button>
+                    <button onclick="quickFilterSearch('atv')" class="rounded-2xl border border-slate-200 p-4 text-left hover:bg-klook-light"><span class="w-11 h-11 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center text-lg mb-3"><i class="fas fa-motorcycle"></i></span><span class="block text-xs sm:text-sm font-extrabold">ATV & petualangan</span></button>
+                    <button onclick="quickFilterSearch('nusa')" class="rounded-2xl border border-slate-200 p-4 text-left hover:bg-klook-light"><span class="w-11 h-11 rounded-xl bg-sky-50 text-sky-700 flex items-center justify-center text-lg mb-3"><i class="fas fa-ship"></i></span><span class="block text-xs sm:text-sm font-extrabold">Island trip</span></button>
+                    <button onclick="quickFilterSearch('temple')" class="rounded-2xl border border-slate-200 p-4 text-left hover:bg-klook-light"><span class="w-11 h-11 rounded-xl bg-violet-50 text-violet-700 flex items-center justify-center text-lg mb-3"><i class="fas fa-landmark"></i></span><span class="block text-xs sm:text-sm font-extrabold">Budaya & pura</span></button>
+                    <button onclick="quickFilterSearch('driver')" class="rounded-2xl border border-slate-200 p-4 text-left hover:bg-klook-light"><span class="w-11 h-11 rounded-xl bg-rose-50 text-rose-700 flex items-center justify-center text-lg mb-3"><i class="fas fa-car-side"></i></span><span class="block text-xs sm:text-sm font-extrabold">Private driver</span></button>
+                  </div>
+                </div></section>
+                <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-14"><div class="flex items-end justify-between gap-4 mb-6"><div><p class="text-xs font-extrabold uppercase tracking-wider text-klook-orange mb-2">Plan your trip</p><h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Panduan wisata pilihan</h2></div><button onclick="navigateTo('blog')" class="shrink-0 text-xs sm:text-sm font-bold text-klook-orange">Lihat semua <i class="fas fa-arrow-right ml-1"></i></button></div>
+                  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                    ${BALI_BLOGS.slice(0,3).map(blog => '<button onclick="navigateTo(\'blog-read\',\''+blog.id+'\')" class="text-left bg-white rounded-2xl overflow-hidden border border-slate-200 klook-shadow klook-hover"><img src="'+blog.image+'" alt="" class="w-full h-44 object-cover"><div class="p-4"><span class="text-[10px] font-extrabold uppercase text-klook-orange">'+blog.category+' · '+blog.readTime+'</span><h3 class="font-extrabold text-slate-900 mt-2">'+blog.title+'</h3><p class="text-xs text-slate-500 mt-2">'+blog.snippet+'</p><span class="inline-block text-xs font-bold text-klook-orange mt-4">Baca panduan →</span></div></button>').join('')}
+                  </div>
                 </section>
-            `;
+                <section class="bg-slate-50 border-y border-slate-200 py-12 md:py-14"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div class="flex items-end justify-between gap-4 mb-6"><div><p class="text-xs font-extrabold uppercase tracking-wider text-klook-orange mb-2">Recommended</p><h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Paket tour pilihan</h2></div><button onclick="navigateTo('packages')" class="shrink-0 text-xs sm:text-sm font-bold text-klook-orange">Lihat semua <i class="fas fa-arrow-right ml-1"></i></button></div><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">${renderPackageCards(BALI_PACKAGES.slice(0,3))}</div></div></section>
+                <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-14"><div class="mb-6"><p class="text-xs font-extrabold uppercase tracking-wider text-klook-orange mb-2">Explore further</p><h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Jelajahi Bali</h2><p class="text-sm text-slate-500 mt-2">Pilih wilayah untuk menemukan destinasi di sekitarnya.</p></div><div class="flex gap-4 overflow-x-auto hide-scrollbar snap-x snap-mandatory pb-2">
+                  <button onclick="navigateTo('discovery','region:north')" class="snap-start shrink-0 w-56 rounded-2xl overflow-hidden border border-slate-200 bg-white klook-shadow klook-hover"><img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=700&q=80" alt="Bali Utara" class="w-full h-36 object-cover"><div class="p-4 font-extrabold">Bali Utara <i class="fas fa-arrow-right text-klook-orange ml-2"></i></div></button>
+                  <button onclick="navigateTo('discovery','region:south')" class="snap-start shrink-0 w-56 rounded-2xl overflow-hidden border border-slate-200 bg-white klook-shadow klook-hover"><img src="https://images.unsplash.com/photo-1558005530-a7958896ec60?auto=format&fit=crop&w=700&q=80" alt="Bali Selatan" class="w-full h-36 object-cover"><div class="p-4 font-extrabold">Bali Selatan <i class="fas fa-arrow-right text-klook-orange ml-2"></i></div></button>
+                  <button onclick="navigateTo('discovery','region:central')" class="snap-start shrink-0 w-56 rounded-2xl overflow-hidden border border-slate-200 bg-white klook-shadow klook-hover"><img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=700&q=80" alt="Bali Tengah" class="w-full h-36 object-cover"><div class="p-4 font-extrabold">Bali Tengah <i class="fas fa-arrow-right text-klook-orange ml-2"></i></div></button>
+                  <button onclick="navigateTo('discovery','region:east')" class="snap-start shrink-0 w-56 rounded-2xl overflow-hidden border border-slate-200 bg-white klook-shadow klook-hover"><img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=700&q=80" alt="Bali Timur" class="w-full h-36 object-cover"><div class="p-4 font-extrabold">Bali Timur <i class="fas fa-arrow-right text-klook-orange ml-2"></i></div></button>
+                  <button onclick="navigateTo('discovery','region:west')" class="snap-start shrink-0 w-56 rounded-2xl overflow-hidden border border-slate-200 bg-white klook-shadow klook-hover"><img src="https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=700&q=80" alt="Bali Barat" class="w-full h-36 object-cover"><div class="p-4 font-extrabold">Bali Barat <i class="fas fa-arrow-right text-klook-orange ml-2"></i></div></button>
+                </div></section>
+                <section class="border-t border-slate-200 bg-white py-8"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><p class="text-xs font-extrabold uppercase tracking-wider text-slate-400 mb-3">Cari lebih cepat</p><div class="flex flex-wrap gap-2"><button onclick="navigateTo('packages')" class="rounded-full border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs font-semibold">Semua tour</button><button onclick="navigateTo('discovery','region:south')" class="rounded-full border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs font-semibold">Destinasi</button><button onclick="navigateTo('packages')" class="rounded-full border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs font-semibold">Aktivitas</button><button onclick="navigateTo('blog')" class="rounded-full border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs font-semibold">Panduan wisata</button><button onclick="navigateTo('contact')" class="rounded-full border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs font-semibold">Private transport</button><button onclick="navigateTo('contact')" class="rounded-full border border-slate-200 bg-slate-50 px-3.5 py-2 text-xs font-semibold">Airport transfer</button></div></div></section>
+            \`;
         }
 
         /* VIEW 2: ALL PACKAGES & CATALOG PAGE WITH FILTER BAR */
