@@ -1596,9 +1596,9 @@
             closeLocaleMenu();
             applyLanguageCopy(document);
             if (typeof updateLiveChatStatus === 'function') updateLiveChatStatus();
-            // Re-render the current view for the selected locale without changing route/history.
-            if (typeof navigateTo === 'function') navigateTo(currentViewName, currentViewParams, { history: false });
-            setTimeout(() => applyLanguageCopy(document), 80);
+            // Translate the existing page in place. Re-rendering here can reset view-specific
+            // state (and can make navigation appear to jump back to the first view).
+            setTimeout(() => applyLanguageCopy(document), 0);
         }
         if (!window.__baliTransLocaleObserver) {
             window.__baliTransLocaleObserver = new MutationObserver(records => {
