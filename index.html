@@ -79,77 +79,66 @@
         </div>
     </div>
 
-    <!-- MAIN HEADER / NAVBAR -->
-    <header class="sticky top-0 z-40 bg-white border-b border-slate-200 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16 md:h-20 gap-4">
-                
-                <!-- Logo -->
-                <div class="flex items-center gap-3 cursor-pointer" onclick="navigateTo('home')">
-                    <div class="w-10 h-10 rounded-xl bg-klook-orange flex items-center justify-center text-white text-xl font-black shadow-lg shadow-orange-500/30">
-                        B
-                    </div>
-                    <div>
-                        <span class="text-xl font-extrabold tracking-tight text-slate-900 block leading-none">Bali<span class="text-klook-orange"> Trans</span></span>
-                        <span class="text-[10px] text-slate-400 font-semibold uppercase tracking-widest block mt-0.5">Tours · Activities · Private Transport</span>
-                    </div>
-                </div>
+    <!-- MOBILE-FIRST HEADER -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-200 shadow-sm">
+      <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between gap-2 min-h-[68px] md:min-h-[78px]">
+          <button type="button" onclick="navigateTo('home')" aria-label="Bali Trans home" class="flex items-center gap-2 min-w-0 text-left">
+            <span class="w-10 h-10 shrink-0 rounded-xl bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center text-white text-xl font-black shadow-md">B</span>
+            <span class="min-w-0"><span class="block text-lg sm:text-xl font-extrabold tracking-tight text-slate-900 leading-tight">Bali<span class="text-klook-orange"> Trans</span></span><span class="hidden xs:block text-[9px] sm:text-[10px] text-slate-500 font-semibold tracking-wide">TOURS · TRIPS · TRANSFER</span></span>
+          </button>
 
-                <!-- Global Search Bar (Header) -->
-                <div class="hidden lg:flex items-center flex-1 max-w-md relative">
-                    <i class="fas fa-search absolute left-4 text-slate-400"></i>
-                    <input type="text" id="headerSearchInput" onkeyup="handleGlobalSearch(this.value)" placeholder="Search activities, tours, or spots (e.g. Ubud, ATV)..." class="w-full pl-11 pr-4 py-2.5 bg-slate-100 hover:bg-slate-200/60 focus:bg-white rounded-full text-sm font-medium border border-transparent focus:border-klook-orange focus:outline-none transition-all">
-                    
-                    <!-- Search Results Dropdown -->
-                    <div id="searchResultsDropdown" class="hidden absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-2xl border border-slate-100 p-3 z-50 max-h-80 overflow-y-auto">
-                        <!-- Populated by JS -->
-                    </div>
-                </div>
+          <div class="hidden lg:flex items-center flex-1 max-w-md relative mx-6">
+            <i class="fas fa-search absolute left-4 text-slate-400"></i>
+            <input type="text" id="headerSearchInput" onkeyup="handleGlobalSearch(this.value)" placeholder="Cari tour, aktivitas, atau tempat..." class="w-full pl-11 pr-4 py-3 bg-slate-100 hover:bg-slate-200/60 focus:bg-white rounded-full text-sm font-medium border border-transparent focus:border-klook-orange focus:outline-none transition-all">
+            <div id="searchResultsDropdown" class="hidden absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-2xl border border-slate-100 p-3 z-50 max-h-80 overflow-y-auto"></div>
+          </div>
 
-                <!-- Navigation Links & User Utilities -->
-                <div class="flex items-center space-x-2 sm:space-x-4">
-                    <!-- Currency Selector -->
-                    <div class="relative">
-                        <select id="currencySelector" onchange="changeCurrency(this.value)" class="bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs sm:text-sm font-semibold py-2 px-3 rounded-full cursor-pointer border-none focus:ring-2 focus:ring-klook-orange outline-none">
-                            <option value="IDR">🇮🇩 IDR (Rp)</option>
-                            <option value="USD">🇺🇸 USD ($)</option>
-                            <option value="AUD">🇦🇺 AUD (A$)</option>
-                            <option value="EUR">🇪🇺 EUR (€)</option>
-                        </select>
-                    </div>
-
-                    <!-- Navigation Items -->
-                    <nav class="hidden md:flex items-center space-x-1 font-semibold text-sm">
-                        <button onclick="navigateTo('home')" class="px-3 py-2 text-slate-700 hover:text-klook-orange rounded-lg transition">Home</button>
-                        <button onclick="navigateTo('packages')" class="px-3 py-2 text-slate-700 hover:text-klook-orange rounded-lg transition">Tours & Services</button>
-                        <button onclick="navigateTo('about')" class="px-3 py-2 text-slate-700 hover:text-klook-orange rounded-lg transition">About Us</button>
-                        <button onclick="navigateTo('contact')" class="px-3 py-2 text-slate-700 hover:text-klook-orange rounded-lg transition">Contact</button>
-                    </nav>
-
-                    <!-- Wishlist Counter -->
-                    <button onclick="toggleWishlistModal()" class="relative p-2.5 text-slate-600 hover:text-klook-orange rounded-full hover:bg-slate-100 transition">
-                        <i class="far fa-heart text-lg"></i>
-                        <span id="wishlistCountBadge" class="absolute top-1 right-1 bg-rose-500 text-white text-[10px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center">0</span>
-                    </button>
-
-                    <!-- Cart Counter Button -->
-                    <button onclick="navigateTo('cart')" class="relative p-2.5 text-slate-700 hover:text-klook-orange rounded-full hover:bg-slate-100 transition flex items-center gap-2">
-                        <div class="relative">
-                            <i class="fas fa-shopping-bag text-lg"></i>
-                            <span id="cartCountBadge" class="absolute -top-1.5 -right-2 bg-klook-orange text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow">0</span>
-                        </div>
-                        <span id="cartHeaderSubtotal" class="hidden xl:inline text-xs font-bold text-slate-900">Rp 0</span>
-                    </button>
-
-                    <!-- User Account / Bookings -->
-                    <button onclick="showToast('Member Lounge coming soon!')" class="hidden sm:flex items-center gap-2 bg-slate-900 text-white hover:bg-slate-800 text-xs font-bold py-2.5 px-4 rounded-full transition shadow-sm">
-                        <i class="far fa-user-circle text-sm"></i>
-                        <span>My Bookings</span>
-                    </button>
-                </div>
-            </div>
+          <div class="flex items-center gap-1 sm:gap-2">
+            <label class="relative flex items-center justify-center w-10 h-10 rounded-full hover:bg-slate-100 cursor-pointer" aria-label="Pilih bahasa">
+              <i class="fas fa-globe-asia text-slate-700 text-lg"></i>
+              <select id="languageSelector" onchange="changeLanguage(this.value)" aria-label="Pilih bahasa" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
+                <option value="id">🇮🇩 Indonesia</option><option value="en">🇬🇧 English</option>
+              </select>
+            </label>
+            <label class="relative flex items-center gap-1 h-10 px-2 rounded-full bg-slate-100 hover:bg-slate-200 cursor-pointer" aria-label="Pilih mata uang">
+              <i class="fas fa-coins text-slate-600 text-sm"></i>
+              <select id="currencySelector" onchange="changeCurrency(this.value)" aria-label="Pilih mata uang" class="max-w-[70px] bg-transparent text-xs sm:text-sm font-bold text-slate-700 outline-none cursor-pointer">
+                <option value="IDR">IDR</option><option value="USD">USD</option><option value="AUD">AUD</option><option value="EUR">EUR</option>
+              </select>
+            </label>
+            <button type="button" onclick="toggleMobileMenu()" aria-label="Buka menu" aria-controls="mobileMenuPanel" aria-expanded="false" id="mobileMenuButton" class="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-800 hover:bg-slate-100">
+              <i id="mobileMenuIcon" class="fas fa-bars text-lg"></i>
+            </button>
+          </div>
         </div>
+        <div class="lg:hidden pb-3">
+          <div class="relative">
+            <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+            <input type="search" id="mobileHeaderSearchInput" onkeyup="handleGlobalSearch(this.value)" placeholder="Cari tour, aktivitas, atau tempat..." class="w-full pl-11 pr-4 py-3 bg-slate-100 focus:bg-white rounded-xl text-sm border border-slate-200 focus:border-klook-orange focus:outline-none">
+          </div>
+        </div>
+      </div>
+      <div id="mobileMenuPanel" class="hidden border-t border-slate-100 bg-white shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 py-3">
+          <div class="grid grid-cols-2 gap-2">
+            <button onclick="closeMobileMenu(); showHelpMenu()" class="mobile-menu-item"><i class="far fa-circle-question"></i><span>Bantuan</span></button>
+            <button onclick="closeMobileMenu(); showRegisterPrompt()" class="mobile-menu-item"><i class="far fa-user"></i><span>Mendaftar</span></button>
+            <button onclick="closeMobileMenu(); toggleWishlistModal()" class="mobile-menu-item"><i class="far fa-heart"></i><span>Wishlist <span id="mobileWishlistCount" class="text-xs text-slate-400">(0)</span></span></button>
+            <button onclick="closeMobileMenu(); showRecentlyViewed()" class="mobile-menu-item"><i class="far fa-clock"></i><span>Baru saja dilihat</span></button>
+            <button onclick="closeMobileMenu(); navigateTo('contact')" class="mobile-menu-item col-span-2"><i class="far fa-envelope"></i><span>Contact</span></button>
+          </div>
+          <button onclick="closeMobileMenu(); showRegisterPrompt()" class="mt-3 w-full rounded-xl bg-klook-orange px-4 py-3 text-sm font-extrabold text-white shadow-sm hover:bg-klook-hover"><i class="fas fa-user-plus mr-2"></i>Mendaftar / Buat Akun</button>
+          <p class="text-[11px] text-slate-400 text-center mt-2">Simpan aktivitas favorit dan temukan kembali rencana perjalanan Anda.</p>
+        </div>
+      </div>
     </header>
+    <style>
+      .mobile-menu-item{display:flex;align-items:center;gap:10px;padding:13px 12px;border:1px solid #e2e8f0;border-radius:12px;color:#334155;background:#fff;text-align:left;font-size:14px;font-weight:650;min-height:48px}
+      .mobile-menu-item i{color:#0f9d9a;width:18px;text-align:center}
+      .mobile-menu-item:hover,.mobile-menu-item:focus{background:#f0fdfa;border-color:#99f6e4;outline:none}
+      @media(max-width:380px){.mobile-menu-item{font-size:12px;padding:11px 9px}}
+    </style>
 
     <!-- MAIN VIEW CONTAINER (SINGLE PAGE APPLICATION RENDERER) -->
     <main id="appContainer" class="flex-1">
@@ -374,7 +363,7 @@
                 case 'detail':
                     if (params) {
                         const pkg = BALI_PACKAGES.find(p => p.id === params);
-                        if (pkg) currentDetailPackage = pkg;
+                        if (pkg) { currentDetailPackage = pkg; trackRecentlyViewed(pkg); }
                     }
                     currentDetailQty = 1;
                     container.innerHTML = renderDetailView(currentDetailPackage);
@@ -1504,6 +1493,57 @@
             if (document.getElementById('appContainer').innerHTML.includes('Trending Bali Activities')) {
                 document.getElementById('homeFeaturedGrid').innerHTML = renderPackageCards(BALI_PACKAGES);
             }
+        }
+
+        let recentlyViewedState = [];
+        try { recentlyViewedState = JSON.parse(localStorage.getItem('baliTransRecentlyViewed') || '[]'); } catch(e) { recentlyViewedState = []; }
+
+        function toggleMobileMenu() {
+            const panel = document.getElementById('mobileMenuPanel');
+            const button = document.getElementById('mobileMenuButton');
+            const icon = document.getElementById('mobileMenuIcon');
+            if (!panel) return;
+            const opening = panel.classList.contains('hidden');
+            panel.classList.toggle('hidden', !opening);
+            if (button) button.setAttribute('aria-expanded', String(opening));
+            if (icon) icon.className = opening ? 'fas fa-xmark text-lg' : 'fas fa-bars text-lg';
+            const mobileCount = document.getElementById('mobileWishlistCount');
+            if (mobileCount && typeof wishlistState !== 'undefined') mobileCount.textContent = '(' + wishlistState.length + ')';
+        }
+        function closeMobileMenu() {
+            const panel = document.getElementById('mobileMenuPanel');
+            const button = document.getElementById('mobileMenuButton');
+            const icon = document.getElementById('mobileMenuIcon');
+            if (panel) panel.classList.add('hidden');
+            if (button) button.setAttribute('aria-expanded', 'false');
+            if (icon) icon.className = 'fas fa-bars text-lg';
+        }
+        function showRegisterPrompt() {
+            showToast('Pendaftaran akun belum aktif. Untuk bantuan pemesanan, silakan hubungi kami melalui Contact.');
+            navigateTo('contact');
+        }
+        function showHelpMenu() {
+            navigateTo('contact');
+            setTimeout(() => showToast('Butuh bantuan? Hubungi tim Bali Trans melalui halaman Contact.'), 150);
+        }
+        function showRecentlyViewed() {
+            let modal = document.getElementById('recentlyViewedModal');
+            if (!modal) {
+                modal = document.createElement('div');
+                modal.id = 'recentlyViewedModal';
+                modal.className = 'fixed inset-0 z-[80] bg-slate-950/50 p-4 flex items-center justify-center';
+                modal.innerHTML = '<div class="bg-white w-full max-w-lg max-h-[80vh] overflow-y-auto rounded-2xl p-5 shadow-2xl"><div class="flex items-center justify-between mb-4"><h3 class="text-lg font-extrabold text-slate-900">Baru saja dilihat</h3><button onclick="document.getElementById(\'recentlyViewedModal\').remove()" class="w-9 h-9 rounded-full bg-slate-100 text-slate-700" aria-label="Tutup"><i class="fas fa-xmark"></i></button></div><div id="recentlyViewedItems"></div></div>';
+                modal.addEventListener('click', e => { if (e.target === modal) modal.remove(); });
+                document.body.appendChild(modal);
+            }
+            const list = document.getElementById('recentlyViewedItems');
+            const items = recentlyViewedState.map(id => (typeof BALI_PACKAGES !== 'undefined' ? BALI_PACKAGES.find(pkg => pkg.id === id) : null)).filter(Boolean);
+            list.innerHTML = items.length ? items.map(pkg => '<button class="w-full flex items-center gap-3 text-left p-3 mb-2 rounded-xl border border-slate-100 hover:bg-slate-50" onclick="navigateTo(\'detail\', \'' + pkg.id + '\');document.getElementById(\'recentlyViewedModal\').remove()"><img src="' + pkg.heroImage + '" alt="" class="w-16 h-16 object-cover rounded-lg"><span><strong class="block text-sm text-slate-900">' + pkg.title + '</strong><small class="text-slate-500">' + (pkg.location || 'Bali') + '</small></span></button>').join('') : '<p class="text-sm text-slate-500 text-center py-8">Aktivitas yang baru dilihat akan muncul di sini.</p>';
+        }
+        function trackRecentlyViewed(pkg) {
+            if (!pkg || !pkg.id) return;
+            recentlyViewedState = [pkg.id, ...recentlyViewedState.filter(id => id !== pkg.id)].slice(0, 8);
+            try { localStorage.setItem('baliTransRecentlyViewed', JSON.stringify(recentlyViewedState)); } catch(e) {}
         }
 
         function toggleWishlistModal() {
