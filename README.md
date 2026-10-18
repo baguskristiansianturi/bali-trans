@@ -18,7 +18,15 @@ This repository is being prepared as a **structural and UX prototype** for the f
 - `assets/css/styles.css` — custom CSS.
 - `assets/js/tailwind.config.js` — Tailwind theme configuration (loaded before the CDN runtime).
 - `assets/js/data.js` — prototype package and article data.
-- `assets/js/app.js` — client-side routing, rendering, and interactions.
+- `assets/js/state.js` — shared application state.
+- `assets/js/navigation.js` — route switching.
+- `assets/js/views/home.js` — homepage rendering.
+- `assets/js/views/catalog.js` — package catalog and cards.
+- `assets/js/views/detail.js` — package detail rendering.
+- `assets/js/views/articles.js` — article list and detail rendering.
+- `assets/js/views/checkout.js` — cart and checkout rendering.
+- `assets/js/interactions.js` — search, cart, wishlist, checkout, and UI actions.
+- `.github/workflows/validate-prototype.yml` — JavaScript syntax and local asset checks.
 
 Tailwind, fonts, icons, QR rendering, and remote images still use external runtime dependencies. Splitting the files improves maintainability, but production asset-size optimization is a separate task.
 
