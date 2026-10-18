@@ -1521,9 +1521,15 @@
         const originalTextNodes = new WeakMap();
         const originalAttributes = new WeakMap();
         function translateCopy(value) {
-            if (currentLanguage !== 'id' || !value) return value;
+            if (!value) return value;
             let out = value;
-            Object.keys(BALI_TRANSLATIONS).sort((a,b)=>b.length-a.length).forEach(key => { out = out.split(key).join(BALI_TRANSLATIONS[key]); });
+            if (currentLanguage === 'id') {
+                Object.keys(BALI_TRANSLATIONS).sort((a,b)=>b.length-a.length).forEach(key => { out = out.split(key).join(BALI_TRANSLATIONS[key]); });
+            } else {
+                const reverse = {};
+                Object.keys(BALI_TRANSLATIONS).forEach(key => { if (!reverse[BALI_TRANSLATIONS[key]]) reverse[BALI_TRANSLATIONS[key]] = key; });
+                Object.keys(reverse).sort((a,b)=>b.length-a.length).forEach(key => { out = out.split(key).join(reverse[key]); });
+            }
             return out;
         }
         function applyLanguageCopy(root = document) {
@@ -1535,7 +1541,7 @@
                 if (node.parentElement && !['SCRIPT','STYLE','SELECT','OPTION'].includes(node.parentElement.tagName)) {
                     if (!originalTextNodes.has(node)) originalTextNodes.set(node, node.nodeValue);
                     const original = originalTextNodes.get(node);
-                    const translated = currentLanguage === 'id' ? translateCopy(original) : original;
+                    const translated = translateCopy(original);
                     if (translated !== node.nodeValue) node.nodeValue = translated;
                 }
             });
@@ -1545,7 +1551,7 @@
                     const saved = originalAttributes.get(el);
                     if (saved[attr] === undefined) saved[attr] = el.getAttribute(attr);
                     const original = saved[attr];
-                    if (original) el.setAttribute(attr, currentLanguage === 'id' ? translateCopy(original) : original);
+                    if (original) el.setAttribute(attr, translateCopy(original));
                 });
             });
             document.documentElement.lang = currentLanguage;
