@@ -2050,7 +2050,33 @@
                 {title:'Central Bali',location:'Ubud · Kintamani · Bedugul',key:'region:central',terms:'central bali ubud kintamani bedugul'},
                 {title:'East Bali',location:'Amed · Tulamben · Karangasem',key:'region:east',terms:'east bali amed tulamben karangasem sidemen tirta gangga besakih'},
                 {title:'West Bali',location:'Medewi · Jembrana · Gilimanuk',key:'region:west',terms:'west bali medewi jembrana gilimanuk'},
-                {title:'Nusa Islands',location:'Penida · Lembongan · Ceningan',key:'region:nusa',terms:'nusa islands penida lembongan ceningan'}
+                {title:'Nusa Islands',location:'Penida · Lembongan · Ceningan',key:'region:nusa',terms:'nusa islands penida lembongan ceningan'},
+                {title:'Uluwatu Temple & Coastal Cliffs',location:'South Bali · Temple, coast',key:'place:uluwatu',terms:'uluwatu temple cliffs'},
+                {title:'Jimbaran Coast',location:'South Bali · Beach, seafood',key:'place:jimbaran',terms:'jimbaran coast seafood bay'},
+                {title:'Nusa Dua Beaches',location:'South Bali · Beach, water activities',key:'place:nusa-dua',terms:'nusa dua beaches watersports'},
+                {title:'Denpasar City Sights',location:'South Bali · City, culture',key:'place:denpasar',terms:'denpasar city'},
+                {title:'Ubud & Surrounding Villages',location:'Central Bali · Culture, nature',key:'place:ubud',terms:'ubud villages art'},
+                {title:'River Rafting',location:'Central Bali · Outdoor activity',key:'place:rafting',terms:'rafting river adventure'},
+                {title:'Rice Terraces & Nature Stops',location:'Central Bali · Nature',key:'place:rice-terraces',terms:'rice terraces nature'},
+                {title:'Amed & Jemeluk Bay',location:'East Bali · Snorkelling, diving',key:'place:amed',terms:'amed jemeluk bay'},
+                {title:'Tulamben & USAT Liberty Wreck',location:'East Bali · Diving',key:'place:tulamben',terms:'tulamben usat liberty wreck'},
+                {title:'Tirta Gangga Water Palace',location:'East Bali · Heritage',key:'place:tirta-gangga',terms:'tirta gangga water palace'},
+                {title:'Taman Ujung',location:'East Bali · Heritage, gardens',key:'place:taman-ujung',terms:'taman ujung palace'},
+                {title:'Lempuyang Temple',location:'East Bali · Temple',key:'place:lempuyang',terms:'lempuyang temple'},
+                {title:'Besakih Temple',location:'East Bali · Temple, culture',key:'place:besakih',terms:'besakih temple'},
+                {title:'Candidasa & Padangbai',location:'East Bali · Coast, boat connections',key:'place:candidasa-padangbai',terms:'candidasa padangbai harbour'},
+                {title:'Sidemen Valley',location:'East Bali · Countryside',key:'place:sidemen',terms:'sidemen valley'},
+                {title:'Medewi Surf Coast',location:'West Bali · Surf',key:'place:medewi',terms:'medewi surf'},
+                {title:'Rambut Siwi Temple',location:'West Bali · Temple',key:'place:rambut-siwi',terms:'rambut siwi temple'},
+                {title:'Bunut Bolong Tree Tunnel',location:'West Bali · Nature, culture',key:'place:bunut-bolong',terms:'bunut bolong tree tunnel'},
+                {title:'Perancak Fishing Village',location:'West Bali · Coastal village',key:'place:perancak',terms:'perancak fishing village'},
+                {title:'Gilimanuk Bay',location:'West Bali · Coast, ferry gateway',key:'place:gilimanuk',terms:'gilimanuk bay ferry'},
+                {title:'West Bali National Park',location:'West Bali · Nature, wildlife',key:'place:west-bali-national-park',terms:'west bali national park'},
+                {title:'Kelingking & Crystal Bay',location:'Nusa Penida · Coastal views',key:'place:kelingking-crystal-bay',terms:'kelingking crystal bay'},
+                {title:'Diamond & Atuh Beach',location:'Nusa Penida · Beaches',key:'place:diamond-atuh',terms:'diamond atuh beach'},
+                {title:'Nusa Lembongan & Mangrove Forest',location:'Nusa Lembongan · Island, nature',key:'place:nusa-lembongan',terms:'nusa lembongan mangrove'},
+                {title:'Nusa Ceningan & Yellow Bridge',location:'Nusa Ceningan · Island',key:'place:nusa-ceningan',terms:'nusa ceningan yellow bridge'},
+                {title:'Nusa Islands Snorkelling & Diving',location:'Nusa Islands · Marine activities',key:'place:island-snorkelling-diving',terms:'nusa snorkelling diving'}
             ];
             const packageMatches = BALI_PACKAGES.filter(p => [p.title,p.location,p.categoryName,p.category,...(p.highlights||[])].filter(Boolean).join(' ').toLocaleLowerCase().includes(term)).slice(0,5);
             const destinationMatches = destinations.filter(d => (d.title+' '+d.location+' '+d.terms).toLocaleLowerCase().includes(term)).slice(0,5);
@@ -2086,7 +2112,12 @@
                 {terms:['central bali','ubud','kintamani','bedugul'],key:'region:central'},
                 {terms:['east bali','amed','tulamben','karangasem','sidemen','tirta gangga','besakih'],key:'region:east'},
                 {terms:['west bali','medewi','jembrana','gilimanuk'],key:'region:west'},
-                {terms:['nusa penida','lembongan','ceningan','island'],key:'region:nusa'}
+                {terms:['nusa penida','lembongan','ceningan','island'],key:'region:nusa'},
+                {terms:['uluwatu'],key:'place:uluwatu'},{terms:['jimbaran'],key:'place:jimbaran'},{terms:['nusa dua'],key:'place:nusa-dua'},{terms:['denpasar'],key:'place:denpasar'},
+                {terms:['ubud'],key:'place:ubud'},{terms:['rafting','white water'],key:'place:rafting'},{terms:['rice terrace','rice terraces'],key:'place:rice-terraces'},
+                {terms:['amed','jemeluk'],key:'place:amed'},{terms:['tulamben','usat liberty'],key:'place:tulamben'},{terms:['tirta gangga'],key:'place:tirta-gangga'},{terms:['taman ujung'],key:'place:taman-ujung'},{terms:['lempuyang'],key:'place:lempuyang'},{terms:['besakih'],key:'place:besakih'},{terms:['candidasa','padangbai'],key:'place:candidasa-padangbai'},{terms:['sidemen'],key:'place:sidemen'},
+                {terms:['medewi'],key:'place:medewi'},{terms:['rambut siwi'],key:'place:rambut-siwi'},{terms:['bunut bolong'],key:'place:bunut-bolong'},{terms:['perancak'],key:'place:perancak'},{terms:['gilimanuk'],key:'place:gilimanuk'},{terms:['west bali national park'],key:'place:west-bali-national-park'},
+                {terms:['kelingking','crystal bay'],key:'place:kelingking-crystal-bay'},{terms:['diamond beach','atuh beach'],key:'place:diamond-atuh'},{terms:['nusa lembongan','mangrove'],key:'place:nusa-lembongan'},{terms:['nusa ceningan','yellow bridge'],key:'place:nusa-ceningan'}
             ];
             const match = destinations.find(item => item.terms.some(term => q.includes(term)));
             if (match) { navigateTo('discovery', match.key); return; }
