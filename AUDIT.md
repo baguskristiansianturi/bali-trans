@@ -27,7 +27,7 @@ Scope: static source audit and safe refactor of the existing single-page prototy
 
 ## Risks and items requiring business confirmation
 
-- Brand identity is inconsistent: the header/footer still contain “Bali Explorer”, while the page title says “Bali Trans”; older repository documentation refers to “BDM Trans”. The intended final public brand needs confirmation before a copy-wide change.
+- The repository's working business target is BDM Trans. The current page still mixes “Bali Explorer” and “Bali Trans” in visible brand areas. During this prototype phase, temporary copy is acceptable for testing page structure and flows; before launch, all visible brand names, metadata, links, and contact details must be standardized to BDM Trans. Do not treat prototype copy as final business claims.
 - WhatsApp number `6281234567890` appears to be a placeholder and must be confirmed before launch.
 - The UI claims “Verified Booking”, “50,000+ Happy Travelers”, instant confirmation, best-price guarantees, and payment methods without evidence/configuration. These must be removed or substantiated.
 - Social, policy, partner and help links still use `#`.
@@ -47,9 +47,9 @@ Scope: static source audit and safe refactor of the existing single-page prototy
 
 ## Next steps
 
-1. Confirm the public brand name and service model.
-2. Rewrite the homepage, activity/package, article, checkout, footer, and trust copy around that confirmed model.
-3. Replace unverified claims and placeholder contact/social/policy links.
+1. Use temporary, plausible prototype copy to validate the hierarchy and user journeys; do not spend time polishing launch copy yet.
+2. Standardize all launch branding to BDM Trans at the final content/launch stage.
+3. Replace unverified claims and placeholder contact/social/policy links before launch.
 4. Decide whether to retain a demo-only booking journey or implement a real inquiry/booking flow.
-5. Run mobile browser QA across navigation, search, category filters, detail page, cart, wishlist, currency selector, checkout validation, and empty states.
+5. Run mobile browser QA across homepage swipe/carousels, breadcrumbs/back navigation, search and category filters, package detail/date/options, cart, wishlist, article listing/detail, footer links, currency selector, checkout validation, and empty states.
 6. Merge/deploy only after the branch has passed the agreed checks.
