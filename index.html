@@ -1047,7 +1047,7 @@
 
         /* VIEW 5: BLOG READ DETAIL */
         function renderBlogDetailView(blog) {
-            const headingPattern = /<h([23])([^>]*)>([\\s\\S]*?)<\\/h\\1>/gi;
+            const headingPattern = /<h([23])([^>]*)>([\s\S]*?)<\/h\1>/gi;
             let headingIndex = 0;
             const toc = [];
             const articleContent = (blog.content || '').replace(headingPattern, (match, level, attrs, title) => {
