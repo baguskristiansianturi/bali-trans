@@ -72,7 +72,7 @@
         <div class="w-full md:w-auto flex items-center justify-between md:justify-end space-x-4 text-xs">
             <span id="countdownTimer" class="font-bold">Plan your Bali trip</span>
             <div class="flex items-center space-x-3 border-l border-white/30 pl-3">
-                <span id="topLiveChatStatus" class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs sm:text-sm font-semibold" role="status" aria-live="polite"><span id="topLiveChatDot" class="h-2 w-2 rounded-full bg-slate-300"></span><i class="far fa-comments"></i><span id="topLiveChatLabel">Live Chat</span><span aria-hidden="true">·</span><span id="topLiveChatState">Offline</span></span>
+                <span id="topLiveChatStatus" class="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-2.5 py-1 text-xs font-semibold leading-none whitespace-nowrap" role="status" aria-live="polite"><span id="topLiveChatDot" class="h-2 w-2 rounded-full bg-slate-300"></span><i class="far fa-comments"></i><span id="topLiveChatLabel">Live Chat</span><span aria-hidden="true">·</span><span id="topLiveChatState">Offline</span></span>
             </div>
         </div>
     </div>
@@ -1769,37 +1769,50 @@
 
         function handleGlobalSearch(query) {
             const dropdown = document.getElementById('searchResultsDropdown');
-            if (!query.trim()) {
+            if (!dropdown) return;
+            const term = String(query || '').trim().toLocaleLowerCase();
+            if (!term) {
                 dropdown.classList.add('hidden');
+                dropdown.innerHTML = '';
                 return;
             }
-
-            const matches = BALI_PACKAGES.filter(p => 
-                p.title.toLowerCase().includes(query.toLowerCase()) || 
-                p.location.toLowerCase().includes(query.toLowerCase())
-            );
-
-            if (matches.length > 0) {
-                dropdown.classList.remove('hidden');
-                dropdown.innerHTML = matches.map(m => `
-                    <div onclick="navigateTo('detail', '${m.id}'); document.getElementById('searchResultsDropdown').classList.add('hidden');" class="p-2.5 hover:bg-slate-50 rounded-xl cursor-pointer flex items-center gap-3">
-                        <img src="${m.heroImage}" class="w-10 h-10 object-cover rounded-lg">
-                        <div>
-                            <h5 class="text-xs font-extrabold text-slate-900 line-clamp-1">${m.title}</h5>
-                            <span class="text-[10px] text-slate-400">${m.location}</span>
-                        </div>
-                    </div>
-                `).join('');
+            const packages = Array.isArray(BALI_PACKAGES) ? BALI_PACKAGES : [];
+            const matches = packages.filter(p => {
+                const haystack = [p.title, p.location, p.categoryName, p.category, p.description]
+                    .filter(Boolean).join(' ').toLocaleLowerCase();
+                return haystack.includes(term);
+            }).slice(0, 8);
+            dropdown.classList.remove('hidden');
+            if (matches.length) {
+                dropdown.innerHTML = matches.map(m => {
+                    const id = String(m.id || '').replace(/[^a-zA-Z0-9_-]/g, '');
+                    const title = String(m.title || 'Bali experience').replace(/[&<>"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch]));
+                    const location = String(m.location || '').replace(/[&<>"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch]));
+                    const image = String(m.heroImage || '');
+                    return `<button type="button" onclick="navigateTo('detail', '${id}'); closeHeaderSearch();" class="w-full text-left p-2.5 hover:bg-slate-50 rounded-xl cursor-pointer flex items-center gap-3"><img src="${image}" alt="" class="w-10 h-10 object-cover rounded-lg"><span class="min-w-0"><span class="block text-xs font-extrabold text-slate-900 line-clamp-1">${title}</span><span class="block text-[10px] text-slate-500">${location}</span></span></button>`;
+                }).join('');
             } else {
-                dropdown.classList.remove('hidden');
-                dropdown.innerHTML = `<div class="p-3 text-xs text-slate-400 text-center">No experiences found for "${query}"</div>`;
+                dropdown.innerHTML = `<div class="p-3 text-xs text-slate-500 text-center">No experiences found for “${term.replace(/[&<>"]/g, '')}”</div>`;
             }
         }
 
         function executeHeroSearch() {
-            const query = document.getElementById('heroSearchInput')?.value || '';
+            const input = document.getElementById('heroSearchInput');
+            const query = String(input?.value || '').trim().toLocaleLowerCase();
             filterByCategory('all');
             navigateTo('packages');
+            if (query) {
+                setTimeout(() => {
+                    const target = document.getElementById('packageSearchInput') || document.getElementById('packagesSearchInput');
+                    if (target) {
+                        target.value = query;
+                        target.dispatchEvent(new Event('input', { bubbles: true }));
+                    } else if (typeof handleGlobalSearch === 'function') {
+                        const headerInput = document.getElementById('headerSearchInput');
+                        if (headerInput) headerInput.value = query;
+                    }
+                }, 100);
+            }
         }
 
         function quickFilterSearch(cat) {
