@@ -4,7 +4,7 @@ function renderBlogListView() {
                     <div class="text-center max-w-2xl mx-auto mb-10">
                         <span class="text-xs font-extrabold text-klook-orange uppercase tracking-wider">Bali Travel Guides & Tips</span>
                         <h1 class="text-3xl font-extrabold text-slate-900 mt-1">Plan Your Dream Trip to Bali</h1>
-                        <p class="text-slate-500 text-sm mt-2">Curated insider travel tips, food guides, and itinerary advice from local Balinese experts.</p>
+                        <p class="text-slate-500 text-sm mt-2">Practical guides to Bali destinations, activities and planning your trip.</p>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">

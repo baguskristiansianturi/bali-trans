@@ -17,8 +17,8 @@ function renderPackagesCatalogView() {
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                     <!-- Catalog Header -->
                     <div class="mb-8">
-                        <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Explore All Activities</span>
-                        <h1 class="text-3xl font-extrabold text-slate-900">Bali Tour Packages & Things To Do</h1>
+                        <span class="text-xs font-bold text-slate-400 uppercase tracking-widest">Browse Bali experiences</span>
+                        <h1 class="text-3xl font-extrabold text-slate-900">Tours, Activities & Private Transport</h1>
                     </div>
 
                     <!-- Category Pills Filter Bar -->

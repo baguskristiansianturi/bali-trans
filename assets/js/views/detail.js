@@ -21,7 +21,7 @@ function renderDetailView(pkg) {
                                 <i class="fas fa-star text-amber-500"></i> ${pkg.rating} (${pkg.reviewCount} reviews)
                             </span>
                             <span class="flex items-center gap-1"><i class="fas fa-location-dot text-klook-orange"></i> ${pkg.location}</span>
-                            <span class="flex items-center gap-1"><i class="fas fa-bolt text-amber-500"></i> Instant Voucher</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-bolt text-amber-500"></i> Booking details</span>
                         </div>
                     </div>
 

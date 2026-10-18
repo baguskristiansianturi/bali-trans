@@ -5,8 +5,8 @@ function renderCartView() {
                 return `
                     <div class="max-w-2xl mx-auto px-4 py-20 text-center">
                         <div class="w-20 h-20 bg-orange-100 text-klook-orange rounded-full flex items-center justify-center text-3xl mx-auto mb-4"><i class="fas fa-shopping-cart" aria-hidden="true"></i></div>
-                        <h2 class="text-2xl font-extrabold text-slate-900 mb-2">Your Cart is Empty</h2>
-                        <p class="text-slate-500 text-sm mb-6">Explore our top Bali experiences and add them to your cart.</p>
+                        <h2 class="text-2xl font-extrabold text-slate-900 mb-2">Your cart is empty</h2>
+                        <p class="text-slate-500 text-sm mb-6">Browse experiences and add an option to review it here.</p>
                         <button onclick="navigateTo('packages')" class="bg-klook-orange text-white font-extrabold px-6 py-3 rounded-2xl text-xs shadow-lg shadow-orange-500/20">
                             Browse Activities Now
                         </button>
@@ -225,7 +225,7 @@ function renderCartView() {
                         </div>
 
                         <div class="flex flex-col sm:flex-row gap-3 justify-center">
-                            <button onclick="showToast('E-Voucher PDF downloaded to device!')" class="bg-slate-900 text-white text-xs font-extrabold px-6 py-3 rounded-2xl hover:bg-slate-800 transition">
+                            <button onclick="showToast('Voucher download is a demo only; no real booking has been made.')" class="bg-slate-900 text-white text-xs font-extrabold px-6 py-3 rounded-2xl hover:bg-slate-800 transition">
                                 <i class="fas fa-download mr-1"></i> Download Voucher PDF
                             </button>
                             <a href="https://wa.me/6281234567890?text=Hi%20BaliExplorer,%20I%20have%20booking%20code%20${refCode}" target="_blank" class="bg-emerald-500 text-white text-xs font-extrabold px-6 py-3 rounded-2xl hover:bg-emerald-600 transition flex items-center justify-center gap-1">
