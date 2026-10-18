@@ -104,8 +104,9 @@
                     <!-- Navigation Items -->
                     <nav class="hidden md:flex items-center space-x-1 font-semibold text-sm">
                         <button onclick="navigateTo('home')" class="px-3 py-2 text-slate-700 hover:text-klook-orange rounded-lg transition">Home</button>
-                        <button onclick="navigateTo('packages')" class="px-3 py-2 text-slate-700 hover:text-klook-orange rounded-lg transition">All Activities</button>
-                        <button onclick="navigateTo('blog')" class="px-3 py-2 text-slate-700 hover:text-klook-orange rounded-lg transition">Travel Guides</button>
+                        <button onclick="navigateTo('packages')" class="px-3 py-2 text-slate-700 hover:text-klook-orange rounded-lg transition">Tours & Services</button>
+                        <button onclick="navigateTo('about')" class="px-3 py-2 text-slate-700 hover:text-klook-orange rounded-lg transition">About Us</button>
+                        <button onclick="navigateTo('contact')" class="px-3 py-2 text-slate-700 hover:text-klook-orange rounded-lg transition">Contact</button>
                     </nav>
 
                     <!-- Wishlist Counter -->
@@ -140,76 +141,28 @@
 
     <!-- FOOTER SECTION -->
     <footer class="bg-slate-900 text-slate-400 text-sm mt-16 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
-                
-                <!-- Brand & Info -->
-                <div class="lg:col-span-2">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-9 h-9 rounded-xl bg-klook-orange flex items-center justify-center text-white text-lg font-black">
-                            B
-                        </div>
-                        <span class="text-xl font-extrabold text-white">Bali<span class="text-klook-orange"> Trans</span></span>
-                    </div>
-                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6 max-w-sm">
-                        Explore Bali with flexible private transport, island trips, local activities and day tours. Browse options, compare experiences and contact us to confirm availability and trip details.
-                    </p>
-                    <div class="flex space-x-3">
-                        <a href="#" class="w-9 h-9 bg-slate-800 hover:bg-klook-orange text-white rounded-full flex items-center justify-center transition"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="w-9 h-9 bg-slate-800 hover:bg-klook-orange text-white rounded-full flex items-center justify-center transition"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="w-9 h-9 bg-slate-800 hover:bg-klook-orange text-white rounded-full flex items-center justify-center transition"><i class="fab fa-tiktok"></i></a>
-                        <a href="#" class="w-9 h-9 bg-slate-800 hover:bg-klook-orange text-white rounded-full flex items-center justify-center transition"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-
-                <!-- Column 1: Top Categories -->
-                <div>
-                    <h4 class="text-white font-bold mb-4 text-xs uppercase tracking-wider">Top Activities</h4>
-                    <ul class="space-y-2.5 text-xs sm:text-sm">
-                        <li><a href="#" onclick="filterByCategory('water'); navigateTo('packages');" class="hover:text-white transition">Water Sports Tanjung Benoa</a></li>
-                        <li><a href="#" onclick="filterByCategory('temple'); navigateTo('packages');" class="hover:text-white transition">Ubud & Uluwatu Temple Tours</a></li>
-                        <li><a href="#" onclick="filterByCategory('atv'); navigateTo('packages');" class="hover:text-white transition">Quad Bike ATV & Rafting</a></li>
-                        <li><a href="#" onclick="filterByCategory('driver'); navigateTo('packages');" class="hover:text-white transition">Private Driver 10 Hours</a></li>
-                        <li><a href="#" onclick="filterByCategory('nusa'); navigateTo('packages');" class="hover:text-white transition">Nusa Penida Fast Boat</a></li>
-                    </ul>
-                </div>
-
-                <!-- Column 2: Useful Links -->
-                <div>
-                    <h4 class="text-white font-bold mb-4 text-xs uppercase tracking-wider">Useful Links</h4>
-                    <ul class="space-y-2.5 text-xs sm:text-sm">
-                        <li><a href="#" onclick="navigateTo('blog')" class="hover:text-white transition">Bali Travel Guides 2026</a></li>
-                        <li><a href="#" onclick="navigateTo('packages')" class="hover:text-white transition">Promo & Flash Deals</a></li>
-                        <li><a href="#" class="hover:text-white transition">Partner With Us</a></li>
-                        <li><a href="#" class="hover:text-white transition">FAQ & Help Center</a></li>
-                        <li><a href="#" class="hover:text-white transition">Terms & Cancellation Policy</a></li>
-                    </ul>
-                </div>
-
-                <!-- Column 3: Payment & Security -->
-                <div>
-                    <h4 class="text-white font-bold mb-4 text-xs uppercase tracking-wider">Payment Partners</h4>
-                    <p class="text-xs text-slate-400 mb-3">We accept all major secure payment gateways in Indonesia & Worldwide.</p>
-                    <div class="grid grid-cols-3 gap-2">
-                        <div class="bg-slate-800 p-2 rounded text-center text-xs text-slate-300 font-bold">VISA</div>
-                        <div class="bg-slate-800 p-2 rounded text-center text-xs text-slate-300 font-bold">MC</div>
-                        <div class="bg-slate-800 p-2 rounded text-center text-xs text-slate-300 font-bold">QRIS</div>
-                        <div class="bg-slate-800 p-2 rounded text-center text-xs text-slate-300 font-bold">GOPAY</div>
-                        <div class="bg-slate-800 p-2 rounded text-center text-xs text-slate-300 font-bold">OVO</div>
-                        <div class="bg-slate-800 p-2 rounded text-center text-xs text-slate-300 font-bold">PAYPAL</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500 gap-4">
-                <p>© 2026 Bali Trans. Tours, activities and private transport in Bali.</p>
-                <div class="flex space-x-6">
-                    <a href="#" class="hover:underline">Privacy Policy</a>
-                    <a href="#" class="hover:underline">Terms of Service</a>
-                    <a href="#" class="hover:underline">Cookie Settings</a>
-                </div>
-            </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+          <div class="lg:col-span-2">
+            <div class="flex items-center gap-3 mb-4"><div class="w-9 h-9 rounded-xl bg-klook-orange flex items-center justify-center text-white text-lg font-black">B</div><span class="text-xl font-extrabold text-white">Bali<span class="text-klook-orange"> Trans</span></span></div>
+            <p class="text-slate-400 text-sm leading-relaxed mb-5 max-w-md">Explore tour experiences and private transport around Bali. Review the trip details, then contact us to discuss your route, schedule and availability.</p>
+            <button onclick="navigateTo('contact')" class="inline-flex items-center gap-2 bg-klook-orange hover:bg-klook-hover text-white font-bold text-xs px-4 py-3 rounded-xl transition">Contact Bali Trans <i class="fas fa-arrow-right"></i></button>
+          </div>
+          <div><h4 class="text-white font-bold mb-4 text-xs uppercase tracking-wider">Explore</h4><ul class="space-y-3 text-sm">
+            <li><button onclick="navigateTo('packages')" class="hover:text-white transition text-left">Tours & Services</button></li>
+            <li><button onclick="navigateTo('blog')" class="hover:text-white transition text-left">Bali Travel Guides</button></li>
+            <li><button onclick="navigateTo('home')" class="hover:text-white transition text-left">Home</button></li>
+          </ul></div>
+          <div><h4 class="text-white font-bold mb-4 text-xs uppercase tracking-wider">Bali Trans</h4><ul class="space-y-3 text-sm">
+            <li><button onclick="navigateTo('about')" class="hover:text-white transition text-left">About Us</button></li>
+            <li><button onclick="navigateTo('contact')" class="hover:text-white transition text-left">Contact & Enquiries</button></li>
+            <li><button onclick="navigateTo('contact')" class="hover:text-white transition text-left">Ask About Your Trip</button></li>
+          </ul></div>
         </div>
+        <div class="border-t border-slate-800 pt-6 flex flex-col sm:flex-row justify-between items-start sm:items-center text-xs text-slate-500 gap-3">
+          <p>© 2026 Bali Trans. Tours and private transport in Bali.</p><p>Confirm trip details and availability before booking.</p>
+        </div>
+      </div>
     </footer>
 
     <!-- MOBILE BOTTOM NAVIGATION BAR (KLOOK MOBILE STYLE) -->
@@ -555,6 +508,12 @@
                     container.innerHTML = renderHomeView();
                     initHomeInteractivity();
                     break;
+                case 'about':
+                    container.innerHTML = renderAboutView();
+                    break;
+                case 'contact':
+                    container.innerHTML = renderContactView();
+                    break;
                 case 'packages':
                     container.innerHTML = renderPackagesCatalogView();
                     break;
@@ -589,6 +548,93 @@
            3. VIEW RENDERING FUNCTIONS (KLOOK STYLE)
            ========================================================================== */
         
+
+        /* ABOUT US PAGE */
+        function renderAboutView() {
+            return `
+              <section class="bg-slate-900 text-white"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+                <p class="text-xs font-extrabold uppercase tracking-[0.2em] text-teal-300 mb-4">About Bali Trans</p>
+                <h1 class="text-3xl sm:text-5xl font-black tracking-tight leading-tight max-w-3xl mb-6">A simpler way to plan your time in Bali.</h1>
+                <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl">Bali Trans helps travellers explore tour options and arrange private transport around Bali. We want the important details to be clear before you decide: where you’ll go, what the trip includes, and what needs to be confirmed.</p>
+                <button onclick="navigateTo('packages')" class="mt-8 inline-flex items-center gap-2 bg-klook-orange hover:bg-klook-hover text-white font-bold px-5 py-3 rounded-xl transition">Explore tours & services <i class="fas fa-arrow-right"></i></button>
+              </div></section>
+              <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start"><div>
+                  <p class="text-xs font-extrabold uppercase tracking-wider text-klook-orange mb-3">What matters to us</p>
+                  <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-5">Good trips start with clear expectations.</h2>
+                  <p class="text-sm sm:text-base text-slate-600 leading-relaxed mb-4">From day tours to private transport, every trip starts with understanding your plans. Browse the options on this website and get in touch to clarify the route, timing, pickup arrangements or what is included.</p>
+                  <p class="text-sm sm:text-base text-slate-600 leading-relaxed">We aim to make planning straightforward. Specific schedules, inclusions, prices and availability should be checked for each service before a booking is confirmed.</p>
+                </div><div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div class="rounded-2xl border border-slate-200 p-5 bg-white"><div class="w-11 h-11 rounded-xl bg-teal-50 text-teal-700 flex items-center justify-center text-xl mb-4"><i class="fas fa-map-marked-alt"></i></div><h3 class="font-extrabold text-slate-900 mb-2">Tour experiences</h3><p class="text-sm text-slate-600 leading-relaxed">Review destinations, highlights and itinerary details before choosing a trip.</p></div>
+                  <div class="rounded-2xl border border-slate-200 p-5 bg-white"><div class="w-11 h-11 rounded-xl bg-sky-50 text-sky-700 flex items-center justify-center text-xl mb-4"><i class="fas fa-car-side"></i></div><h3 class="font-extrabold text-slate-900 mb-2">Private transport</h3><p class="text-sm text-slate-600 leading-relaxed">Discuss pickup points, destinations and timing for your travel plans.</p></div>
+                  <div class="rounded-2xl border border-slate-200 p-5 bg-white"><div class="w-11 h-11 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center text-xl mb-4"><i class="fas fa-clipboard-list"></i></div><h3 class="font-extrabold text-slate-900 mb-2">Clear trip details</h3><p class="text-sm text-slate-600 leading-relaxed">Check inclusions, exclusions and conditions before making a decision.</p></div>
+                  <div class="rounded-2xl border border-slate-200 p-5 bg-white"><div class="w-11 h-11 rounded-xl bg-violet-50 text-violet-700 flex items-center justify-center text-xl mb-4"><i class="fas fa-comments"></i></div><h3 class="font-extrabold text-slate-900 mb-2">Ask before booking</h3><p class="text-sm text-slate-600 leading-relaxed">Contact us to clarify the details that matter to your trip.</p></div>
+                </div></div>
+              </section>
+              <section class="bg-slate-50 border-y border-slate-100"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                <div><h2 class="text-2xl font-black text-slate-900 mb-2">Planning a trip to Bali?</h2><p class="text-sm text-slate-600">Tell us what you have in mind and ask about the available options.</p></div>
+                <button onclick="navigateTo('contact')" class="inline-flex items-center justify-center gap-2 bg-klook-orange hover:bg-klook-hover text-white font-bold px-5 py-3 rounded-xl transition">Contact Bali Trans <i class="fas fa-arrow-right"></i></button>
+              </div></section>
+            `;
+        }
+
+        /* CONTACT PAGE */
+        function renderContactView() {
+            return `
+              <section class="bg-slate-900 text-white"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20">
+                <p class="text-xs font-extrabold uppercase tracking-[0.2em] text-teal-300 mb-4">Contact Bali Trans</p>
+                <h1 class="text-3xl sm:text-5xl font-black tracking-tight leading-tight max-w-3xl mb-5">Let’s talk about your Bali trip.</h1>
+                <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl">Ask about a tour, private transport, pickup arrangements or trip details. Share a few details below so your enquiry is clear.</p>
+              </div></section>
+              <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16"><div class="grid grid-cols-1 lg:grid-cols-5 gap-10">
+                <div class="lg:col-span-2"><h2 class="text-xl font-black text-slate-900 mb-4">How can we help?</h2><p class="text-sm text-slate-600 leading-relaxed mb-6">If you have already found a tour on this website, include its name so we understand which service you are asking about.</p>
+                  <div class="space-y-4">
+                    <div class="flex items-start gap-3"><div class="w-10 h-10 shrink-0 rounded-xl bg-teal-50 text-teal-700 flex items-center justify-center"><i class="fas fa-map-marker-alt"></i></div><div><h3 class="font-bold text-slate-900 text-sm">Service area</h3><p class="text-sm text-slate-600 mt-1">Bali, Indonesia. Ask about your planned route and pickup area.</p></div></div>
+                    <div class="flex items-start gap-3"><div class="w-10 h-10 shrink-0 rounded-xl bg-sky-50 text-sky-700 flex items-center justify-center"><i class="fas fa-route"></i></div><div><h3 class="font-bold text-slate-900 text-sm">Tours & private transport</h3><p class="text-sm text-slate-600 mt-1">Share your date, group size and places you would like to visit.</p></div></div>
+                    <div class="flex items-start gap-3"><div class="w-10 h-10 shrink-0 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center"><i class="fas fa-info-circle"></i></div><div><h3 class="font-bold text-slate-900 text-sm">Before you book</h3><p class="text-sm text-slate-600 mt-1">Confirm the final price, inclusions, availability and cancellation terms before paying.</p></div></div>
+                  </div>
+                </div>
+                <div class="lg:col-span-3 bg-white border border-slate-200 rounded-3xl p-5 sm:p-8 shadow-sm">
+                  <h2 class="text-xl font-black text-slate-900 mb-2">Send an enquiry</h2><p class="text-sm text-slate-500 mb-6">Fields marked * are required.</p>
+                  <form id="contactEnquiryForm" onsubmit="submitContactEnquiry(event)" class="space-y-5">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div><label for="contactName" class="block text-sm font-bold text-slate-700 mb-2">Your name *</label><input id="contactName" name="name" required autocomplete="name" class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-klook-orange" placeholder="Name"></div>
+                      <div><label for="contactEmail" class="block text-sm font-bold text-slate-700 mb-2">Email address *</label><input id="contactEmail" name="email" type="email" required autocomplete="email" class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-klook-orange" placeholder="you@example.com"></div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div><label for="contactService" class="block text-sm font-bold text-slate-700 mb-2">What do you need? *</label><select id="contactService" name="service" required class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-900 bg-white focus:outline-none focus:ring-2 focus:ring-klook-orange"><option value="">Choose a service</option><option>Day tour</option><option>Private transport</option><option>Airport transfer</option><option>Island trip</option><option>Other trip enquiry</option></select></div>
+                      <div><label for="contactDate" class="block text-sm font-bold text-slate-700 mb-2">Planned date</label><input id="contactDate" name="date" type="date" min="${new Date().toISOString().split('T')[0]}" class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-klook-orange"></div>
+                    </div>
+                    <div><label for="contactMessage" class="block text-sm font-bold text-slate-700 mb-2">Trip details *</label><textarea id="contactMessage" name="message" required rows="5" class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-klook-orange" placeholder="Tell us your pickup area, group size, places you want to visit, and any questions."></textarea></div>
+                    <button type="submit" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-klook-orange hover:bg-klook-hover text-white font-extrabold px-6 py-3.5 rounded-xl transition">Prepare enquiry <i class="fas fa-arrow-right"></i></button>
+                    <p class="text-xs text-slate-500 leading-relaxed">Confirm service details and availability before making payment.</p>
+                  </form>
+                </div>
+              </div></section>
+            `;
+        }
+
+        function submitContactEnquiry(event) {
+            event.preventDefault();
+            const form = document.getElementById('contactEnquiryForm');
+            if (!form || !form.reportValidity()) return;
+            const data = new FormData(form);
+            const message = [
+                'Hello Bali Trans, I would like to ask about a trip.',
+                'Name: ' + data.get('name'),
+                'Email: ' + data.get('email'),
+                'Service: ' + data.get('service'),
+                'Planned date: ' + (data.get('date') || 'Flexible / not decided'),
+                'Trip details: ' + data.get('message')
+            ].join('\\n');
+            const contactNumber = window.BALI_TRANS_WHATSAPP_NUMBER || '';
+            if (!contactNumber) {
+                showToast('The official WhatsApp number must be configured before enquiries can be sent.');
+                return;
+            }
+            window.open('https://wa.me/' + contactNumber.replace(/[^0-9]/g, '') + '?text=' + encodeURIComponent(message), '_blank', 'noopener');
+        }
+
         /* VIEW 1: HOME PAGE */
         function renderHomeView() {
             return `
@@ -603,10 +649,10 @@
                             <i class="fas fa-bolt text-klook-orange"></i> Find a trip that fits your plans
                         </span>
                         <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight mb-4 leading-tight">
-                            Your Ultimate Bali Experience <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-300">Starts Here</span>
+                            Explore Bali Your Way <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-sky-200">With Bali Trans</span>
                         </h1>
                         <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto mb-8 font-medium">
-                            Book top-rated day tours, private drivers, Nusa Penida fast boats, and thrilling water sports with instant e-vouchers.
+                            Explore tour experiences and private transport around Bali. Compare trip details, then contact us to confirm your plans and availability.
                         </p>
 
                         <!-- KLOOK TABS & SEARCH CONTAINER -->
@@ -681,8 +727,8 @@
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
                     <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
                         <div>
-                            <span class="text-xs font-black text-klook-orange uppercase tracking-wider">Top Recommended Experiences</span>
-                            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Trending Bali Activities</h2>
+                            <span class="text-xs font-black text-klook-orange uppercase tracking-wider">Explore Bali</span>
+                            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Tours & Services to Explore</h2>
                         </div>
                         <button onclick="navigateTo('packages')" class="inline-flex items-center text-xs font-bold text-klook-orange hover:text-klook-hover gap-2 bg-orange-50 hover:bg-orange-100 px-4 py-2.5 rounded-full transition">
                             View All Activities <i class="fas fa-arrow-right"></i>
