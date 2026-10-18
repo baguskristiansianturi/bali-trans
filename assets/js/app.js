@@ -212,13 +212,10 @@
             if (params !== null && params !== undefined && params !== '') query.set('id', String(params));
             else query.delete('id');
             if (viewName !== 'blog') query.delete('category');
-            const article = viewName === 'blog-read' ? BALI_BLOGS.find(item => item.id === String(params)) : null;
-            const placeSlug = viewName === 'place' ? String(params || 'bali-utara') : null;
-            const nextUrl = article && (article.slug || article.id)
-                ? siteBase + 'blog/' + (article.slug || article.id) + '/'
-                : placeSlug
-                    ? siteBase + 'places/bali-utara/' + (placeSlug === 'bali-utara' ? '' : placeSlug + '/')
-                    : siteBase + '?' + query.toString();
+            // Keep every view addressable without relying on server-side rewrites.
+            // GitHub Pages serves real files only; generated /blog/slug/ routes can 404
+            // when no matching directory/index.html exists.
+            const nextUrl = siteBase + '?' + query.toString();
             if (options.history !== false) {
                 if (options.replace) window.history.replaceState({ viewName, params }, '', nextUrl);
                 else if (window.location.pathname + window.location.search !== nextUrl) window.history.pushState({ viewName, params }, '', nextUrl);
@@ -1985,18 +1982,9 @@
         }
 
         function initHomeInteractivity() {
-            // Flash sale countdown timer logic
-            let timerSeconds = 30252;
+            // Do not imply a real sale deadline when no confirmed offer is configured.
             const timerElem = document.getElementById('countdownTimer');
-            if (timerElem) {
-                setInterval(() => {
-                    timerSeconds--;
-                    const h = Math.floor(timerSeconds / 3600);
-                    const m = Math.floor((timerSeconds % 3600) / 60);
-                    const s = timerSeconds % 60;
-                    timerElem.innerText = `Offer ends in: ${String(h).padStart(2, '0')}h ${String(m).padStart(2, '0')}m ${String(s).padStart(2, '0')}s`;
-                }, 1000);
-            }
+            if (timerElem) timerElem.textContent = 'Plan your Bali trip';
         }
 
         function copyArticleLink() {
