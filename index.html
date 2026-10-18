@@ -1495,6 +1495,10 @@
             }
         }
 
+        function changeLanguage(language) {
+            showToast(language === 'en' ? 'English language support is coming soon.' : 'Bahasa Indonesia dipilih.');
+        }
+
         let recentlyViewedState = [];
         try { recentlyViewedState = JSON.parse(localStorage.getItem('baliTransRecentlyViewed') || '[]'); } catch(e) { recentlyViewedState = []; }
 
