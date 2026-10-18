@@ -34,6 +34,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
     <style>
+        body.checkout-mode > header,
+        body.checkout-mode > footer { display: none !important; }
+        body.checkout-mode #appContainer { padding-top: 0; }
+        body.checkout-mode { background: #f8fafc; }
         body { font-family: 'Inter', sans-serif; background-color: #F8FAFC; color: #1E293B; }
         .hide-scrollbar::-webkit-scrollbar { display: none; }
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
@@ -346,6 +350,7 @@
            ========================================================================== */
         function navigateTo(viewName, params = null) {
             const container = document.getElementById('appContainer');
+            document.body.classList.toggle('checkout-mode', viewName === 'checkout');
             window.scrollTo({ top: 0, behavior: 'smooth' });
 
             switch (viewName) {
@@ -1110,17 +1115,17 @@
                     <div class="flex items-center justify-between mb-8 max-w-xl mx-auto text-xs font-bold">
                         <div class="flex flex-col items-center gap-1 ${currentCheckoutStep >= 1 ? 'text-klook-orange' : 'text-slate-400'}">
                             <div class="w-8 h-8 rounded-full ${currentCheckoutStep >= 1 ? 'bg-klook-orange text-white' : 'bg-slate-200'} flex items-center justify-center font-bold">1</div>
-                            <span>Data Pemesan</span>
+                            <span>Data & pilihan</span>
                         </div>
                         <div class="h-0.5 flex-1 bg-slate-200 mx-2"></div>
                         <div class="flex flex-col items-center gap-1 ${currentCheckoutStep >= 2 ? 'text-klook-orange' : 'text-slate-400'}">
                             <div class="w-8 h-8 rounded-full ${currentCheckoutStep >= 2 ? 'bg-klook-orange text-white' : 'bg-slate-200'} flex items-center justify-center font-bold">2</div>
-                            <span>Pembayaran</span>
+                            <span>Konfirmasi</span>
                         </div>
                         <div class="h-0.5 flex-1 bg-slate-200 mx-2"></div>
                         <div class="flex flex-col items-center gap-1 ${currentCheckoutStep >= 3 ? 'text-klook-orange' : 'text-slate-400'}">
                             <div class="w-8 h-8 rounded-full ${currentCheckoutStep >= 3 ? 'bg-klook-orange text-white' : 'bg-slate-200'} flex items-center justify-center font-bold">3</div>
-                            <span>Ringkasan</span>
+                            <span>Selesai</span>
                         </div>
                     </div>
 
@@ -1197,30 +1202,28 @@
                                 <div><label class="block mb-1 text-slate-700" for="guestPhone">Nomor WhatsApp</label><input type="tel" id="guestPhone" value="${checkoutGuestDetails.phone || ''}" placeholder="+62..." class="w-full border border-slate-300 p-3 rounded-xl font-medium focus:outline-none focus:border-orange-500"></div>
                                 <div><label class="block mb-1 text-slate-700" for="guestHotel">Lokasi penjemputan</label><input type="text" id="guestHotel" value="${checkoutGuestDetails.hotel || ''}" placeholder="Nama hotel atau alamat" class="w-full border border-slate-300 p-3 rounded-xl font-medium focus:outline-none focus:border-orange-500"></div>
                             </div>
-                            <button onclick="advanceCheckoutStep(2)" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-extrabold py-3.5 px-6 rounded-2xl transition text-sm shadow-lg shadow-orange-500/20">Lanjut ke pembayaran <i class="fas fa-arrow-right ml-1"></i></button>
+                            <button onclick="advanceCheckoutStep(2)" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-extrabold py-3.5 px-6 rounded-2xl transition text-sm shadow-lg shadow-orange-500/20">Lanjutkan <i class="fas fa-arrow-right ml-1"></i></button>
                         </section>
                     </div>
                 `;
                         } else if (step === 2) {
+                const item = cartState[0] || {};
+                const currVehicle = item.vehicleName || 'Toyota Avanza';
+                const chosenAddons = (item.addons || []).map(addon => addon.name).filter(Boolean);
                 return `
-                    <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6">
-                        <div><p class="text-xs font-extrabold uppercase tracking-widest text-orange-600">Langkah 2 dari 3</p><h3 class="text-xl font-extrabold text-slate-900 mt-1">Pilih metode pembayaran</h3><p class="text-sm text-slate-500 mt-2">Pilih cara pembayaran yang paling nyaman. Rincian dan instruksi akan dikonfirmasi bersama pesanan Anda.</p></div>
-                        <div class="space-y-3">
-                            <label class="flex items-start gap-3 p-4 rounded-2xl border-2 ${selectedPaymentMethod === 'bank-transfer' ? 'border-orange-500 bg-orange-50/50' : 'border-slate-200'} cursor-pointer">
-                                <input type="radio" name="paymentMethod" value="bank-transfer" ${selectedPaymentMethod === 'bank-transfer' ? 'checked' : ''} onchange="selectPaymentMethod(this.value)" class="mt-1 accent-orange-500">
-                                <span class="flex-1"><span class="block text-sm font-extrabold text-slate-900">Bank transfer</span><span class="block text-xs text-slate-500 mt-1">Instruksi rekening diberikan setelah detail pesanan dikonfirmasi.</span></span><i class="fas fa-building-columns text-lg text-slate-500 mt-1"></i>
-                            </label>
-                            <label class="flex items-start gap-3 p-4 rounded-2xl border-2 ${selectedPaymentMethod === 'card' ? 'border-orange-500 bg-orange-50/50' : 'border-slate-200'} cursor-pointer">
-                                <input type="radio" name="paymentMethod" value="card" ${selectedPaymentMethod === 'card' ? 'checked' : ''} onchange="selectPaymentMethod(this.value)" class="mt-1 accent-orange-500">
-                                <span class="flex-1"><span class="block text-sm font-extrabold text-slate-900">Credit / debit card</span><span class="block text-xs text-slate-500 mt-1">Visa, Mastercard, dan kartu yang didukung.</span></span><i class="far fa-credit-card text-lg text-slate-500 mt-1"></i>
-                            </label>
-                            <label class="flex items-start gap-3 p-4 rounded-2xl border-2 ${selectedPaymentMethod === 'arrival' ? 'border-orange-500 bg-orange-50/50' : 'border-slate-200'} cursor-pointer">
-                                <input type="radio" name="paymentMethod" value="arrival" ${selectedPaymentMethod === 'arrival' ? 'checked' : ''} onchange="selectPaymentMethod(this.value)" class="mt-1 accent-orange-500">
-                                <span class="flex-1"><span class="block text-sm font-extrabold text-slate-900">Bayar di tempat</span><span class="block text-xs text-slate-500 mt-1">Pembayaran kepada driver saat penjemputan, setelah metode ini disetujui ketika konfirmasi.</span></span><i class="fas fa-money-bill-wave text-lg text-slate-500 mt-1"></i>
-                            </label>
+                    <div class="bg-white p-5 sm:p-7 rounded-3xl border border-slate-200 shadow-sm space-y-5">
+                        <div><p class="text-xs font-extrabold uppercase tracking-widest text-orange-600">Langkah 2 dari 2</p><h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 mt-1">Periksa pesanan Anda</h2><p class="text-sm text-slate-500 mt-2">Pastikan pilihan sudah sesuai. Saat dilanjutkan, rincian ini akan disiapkan untuk dikirim melalui WhatsApp Bali Trans.</p></div>
+                        <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4 space-y-3">
+                            <div class="flex justify-between gap-4 text-sm"><span class="text-slate-500">Paket</span><strong class="text-right">Lovina Dolphin Tour</strong></div>
+                            <div class="flex justify-between gap-4 text-sm"><span class="text-slate-500">Jumlah tamu</span><strong>${item.guestCount || 1} orang</strong></div>
+                            <div class="flex justify-between gap-4 text-sm"><span class="text-slate-500">Kendaraan</span><strong class="text-right">${currVehicle}</strong></div>
+                            <div class="flex justify-between gap-4 text-sm"><span class="text-slate-500">Tambahan</span><strong class="text-right">${chosenAddons.length ? chosenAddons.join(', ') : 'Tidak ada'}</strong></div>
+                            <div class="flex justify-between gap-4 text-sm"><span class="text-slate-500">Nama</span><strong class="text-right">${checkoutGuestDetails.name || '—'}</strong></div>
+                            <div class="flex justify-between gap-4 text-sm"><span class="text-slate-500">WhatsApp pemesan</span><strong class="text-right">${checkoutGuestDetails.phone || '—'}</strong></div>
+                            <div class="flex justify-between gap-4 text-sm"><span class="text-slate-500">Penjemputan</span><strong class="text-right">${checkoutGuestDetails.hotel || '—'}</strong></div>
+                            <div class="border-t border-slate-200 pt-3 flex justify-between items-end gap-4"><span class="font-extrabold text-slate-900">Perkiraan total</span><strong class="text-xl text-orange-600">${curr.format(totalIDR)}</strong></div>
                         </div>
-                        <div class="bg-slate-50 p-4 rounded-2xl flex justify-between items-center gap-4"><span class="text-sm font-bold text-slate-600">Total pemesanan</span><span class="text-xl font-black text-orange-600">${curr.format(totalIDR)}</span></div>
-                        <div class="flex flex-col sm:flex-row gap-3"><button onclick="advanceCheckoutStep(1)" class="sm:w-1/3 border border-slate-300 text-slate-700 font-extrabold py-3.5 px-5 rounded-2xl text-sm">Kembali</button><button onclick="advanceCheckoutStep(3)" class="flex-1 bg-orange-500 hover:bg-orange-600 text-white font-extrabold py-3.5 px-6 rounded-2xl text-sm">Tinjau pemesanan <i class="fas fa-arrow-right ml-1"></i></button></div>
+                        <div class="flex flex-col-reverse sm:flex-row gap-3"><button onclick="advanceCheckoutStep(1)" class="sm:w-1/3 border border-slate-300 text-slate-700 font-extrabold py-3.5 px-5 rounded-2xl text-sm">Kembali</button><button onclick="sendCheckoutToWhatsApp()" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold py-3.5 px-6 rounded-2xl text-sm"><i class="fab fa-whatsapp mr-2"></i>Kirim ke WhatsApp</button></div>
                     </div>
                 `;
             } else {
@@ -1560,6 +1563,41 @@
             const extrasEl = document.getElementById('checkoutExtrasTotal');
             if (extrasEl) extrasEl.innerText = curr.format(vehicle.surcharge + addonsTotal);
             updateBadges();
+        }
+
+        const BALI_TRANS_WHATSAPP_NUMBER = '';
+
+        function sendCheckoutToWhatsApp() {
+            if (!BALI_TRANS_WHATSAPP_NUMBER) {
+                showToast('Nomor WhatsApp Bali Trans belum diatur. Kirim nomornya agar tombol ini bisa diaktifkan.');
+                return;
+            }
+            const item = cartState[0] || {};
+            const curr = CURRENCY_RATES[currentCurrency];
+            const addons = (item.addons || []).map(addon => {
+                const price = addon.priceMode === 'person' ? addon.priceIDR * (item.guestCount || 1) : addon.priceIDR;
+                return '- ' + addon.name + ': ' + curr.format(price);
+            });
+            const total = item.unitPriceIDR * (item.quantity || 1);
+            const message = [
+                'Halo Bali Trans, saya ingin menanyakan pemesanan:',
+                '',
+                'Paket: ' + (item.title || 'Lovina Dolphin Tour'),
+                'Tanggal: ' + (item.date || 'Belum dipilih'),
+                'Jumlah tamu: ' + (item.guestCount || 1) + ' orang',
+                'Kendaraan: ' + (item.vehicleName || 'Toyota Avanza'),
+                'Nama: ' + (checkoutGuestDetails.name || '-'),
+                'Email: ' + (checkoutGuestDetails.email || '-'),
+                'WhatsApp pemesan: ' + (checkoutGuestDetails.phone || '-'),
+                'Lokasi penjemputan: ' + (checkoutGuestDetails.hotel || '-'),
+                'Tambahan:',
+                ...(addons.length ? addons : ['- Tidak ada']),
+                '',
+                'Perkiraan total: ' + curr.format(total),
+                '',
+                'Mohon konfirmasi ketersediaan dan rincian pesanan. Terima kasih.'
+            ].join('\n');
+            window.open('https://wa.me/' + BALI_TRANS_WHATSAPP_NUMBER.replace(/\D/g, '') + '?text=' + encodeURIComponent(message), '_blank', 'noopener');
         }
 
         function advanceCheckoutStep(step) {
