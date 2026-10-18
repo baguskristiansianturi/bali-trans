@@ -61,6 +61,42 @@ Contoh berikut adalah hipotesis untuk diteliti, bukan klaim bahwa kata kuncinya 
 ### G. Cerita destinasi
 Cerita tentang pagi di pesisir Lovina, karakter pasir hitam, kehidupan kawasan, atau perjalanan Singaraja–Lovina dapat menjadi konten bernilai jika orisinal dan faktual. Jangan mengarang pengalaman pribadi, dialog, wawancara, atau suasana seolah-olah disaksikan sendiri. Jangan memecah satu cerita menjadi banyak halaman tipis.
 
+## Menggali cerita edukatif dari satu destinasi
+
+Artikel destinasi harus menjadi pintu masuk ke bacaan yang membuat wisatawan memahami tempat yang akan mereka kunjungi. Peluang konten tidak terbatas pada nama tempat atau kata kunci wisata. Gali juga pertanyaan tentang alam, satwa, geografi, sejarah, budaya, cara kerja aktivitas wisata, dan kehidupan masyarakat—selama dapat diteliti dengan sumber yang layak.
+
+### Contoh eksplorasi dari Lovina: lumba-lumba
+
+| Pertanyaan pembaca | Arah artikel yang dapat diteliti | Yang harus dibuktikan |
+|---|---|---|
+| Jenis lumba-lumba apa yang terlihat di Lovina? | Mengenal lumba-lumba di perairan Lovina | Identifikasi spesies dari penelitian kredibel; jangan menyimpulkan hanya dari foto wisata |
+| Mengapa lumba-lumba sering terlihat di sana? | Laut utara Bali dan habitat lumba-lumba | Kedalaman, topografi dasar laut, mangsa, dan bukti ilmiah setempat |
+| Apakah lumba-lumba di Lovina menetap atau bermigrasi? | Apakah lumba-lumba Lovina tinggal di kawasan itu sepanjang tahun? | Bedakan temuan penelitian lama, observasi berkala, dan bukti terbaru; jangan menyebut satu kesimpulan sebagai kepastian mutlak |
+| Mengapa lumba-lumba muncul di permukaan? | Cara lumba-lumba bernapas, bergerak, dan mencari makan | Biologi dasar yang sesuai dengan spesies yang dibahas |
+| Apakah wisatawan selalu bisa melihat lumba-lumba? | Ekspektasi realistis saat dolphin watching | Variasi observasi, kondisi laut, perilaku satwa, dan keterbatasan prediksi |
+| Mengapa perahu berangkat pagi? | Waktu dolphin watching dan pola aktivitas satwa | Verifikasi praktik lokal dan penelitian; jangan mengubah kebiasaan operator menjadi klaim pasti tentang biologi |
+| Apakah banyak perahu mengganggu lumba-lumba? | Wisata lumba-lumba dan dampaknya terhadap satwa | Studi dampak, metode penelitian, batasan temuan, dan panduan yang berlaku |
+| Bagaimana membedakan melihat satwa dari mengejarnya? | Cara memilih pengalaman dolphin watching yang menghormati satwa | Praktik operator yang dapat diverifikasi; hindari klaim sertifikasi atau jaminan yang tidak ada |
+| Apa hubungan lumba-lumba dengan nelayan lokal? | Dari perahu nelayan menjadi wisata lumba-lumba di Lovina | Sejarah yang bersumber, suara masyarakat yang nyata, dan konteks mata pencaharian |
+| Satwa laut apa lagi yang tercatat di perairan Buleleng? | Keanekaragaman mamalia laut di utara Bali | Daftar spesies dari sumber ilmiah; jelaskan bahwa tercatat di kawasan luas tidak berarti mudah terlihat dari Lovina |
+
+Sumber awal yang sudah ditemukan untuk jalur riset ini:
+- Tesis Putu Liza Kusuma Mustika, James Cook University (2011), tentang keberlanjutan wisata dolphin watching di Lovina: https://researchonline.jcu.edu.au/29750/
+- Marine Mammal Protected Areas Task Force, fakta kawasan Buleleng: https://www.marinemammalhabitat.org/factsheets/buleleng/
+- Artikel tentang gangguan dari praktik dolphin watching di Lovina, terdaftar pada International Whaling Commission Whale Watching Handbook: https://wwhandbook.iwc.int/en/downloadable-resources/searchable-database-of-scientific-literature/the-case-of-lovina-bali-how-dolphin-watching-procedures-put-village-hospitality-revenue-at-risk
+- Studi pengelolaan lumba-lumba dengan pendekatan ekowisata (IPB, 2025): https://repository.ipb.ac.id/handle/123456789/160855
+
+Temuan tersebut adalah bahan awal, bukan izin untuk mengulang angka atau kesimpulan tanpa membaca sumber lengkap. Penelitian 2011 harus disebut sebagai penelitian pada periode tersebut; rekomendasi, kondisi operator, dan data terbaru perlu diperiksa terpisah.
+
+### Cara memutuskan apakah pertanyaan menjadi artikel tersendiri
+
+- **Jadikan bagian dalam artikel utama** jika jawabannya singkat, hanya memberi konteks, atau belum ada cukup bahan untuk panduan yang berdiri sendiri.
+- **Jadikan artikel turunan** jika pertanyaannya jelas, memiliki intent pencarian tersendiri, membutuhkan penjelasan mendalam, didukung sumber, dan dapat membantu pembaca mengambil keputusan atau menambah pengetahuan.
+- **Jadikan artikel lintas topik** jika temuan tersebut relevan ke beberapa destinasi atau wilayah, misalnya habitat lumba-lumba, jenis pasir pantai, geografi pesisir, atau cara memilih wisata alam.
+- **Jangan diterbitkan** jika isinya spekulatif, mengulang halaman lain, tidak cukup sumber, atau hanya mengubah satu kalimat menjadi artikel tipis.
+
+Dari setiap artikel utama, buat inventaris pertanyaan dan peluang seperti di atas, lalu teliti tiap peluang secara mandiri. Jangan hanya mengambil kata benda yang disebutkan di dalam tulisan; cari pertanyaan lanjutan yang benar-benar ingin dipahami pembaca.
+
 ## Metode menemukan artikel dari isi artikel utama
 
 Peta konten tidak hanya dibangun dari riset kata kunci sebelum menulis. Setelah artikel utama disusun, lakukan audit isi untuk menemukan subtopik yang berpotensi menjadi artikel tersendiri. Setiap bagian bisa membuka pertanyaan lanjutan yang pembaca mungkin cari.
