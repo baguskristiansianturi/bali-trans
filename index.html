@@ -517,8 +517,13 @@
             updateBadges();
             updatePageMetadata(viewName, params);
             applyLanguageCopy(document);
-            // Reset after rendering so mobile browsers show the newly selected page from its top.
-            resetRouteScroll();
+            // Normal navigation starts at the top; locale refreshes keep the visitor's position.
+            if (navigationOptions.preserveScroll) {
+                const preservedY = Number(navigationOptions.scrollY || 0);
+                window.scrollTo({ top: preservedY, left: 0, behavior: 'auto' });
+            } else {
+                resetRouteScroll();
+            }
         }
 
         function updatePageMetadata(viewName, params) {
@@ -1683,11 +1688,42 @@
             } catch (e) {}
             syncLocaleSelector();
             closeLocaleMenu();
-            applyLanguageCopy(document);
             if (typeof updateLiveChatStatus === 'function') updateLiveChatStatus();
-            // Translate the existing page in place. Re-rendering here can reset view-specific
-            // state (and can make navigation appear to jump back to the first view).
-            setTimeout(() => applyLanguageCopy(document), 0);
+
+            // Re-render the active route so displayed prices use the selected currency.
+            // Keep the same route and scroll position; never send the visitor back home.
+            const scrollY = window.scrollY || window.pageYOffset || 0;
+            const activeView = currentViewName;
+            const activeParams = currentViewParams;
+            const savedQty = currentDetailQty;
+            const savedDate = document.getElementById('bookingDateInput')?.value || '';
+            const savedOption = document.querySelector('input[name="packageOption"]:checked')?.value || '';
+            const savedVehicle = document.querySelector('input[name="detailVehicle"]:checked')?.value || '';
+            const savedAddons = Array.from(document.querySelectorAll('input[name="detailAddon"]:checked')).map(input => input.value);
+            if (activeView === 'checkout') {
+                applyLanguageCopy(document);
+                if (typeof updateCheckoutPricing === 'function') updateCheckoutPricing();
+            } else {
+                navigateTo(activeView, activeParams, { history: false, preserveScroll: true, scrollY });
+                if (activeView === 'detail') {
+                    currentDetailQty = savedQty || 1;
+                    const dateInput = document.getElementById('bookingDateInput');
+                    if (dateInput) dateInput.value = savedDate;
+                    const optionInput = savedOption ? document.querySelector('input[name="packageOption"][value="' + savedOption + '"]') : null;
+                    if (optionInput) optionInput.checked = true;
+                    if (savedVehicle) {
+                        const vehicleInput = document.querySelector('input[name="detailVehicle"][value="' + savedVehicle + '"]');
+                        if (vehicleInput && !vehicleInput.disabled) vehicleInput.checked = true;
+                    }
+                    savedAddons.forEach(id => {
+                        const addonInput = document.querySelector('input[name="detailAddon"][value="' + id + '"]');
+                        if (addonInput) addonInput.checked = true;
+                    });
+                    updatePackageOptionDetails();
+                    selectLovinaGallery(lovinaGalleryIndex);
+                }
+                window.scrollTo({ top: scrollY, left: 0, behavior: 'auto' });
+            }
         }
         if (!window.__baliTransLocaleObserver) {
             window.__baliTransLocaleObserver = new MutationObserver(records => {
