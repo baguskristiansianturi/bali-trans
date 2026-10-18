@@ -61,6 +61,38 @@ Contoh berikut adalah hipotesis untuk diteliti, bukan klaim bahwa kata kuncinya 
 ### G. Cerita destinasi
 Cerita tentang pagi di pesisir Lovina, karakter pasir hitam, kehidupan kawasan, atau perjalanan Singaraja–Lovina dapat menjadi konten bernilai jika orisinal dan faktual. Jangan mengarang pengalaman pribadi, dialog, wawancara, atau suasana seolah-olah disaksikan sendiri. Jangan memecah satu cerita menjadi banyak halaman tipis.
 
+## Metode menemukan artikel dari isi artikel utama
+
+Peta konten tidak hanya dibangun dari riset kata kunci sebelum menulis. Setelah artikel utama disusun, lakukan audit isi untuk menemukan subtopik yang berpotensi menjadi artikel tersendiri. Setiap bagian bisa membuka pertanyaan lanjutan yang pembaca mungkin cari.
+
+### Contoh pengembangan dari artikel Pantai Lovina
+
+| Unsur yang muncul dalam artikel utama | Calon artikel turunan untuk diteliti | Hubungan tautan |
+|---|---|---|
+| Lumba-lumba yang terlihat di Lovina | Lumba-lumba di Lovina: jenis yang tercatat, habitat, dan perilakunya | Artikel Lovina → artikel lumba-lumba; artikel lumba-lumba → panduan Lovina |
+| Perjalanan perahu saat pagi | Perahu dolphin watching Lovina: jenis perjalanan, durasi, dan hal yang perlu diperhatikan | Artikel Lovina → panduan perahu; panduan perahu → artikel dolphin watching dan paket terkait |
+| Aktivitas melihat lumba-lumba | Dolphin watching Lovina: waktu berangkat, persiapan, dan ekspektasi | Artikel Lovina → panduan aktivitas → halaman paket yang relevan |
+| Karakter pesisir dan pasir | Pantai pasir hitam di Bali: karakter, persebaran, dan perbandingan dengan pantai berpasir putih | Artikel Lovina → panduan jenis pantai → artikel pantai lain yang sudah diverifikasi |
+| Kawasan pesisir dan desa-desa sekitar | Desa dan kawasan pesisir Lovina: memahami lokasi sebelum berkunjung | Artikel Lovina → panduan kawasan → artikel lokasi spesifik |
+| Perjalanan dari wilayah Bali lain | Cara menuju Lovina dari titik keberangkatan yang memang banyak dicari | Artikel Lovina → panduan transportasi → itinerary terkait |
+| Aktivitas dan tempat di sekitar | Tempat wisata dekat Lovina yang realistis digabung dalam satu perjalanan | Artikel Lovina → panduan sekitar Lovina → artikel destinasi spesifik |
+
+Tabel ini adalah daftar peluang untuk diteliti, bukan keputusan otomatis untuk menerbitkan semua judul. Contoh tentang spesies lumba-lumba, perilaku, lokasi, dan aktivitas wajib diverifikasi melalui sumber yang kredibel. Jangan menyatakan spesies tertentu rutin terlihat di Lovina tanpa bukti yang cukup.
+
+### Prosedur ekstraksi peluang konten
+
+Untuk setiap artikel yang sudah ada atau sedang direncanakan:
+
+1. Tandai nama tempat, aktivitas, satwa, objek, istilah lokal, rute, jenis layanan, serta pertanyaan yang muncul secara alami di isi.
+2. Untuk tiap unsur, tanyakan: apakah orang kemungkinan mencari hal ini secara mandiri, apakah hasil pencarian menunjukkan intent tersendiri, dan apakah kita punya bahan yang cukup untuk menjawabnya dengan baik?
+3. Periksa SERP untuk beberapa variasi kueri dan catat jenis halaman yang muncul, kebutuhan yang belum terpenuhi, sumber yang otoritatif, serta apakah intent sudah dijawab oleh URL kita yang lain.
+4. Pilih bentuk yang tepat: bagian dalam artikel utama, FAQ singkat, artikel turunan, halaman destinasi, atau panduan perbandingan. Jangan membuat URL baru jika subtopiknya terlalu tipis atau tumpang tindih.
+5. Buat peta tautan dua arah bila masuk akal: artikel utama mengarah ke artikel turunan dan artikel turunan kembali ke panduan konteks. Tambahkan tautan silang antarartikel hanya jika benar-benar membantu.
+6. Catat status tiap peluang: **belum diteliti**, **sudah diperiksa di SERP**, **perlu verifikasi fakta**, **layak ditulis**, **sudah terbit**, atau **tidak perlu dibuat**.
+7. Setelah terbit, periksa tautan aktual dan pantau kueri di Search Console. Jika satu subtopik mendapat impresi sebagai kueri spesifik, pertimbangkan memperdalamnya berdasarkan data.
+
+**Prinsip penting:** artikel utama menjadi sumber ide dan konteks bagi artikel turunan; artikel turunan memberi kedalaman pada bagian tertentu dari artikel utama. Jaringan ini berkembang dari isi yang benar-benar berguna, bukan dengan memecah setiap kalimat menjadi URL.
+
 ## Model jaringan artikel lintas topik dan wilayah
 
 Artikel tidak boleh dipetakan sebagai kelompok yang tertutup hanya berdasarkan satu lokasi. Bangun jaringan bertingkat berdasarkan hubungan yang nyata bagi pembaca:
