@@ -87,6 +87,15 @@
             <span class="min-w-0"><span class="block text-lg sm:text-xl font-extrabold tracking-tight text-slate-900 leading-tight">Bali<span class="text-klook-orange"> Trans</span></span><span class="hidden xs:block text-[9px] sm:text-[10px] text-slate-500 font-semibold tracking-wide">TOURS · TRIPS · TRANSFER</span></span>
           </button>
 
+          <nav class="hidden md:flex items-center gap-3 lg:gap-5 text-sm font-semibold text-slate-600" aria-label="Main navigation">
+            <button type="button" onclick="navigateTo('home')" class="hover:text-teal-700 transition">Home</button>
+            <button type="button" onclick="navigateTo('discovery','region:south')" class="hover:text-teal-700 transition">Destinations</button>
+            <button type="button" onclick="navigateTo('packages')" class="hover:text-teal-700 transition">Tours</button>
+            <button type="button" onclick="navigateTo('blog')" class="hover:text-teal-700 transition">Travel guides</button>
+            <button type="button" onclick="navigateTo('about')" class="hover:text-teal-700 transition">About</button>
+            <button type="button" onclick="navigateTo('contact')" class="hover:text-teal-700 transition">Contact</button>
+          </nav>
+
           <div class="flex items-center gap-1.5 sm:gap-2">
             <div class="relative" id="localeControl">
               <button type="button" onclick="toggleLocaleMenu(event)" id="localeButton" aria-label="Language and currency" aria-controls="localeMenu" aria-expanded="false" class="h-10 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center gap-2 px-3 text-sm font-bold"><span id="localeCurrentFlag" class="text-lg">🇮🇩</span><span id="localeCurrentCode">IDR</span><i class="fas fa-chevron-down text-[10px]"></i></button>
@@ -102,7 +111,7 @@
             <button type="button" onclick="toggleHeaderSearch(event)" aria-label="Cari" aria-controls="headerSearchPanel" aria-expanded="false" id="headerSearchButton" class="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-800 hover:bg-slate-100">
               <i id="headerSearchIcon" class="fas fa-search text-lg"></i>
             </button>
-            <button type="button" onclick="toggleMobileMenu(event)" aria-label="Buka menu" aria-controls="mobileMenuPanel" aria-expanded="false" id="mobileMenuButton" class="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-800 hover:bg-slate-100">
+            <button type="button" onclick="toggleMobileMenu(event)" aria-label="Buka menu" aria-controls="mobileMenuPanel" aria-expanded="false" id="mobileMenuButton" class="md:hidden w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-800 hover:bg-slate-100">
               <i id="mobileMenuIcon" class="fas fa-bars text-lg"></i>
             </button>
           </div>
@@ -188,7 +197,6 @@
                 <li><button type="button" onclick="navigateTo('packages')" class="footer-link">Private transport</button></li>
                 <li><button type="button" onclick="navigateTo('cart')" class="footer-link">View my trip list</button></li>
                 <li><button type="button" onclick="navigateTo('contact')" class="footer-link">Ask about availability</button></li>
-                <li><button type="button" onclick="showFooterComingSoon('Airport transfers')" class="footer-link">Airport transfers <span class="footer-coming-soon">Coming Soon</span></button></li>
               </ul>
             </div>
 
@@ -196,10 +204,6 @@
               <h3 class="text-white font-extrabold mb-4 text-xs uppercase tracking-[0.14em]">Help & support</h3>
               <ul class="space-y-3.5">
                 <li><button type="button" onclick="navigateTo('contact')" class="footer-link">Contact our team</button></li>
-                <li><button type="button" onclick="showFooterComingSoon('Frequently asked questions')" class="footer-link">FAQs <span class="footer-coming-soon">Coming Soon</span></button></li>
-                <li><button type="button" onclick="showFooterComingSoon('Booking and payment information')" class="footer-link">Booking & payments <span class="footer-coming-soon">Coming Soon</span></button></li>
-                <li><button type="button" onclick="showFooterComingSoon('Changes and cancellation policy')" class="footer-link">Changes & cancellations <span class="footer-coming-soon">Coming Soon</span></button></li>
-                <li><button type="button" onclick="showFooterComingSoon('Manage booking')" class="footer-link">Manage a booking <span class="footer-coming-soon">Coming Soon</span></button></li>
               </ul>
             </div>
 
@@ -207,9 +211,6 @@
               <h3 class="text-white font-extrabold mb-4 text-xs uppercase tracking-[0.14em]">About us</h3>
               <ul class="space-y-3.5">
                 <li><button type="button" onclick="navigateTo('about')" class="footer-link">About Bali Trans</button></li>
-                <li><button type="button" onclick="showFooterComingSoon('Our local partners')" class="footer-link">Local partners <span class="footer-coming-soon">Coming Soon</span></button></li>
-                <li><button type="button" onclick="showFooterComingSoon('Terms and conditions')" class="footer-link">Terms & conditions <span class="footer-coming-soon">Coming Soon</span></button></li>
-                <li><button type="button" onclick="showFooterComingSoon('Privacy policy')" class="footer-link">Privacy policy <span class="footer-coming-soon">Coming Soon</span></button></li>
                 <li><button type="button" onclick="navigateTo('home')" class="footer-link">Back to home</button></li>
                 <li><button type="button" onclick="navigateTo('image-credits')" class="footer-link">Photo credits</button></li>
               </ul>
