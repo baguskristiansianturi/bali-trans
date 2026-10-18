@@ -392,7 +392,7 @@
                 'Planned date: ' + (data.get('date') || 'Flexible / not decided'),
                 'Trip details: ' + data.get('message')
             ].join('\\n');
-            const contactNumber = window.BALI_TRANS_WHATSAPP_NUMBER || '';
+            const contactNumber = BALI_TRANS_WHATSAPP_NUMBER || '';
             if (!contactNumber) {
                 showToast('The official WhatsApp number must be configured before enquiries can be sent.');
                 return;
