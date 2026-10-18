@@ -164,3 +164,40 @@ footer a {
         flex-wrap: wrap;
     }
 }
+
+
+/* Contrast, focus and responsive polish */
+:root { color-scheme: light; }
+body { color: #1e293b; }
+button, a, select, input, textarea { -webkit-tap-highlight-color: transparent; }
+button:focus-visible, a:focus-visible, select:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 3px solid rgba(234,88,12,.48); outline-offset: 2px;
+}
+input, select, textarea { color: #1e293b; }
+input::placeholder, textarea::placeholder { color: #64748b; opacity: 1; }
+#appContainer .text-white.bg-white, #appContainer .text-white.bg-slate-50,
+#appContainer .text-white.bg-slate-100, #appContainer .text-white.bg-gray-50,
+#appContainer .text-white.bg-gray-100, #appContainer .text-white.bg-orange-50,
+#appContainer .text-white.bg-orange-100, #appContainer .text-white.bg-amber-50,
+#appContainer .text-white.bg-amber-100, #appContainer .text-white.bg-emerald-50,
+#appContainer .text-white.bg-rose-50, header .text-white.bg-white,
+header .text-white.bg-slate-50, header .text-white.bg-slate-100 {
+  color: #1e293b !important;
+}
+:is(.bg-white,.bg-slate-50,.bg-slate-100,.bg-gray-50,.bg-gray-100,.bg-orange-50,.bg-orange-100,.bg-amber-50,.bg-amber-100,.bg-emerald-50,.bg-rose-50) .text-white:not(.bg-klook-orange):not(.bg-orange-500):not(.bg-emerald-500):not(.bg-rose-500):not(.bg-slate-900):not(.bg-slate-800):not(.bg-gradient-to-r):not(.bg-gradient-to-l) {
+  color: #1e293b !important;
+}
+#appContainer .bg-orange-100.text-klook-orange, #appContainer .bg-orange-50.text-klook-orange { color: #9a3412; }
+#appContainer section, #appContainer article, #appContainer form,
+#appContainer [class*="grid-cols-"] { min-width: 0; }
+#appContainer .overflow-x-auto { touch-action: pan-x pan-y; }
+@media (max-width: 767px) {
+  #appContainer { overflow-x: clip; }
+  #appContainer > div { max-width: 100%; }
+  #appContainer .grid-cols-3 { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  #appContainer .text-xs { line-height: 1.45; }
+  #appContainer .p-6 { padding: 1rem; }
+  footer { padding-bottom: 1rem; }
+  footer .grid { gap: 1.5rem; }
+  .fixed.bottom-0 { padding-left: max(1rem,env(safe-area-inset-left)); padding-right: max(1rem,env(safe-area-inset-right)); padding-bottom: max(.4rem,env(safe-area-inset-bottom)); }
+}
