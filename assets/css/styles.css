@@ -201,3 +201,56 @@ header .text-white.bg-slate-50, header .text-white.bg-slate-100 {
   footer .grid { gap: 1.5rem; }
   .fixed.bottom-0 { padding-left: max(1rem,env(safe-area-inset-left)); padding-right: max(1rem,env(safe-area-inset-right)); padding-bottom: max(.4rem,env(safe-area-inset-bottom)); }
 }
+
+
+/* Verified mobile-first safeguards: avoid desktop-width overflow and unreadable controls. */
+@media (max-width: 767px) {
+  html, body { width: 100%; }
+  #appContainer { width: 100%; overflow-x: clip; }
+  #appContainer .max-w-7xl,
+  #appContainer .max-w-5xl,
+  #appContainer .max-w-4xl,
+  #appContainer .max-w-3xl,
+  #appContainer .max-w-2xl {
+    max-width: 100%;
+  }
+  #appContainer .grid.grid-cols-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #appContainer .grid.grid-cols-2 { grid-template-columns: minmax(0, 1fr); }
+  #appContainer input,
+  #appContainer select,
+  #appContainer textarea { width: 100%; min-height: 44px; }
+  #appContainer button { min-height: 40px; }
+  #appContainer img { height: auto; }
+  #appContainer .overflow-x-auto { max-width: 100%; }
+  #appContainer .sticky { position: sticky; }
+  #appContainer .text-5xl { font-size: 2.1rem; line-height: 1.15; }
+  #appContainer .text-6xl { font-size: 2.35rem; line-height: 1.12; }
+  #appContainer .gap-6 { gap: 1rem; }
+  #appContainer .px-8, #appContainer .px-12 { padding-left: 1rem; padding-right: 1rem; }
+}
+@media (max-width: 380px) {
+  #appContainer .grid.grid-cols-3,
+  #appContainer .grid.grid-cols-2 { grid-template-columns: minmax(0, 1fr); }
+  #currencySelector { max-width: 4.6rem; }
+  header .text-xl { font-size: .875rem; }
+}
+
+/* Explicit contrast repair for white text placed directly on pale utility backgrounds. */
+.text-white.bg-white,
+.text-white.bg-slate-50,
+.text-white.bg-slate-100,
+.text-white.bg-slate-200,
+.text-white.bg-gray-50,
+.text-white.bg-gray-100,
+.text-white.bg-orange-50,
+.text-white.bg-orange-100,
+.text-white.bg-amber-50,
+.text-white.bg-amber-100,
+.text-white.bg-emerald-50,
+.text-white.bg-rose-50 {
+  color: #1e293b !important;
+}
+input, select, textarea {
+  background-color: #fff;
+  border-color: #cbd5e1;
+}
