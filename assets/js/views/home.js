@@ -85,6 +85,47 @@ function renderHomeView() {
                     </div>
                 </div>
 
+                <!-- TRIP PLANNING HUB: public entry points to the wider Bali trip journey -->
+                <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-4" aria-labelledby="tripPlanningTitle">
+                    <div class="mb-6 max-w-3xl">
+                        <span class="text-xs font-black text-klook-orange uppercase tracking-wider">Your trip, made easier to plan</span>
+                        <h2 id="tripPlanningTitle" class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-1">What would you like to plan?</h2>
+                        <p class="text-sm text-slate-500 mt-2">Explore places, find things to do, work out how to get around and get practical information before you set off.</p>
+                    </div>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <button type="button" onclick="filterByCategory('temple'); navigateTo('packages')" class="text-left group bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 hover:border-teal-300 hover:shadow-md transition">
+                            <span class="w-11 h-11 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-lg mb-3"><i class="fas fa-map-marked-alt" aria-hidden="true"></i></span>
+                            <span class="block text-sm font-extrabold text-slate-900 mb-1">Places to Explore</span>
+                            <span class="block text-xs text-slate-500 leading-relaxed">Discover areas, landmarks and scenic stops around Bali.</span>
+                        </button>
+                        <button type="button" onclick="filterByCategory('atv'); navigateTo('packages')" class="text-left group bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 hover:border-teal-300 hover:shadow-md transition">
+                            <span class="w-11 h-11 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center text-lg mb-3"><i class="fas fa-person-hiking" aria-hidden="true"></i></span>
+                            <span class="block text-sm font-extrabold text-slate-900 mb-1">Things to Do</span>
+                            <span class="block text-xs text-slate-500 leading-relaxed">Browse outdoor activities, culture and island experiences.</span>
+                        </button>
+                        <button type="button" onclick="filterByCategory('driver'); navigateTo('packages')" class="text-left group bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 hover:border-teal-300 hover:shadow-md transition">
+                            <span class="w-11 h-11 rounded-xl bg-teal-50 text-teal-700 flex items-center justify-center text-lg mb-3"><i class="fas fa-car-side" aria-hidden="true"></i></span>
+                            <span class="block text-sm font-extrabold text-slate-900 mb-1">Transport & Transfers</span>
+                            <span class="block text-xs text-slate-500 leading-relaxed">Explore transport options for getting between places.</span>
+                        </button>
+                        <button type="button" onclick="navigateTo('blog')" class="text-left group bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 hover:border-teal-300 hover:shadow-md transition">
+                            <span class="w-11 h-11 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center text-lg mb-3"><i class="fas fa-route" aria-hidden="true"></i></span>
+                            <span class="block text-sm font-extrabold text-slate-900 mb-1">Plan an Itinerary</span>
+                            <span class="block text-xs text-slate-500 leading-relaxed">Get ideas for arranging stops, travel time and breaks.</span>
+                        </button>
+                        <button type="button" onclick="navigateTo('blog')" class="text-left group bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 hover:border-teal-300 hover:shadow-md transition">
+                            <span class="w-11 h-11 rounded-xl bg-rose-50 text-rose-700 flex items-center justify-center text-lg mb-3"><i class="fas fa-utensils" aria-hidden="true"></i></span>
+                            <span class="block text-sm font-extrabold text-slate-900 mb-1">Food & Local Tips</span>
+                            <span class="block text-xs text-slate-500 leading-relaxed">Prepare for dining, local customs and day-to-day needs.</span>
+                        </button>
+                        <button type="button" onclick="navigateTo('blog')" class="text-left group bg-white p-4 sm:p-5 rounded-2xl border border-slate-200 hover:border-teal-300 hover:shadow-md transition">
+                            <span class="w-11 h-11 rounded-xl bg-violet-50 text-violet-700 flex items-center justify-center text-lg mb-3"><i class="fas fa-book-open" aria-hidden="true"></i></span>
+                            <span class="block text-sm font-extrabold text-slate-900 mb-1">Travel Essentials</span>
+                            <span class="block text-xs text-slate-500 leading-relaxed">Read practical guidance before and during your Bali trip.</span>
+                        </button>
+                    </div>
+                </section>
+
                 <!-- FEATURED PACKAGES GRID (KLOOK CARDS) -->
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
                     <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
