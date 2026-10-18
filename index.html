@@ -1940,15 +1940,23 @@
             }
         }
 
-        /* INITIAL APP LAUNCH */
-        window.onload = function() {
+        /* INITIAL APP LAUNCH
+           Render as soon as the HTML is parsed. window.onload waits for every
+           image/font/external resource, making the header and footer appear
+           before the main view on slower mobile connections. */
+        function startBaliTransApp() {
             const requestedTour = new URLSearchParams(window.location.search).get('tour');
             if (requestedTour === 'lovina-dolphin-tour') {
                 navigateTo('detail', 'lovina-dolphin-tour');
             } else {
                 navigateTo('home');
             }
-        };
+        }
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', startBaliTransApp, { once: true });
+        } else {
+            startBaliTransApp();
+        }
     </script>
 </body>
 </html>
