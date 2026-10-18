@@ -89,11 +89,19 @@
           </button>
 
           <div class="flex items-center gap-1.5 sm:gap-2">
-            <label class="relative flex items-center justify-center w-10 h-10 rounded-full bg-slate-100 hover:bg-slate-200 cursor-pointer" aria-label="Bahasa dan mata uang" title="Bahasa dan mata uang">
-              <select id="localeSelector" onchange="changeLocale(this.value)" aria-label="Pilih bahasa dan mata uang" class="locale-flag-select">
-                <option value="id">🇮🇩</option><option value="en">🇺🇸</option>
-              </select>
-            </label>
+            <div class="relative" id="localeControl">
+              <button type="button" onclick="toggleLocaleMenu(event)" id="localeButton" aria-label="Bahasa dan mata uang" aria-controls="localeMenu" aria-expanded="false" class="w-10 h-10 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-xl">
+                <span id="localeCurrentFlag">🇮🇩</span>
+              </button>
+              <div id="localeMenu" class="hidden absolute right-0 top-full mt-2 w-56 rounded-2xl border border-slate-200 bg-white p-2 shadow-xl z-[60]">
+                <button type="button" onclick="changeLocale('id')" class="locale-option w-full flex items-center gap-3 rounded-xl px-3 py-3 text-left hover:bg-slate-50">
+                  <span class="text-xl">🇮🇩</span><span class="flex-1"><span class="block text-sm font-bold text-slate-800">Indonesia</span><span class="block text-xs text-slate-500">Bahasa Indonesia · IDR</span></span><i id="localeCheckId" class="fas fa-check text-teal-600"></i>
+                </button>
+                <button type="button" onclick="changeLocale('en')" class="locale-option w-full flex items-center gap-3 rounded-xl px-3 py-3 text-left hover:bg-slate-50">
+                  <span class="text-xl">🇺🇸</span><span class="flex-1"><span class="block text-sm font-bold text-slate-800">English</span><span class="block text-xs text-slate-500">English · USD</span></span><i id="localeCheckEn" class="fas fa-check text-teal-600 hidden"></i>
+                </button>
+              </div>
+            </div>
             <button type="button" onclick="toggleHeaderSearch(event)" aria-label="Cari" aria-controls="headerSearchPanel" aria-expanded="false" id="headerSearchButton" class="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-800 hover:bg-slate-100">
               <i id="headerSearchIcon" class="fas fa-search text-lg"></i>
             </button>
@@ -113,7 +121,6 @@
         </div>
       </div>
       <div id="mobileMenuPanel" class="hidden border-t border-slate-100 bg-white shadow-xl">
-      <div id="mobileMenuPanel" class="hidden border-t border-slate-100 bg-white shadow-xl">
         <div class="max-w-7xl mx-auto px-4 py-3">
           <div class="grid grid-cols-2 gap-2">
             <button onclick="closeMobileMenu(); showHelpMenu()" class="mobile-menu-item"><i class="far fa-circle-question"></i><span>Bantuan</span></button>
@@ -128,8 +135,7 @@
       </div>
     </header>
     <style>
-      .locale-flag-select{appearance:none;-webkit-appearance:none;width:100%;height:100%;text-align:center;text-align-last:center;background:transparent;border:0;outline:none;cursor:pointer;font-size:19px;padding:0;line-height:1}
-      .locale-flag-select option{font-size:16px}
+      .locale-option{min-height:58px}
       .mobile-menu-item{display:flex;align-items:center;gap:10px;padding:13px 12px;border:1px solid #e2e8f0;border-radius:12px;color:#334155;background:#fff;text-align:left;font-size:14px;font-weight:650;min-height:48px}
       .mobile-menu-item i{color:#0f9d9a;width:18px;text-align:center}
       .mobile-menu-item:hover,.mobile-menu-item:focus{background:#f0fdfa;border-color:#99f6e4;outline:none}
@@ -1546,13 +1552,36 @@
             document.title = currentLanguage === 'id' ? 'Bali Trans | Tur, Aktivitas & Transportasi Privat di Bali' : 'Bali Trans | Bali Tours, Activities & Private Transport';
         }
         function syncLocaleSelector() {
-            const selector = document.getElementById('localeSelector');
-            if (selector) selector.value = currentLanguage;
+            const flag = document.getElementById('localeCurrentFlag');
+            const checkId = document.getElementById('localeCheckId');
+            const checkEn = document.getElementById('localeCheckEn');
+            if (flag) flag.textContent = currentLanguage === 'en' ? '🇺🇸' : '🇮🇩';
+            if (checkId) checkId.classList.toggle('hidden', currentLanguage !== 'id');
+            if (checkEn) checkEn.classList.toggle('hidden', currentLanguage !== 'en');
+        }
+        function toggleLocaleMenu(event) {
+            if (event) event.stopPropagation();
+            const menu = document.getElementById('localeMenu');
+            const button = document.getElementById('localeButton');
+            if (!menu) return;
+            const opening = menu.classList.contains('hidden');
+            closeMobileMenu();
+            closeHeaderSearch();
+            menu.classList.toggle('hidden', !opening);
+            if (button) button.setAttribute('aria-expanded', String(opening));
+        }
+        function closeLocaleMenu() {
+            const menu = document.getElementById('localeMenu');
+            const button = document.getElementById('localeButton');
+            if (menu) menu.classList.add('hidden');
+            if (button) button.setAttribute('aria-expanded', 'false');
         }
         function changeLocale(language) {
             currentLanguage = language === 'en' ? 'en' : 'id';
             currentCurrency = currentLanguage === 'en' ? 'USD' : 'IDR';
             try { localStorage.setItem('baliTransLanguage', currentLanguage); } catch(e) {}
+            syncLocaleSelector();
+            closeLocaleMenu();
             document.documentElement.lang = currentLanguage;
             navigateTo('home');
             showToast(currentLanguage === 'en' ? 'Language: English · Currency: USD' : 'Bahasa Indonesia · Mata uang IDR');
@@ -1616,8 +1645,10 @@
             const menuButton = document.getElementById('mobileMenuButton');
             const searchPanel = document.getElementById('headerSearchPanel');
             const searchButton = document.getElementById('headerSearchButton');
+            const localeControl = document.getElementById('localeControl');
             if (menuPanel && !menuPanel.contains(event.target) && !menuButton?.contains(event.target)) closeMobileMenu();
             if (searchPanel && !searchPanel.contains(event.target) && !searchButton?.contains(event.target)) closeHeaderSearch();
+            if (localeControl && !localeControl.contains(event.target)) closeLocaleMenu();
         });
         function showRegisterPrompt() {
             showToast('Pendaftaran akun belum aktif. Untuk bantuan pemesanan, silakan hubungi kami melalui Contact.');
