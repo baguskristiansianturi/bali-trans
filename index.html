@@ -88,31 +88,31 @@
             <span class="min-w-0"><span class="block text-lg sm:text-xl font-extrabold tracking-tight text-slate-900 leading-tight">Bali<span class="text-klook-orange"> Trans</span></span><span class="hidden xs:block text-[9px] sm:text-[10px] text-slate-500 font-semibold tracking-wide">TOURS · TRIPS · TRANSFER</span></span>
           </button>
 
-          <div class="hidden lg:flex items-center flex-1 max-w-md relative mx-6">
-            <i class="fas fa-search absolute left-4 text-slate-400"></i>
-            <input type="text" id="headerSearchInput" onkeyup="handleGlobalSearch(this.value)" placeholder="Cari tour, aktivitas, atau tempat..." class="w-full pl-11 pr-4 py-3 bg-slate-100 hover:bg-slate-200/60 focus:bg-white rounded-full text-sm font-medium border border-transparent focus:border-klook-orange focus:outline-none transition-all">
-            <div id="searchResultsDropdown" class="hidden absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-2xl border border-slate-100 p-3 z-50 max-h-80 overflow-y-auto"></div>
-          </div>
-
-          <div class="flex items-center gap-1 sm:gap-2">
-            <label class="relative flex items-center gap-2 h-10 px-2.5 rounded-full bg-slate-100 hover:bg-slate-200 cursor-pointer" aria-label="Bahasa dan mata uang">
-              <i class="fas fa-globe-asia text-slate-700 text-base"></i>
-              <select id="localeSelector" onchange="changeLocale(this.value)" aria-label="Pilih bahasa dan mata uang" class="max-w-[118px] bg-transparent text-[11px] sm:text-xs font-bold text-slate-700 outline-none cursor-pointer">
-                <option value="id">🇮🇩 Indonesia · IDR</option><option value="en">🇺🇸 English · USD</option>
+          <div class="flex items-center gap-1.5 sm:gap-2">
+            <label class="relative flex items-center justify-center w-10 h-10 rounded-full bg-slate-100 hover:bg-slate-200 cursor-pointer" aria-label="Bahasa dan mata uang" title="Bahasa dan mata uang">
+              <select id="localeSelector" onchange="changeLocale(this.value)" aria-label="Pilih bahasa dan mata uang" class="locale-flag-select">
+                <option value="id">🇮🇩</option><option value="en">🇺🇸</option>
               </select>
             </label>
-            <button type="button" onclick="toggleMobileMenu()" aria-label="Buka menu" aria-controls="mobileMenuPanel" aria-expanded="false" id="mobileMenuButton" class="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-800 hover:bg-slate-100">
+            <button type="button" onclick="toggleHeaderSearch(event)" aria-label="Cari" aria-controls="headerSearchPanel" aria-expanded="false" id="headerSearchButton" class="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-800 hover:bg-slate-100">
+              <i id="headerSearchIcon" class="fas fa-search text-lg"></i>
+            </button>
+            <button type="button" onclick="toggleMobileMenu(event)" aria-label="Buka menu" aria-controls="mobileMenuPanel" aria-expanded="false" id="mobileMenuButton" class="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-800 hover:bg-slate-100">
               <i id="mobileMenuIcon" class="fas fa-bars text-lg"></i>
             </button>
           </div>
         </div>
-        <div class="lg:hidden pb-3">
+      </div>
+      <div id="headerSearchPanel" class="hidden border-t border-slate-100 bg-white">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-3">
           <div class="relative">
             <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
-            <input type="search" id="mobileHeaderSearchInput" onkeyup="handleGlobalSearch(this.value)" placeholder="Cari tour, aktivitas, atau tempat..." class="w-full pl-11 pr-4 py-3 bg-slate-100 focus:bg-white rounded-xl text-sm border border-slate-200 focus:border-klook-orange focus:outline-none">
+            <input type="search" id="headerSearchInput" oninput="handleGlobalSearch(this.value)" placeholder="Cari tour, aktivitas, atau tempat..." class="w-full pl-11 pr-4 py-3 bg-slate-100 focus:bg-white rounded-xl text-sm border border-slate-200 focus:border-klook-orange focus:outline-none">
+            <div id="searchResultsDropdown" class="hidden absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-2xl border border-slate-100 p-3 z-50 max-h-80 overflow-y-auto"></div>
           </div>
         </div>
       </div>
+      <div id="mobileMenuPanel" class="hidden border-t border-slate-100 bg-white shadow-xl">
       <div id="mobileMenuPanel" class="hidden border-t border-slate-100 bg-white shadow-xl">
         <div class="max-w-7xl mx-auto px-4 py-3">
           <div class="grid grid-cols-2 gap-2">
@@ -128,6 +128,8 @@
       </div>
     </header>
     <style>
+      .locale-flag-select{appearance:none;-webkit-appearance:none;width:100%;height:100%;text-align:center;text-align-last:center;background:transparent;border:0;outline:none;cursor:pointer;font-size:19px;padding:0;line-height:1}
+      .locale-flag-select option{font-size:16px}
       .mobile-menu-item{display:flex;align-items:center;gap:10px;padding:13px 12px;border:1px solid #e2e8f0;border-radius:12px;color:#334155;background:#fff;text-align:left;font-size:14px;font-weight:650;min-height:48px}
       .mobile-menu-item i{color:#0f9d9a;width:18px;text-align:center}
       .mobile-menu-item:hover,.mobile-menu-item:focus{background:#f0fdfa;border-color:#99f6e4;outline:none}
@@ -1560,12 +1562,14 @@
         let recentlyViewedState = [];
         try { recentlyViewedState = JSON.parse(localStorage.getItem('baliTransRecentlyViewed') || '[]'); } catch(e) { recentlyViewedState = []; }
 
-        function toggleMobileMenu() {
+        function toggleMobileMenu(event) {
+            if (event) event.stopPropagation();
             const panel = document.getElementById('mobileMenuPanel');
             const button = document.getElementById('mobileMenuButton');
             const icon = document.getElementById('mobileMenuIcon');
             if (!panel) return;
             const opening = panel.classList.contains('hidden');
+            closeHeaderSearch();
             panel.classList.toggle('hidden', !opening);
             if (button) button.setAttribute('aria-expanded', String(opening));
             if (icon) icon.className = opening ? 'fas fa-xmark text-lg' : 'fas fa-bars text-lg';
@@ -1580,6 +1584,40 @@
             if (button) button.setAttribute('aria-expanded', 'false');
             if (icon) icon.className = 'fas fa-bars text-lg';
         }
+        function toggleHeaderSearch(event) {
+            if (event) event.stopPropagation();
+            const panel = document.getElementById('headerSearchPanel');
+            const button = document.getElementById('headerSearchButton');
+            const icon = document.getElementById('headerSearchIcon');
+            if (!panel) return;
+            const opening = panel.classList.contains('hidden');
+            closeMobileMenu();
+            panel.classList.toggle('hidden', !opening);
+            if (button) button.setAttribute('aria-expanded', String(opening));
+            if (icon) icon.className = opening ? 'fas fa-xmark text-lg' : 'fas fa-search text-lg';
+            if (opening) setTimeout(() => document.getElementById('headerSearchInput')?.focus(), 30);
+            else {
+                const dropdown = document.getElementById('searchResultsDropdown');
+                if (dropdown) dropdown.classList.add('hidden');
+            }
+        }
+        function closeHeaderSearch() {
+            const panel = document.getElementById('headerSearchPanel');
+            const button = document.getElementById('headerSearchButton');
+            const icon = document.getElementById('headerSearchIcon');
+            if (panel) panel.classList.add('hidden');
+            if (button) button.setAttribute('aria-expanded', 'false');
+            if (icon) icon.className = 'fas fa-search text-lg';
+            const dropdown = document.getElementById('searchResultsDropdown');
+            if (dropdown) dropdown.classList.add('hidden');
+        }
+        document.addEventListener('click', function(event) {
+            const header = document.querySelector('header');
+            if (header && !header.contains(event.target)) {
+                closeMobileMenu();
+                closeHeaderSearch();
+            }
+        });
         function showRegisterPrompt() {
             showToast('Pendaftaran akun belum aktif. Untuk bantuan pemesanan, silakan hubungi kami melalui Contact.');
             navigateTo('contact');
