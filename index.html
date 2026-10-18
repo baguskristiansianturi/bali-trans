@@ -23,7 +23,7 @@
     <div class="bg-gradient-to-r from-orange-600 to-amber-500 text-white text-xs sm:text-sm py-2 px-4 text-center font-medium flex justify-between items-center px-4 md:px-12">
         <div class="hidden md:flex items-center space-x-2">
             <span class="bg-white/20 px-2 py-0.5 rounded text-xs uppercase tracking-wider font-bold">Flash Sale</span>
-            <span>🌴 Get up to 35% OFF on Bali Private Drivers & Water Sports!</span>
+            <span><i class="fas fa-tag mr-1" aria-hidden="true"></i> Get up to 35% OFF on Bali Private Drivers & Water Sports!</span>
         </div>
         <div class="w-full md:w-auto flex items-center justify-between md:justify-end space-x-4 text-xs">
             <span id="countdownTimer" class="font-bold">Offer ends in: 08h 24m 12s</span>
@@ -47,7 +47,7 @@
                     </div>
                     <div>
                         <span class="text-xl font-extrabold tracking-tight text-slate-900 block leading-none">Bali<span class="text-klook-orange">Explorer</span></span>
-                        <span class="text-[10px] text-slate-400 font-semibold uppercase tracking-widest block mt-0.5">Powered by Klook UX</span>
+                        <span class="text-[10px] text-slate-400 font-semibold uppercase tracking-widest block mt-0.5">Tours · Activities · Transport</span>
                     </div>
                 </div>
 
@@ -67,10 +67,10 @@
                     <!-- Currency Selector -->
                     <div class="relative">
                         <select id="currencySelector" onchange="changeCurrency(this.value)" class="bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs sm:text-sm font-semibold py-2 px-3 rounded-full cursor-pointer border-none focus:ring-2 focus:ring-klook-orange outline-none">
-                            <option value="IDR">🇮🇩 IDR (Rp)</option>
-                            <option value="USD">🇺🇸 USD ($)</option>
-                            <option value="AUD">🇦🇺 AUD (A$)</option>
-                            <option value="EUR">🇪🇺 EUR (€)</option>
+                            <option value="IDR">IDR (Rp)</option>
+                            <option value="USD">USD ($)</option>
+                            <option value="AUD">AUD (A$)</option>
+                            <option value="EUR">EUR (€)</option>
                         </select>
                     </div>
 
@@ -216,7 +216,7 @@
                 <h3 class="text-lg font-extrabold text-slate-900 flex items-center gap-2">
                     <i class="fas fa-heart text-rose-500"></i> My Wishlist Saved Packages
                 </h3>
-                <button onclick="toggleWishlistModal()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center font-bold">✕</button>
+                <button onclick="toggleWishlistModal()" aria-label="Close wishlist" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center"><i class="fas fa-times" aria-hidden="true"></i></button>
             </div>
             <div id="wishlistItemsList" class="flex-1 overflow-y-auto py-4 space-y-3">
                 <!-- Injected via JS -->
