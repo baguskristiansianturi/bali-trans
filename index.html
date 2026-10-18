@@ -261,10 +261,10 @@
                     { time: '13.30–15.00', title: 'Perjalanan kembali', desc: 'Perkiraan kembali ke hotel. Durasi bergantung pada lokasi antar dan kondisi lalu lintas.' }
                 ],
                 options: [
-                    { id: 'lovina-ticket-only', name: 'Tiket Dolphin saja — datang ke Lovina', priceIDR: 175000, priceMode: 'person', desc: 'Harga contoh per orang. Termasuk perjalanan perahu untuk dolphin watching; transportasi hotel, makan, dan tiket destinasi lain tidak termasuk.', includes: ['Perjalanan perahu dolphin watching', 'Bertemu langsung di titik temu Lovina'], excludes: ['Transportasi hotel', 'Makan dan minuman', 'Tiket Wanagiri, Handara Gate, dan Ulun Danu Beratan'] },
-                    { id: 'lovina-all-in', name: 'Paket All-in — transportasi pribadi + semua itinerary', priceIDR: 1850000, priceMode: 'group', maxGuests: 4, desc: 'Harga contoh per mobil untuk 1–4 tamu. Termasuk mobil pribadi pulang-pergi, sopir, bahan bakar/parkir, perahu dolphin, tiket masuk destinasi dalam itinerary, dan makan siang.', includes: ['Mobil pribadi pulang-pergi untuk 1–4 tamu', 'Sopir, bahan bakar dan parkir', 'Perahu dolphin watching', 'Tiket masuk Wanagiri, Handara Gate, dan Ulun Danu Beratan', 'Makan siang'], excludes: ['Pengeluaran pribadi', 'Makanan/minuman tambahan di luar makan siang', 'Biaya tambahan untuk lokasi jemput di luar area yang disepakati'] }
+                    { id: 'lovina-ticket-only', name: 'Tiket Dolphin saja — datang ke Lovina', priceIDR: 175000, priceMode: 'person', desc: 'Harga per orang. Termasuk perjalanan perahu untuk dolphin watching; transportasi hotel, makan, dan tiket destinasi lain tidak termasuk.', includes: ['Perjalanan perahu dolphin watching', 'Bertemu langsung di titik temu Lovina'], excludes: ['Transportasi hotel', 'Makan dan minuman', 'Tiket Wanagiri, Handara Gate, dan Ulun Danu Beratan'] },
+                    { id: 'lovina-all-in', name: 'Paket All-in — transportasi pribadi + semua itinerary', priceIDR: 1850000, priceMode: 'group', maxGuests: 4, desc: 'Harga per mobil untuk 1–4 tamu. Termasuk mobil pribadi pulang-pergi, sopir, bahan bakar/parkir, perahu dolphin, tiket masuk destinasi dalam itinerary, dan makan siang.', includes: ['Mobil pribadi pulang-pergi untuk 1–4 tamu', 'Sopir, bahan bakar dan parkir', 'Perahu dolphin watching', 'Tiket masuk Wanagiri, Handara Gate, dan Ulun Danu Beratan', 'Makan siang'], excludes: ['Pengeluaran pribadi', 'Makanan/minuman tambahan di luar makan siang', 'Biaya tambahan untuk lokasi jemput di luar area yang disepakati'] }
                 ],
-                pricingNote: 'Harga pada halaman demo ini masih berupa simulasi untuk menguji alur pemesanan. Harga final, area jemput, ketersediaan, menu makan, dan ketentuan operator harus dikonfirmasi sebelum produk dijual.'
+                pricingNote: 'Rincian harga, area jemput, ketersediaan, menu makan, dan ketentuan perjalanan akan dikonfirmasi sebelum pembayaran.'
             }
         ];
 
@@ -825,7 +825,7 @@
 
                             <section id="pilihan-paket" class="detail-section bg-white rounded-2xl border border-slate-200 p-5 sm:p-7 scroll-mt-20">
                                 <h2 class="text-xl font-extrabold text-slate-950">Pilih paket yang sesuai</h2>
-                                <p class="text-sm text-slate-500 mt-2 mb-5">Harga pada versi demo ini masih simulasi. Periksa cakupan tiap pilihan sebelum melanjutkan.</p>
+                                <p class="text-sm text-slate-500 mt-2 mb-5">Bandingkan fasilitas yang termasuk dan tidak termasuk pada setiap pilihan paket.</p>
                                 <div class="space-y-4">
                                     ${pkg.options.map((opt, index) => `
                                         <label class="block rounded-2xl border-2 p-4 sm:p-5 cursor-pointer transition ${index === 0 ? 'border-orange-500 bg-orange-50/40' : 'border-slate-200 hover:border-slate-300'}">
@@ -849,7 +849,7 @@
 
                                 <div id="vehicleChoiceWrap" class="hidden mt-5 rounded-2xl border border-slate-200 p-4 sm:p-5">
                                     <h3 class="font-extrabold text-slate-900">Pilih jenis mobil</h3>
-                                    <p class="text-xs leading-5 text-slate-500 mt-1 mb-3">Pilihan dan biaya kendaraan pada demo ini adalah contoh, bukan penawaran final.</p>
+                                    <p class="text-xs leading-5 text-slate-500 mt-1 mb-3">Pilih kendaraan sesuai kenyamanan dan kebutuhan perjalanan Anda.</p>
                                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                                         <label class="vehicle-choice border-2 border-orange-500 bg-orange-50 rounded-xl p-3 cursor-pointer"><input type="radio" name="vehicleType" value="avanza" checked onchange="updateBookingCalculation()" class="accent-orange-500"><span class="block font-bold text-sm mt-2">Toyota Avanza</span><span class="block text-xs text-slate-500">Standar • termasuk</span></label>
                                         <label class="vehicle-choice border-2 border-slate-200 rounded-xl p-3 cursor-pointer"><input type="radio" name="vehicleType" value="innova" onchange="updateBookingCalculation()" class="accent-orange-500"><span class="block font-bold text-sm mt-2">Toyota Innova</span><span class="block text-xs text-slate-500">Upgrade +Rp300.000</span></label>
@@ -859,10 +859,10 @@
 
                                 <div id="addonsWrap" class="hidden mt-4 rounded-2xl border border-slate-200 p-4 sm:p-5">
                                     <h3 class="font-extrabold text-slate-900">Layanan tambahan (opsional)</h3>
-                                    <p class="text-xs text-slate-500 mt-1 mb-3">Centang hanya jika diperlukan. Biaya contoh akan ditambahkan ke perkiraan total.</p>
+                                    <p class="text-xs text-slate-500 mt-1 mb-3">Centang layanan tambahan yang Anda perlukan; biayanya akan masuk ke total.</p>
                                     <div class="space-y-3">
-                                        <label class="flex items-start gap-3 text-sm"><input type="checkbox" name="lovinaAddon" value="extra-stop" data-price="150000" onchange="updateBookingCalculation()" class="mt-1 accent-orange-500"><span><b>Persinggahan tambahan</b><span class="block text-xs text-slate-500 mt-1">Tambahan waktu/rute • contoh Rp150.000 per mobil</span></span></label>
-                                        <label class="flex items-start gap-3 text-sm"><input type="checkbox" name="lovinaAddon" value="child-seat" data-price="50000" onchange="updateBookingCalculation()" class="mt-1 accent-orange-500"><span><b>Kursi anak</b><span class="block text-xs text-slate-500 mt-1">Permintaan ketersediaan terlebih dahulu • contoh Rp50.000</span></span></label>
+                                        <label class="flex items-start gap-3 text-sm"><input type="checkbox" name="lovinaAddon" value="extra-stop" data-price="150000" onchange="updateBookingCalculation()" class="mt-1 accent-orange-500"><span><b>Persinggahan tambahan</b><span class="block text-xs text-slate-500 mt-1">Tambahan waktu/rute • Rp150.000 per mobil</span></span></label>
+                                        <label class="flex items-start gap-3 text-sm"><input type="checkbox" name="lovinaAddon" value="child-seat" data-price="50000" onchange="updateBookingCalculation()" class="mt-1 accent-orange-500"><span><b>Kursi anak</b><span class="block text-xs text-slate-500 mt-1">Ketersediaan perlu dikonfirmasi • Rp50.000</span></span></label>
                                     </div>
                                 </div>
                                 <p class="text-xs leading-5 text-amber-900 bg-amber-50 rounded-xl p-3 mt-5"><i class="fas fa-circle-info mr-1"></i>${pkg.pricingNote}</p>
@@ -898,7 +898,7 @@
                                 <ul class="list-disc pl-5 space-y-2 text-sm leading-6 text-slate-600">
                                     <li>Waktu berangkat dan perjalanan dapat berubah karena cuaca, kondisi laut, lalu lintas, atau kebijakan operator.</li>
                                     <li>Lumba-lumba adalah satwa liar; penampakan tidak dapat dijamin.</li>
-                                    <li>Harga di halaman ini masih simulasi. Harga, ketersediaan, tiket destinasi, menu makan siang, area jemput, dan biaya tambahan wajib dikonfirmasi sebelum dijual.</li>
+                                    <li>Total biaya mengikuti pilihan paket, kendaraan, dan layanan tambahan. Rincian perjalanan serta ketersediaan dikonfirmasi sebelum pembayaran.</li>
                                     <li>Ketentuan pembayaran, perubahan jadwal, pembatalan, dan pengembalian dana harus ditampilkan setelah kebijakan operator Bali Trans ditetapkan.</li>
                                     <li>Untuk kunjungan ke pura atau tempat suci, ikuti aturan berpakaian dan arahan pengelola setempat.</li>
                                 </ul>
@@ -923,7 +923,7 @@
                                     <div class="flex justify-between gap-3 text-sm mt-2"><span class="text-slate-600">Kendaraan / tambahan</span><span id="selectedExtrasLabel" class="font-bold text-right">Tidak ada</span></div>
                                     <div class="border-t border-slate-200 mt-3 pt-3 flex justify-between items-end gap-3"><span class="font-extrabold text-slate-800">Perkiraan total</span><span id="calculatedTotalPrice" class="text-xl font-black text-orange-600 text-right">${basePrice}</span></div>
                                 </div>
-                                <p class="text-[11px] leading-5 text-slate-500 mt-3">Belum merupakan konfirmasi ketersediaan atau tagihan final.</p>
+                                <p class="text-[11px] leading-5 text-slate-500 mt-3">Ketersediaan dan rincian perjalanan akan dikonfirmasi sebelum pembayaran.</p>
                                 <div class="space-y-2 mt-4">
                                     <button onclick="addToCartCurrentPkg()" class="w-full bg-orange-50 hover:bg-orange-100 text-orange-700 font-extrabold py-3.5 px-4 rounded-xl transition text-sm"><i class="fas fa-cart-plus mr-2"></i>Tambah ke keranjang</button>
                                     <button onclick="bookNowCurrentPkg()" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-extrabold py-3.5 px-4 rounded-xl transition text-sm">Lanjutkan pemesanan <i class="fas fa-arrow-right ml-1"></i></button>
