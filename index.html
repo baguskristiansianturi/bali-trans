@@ -47,6 +47,8 @@
         .detail-nav-link:hover,.detail-nav-link:focus{color:#ea580c;border-bottom-color:#f97316}
         .detail-section{scroll-margin-top:5rem}
         .vehicle-choice:has(input:checked){border-color:#f97316;background:#fff7ed}
+        .lovina-gallery-track::-webkit-scrollbar{display:none}
+        .lovina-gallery-slide{scroll-snap-align:center}
 </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col pb-16 md:pb-0">
@@ -242,7 +244,9 @@
                 gallery: [
                     'https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1200&q=85',
                     'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1000&q=85',
-                    'https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=1000&q=85'
+                    'https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=1000&q=85',
+                    'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=85',
+                    'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=85'
                 ],
                 highlights: [
                     'Berangkat dini hari untuk menyaksikan matahari terbit dan mencari lumba-lumba liar di perairan Lovina.',
@@ -261,8 +265,7 @@
                     { time: '13.30–15.00', title: 'Perjalanan kembali', desc: 'Perkiraan kembali ke hotel. Durasi bergantung pada lokasi antar dan kondisi lalu lintas.' }
                 ],
                 options: [
-                    { id: 'lovina-ticket-only', name: 'Tiket Dolphin saja — datang ke Lovina', priceIDR: 175000, priceMode: 'person', desc: 'Harga per orang. Termasuk perjalanan perahu untuk dolphin watching; transportasi hotel, makan, dan tiket destinasi lain tidak termasuk.', includes: ['Perjalanan perahu dolphin watching', 'Bertemu langsung di titik temu Lovina'], excludes: ['Transportasi hotel', 'Makan dan minuman', 'Tiket Wanagiri, Handara Gate, dan Ulun Danu Beratan'] },
-                    { id: 'lovina-all-in', name: 'Paket All-in — transportasi pribadi + semua itinerary', priceIDR: 1850000, priceMode: 'group', maxGuests: 4, desc: 'Harga per mobil untuk 1–4 tamu. Termasuk mobil pribadi pulang-pergi, sopir, bahan bakar/parkir, perahu dolphin, tiket masuk destinasi dalam itinerary, dan makan siang.', includes: ['Mobil pribadi pulang-pergi untuk 1–4 tamu', 'Sopir, bahan bakar dan parkir', 'Perahu dolphin watching', 'Tiket masuk Wanagiri, Handara Gate, dan Ulun Danu Beratan', 'Makan siang'], excludes: ['Pengeluaran pribadi', 'Makanan/minuman tambahan di luar makan siang', 'Biaya tambahan untuk lokasi jemput di luar area yang disepakati'] }
+                    { id: 'lovina-all-in', name: 'Paket Tour Lovina — transportasi pribadi', priceIDR: 1850000, priceMode: 'group', maxGuests: 4, desc: 'Paket perjalanan privat pulang-pergi dengan sopir dan aktivitas dolphin watching. Anda dapat menambahkan kunjungan destinasi Bali Utara, snorkeling, atau swim with dolphin sesuai pilihan.', includes: ['Mobil pribadi pulang-pergi untuk 1–4 tamu', 'Sopir, bahan bakar dan parkir', 'Perjalanan perahu dolphin watching'], excludes: ['Kunjungan destinasi tambahan jika tidak dipilih', 'Snorkeling dan swim with dolphin jika tidak dipilih', 'Pengeluaran pribadi dan makan di luar kesepakatan'] }
                 ],
                 pricingNote: 'Rincian harga, area jemput, ketersediaan, menu makan, dan ketentuan perjalanan akan dikonfirmasi sebelum pembayaran.'
             }
@@ -363,7 +366,7 @@
                     }
                     currentDetailQty = 1;
                     container.innerHTML = renderDetailView(currentDetailPackage);
-                    setTimeout(() => updatePackageOptionDetails(), 0);
+                    setTimeout(() => { updatePackageOptionDetails(); startLovinaGalleryAutoplay(); }, 0);
                     break;
                 case 'blog':
                     container.innerHTML = renderBlogListView();
@@ -788,15 +791,16 @@
                             <span class="text-xs text-slate-500"><i class="fas fa-location-dot mr-1 text-orange-500"></i>${pkg.location}</span>
                         </div>
                         <h1 class="text-3xl sm:text-4xl font-black tracking-tight text-slate-950 leading-tight">${pkg.title}</h1>
-                        <p class="mt-3 max-w-3xl text-sm sm:text-base leading-7 text-slate-600">Nikmati perjalanan ke Bali Utara untuk melihat lumba-lumba di perairan Lovina saat pagi hari, dengan pilihan membeli tiket perahu saja atau menyusun perjalanan lengkap bersama transportasi pribadi dan persinggahan wisata.</p>
+                        <p class="mt-3 max-w-3xl text-sm sm:text-base leading-7 text-slate-600">Nikmati Paket Tour Lovina dengan transportasi pribadi dan aktivitas dolphin watching. Sesuaikan perjalanan dengan tambahan kunjungan destinasi Bali Utara, snorkeling, atau swim with dolphin.</p>
                     </header>
 
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 rounded-2xl overflow-hidden mb-7 md:h-[390px]">
-                        <img src="${pkg.gallery[0] || pkg.heroImage}" alt="Laut Lovina Bali" class="w-full h-64 md:h-full md:col-span-2 object-cover">
-                        <div class="hidden md:grid grid-rows-2 gap-3 min-h-0">
-                            <img src="${pkg.gallery[1] || pkg.heroImage}" alt="Aktivitas laut di Bali" class="w-full h-full min-h-0 object-cover">
-                            <img src="${pkg.gallery[2] || pkg.heroImage}" alt="Pemandangan Bali Utara" class="w-full h-full min-h-0 object-cover">
+                    <div class="relative mb-7 group" aria-label="Foto perjalanan Lovina">
+                        <div id="lovinaGalleryTrack" class="lovina-gallery-track flex overflow-x-auto snap-x snap-mandatory rounded-2xl gap-3 scroll-smooth" style="scrollbar-width:none">
+                            ${pkg.gallery.slice(0,5).map((image,index) => `<div class="lovina-gallery-slide relative flex-none w-[88%] sm:w-[70%] md:w-[58%] snap-center overflow-hidden rounded-2xl"><img src="${image || pkg.heroImage}" alt="Foto ${index+1} perjalanan Lovina" class="w-full h-64 sm:h-80 md:h-[390px] object-cover"><span class="absolute bottom-3 right-3 rounded-full bg-black/60 text-white text-xs px-3 py-1">${index+1} / ${Math.min(pkg.gallery.length,5)}</span></div>`).join('')}
                         </div>
+                        <button type="button" onclick="moveLovinaGallery(-1)" aria-label="Foto sebelumnya" class="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-white/90 shadow p-3 text-slate-800"><i class="fas fa-chevron-left"></i></button>
+                        <button type="button" onclick="moveLovinaGallery(1)" aria-label="Foto berikutnya" class="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-white/90 shadow p-3 text-slate-800"><i class="fas fa-chevron-right"></i></button>
+                        <div class="flex justify-center gap-2 mt-3">${pkg.gallery.slice(0,5).map((_,index)=>`<button type="button" onclick="goLovinaGallery(${index})" aria-label="Lihat foto ${index+1}" class="lovina-gallery-dot w-2 h-2 rounded-full bg-slate-300"></button>`).join('')}</div>
                     </div>
 
                     <nav aria-label="Navigasi detail paket" class="sticky top-0 z-40 -mx-4 px-4 bg-white/95 backdrop-blur border-y border-slate-200 shadow-sm mb-7">
@@ -814,18 +818,18 @@
                         <div class="lg:col-span-8 space-y-6 min-w-0">
                             <section id="deskripsi" class="detail-section bg-white rounded-2xl border border-slate-200 p-5 sm:p-7 scroll-mt-20">
                                 <h2 class="text-xl font-extrabold text-slate-950 mb-3">Layanan Lovina Dolphin Tour</h2>
-                                <p class="text-sm leading-7 text-slate-600">Pilih layanan dolphin watching di Lovina sesuai kebutuhan perjalanan Anda. Tersedia tiket perahu bagi tamu yang datang sendiri ke Lovina, atau paket perjalanan privat yang menggabungkan transportasi pulang-pergi, aktivitas dolphin watching, kunjungan ke destinasi pilihan, dan makan siang.</p>
-                                <p class="text-sm leading-7 text-slate-600 mt-3">Untuk paket privat, Anda dapat memilih kendaraan sesuai kebutuhan. Rincian fasilitas pada setiap pilihan ditampilkan di bagian paket agar Anda dapat membandingkan layanan sebelum memesan.</p>
+                                <p class="text-sm leading-7 text-slate-600">Paket Tour Lovina mencakup transportasi pribadi pulang-pergi dan perjalanan perahu untuk dolphin watching. Anda dapat memilih pengalaman utama saja atau menambahkan kunjungan ke tempat wisata di Bali Utara.</p>
+                                <p class="text-sm leading-7 text-slate-600 mt-3">Lengkapi pengalaman laut dengan pilihan snorkeling atau swim with dolphin. Pilihan tambahan ditampilkan terpisah agar Anda bisa menyesuaikan perjalanan dan melihat perubahan total biaya.</p>
                                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-5">
-                                    <div class="rounded-xl bg-slate-50 p-4"><i class="fas fa-ticket-alt text-orange-500 mb-2"></i><p class="font-bold text-sm">Tiket dolphin</p><p class="text-xs text-slate-500 mt-1">Aktivitas perahu untuk tamu yang datang sendiri.</p></div>
+                                    <div class="rounded-xl bg-slate-50 p-4"><i class="fas fa-water text-orange-500 mb-2"></i><p class="font-bold text-sm">Dolphin watching</p><p class="text-xs text-slate-500 mt-1">Aktivitas utama dalam paket perjalanan.</p></div>
                                     <div class="rounded-xl bg-slate-50 p-4"><i class="fas fa-car text-orange-500 mb-2"></i><p class="font-bold text-sm">Paket privat</p><p class="text-xs text-slate-500 mt-1">Transportasi dan beberapa kebutuhan perjalanan dalam satu paket.</p></div>
                                     <div class="rounded-xl bg-slate-50 p-4"><i class="fas fa-route text-orange-500 mb-2"></i><p class="font-bold text-sm">Pilihan kendaraan</p><p class="text-xs text-slate-500 mt-1">Sesuaikan kendaraan dan layanan tambahan saat memilih paket.</p></div>
                                 </div>
                             </section>
 
                             <section id="pilihan-paket" class="detail-section bg-white rounded-2xl border border-slate-200 p-5 sm:p-7 scroll-mt-20">
-                                <h2 class="text-xl font-extrabold text-slate-950">Pilih paket yang sesuai</h2>
-                                <p class="text-sm text-slate-500 mt-2 mb-5">Bandingkan fasilitas yang termasuk dan tidak termasuk pada setiap pilihan paket.</p>
+                                <h2 class="text-xl font-extrabold text-slate-950">Sesuaikan pengalaman Lovina</h2>
+                                <p class="text-sm text-slate-500 mt-2 mb-5">Paket Tour Lovina sudah mencakup transportasi pribadi dan dolphin watching. Pilih tambahan sesuai rencana Anda.</p>
                                 <div class="space-y-4">
                                     ${pkg.options.map((opt, index) => `
                                         <label class="block rounded-2xl border-2 p-4 sm:p-5 cursor-pointer transition ${index === 0 ? 'border-orange-500 bg-orange-50/40' : 'border-slate-200 hover:border-slate-300'}">
@@ -847,7 +851,7 @@
                                     `).join('')}
                                 </div>
 
-                                <div id="vehicleChoiceWrap" class="hidden mt-5 rounded-2xl border border-slate-200 p-4 sm:p-5">
+                                <div id="vehicleChoiceWrap" class="mt-5 rounded-2xl border border-slate-200 p-4 sm:p-5">
                                     <h3 class="font-extrabold text-slate-900">Pilih jenis mobil</h3>
                                     <p class="text-xs leading-5 text-slate-500 mt-1 mb-3">Pilih kendaraan sesuai kenyamanan dan kebutuhan perjalanan Anda.</p>
                                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -857,12 +861,13 @@
                                     </div>
                                 </div>
 
-                                <div id="addonsWrap" class="hidden mt-4 rounded-2xl border border-slate-200 p-4 sm:p-5">
-                                    <h3 class="font-extrabold text-slate-900">Layanan tambahan (opsional)</h3>
-                                    <p class="text-xs text-slate-500 mt-1 mb-3">Centang layanan tambahan yang Anda perlukan; biayanya akan masuk ke total.</p>
-                                    <div class="space-y-3">
-                                        <label class="flex items-start gap-3 text-sm"><input type="checkbox" name="lovinaAddon" value="extra-stop" data-price="150000" onchange="updateBookingCalculation()" class="mt-1 accent-orange-500"><span><b>Persinggahan tambahan</b><span class="block text-xs text-slate-500 mt-1">Tambahan waktu/rute • Rp150.000 per mobil</span></span></label>
-                                        <label class="flex items-start gap-3 text-sm"><input type="checkbox" name="lovinaAddon" value="child-seat" data-price="50000" onchange="updateBookingCalculation()" class="mt-1 accent-orange-500"><span><b>Kursi anak</b><span class="block text-xs text-slate-500 mt-1">Ketersediaan perlu dikonfirmasi • Rp50.000</span></span></label>
+                                <div id="addonsWrap" class="mt-4 rounded-2xl border border-slate-200 p-4 sm:p-5">
+                                    <h3 class="font-extrabold text-slate-900">Tambahan aktivitas & kunjungan (opsional)</h3>
+                                    <p class="text-xs text-slate-500 mt-1 mb-3">Pilih satu atau beberapa pengalaman tambahan. Biaya akan dihitung ke total perjalanan.</p>
+                                    <div class="space-y-4">
+                                        <label class="flex items-start gap-3 text-sm"><input type="checkbox" name="lovinaAddon" value="sightseeing" data-label="Kunjungan tempat wisata Bali Utara" data-price="350000" onchange="updateBookingCalculation()" class="mt-1 accent-orange-500"><span><b>Dolphin watching + kunjungan tempat wisata</b><span class="block text-xs text-slate-500 mt-1">Tambahkan Wanagiri, Handara Gate, dan Ulun Danu Beratan • Rp350.000 per mobil</span></span></label>
+                                        <label class="flex items-start gap-3 text-sm"><input type="checkbox" name="lovinaAddon" value="snorkeling" data-label="Snorkeling" data-price="250000" onchange="updateBookingCalculation()" class="mt-1 accent-orange-500"><span><b>Snorkeling</b><span class="block text-xs text-slate-500 mt-1">Aktivitas snorkeling setelah dolphin watching • Rp250.000 per orang</span></span></label>
+                                        <label class="flex items-start gap-3 text-sm"><input type="checkbox" name="lovinaAddon" value="swim-dolphin" data-label="Swim with dolphin" data-price="350000" onchange="updateBookingCalculation()" class="mt-1 accent-orange-500"><span><b>Swim with dolphin</b><span class="block text-xs text-slate-500 mt-1">Permintaan khusus, bergantung izin operator dan kondisi di lokasi • Rp350.000 per orang</span></span></label>
                                     </div>
                                 </div>
                                 <p class="text-xs leading-5 text-amber-900 bg-amber-50 rounded-xl p-3 mt-5"><i class="fas fa-circle-info mr-1"></i>${pkg.pricingNote}</p>
@@ -1262,6 +1267,33 @@
             updateBookingCalculation();
         }
 
+        function moveLovinaGallery(direction) {
+            const track = document.getElementById('lovinaGalleryTrack');
+            if (!track) return;
+            const slide = track.querySelector('.lovina-gallery-slide');
+            if (slide) track.scrollBy({ left: direction * (slide.getBoundingClientRect().width + 12), behavior: 'smooth' });
+        }
+
+        function goLovinaGallery(index) {
+            const track = document.getElementById('lovinaGalleryTrack');
+            const slides = track ? track.querySelectorAll('.lovina-gallery-slide') : [];
+            if (slides[index]) slides[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
+
+        function startLovinaGalleryAutoplay() {
+            const track = document.getElementById('lovinaGalleryTrack');
+            if (!track || track.dataset.autoplayReady) return;
+            track.dataset.autoplayReady = 'true';
+            let index = 0;
+            setInterval(() => {
+                if (!document.getElementById('lovinaGalleryTrack')) return;
+                const slides = track.querySelectorAll('.lovina-gallery-slide');
+                if (!slides.length) return;
+                index = (index + 1) % slides.length;
+                slides[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            }, 4500);
+        }
+
         function getSelectedPackageOption() {
             const selectedOptId = document.querySelector('input[name="packageOption"]:checked')?.value;
             return currentDetailPackage.options.find(o => o.id === selectedOptId) || currentDetailPackage.options[0];
@@ -1280,18 +1312,19 @@
         function getSelectedAddons() {
             return Array.from(document.querySelectorAll('input[name="lovinaAddon"]:checked')).map(input => ({
                 id: input.value,
-                name: input.value === 'extra-stop' ? 'Persinggahan tambahan' : 'Kursi anak',
-                priceIDR: Number(input.dataset.price || 0)
+                name: input.dataset.label || input.value,
+                priceIDR: Number(input.dataset.price || 0),
+                priceMode: ['snorkeling','swim-dolphin'].includes(input.value) ? 'person' : 'group'
             }));
         }
 
         function updatePackageOptionDetails() {
             const opt = getSelectedPackageOption();
-            const isAllIn = opt.priceMode === 'group';
+            const isAllIn = true;
             const vehicleWrap = document.getElementById('vehicleChoiceWrap');
             const addonsWrap = document.getElementById('addonsWrap');
-            if (vehicleWrap) vehicleWrap.classList.toggle('hidden', !isAllIn);
-            if (addonsWrap) addonsWrap.classList.toggle('hidden', !isAllIn);
+            if (vehicleWrap) vehicleWrap.classList.remove('hidden');
+            if (addonsWrap) addonsWrap.classList.remove('hidden');
             const hint = document.getElementById('guestCountHint');
             if (hint) hint.innerText = isAllIn ? 'Harga per mobil • maksimal ' + opt.maxGuests + ' tamu' : 'Tiket dihitung per orang';
             const qty = document.getElementById('adultQty');
@@ -1315,9 +1348,9 @@
             const isAllIn = opt.priceMode === 'group';
             const vehicle = isAllIn ? getSelectedVehicle() : null;
             const addons = isAllIn ? getSelectedAddons() : [];
-            const addonTotal = addons.reduce((sum, addon) => sum + addon.priceIDR, 0);
+            const addonTotal = addons.reduce((sum, addon) => sum + (addon.priceMode === 'person' ? addon.priceIDR * currentDetailQty : addon.priceIDR), 0);
             const vehicleTotal = vehicle ? vehicle.priceIDR : 0;
-            const total = (isAllIn ? opt.priceIDR + vehicleTotal : opt.priceIDR * currentDetailQty) + addonTotal;
+            const total = opt.priceIDR + vehicleTotal + addonTotal;
             const calcElem = document.getElementById('calculatedTotalPrice');
             if (calcElem) calcElem.innerText = curr.format(total);
             const extrasLabel = document.getElementById('selectedExtrasLabel');
@@ -1348,8 +1381,8 @@
             }
             const vehicle = opt.priceMode === 'group' ? getSelectedVehicle() : null;
             const addons = opt.priceMode === 'group' ? getSelectedAddons() : [];
-            const addonsTotal = addons.reduce((sum, addon) => sum + addon.priceIDR, 0);
-            const totalPriceIDR = (opt.priceMode === 'group' ? opt.priceIDR + (vehicle?.priceIDR || 0) : opt.priceIDR * currentDetailQty) + addonsTotal;
+            const addonsTotal = addons.reduce((sum, addon) => sum + (addon.priceMode === 'person' ? addon.priceIDR * currentDetailQty : addon.priceIDR), 0);
+            const totalPriceIDR = opt.priceIDR + (vehicle?.priceIDR || 0) + addonsTotal;
             const item = {
                 id: currentDetailPackage.id + '-' + opt.id + '-' + Date.now(),
                 productId: currentDetailPackage.id,
