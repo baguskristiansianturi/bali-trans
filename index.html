@@ -505,13 +505,13 @@
                     container.innerHTML = renderHomeView();
                     initHomeInteractivity();
             }
+            currentViewName = viewName;
             if (viewName === 'blog') {
                 const requestedCategory = new URLSearchParams(window.location.search).get('category') || 'All';
                 const validCategories = ['All', ...new Set(BALI_BLOGS.map(blog => blog.category))];
                 setBlogCategory(validCategories.includes(requestedCategory) ? requestedCategory : 'All');
             }
             if (options.scroll !== false) window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-            currentViewName = viewName;
             container.classList.remove('page-view-enter');
             void container.offsetWidth;
             container.classList.add('page-view-enter');
