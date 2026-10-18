@@ -217,12 +217,11 @@
             // readable URLs. Blog articles without a matching static file use query
             // routes to avoid GitHub Pages 404s.
             const placeSlug = viewName === 'place' ? String(params || 'bali-utara') : null;
-            const hasStaticPlacePage = placeSlug && (placeSlug === 'bali-utara' || BALI_STATIC_PLACE_SLUGS.includes(placeSlug));
-            const staticPlaceRegion = placeSlug === 'pulau-menjangan' ? 'bali-barat' : 'bali-utara';
+            const isRegionHub = placeSlug === 'bali-utara' || placeSlug === 'region-directory';
             const nextUrl = placeSlug === 'bali-utara'
                 ? siteBase + 'places/bali-utara/'
-                : hasStaticPlacePage
-                    ? siteBase + 'places/' + staticPlaceRegion + '/' + placeSlug + '/'
+                : isRegionHub
+                    ? siteBase + '?' + query.toString()
                     : siteBase + '?' + query.toString();
             if (options.history !== false) {
                 if (options.replace) window.history.replaceState({ viewName, params }, '', nextUrl);
@@ -251,7 +250,7 @@
                 case 'place':
                     if (params === 'region-directory') container.innerHTML = renderRegionDirectory();
                     else if (params === 'bali-utara') container.innerHTML = renderNorthBaliHub();
-                    else container.innerHTML = renderPlaceDetail(params);
+                    else container.innerHTML = renderDestinationArticleStatus(params);
                     break;
                 case 'detail':
                     if (params) {
@@ -483,6 +482,31 @@
         const BALI_STATIC_PLACE_SLUGS = Object.keys(BALI_DESTINATION_REGIONS).filter(function(slug) {
           return BALI_DESTINATION_REGIONS[slug][0] === 'buleleng';
         }).concat(['pulau-menjangan']);
+
+        // A destination is readable as an article only after an editorial page exists.
+        // Keep the broad region hubs as pages; do not publish data-only destination cards
+        // as finished detail pages.
+        const BALI_PUBLISHED_DESTINATION_ARTICLES = {
+          'pantai-lovina': 'blog/pantai-lovina-bali/'
+        };
+
+        function getPublishedDestinationArticle(slug) {
+          return BALI_PUBLISHED_DESTINATION_ARTICLES[String(slug || '')] || null;
+        }
+
+        function renderDestinationArticleStatus(slug) {
+          const place = BALI_DESTINATIONS.find(function(item) { return item.slug === String(slug || ''); });
+          if (!place) return renderRegionDirectory();
+          const regionLabel = place.regionLabel || 'Bali';
+          const regionKey = place.regionKey || 'badung';
+          const articlePath = getPublishedDestinationArticle(place.slug);
+          if (articlePath) {
+            const base = window.location.pathname.startsWith('/bali-trans/') ? '/bali-trans/' : '/';
+            window.location.assign(base + articlePath);
+            return '';
+          }
+          return '<main class="min-h-[60vh] bg-slate-50"><section class="mx-auto max-w-3xl px-4 py-14 sm:py-20 text-center"><p class="text-xs font-extrabold uppercase tracking-[.18em] text-teal-700">Panduan destinasi</p><h1 class="mt-3 text-3xl sm:text-4xl font-black tracking-tight text-slate-950">' + placeEscape(place.title) + '</h1><p class="mt-3 text-sm text-slate-500">' + placeEscape(place.area) + ' · ' + placeEscape(regionLabel) + '</p><div class="mt-8 rounded-2xl border border-amber-200 bg-amber-50 p-6 text-left"><h2 class="text-lg font-extrabold text-slate-900">Artikel sedang diaudit atau diperbaiki</h2><p class="mt-2 text-sm leading-7 text-slate-700">Panduan lengkap untuk destinasi ini belum tersedia. Kami akan menayangkannya setelah informasi dan isi artikelnya selesai diperiksa.</p></div><button type="button" onclick="navigateTo(\'discovery\',\'region:' + regionKey + '\')" class="mt-6 rounded-xl bg-teal-700 px-5 py-3 text-sm font-extrabold text-white">Kembali ke ' + placeEscape(regionLabel) + '</button></section></main>';
+        }
         
         BALI_DESTINATIONS.forEach(function(place) {
           const region = BALI_DESTINATION_REGIONS[place.slug];
@@ -522,7 +546,8 @@
         function renderNorthBaliHub() {
           const places = BALI_DESTINATIONS.filter(function(p){ return p.regionKey === 'buleleng'; });
           const cards = places.map(function(p) {
-            const href = BALI_STATIC_PLACE_SLUGS.includes(p.slug) ? '/bali-trans/places/' + (p.slug === 'pulau-menjangan' ? 'bali-barat' : 'bali-utara') + '/' + p.slug + '/' : '?view=place&id=' + encodeURIComponent(p.slug);
+            const publishedArticle = getPublishedDestinationArticle(p.slug);
+            const href = publishedArticle ? '/bali-trans/' + publishedArticle : '?view=place&id=' + encodeURIComponent(p.slug);
             return '<article class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition"><a href="' + href + '" onclick="event.preventDefault();navigateTo(\'place\',\'' + p.slug + '\')" class="block"><img src="' + p.image + '" alt="' + placeEscape(p.title) + '" loading="lazy" class="w-full h-44 object-cover" onerror="this.onerror=function(){this.onerror=null;this.src=placeImageFallbackGraphic()};this.src=\'' + placeImageFallback(p) + '\'"><div class="p-4 sm:p-5"><div class="flex flex-wrap gap-2"><span class="text-[10px] font-bold uppercase tracking-wider text-teal-700">' + placeEscape(p.type) + '</span><span class="text-[10px] font-semibold text-slate-500">' + placeEscape(p.regionLabel) + '</span></div><h2 class="mt-2 text-lg font-extrabold text-slate-900">' + placeEscape(p.title) + '</h2><p class="mt-1 text-xs text-slate-500">' + placeEscape(p.area) + '</p><p class="mt-3 text-sm leading-6 text-slate-600">' + placeEscape(p.summary) + '</p><span class="mt-4 inline-flex items-center gap-2 text-sm font-extrabold text-teal-700">Baca panduan <i class="fas fa-arrow-right"></i></span></div></a></article>';
           }).join('');
           return '<div class="bg-slate-50"><section class="bg-slate-900 text-white"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16"><nav class="text-xs text-slate-300 mb-5"><a href="/bali-trans/" onclick="event.preventDefault();navigateTo(\'home\')" class="hover:text-white">Beranda</a> <span class="mx-2">/</span> <span>Bali Utara</span></nav><p class="text-xs font-extrabold uppercase tracking-[.2em] text-teal-300">Places to visit · Buleleng</p><h1 class="mt-3 text-3xl sm:text-5xl font-black tracking-tight">Jelajahi Bali Utara</h1><p class="mt-5 max-w-3xl text-sm sm:text-base leading-7 text-slate-300">Panduan destinasi Bali Utara dan Buleleng. Pilih tempat untuk membuka panduan detail, lalu susun rute berdasarkan jarak dan waktu perjalanan.</p></div></section><section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-9 md:py-12"><div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-6"><div><h2 class="text-2xl font-black text-slate-900">Tempat yang bisa dijelajahi</h2><p class="mt-2 text-sm text-slate-600">Pilih destinasi untuk membuka halaman detailnya.</p></div><span class="text-xs font-semibold text-slate-500">' + places.length + ' panduan destinasi</span></div><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">' + cards + '</div><div class="mt-10 rounded-2xl border border-teal-100 bg-teal-50 p-5 sm:p-7"><h2 class="text-xl font-extrabold text-slate-900">Ingin menjelajahi beberapa tempat sekaligus?</h2><p class="mt-2 max-w-2xl text-sm leading-6 text-slate-600">Rute dan layanan perlu disesuaikan dengan lokasi, kondisi jalan, serta waktu yang tersedia.</p><button onclick="navigateTo(\'detail\',\'lovina-dolphin-tour\')" class="mt-4 rounded-xl bg-teal-700 px-4 py-3 text-sm font-extrabold text-white">Lihat Lovina Tour</button></div></section></div>';
@@ -569,7 +594,7 @@
             : selectedGroups[0];
           const places=BALI_DESTINATIONS.filter(function(p){return regionKeys.includes(p.regionKey);});
           const cards=places.map(function(p){
-            const href=BALI_STATIC_PLACE_SLUGS.includes(p.slug)?'/bali-trans/places/'+(p.slug==='pulau-menjangan'?'bali-barat':'bali-utara')+'/'+p.slug+'/':'?view=place&id='+encodeURIComponent(p.slug);
+            const publishedArticle=getPublishedDestinationArticle(p.slug);const href=publishedArticle?'/bali-trans/'+publishedArticle:'?view=place&id='+encodeURIComponent(p.slug);
             return '<article class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition"><a href="'+href+'" onclick="event.preventDefault();navigateTo(\'place\',\''+p.slug+'\')" class="block"><img src="'+p.image+'" alt="'+placeEscape(p.title)+'" loading="lazy" class="w-full h-44 object-cover" onerror="this.onerror=function(){this.onerror=null;this.src=placeImageFallbackGraphic()};this.src=\'' + placeImageFallback(p) + '\'"><div class="p-4 sm:p-5"><div class="flex flex-wrap gap-2"><span class="text-[10px] font-bold uppercase tracking-wider text-teal-700">'+placeEscape(p.type)+'</span><span class="text-[10px] font-semibold text-slate-500">'+placeEscape(p.regionLabel)+'</span></div><h2 class="mt-2 text-lg font-extrabold text-slate-900">'+placeEscape(p.title)+'</h2><p class="mt-1 text-xs text-slate-500">'+placeEscape(p.area)+'</p><p class="mt-3 text-sm leading-6 text-slate-600">'+placeEscape(p.summary)+'</p><span class="mt-4 inline-flex items-center gap-2 text-sm font-extrabold text-teal-700">Baca panduan <i class="fas fa-arrow-right"></i></span></div></a></article>';
           }).join('');
           return '<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-9 md:py-12"><nav class="text-xs text-slate-500 mb-5"><a href="/bali-trans/" onclick="event.preventDefault();navigateTo(\'home\')">Beranda</a><span class="mx-2">/</span><a href="?view=place&id=bali-utara" onclick="event.preventDefault();navigateTo(\'place\',\'region-directory\')">Places to visit</a><span class="mx-2">/</span><span>'+placeEscape(group.label)+'</span></nav><p class="text-xs font-extrabold uppercase tracking-widest text-teal-700">Places to visit · Bali</p><h1 class="mt-2 text-3xl sm:text-4xl font-black text-slate-950">Jelajahi '+placeEscape(group.label)+'</h1><p class="mt-3 max-w-3xl text-sm leading-7 text-slate-600">'+placeEscape(group.intro)+'</p><div class="mt-7 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3"><div><h2 class="text-2xl font-black text-slate-900">Destinasi di wilayah ini</h2><p class="mt-2 text-sm text-slate-600">Setiap card membuka panduan detail.</p></div><span class="text-xs font-semibold text-slate-500">'+places.length+' panduan destinasi</span></div><div class="mt-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">'+(cards||'<p class="rounded-xl border border-dashed border-slate-300 p-6 text-sm text-slate-500">Belum ada panduan destinasi untuk wilayah ini.</p>')+'</div><button onclick="navigateTo(\'place\',\'region-directory\')" class="mt-8 rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm font-bold text-slate-700">Semua wilayah</button></section>';
