@@ -1965,23 +1965,33 @@
                 dropdown.innerHTML = '';
                 return;
             }
-            const packages = Array.isArray(BALI_PACKAGES) ? BALI_PACKAGES : [];
-            const matches = packages.filter(p => {
-                const haystack = [p.title, p.location, p.categoryName, p.category, p.description]
-                    .filter(Boolean).join(' ').toLocaleLowerCase();
-                return haystack.includes(term);
-            }).slice(0, 8);
+            const escapeHtml = value => String(value || '').replace(/[&<>"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch]));
+            const destinations = [
+                {title:'Lovina Beach & Dolphin Watching',location:'North Bali · Beach, wildlife',key:'place:lovina',terms:'lovina dolphin lumba-lumba north bali buleleng'},
+                {title:'Banjar Hot Springs',location:'North Bali · Hot springs',key:'place:banjar-hot-springs',terms:'banjar hot springs air panas'},
+                {title:'Brahmavihara-Arama Monastery',location:'North Bali · Culture',key:'place:brahmavihara-arama',terms:'brahmavihara monastery buddhist temple'},
+                {title:'Gitgit Waterfall',location:'North Bali · Nature',key:'place:gitgit-waterfall',terms:'gitgit waterfall air terjun'},
+                {title:'Munduk Waterfalls & Highlands',location:'North Bali · Highlands',key:'place:munduk',terms:'munduk waterfall highlands trekking'},
+                {title:'Wanagiri Twin Lakes Viewpoint',location:'North Bali · Viewpoint',key:'place:wanagiri',terms:'wanagiri twin lakes buyan tamblingan'},
+                {title:'Menjangan Island & West Bali National Park',location:'Northwest Bali · Snorkelling, diving',key:'place:menjangan',terms:'menjangan national park snorkelling diving'},
+                {title:'Gedong Kirtya Library',location:'Singaraja · Culture & heritage',key:'place:gedong-kirtya',terms:'gedong kirtya singaraja library manuscript'},
+                {title:'South Bali',location:'Uluwatu · Jimbaran · Nusa Dua',key:'region:south',terms:'south bali uluwatu jimbaran nusa dua canggu sanur'},
+                {title:'Central Bali',location:'Ubud · Kintamani · Bedugul',key:'region:central',terms:'central bali ubud kintamani bedugul'},
+                {title:'East Bali',location:'Amed · Tulamben · Karangasem',key:'region:east',terms:'east bali amed tulamben karangasem sidemen tirta gangga besakih'},
+                {title:'West Bali',location:'Medewi · Jembrana · Gilimanuk',key:'region:west',terms:'west bali medewi jembrana gilimanuk'},
+                {title:'Nusa Islands',location:'Penida · Lembongan · Ceningan',key:'region:nusa',terms:'nusa islands penida lembongan ceningan'}
+            ];
+            const packageMatches = BALI_PACKAGES.filter(p => [p.title,p.location,p.categoryName,p.category,...(p.highlights||[])].filter(Boolean).join(' ').toLocaleLowerCase().includes(term)).slice(0,5);
+            const destinationMatches = destinations.filter(d => (d.title+' '+d.location+' '+d.terms).toLocaleLowerCase().includes(term)).slice(0,5);
+            const results = [
+                ...packageMatches.map(p => ({title:p.title,location:p.location,image:p.heroImage,action:`navigateTo('detail','${String(p.id).replace(/[^a-zA-Z0-9_-]/g,'')}'); closeHeaderSearch();`})),
+                ...destinationMatches.map(d => ({title:d.title,location:d.location,image:'',action:`navigateTo('discovery','${d.key}'); closeHeaderSearch();`}))
+            ].slice(0,8);
             dropdown.classList.remove('hidden');
-            if (matches.length) {
-                dropdown.innerHTML = matches.map(m => {
-                    const id = String(m.id || '').replace(/[^a-zA-Z0-9_-]/g, '');
-                    const title = String(m.title || 'Bali experience').replace(/[&<>"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch]));
-                    const location = String(m.location || '').replace(/[&<>"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch]));
-                    const image = String(m.heroImage || '');
-                    return `<button type="button" onclick="navigateTo('detail', '${id}'); closeHeaderSearch();" class="w-full text-left p-2.5 hover:bg-slate-50 rounded-xl cursor-pointer flex items-center gap-3"><img src="${image}" alt="" class="w-10 h-10 object-cover rounded-lg"><span class="min-w-0"><span class="block text-xs font-extrabold text-slate-900 line-clamp-1">${title}</span><span class="block text-[10px] text-slate-500">${location}</span></span></button>`;
-                }).join('');
+            if (results.length) {
+                dropdown.innerHTML = results.map(item => `<button type="button" onclick="${item.action}" class="w-full text-left p-2.5 hover:bg-slate-50 rounded-xl cursor-pointer flex items-center gap-3">${item.image ? `<img src="${escapeHtml(item.image)}" alt="" class="w-10 h-10 object-cover rounded-lg">` : '<span class="w-10 h-10 shrink-0 rounded-lg bg-teal-50 text-teal-700 flex items-center justify-center"><i class="fas fa-map-marker-alt"></i></span>'}<span class="min-w-0"><span class="block text-xs font-extrabold text-slate-900 line-clamp-1">${escapeHtml(item.title)}</span><span class="block text-[10px] text-slate-500">${escapeHtml(item.location)}</span></span></button>`).join('');
             } else {
-                dropdown.innerHTML = `<div class="p-3 text-xs text-slate-500 text-center">No experiences found for “${term.replace(/[&<>"]/g, '')}”</div>`;
+                dropdown.innerHTML = `<div class="p-3 text-xs text-slate-500 text-center">No destinations or experiences found for “${escapeHtml(term)}”</div>`;
             }
         }
 
