@@ -384,7 +384,7 @@
                     container.innerHTML = renderHomeView();
             }
             updateBadges();
-            applyLanguageCopy(container);
+            applyLanguageCopy(document);
         }
 
         /* ==========================================================================
@@ -1510,6 +1510,8 @@
           "Cancellation policy":"Kebijakan pembatalan","Location":"Lokasi","Duration":"Durasi","Reviews":"Ulasan","Why choose us?":"Mengapa memilih kami?",
           "Contact us":"Hubungi kami","Contact Us":"Hubungi Kami","About Bali Trans":"Tentang Bali Trans","Loading...":"Memuat..."
         };
+        const originalTextNodes = new WeakMap();
+        const originalAttributes = new WeakMap();
         function translateCopy(value) {
             if (currentLanguage !== 'id' || !value) return value;
             let out = value;
@@ -1517,19 +1519,29 @@
             return out;
         }
         function applyLanguageCopy(root = document) {
-            if (currentLanguage !== 'id' || !root) return;
+            if (!root) return;
             const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
             const nodes = [];
             while (walker.nextNode()) nodes.push(walker.currentNode);
             nodes.forEach(node => {
                 if (node.parentElement && !['SCRIPT','STYLE','SELECT','OPTION'].includes(node.parentElement.tagName)) {
-                    const translated = translateCopy(node.nodeValue);
+                    if (!originalTextNodes.has(node)) originalTextNodes.set(node, node.nodeValue);
+                    const original = originalTextNodes.get(node);
+                    const translated = currentLanguage === 'id' ? translateCopy(original) : original;
                     if (translated !== node.nodeValue) node.nodeValue = translated;
                 }
             });
             root.querySelectorAll && root.querySelectorAll('[placeholder],[aria-label],[title]').forEach(el => {
-                ['placeholder','aria-label','title'].forEach(attr => { const v=el.getAttribute(attr); if(v) el.setAttribute(attr,translateCopy(v)); });
+                if (!originalAttributes.has(el)) originalAttributes.set(el, {});
+                ['placeholder','aria-label','title'].forEach(attr => {
+                    const saved = originalAttributes.get(el);
+                    if (saved[attr] === undefined) saved[attr] = el.getAttribute(attr);
+                    const original = saved[attr];
+                    if (original) el.setAttribute(attr, currentLanguage === 'id' ? translateCopy(original) : original);
+                });
             });
+            document.documentElement.lang = currentLanguage;
+            document.title = currentLanguage === 'id' ? 'Bali Trans | Tur, Aktivitas & Transportasi Privat di Bali' : 'Bali Trans | Bali Tours, Activities & Private Transport';
         }
         function syncLocaleSelector() {
             const selector = document.getElementById('localeSelector');
