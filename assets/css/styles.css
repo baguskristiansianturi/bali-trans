@@ -145,7 +145,7 @@ footer a {
     header .max-w-7xl > div > div:first-child .text-xl {
         font-size: 0.95rem;
     }
-    header .max-w-7xl > div > div:first-child .text-\\[10px\\] {
+    header .max-w-7xl > div > div:first-child span.uppercase.tracking-widest {
         display: none;
     }
     header .max-w-7xl > div > div:last-child {
