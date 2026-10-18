@@ -1,0 +1,8 @@
+body { font-family: 'Inter', sans-serif; background-color: #F8FAFC; color: #1E293B; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .klook-shadow { box-shadow: 0 4px 25px rgba(0,0,0,0.06); }
+        .klook-hover { transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); }
+        .klook-hover:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(255,94,0,0.15); }
+        .active-tab { border-bottom: 3px solid #FF5E00; color: #FF5E00; font-weight: 700; }
+        .badge-gradient { background: linear-gradient(135deg, #FF5E00 0%, #FF8A00 100%); }
