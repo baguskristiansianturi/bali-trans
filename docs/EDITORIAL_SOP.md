@@ -11,6 +11,15 @@
 4. **Jangan mengarang.** Jangan membuat pengalaman pribadi, kutipan, wawancara, statistik, harga, jadwal, atau klaim seolah-olah telah diverifikasi jika kenyataannya belum.
 5. **Tidak perlu memanjangkan tulisan.** Setiap bagian harus punya fungsi. Hapus pengulangan, kalimat pengisi, dan informasi yang tidak membantu pembaca.
 
+## Batas tegas: pedoman internal vs. materi publik
+
+- SOP ini adalah dokumen kerja internal. Aturan, strategi editorial, proses riset, checklist, dan alasan di balik keputusan penulisan tidak otomatis menjadi isi artikel, deskripsi homepage, teks promosi, atau materi lain yang dilihat pengunjung.
+- Jangan menulis kepada pembaca bahwa artikel dibuat secara “bertanggung jawab”, “sesuai SOP”, “berdasarkan strategi editorial”, atau menjelaskan proses internal serupa. Terapkan standarnya dalam hasil tulisan; jangan mengumumkan standarnya sebagai promosi.
+- Jangan memasukkan istilah atau catatan dapur—misalnya strategi SEO, target konten, alasan pemilihan kata kunci, rencana bisnis, instruksi penulis, maupun catatan produksi—ke halaman publik, kecuali pembaca memang membutuhkan informasi itu dan pemilik proyek secara eksplisit menyetujuinya.
+- Materi publik harus berbicara tentang kebutuhan pembaca dan topik yang sedang dibahas. Untuk artikel Pantai Lovina, tulis informasi perjalanan yang relevan; jangan menjadikan SOP atau cara tim menulis sebagai topik artikel.
+- Sebelum menerbitkan, lakukan pemeriksaan batas publik: baca seluruh teks seolah-olah kamu pengunjung biasa. Hapus setiap kalimat yang membocorkan proses internal, membahas strategi di balik layar, atau mempromosikan kepatuhan pada SOP alih-alih memberi manfaat langsung kepada pembaca.
+- Jika ragu apakah suatu informasi internal pantas ditampilkan, jangan publikasikan. Simpan di dokumentasi internal dan minta persetujuan sebelum memindahkannya ke materi publik.
+
 ## 2. Riset dan penggunaan sumber
 
 - Gunakan sumber eksternal untuk memeriksa fakta dan memperluas pemahaman, bukan sebagai bahan untuk disalin atau diparafrasekan secara dangkal.
