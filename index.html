@@ -417,6 +417,24 @@
         // This is a single-document app: never let the browser animate/restore the old page scroll on route changes.
         if ('scrollRestoration' in window.history) window.history.scrollRestoration = 'manual';
 
+        // Reset every possible document scroll root after SPA content replacement.
+        // On mobile browsers the layout can settle after innerHTML is assigned, so do it
+        // immediately and again after the next paint to keep the new page's content in view.
+        function resetRouteScroll() {
+            const reset = () => {
+                window.scrollTo(0, 0);
+                document.documentElement.scrollTop = 0;
+                if (document.body) document.body.scrollTop = 0;
+                const app = document.getElementById('appContainer');
+                if (app) app.scrollTop = 0;
+            };
+            reset();
+            window.requestAnimationFrame(() => {
+                reset();
+                window.requestAnimationFrame(reset);
+            });
+        }
+
         function navigateTo(viewName, params = null, navigationOptions = {}) {
             const container = document.getElementById('appContainer');
             currentViewName = viewName;
@@ -487,9 +505,8 @@
             }
             updateBadges();
             applyLanguageCopy(document);
-            // Run after the new view has been committed to the DOM; scroll-smooth on <html>
-            // previously animated from the old page and exposed the footer before reaching the article.
-            window.scrollTo(0, 0);
+            // Reset after rendering so mobile browsers show the newly selected page from its top.
+            resetRouteScroll();
         }
 
         /* ==========================================================================
