@@ -356,7 +356,9 @@
                         const pkg = BALI_PACKAGES.find(p => p.id === params);
                         if (pkg) currentDetailPackage = pkg;
                     }
+                    currentDetailQty = 1;
                     container.innerHTML = renderDetailView(currentDetailPackage);
+                    setTimeout(() => updatePackageOptionDetails(), 0);
                     break;
                 case 'blog':
                     container.innerHTML = renderBlogListView();
@@ -1242,37 +1244,49 @@
             updateBookingCalculation();
         }
 
-        function updateBookingCalculation() {
-            const curr = CURRENCY_RATES[currentCurrency];
-            const base = currentDetailPackage.priceIDR;
+        function getSelectedPackageOption() {
             const selectedOptId = document.querySelector('input[name="packageOption"]:checked')?.value;
-            const opt = currentDetailPackage.options.find(o => o.id === selectedOptId);
-            const extra = opt ? opt.extraPriceIDR : 0;
+            return currentDetailPackage.options.find(o => o.id === selectedOptId) || currentDetailPackage.options[0];
+        }
 
-            const unitPrice = base + extra;
-            const total = unitPrice * currentDetailQty;
+        function updatePackageOptionDetails() {
+            const opt = getSelectedPackageOption();
+            const hint = document.getElementById('guestCountHint');
+            if (hint) hint.innerText = opt.priceMode === 'group' ? 'Harga satu mobil • maksimal ' + opt.maxGuests + ' tamu' : 'Tiket dihitung per orang';
+            const qtyButtons = document.querySelectorAll('button[onclick="changeQty(-1)"], button[onclick="changeQty(1)"]');
+            qtyButtons.forEach(button => {
+                button.disabled = opt.priceMode === 'group';
+                button.classList.toggle('opacity-40', opt.priceMode === 'group');
+            });
+            updateBookingCalculation();
+        }
 
+        function updateBookingCalculation() {
+            if (!currentDetailPackage) return;
+            const curr = CURRENCY_RATES[currentCurrency];
+            const opt = getSelectedPackageOption();
+            const total = opt.priceMode === 'group' ? opt.priceIDR : opt.priceIDR * currentDetailQty;
             const calcElem = document.getElementById('calculatedTotalPrice');
             if (calcElem) calcElem.innerText = curr.format(total);
         }
 
         function addToCartCurrentPkg() {
-            const selectedOptId = document.querySelector('input[name="packageOption"]:checked')?.value;
-            const opt = currentDetailPackage.options.find(o => o.id === selectedOptId);
-            const date = document.getElementById('bookingDateInput').value;
-
+            const opt = getSelectedPackageOption();
+            const date = document.getElementById('bookingDateInput')?.value || '';
             const item = {
-                id: currentDetailPackage.id,
+                id: currentDetailPackage.id + '-' + opt.id,
+                productId: currentDetailPackage.id,
                 title: currentDetailPackage.title,
                 heroImage: currentDetailPackage.heroImage,
-                unitPriceIDR: currentDetailPackage.priceIDR + (opt ? opt.extraPriceIDR : 0),
-                quantity: currentDetailQty,
-                optionName: opt ? opt.name : 'Standard',
+                unitPriceIDR: opt.priceIDR,
+                quantity: opt.priceMode === 'group' ? 1 : currentDetailQty,
+                guestCount: currentDetailQty,
+                priceMode: opt.priceMode,
+                optionName: opt.name,
                 date: date
             };
-
             cartState.push(item);
-            showToast('Package added to shopping cart!');
+            showToast('Lovina option added to cart.');
             updateBadges();
         }
 
