@@ -937,6 +937,11 @@
 
                         <div class="mx-auto mt-8 grid max-w-6xl grid-cols-1 items-start gap-8 lg:grid-cols-[minmax(0,1fr)_260px] lg:gap-12">
                             <article class="min-w-0 rounded-2xl bg-white px-5 py-6 shadow-sm ring-1 ring-slate-200/70 sm:rounded-3xl sm:px-8 sm:py-9 lg:px-10">
+                                <section class="article-table-of-contents mb-8 rounded-xl border border-teal-100 bg-teal-50/70 p-5 sm:p-6" aria-labelledby="article-toc-title">
+                                    <p class="text-xs font-extrabold uppercase tracking-[.14em] text-teal-700">Panduan membaca</p>
+                                    <h2 id="article-toc-title" class="mt-1 text-xl font-black text-slate-900">Daftar isi</h2>
+                                    ${toc.length ? `<ol class="mt-4 space-y-2.5">${toc.map(item => `<li class="${item.level === 3 ? 'pl-4' : ''}"><a href="#${item.id}" class="text-sm font-medium leading-6 text-slate-700 transition hover:text-teal-800 hover:underline">${item.title}</a></li>`).join('')}</ol>` : '<p class="mt-3 text-sm text-slate-500">Daftar isi belum tersedia untuk artikel ini.</p>'}
+                                </section>
                                 <div class="article-body max-w-none text-[16px] leading-8 text-slate-700 sm:text-[17px] sm:leading-8">
                                     ${articleContent}
                                 </div>
@@ -953,10 +958,6 @@
                             </article>
 
                             <aside class="space-y-5 lg:sticky lg:top-24">
-                                <section class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-                                    <p class="text-xs font-extrabold uppercase tracking-[.14em] text-teal-700">Di artikel ini</p>
-                                    ${toc.length ? `<ol class="mt-4 space-y-3">${toc.map(item => `<li class="${item.level === 3 ? 'pl-3' : ''}"><a href="#${item.id}" class="text-sm leading-6 text-slate-600 transition hover:text-teal-800">${item.title}</a></li>`).join('')}</ol>` : '<p class="mt-3 text-sm text-slate-500">Belum ada daftar isi.</p>'}
-                                </section>
                                 <section class="rounded-2xl bg-slate-900 p-5 text-white shadow-sm">
                                     <p class="text-xs font-extrabold uppercase tracking-[.14em] text-teal-300">Rencanakan perjalanan</p>
                                     <h2 class="mt-2 text-lg font-extrabold leading-snug">Ingin menjelajahi Bali tanpa terburu-buru?</h2>
