@@ -544,7 +544,7 @@
         let wishlistState = [];
         let selectedCategoryFilter = 'all';
         let currentDetailPackage = BALI_PACKAGES[0];
-        let currentTour EnquiryStep = 1;
+        let currentCheckoutStep = 1;
 
         /* ==========================================================================
            2. NAVIGATION & ROUTING ENGINE
@@ -579,8 +579,8 @@
                     container.innerHTML = renderCartView();
                     break;
                 case 'checkout':
-                    currentTour EnquiryStep = 1;
-                    container.innerHTML = renderTour EnquiryView();
+                    currentCheckoutStep = 1;
+                    container.innerHTML = renderCheckoutView();
                     break;
                 default:
                     container.innerHTML = renderHomeView();
@@ -1177,7 +1177,7 @@
         }
 
         /* VIEW 7: MULTI-STEP CHECKOUT FLOW */
-        function renderTour EnquiryView() {
+        function renderCheckoutView() {
             const curr = CURRENCY_RATES[currentCurrency];
             let grandTotal = cartState.reduce((sum, item) => sum + (item.unitPriceIDR * item.quantity), 0);
 
@@ -1185,30 +1185,30 @@
                 <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
                     <!-- Step Progress Indicator -->
                     <div class="flex items-center justify-between mb-8 max-w-xl mx-auto text-xs font-bold">
-                        <div class="flex flex-col items-center gap-1 ${currentTour EnquiryStep >= 1 ? 'text-klook-orange' : 'text-slate-400'}">
-                            <div class="w-8 h-8 rounded-full ${currentTour EnquiryStep >= 1 ? 'bg-klook-orange text-white' : 'bg-slate-200'} flex items-center justify-center font-bold">1</div>
+                        <div class="flex flex-col items-center gap-1 ${currentCheckoutStep >= 1 ? 'text-klook-orange' : 'text-slate-400'}">
+                            <div class="w-8 h-8 rounded-full ${currentCheckoutStep >= 1 ? 'bg-klook-orange text-white' : 'bg-slate-200'} flex items-center justify-center font-bold">1</div>
                             <span>Guest Details</span>
                         </div>
                         <div class="h-0.5 flex-1 bg-slate-200 mx-2"></div>
-                        <div class="flex flex-col items-center gap-1 ${currentTour EnquiryStep >= 2 ? 'text-klook-orange' : 'text-slate-400'}">
-                            <div class="w-8 h-8 rounded-full ${currentTour EnquiryStep >= 2 ? 'bg-klook-orange text-white' : 'bg-slate-200'} flex items-center justify-center font-bold">2</div>
+                        <div class="flex flex-col items-center gap-1 ${currentCheckoutStep >= 2 ? 'text-klook-orange' : 'text-slate-400'}">
+                            <div class="w-8 h-8 rounded-full ${currentCheckoutStep >= 2 ? 'bg-klook-orange text-white' : 'bg-slate-200'} flex items-center justify-center font-bold">2</div>
                             <span>Payment</span>
                         </div>
                         <div class="h-0.5 flex-1 bg-slate-200 mx-2"></div>
-                        <div class="flex flex-col items-center gap-1 ${currentTour EnquiryStep >= 3 ? 'text-klook-orange' : 'text-slate-400'}">
-                            <div class="w-8 h-8 rounded-full ${currentTour EnquiryStep >= 3 ? 'bg-klook-orange text-white' : 'bg-slate-200'} flex items-center justify-center font-bold">3</div>
+                        <div class="flex flex-col items-center gap-1 ${currentCheckoutStep >= 3 ? 'text-klook-orange' : 'text-slate-400'}">
+                            <div class="w-8 h-8 rounded-full ${currentCheckoutStep >= 3 ? 'bg-klook-orange text-white' : 'bg-slate-200'} flex items-center justify-center font-bold">3</div>
                             <span>E-Voucher</span>
                         </div>
                     </div>
 
                     <div id="checkoutStepContainer">
-                        ${renderTour EnquiryStepContent(currentTour EnquiryStep, grandTotal)}
+                        ${renderCheckoutStepContent(currentCheckoutStep, grandTotal)}
                     </div>
                 </div>
             `;
         }
 
-        function renderTour EnquiryStepContent(step, totalIDR) {
+        function renderCheckoutStepContent(step, totalIDR) {
             const curr = CURRENCY_RATES[currentCurrency];
 
             if (step === 1) {
@@ -1235,7 +1235,7 @@
                             </div>
                         </div>
 
-                        <button onclick="advanceTour EnquiryStep(2)" class="w-full bg-klook-orange hover:bg-klook-hover text-white font-extrabold py-3.5 px-6 rounded-2xl transition text-xs shadow-lg shadow-orange-500/20">
+                        <button onclick="advanceCheckoutStep(2)" class="w-full bg-klook-orange hover:bg-klook-hover text-white font-extrabold py-3.5 px-6 rounded-2xl transition text-xs shadow-lg shadow-orange-500/20">
                             Continue to Payment →
                         </button>
                     </div>
@@ -1274,7 +1274,7 @@
                             <span class="text-xl font-black text-klook-orange">${curr.format(totalIDR)}</span>
                         </div>
 
-                        <button onclick="advanceTour EnquiryStep(3)" class="w-full bg-klook-orange hover:bg-klook-hover text-white font-extrabold py-3.5 px-6 rounded-2xl transition text-xs shadow-lg shadow-orange-500/20">
+                        <button onclick="advanceCheckoutStep(3)" class="w-full bg-klook-orange hover:bg-klook-hover text-white font-extrabold py-3.5 px-6 rounded-2xl transition text-xs shadow-lg shadow-orange-500/20">
                             Pay Now & Issue E-Voucher
                         </button>
                     </div>
@@ -1449,11 +1449,11 @@
             }
         }
 
-        function advanceTour EnquiryStep(step) {
-            currentTour EnquiryStep = step;
+        function advanceCheckoutStep(step) {
+            currentCheckoutStep = step;
             const container = document.getElementById('checkoutStepContainer');
             let grandTotal = cartState.reduce((sum, item) => sum + (item.unitPriceIDR * item.quantity), 0);
-            if (container) container.innerHTML = renderTour EnquiryStepContent(step, grandTotal);
+            if (container) container.innerHTML = renderCheckoutStepContent(step, grandTotal);
         }
 
         function handleGlobalSearch(query) {
