@@ -1,6 +1,6 @@
 function renderHomeView() {
             return `
-                <!-- HERO SECTION: approved layout, public-facing Bali Trans copy -->
+                <!-- HERO SECTION: Bali Trans pre-launch public copy -->
                 <div class="relative bg-slate-900 min-h-[480px] md:min-h-[540px] flex items-center justify-center overflow-hidden">
                     <!-- Hero Background Image with Overlay -->
                     <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=2000&q=80" class="absolute inset-0 w-full h-full object-cover opacity-40 scale-105 transition-transform duration-1000">
@@ -8,13 +8,13 @@ function renderHomeView() {
 
                     <div class="relative max-w-5xl w-full mx-auto px-4 sm:px-6 py-12 text-center z-10">
                         <span class="inline-flex items-center gap-2 bg-orange-500/20 text-orange-300 backdrop-blur-md border border-orange-500/30 text-xs font-bold px-3 py-1.5 rounded-full mb-4 uppercase tracking-wider">
-                            <i class="fas fa-bolt text-klook-orange"></i> Private journeys around Bali
+                            <i class="fas fa-bolt text-klook-orange"></i> Your Bali journey starts here
                         </span>
                         <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight mb-4 leading-tight">
-                            Discover Bali with <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-300">Greater Peace of Mind</span>
+                            Explore Bali, <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-300">Your Way</span>
                         </h1>
                         <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto mb-8 font-medium">
-                            Explore Bali with a Muslim driver and get practical help planning transport, halal dining stops and places to pray along the way.
+                            Find inspiration for Bali day trips, coastal escapes, cultural stops and private transport as you plan your time on the island.
                         </p>
 
                         <!-- KLOOK TABS & SEARCH CONTAINER -->
@@ -22,7 +22,7 @@ function renderHomeView() {
                             <!-- Filter Pill Quick Tabs -->
                             <div class="flex items-center space-x-2 overflow-x-auto pb-3 mb-3 border-b border-slate-100 hide-scrollbar text-xs font-bold">
                                 <button onclick="quickFilterSearch('all')" class="px-4 py-2 bg-klook-orange text-white rounded-full whitespace-nowrap shadow-sm">Explore Bali</button>
-                                <button onclick="quickFilterSearch('driver')" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-full whitespace-nowrap"><i class="fas fa-car mr-1" aria-hidden="true"></i> Muslim Driver</button>
+                                <button onclick="quickFilterSearch('driver')" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-full whitespace-nowrap"><i class="fas fa-car mr-1" aria-hidden="true"></i> Private Transport</button>
                                 <button onclick="quickFilterSearch('temple')" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-full whitespace-nowrap"><i class="fas fa-landmark mr-1" aria-hidden="true"></i> Ubud & Culture</button>
                                 <button onclick="quickFilterSearch('nusa')" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-full whitespace-nowrap"><i class="fas fa-water mr-1" aria-hidden="true"></i> Nusa Penida</button>
                                 <button onclick="quickFilterSearch('water')" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-full whitespace-nowrap"><i class="fas fa-life-ring mr-1" aria-hidden="true"></i> Sea & Beach</button>
@@ -103,33 +103,33 @@ function renderHomeView() {
                     </div>
                 </div>
 
-                <!-- SERVICE VALUES SECTION; approved layout preserved -->
+                <!-- BALI TRANS TRAVEL PLANNING SECTION; existing layout preserved -->
                 <div class="bg-white py-16 border-y border-slate-200">
                     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div class="text-center max-w-2xl mx-auto mb-12">
-                            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Travel with Thoughtful Local Support</h2>
-                            <p class="text-slate-500 text-sm mt-2">A private driver who understands your travel needs can make exploring Bali easier to plan.</p>
+                            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Make More of Your Time in Bali</h2>
+                            <p class="text-slate-500 text-sm mt-2">Explore destinations at a comfortable pace with time for the places and experiences that matter to you.</p>
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                             <div class="flex items-start gap-4 p-6 rounded-3xl bg-slate-50 border border-slate-100">
                                 <div class="w-12 h-12 rounded-2xl bg-orange-100 text-klook-orange flex items-center justify-center text-xl font-bold flex-shrink-0">⚡</div>
                                 <div>
-                                    <h4 class="font-extrabold text-slate-900 mb-1">Muslim Driver Service</h4>
-                                    <p class="text-xs text-slate-500 leading-relaxed">Travel with a Muslim driver and discuss the route and practical needs for your day before setting out.</p>
+                                    <h4 class="font-extrabold text-slate-900 mb-1">Private Transport</h4>
+                                    <p class="text-xs text-slate-500 leading-relaxed">Plan transport around your preferred destinations, schedule and practical travel needs.</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-4 p-6 rounded-3xl bg-slate-50 border border-slate-100">
                                 <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl font-bold flex-shrink-0">🏷️</div>
                                 <div>
-                                    <h4 class="font-extrabold text-slate-900 mb-1">Halal Dining Guidance</h4>
-                                    <p class="text-xs text-slate-500 leading-relaxed">Ask for help finding halal dining options along your route. Check each venue’s current information before visiting.</p>
+                                    <h4 class="font-extrabold text-slate-900 mb-1">Local Food & Dining</h4>
+                                    <p class="text-xs text-slate-500 leading-relaxed">Discover local dining areas along your route and check opening hours and menu information before visiting.</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-4 p-6 rounded-3xl bg-slate-50 border border-slate-100">
                                 <div class="w-12 h-12 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center text-xl font-bold flex-shrink-0">💬</div>
                                 <div>
-                                    <h4 class="font-extrabold text-slate-900 mb-1">Prayer Stops Along the Route</h4>
-                                    <p class="text-xs text-slate-500 leading-relaxed">Plan suitable stops for prayer during your journey. Share your preferred timing when arranging the trip.</p>
+                                    <h4 class="font-extrabold text-slate-900 mb-1">Flexible Stops Along the Route</h4>
+                                    <p class="text-xs text-slate-500 leading-relaxed">Allow time for breaks, meals and extra stops so your day does not feel unnecessarily rushed.</p>
                                 </div>
                             </div>
                         </div>
@@ -157,7 +157,7 @@ function renderHomeView() {
                         <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm">
                             <div class="w-12 h-12 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center text-xl mb-4"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></div>
                             <h3 class="text-sm font-extrabold text-slate-900 mb-2">Include Time for Prayer</h3>
-                            <p class="text-xs text-slate-600 leading-relaxed">Tell us your preferred prayer times when discussing the itinerary so suitable prayer stops can be planned where practical.</p>
+                            <p class="text-xs text-slate-600 leading-relaxed">Share your preferred pace and planned stops when discussing an itinerary.</p>
                         </div>
                     </div>
                 </div>
