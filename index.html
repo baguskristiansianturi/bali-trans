@@ -1267,17 +1267,44 @@
             return currentDetailPackage.options.find(o => o.id === selectedOptId) || currentDetailPackage.options[0];
         }
 
+        function getSelectedVehicle() {
+            const selected = document.querySelector('input[name="vehicleType"]:checked');
+            const vehicles = {
+                avanza: { id: 'avanza', name: 'Toyota Avanza', priceIDR: 0 },
+                innova: { id: 'innova', name: 'Toyota Innova', priceIDR: 300000 },
+                alphard: { id: 'alphard', name: 'Toyota Alphard', priceIDR: 1500000 }
+            };
+            return selected ? vehicles[selected.value] : vehicles.avanza;
+        }
+
+        function getSelectedAddons() {
+            return Array.from(document.querySelectorAll('input[name="lovinaAddon"]:checked')).map(input => ({
+                id: input.value,
+                name: input.value === 'extra-stop' ? 'Persinggahan tambahan' : 'Kursi anak',
+                priceIDR: Number(input.dataset.price || 0)
+            }));
+        }
+
         function updatePackageOptionDetails() {
             const opt = getSelectedPackageOption();
+            const isAllIn = opt.priceMode === 'group';
+            const vehicleWrap = document.getElementById('vehicleChoiceWrap');
+            const addonsWrap = document.getElementById('addonsWrap');
+            if (vehicleWrap) vehicleWrap.classList.toggle('hidden', !isAllIn);
+            if (addonsWrap) addonsWrap.classList.toggle('hidden', !isAllIn);
             const hint = document.getElementById('guestCountHint');
-            if (hint) hint.innerText = opt.priceMode === 'group' ? 'Harga satu mobil • maksimal ' + opt.maxGuests + ' tamu' : 'Tiket dihitung per orang';
-            const qtyButtons = document.querySelectorAll('button[onclick="changeQty(-1)"], button[onclick="changeQty(1)"]');
-            qtyButtons.forEach(button => {
-                button.disabled = false;
-                button.classList.remove('opacity-40');
-            });
+            if (hint) hint.innerText = isAllIn ? 'Harga per mobil • maksimal ' + opt.maxGuests + ' tamu' : 'Tiket dihitung per orang';
             const qty = document.getElementById('adultQty');
             if (qty) qty.innerText = currentDetailQty;
+            const label = document.getElementById('selectedOptionLabel');
+            if (label) label.innerText = opt.name;
+            const choices = document.querySelectorAll('.vehicle-choice');
+            choices.forEach(choice => {
+                const radio = choice.querySelector('input[type="radio"]');
+                choice.classList.toggle('border-orange-500', !!radio && radio.checked);
+                choice.classList.toggle('bg-orange-50', !!radio && radio.checked);
+                choice.classList.toggle('border-slate-200', !radio || !radio.checked);
+            });
             updateBookingCalculation();
         }
 
@@ -1285,28 +1312,60 @@
             if (!currentDetailPackage) return;
             const curr = CURRENCY_RATES[currentCurrency];
             const opt = getSelectedPackageOption();
-            const total = opt.priceMode === 'group' ? opt.priceIDR : opt.priceIDR * currentDetailQty;
+            const isAllIn = opt.priceMode === 'group';
+            const vehicle = isAllIn ? getSelectedVehicle() : null;
+            const addons = isAllIn ? getSelectedAddons() : [];
+            const addonTotal = addons.reduce((sum, addon) => sum + addon.priceIDR, 0);
+            const vehicleTotal = vehicle ? vehicle.priceIDR : 0;
+            const total = (isAllIn ? opt.priceIDR + vehicleTotal : opt.priceIDR * currentDetailQty) + addonTotal;
             const calcElem = document.getElementById('calculatedTotalPrice');
             if (calcElem) calcElem.innerText = curr.format(total);
+            const extrasLabel = document.getElementById('selectedExtrasLabel');
+            if (extrasLabel) extrasLabel.innerText = isAllIn ? [vehicle.name, ...addons.map(addon => addon.name)].join(', ') : 'Tidak ada';
+            const optionLabel = document.getElementById('selectedOptionLabel');
+            if (optionLabel) optionLabel.innerText = opt.name;
+        }
+
+        function changeQty(delta) {
+            const opt = currentDetailPackage ? getSelectedPackageOption() : null;
+            const max = opt && opt.priceMode === 'group' ? (opt.maxGuests || 4) : 12;
+            currentDetailQty = Math.max(1, Math.min(max, currentDetailQty + delta));
+            const qty = document.getElementById('adultQty');
+            if (qty) qty.innerText = currentDetailQty;
+            updateBookingCalculation();
         }
 
         function addToCartCurrentPkg() {
             const opt = getSelectedPackageOption();
             const date = document.getElementById('bookingDateInput')?.value || '';
+            if (!date) {
+                showToast('Pilih tanggal perjalanan terlebih dahulu.');
+                return;
+            }
+            if (opt.priceMode === 'group' && currentDetailQty > (opt.maxGuests || 4)) {
+                showToast('Jumlah tamu melebihi kapasitas paket mobil ini.');
+                return;
+            }
+            const vehicle = opt.priceMode === 'group' ? getSelectedVehicle() : null;
+            const addons = opt.priceMode === 'group' ? getSelectedAddons() : [];
+            const addonsTotal = addons.reduce((sum, addon) => sum + addon.priceIDR, 0);
+            const totalPriceIDR = (opt.priceMode === 'group' ? opt.priceIDR + (vehicle?.priceIDR || 0) : opt.priceIDR * currentDetailQty) + addonsTotal;
             const item = {
-                id: currentDetailPackage.id + '-' + opt.id,
+                id: currentDetailPackage.id + '-' + opt.id + '-' + Date.now(),
                 productId: currentDetailPackage.id,
                 title: currentDetailPackage.title,
                 heroImage: currentDetailPackage.heroImage,
-                unitPriceIDR: opt.priceIDR,
-                quantity: opt.priceMode === 'group' ? 1 : currentDetailQty,
+                unitPriceIDR: totalPriceIDR,
+                quantity: 1,
                 guestCount: currentDetailQty,
                 priceMode: opt.priceMode,
                 optionName: opt.name,
+                vehicleName: vehicle?.name || '',
+                addons: addons,
                 date: date
             };
             cartState.push(item);
-            showToast('Lovina option added to cart.');
+            showToast('Pilihan Lovina ditambahkan ke keranjang.');
             updateBadges();
         }
 
