@@ -56,7 +56,7 @@
             <span id="countdownTimer" class="font-bold">Plan your Bali trip</span>
             <div class="flex items-center space-x-3 border-l border-white/30 pl-3">
                 <a href="https://wa.me/" target="_blank" class="hover:underline flex items-center gap-1">
-                    <i class="fab font-bold fa-whatsapp text-white/80"></i> WhatsApp Concierge
+                    <i class="fab font-bold fa-whatsapp text-white/80"></i> Ask about your trip
                 </a>
             </div>
         </div>
@@ -855,8 +855,6 @@
                                 <i class="${isWishlist ? 'fas fa-heart text-rose-500' : 'far fa-heart'}"></i>
                             </button>
 
-                            <!-- Badge Tag -->
-                            ${pkg.badge ? `<span class="absolute bottom-3 left-3 badge-gradient text-white text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-lg shadow">${pkg.badge}</span>` : ''}
                         </div>
 
                         <!-- Content Body -->
@@ -871,8 +869,8 @@
 
                                 <!-- Klook Style Tags -->
                                 <div class="flex flex-wrap gap-1.5 mb-4">
-                                    ${pkg.instantConfirmation ? `<span class="text-[10px] bg-slate-100 font-semibold text-slate-600 px-2 py-0.5 rounded">⚡ Tour details confirmed with our team</span>` : ''}
-                                    ${pkg.freeCancellation ? `<span class="text-[10px] bg-slate-100 font-semibold text-slate-700 px-2 py-0.5 rounded">✓ Free Cancellation</span>` : ''}
+                                    ${pkg.instantConfirmation ? `<span class="text-[10px] bg-slate-100 font-semibold text-slate-600 px-2 py-0.5 rounded">Ask about availability</span>` : ''}
+                                    ${pkg.freeCancellation ? `<span class="text-[10px] bg-slate-100 font-semibold text-slate-700 px-2 py-0.5 rounded">Cancellation terms to confirm</span>` : ''}
                                 </div>
                             </div>
 
