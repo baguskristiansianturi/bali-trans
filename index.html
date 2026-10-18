@@ -1218,7 +1218,7 @@
         }
 
         function sendTourInquiry() {
-            const tours = cartState.map(item => `- ${item.title} | ${item.quantity} guest(s) | Date: ${item.date || 'Flexible'} | Option: ${item.optionName || 'To discuss'}`).join('\\n');
+            const tours = cartState.map(item => `- ${item.title} | ${item.quantity} guest(s) | Date: ${item.date || 'Flexible'} | Option: ${item.optionName || 'To discuss'}`).join('\n');
             const message = [
                 'Hello Bali Trans, I would like to enquire about a Bali tour.',
                 '',
@@ -1231,7 +1231,7 @@
                 tours || '- I would like help choosing a tour.',
                 '',
                 'Please confirm availability, itinerary, inclusions and final price.'
-            ].join('\\n');
+            ].join('\n');
             window.location.href = 'https://wa.me/?text=' + encodeURIComponent(message);
         }
 
