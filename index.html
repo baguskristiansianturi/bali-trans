@@ -886,21 +886,21 @@
 
                         <aside class="lg:col-span-4 min-w-0">
                             <div class="lg:sticky lg:top-20 bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-lg">
-                                <p class="text-xs font-bold text-slate-500">Perkiraan harga mulai dari</p>
+                                <p class="text-xs font-bold text-slate-500">Harga per orang</p>
                                 <p class="text-2xl font-black text-slate-950 mt-1">${basePrice}</p>
-                                <p class="text-xs text-slate-500 mt-1">Harga final mengikuti pilihan paket, kendaraan, dan tambahan.</p>
+                                <p class="text-xs text-slate-500 mt-1">Harga paket utama, sebelum pilihan tambahan saat checkout.</p>
                                 <div class="border-t border-slate-100 mt-5 pt-5">
                                     <label for="bookingDateInput" class="block text-sm font-bold text-slate-800 mb-2">Tanggal perjalanan</label>
                                     <input type="date" id="bookingDateInput" min="${new Date().toISOString().split('T')[0]}" value="${new Date().toISOString().split('T')[0]}" class="w-full border border-slate-300 rounded-xl p-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-200">
                                 </div>
                                 <div class="mt-4">
                                     <label class="block text-sm font-bold text-slate-800 mb-2">Jumlah tamu</label>
-                                    <div class="flex items-center justify-between rounded-xl bg-slate-50 border border-slate-200 p-3"><span id="guestCountHint" class="text-xs text-slate-500">Tiket dihitung per orang</span><div class="flex items-center gap-4"><button type="button" onclick="changeQty(-1)" aria-label="Kurangi tamu" class="w-8 h-8 rounded-full bg-white border border-slate-200 font-bold">−</button><span id="adultQty" class="font-extrabold w-4 text-center">1</span><button type="button" onclick="changeQty(1)" aria-label="Tambah tamu" class="w-8 h-8 rounded-full bg-white border border-slate-200 font-bold">+</button></div></div>
+                                    <div class="flex items-center justify-between rounded-xl bg-slate-50 border border-slate-200 p-3"><span id="guestCountHint" class="text-xs text-slate-500">Harga dihitung per orang</span><div class="flex items-center gap-4"><button type="button" onclick="changeQty(-1)" aria-label="Kurangi tamu" class="w-8 h-8 rounded-full bg-white border border-slate-200 font-bold">−</button><span id="adultQty" class="font-extrabold w-4 text-center">1</span><button type="button" onclick="changeQty(1)" aria-label="Tambah tamu" class="w-8 h-8 rounded-full bg-white border border-slate-200 font-bold">+</button></div></div>
                                 </div>
                                 <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 mt-5">
                                     <div class="flex justify-between gap-3 text-sm"><span class="text-slate-600">Paket</span><span id="selectedOptionLabel" class="font-bold text-right">Paket Tour Lovina</span></div>
-                                    <div class="flex justify-between gap-3 text-sm mt-2"><span class="text-slate-600">Kendaraan / tambahan</span><span id="selectedExtrasLabel" class="font-bold text-right">Tidak ada</span></div>
-                                    <div class="border-t border-slate-200 mt-3 pt-3 flex justify-between items-end gap-3"><span class="font-extrabold text-slate-800">Perkiraan total</span><span id="calculatedTotalPrice" class="text-xl font-black text-orange-600 text-right">${basePrice}</span></div>
+                                    <div class="flex justify-between gap-3 text-sm mt-2"><span class="text-slate-600">Pilihan tambahan</span><span id="selectedExtrasLabel" class="font-bold text-right">Diatur saat checkout</span></div>
+                                    <div class="border-t border-slate-200 mt-3 pt-3 flex justify-between items-end gap-3"><span class="font-extrabold text-slate-800">Total untuk <span id="detailGuestTotal">1</span> tamu</span><span id="calculatedTotalPrice" class="text-xl font-black text-orange-600 text-right">${curr.format(Math.min(...pkg.options.map(opt => opt.priceIDR)))}</span></div>
                                 </div>
                                 <p class="text-[11px] leading-5 text-slate-500 mt-3">Ketersediaan dan rincian perjalanan akan dikonfirmasi sebelum pembayaran.</p>
                                 <div class="space-y-2 mt-4">
@@ -1331,13 +1331,8 @@
 
         function updatePackageOptionDetails() {
             const opt = getSelectedPackageOption();
-            const isAllIn = true;
-            const vehicleWrap = document.getElementById('vehicleChoiceWrap');
-            const addonsWrap = document.getElementById('addonsWrap');
-            if (vehicleWrap) vehicleWrap.classList.remove('hidden');
-            if (addonsWrap) addonsWrap.classList.remove('hidden');
             const hint = document.getElementById('guestCountHint');
-            if (hint) hint.innerText = isAllIn ? 'Harga per mobil • maksimal ' + opt.maxGuests + ' tamu' : 'Tiket dihitung per orang';
+            if (hint) hint.innerText = 'Harga per orang';
             const qty = document.getElementById('adultQty');
             if (qty) qty.innerText = currentDetailQty;
             const label = document.getElementById('selectedOptionLabel');
@@ -1356,24 +1351,22 @@
             if (!currentDetailPackage) return;
             const curr = CURRENCY_RATES[currentCurrency];
             const opt = getSelectedPackageOption();
-            const isAllIn = opt.priceMode === 'group';
-            const vehicle = isAllIn ? getSelectedVehicle() : null;
-            const addons = isAllIn ? getSelectedAddons() : [];
-            const addonTotal = addons.reduce((sum, addon) => sum + (addon.priceMode === 'person' ? addon.priceIDR * currentDetailQty : addon.priceIDR), 0);
-            const vehicleTotal = vehicle ? vehicle.priceIDR : 0;
-            const total = opt.priceIDR + vehicleTotal + addonTotal;
+            const perPerson = opt.priceIDR;
+            const total = perPerson * currentDetailQty;
             const calcElem = document.getElementById('calculatedTotalPrice');
             if (calcElem) calcElem.innerText = curr.format(total);
+            const perPersonElem = document.getElementById('detailPricePerPerson');
+            if (perPersonElem) perPersonElem.innerText = curr.format(perPerson);
+            const guestTotal = document.getElementById('detailGuestTotal');
+            if (guestTotal) guestTotal.innerText = currentDetailQty;
             const extrasLabel = document.getElementById('selectedExtrasLabel');
-            if (extrasLabel) extrasLabel.innerText = isAllIn ? [vehicle.name, ...addons.map(addon => addon.name)].join(', ') : 'Tidak ada';
+            if (extrasLabel) extrasLabel.innerText = 'Diatur saat checkout';
             const optionLabel = document.getElementById('selectedOptionLabel');
             if (optionLabel) optionLabel.innerText = opt.name;
         }
 
         function changeQty(delta) {
-            const opt = currentDetailPackage ? getSelectedPackageOption() : null;
-            const max = opt && opt.priceMode === 'group' ? (opt.maxGuests || 4) : 12;
-            currentDetailQty = Math.max(1, Math.min(max, currentDetailQty + delta));
+            currentDetailQty = Math.max(1, Math.min(7, currentDetailQty + delta));
             const qty = document.getElementById('adultQty');
             if (qty) qty.innerText = currentDetailQty;
             updateBookingCalculation();
@@ -1386,30 +1379,28 @@
                 showToast('Pilih tanggal perjalanan terlebih dahulu.');
                 return;
             }
-            if (opt.priceMode === 'group' && currentDetailQty > (opt.maxGuests || 4)) {
-                showToast('Jumlah tamu melebihi kapasitas paket mobil ini.');
-                return;
-            }
-            const vehicle = getSelectedVehicle();
-            const addons = getSelectedAddons();
-            const addonsTotal = addons.reduce((sum, addon) => sum + (addon.priceMode === 'person' ? addon.priceIDR * currentDetailQty : addon.priceIDR), 0);
-            const totalPriceIDR = opt.priceIDR + (vehicle?.priceIDR || 0) + addonsTotal;
+            const defaultVehicleId = currentDetailQty >= 6 ? 'hiace' : 'avanza';
+            const vehicleSurchargeIDR = currentDetailQty >= 6 ? 500000 : 0;
+            const totalPriceIDR = (opt.priceIDR * currentDetailQty) + vehicleSurchargeIDR;
             const item = {
                 id: currentDetailPackage.id + '-' + opt.id + '-' + Date.now(),
                 productId: currentDetailPackage.id,
                 title: currentDetailPackage.title,
                 heroImage: currentDetailPackage.heroImage,
                 unitPriceIDR: totalPriceIDR,
+                basePricePerPersonIDR: opt.priceIDR,
                 quantity: 1,
                 guestCount: currentDetailQty,
-                priceMode: opt.priceMode,
+                priceMode: 'group',
                 optionName: opt.name,
-                vehicleName: vehicle?.name || '',
-                addons: addons,
+                vehicleId: defaultVehicleId,
+                vehicleName: currentDetailQty >= 6 ? 'Toyota HiAce' : 'Toyota Avanza',
+                vehicleSurchargeIDR: vehicleSurchargeIDR,
+                addons: [],
                 date: date
             };
             cartState.push(item);
-            showToast('Pilihan Lovina ditambahkan ke keranjang.');
+            showToast('Paket Lovina ditambahkan ke keranjang.');
             updateBadges();
         }
 
