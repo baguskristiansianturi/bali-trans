@@ -123,6 +123,7 @@
             },
             {
                 id: 'lovina-beach-guide',
+                slug: 'pantai-lovina-bali',
                 title: 'Pantai Lovina Bali: Panduan Santai untuk Melihat Lumba-Lumba dan Menjelajah Bali Utara',
                 category: 'Destinations',
                 readTime: '8 min read',
@@ -204,13 +205,17 @@
         function navigateTo(viewName, params = null, options = {}) {
             const container = document.getElementById('appContainer');
             const url = new URL(window.location.href);
+            const siteBase = url.pathname.startsWith('/bali-trans/') ? '/bali-trans/' : '/';
             const query = url.searchParams;
             query.set('view', viewName);
             query.delete('tour');
             if (params !== null && params !== undefined && params !== '') query.set('id', String(params));
             else query.delete('id');
             if (viewName !== 'blog') query.delete('category');
-            const nextUrl = url.pathname + '?' + query.toString();
+            const article = viewName === 'blog-read' ? BALI_BLOGS.find(item => item.id === String(params)) : null;
+            const nextUrl = article && (article.slug || article.id)
+                ? siteBase + 'blog/' + (article.slug || article.id) + '/'
+                : siteBase + '?' + query.toString();
             if (options.history !== false) {
                 if (options.replace) window.history.replaceState({ viewName, params }, '', nextUrl);
                 else if (window.location.pathname + window.location.search !== nextUrl) window.history.pushState({ viewName, params }, '', nextUrl);
@@ -289,11 +294,12 @@
         function renderLocationFromUrl(options = {}) {
             const query = new URLSearchParams(window.location.search);
             const legacyTour = query.get('tour');
-            const viewName = query.get('view') || (legacyTour ? 'detail' : 'home');
-            const params = query.get('id') || (viewName === 'detail' ? legacyTour : null);
-            navigateTo(viewName, params, { history: false, scroll: options.scroll !== false, replace: !query.has('view') });
+            const pathMatch = window.location.pathname.match(/\\/blog\\/([^/]+)\\/?$/);
+            const pathArticle = pathMatch ? BALI_BLOGS.find(item => (item.slug || item.id) === decodeURIComponent(pathMatch[1])) : null;
+            const viewName = pathArticle ? 'blog-read' : (query.get('view') || (legacyTour ? 'detail' : 'home'));
+            const params = pathArticle ? pathArticle.id : (query.get('id') || (viewName === 'detail' ? legacyTour : null));
+            navigateTo(viewName, params, { history: false, scroll: options.scroll !== false, replace: !query.has('view') && !pathArticle });
         }
-
         window.addEventListener('popstate', () => renderLocationFromUrl({ scroll: true }));
 
         /* ==========================================================================
@@ -904,7 +910,11 @@
                 .concat(BALI_BLOGS.filter(item => item.id !== blog.id && item.category !== blog.category))
                 .filter((item, index, items) => items.findIndex(other => other.id === item.id) === index)
                 .slice(0, 3);
-            const articleUrl = id => '?view=blog-read&id=' + encodeURIComponent(id);
+            const articleUrl = id => {
+                const item = BALI_BLOGS.find(entry => entry.id === id);
+                const siteBase = window.location.pathname.startsWith('/bali-trans/') ? '/bali-trans/' : '/';
+                return siteBase + 'blog/' + (item ? (item.slug || item.id) : encodeURIComponent(id)) + '/';
+            };
             const author = blog.author || 'Bali Trans Editorial Team';
             return `
                 <main class="min-h-screen bg-[#fbfaf7] text-slate-800">
@@ -912,7 +922,7 @@
                         <nav aria-label="Breadcrumb" class="mb-6 flex flex-wrap items-center gap-2 text-xs font-semibold text-slate-500 sm:text-sm">
                             <a href="?view=home" class="hover:text-teal-700">Beranda</a>
                             <i class="fas fa-chevron-right text-[9px] text-slate-300"></i>
-                            <a href="?view=blog" class="hover:text-teal-700">Panduan perjalanan</a>
+                            <a href="/bali-trans/?view=blog" class="hover:text-teal-700">Blog</a>
                             <i class="fas fa-chevron-right text-[9px] text-slate-300"></i>
                             <span class="text-slate-700">${blog.category}</span>
                         </nav>
@@ -970,7 +980,7 @@
                         <section class="mx-auto mt-12 max-w-6xl border-t border-slate-200 pt-7 sm:mt-16" aria-label="Artikel terkait">
                             <div class="mb-5 flex flex-wrap items-end justify-between gap-3">
                                 <div><p class="text-xs font-extrabold uppercase tracking-wider text-teal-700">Lanjut menjelajah</p><h2 class="mt-1 text-2xl font-black text-slate-950 sm:text-3xl">Panduan terkait</h2></div>
-                                <a href="?view=blog" class="shrink-0 text-sm font-extrabold text-teal-700 hover:underline">Semua artikel <i class="fas fa-arrow-right ml-1"></i></a>
+                                <a href="/bali-trans/?view=blog" class="shrink-0 text-sm font-extrabold text-teal-700 hover:underline">Semua artikel <i class="fas fa-arrow-right ml-1"></i></a>
                             </div>
                             <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                                 ${relatedBlogs.map(item => `
