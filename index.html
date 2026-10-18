@@ -144,30 +144,98 @@
     </main>
 
     <!-- FOOTER SECTION -->
-    <footer class="bg-slate-900 text-slate-400 text-sm mt-16 border-t border-slate-800">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
-          <div class="lg:col-span-2">
-            <div class="flex items-center gap-3 mb-4"><div class="w-9 h-9 rounded-xl bg-klook-orange flex items-center justify-center text-white text-lg font-black">B</div><span class="text-xl font-extrabold text-white">Bali<span class="text-klook-orange"> Trans</span></span></div>
-            <p class="text-slate-400 text-sm leading-relaxed mb-5 max-w-md">Explore tour experiences and private transport around Bali. Review the trip details, then contact us to discuss your route, schedule and availability.</p>
-            <button onclick="navigateTo('contact')" class="inline-flex items-center gap-2 bg-klook-orange hover:bg-klook-hover text-white font-bold text-xs px-4 py-3 rounded-xl transition">Contact Bali Trans <i class="fas fa-arrow-right"></i></button>
+    <footer class="bg-slate-950 text-slate-300 text-sm mt-16 border-t border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 md:pt-14 pb-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-9 lg:gap-10 pb-10">
+          <div class="lg:col-span-4">
+            <button type="button" onclick="navigateTo('home')" aria-label="Bali Trans home" class="flex items-center gap-3 mb-4 text-left">
+              <span class="w-11 h-11 rounded-2xl bg-gradient-to-br from-teal-400 via-cyan-500 to-blue-600 flex items-center justify-center text-white text-xl font-black shadow-lg">B</span>
+              <span class="text-xl font-extrabold tracking-tight text-white">Bali<span class="text-teal-400"> Trans</span></span>
+            </button>
+            <p class="text-slate-400 text-sm leading-6 max-w-sm mb-5">Discover Bali tours, local experiences and private transport. Compare trip details and contact our team to discuss your plans before booking.</p>
+            <button type="button" onclick="navigateTo('contact')" class="inline-flex items-center gap-2 rounded-xl bg-teal-500 hover:bg-teal-400 px-4 py-3 text-sm font-extrabold text-slate-950 transition">
+              Talk to our team <i class="fas fa-arrow-right"></i>
+            </button>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-6 max-w-md">
+              <div class="rounded-xl border border-white/10 bg-white/[0.04] p-3 flex items-start gap-3">
+                <span class="w-8 h-8 shrink-0 rounded-lg bg-teal-400/10 text-teal-300 flex items-center justify-center"><i class="fas fa-map-marked-alt"></i></span>
+                <span><strong class="block text-white text-xs mb-1">Explore Bali</strong><span class="block text-xs leading-5 text-slate-400">Tours and places worth discovering.</span></span>
+              </div>
+              <div class="rounded-xl border border-white/10 bg-white/[0.04] p-3 flex items-start gap-3">
+                <span class="w-8 h-8 shrink-0 rounded-lg bg-amber-400/10 text-amber-300 flex items-center justify-center"><i class="fas fa-car-side"></i></span>
+                <span><strong class="block text-white text-xs mb-1">Private transport</strong><span class="block text-xs leading-5 text-slate-400">Discuss routes, pickup and timing.</span></span>
+              </div>
+            </div>
           </div>
-          <div><h4 class="text-white font-bold mb-4 text-xs uppercase tracking-wider">Explore</h4><ul class="space-y-3 text-sm">
-            <li><button onclick="navigateTo('packages')" class="hover:text-white transition text-left">Tours & Services</button></li>
-            <li><button onclick="navigateTo('blog')" class="hover:text-white transition text-left">Bali Travel Guides</button></li>
-            <li><button onclick="navigateTo('home')" class="hover:text-white transition text-left">Home</button></li>
-          </ul></div>
-          <div><h4 class="text-white font-bold mb-4 text-xs uppercase tracking-wider">Bali Trans</h4><ul class="space-y-3 text-sm">
-            <li><button onclick="navigateTo('about')" class="hover:text-white transition text-left">About Us</button></li>
-            <li><button onclick="navigateTo('contact')" class="hover:text-white transition text-left">Contact & Enquiries</button></li>
-            <li><button onclick="navigateTo('contact')" class="hover:text-white transition text-left">Ask About Your Trip</button></li>
-          </ul></div>
+
+          <div class="lg:col-span-8 grid grid-cols-2 sm:grid-cols-2 xl:grid-cols-4 gap-x-5 gap-y-8">
+            <div>
+              <h3 class="text-white font-extrabold mb-4 text-xs uppercase tracking-[0.14em]">Discover</h3>
+              <ul class="space-y-3.5">
+                <li><button type="button" onclick="navigateTo('packages')" class="footer-link">All tours & activities</button></li>
+                <li><button type="button" onclick="navigateTo('discovery','region:south')" class="footer-link">South Bali</button></li>
+                <li><button type="button" onclick="navigateTo('discovery','region:central')" class="footer-link">Central Bali</button></li>
+                <li><button type="button" onclick="navigateTo('discovery','region:north')" class="footer-link">North Bali</button></li>
+                <li><button type="button" onclick="navigateTo('blog')" class="footer-link">Bali travel guides</button></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="text-white font-extrabold mb-4 text-xs uppercase tracking-[0.14em]">Plan your trip</h3>
+              <ul class="space-y-3.5">
+                <li><button type="button" onclick="navigateTo('packages')" class="footer-link">Tour packages</button></li>
+                <li><button type="button" onclick="navigateTo('packages')" class="footer-link">Private transport</button></li>
+                <li><button type="button" onclick="navigateTo('cart')" class="footer-link">View my trip list</button></li>
+                <li><button type="button" onclick="navigateTo('contact')" class="footer-link">Ask about availability</button></li>
+                <li><button type="button" onclick="showFooterComingSoon('Airport transfers')" class="footer-link">Airport transfers <span class="footer-planned">Planned</span></button></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="text-white font-extrabold mb-4 text-xs uppercase tracking-[0.14em]">Help & support</h3>
+              <ul class="space-y-3.5">
+                <li><button type="button" onclick="navigateTo('contact')" class="footer-link">Contact our team</button></li>
+                <li><button type="button" onclick="showFooterComingSoon('Frequently asked questions')" class="footer-link">FAQs <span class="footer-planned">Planned</span></button></li>
+                <li><button type="button" onclick="showFooterComingSoon('Booking and payment information')" class="footer-link">Booking & payments <span class="footer-planned">Planned</span></button></li>
+                <li><button type="button" onclick="showFooterComingSoon('Changes and cancellation policy')" class="footer-link">Changes & cancellations <span class="footer-planned">Planned</span></button></li>
+                <li><button type="button" onclick="showFooterComingSoon('Manage booking')" class="footer-link">Manage a booking <span class="footer-planned">Planned</span></button></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="text-white font-extrabold mb-4 text-xs uppercase tracking-[0.14em]">About us</h3>
+              <ul class="space-y-3.5">
+                <li><button type="button" onclick="navigateTo('about')" class="footer-link">About Bali Trans</button></li>
+                <li><button type="button" onclick="showFooterComingSoon('Our local partners')" class="footer-link">Local partners <span class="footer-planned">Planned</span></button></li>
+                <li><button type="button" onclick="showFooterComingSoon('Terms and conditions')" class="footer-link">Terms & conditions <span class="footer-planned">Planned</span></button></li>
+                <li><button type="button" onclick="showFooterComingSoon('Privacy policy')" class="footer-link">Privacy policy <span class="footer-planned">Planned</span></button></li>
+                <li><button type="button" onclick="navigateTo('home')" class="footer-link">Back to home</button></li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div class="border-t border-slate-800 pt-6 flex flex-col sm:flex-row justify-between items-start sm:items-center text-xs text-slate-500 gap-3">
-          <p>© 2026 Bali Trans. Tours and private transport in Bali.</p><p>Confirm trip details and availability before booking.</p>
+
+        <div class="rounded-2xl border border-white/10 bg-gradient-to-r from-teal-500/10 via-cyan-500/[0.06] to-amber-400/10 p-4 sm:p-5 mb-7 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5">
+          <span class="w-10 h-10 rounded-xl bg-teal-400/10 text-teal-300 flex items-center justify-center text-lg shrink-0"><i class="fas fa-circle-info"></i></span>
+          <div class="flex-1">
+            <p class="text-white font-bold text-sm mb-1">Planning something special in Bali?</p>
+            <p class="text-slate-400 text-xs sm:text-sm leading-5">Tell us your destination, dates and group size. We’ll help you clarify the trip details and next steps.</p>
+          </div>
+          <button type="button" onclick="navigateTo('contact')" class="shrink-0 rounded-xl border border-teal-300/40 px-4 py-2.5 text-xs font-extrabold text-teal-200 hover:bg-teal-300/10 transition">Make an enquiry <i class="fas fa-arrow-right ml-1"></i></button>
+        </div>
+
+        <div class="border-t border-white/10 pt-5 flex flex-col md:flex-row justify-between gap-3 text-xs text-slate-500">
+          <p>© 2026 Bali Trans. Tours, experiences and private transport in Bali.</p>
+          <p class="leading-5">Trip details, prices and availability should be confirmed with our team before booking.</p>
         </div>
       </div>
     </footer>
+    <style>
+      .footer-link{display:inline-flex;align-items:center;gap:6px;text-align:left;color:#a8b3c4;font-size:13px;line-height:1.5;transition:color .18s}
+      .footer-link:hover,.footer-link:focus{color:#5eead4;outline:none}
+      .footer-planned{display:inline-flex;align-items:center;border:1px solid rgba(148,163,184,.22);border-radius:999px;padding:2px 5px;color:#94a3b8;font-size:9px;font-weight:700;line-height:1.2;white-space:nowrap}
+      @media(max-width:380px){.footer-link{font-size:12px}.footer-planned{font-size:8px}}
+    </style>
 
     <!-- MOBILE BOTTOM NAVIGATION BAR (KLOOK MOBILE STYLE) -->
     <div class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 z-50 py-1.5 px-6 flex justify-between items-center shadow-lg">
@@ -1705,6 +1773,10 @@
             if (searchPanel && !searchPanel.contains(event.target) && !searchButton?.contains(event.target)) closeHeaderSearch();
             if (localeControl && !localeControl.contains(event.target)) closeLocaleMenu();
         });
+        function showFooterComingSoon(sectionName) {
+            showToast(sectionName + ' is being prepared and is not available yet. Please contact our team for current information.');
+        }
+
         function showRegisterPrompt() {
             showToast('Pendaftaran akun belum aktif. Untuk bantuan pemesanan, silakan hubungi kami melalui Contact.');
             navigateTo('contact');
