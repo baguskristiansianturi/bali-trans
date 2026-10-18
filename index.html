@@ -1178,275 +1178,120 @@
 
         /* VIEW 7: MULTI-STEP CHECKOUT FLOW */
         function renderCheckoutView() {
-            const curr = CURRENCY_RATES[currentCurrency];
-            let grandTotal = cartState.reduce((sum, item) => sum + (item.unitPriceIDR * item.quantity), 0);
-
             return `
                 <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
-                    <!-- Step Progress Indicator -->
+                    <div class="max-w-xl mx-auto mb-8">
+                        <p class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-2">Tour enquiry</p>
+                        <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Plan your Bali trip with us</h1>
+                        <p class="text-sm text-slate-500 mt-2">Send your preferred tours and travel details. The team can confirm availability, route, inclusions and final pricing with you.</p>
+                    </div>
                     <div class="flex items-center justify-between mb-8 max-w-xl mx-auto text-xs font-bold">
                         <div class="flex flex-col items-center gap-1 ${currentCheckoutStep >= 1 ? 'text-klook-orange' : 'text-slate-400'}">
-                            <div class="w-8 h-8 rounded-full ${currentCheckoutStep >= 1 ? 'bg-klook-orange text-white' : 'bg-slate-200'} flex items-center justify-center font-bold">1</div>
-                            <span>Guest Details</span>
+                            <div class="w-8 h-8 rounded-full ${currentCheckoutStep >= 1 ? 'bg-klook-orange text-white' : 'bg-slate-200'} flex items-center justify-center">1</div>
+                            <span>Your Details</span>
                         </div>
                         <div class="h-0.5 flex-1 bg-slate-200 mx-2"></div>
                         <div class="flex flex-col items-center gap-1 ${currentCheckoutStep >= 2 ? 'text-klook-orange' : 'text-slate-400'}">
-                            <div class="w-8 h-8 rounded-full ${currentCheckoutStep >= 2 ? 'bg-klook-orange text-white' : 'bg-slate-200'} flex items-center justify-center font-bold">2</div>
-                            <span>Payment</span>
-                        </div>
-                        <div class="h-0.5 flex-1 bg-slate-200 mx-2"></div>
-                        <div class="flex flex-col items-center gap-1 ${currentCheckoutStep >= 3 ? 'text-klook-orange' : 'text-slate-400'}">
-                            <div class="w-8 h-8 rounded-full ${currentCheckoutStep >= 3 ? 'bg-klook-orange text-white' : 'bg-slate-200'} flex items-center justify-center font-bold">3</div>
-                            <span>E-Voucher</span>
+                            <div class="w-8 h-8 rounded-full ${currentCheckoutStep >= 2 ? 'bg-klook-orange text-white' : 'bg-slate-200'} flex items-center justify-center">2</div>
+                            <span>Review & Send</span>
                         </div>
                     </div>
-
-                    <div id="checkoutStepContainer">
-                        ${renderCheckoutStepContent(currentCheckoutStep, grandTotal)}
-                    </div>
+                    <div id="checkoutStepContainer">${renderCheckoutStepContent(currentCheckoutStep)}</div>
                 </div>
             `;
         }
 
-        function renderCheckoutStepContent(step, totalIDR) {
-            const curr = CURRENCY_RATES[currentCurrency];
+        let tourInquiryGuest = { name: '', email: '', phone: '', hotel: '' };
 
+        function saveGuestDetailsAndAdvance() {
+            tourInquiryGuest = {
+                name: document.getElementById('guestName')?.value.trim() || '',
+                email: document.getElementById('guestEmail')?.value.trim() || '',
+                phone: document.getElementById('guestPhone')?.value.trim() || '',
+                hotel: document.getElementById('guestHotel')?.value.trim() || ''
+            };
+            if (!tourInquiryGuest.name || !tourInquiryGuest.phone) {
+                showToast('Please enter your name and WhatsApp number.');
+                return;
+            }
+            advanceCheckoutStep(2);
+        }
+
+        function sendTourInquiry() {
+            const tours = cartState.map(item => `- ${item.title} | ${item.quantity} guest(s) | Date: ${item.date || 'Flexible'} | Option: ${item.optionName || 'To discuss'}`).join('\\n');
+            const message = [
+                'Hello Bali Trans, I would like to enquire about a Bali tour.',
+                '',
+                'Name: ' + tourInquiryGuest.name,
+                'Email: ' + (tourInquiryGuest.email || 'Not provided'),
+                'WhatsApp: ' + tourInquiryGuest.phone,
+                'Pickup / hotel: ' + (tourInquiryGuest.hotel || 'To confirm'),
+                '',
+                'Requested tour(s):',
+                tours || '- I would like help choosing a tour.',
+                '',
+                'Please confirm availability, itinerary, inclusions and final price.'
+            ].join('\\n');
+            window.location.href = 'https://wa.me/?text=' + encodeURIComponent(message);
+        }
+
+        function renderCheckoutStepContent(step) {
             if (step === 1) {
                 return `
                     <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6">
-                        <h3 class="text-xl font-extrabold text-slate-900">Lead Guest Information</h3>
-                        
+                        <h2 class="text-xl font-extrabold text-slate-900">A few details about your trip</h2>
+                        <p class="text-sm text-slate-500">These details help us suggest the right route and pickup arrangement.</p>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-bold">
                             <div>
-                                <label class="block mb-1 text-slate-700">Full Name (Matching Passport)</label>
-                                <input type="text" id="guestName" value="John Doe" class="w-full bg-slate-100 border border-slate-200 p-3 rounded-xl font-medium focus:outline-none focus:border-klook-orange">
+                                <label class="block mb-1 text-slate-700">Full name *</label>
+                                <input type="text" id="guestName" value="${tourInquiryGuest.name}" placeholder="Your name" required class="w-full bg-slate-50 border border-slate-200 p-3 rounded-xl font-medium focus:outline-none focus:border-klook-orange">
                             </div>
                             <div>
-                                <label class="block mb-1 text-slate-700">Email Address (For Voucher Delivery)</label>
-                                <input type="email" id="guestEmail" value="johndoe@example.com" class="w-full bg-slate-100 border border-slate-200 p-3 rounded-xl font-medium focus:outline-none focus:border-klook-orange">
+                                <label class="block mb-1 text-slate-700">Email (optional)</label>
+                                <input type="email" id="guestEmail" value="${tourInquiryGuest.email}" placeholder="you@example.com" class="w-full bg-slate-50 border border-slate-200 p-3 rounded-xl font-medium focus:outline-none focus:border-klook-orange">
                             </div>
                             <div>
-                                <label class="block mb-1 text-slate-700">WhatsApp / Phone Number</label>
-                                <input type="text" id="guestPhone" value="+61 412 345 678" class="w-full bg-slate-100 border border-slate-200 p-3 rounded-xl font-medium focus:outline-none focus:border-klook-orange">
+                                <label class="block mb-1 text-slate-700">WhatsApp number *</label>
+                                <input type="tel" id="guestPhone" value="${tourInquiryGuest.phone}" placeholder="Include country code" required class="w-full bg-slate-50 border border-slate-200 p-3 rounded-xl font-medium focus:outline-none focus:border-klook-orange">
                             </div>
                             <div>
-                                <label class="block mb-1 text-slate-700">Hotel Pickup Location in Bali</label>
-                                <input type="text" id="guestHotel" value="Grand Hyatt Nusa Dua Room 302" class="w-full bg-slate-100 border border-slate-200 p-3 rounded-xl font-medium focus:outline-none focus:border-klook-orange">
+                                <label class="block mb-1 text-slate-700">Hotel / pickup area (optional)</label>
+                                <input type="text" id="guestHotel" value="${tourInquiryGuest.hotel}" placeholder="e.g. Ubud, Sanur, Canggu" class="w-full bg-slate-50 border border-slate-200 p-3 rounded-xl font-medium focus:outline-none focus:border-klook-orange">
                             </div>
                         </div>
-
-                        <button onclick="advanceCheckoutStep(2)" class="w-full bg-klook-orange hover:bg-klook-hover text-white font-extrabold py-3.5 px-6 rounded-2xl transition text-xs shadow-lg shadow-orange-500/20">
-                            Continue to Payment →
-                        </button>
-                    </div>
-                `;
-            } else if (step === 2) {
-                return `
-                    <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6">
-                        <h3 class="text-xl font-extrabold text-slate-900">Select Payment Method</h3>
-                        
-                        <div class="space-y-3">
-                            <label class="flex items-center justify-between p-4 rounded-2xl border-2 border-klook-orange bg-slate-100/70 cursor-pointer">
-                                <div class="flex items-center gap-3">
-                                    <input type="radio" name="paymentMethod" checked class="accent-klook-orange">
-                                    <span class="text-xs font-extrabold text-slate-900">Credit / Debit Card (Visa / Mastercard)</span>
-                                </div>
-                                <span class="text-xs text-slate-400">Instant</span>
-                            </label>
-                            <label class="flex items-center justify-between p-4 rounded-2xl border-2 border-slate-200 cursor-pointer">
-                                <div class="flex items-center gap-3">
-                                    <input type="radio" name="paymentMethod" class="accent-klook-orange">
-                                    <span class="text-xs font-extrabold text-slate-900">QRIS / GoPay / OVO</span>
-                                </div>
-                                <span class="text-xs text-slate-400">Indonesian E-Wallet</span>
-                            </label>
-                            <label class="flex items-center justify-between p-4 rounded-2xl border-2 border-slate-200 cursor-pointer">
-                                <div class="flex items-center gap-3">
-                                    <input type="radio" name="paymentMethod" class="accent-klook-orange">
-                                    <span class="text-xs font-extrabold text-slate-900">Direct WhatsApp Cash on Pickup</span>
-                                </div>
-                                <span class="text-xs text-slate-400">Pay Driver</span>
-                            </label>
-                        </div>
-
-                        <div class="bg-slate-50 p-4 rounded-2xl flex justify-between items-center">
-                            <span class="text-xs font-bold text-slate-600">Total Payable Amount</span>
-                            <span class="text-xl font-black text-klook-orange">${curr.format(totalIDR)}</span>
-                        </div>
-
-                        <button onclick="advanceCheckoutStep(3)" class="w-full bg-klook-orange hover:bg-klook-hover text-white font-extrabold py-3.5 px-6 rounded-2xl transition text-xs shadow-lg shadow-orange-500/20">
-                            Pay Now & Issue E-Voucher
-                        </button>
-                    </div>
-                `;
-            } else {
-                // STEP 3: DIGITAL E-VOUCHER SCREEN
-                const refCode = 'BALI-' + Math.floor(100000 + Math.random() * 900000);
-                setTimeout(() => {
-                    document.getElementById('qrcodeContainer').innerHTML = '';
-                    new QRCode(document.getElementById("qrcodeContainer"), {
-                        text: refCode,
-                        width: 120,
-                        height: 120
-                    });
-                }, 100);
-
-                return `
-                    <div class="bg-white p-6 sm:p-8 rounded-3xl border-2 border-slate-300 shadow-xl space-y-6 text-center">
-                        <div class="w-16 h-16 bg-slate-100 text-slate-700 rounded-full flex items-center justify-center text-2xl mx-auto">✓</div>
-                        <div>
-                            <span class="text-xs font-extrabold text-slate-600 uppercase tracking-widest block mb-1">Enquiry Summary</span>
-                            <h2 class="text-2xl font-black text-slate-900">Your Bali E-Voucher is Ready</h2>
-                            <p class="text-xs text-slate-500 mt-1">Order Ref: <strong class="text-slate-900">${refCode}</strong></p>
-                        </div>
-
-                        <!-- Digital QR Voucher Card -->
-                        <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200 text-left max-w-md mx-auto space-y-4">
-                            <div class="flex items-center justify-between pb-3 border-b border-slate-200">
-                                <div>
-                                    <span class="text-[10px] uppercase font-bold text-slate-400 block">Lead Traveler</span>
-                                    <span class="text-xs font-extrabold text-slate-900">${document.getElementById('guestName')?.value || 'John Doe'}</span>
-                                </div>
-                                <div id="qrcodeContainer" class="p-1 bg-white rounded"></div>
-                            </div>
-                            <div>
-                                <span class="text-[10px] uppercase font-bold text-slate-400 block">Booked Experiences</span>
-                                <ul class="text-xs font-bold text-slate-800 space-y-1 mt-1">
-                                    ${cartState.map(i => `<li>• ${i.title} (${i.quantity}x)</li>`).join('')}
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-col sm:flex-row gap-3 justify-center">
-                            <button onclick="showToast('E-Voucher PDF downloaded to device!')" class="bg-slate-900 text-white text-xs font-extrabold px-6 py-3 rounded-2xl hover:bg-slate-800 transition">
-                                <i class="fas fa-download mr-1"></i> Download Voucher PDF
-                            </button>
-                            <a href="https://wa.me/?text=Hi%20Bali Trans,%20I%20have%20booking%20code%20${refCode}" target="_blank" class="bg-slate-900 text-white text-xs font-extrabold px-6 py-3 rounded-2xl hover:bg-slate-700 transition flex items-center justify-center gap-1">
-                                <i class="fab fa-whatsapp"></i> Send to WhatsApp Concierge
-                            </a>
-                        </div>
+                        <button onclick="saveGuestDetailsAndAdvance()" class="w-full bg-klook-orange hover:bg-klook-hover text-white font-extrabold py-3.5 px-6 rounded-2xl transition text-sm">Review tour enquiry →</button>
                     </div>
                 `;
             }
-        }
 
-        /* ==========================================================================
-           4. INTERACTIVE EVENT HANDLERS & HELPERS
-           ========================================================================== */
-        
-        let currentDetailQty = 1;
-
-        function changeCurrency(val) {
-            currentCurrency = val;
-            showToast(`Currency changed to ${val}`);
-            navigateTo('home');
-        }
-
-        function filterByCategory(cat) {
-            selectedCategoryFilter = cat;
-        }
-
-        function changeQty(delta) {
-            currentDetailQty = Math.max(1, currentDetailQty + delta);
-            document.getElementById('adultQty').innerText = currentDetailQty;
-            updateBookingCalculation();
-        }
-
-        function updateBookingCalculation() {
-            const curr = CURRENCY_RATES[currentCurrency];
-            const base = currentDetailPackage.priceIDR;
-            const selectedOptId = document.querySelector('input[name="packageOption"]:checked')?.value;
-            const opt = currentDetailPackage.options.find(o => o.id === selectedOptId);
-            const extra = opt ? opt.extraPriceIDR : 0;
-
-            const unitPrice = base + extra;
-            const total = unitPrice * currentDetailQty;
-
-            const calcElem = document.getElementById('calculatedTotalPrice');
-            if (calcElem) calcElem.innerText = curr.format(total);
-        }
-
-        function addToCartCurrentPkg() {
-            const selectedOptId = document.querySelector('input[name="packageOption"]:checked')?.value;
-            const opt = currentDetailPackage.options.find(o => o.id === selectedOptId);
-            const date = document.getElementById('bookingDateInput').value;
-
-            const item = {
-                id: currentDetailPackage.id,
-                title: currentDetailPackage.title,
-                heroImage: currentDetailPackage.heroImage,
-                unitPriceIDR: currentDetailPackage.priceIDR + (opt ? opt.extraPriceIDR : 0),
-                quantity: currentDetailQty,
-                optionName: opt ? opt.name : 'Standard',
-                date: date
-            };
-
-            cartState.push(item);
-            showToast('Package added to shopping cart!');
-            updateBadges();
-        }
-
-        function bookNowCurrentPkg() {
-            addToCartCurrentPkg();
-            navigateTo('cart');
-        }
-
-        function updateCartQty(index, delta) {
-            cartState[index].quantity += delta;
-            if (cartState[index].quantity <= 0) {
-                cartState.splice(index, 1);
-            }
-            navigateTo('cart');
-        }
-
-        function removeFromCart(index) {
-            cartState.splice(index, 1);
-            showToast('Item removed from cart');
-            navigateTo('cart');
-        }
-
-        function toggleWishlist(pkgId) {
-            const pkg = BALI_PACKAGES.find(p => p.id === pkgId);
-            const idx = wishlistState.findIndex(w => w.id === pkgId);
-
-            if (idx > -1) {
-                wishlistState.splice(idx, 1);
-                showToast('Removed from Wishlist');
-            } else {
-                wishlistState.push(pkg);
-                showToast('Added to Wishlist ❤️');
-            }
-            updateBadges();
-            if (document.getElementById('appContainer').innerHTML.includes('Bali Tours & Experiences')) {
-                document.getElementById('homeFeaturedGrid').innerHTML = renderPackageCards(BALI_PACKAGES);
-            }
-        }
-
-        function toggleWishlistModal() {
-            const modal = document.getElementById('wishlistModal');
-            const list = document.getElementById('wishlistItemsList');
-
-            if (modal.classList.contains('hidden')) {
-                modal.classList.remove('hidden');
-                if (wishlistState.length === 0) {
-                    list.innerHTML = `<p class="text-xs text-slate-400 text-center py-6">Your wishlist is currently empty.</p>`;
-                } else {
-                    list.innerHTML = wishlistState.map(pkg => `
-                        <div class="flex items-center justify-between p-3 rounded-2xl bg-slate-50 border border-slate-100">
-                            <div class="flex items-center gap-3">
-                                <img src="${pkg.heroImage}" class="w-12 h-12 object-cover rounded-xl">
-                                <div>
-                                    <h5 class="text-xs font-bold text-slate-900 line-clamp-1">${pkg.title}</h5>
-                                    <span class="text-[10px] text-slate-400">${pkg.location}</span>
+            return `
+                <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm space-y-6">
+                    <h2 class="text-xl font-extrabold text-slate-900">Review your tour enquiry</h2>
+                    <div class="rounded-2xl bg-slate-50 border border-slate-200 p-4 space-y-2 text-sm">
+                        <p><span class="font-semibold text-slate-500">Name:</span> ${tourInquiryGuest.name}</p>
+                        <p><span class="font-semibold text-slate-500">WhatsApp:</span> ${tourInquiryGuest.phone}</p>
+                        <p><span class="font-semibold text-slate-500">Email:</span> ${tourInquiryGuest.email || 'Not provided'}</p>
+                        <p><span class="font-semibold text-slate-500">Pickup area:</span> ${tourInquiryGuest.hotel || 'To confirm'}</p>
+                    </div>
+                    <div class="space-y-3">
+                        <h3 class="font-bold text-slate-900">Tours selected</h3>
+                        ${cartState.length ? cartState.map(item => `
+                            <div class="flex gap-3 items-center border-b border-slate-100 pb-3">
+                                <img src="${item.heroImage}" alt="" class="w-16 h-14 rounded-xl object-cover">
+                                <div class="min-w-0 flex-1">
+                                    <p class="font-bold text-sm text-slate-900">${item.title}</p>
+                                    <p class="text-xs text-slate-500">${item.quantity} guest(s) · ${item.date || 'Date to confirm'} · ${item.optionName || 'Options to discuss'}</p>
                                 </div>
                             </div>
-                            <button onclick="navigateTo('detail', '${pkg.id}'); toggleWishlistModal();" class="text-xs font-bold text-klook-orange hover:underline">View</button>
-                        </div>
-                    `).join('');
-                }
-            } else {
-                modal.classList.add('hidden');
-            }
+                        `).join('') : '<p class="text-sm text-slate-500">No tour selected yet. You can still send an enquiry and ask for recommendations.</p>'}
+                    </div>
+                    <p class="text-xs leading-relaxed text-slate-500">This is an enquiry, not a confirmed booking or payment. The team will confirm availability, route, inclusions and final price with you.</p>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <button onclick="advanceCheckoutStep(1)" class="flex-1 border border-slate-300 text-slate-700 font-bold py-3.5 px-4 rounded-2xl text-sm">Edit details</button>
+                        <button onclick="sendTourInquiry()" class="flex-1 bg-[#557C72] hover:bg-[#42655C] text-white font-extrabold py-3.5 px-4 rounded-2xl text-sm"><i class="fab fa-whatsapp mr-2"></i>Send enquiry on WhatsApp</button>
+                    </div>
+                </div>
+            `;
         }
 
         function advanceCheckoutStep(step) {
