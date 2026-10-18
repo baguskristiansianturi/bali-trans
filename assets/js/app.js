@@ -527,6 +527,84 @@
           {key:'nusa-lembongan',label:'Nusa Lembongan',intro:'Pantai, tebing, dan ekosistem mangrove.'},
           {key:'nusa-ceningan',label:'Nusa Ceningan',intro:'Teluk berbatu dan jalur penghubung antarpulau.'}
         ];
+        // Add every mapped destination to the directory, even when its editorial
+        // article or image has not passed review yet. Unreviewed entries stay visibly
+        // marked and are not rendered as completed destination detail pages.
+        const BALI_DESTINATION_TITLES = {
+          'bajra-sandhi-monument':'Bajra Sandhi Monument',
+          'museum-bali':'Museum Bali',
+          'sanur-beach':'Sanur Beach',
+          'uluwatu-temple':'Uluwatu Temple',
+          'tanah-lot':'Tanah Lot',
+          'kuta-beach':'Kuta Beach',
+          'seminyak-beach':'Seminyak Beach',
+          'ubud-palace':'Ubud Palace',
+          'tegalalang-rice-terraces':'Tegallalang Rice Terraces',
+          'goa-gajah':'Goa Gajah',
+          'ulun-danu-beratan':'Ulun Danu Beratan',
+          'jatiluwih-rice-terraces':'Jatiluwih Rice Terraces',
+          'penglipuran-village':'Penglipuran Village',
+          'mount-batur':'Mount Batur',
+          'kintamani-caldera':'Kintamani Caldera',
+          'tirta-empul':'Tirta Empul',
+          'lempuyang-temple':'Lempuyang Temple',
+          'tirta-gangga':'Tirta Gangga',
+          'amed-coast':'Amed Coast',
+          'kerta-gosa':'Kerta Gosa',
+          'goa-lawah':'Goa Lawah',
+          'kusamba-coast':'Kusamba Coast',
+          'medewi-beach':'Medewi Beach',
+          'gilimanuk-bay':'Gilimanuk Bay',
+          'west-bali-national-park':'West Bali National Park',
+          'kelingking-beach':'Kelingking Beach',
+          'diamond-beach':'Diamond Beach',
+          'broken-beach':'Broken Beach',
+          'devils-tear':"Devil's Tear",
+          'dream-beach-lembongan':'Dream Beach Lembongan',
+          'mangrove-point-lembongan':'Mangrove Point Lembongan',
+          'blue-lagoon-ceningan':'Blue Lagoon Ceningan',
+          'yellow-bridge-ceningan':'Yellow Bridge Ceningan',
+          'secret-point-ceningan':'Secret Point Ceningan'
+        };
+        const BALI_DESTINATION_TYPES = {
+          'bajra-sandhi-monument':'Sejarah & budaya','museum-bali':'Museum & budaya',
+          'sanur-beach':'Pantai','uluwatu-temple':'Pura & budaya','tanah-lot':'Pura pesisir',
+          'kuta-beach':'Pantai','seminyak-beach':'Pantai','ubud-palace':'Sejarah & budaya',
+          'tegalalang-rice-terraces':'Sawah terasering','goa-gajah':'Situs sejarah',
+          'ulun-danu-beratan':'Pura dan danau','jatiluwih-rice-terraces':'Sawah terasering',
+          'penglipuran-village':'Desa budaya','mount-batur':'Gunung & trekking',
+          'kintamani-caldera':'Lanskap gunung','tirta-empul':'Pura & budaya',
+          'lempuyang-temple':'Pura & budaya','tirta-gangga':'Taman air',
+          'amed-coast':'Pesisir & snorkeling','kerta-gosa':'Sejarah & budaya',
+          'goa-lawah':'Pura pesisir','kusamba-coast':'Pesisir',
+          'medewi-beach':'Pantai & selancar','gilimanuk-bay':'Teluk & pesisir',
+          'west-bali-national-park':'Taman nasional','kelingking-beach':'Pantai & tebing',
+          'diamond-beach':'Pantai & tebing','broken-beach':'Pantai & tebing',
+          'devils-tear':'Pesisir & tebing','dream-beach-lembongan':'Pantai',
+          'mangrove-point-lembongan':'Mangrove & alam','blue-lagoon-ceningan':'Teluk & pesisir',
+          'yellow-bridge-ceningan':'Landmark pulau','secret-point-ceningan':'Pantai & selancar'
+        };
+        const existingDestinationSlugs = new Set(BALI_DESTINATIONS.map(function(place) { return place.slug; }));
+        Object.keys(BALI_DESTINATION_REGIONS).forEach(function(slug) {
+          if (existingDestinationSlugs.has(slug)) return;
+          const region = BALI_DESTINATION_REGIONS[slug];
+          const title = BALI_DESTINATION_TITLES[slug] || slug.split('-').map(function(part) { return part.charAt(0).toUpperCase() + part.slice(1); }).join(' ');
+          BALI_DESTINATIONS.push({
+            slug: slug,
+            title: title,
+            area: region[1],
+            type: BALI_DESTINATION_TYPES[slug] || 'Destinasi',
+            image: '',
+            summary: 'Panduan destinasi ini sedang diaudit. Informasi dan gambar akan ditampilkan setelah selesai diperiksa.',
+            highlights: [],
+            visit: 'Informasi kunjungan sedang diperiksa sebelum artikel diterbitkan.',
+            regionKey: region[0],
+            regionLabel: region[1],
+            regionSlug: region[2],
+            editorialStatus: 'under-review'
+          });
+        });
+
 
         function placeImageFallbackGraphic() {
           // Last-resort visual fallback prevents broken-image icons if both the
@@ -548,7 +626,7 @@
           const cards = places.map(function(p) {
             const publishedArticle = getPublishedDestinationArticle(p.slug);
             const href = publishedArticle ? '/bali-trans/' + publishedArticle : '?view=place&id=' + encodeURIComponent(p.slug);
-            return '<article class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition"><a href="' + href + '" onclick="event.preventDefault();navigateTo(\'place\',\'' + p.slug + '\')" class="block"><img src="' + p.image + '" alt="' + placeEscape(p.title) + '" loading="lazy" class="w-full h-44 object-cover" onerror="this.onerror=function(){this.onerror=null;this.src=placeImageFallbackGraphic()};this.src=\'' + placeImageFallback(p) + '\'"><div class="p-4 sm:p-5"><div class="flex flex-wrap gap-2"><span class="text-[10px] font-bold uppercase tracking-wider text-teal-700">' + placeEscape(p.type) + '</span><span class="text-[10px] font-semibold text-slate-500">' + placeEscape(p.regionLabel) + '</span></div><h2 class="mt-2 text-lg font-extrabold text-slate-900">' + placeEscape(p.title) + '</h2><p class="mt-1 text-xs text-slate-500">' + placeEscape(p.area) + '</p><p class="mt-3 text-sm leading-6 text-slate-600">' + placeEscape(p.summary) + '</p><span class="mt-4 inline-flex items-center gap-2 text-sm font-extrabold ' + (publishedArticle ? 'text-teal-700' : 'text-amber-700') + '">' + (publishedArticle ? 'Baca artikel <i class="fas fa-arrow-right"></i>' : 'Artikel sedang diaudit') + '</span></div></a></article>';
+            return '<article class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition"><a href="' + href + '" onclick="event.preventDefault();navigateTo(\'place\',\'' + p.slug + '\')" class="block">' + (p.image ? '<img src="' + p.image + '" alt="' + placeEscape(p.title) + '" loading="lazy" class="w-full h-44 object-cover" onerror="this.onerror=function(){this.onerror=null;this.src=placeImageFallbackGraphic()};this.src=\'' + placeImageFallback(p) + '\'">' : '<div class="flex h-44 items-center justify-center bg-slate-100 text-sm font-bold text-slate-500"><i class="fas fa-clipboard-check mr-2"></i>Gambar sedang diaudit</div>') + '<div class="p-4 sm:p-5"><div class="flex flex-wrap gap-2"><span class="text-[10px] font-bold uppercase tracking-wider text-teal-700">' + placeEscape(p.type) + '</span><span class="text-[10px] font-semibold text-slate-500">' + placeEscape(p.regionLabel) + '</span></div><h2 class="mt-2 text-lg font-extrabold text-slate-900">' + placeEscape(p.title) + '</h2><p class="mt-1 text-xs text-slate-500">' + placeEscape(p.area) + '</p><p class="mt-3 text-sm leading-6 text-slate-600">' + placeEscape(p.summary) + '</p><span class="mt-4 inline-flex items-center gap-2 text-sm font-extrabold ' + (publishedArticle ? 'text-teal-700' : 'text-amber-700') + '">' + (publishedArticle ? 'Baca artikel <i class="fas fa-arrow-right"></i>' : 'Artikel sedang diaudit') + '</span></div></a></article>';
           }).join('');
           return '<div class="bg-slate-50"><section class="bg-slate-900 text-white"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16"><nav class="text-xs text-slate-300 mb-5"><a href="/bali-trans/" onclick="event.preventDefault();navigateTo(\'home\')" class="hover:text-white">Beranda</a> <span class="mx-2">/</span> <span>Bali Utara</span></nav><p class="text-xs font-extrabold uppercase tracking-[.2em] text-teal-300">Places to visit · Buleleng</p><h1 class="mt-3 text-3xl sm:text-5xl font-black tracking-tight">Jelajahi Bali Utara</h1><p class="mt-5 max-w-3xl text-sm sm:text-base leading-7 text-slate-300">Panduan destinasi Bali Utara dan Buleleng. Pilih tempat untuk membuka panduan detail, lalu susun rute berdasarkan jarak dan waktu perjalanan.</p></div></section><section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-9 md:py-12"><div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-6"><div><h2 class="text-2xl font-black text-slate-900">Tempat yang bisa dijelajahi</h2><p class="mt-2 text-sm text-slate-600">Pilih destinasi untuk membuka halaman detailnya.</p></div><span class="text-xs font-semibold text-slate-500">' + places.length + ' panduan destinasi</span></div><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">' + cards + '</div><div class="mt-10 rounded-2xl border border-teal-100 bg-teal-50 p-5 sm:p-7"><h2 class="text-xl font-extrabold text-slate-900">Ingin menjelajahi beberapa tempat sekaligus?</h2><p class="mt-2 max-w-2xl text-sm leading-6 text-slate-600">Rute dan layanan perlu disesuaikan dengan lokasi, kondisi jalan, serta waktu yang tersedia.</p><button onclick="navigateTo(\'detail\',\'lovina-dolphin-tour\')" class="mt-4 rounded-xl bg-teal-700 px-4 py-3 text-sm font-extrabold text-white">Lihat Lovina Tour</button></div></section></div>';
         }
@@ -595,7 +673,7 @@
           const places=BALI_DESTINATIONS.filter(function(p){return regionKeys.includes(p.regionKey);});
           const cards=places.map(function(p){
             const publishedArticle=getPublishedDestinationArticle(p.slug);const href=publishedArticle?'/bali-trans/'+publishedArticle:'?view=place&id='+encodeURIComponent(p.slug);
-            return '<article class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition"><a href="'+href+'" onclick="event.preventDefault();navigateTo(\'place\',\''+p.slug+'\')" class="block"><img src="'+p.image+'" alt="'+placeEscape(p.title)+'" loading="lazy" class="w-full h-44 object-cover" onerror="this.onerror=function(){this.onerror=null;this.src=placeImageFallbackGraphic()};this.src=\'' + placeImageFallback(p) + '\'"><div class="p-4 sm:p-5"><div class="flex flex-wrap gap-2"><span class="text-[10px] font-bold uppercase tracking-wider text-teal-700">'+placeEscape(p.type)+'</span><span class="text-[10px] font-semibold text-slate-500">'+placeEscape(p.regionLabel)+'</span></div><h2 class="mt-2 text-lg font-extrabold text-slate-900">'+placeEscape(p.title)+'</h2><p class="mt-1 text-xs text-slate-500">'+placeEscape(p.area)+'</p><p class="mt-3 text-sm leading-6 text-slate-600">'+placeEscape(p.summary)+'</p><span class="mt-4 inline-flex items-center gap-2 text-sm font-extrabold '+(publishedArticle?'text-teal-700':'text-amber-700')+'">'+(publishedArticle?'Baca artikel <i class="fas fa-arrow-right"></i>':'Artikel sedang diaudit')+'</span></div></a></article>';
+            return '<article class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition"><a href="'+href+'" onclick="event.preventDefault();navigateTo(\'place\',\''+p.slug+'\')" class="block">'+(p.image?'<img src="'+p.image+'" alt="'+placeEscape(p.title)+'" loading="lazy" class="w-full h-44 object-cover" onerror="this.onerror=function(){this.onerror=null;this.src=placeImageFallbackGraphic()};this.src=\'' + placeImageFallback(p) + '\'">':'<div class="flex h-44 items-center justify-center bg-slate-100 text-sm font-bold text-slate-500"><i class="fas fa-clipboard-check mr-2"></i>Gambar sedang diaudit</div>')+'<div class="p-4 sm:p-5"><div class="flex flex-wrap gap-2"><span class="text-[10px] font-bold uppercase tracking-wider text-teal-700">'+placeEscape(p.type)+'</span><span class="text-[10px] font-semibold text-slate-500">'+placeEscape(p.regionLabel)+'</span></div><h2 class="mt-2 text-lg font-extrabold text-slate-900">'+placeEscape(p.title)+'</h2><p class="mt-1 text-xs text-slate-500">'+placeEscape(p.area)+'</p><p class="mt-3 text-sm leading-6 text-slate-600">'+placeEscape(p.summary)+'</p><span class="mt-4 inline-flex items-center gap-2 text-sm font-extrabold '+(publishedArticle?'text-teal-700':'text-amber-700')+'">'+(publishedArticle?'Baca artikel <i class="fas fa-arrow-right"></i>':'Artikel sedang diaudit')+'</span></div></a></article>';
           }).join('');
           return '<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-9 md:py-12"><nav class="text-xs text-slate-500 mb-5"><a href="/bali-trans/" onclick="event.preventDefault();navigateTo(\'home\')">Beranda</a><span class="mx-2">/</span><a href="?view=place&id=bali-utara" onclick="event.preventDefault();navigateTo(\'place\',\'region-directory\')">Places to visit</a><span class="mx-2">/</span><span>'+placeEscape(group.label)+'</span></nav><p class="text-xs font-extrabold uppercase tracking-widest text-teal-700">Places to visit · Bali</p><h1 class="mt-2 text-3xl sm:text-4xl font-black text-slate-950">Jelajahi '+placeEscape(group.label)+'</h1><p class="mt-3 max-w-3xl text-sm leading-7 text-slate-600">'+placeEscape(group.intro)+'</p><div class="mt-7 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3"><div><h2 class="text-2xl font-black text-slate-900">Destinasi di wilayah ini</h2><p class="mt-2 text-sm text-slate-600">Setiap card membuka panduan detail.</p></div><span class="text-xs font-semibold text-slate-500">'+places.length+' panduan destinasi</span></div><div class="mt-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">'+(cards||'<p class="rounded-xl border border-dashed border-slate-300 p-6 text-sm text-slate-500">Belum ada panduan destinasi untuk wilayah ini.</p>')+'</div><button onclick="navigateTo(\'place\',\'region-directory\')" class="mt-8 rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm font-bold text-slate-700">Semua wilayah</button></section>';
         }
