@@ -64,3 +64,12 @@ Scope: static source audit and safe refactor of the existing single-page prototy
 - Added targeted text-contrast overrides for white text placed on pale backgrounds.
 - Replaced category-tab emoji with Font Awesome icons, removed template-attribution text from the header, and removed flag/cart/close emoji-style placeholders where practical.
 - Automated source validation and a real mobile browser pass are still required before claiming the deployed page is fully verified. Check GitHub Pages after the change is merged; horizontal scrolling inside category strips is intentional, while page-level horizontal overflow is not.
+
+
+## UI/UX follow-up (2026-10-18)
+
+- Strengthened contrast rules for text placed inside pale cards and controls, including areas outside the main app container.
+- Added visible keyboard focus styles, stronger placeholder contrast, and mobile bottom-navigation safe-area spacing.
+- Replaced countdown/discount urgency and instant-booking claims with accurate prototype wording.
+- Standardized visible brand text to Bali Trans and replaced homepage category emoji with Font Awesome icons.
+- Automated validation checks source structure only; final visual verification still requires checking the live GitHub Pages page on a phone at narrow viewport widths.
