@@ -535,11 +535,15 @@
             const page=simplePages[keyValue]||simplePages['duration:full-day'];
             return '<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10"><button onclick="navigateTo(\'home\')" class="text-sm font-bold text-teal-700 mb-4">← Beranda</button><p class="text-xs font-extrabold uppercase tracking-widest text-teal-700">Bali Trans</p><h1 class="mt-2 text-3xl sm:text-4xl font-black text-slate-950">' + page.title + '</h1><p class="mt-3 max-w-3xl text-sm leading-7 text-slate-600">' + page.intro + '</p><div class="mt-7 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">' + page.items.map(function(item){return '<article class="rounded-2xl border border-slate-200 bg-white p-5"><h2 class="font-extrabold text-slate-900">' + item + '</h2><p class="mt-2 text-sm leading-6 text-slate-600">Detail rute dan ketersediaan perlu dikonfirmasi sebelum perjalanan.</p></article>';}).join('') + '</div><button onclick="navigateTo(\'contact\')" class="mt-6 rounded-xl bg-teal-700 px-4 py-3 text-sm font-bold text-white">Tanyakan perjalanan</button></section>';
           }
-          const regionAliases={north:'buleleng',south:'badung',central:'gianyar',east:'karangasem',west:'jembrana'};
-          const regionKey=regionAliases[regionMatch[1]]||regionMatch[1];
-          const group=BALI_REGION_GROUPS.find(function(item){return item.key===regionKey;});
-          if(!group) return renderRegionDirectory();
-          const places=BALI_DESTINATIONS.filter(function(p){return p.regionKey===regionKey;});
+          const regionAliases={north:['buleleng'],south:['badung','denpasar'],central:['gianyar','bangli','tabanan'],east:['karangasem','klungkung'],west:['jembrana']};
+          const regionKeys=regionAliases[regionMatch[1]]||[regionMatch[1]];
+          const selectedGroups=BALI_REGION_GROUPS.filter(function(item){return regionKeys.includes(item.key);});
+          if(!selectedGroups.length) return renderRegionDirectory();
+          const group=selectedGroups.length===1?selectedGroups[0]:{
+            label:({south:'Bali Selatan',central:'Bali Tengah',east:'Bali Timur',west:'Bali Barat',north:'Bali Utara'})[regionMatch[1]]||'Bali',
+            intro:({south:'Pantai, kawasan kota, dan tempat wisata di bagian selatan Bali.',central:'Desa budaya, lanskap sawah, pegunungan, dan danau di Bali Tengah.',east:'Pura, pesisir, dan warisan sejarah di Bali Timur.',west:'Pesisir barat dan kawasan konservasi Bali Barat.',north:'Pesisir, air terjun, dan pegunungan di Bali Utara.'})[regionMatch[1]]||'Jelajahi destinasi Bali berdasarkan wilayah.'
+          };
+          const places=BALI_DESTINATIONS.filter(function(p){return regionKeys.includes(p.regionKey);});
           const cards=places.map(function(p){
             const href=regionKey==='buleleng'?'/bali-trans/places/bali-utara/'+p.slug+'/':'?view=place&id='+encodeURIComponent(p.slug);
             return '<article class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition"><a href="'+href+'" onclick="event.preventDefault();navigateTo(\'place\',\''+p.slug+'\')" class="block"><img src="'+p.image+'" alt="'+placeEscape(p.title)+'" loading="lazy" class="w-full h-44 object-cover"><div class="p-4 sm:p-5"><p class="text-[11px] font-bold uppercase tracking-wider text-teal-700">'+placeEscape(p.type)+'</p><h2 class="mt-2 text-lg font-extrabold text-slate-900">'+placeEscape(p.title)+'</h2><p class="mt-1 text-xs text-slate-500">'+placeEscape(p.area)+'</p><p class="mt-3 text-sm leading-6 text-slate-600">'+placeEscape(p.summary)+'</p><span class="mt-4 inline-flex items-center gap-2 text-sm font-extrabold text-teal-700">Baca panduan <i class="fas fa-arrow-right"></i></span></div></a></article>';
