@@ -22,11 +22,11 @@ function renderHomeView() {
                             <!-- Filter Pill Quick Tabs -->
                             <div class="flex items-center space-x-2 overflow-x-auto pb-3 mb-3 border-b border-slate-100 hide-scrollbar text-xs font-bold">
                                 <button onclick="quickFilterSearch('all')" class="px-4 py-2 bg-klook-orange text-white rounded-full whitespace-nowrap shadow-sm">All Experiences</button>
-                                <button onclick="quickFilterSearch('driver')" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-full whitespace-nowrap">🚗 Private Driver</button>
-                                <button onclick="quickFilterSearch('temple')" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-full whitespace-nowrap">⛩️ Ubud & Temples</button>
-                                <button onclick="quickFilterSearch('nusa')" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-full whitespace-nowrap">🏝️ Nusa Penida</button>
-                                <button onclick="quickFilterSearch('water')" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-full whitespace-nowrap">🌊 Water Sports</button>
-                                <button onclick="quickFilterSearch('atv')" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-full whitespace-nowrap">🏍️ ATV & Rafting</button>
+                                <button onclick="quickFilterSearch('driver')" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-full whitespace-nowrap"><i class="fas fa-car mr-1" aria-hidden="true"></i> Private Driver</button>
+                                <button onclick="quickFilterSearch('temple')" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-full whitespace-nowrap"><i class="fas fa-landmark mr-1" aria-hidden="true"></i> Ubud & Temples</button>
+                                <button onclick="quickFilterSearch('nusa')" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-full whitespace-nowrap"><i class="fas fa-water mr-1" aria-hidden="true"></i> Nusa Penida</button>
+                                <button onclick="quickFilterSearch('water')" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-full whitespace-nowrap"><i class="fas fa-life-ring mr-1" aria-hidden="true"></i> Water Sports</button>
+                                <button onclick="quickFilterSearch('atv')" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-full whitespace-nowrap"><i class="fas fa-motorcycle mr-1" aria-hidden="true"></i> ATV & Rafting</button>
                             </div>
 
                             <!-- Search Input Inputs -->
