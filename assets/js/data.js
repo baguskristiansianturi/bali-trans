@@ -267,16 +267,23 @@
             },
             {
                 id: 'blog-3',
-                title: 'Bali Foodie Guide: 10 Must-Try Balinese Dishes You Can’t Miss',
+                title: 'A Practical Guide to Finding Halal Food in Bali',
                 category: 'Culinary',
                 readTime: '5 min read',
                 author: 'Made Budi',
                 date: 'Sep 15, 2026',
                 image: 'https://images.unsplash.com/photo-1555400038-63f5ba517a47?auto=format&fit=crop&w=800&q=80',
-                snippet: 'From Babi Guling to Duck Bebek Betutu and fresh Jimbaran seafood, indulge your tastebuds in Bali authentic cuisine.',
+                snippet: 'How to plan meal stops, check restaurant information and find suitable dining options while exploring Bali.',
                 content: `
-                    <p class="mb-4">Balinese cuisine is rich with aromatic spices like turmeric, lemongrass, galangal, and chili paste (Sambal Matah).</p>
-                    <p class="mb-4">Do not leave Bali without tasting <strong>Babi Guling</strong> (suckling roast pig), <strong>Bebek Betutu</strong> (slow-roasted spiced duck), and grilling fresh snapper at Jimbaran Bay right on the beach!</p>
+                    <p class="mb-4">Planning meals ahead can make a day exploring Bali more comfortable. Restaurant menus, opening hours and food preparation practices can vary, so check the latest information directly with each venue before you visit.</p>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Before you choose a restaurant</h3>
+                    <ul class="list-disc pl-5 mb-4 space-y-1">
+                        <li>Search for restaurants that clearly describe the food options you need.</li>
+                        <li>Contact the venue to confirm ingredients, preparation practices and current availability.</li>
+                        <li>Check opening hours and allow extra travel time, especially when visiting multiple areas in one day.</li>
+                        <li>Keep a backup dining option near your planned route.</li>
+                    </ul>
+                    <p class="mb-4">Bali has a varied dining scene across its towns and tourist areas. A little checking before departure helps you choose stops that suit your preferences without disrupting the day’s itinerary.</p>
                 `
             }
         ];
