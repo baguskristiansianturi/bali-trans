@@ -61,6 +61,37 @@ Contoh berikut adalah hipotesis untuk diteliti, bukan klaim bahwa kata kuncinya 
 ### G. Cerita destinasi
 Cerita tentang pagi di pesisir Lovina, karakter pasir hitam, kehidupan kawasan, atau perjalanan Singaraja–Lovina dapat menjadi konten bernilai jika orisinal dan faktual. Jangan mengarang pengalaman pribadi, dialog, wawancara, atau suasana seolah-olah disaksikan sendiri. Jangan memecah satu cerita menjadi banyak halaman tipis.
 
+## Model jaringan artikel lintas topik dan wilayah
+
+Artikel tidak boleh dipetakan sebagai kelompok yang tertutup hanya berdasarkan satu lokasi. Bangun jaringan bertingkat berdasarkan hubungan yang nyata bagi pembaca:
+
+1. **Panduan payung** menjawab topik luas yang memang bisa dibahas secara akurat, misalnya panduan pantai di Bali atau panduan kawasan Bali Utara.
+2. **Panduan kawasan** mengelompokkan pilihan berdasarkan wilayah yang masuk akal, misalnya pantai di Bali Utara atau pantai di Bali Selatan.
+3. **Artikel destinasi khusus** membahas satu tempat secara mendalam, misalnya Pantai Lovina atau Pantai Pandawa.
+4. **Artikel kebutuhan** menjawab pertanyaan lintas destinasi, misalnya pantai berpasir hitam dan putih, pantai untuk keluarga, cara menuju pantai, aktivitas, penginapan, dan itinerary.
+5. **Artikel perbandingan** menghubungkan dua atau lebih destinasi hanya bila ada pertanyaan pembaca yang wajar untuk dibandingkan; jangan menyamakan jarak atau karakter yang berbeda.
+
+### Contoh hubungan yang perlu dibangun
+
+- Panduan pantai di Bali → panduan pantai Bali Utara dan panduan pantai Bali Selatan.
+- Panduan pantai Bali Utara → artikel Pantai Lovina dan artikel pantai lain yang sudah diverifikasi di kawasan tersebut.
+- Artikel Pantai Lovina → panduan pantai Bali Utara, aktivitas di Lovina, tempat wisata sekitar, penginapan, transportasi, dan itinerary yang relevan.
+- Panduan pantai Bali Selatan → artikel Pantai Pandawa dan destinasi lain yang sudah diverifikasi di kawasan tersebut.
+- Artikel Pantai Pandawa → panduan pantai Bali Selatan, akses, aktivitas, fasilitas, serta tempat yang memang berdekatan dan bisa dikunjungi dalam satu perjalanan.
+- Artikel Pantai Lovina dan Pantai Pandawa dapat saling terhubung melalui panduan payung atau artikel perbandingan yang relevan, bukan dipaksa saling menautkan hanya karena keduanya pantai di Bali.
+
+Ini adalah **jaringan**, bukan rantai wajib. Tautan ditambahkan ketika membantu pembaca melanjutkan pencarian. Jangan membuat halaman payung yang tipis hanya demi menjadi penghubung; halaman itu harus memberi nilai sendiri, misalnya menjelaskan perbedaan karakter pantai, kawasan, waktu perjalanan, atau pilihan berdasarkan kebutuhan.
+
+### Aturan pengembangan
+
+- Sebelum membuat artikel baru, tentukan pertanyaan utama yang dijawabnya dan halaman lain yang secara alami terkait.
+- Pastikan tiap halaman punya fokus yang berbeda agar tidak saling mengulang atau bersaing untuk intent yang sama.
+- Hubungkan halaman khusus ke panduan kawasan/payung, dan panduan kawasan ke halaman khusus yang sudah benar-benar tersedia.
+- Jangan membuat tautan ke URL yang belum ada; catat sebagai peluang tautan internal sampai halamannya diterbitkan.
+- Nama wilayah dan jarak harus akurat. Jangan menyebut Pandawa sebagai bagian dari Lovina atau menyiratkan keduanya berdekatan.
+- Artikel lintas wilayah harus menjelaskan konteks perjalanan secara jujur; jangan menjanjikan satu rute praktis jika destinasi berjauhan.
+- Struktur ini mendukung navigasi pembaca dan membantu mesin pencari memahami hubungan halaman, tetapi tidak menjamin peringkat tertentu.
+
 ## 3. Hubungan antartopik
 
 Bangun cluster berdasarkan hubungan geografis dan kebutuhan pembaca, bukan hanya karena semua artikel mengandung kata “Lovina”.
