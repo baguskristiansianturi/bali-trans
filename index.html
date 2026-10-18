@@ -95,16 +95,10 @@
           </div>
 
           <div class="flex items-center gap-1 sm:gap-2">
-            <label class="relative flex items-center justify-center w-10 h-10 rounded-full hover:bg-slate-100 cursor-pointer" aria-label="Pilih bahasa">
-              <i class="fas fa-globe-asia text-slate-700 text-lg"></i>
-              <select id="languageSelector" onchange="changeLanguage(this.value)" aria-label="Pilih bahasa" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer">
-                <option value="id">🇮🇩 Indonesia</option><option value="en">🇬🇧 English</option>
-              </select>
-            </label>
-            <label class="relative flex items-center gap-1 h-10 px-2 rounded-full bg-slate-100 hover:bg-slate-200 cursor-pointer" aria-label="Pilih mata uang">
-              <i class="fas fa-coins text-slate-600 text-sm"></i>
-              <select id="currencySelector" onchange="changeCurrency(this.value)" aria-label="Pilih mata uang" class="max-w-[70px] bg-transparent text-xs sm:text-sm font-bold text-slate-700 outline-none cursor-pointer">
-                <option value="IDR">IDR</option><option value="USD">USD</option><option value="AUD">AUD</option><option value="EUR">EUR</option>
+            <label class="relative flex items-center gap-2 h-10 px-2.5 rounded-full bg-slate-100 hover:bg-slate-200 cursor-pointer" aria-label="Bahasa dan mata uang">
+              <i class="fas fa-globe-asia text-slate-700 text-base"></i>
+              <select id="localeSelector" onchange="changeLocale(this.value)" aria-label="Pilih bahasa dan mata uang" class="max-w-[118px] bg-transparent text-[11px] sm:text-xs font-bold text-slate-700 outline-none cursor-pointer">
+                <option value="id">🇮🇩 Indonesia · IDR</option><option value="en">🇺🇸 English · USD</option>
               </select>
             </label>
             <button type="button" onclick="toggleMobileMenu()" aria-label="Buka menu" aria-controls="mobileMenuPanel" aria-expanded="false" id="mobileMenuButton" class="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-800 hover:bg-slate-100">
@@ -223,6 +217,8 @@
         };
 
         let currentCurrency = 'IDR';
+        let currentLanguage = 'id';
+        try { currentLanguage = localStorage.getItem('baliTransLanguage') || 'id'; currentCurrency = currentLanguage === 'en' ? 'USD' : 'IDR'; } catch(e) {}
 
         const BALI_PACKAGES = [
             {
@@ -342,6 +338,7 @@
             const container = document.getElementById('appContainer');
             document.body.classList.toggle('checkout-mode', viewName === 'checkout');
             window.scrollTo({ top: 0, behavior: 'smooth' });
+            syncLocaleSelector();
 
             switch (viewName) {
                 case 'home':
@@ -387,6 +384,7 @@
                     container.innerHTML = renderHomeView();
             }
             updateBadges();
+            applyLanguageCopy(container);
         }
 
         /* ==========================================================================
@@ -1263,11 +1261,7 @@
         let selectedPaymentMethod = 'bank-transfer';
         let checkoutGuestDetails = {};
 
-        function changeCurrency(val) {
-            currentCurrency = val;
-            showToast(`Currency changed to ${val}`);
-            navigateTo('home');
-        }
+        function changeCurrency(val) { changeLocale(val === 'IDR' ? 'id' : 'en'); }
 
         function filterByCategory(cat) {
             selectedCategoryFilter = cat;
@@ -1495,9 +1489,61 @@
             }
         }
 
-        function changeLanguage(language) {
-            showToast(language === 'en' ? 'English language support is coming soon.' : 'Bahasa Indonesia dipilih.');
+        const BALI_TRANSLATIONS = {
+          "Explore Bali":"Jelajahi Bali","Discover Bali tours, island trips and private transport.":"Temukan tur Bali, perjalanan pulau, dan transportasi privat.",
+          "Plan your Bali trip":"Rencanakan perjalanan Bali","WhatsApp Concierge":"Bantuan WhatsApp","TOURS · TRIPS · TRANSFER":"TUR · PERJALANAN · TRANSFER",
+          "Search activities, tours, or spots (e.g. Ubud, ATV)...":"Cari aktivitas, tur, atau tempat (mis. Ubud, ATV)...",
+          "Home":"Beranda","Tours & Services":"Tur & Layanan","About Us":"Tentang Kami","Contact":"Kontak","My Bookings":"Pesanan Saya",
+          "Help":"Bantuan","Register":"Mendaftar","Wishlist":"Favorit","Recently Viewed":"Baru Saja Dilihat","Create Account":"Buat Akun",
+          "Tours":"Tur","Activities":"Aktivitas","Private Transport":"Transportasi Privat","Discover":"Jelajahi","Explore":"Jelajahi",
+          "Book now":"Pesan sekarang","Book Now":"Pesan Sekarang","View details":"Lihat detail","View Details":"Lihat Detail","View all":"Lihat semua","See all":"Lihat semua",
+          "Learn more":"Pelajari lebih lanjut","Read more":"Baca selengkapnya","From":"Mulai dari","per person":"per orang","Popular":"Populer",
+          "Popular tours":"Tur populer","Top destinations":"Destinasi pilihan","Find your next Bali experience":"Temukan pengalaman Bali berikutnya",
+          "Discover Bali":"Jelajahi Bali","What would you like to do?":"Apa yang ingin Anda lakukan?","No packages found for this filter.":"Tidak ada paket untuk filter ini.",
+          "Add to wishlist":"Tambahkan ke favorit","Remove from wishlist":"Hapus dari favorit","Your wishlist is currently empty.":"Daftar favorit Anda masih kosong.",
+          "Recently viewed":"Baru saja dilihat","Need help?":"Butuh bantuan?","Send message":"Kirim pesan","Send Message":"Kirim Pesan",
+          "Your name":"Nama Anda","Email address":"Alamat email","Phone number":"Nomor telepon","Message":"Pesan","Submit":"Kirim",
+          "Adults":"Dewasa","Children":"Anak-anak","Select date":"Pilih tanggal","Choose date":"Pilih tanggal","Continue":"Lanjutkan","Back":"Kembali",
+          "Your cart is empty":"Keranjang Anda kosong","Shopping cart":"Keranjang belanja","Checkout":"Pembayaran","Total":"Total","Subtotal":"Subtotal",
+          "Booking details":"Detail pemesanan","Guest details":"Data tamu","Payment method":"Metode pembayaran","Confirm booking":"Konfirmasi pemesanan",
+          "Included":"Termasuk","Highlights":"Keunggulan","Itinerary":"Rencana perjalanan","What's included":"Yang termasuk","Important information":"Informasi penting",
+          "Cancellation policy":"Kebijakan pembatalan","Location":"Lokasi","Duration":"Durasi","Reviews":"Ulasan","Why choose us?":"Mengapa memilih kami?",
+          "Contact us":"Hubungi kami","Contact Us":"Hubungi Kami","About Bali Trans":"Tentang Bali Trans","Loading...":"Memuat..."
+        };
+        function translateCopy(value) {
+            if (currentLanguage !== 'id' || !value) return value;
+            let out = value;
+            Object.keys(BALI_TRANSLATIONS).sort((a,b)=>b.length-a.length).forEach(key => { out = out.split(key).join(BALI_TRANSLATIONS[key]); });
+            return out;
         }
+        function applyLanguageCopy(root = document) {
+            if (currentLanguage !== 'id' || !root) return;
+            const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+            const nodes = [];
+            while (walker.nextNode()) nodes.push(walker.currentNode);
+            nodes.forEach(node => {
+                if (node.parentElement && !['SCRIPT','STYLE','SELECT','OPTION'].includes(node.parentElement.tagName)) {
+                    const translated = translateCopy(node.nodeValue);
+                    if (translated !== node.nodeValue) node.nodeValue = translated;
+                }
+            });
+            root.querySelectorAll && root.querySelectorAll('[placeholder],[aria-label],[title]').forEach(el => {
+                ['placeholder','aria-label','title'].forEach(attr => { const v=el.getAttribute(attr); if(v) el.setAttribute(attr,translateCopy(v)); });
+            });
+        }
+        function syncLocaleSelector() {
+            const selector = document.getElementById('localeSelector');
+            if (selector) selector.value = currentLanguage;
+        }
+        function changeLocale(language) {
+            currentLanguage = language === 'en' ? 'en' : 'id';
+            currentCurrency = currentLanguage === 'en' ? 'USD' : 'IDR';
+            try { localStorage.setItem('baliTransLanguage', currentLanguage); } catch(e) {}
+            document.documentElement.lang = currentLanguage;
+            navigateTo('home');
+            showToast(currentLanguage === 'en' ? 'Language: English · Currency: USD' : 'Bahasa Indonesia · Mata uang IDR');
+        }
+        function changeLanguage(language) { changeLocale(language); }
 
         let recentlyViewedState = [];
         try { recentlyViewedState = JSON.parse(localStorage.getItem('baliTransRecentlyViewed') || '[]'); } catch(e) { recentlyViewedState = []; }
