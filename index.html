@@ -434,9 +434,20 @@
         /* ==========================================================================
            2. NAVIGATION & ROUTING ENGINE
            ========================================================================== */
-        function navigateTo(viewName, params = null) {
+        function navigateTo(viewName, params = null, options = {}) {
             const container = document.getElementById('appContainer');
-            const previousViewName = currentViewName;
+            const url = new URL(window.location.href);
+            const query = url.searchParams;
+            query.set('view', viewName);
+            query.delete('tour');
+            if (params !== null && params !== undefined && params !== '') query.set('id', String(params));
+            else query.delete('id');
+            if (viewName !== 'blog') query.delete('category');
+            const nextUrl = url.pathname + '?' + query.toString();
+            if (options.history !== false) {
+                if (options.replace) window.history.replaceState({ viewName, params }, '', nextUrl);
+                else if (window.location.pathname + window.location.search !== nextUrl) window.history.pushState({ viewName, params }, '', nextUrl);
+            }
             document.body.classList.toggle('checkout-mode', viewName === 'checkout');
             syncLocaleSelector();
 
@@ -469,10 +480,19 @@
                 case 'blog':
                     container.innerHTML = renderBlogListView();
                     break;
-                case 'blog-read':
-                    const blog = BALI_BLOGS.find(b => b.id === params) || BALI_BLOGS[0];
-                    container.innerHTML = renderBlogDetailView(blog);
+                case 'blog-read': {
+                    const blog = BALI_BLOGS.find(b => b.id === params);
+                    if (blog) container.innerHTML = renderBlogDetailView(blog);
+                    else {
+                        container.innerHTML = renderBlogListView();
+                        viewName = 'blog';
+                        const fallbackUrl = new URL(window.location.href);
+                        fallbackUrl.searchParams.set('view', 'blog');
+                        fallbackUrl.searchParams.delete('id');
+                        if (options.history !== false) window.history.replaceState({ viewName: 'blog' }, '', fallbackUrl.pathname + '?' + fallbackUrl.searchParams.toString());
+                    }
                     break;
+                }
                 case 'cart':
                     container.innerHTML = renderCartView();
                     break;
@@ -481,13 +501,16 @@
                     container.innerHTML = renderCheckoutView();
                     break;
                 default:
+                    viewName = 'home';
                     container.innerHTML = renderHomeView();
+                    initHomeInteractivity();
             }
-            // Keep the reader's position when opening another article from the related-stories section.
-            // Other destinations still start at the top as expected.
-            if (!(previousViewName === 'blog-read' && viewName === 'blog-read')) {
-                window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+            if (viewName === 'blog') {
+                const requestedCategory = new URLSearchParams(window.location.search).get('category') || 'All';
+                const validCategories = ['All', ...new Set(BALI_BLOGS.map(blog => blog.category))];
+                setBlogCategory(validCategories.includes(requestedCategory) ? requestedCategory : 'All');
             }
+            if (options.scroll !== false) window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
             currentViewName = viewName;
             container.classList.remove('page-view-enter');
             void container.offsetWidth;
@@ -495,6 +518,16 @@
             updateBadges();
             applyLanguageCopy(document);
         }
+
+        function renderLocationFromUrl(options = {}) {
+            const query = new URLSearchParams(window.location.search);
+            const legacyTour = query.get('tour');
+            const viewName = query.get('view') || (legacyTour ? 'detail' : 'home');
+            const params = query.get('id') || (viewName === 'detail' ? legacyTour : null);
+            navigateTo(viewName, params, { history: false, scroll: options.scroll !== false, replace: !query.has('view') });
+        }
+
+        window.addEventListener('popstate', () => renderLocationFromUrl({ scroll: true }));
 
         /* ==========================================================================
            3. VIEW RENDERING FUNCTIONS (KLOOK STYLE)
@@ -1002,6 +1035,12 @@
                     : 'shrink-0 rounded-full border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-600 hover:border-teal-500 hover:text-teal-700';
             });
             filterBlogList();
+            if (currentViewName === 'blog') {
+                const url = new URL(window.location.href);
+                if (category === 'All') url.searchParams.delete('category');
+                else url.searchParams.set('category', category);
+                window.history.replaceState(window.history.state, '', url.pathname + (url.searchParams.toString() ? '?' + url.searchParams.toString() : '') + url.hash);
+            }
         }
 
         function renderBlogListView() {
@@ -1079,6 +1118,9 @@
 
         /* VIEW 5: BLOG READ DETAIL */
         function renderBlogDetailView(blog) {
+            const blogIndex = BALI_BLOGS.findIndex(item => item.id === blog.id);
+            const previousBlog = blogIndex > 0 ? BALI_BLOGS[blogIndex - 1] : null;
+            const nextBlog = blogIndex >= 0 && blogIndex < BALI_BLOGS.length - 1 ? BALI_BLOGS[blogIndex + 1] : null;
             const headingPattern = /<h([23])([^>]*)>([\s\S]*?)<\/h\1>/gi;
             let headingIndex = 0;
             const toc = [];
@@ -1108,11 +1150,27 @@
                             <img src="${blog.image}" alt="${blog.title}" class="max-h-[520px] w-full rounded-2xl object-cover shadow-sm sm:rounded-3xl" fetchpriority="high">
                             <figcaption class="mt-2 text-xs leading-5 text-slate-500">A travel guide from Bali Trans.</figcaption>
                         </figure>
+                        <div class="mx-auto mt-5 flex max-w-5xl flex-wrap items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-4 sm:px-5">
+                            <span class="text-sm font-extrabold text-slate-800">Enjoy this guide? Share it</span>
+                            <div class="flex flex-wrap gap-2">
+                                <a href="https://wa.me/?text=${encodeURIComponent(blog.title + ' ' + window.location.href)}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-2 text-xs font-bold text-emerald-800 hover:bg-emerald-100"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                                <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-2 text-xs font-bold text-blue-800 hover:bg-blue-100"><i class="fab fa-facebook-f"></i> Facebook</a>
+                                <button type="button" onclick="copyArticleLink()" class="inline-flex items-center gap-2 rounded-full bg-slate-100 px-3 py-2 text-xs font-bold text-slate-700 hover:bg-slate-200"><i class="fas fa-link"></i> Copy link</button>
+                            </div>
+                        </div>
                         <div class="mx-auto mt-8 grid max-w-6xl grid-cols-1 gap-8 lg:mt-12 lg:grid-cols-[minmax(0,1fr)_250px] lg:gap-14">
                             <article class="min-w-0">
                                 <div class="article-reading text-[16px] leading-8 text-slate-700 sm:text-[17px] sm:leading-[1.95]">
                                     ${articleContent}
                                 </div>
+                                <section aria-label="Article topics" class="mt-8 border-t border-slate-200 pt-5">
+                                    <p class="mb-3 text-xs font-extrabold uppercase tracking-wider text-slate-500">Filed under</p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <button type="button" onclick="navigateTo('blog'); setBlogCategory('${blog.category.replace(/'/g, "\\'")}')" class="rounded-full border border-teal-200 bg-teal-50 px-3 py-2 text-xs font-bold text-teal-800 hover:bg-teal-100">${blog.category}</button>
+                                        <button type="button" onclick="navigateTo('blog')" class="rounded-full border border-slate-200 bg-white px-3 py-2 text-xs font-bold text-slate-600 hover:border-teal-500 hover:text-teal-700">Bali travel</button>
+                                        <button type="button" onclick="navigateTo('blog')" class="rounded-full border border-slate-200 bg-white px-3 py-2 text-xs font-bold text-slate-600 hover:border-teal-500 hover:text-teal-700">Trip planning</button>
+                                    </div>
+                                </section>
                                 <div class="mt-10 rounded-2xl border border-teal-100 bg-teal-50/70 p-5 sm:p-6">
                                     <p class="text-xs font-extrabold uppercase tracking-wider text-teal-800">Keep exploring</p>
                                     <h2 class="mt-2 text-xl font-black text-slate-900">Make more of your time in Bali</h2>
@@ -1139,6 +1197,10 @@
                                 </div>
                             </aside>
                         </div>
+                        <nav aria-label="Previous and next articles" class="mx-auto mt-12 grid max-w-6xl grid-cols-1 gap-3 border-t border-slate-200 pt-6 sm:grid-cols-2">
+                            ${previousBlog ? `<button onclick="navigateTo('blog-read', '${previousBlog.id}')" class="rounded-2xl border border-slate-200 bg-white p-4 text-left transition hover:border-teal-300 hover:shadow-sm"><span class="text-xs font-bold uppercase tracking-wider text-slate-500"><i class="fas fa-arrow-left mr-1"></i> Previous article</span><span class="mt-2 block font-extrabold leading-snug text-slate-900">${previousBlog.title}</span></button>` : '<div></div>'}
+                            ${nextBlog ? `<button onclick="navigateTo('blog-read', '${nextBlog.id}')" class="rounded-2xl border border-slate-200 bg-white p-4 text-left transition hover:border-teal-300 hover:shadow-sm sm:text-right"><span class="text-xs font-bold uppercase tracking-wider text-slate-500">Next article <i class="fas fa-arrow-right ml-1"></i></span><span class="mt-2 block font-extrabold leading-snug text-slate-900">${nextBlog.title}</span></button>` : '<div></div>'}
+                        </nav>
                         <section class="mx-auto mt-14 max-w-7xl border-t border-slate-200 pt-8 sm:mt-20">
                             <div class="mb-5 flex items-end justify-between gap-3">
                                 <div><p class="text-xs font-extrabold uppercase tracking-wider text-teal-700">More inspiration</p><h2 class="mt-1 text-2xl font-black text-slate-950 sm:text-3xl">More stories to explore</h2></div>
@@ -2088,15 +2150,17 @@
             }
         }
 
-        /* INITIAL APP LAUNCH */
-        window.onload = function() {
-            const requestedTour = new URLSearchParams(window.location.search).get('tour');
-            if (requestedTour === 'lovina-dolphin-tour') {
-                navigateTo('detail', 'lovina-dolphin-tour');
+        function copyArticleLink() {
+            const link = window.location.href;
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(link).then(() => showToast('Article link copied')).catch(() => window.prompt('Copy this article link:', link));
             } else {
-                navigateTo('home');
+                window.prompt('Copy this article link:', link);
             }
-        };
+        }
+
+        /* INITIAL APP LAUNCH */
+        window.addEventListener('DOMContentLoaded', () => renderLocationFromUrl({ scroll: false }));
     </script>
 </body>
 </html>
