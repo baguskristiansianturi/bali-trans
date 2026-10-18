@@ -407,12 +407,17 @@
         let selectedCategoryFilter = 'all';
         let currentDetailPackage = BALI_PACKAGES[0];
         let currentCheckoutStep = 1;
+        // Preserve the active route when locale changes; language switching must never send users home.
+        let currentViewName = 'home';
+        let currentViewParams = null;
 
         /* ==========================================================================
            2. NAVIGATION & ROUTING ENGINE
            ========================================================================== */
         function navigateTo(viewName, params = null, navigationOptions = {}) {
             const container = document.getElementById('appContainer');
+            currentViewName = viewName;
+            currentViewParams = params;
             document.body.classList.toggle('checkout-mode', viewName === 'checkout');
 
             // Treat view changes as page navigation: update browser history and URL,
@@ -1591,8 +1596,8 @@
             closeLocaleMenu();
             applyLanguageCopy(document);
             if (typeof updateLiveChatStatus === 'function') updateLiveChatStatus();
-            // Re-render active view so generated cards use the selected locale too.
-            if (typeof navigateTo === 'function') navigateTo('home');
+            // Re-render the current view for the selected locale without changing route/history.
+            if (typeof navigateTo === 'function') navigateTo(currentViewName, currentViewParams, { history: false });
             setTimeout(() => applyLanguageCopy(document), 80);
         }
         if (!window.__baliTransLocaleObserver) {
