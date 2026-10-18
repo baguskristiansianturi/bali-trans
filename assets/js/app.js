@@ -213,10 +213,13 @@
             if (params !== null && params !== undefined && params !== '') query.set('id', String(params));
             else query.delete('id');
             if (viewName !== 'blog') query.delete('category');
-            // Keep every view addressable without relying on server-side rewrites.
-            // GitHub Pages serves real files only; generated /blog/slug/ routes can 404
-            // when no matching directory/index.html exists.
-            const nextUrl = siteBase + '?' + query.toString();
+            // Destination pages have real static index.html files, so keep their
+            // readable URLs. Blog articles without a matching static file use query
+            // routes to avoid GitHub Pages 404s.
+            const placeSlug = viewName === 'place' ? String(params || 'bali-utara') : null;
+            const nextUrl = placeSlug
+                ? siteBase + 'places/bali-utara/' + (placeSlug === 'bali-utara' ? '' : placeSlug + '/')
+                : siteBase + '?' + query.toString();
             if (options.history !== false) {
                 if (options.replace) window.history.replaceState({ viewName, params }, '', nextUrl);
                 else if (window.location.pathname + window.location.search !== nextUrl) window.history.pushState({ viewName, params }, '', nextUrl);
