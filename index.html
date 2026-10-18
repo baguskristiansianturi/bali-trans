@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -414,6 +414,9 @@
         /* ==========================================================================
            2. NAVIGATION & ROUTING ENGINE
            ========================================================================== */
+        // This is a single-document app: never let the browser animate/restore the old page scroll on route changes.
+        if ('scrollRestoration' in window.history) window.history.scrollRestoration = 'manual';
+
         function navigateTo(viewName, params = null, navigationOptions = {}) {
             const container = document.getElementById('appContainer');
             currentViewName = viewName;
@@ -484,7 +487,9 @@
             }
             updateBadges();
             applyLanguageCopy(document);
-            window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+            // Run after the new view has been committed to the DOM; scroll-smooth on <html>
+            // previously animated from the old page and exposed the footer before reaching the article.
+            window.scrollTo(0, 0);
         }
 
         /* ==========================================================================
