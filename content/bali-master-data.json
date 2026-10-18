@@ -1124,10 +1124,13 @@
       "route": "?page=discovery&item=place%3Alovina",
       "page_status": "STRUCTURE_READY",
       "content_status": "CONTENT_DRAFT",
-      "fact_status": "UNVERIFIED",
-      "source_urls": [],
-      "last_checked": null,
-      "notes": "Dedicated route exists in current SPA. Wildlife ethics, boat practices, meeting points and schedules still need fact-checking."
+      "fact_status": "FACT_CHECK",
+      "source_urls": [
+        "https://www.indonesia.travel/id/id/destination/bali-nusa-tenggara/bali/bali---lovina-beach",
+        "https://visitnorthbali.bulelengkab.go.id/informasi/detail?kode=34010101&slug=pantai-lovina"
+      ],
+      "last_checked": "2026-10-18",
+      "notes": "Nama, karakter pesisir, posisi di Kabupaten Buleleng dan konteks dolphin watching didukung portal pariwisata nasional serta portal pariwisata Pemkab Buleleng. Perilaku operator, titik berangkat, harga, jadwal dan etika pengamatan lumba-lumba tetap perlu diperiksa terpisah."
     },
     {
       "id": "banjar-hot-springs",
@@ -1143,10 +1146,13 @@
       "route": "?page=discovery&item=place%3Abanjar-hot-springs",
       "page_status": "STRUCTURE_READY",
       "content_status": "CONTENT_DRAFT",
-      "fact_status": "UNVERIFIED",
-      "source_urls": [],
-      "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "fact_status": "FACT_CHECK",
+      "source_urls": [
+        "https://visitnorthbali.bulelengkab.go.id/informasi/detail?kode=34010101&slug=banjar-hot-spring",
+        "https://visitnorthbali.bulelengkab.go.id/uploads/konten/bank-data_daftar-nama-daya-tarik-wisata-kabupaten-buleleng_20251008_095505.pdf"
+      ],
+      "last_checked": "2026-10-18",
+      "notes": "Lokasi Air Panas Banjar dan pengelompokan wilayah didukung portal resmi pariwisata Buleleng. Jam buka, tiket dan kondisi fasilitas tidak ditetapkan dari sumber ini."
     },
     {
       "id": "brahmavihara-arama",
@@ -1161,10 +1167,13 @@
       "route": "?page=discovery&item=place%3Abrahmavihara-arama",
       "page_status": "STRUCTURE_READY",
       "content_status": "CONTENT_DRAFT",
-      "fact_status": "UNVERIFIED",
-      "source_urls": [],
-      "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "fact_status": "FACT_CHECK",
+      "source_urls": [
+        "https://www.brahmaviharaarama.org/en",
+        "https://visitnorthbali.bulelengkab.go.id/uploads/konten/bank-data_daftar-nama-daya-tarik-wisata-kabupaten-buleleng_20251008_095505.pdf"
+      ],
+      "last_checked": "2026-10-18",
+      "notes": "Keberadaan tempat dan konteks sebagai vihara didukung situs resmi pengelola serta daftar daya tarik wisata Kabupaten Buleleng. Jadwal kunjungan/retret perlu diperiksa di sumber pengelola."
     },
     {
       "id": "gitgit-waterfall",
@@ -1179,10 +1188,13 @@
       "route": "?page=discovery&item=place%3Agitgit-waterfall",
       "page_status": "STRUCTURE_READY",
       "content_status": "CONTENT_DRAFT",
-      "fact_status": "UNVERIFIED",
-      "source_urls": [],
-      "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "fact_status": "FACT_CHECK",
+      "source_urls": [
+        "https://visitnorthbali.bulelengkab.go.id/informasi/detail?kode=34010101&slug=air-terjun-gitgit",
+        "https://visitnorthbali.bulelengkab.go.id/informasi/detail?kode=340111&slug=desa-wisata-gitgit"
+      ],
+      "last_checked": "2026-10-18",
+      "notes": "Lokasi di Desa Gitgit, Kecamatan Sukasada, Kabupaten Buleleng didukung portal resmi pariwisata kabupaten. Akses, tiket dan kondisi jalur perlu diperiksa ulang."
     },
     {
       "id": "munduk",
@@ -1199,10 +1211,13 @@
       "route": "?page=discovery&item=place%3Amunduk",
       "page_status": "STRUCTURE_READY",
       "content_status": "CONTENT_DRAFT",
-      "fact_status": "UNVERIFIED",
-      "source_urls": [],
-      "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "fact_status": "FACT_CHECK",
+      "source_urls": [
+        "https://visitnorthbali.bulelengkab.go.id/uploads/konten/bank-data_daftar-nama-daya-tarik-wisata-kabupaten-buleleng_20251008_095505.pdf",
+        "https://visitnorthbali.bulelengkab.go.id/informasi/detail?kode=34010101&slug=air-terjun-melanting"
+      ],
+      "last_checked": "2026-10-18",
+      "notes": "Portal resmi Buleleng mencantumkan kawasan Munduk, Air Terjun Melanting dan Danau Tamblingan sebagai daya tarik wisata. Halaman ini masih menggabungkan beberapa titik; pecah menjadi record destinasi terpisah sebelum artikel rinci dibuat."
     },
     {
       "id": "wanagiri",
@@ -1217,10 +1232,13 @@
       "route": "?page=discovery&item=place%3Awanagiri",
       "page_status": "STRUCTURE_READY",
       "content_status": "CONTENT_DRAFT",
-      "fact_status": "UNVERIFIED",
-      "source_urls": [],
-      "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "fact_status": "FACT_CHECK",
+      "source_urls": [
+        "https://visitnorthbali.bulelengkab.go.id/uploads/konten/bank-data_daftar-nama-daya-tarik-wisata-kabupaten-buleleng_20251008_095505.pdf",
+        "https://visitnorthbali.bulelengkab.go.id/konten?sb=ne&slug=article"
+      ],
+      "last_checked": "2026-10-18",
+      "notes": "Daftar resmi Kabupaten Buleleng memuat daya tarik di Desa Wanagiri termasuk Air Terjun Banyumala. 'Twin Lakes Viewpoint' dan 'Hidden Hills' perlu dipisahkan dan nama/aksesnya diverifikasi sebelum publikasi."
     },
     {
       "id": "menjangan",
@@ -1236,10 +1254,13 @@
       "route": "?page=discovery&item=place%3Amenjangan",
       "page_status": "STRUCTURE_READY",
       "content_status": "CONTENT_DRAFT",
-      "fact_status": "UNVERIFIED",
-      "source_urls": [],
-      "last_checked": null,
-      "notes": "Editorially linked to North Bali access, but the national park and coastal geography cross administrative/tourism-region boundaries; verify exact page taxonomy."
+      "fact_status": "FACT_CHECK",
+      "source_urls": [
+        "https://www.indonesia.travel/id/en/destination/bali-nusa-tenggara/bali/bali---menjangan-island",
+        "https://www.visitbali.org/about-bali/national-parks/"
+      ],
+      "last_checked": "2026-10-18",
+      "notes": "Indonesia Travel dan Visit Bali menempatkan Pulau Menjangan dalam kawasan konservasi Taman Nasional Bali Barat. Penentuan kategori regional sebagai akses Bali Utara/Barat perlu disepakati secara editorial; jangan menyamakan pulau dengan Kabupaten Buleleng tanpa verifikasi batas administratif."
     },
     {
       "id": "gedong-kirtya",
@@ -1254,10 +1275,13 @@
       "route": "?page=discovery&item=place%3Agedong-kirtya",
       "page_status": "STRUCTURE_READY",
       "content_status": "CONTENT_DRAFT",
-      "fact_status": "UNVERIFIED",
-      "source_urls": [],
-      "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "fact_status": "FACT_CHECK",
+      "source_urls": [
+        "https://disbudpar.bulelengkab.go.id/informasi/detail/artikel/gedong-kirtya-87",
+        "https://pedalsepeda.bulelengkab.go.id/"
+      ],
+      "last_checked": "2026-10-18",
+      "notes": "Lokasi di Singaraja dan fungsi sebagai perpustakaan manuskrip lontar didukung sumber Dinas Kebudayaan/portal resmi Buleleng. Jam kunjungan yang ditampilkan di portal harus dicek lagi sebelum dipakai di artikel."
     },
     {
       "id": "sekumpul-waterfall",
@@ -1684,6 +1708,132 @@
       "source_urls": [],
       "last_checked": null,
       "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+    },
+    {
+      "id": "banyumala-waterfall",
+      "name": "Banyumala Waterfall",
+      "region_id": "north",
+      "admin_area_id": "buleleng",
+      "subregion": "Munduk & Wanagiri",
+      "type": "destination",
+      "categories": [
+        "nature-waterfalls",
+        "trekking"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "FACT_CHECK",
+      "source_urls": [
+        "https://visitnorthbali.bulelengkab.go.id/uploads/konten/bank-data_daftar-nama-daya-tarik-wisata-kabupaten-buleleng_20251008_095505.pdf"
+      ],
+      "last_checked": "2026-10-18",
+      "notes": "Tercantum dalam daftar daya tarik wisata resmi Kabupaten Buleleng pada Desa Wanagiri. Detail akses dan status operasional tetap perlu diperiksa."
+    },
+    {
+      "id": "lake-tamblingan",
+      "name": "Lake Tamblingan",
+      "region_id": "north",
+      "admin_area_id": "buleleng",
+      "subregion": "Munduk",
+      "type": "destination",
+      "categories": [
+        "nature-waterfalls",
+        "boat-island"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "FACT_CHECK",
+      "source_urls": [
+        "https://visitnorthbali.bulelengkab.go.id/uploads/konten/bank-data_daftar-nama-daya-tarik-wisata-kabupaten-buleleng_20251008_095505.pdf"
+      ],
+      "last_checked": "2026-10-18",
+      "notes": "Tercantum dalam daftar daya tarik wisata resmi Kabupaten Buleleng. Periksa kembali aturan aktivitas, akses, dan fasilitas yang tersedia."
+    },
+    {
+      "id": "lake-buyan",
+      "name": "Lake Buyan",
+      "region_id": "north",
+      "admin_area_id": "buleleng",
+      "subregion": "Sukasada & Wanagiri",
+      "type": "destination",
+      "categories": [
+        "nature-waterfalls"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "FACT_CHECK",
+      "source_urls": [
+        "https://visitnorthbali.bulelengkab.go.id/uploads/konten/bank-data_daftar-nama-daya-tarik-wisata-kabupaten-buleleng_20251008_095505.pdf"
+      ],
+      "last_checked": "2026-10-18",
+      "notes": "Tercantum dalam daftar daya tarik wisata resmi Kabupaten Buleleng. Detail titik pandang, fasilitas dan aktivitas perlu dicek terpisah."
+    },
+    {
+      "id": "melanting-waterfall",
+      "name": "Melanting Waterfall",
+      "region_id": "north",
+      "admin_area_id": "buleleng",
+      "subregion": "Munduk",
+      "type": "destination",
+      "categories": [
+        "nature-waterfalls",
+        "trekking"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "FACT_CHECK",
+      "source_urls": [
+        "https://visitnorthbali.bulelengkab.go.id/informasi/detail?kode=34010101&slug=air-terjun-melanting",
+        "https://visitnorthbali.bulelengkab.go.id/uploads/konten/bank-data_daftar-nama-daya-tarik-wisata-kabupaten-buleleng_20251008_095505.pdf"
+      ],
+      "last_checked": "2026-10-18",
+      "notes": "Nama dan lokasi di Desa Munduk didukung portal pariwisata resmi Buleleng. Harga, akses dan kondisi jalur belum dipastikan."
+    },
+    {
+      "id": "singsing-waterfall",
+      "name": "Singsing Waterfall",
+      "region_id": "north",
+      "admin_area_id": "buleleng",
+      "subregion": "Banjar & Temukus",
+      "type": "destination",
+      "categories": [
+        "nature-waterfalls",
+        "trekking"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "FACT_CHECK",
+      "source_urls": [
+        "https://visitnorthbali.bulelengkab.go.id/uploads/konten/bank-data_daftar-nama-daya-tarik-wisata-kabupaten-buleleng_20251008_095505.pdf"
+      ],
+      "last_checked": "2026-10-18",
+      "notes": "Tercantum dalam daftar daya tarik wisata resmi Kabupaten Buleleng di Desa Temukus. Perlu pemeriksaan akses, ejaan, dan status kunjungan."
+    },
+    {
+      "id": "kroya-waterfall",
+      "name": "Kroya Waterfall",
+      "region_id": "north",
+      "admin_area_id": "buleleng",
+      "subregion": "Sambangan",
+      "type": "destination",
+      "categories": [
+        "nature-waterfalls",
+        "trekking"
+      ],
+      "route": null,
+      "page_status": "PLANNED",
+      "content_status": "UNVERIFIED",
+      "fact_status": "FACT_CHECK",
+      "source_urls": [
+        "https://visitnorthbali.bulelengkab.go.id/uploads/konten/bank-data_daftar-nama-daya-tarik-wisata-kabupaten-buleleng_20251008_095505.pdf"
+      ],
+      "last_checked": "2026-10-18",
+      "notes": "Tercantum dalam daftar daya tarik wisata resmi Kabupaten Buleleng di Desa Sambangan. Aktivitas melompat/seluncur tidak boleh diasumsikan aman atau diizinkan tanpa sumber yang jelas."
     }
   ],
   "activity_categories": [
