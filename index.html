@@ -766,7 +766,7 @@
         /* VIEW 3: PACKAGE DETAIL PAGE */
         function renderDetailView(pkg) {
             const curr = CURRENCY_RATES[currentCurrency];
-            const basePrice = curr.format(pkg.priceIDR);
+            const basePrice = curr.format(Math.min(...pkg.options.map(opt => opt.priceIDR)));
 
             return `
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -818,25 +818,37 @@
                                 </ul>
                             </div>
 
-                            <!-- Package Options Selection -->
-                            <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
-                                <h3 class="text-lg font-extrabold text-slate-900 mb-4">Select Package Option</h3>
+                            <!-- Booking options: ticket only or all-in tour -->
+                            <div class="bg-white p-5 sm:p-6 rounded-3xl border border-slate-200 shadow-sm">
+                                <h3 class="text-lg font-extrabold text-slate-900 mb-2">Pilih cara berwisata</h3>
+                                <p class="text-xs text-slate-500 mb-4">Satu pengalaman Lovina, dua pilihan pemesanan sesuai kebutuhan.</p>
                                 <div class="space-y-3">
-                                    ${pkg.options.map((opt, index) => `
-                                        <label class="block p-4 rounded-2xl border-2 ${index === 0 ? 'border-klook-orange bg-orange-50/40' : 'border-slate-200 hover:border-slate-300'} cursor-pointer transition">
-                                            <div class="flex items-start justify-between">
-                                                <div class="flex items-start gap-3">
-                                                    <input type="radio" name="packageOption" value="${opt.id}" ${index === 0 ? 'checked' : ''} onchange="updateBookingCalculation()" class="mt-1 accent-klook-orange">
-                                                    <div>
-                                                        <h4 class="font-bold text-slate-900 text-sm">${opt.name}</h4>
-                                                        <p class="text-xs text-slate-500 mt-1">${opt.desc}</p>
+                                    \${pkg.options.map((opt, index) => \`
+                                        <label class="block p-4 rounded-2xl border-2 \${index === 0 ? 'border-klook-orange bg-orange-50/40' : 'border-slate-200 hover:border-slate-300'} cursor-pointer transition">
+                                            <div class="flex items-start gap-3">
+                                                <input type="radio" name="packageOption" value="\${opt.id}" \${index === 0 ? 'checked' : ''} onchange="updateBookingCalculation(); updatePackageOptionDetails();" class="mt-1 accent-klook-orange">
+                                                <div class="min-w-0 flex-1">
+                                                    <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
+                                                        <h4 class="font-extrabold text-slate-900 text-sm">\${opt.name}</h4>
+                                                        <span class="text-sm font-black text-slate-900 shrink-0">\${curr.format(opt.priceIDR)} <span class="text-[10px] font-semibold text-slate-500">\${opt.priceMode === 'group' ? '/ mobil' : '/ orang'}</span></span>
+                                                    </div>
+                                                    <p class="text-xs text-slate-600 mt-2 leading-relaxed">\${opt.desc}</p>
+                                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3 text-xs">
+                                                        <div class="rounded-xl bg-emerald-50 p-3">
+                                                            <p class="font-extrabold text-emerald-800 mb-1">Termasuk</p>
+                                                            <ul class="space-y-1 text-emerald-900">\${opt.includes.map(item => \`<li>✓ \${item}</li>\`).join('')}</ul>
+                                                        </div>
+                                                        <div class="rounded-xl bg-slate-50 p-3">
+                                                            <p class="font-extrabold text-slate-700 mb-1">Belum termasuk</p>
+                                                            <ul class="space-y-1 text-slate-600">\${opt.excludes.map(item => \`<li>• \${item}</li>\`).join('')}</ul>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <span class="text-xs font-black text-slate-900">${opt.extraPriceIDR > 0 ? '+' + curr.format(opt.extraPriceIDR) : 'Included'}</span>
                                             </div>
                                         </label>
-                                    `).join('')}
+                                    \`).join('')}
                                 </div>
+                                <p class="text-[11px] leading-relaxed text-amber-800 bg-amber-50 rounded-xl p-3 mt-4"><i class="fas fa-circle-info mr-1"></i>\${pkg.pricingNote}</p>
                             </div>
 
                             <!-- Timeline Itinerary -->
@@ -873,8 +885,8 @@
                                 <div class="mb-6 space-y-3">
                                     <div class="flex items-center justify-between">
                                         <div>
-                                            <span class="text-xs font-extrabold text-slate-800 block">Adults</span>
-                                            <span class="text-[10px] text-slate-400">Age 12+</span>
+                                            <span class="text-xs font-extrabold text-slate-800 block">Jumlah tamu</span>
+                                            <span id="guestCountHint" class="text-[10px] text-slate-400">Tiket dihitung per orang</span>
                                         </div>
                                         <div class="flex items-center space-x-3">
                                             <button onclick="changeQty(-1)" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-sm flex items-center justify-center">-</button>
