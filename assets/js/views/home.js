@@ -1,5 +1,5 @@
 function renderHomeView() {
-            return \`
+            return `
                 <!-- HERO: keep the approved Bali Trans visual system -->
                 <section class="relative bg-slate-900 min-h-[480px] md:min-h-[540px] flex items-center justify-center overflow-hidden">
                     <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=2000&q=80" alt="Bali tropical landscape" class="absolute inset-0 w-full h-full object-cover opacity-40 scale-105">
@@ -26,7 +26,7 @@ function renderHomeView() {
                                 </div>
                                 <div class="md:col-span-4 border-t md:border-t-0 md:border-l border-slate-200 pt-2 md:pt-0 md:pl-3">
                                     <label for="heroTravelDate" class="text-[10px] uppercase tracking-wider font-extrabold text-slate-400 block px-3">Travel date</label>
-                                    <div class="flex items-center px-3 py-1"><i class="far fa-calendar-alt text-klook-orange mr-2"></i><input id="heroTravelDate" type="date" value="\${new Date().toISOString().split('T')[0]}" class="w-full bg-transparent text-sm font-semibold text-slate-800 outline-none"></div>
+                                    <div class="flex items-center px-3 py-1"><i class="far fa-calendar-alt text-klook-orange mr-2"></i><input id="heroTravelDate" type="date" value="${new Date().toISOString().split('T')[0]}" class="w-full bg-transparent text-sm font-semibold text-slate-800 outline-none"></div>
                                 </div>
                                 <div class="md:col-span-3"><button onclick="executeHeroSearch()" class="w-full bg-klook-orange hover:bg-klook-hover text-white font-extrabold py-3.5 px-6 rounded-2xl transition flex items-center justify-center gap-2 shadow-lg shadow-orange-500/30"><i class="fas fa-search"></i> Search</button></div>
                             </div>
@@ -77,7 +77,7 @@ function renderHomeView() {
                 <!-- FEATURED PRODUCTS: preserve the existing package-card component -->
                 <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14" aria-labelledby="featuredExperiencesTitle">
                     <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4"><div><span class="text-xs font-black text-klook-orange uppercase tracking-wider">Explore available options</span><h2 id="featuredExperiencesTitle" class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Popular Bali experiences</h2><p class="text-sm text-slate-500 mt-2">Browse the tours and activities currently listed in our catalogue.</p></div><button onclick="navigateTo('packages')" class="inline-flex items-center text-xs font-bold text-klook-orange hover:text-klook-hover gap-2 bg-orange-50 hover:bg-orange-100 px-4 py-2.5 rounded-full transition">View all options <i class="fas fa-arrow-right"></i></button></div>
-                    <div id="homeFeaturedGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">\${renderPackageCards(BALI_PACKAGES)}</div>
+                    <div id="homeFeaturedGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">${renderPackageCards(BALI_PACKAGES)}</div>
                 </section>
 
                 <!-- TRANSPORT PLANNING -->
@@ -128,7 +128,7 @@ function renderHomeView() {
                         <button onclick="navigateTo('blog')" class="px-4 py-2 rounded-full bg-white border border-slate-200 text-xs font-semibold text-slate-700 hover:border-teal-400">Bali travel tips</button>
                     </div>
                 </section>
-            \`;
+            `;
         }
 
         /* VIEW 2: ALL PACKAGES & CATALOG PAGE WITH FILTER BAR */
