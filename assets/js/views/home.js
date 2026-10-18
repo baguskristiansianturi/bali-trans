@@ -1,154 +1,191 @@
 function renderHomeView() {
-    return `
-        <!-- BUSINESS-LED HERO: BALI TRANS IS A LOCAL TRANSPORT & TRIP SERVICE, NOT A MARKETPLACE -->
-        <section class="relative isolate overflow-hidden bg-slate-950">
-            <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=2000&q=85"
-                 alt="Tropical landscape in Bali" class="absolute inset-0 -z-20 h-full w-full object-cover object-center">
-            <div class="absolute inset-0 -z-10 bg-gradient-to-r from-slate-950/90 via-slate-950/65 to-slate-950/25"></div>
-            <div class="mx-auto grid max-w-7xl items-center gap-8 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-12 lg:px-8 lg:py-24">
-                <div class="lg:col-span-7">
-                    <span class="mb-5 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-2 text-xs font-bold tracking-wide text-white backdrop-blur">
-                        <i class="fas fa-route text-orange-300" aria-hidden="true"></i>
-                        Your Bali journey, made simpler
-                    </span>
-                    <h1 class="mb-5 max-w-3xl text-4xl font-black leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
-                        Get around Bali.<br>
-                        <span class="text-orange-300">Make more of your trip.</span>
-                    </h1>
-                    <p class="mb-7 max-w-2xl text-base leading-7 text-slate-100 sm:text-lg">
-                        From airport pick-ups and private drivers to day trips around the island, find a way to travel that fits your plans. Tell us what you need and confirm the details before you go.
-                    </p>
-                    <div class="flex flex-col gap-3 sm:flex-row">
-                        <button onclick="navigateTo('packages')" class="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-orange-500 px-6 py-3 font-extrabold text-white shadow-lg shadow-orange-950/30 transition hover:bg-orange-600">
-                            Explore trips and transport <i class="fas fa-arrow-right" aria-hidden="true"></i>
-                        </button>
-                        <button onclick="document.getElementById('ways-to-travel')?.scrollIntoView({behavior:'smooth'})" class="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-white/50 bg-white/10 px-6 py-3 font-bold text-white backdrop-blur transition hover:bg-white/20">
-                            Find what you need
-                        </button>
-                    </div>
-                    <p class="mt-4 max-w-xl text-xs leading-5 text-slate-200">Availability, inclusions and final prices should be confirmed for your chosen date and itinerary. Online booking in this preview is a demonstration.</p>
-                </div>
-                <div class="lg:col-span-5">
-                    <div class="rounded-3xl border border-white/25 bg-white/95 p-5 shadow-2xl sm:p-6">
-                        <p class="mb-1 text-xs font-extrabold uppercase tracking-widest text-orange-600">Start with your plan</p>
-                        <h2 class="mb-4 text-xl font-black text-slate-900 sm:text-2xl">What are you looking for?</h2>
-                        <div class="space-y-3">
-                            <button onclick="filterByCategory('driver'); navigateTo('packages')" class="flex w-full items-center gap-4 rounded-2xl border border-slate-200 p-4 text-left transition hover:border-orange-300 hover:bg-orange-50">
-                                <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-orange-100 text-lg text-orange-700"><i class="fas fa-car-side" aria-hidden="true"></i></span>
-                                <span class="min-w-0 flex-1"><strong class="block text-sm text-slate-900">Private transport</strong><span class="mt-1 block text-xs leading-5 text-slate-600">A driver for transfers or getting around Bali.</span></span>
-                                <i class="fas fa-chevron-right text-xs text-slate-400" aria-hidden="true"></i>
-                            </button>
-                            <button onclick="filterByCategory('temple'); navigateTo('packages')" class="flex w-full items-center gap-4 rounded-2xl border border-slate-200 p-4 text-left transition hover:border-orange-300 hover:bg-orange-50">
-                                <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-emerald-100 text-lg text-emerald-700"><i class="fas fa-leaf" aria-hidden="true"></i></span>
-                                <span class="min-w-0 flex-1"><strong class="block text-sm text-slate-900">Explore Bali by day</strong><span class="mt-1 block text-xs leading-5 text-slate-600">Temples, landscapes and local highlights.</span></span>
-                                <i class="fas fa-chevron-right text-xs text-slate-400" aria-hidden="true"></i>
-                            </button>
-                            <button onclick="filterByCategory('nusa'); navigateTo('packages')" class="flex w-full items-center gap-4 rounded-2xl border border-slate-200 p-4 text-left transition hover:border-orange-300 hover:bg-orange-50">
-                                <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-sky-100 text-lg text-sky-700"><i class="fas fa-water" aria-hidden="true"></i></span>
-                                <span class="min-w-0 flex-1"><strong class="block text-sm text-slate-900">Island trips and activities</strong><span class="mt-1 block text-xs leading-5 text-slate-600">Browse Nusa Penida and adventure options.</span></span>
-                                <i class="fas fa-chevron-right text-xs text-slate-400" aria-hidden="true"></i>
-                            </button>
+            return `
+                <!-- HERO SECTION WITH KLOOK SEARCH WIDGET -->
+                <div class="relative bg-slate-900 min-h-[480px] md:min-h-[540px] flex items-center justify-center overflow-hidden">
+                    <!-- Hero Background Image with Overlay -->
+                    <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=2000&q=80" class="absolute inset-0 w-full h-full object-cover opacity-40 scale-105 transition-transform duration-1000">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent"></div>
+
+                    <div class="relative max-w-5xl w-full mx-auto px-4 sm:px-6 py-12 text-center z-10">
+                        <span class="inline-flex items-center gap-2 bg-orange-500/20 text-orange-300 backdrop-blur-md border border-orange-500/30 text-xs font-bold px-3 py-1.5 rounded-full mb-4 uppercase tracking-wider">
+                            <i class="fas fa-bolt text-klook-orange"></i> Find experiences for your Bali trip
+                        </span>
+                        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight mb-4 leading-tight">
+                            Your Ultimate Bali Experience <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-300">Starts Here</span>
+                        </h1>
+                        <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto mb-8 font-medium">
+                            Compare tour ideas, island activities and private transport. Review each option before continuing to the demo booking steps.
+                        </p>
+
+                        <!-- KLOOK TABS & SEARCH CONTAINER -->
+                        <div class="bg-white/95 backdrop-blur-md rounded-3xl p-3 sm:p-4 shadow-2xl max-w-4xl mx-auto text-left border border-white/20">
+                            <!-- Filter Pill Quick Tabs -->
+                            <div class="flex items-center space-x-2 overflow-x-auto pb-3 mb-3 border-b border-slate-100 hide-scrollbar text-xs font-bold">
+                                <button onclick="quickFilterSearch('all')" class="px-4 py-2 bg-klook-orange text-white rounded-full whitespace-nowrap shadow-sm">All Experiences</button>
+                                <button onclick="quickFilterSearch('driver')" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-full whitespace-nowrap"><i class="fas fa-car mr-1" aria-hidden="true"></i> Private Driver</button>
+                                <button onclick="quickFilterSearch('temple')" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-full whitespace-nowrap"><i class="fas fa-landmark mr-1" aria-hidden="true"></i> Ubud & Temples</button>
+                                <button onclick="quickFilterSearch('nusa')" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-full whitespace-nowrap"><i class="fas fa-water mr-1" aria-hidden="true"></i> Nusa Penida</button>
+                                <button onclick="quickFilterSearch('water')" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-full whitespace-nowrap"><i class="fas fa-life-ring mr-1" aria-hidden="true"></i> Water Sports</button>
+                                <button onclick="quickFilterSearch('atv')" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-full whitespace-nowrap"><i class="fas fa-motorcycle mr-1" aria-hidden="true"></i> ATV & Rafting</button>
+                            </div>
+
+                            <!-- Search Input Inputs -->
+                            <div class="grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
+                                <div class="md:col-span-5 relative">
+                                    <label class="text-[10px] uppercase tracking-wider font-extrabold text-slate-400 block px-3">Destination / Activity</label>
+                                    <div class="flex items-center px-3 py-1">
+                                        <i class="fas fa-location-dot text-klook-orange mr-2"></i>
+                                        <input type="text" id="heroSearchInput" placeholder="Where in Bali? (e.g., Ubud, Uluwatu)" class="w-full bg-transparent text-sm font-semibold text-slate-800 outline-none placeholder-slate-400">
+                                    </div>
+                                </div>
+                                <div class="md:col-span-4 border-t md:border-t-0 md:border-l border-slate-200 pt-2 md:pt-0 md:pl-3">
+                                    <label class="text-[10px] uppercase tracking-wider font-extrabold text-slate-400 block px-3">Travel Date</label>
+                                    <div class="flex items-center px-3 py-1">
+                                        <i class="far fa-calendar-alt text-klook-orange mr-2"></i>
+                                        <input type="date" value="${new Date().toISOString().split('T')[0]}" class="w-full bg-transparent text-sm font-semibold text-slate-800 outline-none">
+                                    </div>
+                                </div>
+                                <div class="md:col-span-3">
+                                    <button onclick="executeHeroSearch()" class="w-full bg-klook-orange hover:bg-klook-hover text-white font-extrabold py-3.5 px-6 rounded-2xl transition flex items-center justify-center gap-2 shadow-lg shadow-orange-500/30">
+                                        <i class="fas fa-search"></i> Search
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                        <button onclick="filterByCategory('all'); navigateTo('packages')" class="mt-4 w-full rounded-xl bg-slate-900 px-5 py-3 text-sm font-extrabold text-white transition hover:bg-slate-800">See all available options</button>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- WAYS TO TRAVEL: SERVICE-LED, NOT MARKETPLACE-LED -->
-        <section id="ways-to-travel" class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8 lg:py-16">
-            <div class="mb-8 max-w-2xl">
-                <p class="mb-2 text-xs font-black uppercase tracking-widest text-orange-600">Travel your way</p>
-                <h2 class="text-2xl font-black tracking-tight text-slate-900 sm:text-3xl">One trip can need more than one ride.</h2>
-                <p class="mt-3 text-sm leading-6 text-slate-600 sm:text-base">Choose the kind of help you need first. Browse the details, then check the route, timing and inclusions before confirming.</p>
-            </div>
-            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                <button onclick="filterByCategory('driver'); navigateTo('packages')" class="group rounded-2xl border border-slate-200 bg-white p-5 text-left shadow-sm transition hover:-translate-y-1 hover:border-orange-300 hover:shadow-md">
-                    <span class="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-100 text-xl text-orange-700"><i class="fas fa-plane-arrival" aria-hidden="true"></i></span>
-                    <h3 class="font-extrabold text-slate-900">Airport & hotel transfers</h3>
-                    <p class="mt-2 text-sm leading-6 text-slate-600">Plan the ride between the airport, your stay and your next stop.</p>
-                    <span class="mt-4 inline-flex items-center gap-2 text-sm font-bold text-orange-700">View transport <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
-                </button>
-                <button onclick="filterByCategory('driver'); navigateTo('packages')" class="group rounded-2xl border border-slate-200 bg-white p-5 text-left shadow-sm transition hover:-translate-y-1 hover:border-orange-300 hover:shadow-md">
-                    <span class="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-100 text-xl text-sky-700"><i class="fas fa-car" aria-hidden="true"></i></span>
-                    <h3 class="font-extrabold text-slate-900">Private driver</h3>
-                    <p class="mt-2 text-sm leading-6 text-slate-600">Explore at your own pace with a route planned around your day.</p>
-                    <span class="mt-4 inline-flex items-center gap-2 text-sm font-bold text-orange-700">View transport <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
-                </button>
-                <button onclick="filterByCategory('temple'); navigateTo('packages')" class="group rounded-2xl border border-slate-200 bg-white p-5 text-left shadow-sm transition hover:-translate-y-1 hover:border-orange-300 hover:shadow-md">
-                    <span class="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-100 text-xl text-emerald-700"><i class="fas fa-mountain-sun" aria-hidden="true"></i></span>
-                    <h3 class="font-extrabold text-slate-900">Bali day tours</h3>
-                    <p class="mt-2 text-sm leading-6 text-slate-600">Build a day around culture, scenery and places you want to see.</p>
-                    <span class="mt-4 inline-flex items-center gap-2 text-sm font-bold text-orange-700">Explore day tours <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
-                </button>
-                <button onclick="filterByCategory('nusa'); navigateTo('packages')" class="group rounded-2xl border border-slate-200 bg-white p-5 text-left shadow-sm transition hover:-translate-y-1 hover:border-orange-300 hover:shadow-md">
-                    <span class="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-violet-100 text-xl text-violet-700"><i class="fas fa-ship" aria-hidden="true"></i></span>
-                    <h3 class="font-extrabold text-slate-900">Island experiences</h3>
-                    <p class="mt-2 text-sm leading-6 text-slate-600">Compare island trip ideas and the travel arrangements they need.</p>
-                    <span class="mt-4 inline-flex items-center gap-2 text-sm font-bold text-orange-700">Explore islands <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
-                </button>
-            </div>
-        </section>
+                <!-- CATEGORY ICON PILLS GRID -->
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-20">
+                    <div class="bg-white rounded-3xl p-6 klook-shadow border border-slate-100 grid grid-cols-3 sm:grid-cols-6 gap-4 text-center">
+                        <div onclick="filterByCategory('temple'); navigateTo('packages');" class="group cursor-pointer p-3 rounded-2xl hover:bg-klook-light transition">
+                            <div class="w-14 h-14 mx-auto rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl mb-2 group-hover:scale-105 transition"><i class="fas fa-landmark" aria-hidden="true"></i></div>
+                            <span class="text-xs font-bold text-slate-800 group-hover:text-klook-orange">Temple & Art</span>
+                        </div>
+                        <div onclick="filterByCategory('nusa'); navigateTo('packages');" class="group cursor-pointer p-3 rounded-2xl hover:bg-klook-light transition">
+                            <div class="w-14 h-14 mx-auto rounded-2xl bg-cyan-50 text-cyan-600 flex items-center justify-center text-2xl mb-2 group-hover:scale-110 transition"><i class="fas fa-water" aria-hidden="true"></i></div>
+                            <span class="text-xs font-bold text-slate-800 group-hover:text-klook-orange">Nusa Penida</span>
+                        </div>
+                        <div onclick="filterByCategory('water'); navigateTo('packages');" class="group cursor-pointer p-3 rounded-2xl hover:bg-klook-light transition">
+                            <div class="w-14 h-14 mx-auto rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-2xl mb-2 group-hover:scale-110 transition"><i class="fas fa-life-ring" aria-hidden="true"></i></div>
+                            <span class="text-xs font-bold text-slate-800 group-hover:text-klook-orange">Water Sports</span>
+                        </div>
+                        <div onclick="filterByCategory('driver'); navigateTo('packages');" class="group cursor-pointer p-3 rounded-2xl hover:bg-klook-light transition">
+                            <div class="w-14 h-14 mx-auto rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl mb-2 group-hover:scale-110 transition"><i class="fas fa-car-side" aria-hidden="true"></i></div>
+                            <span class="text-xs font-bold text-slate-800 group-hover:text-klook-orange">Private Driver</span>
+                        </div>
+                        <div onclick="filterByCategory('atv'); navigateTo('packages');" class="group cursor-pointer p-3 rounded-2xl hover:bg-klook-light transition">
+                            <div class="w-14 h-14 mx-auto rounded-2xl bg-orange-50 text-orange-600 flex items-center justify-center text-2xl mb-2 group-hover:scale-110 transition"><i class="fas fa-motorcycle" aria-hidden="true"></i></div>
+                            <span class="text-xs font-bold text-slate-800 group-hover:text-klook-orange">ATV & Rafting</span>
+                        </div>
+                        <div onclick="navigateTo('blog');" class="group cursor-pointer p-3 rounded-2xl hover:bg-klook-light transition">
+                            <div class="w-14 h-14 mx-auto rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center text-2xl mb-2 group-hover:scale-110 transition"><i class="fas fa-book-open" aria-hidden="true"></i></div>
+                            <span class="text-xs font-bold text-slate-800 group-hover:text-klook-orange">Bali Guides</span>
+                        </div>
+                    </div>
+                </div>
 
-        <!-- FEATURED TRIPS: EXISTING DATA IS SHOWN AS PREVIEW CONTENT -->
-        <section class="border-y border-slate-200 bg-white py-14 sm:py-16">
-            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div class="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-                    <div>
-                        <p class="mb-2 text-xs font-black uppercase tracking-widest text-orange-600">Ideas for your itinerary</p>
-                        <h2 class="text-2xl font-black tracking-tight text-slate-900 sm:text-3xl">Explore Bali and beyond</h2>
-                        <p class="mt-2 max-w-2xl text-sm leading-6 text-slate-600">Browse sample trips and activities. Confirm actual availability, pricing and what's included before booking.</p>
+                <!-- FEATURED PACKAGES GRID (KLOOK CARDS) -->
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+                    <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+                        <div>
+                            <span class="text-xs font-black text-klook-orange uppercase tracking-wider">Top Recommended Experiences</span>
+                            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Trending Bali Activities</h2>
+                        </div>
+                        <button onclick="navigateTo('packages')" class="inline-flex items-center text-xs font-bold text-klook-orange hover:text-klook-hover gap-2 bg-orange-50 hover:bg-orange-100 px-4 py-2.5 rounded-full transition">
+                            View All Activities <i class="fas fa-arrow-right"></i>
+                        </button>
                     </div>
-                    <button onclick="filterByCategory('all'); navigateTo('packages')" class="inline-flex min-h-11 items-center justify-center gap-2 self-start rounded-xl bg-slate-900 px-5 py-3 text-sm font-bold text-white transition hover:bg-slate-800 sm:self-auto">Browse all options <i class="fas fa-arrow-right" aria-hidden="true"></i></button>
-                </div>
-                <div id="homeFeaturedGrid" class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                    ${renderPackageCards(BALI_PACKAGES.slice(0, 6))}
-                </div>
-            </div>
-        </section>
 
-        <!-- CLEAR, HONEST BOOKING FLOW -->
-        <section class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8 lg:py-16">
-            <div class="grid gap-10 lg:grid-cols-5 lg:items-center">
-                <div class="lg:col-span-2">
-                    <p class="mb-2 text-xs font-black uppercase tracking-widest text-orange-600">How it works</p>
-                    <h2 class="text-2xl font-black tracking-tight text-slate-900 sm:text-3xl">Plan first. Confirm the details. Then travel.</h2>
-                    <p class="mt-3 text-sm leading-6 text-slate-600">We want the journey to be clear before you commit—not to make you guess what a price includes or whether a trip is available.</p>
-                    <button onclick="filterByCategory('all'); navigateTo('packages')" class="mt-6 inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-orange-500 px-5 py-3 text-sm font-extrabold text-white transition hover:bg-orange-600">Choose a trip <i class="fas fa-arrow-right" aria-hidden="true"></i></button>
-                </div>
-                <div class="space-y-4 lg:col-span-3">
-                    <div class="flex gap-4 rounded-2xl border border-slate-200 bg-white p-5">
-                        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-orange-100 font-black text-orange-700">1</span>
-                        <div><h3 class="font-extrabold text-slate-900">Choose a service or trip</h3><p class="mt-1 text-sm leading-6 text-slate-600">Start with transport, a day tour, an island trip or an activity that fits your plans.</p></div>
-                    </div>
-                    <div class="flex gap-4 rounded-2xl border border-slate-200 bg-white p-5">
-                        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-orange-100 font-black text-orange-700">2</span>
-                        <div><h3 class="font-extrabold text-slate-900">Check the itinerary and inclusions</h3><p class="mt-1 text-sm leading-6 text-slate-600">Review the route, timing, group size, transport and any additional costs that apply.</p></div>
-                    </div>
-                    <div class="flex gap-4 rounded-2xl border border-slate-200 bg-white p-5">
-                        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-orange-100 font-black text-orange-700">3</span>
-                        <div><h3 class="font-extrabold text-slate-900">Request and confirm your booking</h3><p class="mt-1 text-sm leading-6 text-slate-600">Share your date and travel details, then get confirmation before treating the trip as booked.</p></div>
+                    <!-- Package Cards Grid -->
+                    <div id="homeFeaturedGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        ${renderPackageCards(BALI_PACKAGES)}
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- TRUST WITHOUT INVENTED REVIEWS, GUARANTEES OR SERVICE CLAIMS -->
-        <section class="bg-slate-900 py-12 sm:py-14">
-            <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 md:grid-cols-3 lg:px-8">
-                <div class="flex gap-4">
-                    <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-xl text-orange-300"><i class="fas fa-list-check" aria-hidden="true"></i></span>
-                    <div><h3 class="font-extrabold text-white">Clear trip details</h3><p class="mt-2 text-sm leading-6 text-slate-300">Understand the plan and inclusions before you confirm.</p></div>
+                <!-- WHY CHOOSE BALI EXPLORER (KLOOK VALUE PROP) -->
+                <div class="bg-white py-16 border-y border-slate-200">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="text-center max-w-2xl mx-auto mb-12">
+                            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Why Travelers Choose Us</h2>
+                            <p class="text-slate-500 text-sm mt-2">Hassle-free booking experience with top-rated local Balinese hospitality drivers and operators.</p>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <div class="flex items-start gap-4 p-6 rounded-3xl bg-slate-50 border border-slate-100">
+                                <div class="w-12 h-12 rounded-2xl bg-orange-100 text-klook-orange flex items-center justify-center text-xl font-bold flex-shrink-0">⚡</div>
+                                <div>
+                                    <h4 class="font-extrabold text-slate-900 mb-1">Instant Voucher Confirmation</h4>
+                                    <p class="text-xs text-slate-500 leading-relaxed">Book in 60 seconds and receive instant digital QR e-vouchers on your smartphone.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4 p-6 rounded-3xl bg-slate-50 border border-slate-100">
+                                <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl font-bold flex-shrink-0">🏷️</div>
+                                <div>
+                                    <h4 class="font-extrabold text-slate-900 mb-1">Best Price Guarantee</h4>
+                                    <p class="text-xs text-slate-500 leading-relaxed">Direct partner prices with no hidden booking charges or surprise fees at pickup.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4 p-6 rounded-3xl bg-slate-50 border border-slate-100">
+                                <div class="w-12 h-12 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center text-xl font-bold flex-shrink-0">💬</div>
+                                <div>
+                                    <h4 class="font-extrabold text-slate-900 mb-1">24/7 WhatsApp Concierge</h4>
+                                    <p class="text-xs text-slate-500 leading-relaxed">Dedicated local Balinese support team ready to assist your itinerary updates anytime.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="flex gap-4">
-                    <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-xl text-orange-300"><i class="fas fa-map-location-dot" aria-hidden="true"></i></span>
-                    <div><h3 class="font-extrabold text-white">Travel built around your route</h3><p class="mt-2 text-sm leading-6 text-slate-300">Start with where you want to go and the kind of trip you have in mind.</p></div>
+
+                <!-- TESTIMONIALS CAROUSEL SECTION -->
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                    <div class="text-center mb-10">
+                        <span class="text-xs font-black text-klook-orange uppercase tracking-wider">Verified Reviews</span>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Loved by 50,000+ Happy Travelers</h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm">
+                            <div class="flex items-center gap-1 text-amber-400 mb-3 text-sm">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-xs text-slate-600 leading-relaxed mb-4 italic">"The Nusa Penida tour was seamless! Our driver Pak Wayan was extremely polite, drove safely, and took photo-worthy pictures at Kelingking Beach."</p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-9 h-9 rounded-full bg-slate-200 font-bold flex items-center justify-center text-xs">JD</div>
+                                <div>
+                                    <h5 class="text-xs font-bold text-slate-900">Jessica Davies</h5>
+                                    <span class="text-[10px] text-slate-400">Australia • Verified Booking</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm">
+                            <div class="flex items-center gap-1 text-amber-400 mb-3 text-sm">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-xs text-slate-600 leading-relaxed mb-4 italic">"Hired the private driver for 3 days in Ubud. Great air-conditioned car, very punctual, and knew all the best local Warungs for lunch."</p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-9 h-9 rounded-full bg-slate-200 font-bold flex items-center justify-center text-xs">MK</div>
+                                <div>
+                                    <h5 class="text-xs font-bold text-slate-900">Marcus Chen</h5>
+                                    <span class="text-[10px] text-slate-400">Singapore • Verified Booking</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm">
+                            <div class="flex items-center gap-1 text-amber-400 mb-3 text-sm">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-xs text-slate-600 leading-relaxed mb-4 italic">"Rafting and ATV combo is a must try! Super fun guide, locker facilities were clean, and lunch was surprisingly delicious."</p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-9 h-9 rounded-full bg-slate-200 font-bold flex items-center justify-center text-xs">SL</div>
+                                <div>
+                                    <h5 class="text-xs font-bold text-slate-900">Sophie Laurent</h5>
+                                    <span class="text-[10px] text-slate-400">France • Verified Booking</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="flex gap-4">
-                    <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-xl text-orange-300"><i class="fas fa-comments" aria-hidden="true"></i></span>
-                    <div><h3 class="font-extrabold text-white">Confirm before you travel</h3><p class="mt-2 text-sm leading-6 text-slate-300">Check availability and final arrangements instead of relying on demo booking status.</p></div>
-                </div>
-            </div>
-        </section>
-    `;
-}
+            `;
+        }
+
+        /* VIEW 2: ALL PACKAGES & CATALOG PAGE WITH FILTER BAR */
