@@ -44,6 +44,9 @@
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         .klook-shadow { box-shadow: 0 4px 25px rgba(0,0,0,0.06); }
         .klook-hover { transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); }
+        #appContainer.page-view-enter { animation: pageViewEnter 240ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+        @keyframes pageViewEnter { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+        @media (prefers-reduced-motion: reduce) { #appContainer.page-view-enter { animation: none; } }
         .klook-hover:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(15,157,154,0.15); }
         .active-tab { border-bottom: 3px solid #0F9D9A; color: #0F9D9A; font-weight: 700; }
         .badge-gradient { background: linear-gradient(135deg, #0F9D9A 0%, #38BDF8 100%); }
@@ -414,7 +417,6 @@
         function navigateTo(viewName, params = null) {
             const container = document.getElementById('appContainer');
             document.body.classList.toggle('checkout-mode', viewName === 'checkout');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
             syncLocaleSelector();
 
             switch (viewName) {
@@ -460,6 +462,11 @@
                 default:
                     container.innerHTML = renderHomeView();
             }
+            // Swap views at the top instantly, then softly animate the new page in.
+            window.scrollTo(0, 0);
+            container.classList.remove('page-view-enter');
+            void container.offsetWidth;
+            container.classList.add('page-view-enter');
             updateBadges();
             applyLanguageCopy(document);
         }
