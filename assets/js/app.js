@@ -842,7 +842,11 @@
         function addToCartCurrentPkg() {
             const selectedOptId = document.querySelector('input[name="packageOption"]:checked')?.value;
             const opt = currentDetailPackage.options.find(o => o.id === selectedOptId);
-            const date = document.getElementById('bookingDateInput').value;
+            const date = document.getElementById('bookingDateInput')?.value || '';
+            if (!date) {
+                showToast('Please select your activity date first.');
+                return;
+            }
 
             const item = {
                 id: currentDetailPackage.id,
@@ -860,8 +864,9 @@
         }
 
         function bookNowCurrentPkg() {
+            const previousCount = cartState.length;
             addToCartCurrentPkg();
-            navigateTo('cart');
+            if (cartState.length > previousCount) navigateTo('cart');
         }
 
         function updateCartQty(index, delta) {
