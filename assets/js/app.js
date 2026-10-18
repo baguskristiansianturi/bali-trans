@@ -869,7 +869,7 @@
                                         <div class="flex flex-wrap items-center gap-2 text-xs font-bold text-teal-700">
                                             <span>${blog.category}</span><span class="text-slate-300">•</span><span class="text-slate-500">${blog.readTime}</span>
                                         </div>
-                                        <h3 class="mt-3 text-lg font-extrabold leading-snug text-slate-900"><a href="?view=blog-read&id=${blog.id}" class="hover:text-teal-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-600">${blog.title}</a></h3>
+                                        <h3 class="mt-3 text-lg font-extrabold leading-snug text-slate-900"><a href="${blog.slug ? ((window.location.pathname.startsWith('/bali-trans/') ? '/bali-trans/' : '/') + 'blog/' + blog.slug + '/') : ('?view=blog-read&id=' + encodeURIComponent(blog.id))}" class="hover:text-teal-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-600">${blog.title}</a></h3>
                                         <p class="mt-3 flex-1 text-sm leading-6 text-slate-600">${blog.snippet}</p>
                                         <div class="mt-5 flex items-center justify-between border-t border-slate-100 pt-4">
                                             <span class="text-xs text-slate-500">${blog.author}</span>
