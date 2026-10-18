@@ -821,7 +821,19 @@
             };
             const labels = destinationLabels[keyValue] || [];
             const labelMarkup = labels.length ? '<div class="mt-4 flex flex-wrap gap-2" aria-label="Destination categories">' + labels.map(label => '<span class="rounded-full border border-teal-100 bg-teal-50 px-3 py-1 text-xs font-bold text-teal-800">' + label + '</span>').join('') + '</div>' : '';
-            return '<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"><button onclick="navigateTo(\'home\')" class="text-sm font-bold text-orange-600 mb-4">← Back to home</button><p class="text-xs font-extrabold uppercase tracking-widest text-orange-600">Bali Trans travel guide</p><h1 class="text-3xl sm:text-4xl font-black text-slate-950 mt-2">' + page.title + '</h1><p class="text-sm sm:text-base text-slate-600 leading-7 max-w-3xl mt-3">' + page.intro + '</p>' + labelMarkup + '<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-7">' + cards + '</div><p class="mt-6 text-xs leading-6 text-slate-500">' + page.note + '</p><button onclick="navigateTo(\'packages\')" class="mt-5 rounded-xl border border-slate-300 px-4 py-3 text-sm font-bold text-slate-700">Browse available tours</button></div>';
+            const destinationParent = {
+                'place:lovina':'region:north','place:banjar-hot-springs':'region:north','place:brahmavihara-arama':'region:north','place:gitgit-waterfall':'region:north','place:munduk':'region:north','place:wanagiri':'region:north','place:menjangan':'region:north','place:gedong-kirtya':'region:north',
+                'place:uluwatu':'region:south','place:jimbaran':'region:south','place:nusa-dua':'region:south','place:denpasar':'region:south',
+                'place:ubud':'region:central','place:rafting':'region:central','place:rice-terraces':'region:central',
+                'place:amed':'region:east','place:tulamben':'region:east','place:tirta-gangga':'region:east','place:taman-ujung':'region:east','place:lempuyang':'region:east','place:besakih':'region:east','place:candidasa-padangbai':'region:east','place:sidemen':'region:east',
+                'place:medewi':'region:west','place:rambut-siwi':'region:west','place:bunut-bolong':'region:west','place:perancak':'region:west','place:gilimanuk':'region:west','place:west-bali-national-park':'region:west',
+                'place:kelingking-crystal-bay':'region:nusa','place:diamond-atuh':'region:nusa','place:nusa-lembongan':'region:nusa','place:nusa-ceningan':'region:nusa','place:island-snorkelling-diving':'region:nusa'
+            };
+            const parentRoute = destinationParent[keyValue];
+            const backButton = parentRoute
+                ? '<button type="button" onclick="navigateTo(\\'discovery\\',\\'' + parentRoute + '\\')" class="text-sm font-bold text-teal-700 mb-4">← Back to region</button>'
+                : '<button type="button" onclick="navigateTo(\\'home\\')" class="text-sm font-bold text-teal-700 mb-4">← Back to home</button>';
+            return '<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">' + backButton<p class="text-xs font-extrabold uppercase tracking-widest text-orange-600">Bali Trans travel guide</p><h1 class="text-3xl sm:text-4xl font-black text-slate-950 mt-2">' + page.title + '</h1><p class="text-sm sm:text-base text-slate-600 leading-7 max-w-3xl mt-3">' + page.intro + '</p>' + labelMarkup + '<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-7">' + cards + '</div><p class="mt-6 text-xs leading-6 text-slate-500">' + page.note + '</p><button onclick="navigateTo(\'packages\')" class="mt-5 rounded-xl border border-slate-300 px-4 py-3 text-sm font-bold text-slate-700">Browse available tours</button></div>';
         }
         function renderHomeView() {
             const regions = [
