@@ -1,6 +1,6 @@
 function renderHomeView() {
             return `
-                <!-- HERO SECTION: BDM TRANS POSITIONING; EXISTING DESIGN PRESERVED -->
+                <!-- HERO SECTION: approved layout, public-facing Bali Trans copy -->
                 <div class="relative bg-slate-900 min-h-[480px] md:min-h-[540px] flex items-center justify-center overflow-hidden">
                     <!-- Hero Background Image with Overlay -->
                     <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=2000&q=80" class="absolute inset-0 w-full h-full object-cover opacity-40 scale-105 transition-transform duration-1000">
@@ -103,7 +103,7 @@ function renderHomeView() {
                     </div>
                 </div>
 
-                <!-- BDM TRANS SERVICE VALUES; EXISTING SECTION DESIGN PRESERVED -->
+                <!-- SERVICE VALUES SECTION; approved layout preserved -->
                 <div class="bg-white py-16 border-y border-slate-200">
                     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div class="text-center max-w-2xl mx-auto mb-12">
