@@ -17,7 +17,9 @@ Scope: static source audit and safe refactor of the existing single-page prototy
 - Extracted custom CSS to `assets/css/styles.css`.
 - Extracted Tailwind theme configuration to `assets/js/tailwind.config.js` and load it before the Tailwind CDN.
 - Extracted data constants to `assets/js/data.js`.
-- Moved application logic to `assets/js/app.js`.
+- Split application state, navigation, view rendering, and interactions into focused JavaScript files.
+- Split view rendering by feature: homepage, catalog/cards, package detail, articles, and cart/checkout.
+- Added a GitHub Actions validation workflow to check JavaScript syntax and local asset references on pull requests.
 - Fixed the homepage search so the entered keyword filters packages, with a clear empty state.
 - Fixed article routing to search `BALI_BLOGS`, rather than `BALI_PACKAGES`.
 - Added basic checkout guest-field validation and activity-date validation.
@@ -40,10 +42,11 @@ Scope: static source audit and safe refactor of the existing single-page prototy
 ## Verification performed
 
 - Confirmed on the branch that the HTML contains no inline `<style>` blocks or inline application script bodies.
+- Confirmed the monolithic `assets/js/app.js` and combined `assets/js/views.js` were removed and replaced by focused files.
 - Confirmed local asset references and script order: Tailwind configuration before Tailwind CDN; data before application logic.
 - Confirmed referenced inline handler names found in the static HTML have corresponding application functions.
 - Confirmed source contains the targeted search, article-route, date/guest validation, and prototype disclaimer fixes.
-- Full browser/mobile interaction testing and a JavaScript runtime syntax check have **not** been completed in this environment. Do not merge or claim production readiness based on static checks alone.
+- Full browser/mobile interaction testing has **not** been completed in this environment. The new GitHub Actions syntax/reference checks are configured, but their passing result has not yet been confirmed. Do not merge or claim production readiness based on static checks alone.
 
 ## Next steps
 
