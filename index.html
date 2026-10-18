@@ -1328,6 +1328,109 @@
             `;
         }
 
+        function changeQty(delta) {
+            currentDetailQty = Math.max(1, currentDetailQty + delta);
+            document.getElementById('adultQty').innerText = currentDetailQty;
+            updateBookingCalculation();
+        }
+
+        function updateBookingCalculation() {
+            const curr = CURRENCY_RATES[currentCurrency];
+            const base = currentDetailPackage.priceIDR;
+            const selectedOptId = document.querySelector('input[name="packageOption"]:checked')?.value;
+            const opt = currentDetailPackage.options.find(o => o.id === selectedOptId);
+            const extra = opt ? opt.extraPriceIDR : 0;
+
+            const unitPrice = base + extra;
+            const total = unitPrice * currentDetailQty;
+
+            const calcElem = document.getElementById('calculatedTotalPrice');
+            if (calcElem) calcElem.innerText = 'Confirm with team';
+        }
+
+        function addToCartCurrentPkg() {
+            const selectedOptId = document.querySelector('input[name="packageOption"]:checked')?.value;
+            const opt = currentDetailPackage.options.find(o => o.id === selectedOptId);
+            const date = document.getElementById('bookingDateInput').value;
+
+            const item = {
+                id: currentDetailPackage.id,
+                title: currentDetailPackage.title,
+                heroImage: currentDetailPackage.heroImage,
+                unitPriceIDR: currentDetailPackage.priceIDR + (opt ? opt.extraPriceIDR : 0),
+                quantity: currentDetailQty,
+                optionName: opt ? opt.name : 'Standard',
+                date: date
+            };
+
+            cartState.push(item);
+            showToast('Package added to shopping cart!');
+            updateBadges();
+        }
+
+        function bookNowCurrentPkg() {
+            addToCartCurrentPkg();
+            navigateTo('cart');
+        }
+
+        function updateCartQty(index, delta) {
+            cartState[index].quantity += delta;
+            if (cartState[index].quantity <= 0) {
+                cartState.splice(index, 1);
+            }
+            navigateTo('cart');
+        }
+
+        function removeFromCart(index) {
+            cartState.splice(index, 1);
+            showToast('Item removed from cart');
+            navigateTo('cart');
+        }
+
+        function toggleWishlist(pkgId) {
+            const pkg = BALI_PACKAGES.find(p => p.id === pkgId);
+            const idx = wishlistState.findIndex(w => w.id === pkgId);
+
+            if (idx > -1) {
+                wishlistState.splice(idx, 1);
+                showToast('Removed from Wishlist');
+            } else {
+                wishlistState.push(pkg);
+                showToast('Added to Wishlist ❤️');
+            }
+            updateBadges();
+            if (document.getElementById('homeFeaturedGrid') !== null) {
+                document.getElementById('homeFeaturedGrid').innerHTML = renderPackageCards(BALI_PACKAGES);
+            }
+        }
+
+        function toggleWishlistModal() {
+            const modal = document.getElementById('wishlistModal');
+            const list = document.getElementById('wishlistItemsList');
+
+            if (modal.classList.contains('hidden')) {
+                modal.classList.remove('hidden');
+                if (wishlistState.length === 0) {
+                    list.innerHTML = `<p class="text-xs text-slate-400 text-center py-6">Your wishlist is currently empty.</p>`;
+                } else {
+                    list.innerHTML = wishlistState.map(pkg => `
+                        <div class="flex items-center justify-between p-3 rounded-2xl bg-slate-50 border border-slate-100">
+                            <div class="flex items-center gap-3">
+                                <img src="${pkg.heroImage}" class="w-12 h-12 object-cover rounded-xl">
+                                <div>
+                                    <h5 class="text-xs font-bold text-slate-900 line-clamp-1">${pkg.title}</h5>
+                                    <span class="text-[10px] text-slate-400">${pkg.location}</span>
+                                </div>
+                            </div>
+                            <button onclick="navigateTo('detail', '${pkg.id}'); toggleWishlistModal();" class="text-xs font-bold text-klook-orange hover:underline">View</button>
+                        </div>
+                    `).join('');
+                }
+            } else {
+                modal.classList.add('hidden');
+            }
+        }
+
         function advanceCheckoutStep(step) {
             currentCheckoutStep = step;
             const container = document.getElementById('checkoutStepContainer');
