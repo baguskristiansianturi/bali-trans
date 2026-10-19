@@ -2,7 +2,7 @@ tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        klook: {
+                        bali: {
                             orange: '#FF5E00',
                             hover: '#E05300',
                             light: '#FFF2EB',
