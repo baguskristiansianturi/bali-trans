@@ -137,20 +137,28 @@ Status halaman, konten, dan fakta adalah tiga hal berbeda. Sumber kosong berarti
 
 ## Audit artikel yang sudah ada
 
-| ID | Artikel | Perkiraan kata isi | H2 | H3 | Link di isi | Status editorial |
+| ID | Artikel | Perkiraan kata isi | H2 | H3 | Sumber eksternal | Status editorial |
 |---|---|---:|---:|---:|---:|---|
-| blog-1 | A Practical First-Time Guide to Bali | 258 | 0 | 5 | 0 | Draft / perlu review sumber |
-| blog-2 | Nusa Penida Highlights: Kelingking, Diamond Beach & Atuh | 169 | 0 | 2 | 0 | Draft / perlu review sumber |
-| blog-3 | Balinese Dishes to Try on Your Trip | 170 | 0 | 2 | 0 | Draft / perlu review sumber |
+| blog-1 | A Practical First-Time Guide to Bali | 258 | 5 | 0 | 2 | Draft / perlu review fakta dan tautan |
+| blog-2 | Nusa Penida Highlights: Kelingking, Diamond Beach & Atuh | 169 | 2 | 0 | 2 | Draft / perlu review keselamatan dan akses |
+| blog-3 | Balinese Dishes to Try on Your Trip | 170 | 0 | 0 | 1 | Draft / perlu review fakta dan bahan makanan |
 
-### Temuan artikel
+### Perbaikan artikel pada tahap ini
 
-1. Template kartu/detail artikel yang diperiksa belum menyertakan atribut `alt` pada gambar.
-2. Isi artikel menggunakan heading H3 untuk bagian utama; tinjau hierarki dengan H1 judul halaman dan apakah H2 dibutuhkan.
-3. Isi artikel yang diperiksa belum memiliki tautan HTML langsung ke sumber rujukan. Klaim harga, waktu tempuh, jam buka, aturan masuk, kondisi laut/cuaca, keselamatan, dan operator perlu sumber relevan serta tanggal pemeriksaan.
-4. Setiap artikel perlu judul SEO, meta description, URL kanonis, tanggal benar, kategori, dan tautan internal; pastikan metadata berubah sesuai artikel.
-5. Audit topik tumpang tindih, klaim yang tidak terbukti, link mati, keyword overlap, gambar, dan CTA. Jangan tampilkan draft seolah telah diverifikasi.
-6. Pastikan daftar dan detail artikel bisa dibuka dari URL yang disalin langsung dan setelah reload. Rute saat ini memakai query SPA.
+- Menambahkan sumber lanjutan pada setiap artikel: portal e-Visa resmi dan kantor imigrasi untuk panduan pertama kali; portal pariwisata Indonesia dan Polri untuk Nusa Penida; portal pariwisata Indonesia untuk kuliner.
+- Mengubah heading utama isi artikel dari H3 ke H2 agar urutannya sesuai dengan H1 judul artikel.
+- Menambahkan teks alternatif yang lebih deskriptif untuk gambar artikel dan memakai tanggal ISO di atribut `datetime`.
+- Menambahkan dua gambar ilustrasi artikel dari Unsplash ke daftar kredit foto. Kredit Wikimedia yang ada tetap dipertahankan.
+- Mengganti nama penulis perorangan yang belum dapat diverifikasi dengan atribusi “Bali Trans Editorial Team”.
+
+### Hal yang masih perlu diselesaikan
+
+1. Sumber sudah ditautkan, tetapi setiap klaim masih perlu dibandingkan dengan sumbernya satu per satu sebelum artikel dipublikasikan. Tautan sumber tidak otomatis berarti seluruh teks telah terverifikasi.
+2. Artikel pertama tetap harus menghindari saran visa yang terlalu umum; persyaratan bergantung pada paspor dan tujuan perjalanan. Tautkan pembaca ke portal resmi, jangan menyalin aturan yang cepat berubah tanpa tanggal pemeriksaan.
+3. Artikel Nusa Penida harus tetap konservatif pada keselamatan. Jangan menyatakan pantai aman untuk berenang; ikuti larangan, papan, dan instruksi lokal yang berlaku pada saat kunjungan.
+4. Artikel kuliner perlu menjaga deskripsi hidangan tetap umum, menyebut bahwa resep bervariasi, dan mengingatkan pembaca menanyakan bahan jika memiliki alergi atau pantangan.
+5. Metadata judul dan deskripsi artikel berubah mengikuti ID artikel. URL kanonis belum diterapkan; karena website masih menggunakan query SPA, canonical/SEO URL perlu diputuskan sebelum peluncuran.
+6. Pemeriksaan visual daftar artikel, detail artikel, sumber eksternal, gambar, dan URL langsung di browser HP masih diperlukan. Belum ada klaim lulus uji browser.
 
 ## Prioritas lanjutan
 
