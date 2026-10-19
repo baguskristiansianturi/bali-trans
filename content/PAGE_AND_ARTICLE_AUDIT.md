@@ -237,3 +237,10 @@ Pemeriksaan statis pada `bali-master-data.json` menemukan:
 - Hanya 8 dari 87 destinasi yang mempunyai route eksplisit pada master data. Matriks pemetaan 43 route UI ke master data ada di `ROUTE_MASTER_MAPPING.md`; route gabungan masih perlu dipisahkan sebelum dianggap kanonis.
 
 Pemeriksaan ini memvalidasi konsistensi struktur data, bukan kebenaran setiap fakta atau status operasi destinasi.
+
+
+## Tahap 5 — Default locale
+
+- Audit browser awal menemukan `index.html` memakai `lang="en"`, tetapi pengunjung baru memulai dengan locale Indonesia. Karena kamus terjemahan belum mencakup seluruh heading dan isi, halaman katalog tampil campuran bahasa.
+- Default pengunjung baru sekarang memakai English dan currency USD agar sesuai dengan bahasa utama dokumen serta `LOCALE_SETTINGS.en`. Preferensi bahasa/currency yang sudah tersimpan tetap dihormati.
+- Terjemahan Indonesia, Melayu, Singlish, Arab, dan Hindi belum boleh dianggap lengkap. Setiap locale memerlukan pemeriksaan halaman per halaman sebelum dipromosikan sebagai terjemahan penuh.
