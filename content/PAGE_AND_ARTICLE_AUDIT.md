@@ -32,7 +32,7 @@ Cakupan: source code branch `refactor/clean-structure-content-audit`, master dat
 | Detail artikel | Isi artikel | Renderer tersedia | Uji H1, heading, sumber, internal links, metadata, URL langsung |
 | Cart | Kuantitas, subtotal, wishlist/keranjang | Renderer tersedia | Uji empty state, batas kuantitas, refresh, subtotal, badge |
 | Checkout | Langkah, validasi, ringkasan, WhatsApp | Demo front-end | Uji validasi; jangan memberi kesan pembayaran/booking telah diproses |
-| About / Contact / Image credits | Halaman pendukung | Fungsi source tersedia | Uji tautan footer, formulir, pesan sukses/error, kredit gambar |
+| About / Contact / Image credits | Halaman pendukung | Renderer dipisahkan di `static-pages.js` | Uji tautan footer, formulir, pesan sukses/error, kredit gambar |
 | Bahasa / mata uang | Salinan terjemahan dan harga | Handler tersedia, belum tervalidasi penuh | Uji bahasa, RTL, format; rate tetap bukan kurs live |
 
 ## Inventaris destinasi pada master data

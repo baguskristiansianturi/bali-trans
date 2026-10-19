@@ -56,7 +56,7 @@ The implementation remains a client-rendered SPA with query-based routes. The ex
 - `assets/js/data.js`: package, article, locale, and currency data.
 - `assets/js/state.js`: shared UI state.
 - `assets/js/navigation.js`: route handling and page metadata.
-- `assets/js/views/`: discovery, home, catalog, detail, articles, cart, and checkout renderers.
+- `assets/js/views/`: discovery, static pages, home, catalog, detail, articles, cart, and checkout renderers.
 - `assets/js/interactions.js`: shared UI handlers.
 - `content/bali-master-data.json`: destination/category inventory and readiness.
 - `content/PAGE_AND_ARTICLE_AUDIT.md`: destination inventory and audit findings.
