@@ -65,7 +65,7 @@ jobs:
           const missingDiscovery = searchKeys.filter(key => !discoveryKeys.includes(key));
           const master = JSON.parse(read('content/bali-master-data.json'));
           const invalidMasterRoutes = master.destinations.filter(destination => destination.route).filter(destination => {
-            const query = new URLSearchParams(destination.route.replace(/^\\?/, ''));
+            const query = new URLSearchParams(destination.route.replace(/^\?/, ''));
             const view = query.get('page') || 'home';
             const item = query.get('item');
             return !views.includes(view) || (view === 'discovery' && !discoveryKeys.includes(item));
