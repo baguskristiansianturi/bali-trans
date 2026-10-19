@@ -202,3 +202,20 @@ Audit lanjutan menemukan fallback yang menyamarkan URL salah sebagai konten vali
 - GitHub Actions kini memeriksa bahwa setiap route type memiliki switch case, semua kunci discovery yang digunakan pencarian global memiliki halaman, dan ID artikel tidak duplikat.
 
 Status: perubahan source sudah ditulis pada branch audit. Uji browser langsung tetap belum tersedia dari sesi ini; deployment GitHub Pages tidak berhasil diakses dari lingkungan audit.
+
+
+## Tahap 3 — Audit aset, tautan, dan metadata artikel
+
+- Source scan pada `index.html` dan seluruh view tidak menemukan tautan `href="#"` yang menjadi placeholder pada file yang diperiksa.
+- Semua tautan eksternal yang membuka tab baru pada file yang diperiksa sudah menyertakan `rel` untuk keamanan.
+- Gambar pada kartu artikel, katalog paket, keranjang, galeri detail, hasil pencarian, dan wishlist kini memiliki alt text atau alt kosong yang disengaja untuk gambar dekoratif; gambar konten dan thumbnail dimuat secara lazy. Hero homepage dan gambar utama detail tidak di-lazy-load agar tidak menunda konten utama.
+- Detail artikel kini menampilkan bagian “Sources & further reading” berdasarkan daftar sumber per artikel. Atribut `datetime` memakai tanggal ISO dan heading utama isi artikel menggunakan H2 setelah H1 judul.
+- Halaman kredit foto kini mencakup dua ilustrasi artikel dari Unsplash beserta tautan lisensinya, selain foto Wikimedia yang sudah tercatat.
+- Nama penulis perorangan yang belum terverifikasi diganti dengan “Bali Trans Editorial Team” agar tidak mengatribusikan tulisan kepada orang yang belum dikonfirmasi.
+
+### Status yang belum bisa dinyatakan lulus
+
+- Browser QA visual dan interaksi belum dijalankan di HP/desktop dari sesi ini. URL GitHub Pages tidak dapat diakses oleh lingkungan audit, jadi jangan menganggap halaman live telah diverifikasi.
+- Konten 79 destinasi berstatus `PLANNED` masih belum punya sumber dan fakta terverifikasi. Jangan mengubahnya menjadi artikel penuh dengan mengarang informasi; lakukan riset per tempat sebelum publikasi.
+- Checkout dan formulir kontak masih berupa alur front-end/prototype. Jangan menyatakan email, booking, atau pembayaran sungguhan sudah diproses.
+- URL canonical dan strategi URL SEO permanen belum ditetapkan. Selama rute masih memakai query string, keputusan SEO URL harus dilakukan sebelum peluncuran.
