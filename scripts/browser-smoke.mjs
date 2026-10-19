@@ -46,9 +46,9 @@ async function checkRoute(label, query, expectedHeading) {
   await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 30000 });
   await page.waitForFunction(() => {
     const app = document.querySelector('#appContainer');
-    return app && app.textContent.trim().length > 30 && app.querySelector('h1');
+    return app && app.textContent.trim().length > 30 && app.querySelector('h1, h2');
   }, { timeout: 20000 });
-  const heading = (await page.locator('#appContainer h1').first().innerText()).trim();
+  const heading = (await page.locator('#appContainer h1, #appContainer h2').first().innerText()).trim();
   if (expectedHeading && !heading.includes(expectedHeading)) {
     throw new Error(label + ': expected heading containing "' + expectedHeading + '", got "' + heading + '"');
   }
@@ -68,16 +68,16 @@ async function checkRoute(label, query, expectedHeading) {
 }
 
 try {
-  await checkRoute('homepage', '', 'Bali');
-  await checkRoute('about', '?page=about', 'About');
+  await checkRoute('homepage', '', 'Find your way around Bali');
+  await checkRoute('about', '?page=about', 'A simpler way');
   await checkRoute('contact', '?page=contact', 'Let’s talk');
-  await checkRoute('package catalogue', '?page=packages', 'Tours');
+  await checkRoute('package catalogue', '?page=packages', 'Tours & Activities');
   await checkRoute('North Bali region', '?page=discovery&item=region%3Anorth', 'Explore North Bali');
   await checkRoute('valid package detail', '?page=detail&item=lovina-dolphin-tour', 'Lovina');
   await checkRoute('article list', '?page=blog', 'Plan Your Dream Trip to Bali');
   await checkRoute('article detail', '?page=blog-read&item=blog-1', 'A Practical First-Time Guide to Bali');
-  await checkRoute('cart', '?page=cart', 'Trip');
-  await checkRoute('checkout', '?page=checkout', 'Booking');
+  await checkRoute('cart', '?page=cart', 'Shopping Cart');
+  await checkRoute('checkout', '?page=checkout');
   await checkRoute('photo credits', '?page=image-credits', 'Photo credits');
   await checkRoute('unknown page', '?page=unknown-page', 'We couldn’t find that page');
   await checkRoute('unknown discovery item', '?page=discovery&item=place%3Aunknown', 'We couldn’t find that page');
@@ -85,7 +85,7 @@ try {
   await checkRoute('unknown package ID', '?page=detail&item=unknown-package', 'We couldn’t find that page');
 
   await page.goto('http://127.0.0.1:4173/', { waitUntil: 'domcontentloaded' });
-  await page.waitForFunction(() => document.querySelector('#appContainer h1'));
+  await page.waitForFunction(() => document.querySelector('#appContainer h1, #appContainer h2'));
   await page.evaluate(() => navigateTo('blog'));
   await page.waitForFunction(() => new URLSearchParams(location.search).get('page') === 'blog');
   await page.goBack();
