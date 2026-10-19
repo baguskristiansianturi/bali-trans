@@ -666,9 +666,14 @@
                 {title:'East Bali',location:'Amed · Tulamben · Karangasem',key:'region:east',terms:'east bali amed tulamben karangasem sidemen tirta gangga besakih'},
                 {title:'West Bali',location:'Medewi · Jembrana · Gilimanuk',key:'region:west',terms:'west bali medewi jembrana gilimanuk'},
                 {title:'Nusa Islands',location:'Penida · Lembongan · Ceningan',key:'region:nusa',terms:'nusa islands penida lembongan ceningan'},
-                {title:'Uluwatu Temple & Coastal Cliffs',location:'South Bali · Temple, coast',key:'place:uluwatu',terms:'uluwatu temple cliffs'},
-                {title:'Jimbaran Coast',location:'South Bali · Beach, seafood',key:'place:jimbaran',terms:'jimbaran coast seafood bay'},
-                {title:'Nusa Dua Beaches',location:'South Bali · Beach, water activities',key:'place:nusa-dua',terms:'nusa dua beaches watersports'},
+                
+                
+                
+                {title:'Uluwatu Temple',location:'South Bali · Temple, cliff views',articleId:'south-bali-uluwatu-temple',terms:'uluwatu temple kecak sunset cliff culture'},
+                {title:'Jimbaran Bay',location:'South Bali · Coast, seafood',articleId:'south-bali-jimbaran-bay',terms:'jimbaran bay seafood sunset beach'},
+                {title:'Nusa Dua Beach',location:'South Bali · Beach, water activities',articleId:'south-bali-nusa-dua-beach',terms:'nusa dua beach snorkeling water activities'},
+                {title:'Kuta Beach',location:'South Bali · Surf, sunset',articleId:'south-bali-kuta-beach',terms:'kuta beach surf sunset'},
+                {title:'Sanur Beach',location:'South Bali · Sunrise, coastal walk',articleId:'south-bali-sanur-beach',terms:'sanur beach sunrise coastal walk cycling'}
                 {title:'Denpasar City Sights',location:'South Bali · City, culture',key:'place:denpasar',terms:'denpasar city'},
                 {title:'Ubud & Surrounding Villages',location:'Central Bali · Culture, nature',key:'place:ubud',terms:'ubud villages art'},
                 {title:'River Rafting',location:'Central Bali · Outdoor activity',key:'place:rafting',terms:'rafting river adventure'},
@@ -731,7 +736,7 @@
                 {terms:['east bali','amed','tulamben','karangasem','sidemen','tirta gangga','besakih'],key:'region:east'},
                 {terms:['west bali','medewi','jembrana','gilimanuk'],key:'region:west'},
                 {terms:['nusa penida','lembongan','ceningan','island'],key:'region:nusa'},
-                {terms:['uluwatu'],key:'place:uluwatu'},{terms:['jimbaran'],key:'place:jimbaran'},{terms:['nusa dua'],key:'place:nusa-dua'},{terms:['denpasar'],key:'place:denpasar'},
+                {terms:['uluwatu temple','uluwatu'],articleId:'south-bali-uluwatu-temple'},{terms:['jimbaran bay','jimbaran'],articleId:'south-bali-jimbaran-bay'},{terms:['nusa dua beach','nusa dua'],articleId:'south-bali-nusa-dua-beach'},{terms:['kuta beach','kuta'],articleId:'south-bali-kuta-beach'},{terms:['sanur beach','sanur'],articleId:'south-bali-sanur-beach'},{terms:['denpasar'],key:'place:denpasar'},
                 {terms:['ubud'],key:'place:ubud'},{terms:['rafting','white water'],key:'place:rafting'},{terms:['rice terrace','rice terraces'],key:'place:rice-terraces'},
                 {terms:['amed','jemeluk'],key:'place:amed'},{terms:['tulamben','usat liberty'],key:'place:tulamben'},{terms:['tirta gangga'],key:'place:tirta-gangga'},{terms:['taman ujung'],key:'place:taman-ujung'},{terms:['lempuyang'],key:'place:lempuyang'},{terms:['besakih'],key:'place:besakih'},{terms:['candidasa','padangbai'],key:'place:candidasa-padangbai'},{terms:['sidemen'],key:'place:sidemen'},
                 {terms:['medewi'],key:'place:medewi'},{terms:['rambut siwi'],key:'place:rambut-siwi'},{terms:['bunut bolong'],key:'place:bunut-bolong'},{terms:['perancak'],key:'place:perancak'},{terms:['gilimanuk'],key:'place:gilimanuk'},{terms:['west bali national park'],key:'place:west-bali-national-park'},
