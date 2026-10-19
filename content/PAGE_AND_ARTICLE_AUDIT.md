@@ -1,7 +1,7 @@
 # Bali Trans — Audit Struktur Halaman dan Konten
 
 Tanggal audit: 19 Oktober 2026  
-Cakupan: source code branch `feat/nusa-canonical-destination-pages`, master data, dan artikel aplikasi. Audit ini statis; bukan klaim bahwa semua alur telah lulus uji browser di HP.
+Cakupan: source code branch `feat/south-destination-articles`, master data, dan artikel aplikasi. Audit ini statis; bukan klaim bahwa semua alur telah lulus uji browser di HP.
 
 ## Ringkasan temuan
 
@@ -9,8 +9,8 @@ Cakupan: source code branch `feat/nusa-canonical-destination-pages`, master data
 - Sebelum perubahan, halaman utama memuat sekitar 213,149 karakter JavaScript aplikasi inline dan tiga blok CSS inline; file modular yang sudah ada tidak menjadi sumber yang dipakai oleh halaman utama.
 - Rute tetap berupa SPA berbasis query string (`?page=...`), bukan dokumen HTML terpisah. Back/Forward ditangani router aplikasi dan harus diuji pada browser nyata.
 - Master data mencakup 87 kandidat destinasi, 6 wilayah editorial, dan 14 kategori aktivitas.
-- Status master data: 4 record `PUBLISHED`, 8 `STRUCTURE_READY`, 75 `PLANNED`. Renderer kini memuat 32 key tempat; 12 record master mempunyai route eksplisit, termasuk empat artikel Nusa Penida.
-- Data aplikasi memuat 7 artikel. Artikel yang dapat dirender belum tentu siap diterbitkan.
+- Status master data: 9 record `PUBLISHED`, 8 `STRUCTURE_READY`, 70 `PLANNED`. Renderer kini memuat 29 key tempat; 17 record master mempunyai route eksplisit, termasuk sembilan artikel destinasi individual.
+- Data aplikasi memuat 12 artikel. Tiga artikel editorial awal masih memerlukan review; sembilan artikel destinasi sudah memiliki sumber resmi dan route individual.
 
 ## Struktur yang dirapikan pada branch ini
 
@@ -22,9 +22,9 @@ Cakupan: source code branch `feat/nusa-canonical-destination-pages`, master data
 
 ## Rekonsiliasi route source dengan master data
 
-- Renderer discovery memiliki 41 key: 32 tempat, 6 wilayah, 2 pilihan durasi, dan 1 layanan private driver. Empat pantai Nusa Penida kini menjadi artikel individual.
+- Renderer discovery memiliki 38 key: 29 tempat, 6 wilayah, 2 pilihan durasi, dan 1 layanan private driver. Empat pantai Nusa Penida dan lima destinasi South Bali kini menjadi artikel individual.
 - Sebelum perbaikan pencarian pada branch ini, dropdown pencarian hanya mencakup 39 key: 34 tempat dan 5 wilayah. Route wilayah Bali Utara, private driver, full-day, dan long-trip tidak semuanya bisa ditemukan dari pencarian global. Empat alias tersebut kini ditambahkan.
-- Master data memuat 87 destinasi, dan 12 record sekarang mempunyai field `route`; 32 key tempat di UI masih mencakup beberapa tempat gabungan. Perlu pemetaan satu per satu antara record master, key renderer, URL, dan artikel yang benar. Jangan menandai halaman siap hanya karena ada alias pencarian.
+- Master data memuat 87 destinasi, dan 17 record sekarang mempunyai field `route`; 29 key tempat di UI masih mencakup beberapa tempat gabungan. Perlu pemetaan satu per satu antara record master, key renderer, URL, dan artikel yang benar. Jangan menandai halaman siap hanya karena ada alias pencarian.
 
 ## Audit template halaman dan alur
 
@@ -140,12 +140,17 @@ Status halaman, konten, dan fakta adalah tiga hal berbeda. Sumber kosong berarti
 | ID | Artikel | Perkiraan kata isi | H2 | H3 | Sumber eksternal | Status editorial |
 |---|---|---:|---:|---:|---:|---|
 | blog-1 | A Practical First-Time Guide to Bali | 258 | 5 | 0 | 2 | Draft / perlu review fakta dan tautan |
-| blog-2 | Nusa Penida Highlights: Kelingking, Diamond Beach & Atuh | 169 | 2 | 0 | 2 | Draft / perlu review keselamatan dan akses |
+| blog-2 | Planning a Day on Nusa Penida: Transport and Safety | 240 | 3 | 0 | 2 | Overview / internal links to four individual guides |
 | blog-3 | Balinese Dishes to Try on Your Trip | 170 | 2 | 0 | 1 | Draft / perlu review fakta dan bahan makanan |
 | nusa-penida-kelingking-beach | Kelingking Beach: Viewpoints, Access and Safety | 262 | 4 | 0 | 2 | Published / safety warning dated 2025, verify local signs |
 | nusa-penida-crystal-bay | Crystal Bay: Coastal Views and Marine Activities | 211 | 3 | 0 | 2 | Published / activity conditions vary |
 | nusa-penida-diamond-beach | Diamond Beach: Access, Views and Safety | 213 | 3 | 0 | 2 | Published / safety warning dated 2025, verify local signs |
 | nusa-penida-atuh-beach | Atuh Beach: A Guide to Nusa Penida’s Eastern Coast | 210 | 3 | 0 | 2 | Published / verify current local access
+| south-bali-uluwatu-temple | Uluwatu Temple: Cliff Views, Culture and Visitor Etiquette | 204 | 3 | 0 | 1 | Published / verify current site rules |
+| south-bali-jimbaran-bay | Jimbaran Bay: Sunset, Seafood and a Coastal Walk | 197 | 3 | 0 | 1 | Published / confirm current restaurant details locally |
+| south-bali-nusa-dua-beach | Nusa Dua Beach: Water Activities and Coastal Walks | 203 | 3 | 0 | 1 | Published / activity availability varies |
+| south-bali-kuta-beach | Kuta Beach: Surf, Sunset and Practical Tips | 190 | 3 | 0 | 1 | Published / follow current surf safety signs |
+| south-bali-sanur-beach | Sanur Beach: Sunrise and the Coastal Walkway | 196 | 3 | 0 | 1 | Published / sea conditions vary |
 
 ### Perbaikan artikel pada tahap ini
 
@@ -226,7 +231,7 @@ Status: perubahan source sudah ditulis pada branch audit. Uji browser langsung t
 - URL canonical dan strategi URL SEO permanen belum ditetapkan. Selama rute masih memakai query string, keputusan SEO URL harus dilakukan sebelum peluncuran.
 
 
-Route-to-master-data reconciliation is maintained separately in [`ROUTE_MASTER_MAPPING.md`](./ROUTE_MASTER_MAPPING.md). It maps all 41 discovery route keys, plus the four individual Nusa Penida article routes, and flags remaining combined destinations that need canonical pages.
+Route-to-master-data reconciliation is maintained separately in [`ROUTE_MASTER_MAPPING.md`](./ROUTE_MASTER_MAPPING.md). It maps all 38 discovery route keys, plus nine individual Nusa Penida/South Bali article routes, and flags remaining combined destinations that need canonical pages.
 
 
 ## Tahap 4 — Integritas master data
@@ -238,7 +243,7 @@ Pemeriksaan statis pada `bali-master-data.json` menemukan:
 - Semua `region_id`, `admin_area_id`, dan kategori yang direferensikan cocok dengan daftar master masing-masing.
 - Tidak ada route duplikat.
 - Semua record dengan status fakta selain `UNVERIFIED` memiliki tanggal pengecekan; seluruh record `FACT_CHECK` memiliki setidaknya satu URL sumber.
-- 12 dari 87 destinasi sekarang mempunyai route eksplisit pada master data. Matriks pemetaan 41 route UI serta empat artikel Nusa Penida ada di `ROUTE_MASTER_MAPPING.md`; route gabungan lain masih perlu dipisahkan sebelum dianggap kanonis.
+- 17 dari 87 destinasi sekarang mempunyai route eksplisit pada master data. Matriks pemetaan 38 route UI serta sembilan artikel destinasi ada di `ROUTE_MASTER_MAPPING.md`; route gabungan lain masih perlu dipisahkan sebelum dianggap kanonis.
 
 Pemeriksaan ini memvalidasi konsistensi struktur data, bukan kebenaran setiap fakta atau status operasi destinasi.
 
@@ -254,9 +259,9 @@ Pemeriksaan ini memvalidasi konsistensi struktur data, bukan kebenaran setiap fa
 
 GitHub Actions menjalankan Chromium pada viewport mobile 360 × 800 dan berhasil memeriksa:
 
-- Homepage, About, Contact, katalog paket, wilayah Bali Utara dan Nusa, detail paket Lovina, daftar artikel, tujuh detail artikel termasuk empat panduan Nusa Penida, cart, checkout, dan halaman kredit foto. Keempat artikel Nusa juga diperiksa memiliki panel sumber.
+- Homepage, About, Contact, katalog paket, wilayah Bali Utara, Nusa dan South Bali, detail paket Lovina, daftar artikel, dua belas detail artikel termasuk empat panduan Nusa Penida dan lima panduan South Bali, cart, checkout, dan halaman kredit foto. Artikel destinasi diperiksa memiliki panel sumber.
 - URL halaman, destinasi, artikel, dan paket yang tidak dikenal menampilkan not-found, bukan konten lain yang salah.
-- Kartu wilayah Nusa Penida membuka artikel Kelingking yang sesuai; browser Back/Forward juga berfungsi saat berpindah dari homepage ke daftar artikel.
+- Kartu wilayah Nusa Penida membuka artikel Kelingking dan kartu wilayah South Bali membuka artikel Uluwatu yang sesuai; browser Back/Forward juga berfungsi saat berpindah dari homepage ke daftar artikel.
 - Tidak ada horizontal overflow pada route yang diuji, tidak ada elemen gambar tanpa atribut `alt`, dan tidak ada uncaught JavaScript error selama rangkaian uji.
 - Pemeriksaan otomatis menemukan bahwa `updateBadges()` menulis ke tiga elemen yang tidak ada pada header saat ini. Elemen-elemen opsional sekarang diperiksa sebelum diperbarui, sehingga navigasi dapat menyelesaikan metadata, terjemahan, dan scroll handling.
 - Checkout memakai label English pada locale default setelah kamus terjemahan diperluas.
