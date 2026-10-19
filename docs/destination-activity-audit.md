@@ -4,7 +4,7 @@ Status: checkpoint audit pada branch `preview/bali-trans`. Ini adalah inventaris
 
 ## Cakupan yang sekarang terdaftar
 
-- **144 entri destinasi/tempat aktivitas** di 12 kelompok navigasi: 9 kabupaten/kota administratif Bali dan tiga pulau Nusa Penida, Nusa Lembongan, serta Nusa Ceningan.
+- **150 entri destinasi/tempat aktivitas** di 12 kelompok navigasi: 9 kabupaten/kota administratif Bali dan tiga pulau Nusa Penida, Nusa Lembongan, serta Nusa Ceningan.
 - **82 item aktivitas** dalam 11 kategori: laut/olahraga air, petualangan, satwa/safari, alam/air terjun/taman, budaya/pura/warisan, kuliner, wellness, rekreasi/belanja/malam, keluarga/edukasi, perjalanan pulau/perahu, dan transportasi.
 - **65 referensi lokasi** digunakan oleh pemetaan aktivitas; pemeriksaan kode tidak menemukan slug lokasi yang tidak terdaftar.
 - Artikel editorial statis yang terdaftar saat audit ini: **Pantai Lovina**. Destinasi lain sekarang memiliki tampilan detail berbasis data di aplikasi, tetapi itu belum menggantikan pekerjaan menulis artikel blog editorial yang lengkap untuk setiap tempat.
@@ -13,29 +13,30 @@ Status: checkpoint audit pada branch `preview/bali-trans`. Ini adalah inventaris
 
 | Wilayah | Entri |
 | --- | ---: |
-| Buleleng / Bali Utara | 25 |
+| Buleleng / Bali Utara | 26 |
 | Jembrana / Bali Barat | 6 |
 | Denpasar | 8 |
-| Badung | 17 |
+| Badung | 18 |
 | Tabanan | 15 |
-| Gianyar | 20 |
+| Gianyar | 21 |
 | Bangli | 12 |
 | Karangasem | 18 |
-| Klungkung daratan | 3 |
+| Klungkung daratan | 6 |
 | Nusa Penida | 11 |
 | Nusa Lembongan | 5 |
 | Nusa Ceningan | 4 |
-| **Total** | **144** |
+| **Total** | **150** |
 
 Jumlah ini adalah hitungan entri direktori, bukan jumlah seluruh objek wisata yang ada di Bali. Beberapa tempat lokal yang kurang terdokumentasi masih perlu validasi lapangan/sumber resmi; jumlah entri tidak boleh dipasarkan sebagai katalog yang sudah lengkap secara absolut.
 
 ## Perubahan implementasi yang sudah dilakukan
 
-1. Memperluas data destinasi dengan 85 entri tambahan, termasuk tempat penting di Badung, Tabanan, Gianyar, Bangli, Karangasem, Denpasar, Jembrana, dan ketiga pulau Nusa.
+1. Memperluas data destinasi dengan 91 entri tambahan, termasuk tempat penting di Badung, Tabanan, Gianyar, Bangli, Karangasem, Denpasar, Jembrana, dan ketiga pulau Nusa.
 2. Memasukkan lokasi aktivitas seperti Waterbom Bali, Bali Zoo, Bali Bird Park, Bali Safari & Marine Park, Tanjung Benoa watersports, Ayung rafting, Telaga Waja rafting, dan Bali Treetop Adventure Park.
 3. Memperbaiki alur `place`: slug destinasi yang terdaftar sekarang membuka tampilan detail destinasi, bukan layar “artikel sedang diaudit” yang generik.
 4. Memastikan artikel statis yang sudah terbit (Pantai Lovina) dapat dibuka melalui tautan artikel, bukan dialihkan kembali ke tampilan detail SPA.
-5. Menghubungkan kategori aktivitas dengan tempat terkait dan CTA pertanyaan ke halaman kontak. Halaman ini tidak mengklaim harga, operator, tiket, jam buka, atau ketersediaan langsung.
+5. Menghubungkan kategori aktivitas dengan tempat terkait dan CTA pertanyaan ke halaman kontak.
+6. Memuat direktori tambahan pada halaman statis Bali Utara sebelum aplikasi dijalankan, supaya referensi data global tidak gagal dimuat. Halaman ini tidak mengklaim harga, operator, tiket, jam buka, atau ketersediaan langsung.
 
 ## Audit alur yang masih harus dituntaskan
 
