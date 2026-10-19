@@ -68,6 +68,24 @@
                 case 'contact':
                     container.innerHTML = renderContactView();
                     break;
+                case 'help':
+                    container.innerHTML = renderHelpCenterView();
+                    break;
+                case 'help-topic':
+                    container.innerHTML = renderHelpTopicView(params);
+                    break;
+                case 'terms':
+                    container.innerHTML = renderLegalView('terms');
+                    break;
+                case 'privacy':
+                    container.innerHTML = renderLegalView('privacy');
+                    break;
+                case 'partners':
+                    container.innerHTML = renderPartnersView();
+                    break;
+                case 'service-info':
+                    container.innerHTML = renderServiceInfoView(params);
+                    break;
                 case 'packages':
                     container.innerHTML = renderPackagesCatalogView();
                     break;
@@ -129,6 +147,12 @@
                 home: ['Bali Trans | Bali Tours, Activities & Private Transport', defaultDescription],
                 about: ['About Bali Trans | Our Approach to Bali Travel', 'Learn about Bali Trans and how we help travellers explore Bali tours and arrange private transport.'],
                 contact: ['Contact Bali Trans | Plan Your Bali Trip', 'Contact Bali Trans to discuss Bali tours, private transport, pickup arrangements and trip details.'],
+                help: ['Help Centre | Bali Trans', 'Find practical answers about trips, bookings, payments, changes and cancellations.'],
+                'help-topic': ['Travel Help Guide | Bali Trans', 'Practical information about Bali Trans services and booking arrangements.'],
+                terms: ['Terms and Conditions | Bali Trans', 'Read the terms that apply to Bali Trans website use and service enquiries.'],
+                privacy: ['Privacy Policy | Bali Trans', 'Learn how information shared through Bali Trans enquiries is handled.'],
+                partners: ['Local Partners | Bali Trans', 'Information for local service providers interested in working with Bali Trans.'],
+                'service-info': ['Bali Travel Services | Bali Trans', 'Review service details and what to confirm before booking.'],
                 packages: ['Bali Tours & Activities | Bali Trans', 'Browse Bali tour packages, activities and private transport options. Check trip details before contacting the team.'],
                 discovery: ['Explore Bali Destinations | Bali Trans', 'Discover destinations and travel experiences across Bali with Bali Trans.'],
                 detail: [currentDetailPackage ? currentDetailPackage.title + ' | Bali Trans' : 'Bali Tour Details | Bali Trans', currentDetailPackage ? 'Review the itinerary, highlights and important details for ' + currentDetailPackage.title + ' in Bali.' : defaultDescription],
