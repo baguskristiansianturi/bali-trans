@@ -61,7 +61,7 @@ function renderArticleSources(sources) {
                         <span aria-hidden="true">•</span>
                         <span>${blog.readTime}</span>
                     </div>
-                    <img src="${blog.image}" alt="${blog.title.replace(/&/g, '&amp;').replace(/"/g, '&quot;')}" class="w-full h-56 sm:h-80 md:h-[380px] object-cover rounded-3xl mb-8 shadow-md" loading="lazy">
+                    <img src="${blog.image}" alt="${(blog.imageAlt || blog.title).replace(/&/g, '&amp;').replace(/"/g, '&quot;')}" class="w-full h-56 sm:h-80 md:h-[380px] object-cover rounded-3xl mb-8 shadow-md" loading="lazy">
                     <div class="prose max-w-none text-slate-700 text-sm sm:text-base leading-relaxed space-y-4">
                         ${blog.content}
                     </div>
