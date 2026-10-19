@@ -206,7 +206,14 @@
                     'place:west-bali-national-park':['West Bali National Park | Bali Trans','Explore West Bali National Park and check current visitor access and activity requirements.'],
                     'place:nusa-lembongan':['Nusa Lembongan & Mangrove Forest | Bali Trans','Plan island transfers and explore Nusa Lembongan’s coastal and mangrove areas.'],
                     'place:nusa-ceningan':['Nusa Ceningan & Yellow Bridge | Bali Trans','Discover Nusa Ceningan and the Yellow Bridge with practical island travel notes.'],
-                    'place:island-snorkelling-diving':['Snorkelling & Diving Around the Nusa Islands | Bali Trans','Review sea conditions, operator guidance and marine-care tips for Nusa Islands activities.']
+                    'place:island-snorkelling-diving':['Snorkelling & Diving Around the Nusa Islands | Bali Trans','Review sea conditions, operator guidance and marine-care tips for Nusa Islands activities.'],
+                    'place:kuta-beach':['Kuta Beach | Bali Trans','Plan a visit to Kuta Beach with practical surf, beach-safety and local travel tips.'],
+                    'place:seminyak-beach':['Seminyak Beach | Bali Trans','Explore Seminyak Beach, sunset views and nearby dining with practical coastal safety notes.'],
+                    'place:sanur-beach':['Sanur Beach | Bali Trans','Discover Sanur Beach, its coastal path and island boat connections with useful planning tips.'],
+                    'place:kelingking-beach':['Kelingking Beach, Nusa Penida | Bali Trans','Plan a safe visit to Kelingking’s cliff viewpoint and review steep-access and coastal safety guidance.'],
+                    'place:crystal-bay':['Crystal Bay, Nusa Penida | Bali Trans','Review practical access, snorkelling considerations and sea-safety guidance for Crystal Bay.'],
+                    'place:diamond-beach':['Diamond Beach, Nusa Penida | Bali Trans','Plan a visit to Diamond Beach and review steep-step access and coastal safety considerations.'],
+                    'place:atuh-beach':['Atuh Beach, Nusa Penida | Bali Trans','Discover Atuh Beach with practical notes on access, tide conditions and swimming safety.']
                 };
                 selected = destinationMetadata[params] || metadata['not-found'];
             }
