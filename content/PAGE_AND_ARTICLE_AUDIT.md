@@ -141,7 +141,7 @@ Status halaman, konten, dan fakta adalah tiga hal berbeda. Sumber kosong berarti
 |---|---|---:|---:|---:|---:|---|
 | blog-1 | A Practical First-Time Guide to Bali | 258 | 5 | 0 | 2 | Draft / perlu review fakta dan tautan |
 | blog-2 | Nusa Penida Highlights: Kelingking, Diamond Beach & Atuh | 169 | 2 | 0 | 2 | Draft / perlu review keselamatan dan akses |
-| blog-3 | Balinese Dishes to Try on Your Trip | 170 | 0 | 0 | 1 | Draft / perlu review fakta dan bahan makanan |
+| blog-3 | Balinese Dishes to Try on Your Trip | 170 | 2 | 0 | 1 | Draft / perlu review fakta dan bahan makanan |
 
 ### Perbaikan artikel pada tahap ini
 
