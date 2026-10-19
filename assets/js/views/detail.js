@@ -20,7 +20,7 @@ function renderDetailView(pkg) {
                             <span class="flex items-center gap-1 text-slate-900 bg-amber-50 border border-amber-200 px-2.5 py-1 rounded-full font-bold">
                                 <i class="fas fa-star text-amber-500"></i> ${pkg.rating} (${pkg.reviewCount} reviews)
                             </span>
-                            <span class="flex items-center gap-1"><i class="fas fa-location-dot text-klook-orange"></i> ${pkg.location}</span>
+                            <span class="flex items-center gap-1"><i class="fas fa-location-dot text-bali-orange"></i> ${pkg.location}</span>
                             <span class="flex items-center gap-1"><i class="fas fa-bolt text-amber-500"></i> Booking details</span>
                         </div>
                     </div>
@@ -45,7 +45,7 @@ function renderDetailView(pkg) {
                             <!-- Highlights -->
                             <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
                                 <h3 class="text-lg font-extrabold text-slate-900 mb-4 flex items-center gap-2">
-                                    <i class="fas fa-sparkles text-klook-orange"></i> Activity Highlights
+                                    <i class="fas fa-sparkles text-bali-orange"></i> Activity Highlights
                                 </h3>
                                 <ul class="space-y-3 text-xs sm:text-sm text-slate-700">
                                     ${pkg.highlights.map(h => `<li class="flex items-start gap-2.5"><i class="fas fa-check-circle text-emerald-500 mt-0.5"></i> <span>${h}</span></li>`).join('')}
@@ -57,10 +57,10 @@ function renderDetailView(pkg) {
                                 <h3 class="text-lg font-extrabold text-slate-900 mb-4">Select Package Option</h3>
                                 <div class="space-y-3">
                                     ${pkg.options.map((opt, index) => `
-                                        <label class="block p-4 rounded-2xl border-2 ${index === 0 ? 'border-klook-orange bg-orange-50/40' : 'border-slate-200 hover:border-slate-300'} cursor-pointer transition">
+                                        <label class="block p-4 rounded-2xl border-2 ${index === 0 ? 'border-bali-orange bg-orange-50/40' : 'border-slate-200 hover:border-slate-300'} cursor-pointer transition">
                                             <div class="flex items-start justify-between">
                                                 <div class="flex items-start gap-3">
-                                                    <input type="radio" name="packageOption" value="${opt.id}" ${index === 0 ? 'checked' : ''} onchange="updateBookingCalculation()" class="mt-1 accent-klook-orange">
+                                                    <input type="radio" name="packageOption" value="${opt.id}" ${index === 0 ? 'checked' : ''} onchange="updateBookingCalculation()" class="mt-1 accent-bali-orange">
                                                     <div>
                                                         <h4 class="font-bold text-slate-900 text-sm">${opt.name}</h4>
                                                         <p class="text-xs text-slate-500 mt-1">${opt.desc}</p>
@@ -79,8 +79,8 @@ function renderDetailView(pkg) {
                                 <div class="relative border-l-2 border-orange-200 pl-6 space-y-6 ml-2">
                                     ${pkg.itinerary.map(item => `
                                         <div class="relative">
-                                            <div class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-klook-orange ring-4 ring-orange-100"></div>
-                                            <span class="text-xs font-bold text-klook-orange block mb-0.5">${item.time}</span>
+                                            <div class="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-bali-orange ring-4 ring-orange-100"></div>
+                                            <span class="text-xs font-bold text-bali-orange block mb-0.5">${item.time}</span>
                                             <h4 class="font-extrabold text-slate-900 text-sm">${item.title}</h4>
                                             <p class="text-xs text-slate-500 mt-1">${item.desc}</p>
                                         </div>
@@ -91,7 +91,7 @@ function renderDetailView(pkg) {
 
                         <!-- Right Sticky Booking Sidebar (4 Cols) -->
                         <div class="lg:col-span-4">
-                            <div class="sticky top-24 bg-white p-6 rounded-3xl border border-slate-200 klook-shadow">
+                            <div class="sticky top-24 bg-white p-6 rounded-3xl border border-slate-200 bali-shadow">
                                 <div class="mb-4 pb-4 border-b border-slate-100">
                                     <span class="text-xs text-slate-400 font-semibold">Starting Price</span>
                                     <div class="text-2xl font-black text-slate-900">${basePrice}</div>
@@ -100,7 +100,7 @@ function renderDetailView(pkg) {
                                 <!-- Date Selection -->
                                 <div class="mb-4">
                                     <label class="text-xs font-extrabold text-slate-700 block mb-1">Select Travel Date</label>
-                                    <input type="date" id="bookingDateInput" value="${new Date().toISOString().split('T')[0]}" class="w-full bg-slate-100 border border-slate-200 rounded-xl p-3 text-xs font-semibold focus:outline-none focus:border-klook-orange">
+                                    <input type="date" id="bookingDateInput" value="${new Date().toISOString().split('T')[0]}" class="w-full bg-slate-100 border border-slate-200 rounded-xl p-3 text-xs font-semibold focus:outline-none focus:border-bali-orange">
                                 </div>
 
                                 <!-- Quantity Selector -->
@@ -121,15 +121,15 @@ function renderDetailView(pkg) {
                                 <!-- Total Price Calculation Box -->
                                 <div class="bg-slate-50 p-4 rounded-2xl mb-6 flex justify-between items-center">
                                     <span class="text-xs font-bold text-slate-600">Total Price</span>
-                                    <span id="calculatedTotalPrice" class="text-xl font-black text-klook-orange">${basePrice}</span>
+                                    <span id="calculatedTotalPrice" class="text-xl font-black text-bali-orange">${basePrice}</span>
                                 </div>
 
                                 <!-- Action CTAs -->
                                 <div class="space-y-2">
-                                    <button onclick="addToCartCurrentPkg()" class="w-full bg-orange-100 hover:bg-orange-200 text-klook-orange font-extrabold py-3.5 px-4 rounded-2xl transition text-xs flex items-center justify-center gap-2">
+                                    <button onclick="addToCartCurrentPkg()" class="w-full bg-orange-100 hover:bg-orange-200 text-bali-orange font-extrabold py-3.5 px-4 rounded-2xl transition text-xs flex items-center justify-center gap-2">
                                         <i class="fas fa-cart-plus"></i> Add To Cart
                                     </button>
-                                    <button onclick="bookNowCurrentPkg()" class="w-full bg-klook-orange hover:bg-klook-hover text-white font-extrabold py-3.5 px-4 rounded-2xl transition text-xs shadow-lg shadow-orange-500/20">
+                                    <button onclick="bookNowCurrentPkg()" class="w-full bg-bali-orange hover:bg-bali-hover text-white font-extrabold py-3.5 px-4 rounded-2xl transition text-xs shadow-lg shadow-orange-500/20">
                                         Book Now
                                     </button>
                                 </div>
