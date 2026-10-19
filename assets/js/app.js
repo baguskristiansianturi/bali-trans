@@ -304,6 +304,31 @@
             }
             currentViewName = viewName;
             currentViewParams = params;
+            // Keep the browser tab title aligned with the page currently being viewed.
+            const seoPlace = viewName === 'place' ? BALI_DESTINATIONS.find(function(item) { return item.slug === String(params || ''); }) : null;
+            const seoBlog = viewName === 'blog-read' ? BALI_BLOGS.find(function(item) { return item.id === String(params || ''); }) : null;
+            const seoTitles = {
+                home: 'Bali Trans | Destinasi, Wisata, Tur & Transportasi Bali',
+                packages: 'Paket Tour & Aktivitas di Bali | Bali Trans',
+                blog: 'Panduan Wisata Bali | Bali Trans',
+                about: 'Tentang Bali Trans | Jelajahi Bali',
+                contact: 'Hubungi Bali Trans | Perjalanan di Bali',
+                discovery: 'Jelajahi Destinasi Bali | Bali Trans',
+                cart: 'Keranjang | Bali Trans',
+                checkout: 'Checkout | Bali Trans'
+            };
+            if (seoPlace) document.title = seoPlace.title + ' | Panduan Destinasi Bali - Bali Trans';
+            else if (seoBlog) document.title = seoBlog.title + ' | Bali Trans';
+            else if (viewName === 'place' && params === 'region-directory') document.title = 'Tempat Wisata di Bali | Bali Trans';
+            else if (viewName === 'place') document.title = 'Jelajahi Bali | Bali Trans';
+            else document.title = seoTitles[viewName] || 'Bali Trans | Jelajahi Bali';
+            const seoDescription = seoPlace ? seoPlace.summary : (seoBlog ? seoBlog.snippet : (viewName === 'home' ? 'Temukan tempat wisata, pengalaman, panduan destinasi, dan pilihan perjalanan di Bali.' : 'Jelajahi tempat menarik di Bali dan rencanakan perjalanan dengan informasi yang jelas.'));
+            let seoDescriptionTag = document.querySelector('meta[name="description"]');
+            if (!seoDescriptionTag) { seoDescriptionTag = document.createElement('meta'); seoDescriptionTag.name = 'description'; document.head.appendChild(seoDescriptionTag); }
+            seoDescriptionTag.content = seoDescription || 'Jelajahi tempat menarik dan rencanakan perjalanan di Bali bersama Bali Trans.';
+            let seoCanonicalTag = document.querySelector('link[rel="canonical"]');
+            if (!seoCanonicalTag) { seoCanonicalTag = document.createElement('link'); seoCanonicalTag.rel = 'canonical'; document.head.appendChild(seoCanonicalTag); }
+            seoCanonicalTag.href = window.location.origin + (window.location.pathname.includes('/bali-trans/') ? window.location.pathname : '/bali-trans/');
             if (viewName === 'blog') {
                 const requestedCategory = new URLSearchParams(window.location.search).get('category') || 'All';
                 const validCategories = ['All', ...new Set(BALI_BLOGS.map(blog => blog.category))];
