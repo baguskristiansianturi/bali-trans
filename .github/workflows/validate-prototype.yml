@@ -31,6 +31,42 @@ jobs:
             node --check "$file"
           done < <(find assets/js -type f -name '*.js' -print0)
 
+      - name: Check route and content references
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --input-type=module - <<'NODE'
+          import fs from 'node:fs';
+          const read = path => fs.readFileSync(path, 'utf8');
+          const navigation = read('assets/js/navigation.js');
+          const interactions = read('assets/js/interactions.js');
+          const discovery = read('assets/js/views/discovery.js');
+          const data = read('assets/js/data.js');
+          const viewText = interactions.match(/const supportedViews = \[([^\]]+)\]/)?.[1] || '';
+          const views = [...viewText.matchAll(/'([^']+)'/g)].map(match => match[1]);
+          const routeCases = [...navigation.matchAll(/case '([^']+)'/g)].map(match => match[1]);
+          const missingViews = views.filter(view => !routeCases.includes(view));
+          function keysFromObject(source, name) {
+            const start = source.indexOf('const ' + name + ' = {');
+            if (start < 0) return [];
+            const bodyStart = source.indexOf('{', start);
+            const end = source.indexOf('\n            };', bodyStart);
+            if (end < 0) return [];
+            return [...source.slice(bodyStart, end).matchAll(/'((?:region|place|service|duration):[^']+)'\s*:/g)].map(match => match[1]);
+          }
+          const discoveryKeys = [...keysFromObject(discovery, 'pages'), ...keysFromObject(discovery, 'extraDestinationPages')];
+          const searchKeys = [...new Set([...interactions.matchAll(/key:'((?:region|place|service|duration):[^']+)'/g)].map(match => match[1]))];
+          const missingDiscovery = searchKeys.filter(key => !discoveryKeys.includes(key));
+          const articleData = data.slice(data.indexOf('const BALI_BLOGS = ['));
+          const articleIds = [...articleData.matchAll(/id: '([^']+)'/g)].map(match => match[1]);
+          const duplicateArticleIds = articleIds.filter((id, index) => articleIds.indexOf(id) !== index);
+          if (missingViews.length || missingDiscovery.length || duplicateArticleIds.length) {
+            console.error(JSON.stringify({ missingViews, missingDiscovery, duplicateArticleIds }, null, 2));
+            process.exit(1);
+          }
+          console.log('Checked ' + views.length + ' route types, ' + new Set(discoveryKeys).size + ' discovery keys, and ' + articleIds.length + ' unique article IDs.');
+          NODE
+
       - name: Check local HTML assets and CSS imports
         shell: bash
         run: |
