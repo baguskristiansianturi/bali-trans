@@ -8,7 +8,7 @@ function renderArticleSources(sources) {
             return `
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                     <div class="text-center max-w-2xl mx-auto mb-10">
-                        <span class="text-xs font-extrabold text-klook-orange uppercase tracking-wider">Bali Travel Guides & Tips</span>
+                        <span class="text-xs font-extrabold text-bali-orange uppercase tracking-wider">Bali Travel Guides & Tips</span>
                         <h1 class="text-3xl font-extrabold text-slate-900 mt-1">Plan Your Dream Trip to Bali</h1>
                         <p class="text-slate-500 text-sm mt-2">Practical guides for choosing areas, planning routes and enjoying your time in Bali.</p>
                     </div>
@@ -24,10 +24,10 @@ function renderArticleSources(sources) {
                                             <span>•</span>
                                             <span>${blog.readTime}</span>
                                         </div>
-                                        <h3 class="font-extrabold text-slate-900 text-base leading-snug mb-2 hover:text-klook-orange cursor-pointer" onclick="navigateTo('blog-read', '${blog.id}')">${blog.title}</h3>
+                                        <h3 class="font-extrabold text-slate-900 text-base leading-snug mb-2 hover:text-bali-orange cursor-pointer" onclick="navigateTo('blog-read', '${blog.id}')">${blog.title}</h3>
                                         <p class="text-xs text-slate-500 leading-relaxed line-clamp-3 mb-4">${blog.snippet}</p>
                                     </div>
-                                    <button onclick="navigateTo('blog-read', '${blog.id}')" class="text-xs font-extrabold text-klook-orange hover:underline self-start">
+                                    <button onclick="navigateTo('blog-read', '${blog.id}')" class="text-xs font-extrabold text-bali-orange hover:underline self-start">
                                         Read Full Guide →
                                     </button>
                                 </div>
@@ -46,14 +46,14 @@ function renderArticleSources(sources) {
             const articleNavigation = (item, label, direction) => item ? `
                 <button type="button" onclick="navigateTo('blog-read', '${item.id}')" class="group w-full min-w-0 text-left rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 hover:border-teal-300 hover:bg-teal-50/40 transition">
                     <span class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-2">${label}</span>
-                    <span class="flex items-start gap-2 text-sm font-extrabold leading-snug text-slate-800 group-hover:text-klook-orange">${direction === 'previous' ? '<i class="fas fa-arrow-left mt-1 shrink-0"></i>' : ''}<span class="min-w-0">${item.title}</span>${direction === 'next' ? '<i class="fas fa-arrow-right mt-1 shrink-0"></i>' : ''}</span>
+                    <span class="flex items-start gap-2 text-sm font-extrabold leading-snug text-slate-800 group-hover:text-bali-orange">${direction === 'previous' ? '<i class="fas fa-arrow-left mt-1 shrink-0"></i>' : ''}<span class="min-w-0">${item.title}</span>${direction === 'next' ? '<i class="fas fa-arrow-right mt-1 shrink-0"></i>' : ''}</span>
                 </button>` : '<div class="hidden sm:block"></div>';
             return `
                 <article class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
                     <button type="button" onclick="navigateTo('blog')" class="text-xs font-bold text-slate-500 hover:text-slate-900 mb-6 flex items-center gap-2">
                         <i class="fas fa-arrow-left"></i> Back to Travel Guides
                     </button>
-                    <span class="inline-flex bg-orange-100 text-klook-orange text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">${blog.category}</span>
+                    <span class="inline-flex bg-orange-100 text-bali-orange text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">${blog.category}</span>
                     <h1 class="text-3xl sm:text-4xl font-black text-slate-900 mt-3 mb-4 leading-tight">${blog.title}</h1>
                     <p class="text-base sm:text-lg leading-relaxed text-slate-600 mb-5">${blog.snippet || ''}</p>
                     <div class="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs text-slate-500 mb-6 pb-6 border-b border-slate-200">
