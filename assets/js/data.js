@@ -152,4 +152,57 @@
                     <p class="mb-4">Tell the restaurant about allergies and dietary needs before ordering, and ask whether a dish contains meat, seafood, peanuts or other ingredients you avoid. Choose food that is freshly prepared and stored appropriately, especially in hot weather.</p>
                 `
             }
+,
+            {
+                id: "nusa-penida-kelingking-beach",
+                title: "Kelingking Beach: Viewpoints, Access and Safety",
+                date: "Oct 19, 2026",
+                category: "Nusa Penida",
+                author: "Bali Trans Editorial Team",
+                image: "https://commons.wikimedia.org/wiki/Special:FilePath/Pantai_Kelingking,_Nusa_Penida.jpg?width=1200",
+                imageAlt: "Kelingking Beach’s distinctive cliff and coastline viewed from above",
+                dateISO: "2026-10-19",
+                sources: [{"title":"Indonesia Travel — Nusa Penida guide","url":"https://www.indonesia.travel/id/id/travel-ideas/adventure/nusa-penida"},{"title":"Bali Police — Nusa Penida beach safety notice (28 May 2025)","url":"https://tribratanews.bali.polri.go.id/artikel/view/pb-163144-polsek-nusa-penida-imbau-wisatawan"}],
+                snippet: "Plan a visit to Kelingking Beach around the cliff-top viewpoint, steep access and current sea-safety instructions.",
+                content: "<p class=\"mb-4\">Kelingking Beach sits on the southwestern coast of Nusa Penida and is known for its distinctive cliff profile above the sea. The viewpoint is a major reason visitors stop here; reaching the sand below is a separate, more demanding undertaking.</p>\n<h2 class=\"text-xl font-bold text-slate-900 mb-2\">Start with the viewpoint</h2>\n<p class=\"mb-4\">For many visitors, the cliff-top view is the main experience. Stay behind barriers and away from exposed edges, especially when the ground is wet or crowded. Do not step onto unstable slopes for a photograph.</p>\n<h2 class=\"text-xl font-bold text-slate-900 mb-2\">Treat the descent as a serious hike</h2>\n<p class=\"mb-4\">The route down is steep and exposed in places, and conditions can change with weather and maintenance. Wear footwear with grip, carry water, protect yourself from the sun and turn back if the route feels beyond your ability. Do not plan the descent as a casual beach stroll.</p>\n<h2 class=\"text-xl font-bold text-slate-900 mb-2\">Sea safety comes first</h2>\n<p class=\"mb-4\">In a notice dated 28 May 2025, Bali Police said swimming was prohibited at Kelingking Beach and Diamond Beach at that time, warning visitors about dangerous currents. Treat that notice as a serious safety reminder, check current signs at the site and follow local instructions. Never enter the water where swimming is prohibited, even if the surface looks calm.</p>\n<h2 class=\"text-xl font-bold text-slate-900 mb-2\">Plan the day realistically</h2>\n<p class=\"mb-4\">Allow time for the road journey between stops and expect uneven access around the viewpoint. Check local conditions before setting out, and avoid trying to fit too many distant locations into one day.</p>\n<p class=\"mb-4\">This guide focuses on practical planning, not a promise that every path or beach activity is currently open. Confirm the latest access and safety instructions locally before visiting.</p>"
+            },
+            {
+                id: "nusa-penida-crystal-bay",
+                title: "Crystal Bay: Coastal Views and Marine Activities",
+                date: "Oct 19, 2026",
+                category: "Nusa Penida",
+                author: "Bali Trans Editorial Team",
+                image: "https://commons.wikimedia.org/wiki/Special:FilePath/Crystal_Bay_Beach.jpg?width=1200",
+                imageAlt: "Crystal Bay’s coastline and clear water on Nusa Penida",
+                dateISO: "2026-10-19",
+                sources: [{"title":"Indonesia Travel — Nusa Penida guide","url":"https://www.indonesia.travel/id/id/travel-ideas/adventure/nusa-penida"},{"title":"Bali Police — Nusa Penida beach safety notice (28 May 2025)","url":"https://tribratanews.bali.polri.go.id/artikel/view/pb-163144-polsek-nusa-penida-imbau-wisatawan"}],
+                snippet: "A practical introduction to Crystal Bay’s west-coast setting, sunset views and sea-safety checks.",
+                content: "<p class=\"mb-4\">Crystal Bay is on the western side of Nusa Penida, near Nusa Ceningan. Indonesia Travel describes the bay as a place known for clear water, marine activities and west-facing sunset views. Conditions and visibility vary, so treat these as possibilities rather than guarantees for a particular day.</p>\n<h2 class=\"text-xl font-bold text-slate-900 mb-2\">Choose your visit around conditions</h2>\n<p class=\"mb-4\">Some visitors come for the shoreline and sunset; others plan snorkelling or diving with a local operator. If you intend to enter the water, check the conditions and local advice first, and use an operator that explains the route, equipment and safety rules clearly.</p>\n<h2 class=\"text-xl font-bold text-slate-900 mb-2\">Do not judge the sea by its surface</h2>\n<p class=\"mb-4\">A calm-looking surface does not guarantee safe swimming. Currents and conditions can change, and official safety advice for Nusa Penida stresses following local signs and instructions. Do not enter the water if authorities or posted notices prohibit it, and do not snorkel or dive alone.</p>\n<h2 class=\"text-xl font-bold text-slate-900 mb-2\">Plan the transfer</h2>\n<p class=\"mb-4\">Crystal Bay is one stop on an island with separate road journeys between coastal areas. Check the condition of the road and the time needed to reach your next stop rather than assuming nearby places are a short walk apart.</p>\n<p class=\"mb-4\">For a more relaxed visit, keep your plan flexible and let local conditions determine whether marine activities go ahead.</p>"
+            },
+            {
+                id: "nusa-penida-diamond-beach",
+                title: "Diamond Beach: Access, Views and Safety",
+                date: "Oct 19, 2026",
+                category: "Nusa Penida",
+                author: "Bali Trans Editorial Team",
+                image: "https://commons.wikimedia.org/wiki/Special:FilePath/Diamond_Beach_in_Nusa_Penida,_Bali.jpg?width=1200",
+                imageAlt: "Diamond Beach’s pale sand and steep limestone coastline on Nusa Penida",
+                dateISO: "2026-10-19",
+                sources: [{"title":"Indonesia Travel — Nusa Penida guide","url":"https://www.indonesia.travel/id/id/travel-ideas/adventure/nusa-penida"},{"title":"Bali Police — Nusa Penida beach safety notice (28 May 2025)","url":"https://tribratanews.bali.polri.go.id/artikel/view/pb-163144-polsek-nusa-penida-imbau-wisatawan"}],
+                snippet: "What to consider before visiting Diamond Beach, including the stair access and an important sea-safety warning.",
+                content: "<p class=\"mb-4\">Diamond Beach is on the eastern coast of Nusa Penida. Its cliff-framed shoreline and ocean views make it a popular stop, but the route from the upper area to the beach involves stairs and should be planned with care.</p>\n<h2 class=\"text-xl font-bold text-slate-900 mb-2\">Check access before descending</h2>\n<p class=\"mb-4\">The descent can be physically demanding. Wear footwear suited to steps, keep your hands free where possible and take your time. If you are travelling with children, older visitors or anyone with limited mobility, decide whether the descent is appropriate before starting down.</p>\n<h2 class=\"text-xl font-bold text-slate-900 mb-2\">Follow swimming restrictions</h2>\n<p class=\"mb-4\">A Bali Police notice dated 28 May 2025 specifically named Diamond Beach among locations where swimming was prohibited at that time, following serious water-safety incidents. Check current signs and local instructions on arrival. If swimming is prohibited, stay out of the water; strong currents can be dangerous even when the sea looks calm.</p>\n<h2 class=\"text-xl font-bold text-slate-900 mb-2\">Make room for a careful visit</h2>\n<p class=\"mb-4\">Allow enough time for the approach, the stairs and the return climb. Bring water and sun protection, avoid rushing for photographs and do not cross barriers or use unofficial cliff paths.</p>\n<p class=\"mb-4\">Diamond Beach is often paired with other eastern Nusa Penida stops, but do not assume access, weather or sea conditions will be the same at each location. Recheck the local situation before moving on.</p>"
+            },
+            {
+                id: "nusa-penida-atuh-beach",
+                title: "Atuh Beach: A Guide to Nusa Penida’s Eastern Coast",
+                date: "Oct 19, 2026",
+                category: "Nusa Penida",
+                author: "Bali Trans Editorial Team",
+                image: "https://commons.wikimedia.org/wiki/Special:FilePath/Atuh_Beach,_Nusa_Penida_Bali.jpg?width=1200",
+                imageAlt: "Atuh Beach’s curved shoreline, cliffs and sea on eastern Nusa Penida",
+                dateISO: "2026-10-19",
+                sources: [{"title":"Indonesia Travel — Nusa Penida guide","url":"https://www.indonesia.travel/id/id/travel-ideas/adventure/nusa-penida"},{"title":"Bali Police — Nusa Penida beach safety notice (28 May 2025)","url":"https://tribratanews.bali.polri.go.id/artikel/view/pb-163144-polsek-nusa-penida-imbau-wisatawan"}],
+                snippet: "Plan for Atuh Beach’s eastern-coast setting, stair access and changing sea conditions.",
+                content: "<p class=\"mb-4\">Atuh Beach lies on the eastern coast of Nusa Penida, close to Diamond Beach. Indonesia Travel describes the area as a stretch of coast framed by limestone cliffs and rock formations. The two beaches can fit into the same broad outing, but each has its own access route and conditions.</p>\n<h2 class=\"text-xl font-bold text-slate-900 mb-2\">Prepare for the steps</h2>\n<p class=\"mb-4\">Access from the upper area involves stairs. Take your time on the way down and back up, wear shoes with grip and avoid rushing when the steps are wet or crowded. Visitors who are unsure about steep access can enjoy the viewpoint without committing to the descent.</p>\n<h2 class=\"text-xl font-bold text-slate-900 mb-2\">Respect local safety instructions</h2>\n<p class=\"mb-4\">Sea conditions can be hazardous around Nusa Penida. Bali Police has warned visitors to obey posted restrictions and not to assume calm-looking water is safe. Check the current signs at Atuh Beach and follow local guidance before approaching the water; this article does not promise that swimming is permitted.</p>\n<h2 class=\"text-xl font-bold text-slate-900 mb-2\">Keep the itinerary flexible</h2>\n<p class=\"mb-4\">Plan transport and return time with the stair access in mind. Carry drinking water and sun protection, and leave enough time to travel between eastern-coast stops without rushing.</p>\n<p class=\"mb-4\">For a more comfortable day, choose the stops that suit your group’s fitness and mobility, and let local conditions decide how long you stay.</p>"
+            }
         ];
