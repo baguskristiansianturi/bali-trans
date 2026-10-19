@@ -61,16 +61,7 @@ Jumlah ini adalah hitungan entri direktori, bukan jumlah seluruh objek wisata ya
 
 Sumber dipakai sebagai pembanding kategori dan daftar tempat; bukan untuk menyalin isi atau klaim komersial.
 
-- Bali Golden Tour — direktori minat wisata: https://www.baligoldentour.com/bali-interest-place.php
-- Bali Golden Tour — halaman Badung: https://www.baligoldentour.com/places-of-interest-badung.php
-- Bali Golden Tour — halaman Tabanan: https://www.baligoldentour.com/places-of-interest-tabanan.php
-- Bali Golden Tour — halaman Gianyar: https://www.baligoldentour.com/places-of-interest-gianyar.php
-- Bali Golden Tour — halaman Klungkung: https://www.baligoldentour.com/places-of-interest-klungkung.php
-- Bali Golden Tour — halaman Karangasem: https://www.baligoldentour.com/places-of-interest-karangasem.php
-- Bali Golden Tour — halaman Buleleng: https://www.baligoldentour.com/places-of-interest-buleleng.php
-- Bali Golden Tour — halaman Denpasar: https://www.baligoldentour.com/places-of-interest-denpasar.php
-- Bali Golden Tour — halaman Bangli: https://www.baligoldentour.com/places-of-interest-bangli.php
-- Bali Golden Tour — halaman Jembrana: https://www.baligoldentour.com/places-of-interest-jembrana.php
-- Bali Golden Tour — aktivitas: https://www.baligoldentour.com/bali-activities-tour.php
+- Direktori minat wisata dan daftar destinasi per kabupaten di Bali (referensi riset internal; tidak digunakan sebagai salinan konten publik).
+- Daftar aktivitas wisata Bali (referensi riset internal; detail dan klaim harus diverifikasi secara independen sebelum diterbitkan).
 - Indonesia Travel — pengenalan dan destinasi Bali: https://www.indonesia.travel/id/id/destination/bali-nusa-tenggara/bali/bali
 - Dinas Pariwisata Provinsi Bali: https://disparda.baliprov.go.id/
