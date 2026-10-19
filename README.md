@@ -53,6 +53,7 @@ Before merge, test the homepage, mobile swipe/carousels, breadcrumbs, package de
 The implementation remains a client-rendered SPA with query-based routes. The existing visual design is intentionally preserved while source code is separated into maintainable files.
 
 - `assets/css/styles.css`: CSS entry point importing `base.css`, `navigation.css`, and `footer.css`.
+- `assets/js/tailwind.config.js`: shared Tailwind theme configuration.
 - `assets/js/data.js`: package, article, locale, and currency data.
 - `assets/js/state.js`: shared UI state.
 - `assets/js/navigation.js`: route handling and page metadata.
