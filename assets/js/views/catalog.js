@@ -53,7 +53,7 @@
                     <div class="bg-white rounded-3xl overflow-hidden border border-slate-200/80 klook-shadow klook-hover flex flex-col justify-between group relative">
                         <!-- Image Container -->
                         <div class="relative h-52 overflow-hidden bg-slate-100">
-                            <img src="${pkg.heroImage}" alt="${pkg.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <img src="${pkg.heroImage}" alt="${pkg.title}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                             
                             <!-- Rating Pill -->
                             <div class="absolute top-3 left-3 bg-white/95 backdrop-blur-md text-slate-700 text-[11px] font-bold px-2.5 py-1 rounded-full">${pkg.categoryName}</div>
