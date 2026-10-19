@@ -219,15 +219,20 @@
             const placeSlug = viewName === 'place' ? String(params || 'bali-utara') : null;
             const isRegionHub = placeSlug === 'bali-utara' || placeSlug === 'bali-barat' || placeSlug === 'region-directory';
             const isKnownPlace = viewName === 'place' && BALI_DESTINATIONS.some(function(place) { return place.slug === placeSlug; });
-            const nextUrl = placeSlug === 'bali-utara'
-                ? siteBase + 'places/bali-utara/'
-                : placeSlug === 'bali-barat'
-                    ? siteBase + 'places/bali-barat/'
-                    : isKnownPlace
-                        ? siteBase + 'places/' + encodeURIComponent(placeSlug) + '/'
-                        : isRegionHub
-                            ? siteBase + '?' + query.toString()
-                            : siteBase + '?' + query.toString();
+            const regionMatch = viewName === 'discovery' ? String(params || '').match(/^region:([a-z-]+)$/) : null;
+            const regionUrlMap = {north:'bali-utara',south:'bali-selatan',central:'bali-tengah',east:'bali-timur',west:'bali-barat',denpasar:'denpasar',badung:'badung',gianyar:'gianyar',tabanan:'tabanan',bangli:'bangli',buleleng:'buleleng',karangasem:'karangasem',klungkung:'klungkung',jembrana:'jembrana','nusa-penida':'nusa-penida','nusa-lembongan':'nusa-lembongan','nusa-ceningan':'nusa-ceningan'};
+            const regionSlug = regionMatch ? regionUrlMap[regionMatch[1]] : null;
+            const nextUrl = regionSlug
+                ? siteBase + 'places/' + regionSlug + '/'
+                : placeSlug === 'bali-utara'
+                    ? siteBase + 'places/bali-utara/'
+                    : placeSlug === 'bali-barat'
+                        ? siteBase + 'places/bali-barat/'
+                        : isKnownPlace
+                            ? siteBase + 'places/' + encodeURIComponent(placeSlug) + '/'
+                            : isRegionHub
+                                ? siteBase + '?' + query.toString()
+                                : siteBase + '?' + query.toString();
             if (options.history !== false) {
                 if (options.replace) window.history.replaceState({ viewName, params }, '', nextUrl);
                 else if (window.location.pathname + window.location.search !== nextUrl) window.history.pushState({ viewName, params }, '', nextUrl);
@@ -256,6 +261,8 @@
                     if (params === 'region-directory') container.innerHTML = renderRegionDirectory();
                     else if (params === 'bali-utara') container.innerHTML = renderNorthBaliHub();
                     else if (params === 'bali-barat') container.innerHTML = renderDiscoveryView('region:west');
+                    else if (['bali-selatan','bali-tengah','bali-timur'].includes(params)) container.innerHTML = renderDiscoveryView('region:' + ({'bali-selatan':'south','bali-tengah':'central','bali-timur':'east'}[params]));
+                    else if (BALI_REGION_GROUPS.some(function(group) { return group.key === params; })) container.innerHTML = renderDiscoveryView('region:' + params);
                     else container.innerHTML = renderPlaceDetail(params);
                     break;
                 case 'detail':
