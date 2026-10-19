@@ -1,7 +1,7 @@
 # Bali Trans — Audit Struktur Halaman dan Konten
 
 Tanggal audit: 19 Oktober 2026  
-Cakupan: source code branch `refactor/clean-structure-content-audit`, master data, dan artikel aplikasi. Audit ini statis; bukan klaim bahwa semua alur telah lulus uji browser di HP.
+Cakupan: source code branch `feat/nusa-canonical-destination-pages`, master data, dan artikel aplikasi. Audit ini statis; bukan klaim bahwa semua alur telah lulus uji browser di HP.
 
 ## Ringkasan temuan
 
@@ -9,7 +9,7 @@ Cakupan: source code branch `refactor/clean-structure-content-audit`, master dat
 - Sebelum perubahan, halaman utama memuat sekitar 213,149 karakter JavaScript aplikasi inline dan tiga blok CSS inline; file modular yang sudah ada tidak menjadi sumber yang dipakai oleh halaman utama.
 - Rute tetap berupa SPA berbasis query string (`?page=...`), bukan dokumen HTML terpisah. Back/Forward ditangani router aplikasi dan harus diuji pada browser nyata.
 - Master data mencakup 87 kandidat destinasi, 6 wilayah editorial, dan 14 kategori aktivitas.
-- Status master data: 4 record `PUBLISHED`, 8 `STRUCTURE_READY`, 75 `PLANNED`. Ini belum selaras dengan source renderer yang memuat 34 key tempat; master data hanya memberi rute eksplisit pada 8 record.
+- Status master data: 4 record `PUBLISHED`, 8 `STRUCTURE_READY`, 75 `PLANNED`. Renderer kini memuat 32 key tempat; 12 record master mempunyai route eksplisit, termasuk empat artikel Nusa Penida.
 - Data aplikasi memuat 7 artikel. Artikel yang dapat dirender belum tentu siap diterbitkan.
 
 ## Struktur yang dirapikan pada branch ini
@@ -226,7 +226,7 @@ Status: perubahan source sudah ditulis pada branch audit. Uji browser langsung t
 - URL canonical dan strategi URL SEO permanen belum ditetapkan. Selama rute masih memakai query string, keputusan SEO URL harus dilakukan sebelum peluncuran.
 
 
-Route-to-master-data reconciliation is maintained separately in [`ROUTE_MASTER_MAPPING.md`](./ROUTE_MASTER_MAPPING.md). It maps all 43 current route keys and flags combined destinations that need canonical pages.
+Route-to-master-data reconciliation is maintained separately in [`ROUTE_MASTER_MAPPING.md`](./ROUTE_MASTER_MAPPING.md). It maps all 41 discovery route keys, plus the four individual Nusa Penida article routes, and flags remaining combined destinations that need canonical pages.
 
 
 ## Tahap 4 — Integritas master data
