@@ -1531,18 +1531,18 @@ const BALI_ADDITIONAL_DESTINATIONS = [
     "visit": "Konfirmasi akses, jam operasional, biaya, dan aturan kunjungan langsung kepada pengelola. Kondisi cuaca, lalu lintas, serta aturan lokal dapat berubah."
   },
   {
-    "slug": "soka-beach-viewpoint",
-    "title": "Pemandangan Pesisir Soka",
-    "area": "Selemadeg, Tabanan",
-    "type": "Pesisir & pemandangan",
-    "regionKey": "tabanan",
-    "regionLabel": "Tabanan",
-    "regionSlug": "tabanan",
-    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=85",
-    "summary": "Sudut pandang tambahan di kawasan pesisir Soka untuk menikmati bentang pantai barat Tabanan.",
+    "slug": "singaraja-heritage-district",
+    "title": "Kawasan Kota Tua Singaraja",
+    "area": "Singaraja, Buleleng",
+    "type": "Sejarah & kawasan kota",
+    "regionKey": "buleleng",
+    "regionLabel": "Buleleng / Bali Utara",
+    "regionSlug": "bali-utara",
+    "image": "https://images.unsplash.com/photo-1566127992631-137a642a90f4?auto=format&fit=crop&w=1000&q=85",
+    "summary": "Kawasan kota bersejarah di Singaraja dengan jejak arsitektur dan sejarah pelabuhan lama Bali Utara.",
     "highlights": [
-      "Mengenal Pemandangan Pesisir Soka dan karakter kawasan sekitarnya",
-      "Memadukan kunjungan dengan destinasi lain di Tabanan",
+      "Mengenal sejarah Singaraja sebagai pusat kota Bali Utara",
+      "Memadukan kunjungan dengan museum dan kawasan pusat kota",
       "Memeriksa akses dan aturan kunjungan sebelum berangkat"
     ],
     "visit": "Konfirmasi akses, jam operasional, biaya, dan aturan kunjungan langsung kepada pengelola. Kondisi cuaca, lalu lintas, serta aturan lokal dapat berubah."
