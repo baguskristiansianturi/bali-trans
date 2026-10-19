@@ -98,13 +98,13 @@
             },
             {
                 id: 'blog-2',
-                title: 'Nusa Penida Highlights: Kelingking, Diamond Beach & Atuh',
+                title: 'Planning a Day on Nusa Penida: Transport and Safety',
                 category: 'Destinations',
                 readTime: '4 min read',
                 author: 'Bali Trans Editorial Team',
                 date: 'Sep 28, 2026',
                 image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Kelingking_Beach.jpg?width=1200',
-                imageAlt: 'Kelingking Beach cliff and coastline on Nusa Penida',
+                imageAlt: 'Kelingking Beach cliff on Nusa Penida, illustrating a general island-planning guide',
                 dateISO: '2026-09-28',
                 sources: [
                     { title: 'Indonesia Travel — Nusa Penida guide', url: 'https://www.indonesia.travel/id/id/travel-ideas/adventure/nusa-penida' },
@@ -112,15 +112,20 @@
                 ],
                 snippet: 'Compare three dramatic coastal stops and plan island transport around road conditions, sea conditions and your boat schedule.',
                 content: `
-                    <p class="mb-4">Nusa Penida is known for steep limestone cliffs, beaches and viewpoints. Boat time varies by departure point and sea conditions, so confirm the pier, check-in time and return schedule with your boat operator before planning the day.</p>
-                    <h2 class="text-xl font-bold text-slate-900 mb-2">Three Stops to Compare</h2>
-                    <ol class="list-decimal pl-5 mb-4 space-y-2">
-                        <li><strong>Kelingking:</strong> Best known for its dramatic cliff profile and elevated coastal views. The descent is steep and physically demanding; visitors can enjoy the viewpoint without attempting the beach trail.</li>
-                        <li><strong>Diamond Beach:</strong> Known for pale sand and limestone formations. Access involves steep stairs, and swimming may be unsafe when surf is strong.</li>
-                        <li><strong>Atuh Beach:</strong> A curved bay framed by rock formations. Allow time for the access path and check local conditions before entering the water.</li>
-                    </ol>
-                    <h2 class="text-xl font-bold text-slate-900 mb-2">Plan Transfers and Safety</h2>
-                    <p class="mb-4">Roads can be narrow, uneven and slow between stops. Choose fewer places rather than rushing across the island, use safe transport, bring water and footwear with grip, and follow local signs near cliffs and beaches. Never rely on a viewpoint photo to judge whether a path or sea is safe.</p>
+                    <p class="mb-4">Nusa Penida lies southeast of mainland Bali and is reached by boat. Its coastal stops are spread across the island, so a realistic plan needs to account for the crossing, road transfers and the return journey rather than treating every point on the map as nearby.</p>
+                    <h2 class="text-xl font-bold text-slate-900 mb-2">Plan transport before choosing every stop</h2>
+                    <p class="mb-4">Confirm your departure and arrival pier with the boat operator, then agree how you will travel around the island. Roads and access paths can be challenging in places. Allow room for delays and avoid building an itinerary that depends on rushing between distant beaches.</p>
+                    <h2 class="text-xl font-bold text-slate-900 mb-2">Choose the coast that fits your day</h2>
+                    <p class="mb-4">The west coast is known for Kelingking Beach’s cliff-top viewpoint and Crystal Bay’s shoreline and marine activities. Diamond Beach and Atuh Beach are on the eastern coast and have their own stair access. Choose a smaller group of stops instead of trying to see everything in one visit.</p>
+                    <ul class="list-disc pl-5 mb-4 space-y-2">
+                        <li><a class="font-semibold text-teal-700 underline" href="?page=blog-read&amp;item=nusa-penida-kelingking-beach">Kelingking Beach: viewpoint, access and safety</a></li>
+                        <li><a class="font-semibold text-teal-700 underline" href="?page=blog-read&amp;item=nusa-penida-crystal-bay">Crystal Bay: coastal views and marine activities</a></li>
+                        <li><a class="font-semibold text-teal-700 underline" href="?page=blog-read&amp;item=nusa-penida-diamond-beach">Diamond Beach: access and safety</a></li>
+                        <li><a class="font-semibold text-teal-700 underline" href="?page=blog-read&amp;item=nusa-penida-atuh-beach">Atuh Beach: eastern-coast guide</a></li>
+                    </ul>
+                    <h2 class="text-xl font-bold text-slate-900 mb-2">Keep safety decisions local</h2>
+                    <p class="mb-4">A Bali Police notice dated 28 May 2025 warned that swimming was prohibited at Kelingking Beach and Diamond Beach at that time because of dangerous currents. Check current signs and follow local instructions on the day. Calm-looking water is not proof that swimming is safe.</p>
+                    <p class="mb-4">Before travelling, check the latest official guidance and your operator’s arrangements. Conditions, access and restrictions can change; this overview is a planning aid, not a guarantee that any activity will be available.</p>
                 `
             },
             {
