@@ -56,9 +56,9 @@ jobs:
           }
           const discoveryKeys = [...keysFromObject(discovery, 'pages'), ...keysFromObject(discovery, 'extraDestinationPages')];
           const metadataStart = navigation.indexOf('const destinationMetadata = {');
-          const metadataEnd = navigation.indexOf('\\n                };', metadataStart);
+          const metadataEnd = navigation.indexOf('\n                };', metadataStart);
           const metadataKeys = metadataStart >= 0 && metadataEnd >= 0
-            ? [...navigation.slice(metadataStart, metadataEnd).matchAll(/'((?:region|place|service|duration):[^']+)'\\s*:/g)].map(match => match[1])
+            ? [...navigation.slice(metadataStart, metadataEnd).matchAll(/'((?:region|place|service|duration):[^']+)'\s*:/g)].map(match => match[1])
             : [];
           const missingMetadata = discoveryKeys.filter(key => !metadataKeys.includes(key));
           const searchKeys = [...new Set([...interactions.matchAll(/key:'((?:region|place|service|duration):[^']+)'/g)].map(match => match[1]))];
@@ -66,7 +66,7 @@ jobs:
           const articleData = data.slice(data.indexOf('const BALI_BLOGS = ['));
           const articleIds = [...articleData.matchAll(/id: '([^']+)'/g)].map(match => match[1]);
           const duplicateArticleIds = articleIds.filter((id, index) => articleIds.indexOf(id) !== index);
-          const articleSourceCount = (articleData.match(/sources: \\[/g) || []).length;
+          const articleSourceCount = (articleData.match(/sources: \[/g) || []).length;
           if (missingViews.length || missingDiscovery.length || missingMetadata.length || duplicateArticleIds.length || articleSourceCount !== articleIds.length) {
             console.error(JSON.stringify({ missingViews, missingDiscovery, missingMetadata, duplicateArticleIds, articleSourceCount, articleCount: articleIds.length }, null, 2));
             process.exit(1);
