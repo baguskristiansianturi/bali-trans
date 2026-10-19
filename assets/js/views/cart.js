@@ -30,7 +30,7 @@
                                 return `
                                     <div class="bg-white p-5 rounded-3xl border border-slate-200 shadow-sm flex flex-col sm:flex-row gap-4 items-center justify-between">
                                         <div class="flex items-center gap-4 w-full sm:w-auto">
-                                            <img src="${item.heroImage}" class="w-20 h-20 object-cover rounded-2xl flex-shrink-0">
+                                            <img src="${item.heroImage}" alt="${item.title.replace(/&/g, '&amp;').replace(/"/g, '&quot;')}" loading="lazy" class="w-20 h-20 object-cover rounded-2xl flex-shrink-0">
                                             <div>
                                                 <h4 class="font-extrabold text-slate-900 text-sm leading-snug">${item.title}</h4>
                                                 <span class="text-xs text-slate-400 block mt-1">Tanggal: ${item.date} • Pilihan: ${item.optionName}</span>
