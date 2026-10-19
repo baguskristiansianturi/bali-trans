@@ -7,7 +7,7 @@ Status: checkpoint audit pada branch `preview/bali-trans`. Ini adalah inventaris
 - **150 entri destinasi/tempat aktivitas** di 12 kelompok navigasi: 9 kabupaten/kota administratif Bali dan tiga pulau Nusa Penida, Nusa Lembongan, serta Nusa Ceningan.
 - **82 item aktivitas** dalam 11 kategori: laut/olahraga air, petualangan, satwa/safari, alam/air terjun/taman, budaya/pura/warisan, kuliner, wellness, rekreasi/belanja/malam, keluarga/edukasi, perjalanan pulau/perahu, dan transportasi.
 - **65 referensi lokasi** digunakan oleh pemetaan aktivitas; pemeriksaan kode tidak menemukan slug lokasi yang tidak terdaftar.
-- Artikel editorial statis yang terdaftar saat audit ini: **Pantai Lovina**. Semua 150 destinasi sekarang memiliki URL detail stabil di `/places/<slug>/`, ditambah hub statis Bali Barat. Halaman detail ini memakai data bersama dan metadata judul/deskripsi/canonical yang diisi saat halaman dirender; ini belum menggantikan pekerjaan menulis artikel blog editorial panjang untuk setiap tempat.
+- Artikel editorial statis yang terdaftar saat audit ini: **Pantai Lovina**. Semua 150 destinasi sekarang memiliki URL detail stabil di `/places/<slug>/`. Hub wilayah juga memiliki URL tersendiri untuk sembilan kabupaten/kota, tiga pulau Nusa, dan lima label kawasan besar (Bali Selatan, Tengah, Timur, Utara, Barat). Halaman detail ini memakai data bersama dan metadata judul/deskripsi/canonical yang diisi saat halaman dirender; ini belum menggantikan pekerjaan menulis artikel blog editorial panjang untuk setiap tempat.
 
 ## Distribusi entri menurut wilayah
 
@@ -34,7 +34,7 @@ Jumlah ini adalah hitungan entri direktori, bukan jumlah seluruh objek wisata ya
 1. Memperluas data destinasi dengan 91 entri tambahan, termasuk tempat penting di Badung, Tabanan, Gianyar, Bangli, Karangasem, Denpasar, Jembrana, dan ketiga pulau Nusa.
 2. Memasukkan lokasi aktivitas seperti Waterbom Bali, Bali Zoo, Bali Bird Park, Bali Safari & Marine Park, Tanjung Benoa watersports, Ayung rafting, Telaga Waja rafting, dan Bali Treetop Adventure Park.
 3. Memperbaiki alur `place`: slug destinasi yang terdaftar sekarang membuka tampilan detail destinasi, bukan layar “artikel sedang diaudit” yang generik.
-4. Membuat URL detail stabil untuk 150 destinasi dan hub Bali Barat; halaman detail membaca slug dari URL saat dibuka langsung atau di-refresh.
+4. Membuat URL detail stabil untuk 150 destinasi dan URL hub untuk semua kelompok wilayah; halaman membaca slug wilayah/destinasi dari URL saat dibuka langsung atau di-refresh.
 5. Memastikan artikel statis yang sudah terbit (Pantai Lovina) dapat dibuka melalui tautan artikel, bukan dialihkan kembali ke tampilan detail SPA.
 5. Menghubungkan kategori aktivitas dengan tempat terkait dan CTA pertanyaan ke halaman kontak.
 6. Memuat direktori tambahan pada halaman statis Bali Utara sebelum aplikasi dijalankan, supaya referensi data global tidak gagal dimuat. Halaman ini tidak mengklaim harga, operator, tiket, jam buka, atau ketersediaan langsung.
@@ -47,7 +47,7 @@ Jumlah ini adalah hitungan entri direktori, bukan jumlah seluruh objek wisata ya
 - Periksa duplikasi konseptual/varian nama, khususnya kelompok air terjun Buleleng dan tempat konservasi yang melintasi Buleleng–Jembrana.
 - Periksa rute dari kategori wilayah ke tempat, dari tempat ke artikel yang terbit, serta dari aktivitas ke lokasi dan kontak.
 - Verifikasi harga, jam buka, izin, operator, kebijakan keselamatan dan kesejahteraan satwa sebelum data komersial ditampilkan.
-- Periksa metadata SEO pada semua URL detail dan buat halaman statis khusus untuk semua wilayah administratif; saat ini hub statis khusus tersedia untuk Bali Utara dan Bali Barat, sedangkan wilayah lain memakai URL discovery query.
+- Periksa metadata SEO dan rendering browser pada semua URL detail/hub; halaman menggunakan shell bersama dan merender konten sesuai slug melalui aplikasi.
 - Jalankan QA browser di mobile dan desktop serta uji tautan langsung/refresh/back-forward.
 
 ## Referensi riset
