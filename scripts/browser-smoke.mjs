@@ -76,7 +76,7 @@ try {
   await checkRoute('valid package detail', '?page=detail&item=lovina-dolphin-tour', 'Lovina');
   await checkRoute('article list', '?page=blog', 'Plan Your Dream Trip to Bali');
   await checkRoute('article detail', '?page=blog-read&item=blog-1', 'A Practical First-Time Guide to Bali');
-  await checkRoute('cart', '?page=cart', 'Shopping Cart');
+  await checkRoute('cart', '?page=cart', 'Cart');
   await checkRoute('checkout', '?page=checkout');
   await checkRoute('photo credits', '?page=image-credits', 'Photo credits');
   await checkRoute('unknown page', '?page=unknown-page', 'We couldn’t find that page');
