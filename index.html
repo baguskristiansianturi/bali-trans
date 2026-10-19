@@ -11,7 +11,7 @@
             theme: {
                 extend: {
                     colors: {
-                        klook: {
+                        bali: {
                             orange: '#0F9D9A',
                             hover: '#087E8B',
                             light: '#E8F7F6',
@@ -58,7 +58,7 @@
         <div class="flex items-center justify-between gap-2 min-h-[68px] md:min-h-[78px]">
           <button type="button" onclick="navigateTo('home')" aria-label="Bali Trans home" class="flex items-center gap-2 min-w-0 text-left">
             <span class="w-10 h-10 shrink-0 rounded-xl bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center text-white text-xl font-black shadow-md">B</span>
-            <span class="min-w-0"><span class="block text-lg sm:text-xl font-extrabold tracking-tight text-slate-900 leading-tight">Bali<span class="text-klook-orange"> Trans</span></span><span class="hidden xs:block text-[9px] sm:text-[10px] text-slate-500 font-semibold tracking-wide">TOURS · TRIPS · TRANSFER</span></span>
+            <span class="min-w-0"><span class="block text-lg sm:text-xl font-extrabold tracking-tight text-slate-900 leading-tight">Bali<span class="text-bali-orange"> Trans</span></span><span class="hidden xs:block text-[9px] sm:text-[10px] text-slate-500 font-semibold tracking-wide">TOURS · TRIPS · TRANSFER</span></span>
           </button>
 
           <div class="flex items-center gap-1.5 sm:gap-2">
@@ -86,7 +86,7 @@
         <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-3">
           <div class="relative">
             <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
-            <input type="search" id="headerSearchInput" oninput="handleGlobalSearch(this.value)" placeholder="Cari tour, aktivitas, atau tempat..." class="w-full pl-11 pr-4 py-3 bg-slate-100 focus:bg-white rounded-xl text-sm border border-slate-200 focus:border-klook-orange focus:outline-none">
+            <input type="search" id="headerSearchInput" oninput="handleGlobalSearch(this.value)" placeholder="Cari tour, aktivitas, atau tempat..." class="w-full pl-11 pr-4 py-3 bg-slate-100 focus:bg-white rounded-xl text-sm border border-slate-200 focus:border-bali-orange focus:outline-none">
             <div id="searchResultsDropdown" class="hidden absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-2xl border border-slate-100 p-3 z-50 max-h-80 overflow-y-auto"></div>
           </div>
         </div>
@@ -100,7 +100,7 @@
             <button onclick="closeMobileMenu(); showRecentlyViewed()" class="mobile-menu-item"><i class="far fa-clock"></i><span>Baru saja dilihat</span></button>
             <button onclick="closeMobileMenu(); navigateTo('contact')" class="mobile-menu-item col-span-2"><i class="far fa-envelope"></i><span>Contact</span></button>
           </div>
-          <button onclick="closeMobileMenu(); showRegisterPrompt()" class="mt-3 w-full rounded-xl bg-klook-orange px-4 py-3 text-sm font-extrabold text-white shadow-sm hover:bg-klook-hover"><i class="fas fa-user-plus mr-2"></i>Mendaftar / Buat Akun</button>
+          <button onclick="closeMobileMenu(); showRegisterPrompt()" class="mt-3 w-full rounded-xl bg-bali-orange px-4 py-3 text-sm font-extrabold text-white shadow-sm hover:bg-bali-hover"><i class="fas fa-user-plus mr-2"></i>Mendaftar / Buat Akun</button>
           <p class="text-[11px] text-slate-400 text-center mt-2">Simpan aktivitas favorit dan temukan kembali rencana perjalanan Anda.</p>
         </div>
       </div>
@@ -157,18 +157,19 @@
                 <li><button type="button" onclick="navigateTo('packages')" class="footer-link">Private transport</button></li>
                 <li><button type="button" onclick="navigateTo('cart')" class="footer-link">View my trip list</button></li>
                 <li><button type="button" onclick="navigateTo('contact')" class="footer-link">Ask about availability</button></li>
-                <li><button type="button" onclick="showFooterComingSoon('Airport transfers')" class="footer-link">Airport transfers <span class="footer-coming-soon">Coming Soon</span></button></li>
+                <li><button type="button" onclick="navigateTo('service-info','airport-transfer')" class="footer-link">Airport transfers</button></li>
               </ul>
             </div>
 
             <div>
               <h3 class="text-white font-extrabold mb-4 text-xs uppercase tracking-[0.14em]">Help & support</h3>
               <ul class="space-y-3.5">
+                <li><button type="button" onclick="navigateTo('help')" class="footer-link">Help centre</button></li>
                 <li><button type="button" onclick="navigateTo('contact')" class="footer-link">Contact our team</button></li>
-                <li><button type="button" onclick="showFooterComingSoon('Frequently asked questions')" class="footer-link">FAQs <span class="footer-coming-soon">Coming Soon</span></button></li>
-                <li><button type="button" onclick="showFooterComingSoon('Booking and payment information')" class="footer-link">Booking & payments <span class="footer-coming-soon">Coming Soon</span></button></li>
-                <li><button type="button" onclick="showFooterComingSoon('Changes and cancellation policy')" class="footer-link">Changes & cancellations <span class="footer-coming-soon">Coming Soon</span></button></li>
-                <li><button type="button" onclick="showFooterComingSoon('Manage booking')" class="footer-link">Manage a booking <span class="footer-coming-soon">Coming Soon</span></button></li>
+                <li><button type="button" onclick="navigateTo('help-topic','faq')" class="footer-link">FAQs</button></li>
+                <li><button type="button" onclick="navigateTo('help-topic','booking-payments')" class="footer-link">Booking & payments</button></li>
+                <li><button type="button" onclick="navigateTo('help-topic','cancellations')" class="footer-link">Changes & cancellations</button></li>
+                <li><button type="button" onclick="navigateTo('help-topic','manage-booking')" class="footer-link">Manage a booking</button></li>
               </ul>
             </div>
 
@@ -176,9 +177,9 @@
               <h3 class="text-white font-extrabold mb-4 text-xs uppercase tracking-[0.14em]">About us</h3>
               <ul class="space-y-3.5">
                 <li><button type="button" onclick="navigateTo('about')" class="footer-link">About Bali Trans</button></li>
-                <li><button type="button" onclick="showFooterComingSoon('Our local partners')" class="footer-link">Local partners <span class="footer-coming-soon">Coming Soon</span></button></li>
-                <li><button type="button" onclick="showFooterComingSoon('Terms and conditions')" class="footer-link">Terms & conditions <span class="footer-coming-soon">Coming Soon</span></button></li>
-                <li><button type="button" onclick="showFooterComingSoon('Privacy policy')" class="footer-link">Privacy policy <span class="footer-coming-soon">Coming Soon</span></button></li>
+                <li><button type="button" onclick="navigateTo('partners')" class="footer-link">Local partners</button></li>
+                <li><button type="button" onclick="navigateTo('terms')" class="footer-link">Terms & conditions</button></li>
+                <li><button type="button" onclick="navigateTo('privacy')" class="footer-link">Privacy policy</button></li>
                 <li><button type="button" onclick="navigateTo('home')" class="footer-link">Back to home</button></li>
               </ul>
             </div>
@@ -202,23 +203,23 @@
     </footer>
     
 
-    <!-- MOBILE BOTTOM NAVIGATION BAR (KLOOK MOBILE STYLE) -->
+    <!-- MOBILE BOTTOM NAVIGATION BAR (bali MOBILE STYLE) -->
     <div class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 z-50 py-1.5 px-6 flex justify-between items-center shadow-lg">
-        <button onclick="navigateTo('home')" class="flex flex-col items-center gap-1 text-slate-600 hover:text-klook-orange focus:text-klook-orange">
+        <button onclick="navigateTo('home')" class="flex flex-col items-center gap-1 text-slate-600 hover:text-bali-orange focus:text-bali-orange">
             <i class="fas fa-compass text-lg"></i>
             <span class="text-[10px] font-bold">Explore</span>
         </button>
-        <button onclick="navigateTo('packages')" class="flex flex-col items-center gap-1 text-slate-600 hover:text-klook-orange focus:text-klook-orange">
+        <button onclick="navigateTo('packages')" class="flex flex-col items-center gap-1 text-slate-600 hover:text-bali-orange focus:text-bali-orange">
             <i class="fas fa-th-large text-lg"></i>
             <span class="text-[10px] font-bold">Activities</span>
         </button>
-        <button onclick="navigateTo('blog')" class="flex flex-col items-center gap-1 text-slate-600 hover:text-klook-orange focus:text-klook-orange">
+        <button onclick="navigateTo('blog')" class="flex flex-col items-center gap-1 text-slate-600 hover:text-bali-orange focus:text-bali-orange">
             <i class="fas fa-book-open text-lg"></i>
             <span class="text-[10px] font-bold">Guides</span>
         </button>
-        <button onclick="navigateTo('cart')" class="relative flex flex-col items-center gap-1 text-slate-600 hover:text-klook-orange focus:text-klook-orange">
+        <button onclick="navigateTo('cart')" class="relative flex flex-col items-center gap-1 text-slate-600 hover:text-bali-orange focus:text-bali-orange">
             <i class="fas fa-shopping-bag text-lg"></i>
-            <span id="mobileCartBadge" class="absolute -top-1 right-2 bg-klook-orange text-white text-[9px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+            <span id="mobileCartBadge" class="absolute -top-1 right-2 bg-bali-orange text-white text-[9px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center">0</span>
             <span class="text-[10px] font-bold">Cart</span>
         </button>
     </div>
