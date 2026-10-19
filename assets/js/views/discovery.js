@@ -47,7 +47,8 @@ function renderDiscoveryView(key) {
                 'place:island-snorkelling-diving': {title:'Snorkelling & Diving Around the Nusa Islands',intro:'The waters around Nusa Penida, Lembongan and Ceningan offer marine experiences that depend on local sea conditions.',items:['Choose qualified operators and suitable equipment','Ask about currents, visibility and experience requirements','Avoid touching coral or disturbing marine wildlife'],note:'Currents can be strong in this area. Follow operator guidance and do not enter the water when conditions are unsafe.'}
             };
             const keyValue = String(key || 'region:south');
-            const page = pages[keyValue] || extraDestinationPages[keyValue] || pages['region:south'];
+            const page = pages[keyValue] || extraDestinationPages[keyValue];
+            if (!page) return renderNotFoundView();
             const showLovina = keyValue === 'duration:long-trip' || keyValue === 'region:north';
             const cards = page.items.map(function(item, index) {
                 const destinationRoutes = {
