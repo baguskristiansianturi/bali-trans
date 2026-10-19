@@ -1,3 +1,8 @@
+function renderArticleSources(sources) {
+            if (!Array.isArray(sources) || !sources.length) return '';
+            const escapeText = value => String(value || '').replace(/[&<>"]/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[character]));
+            return '<section aria-labelledby="article-sources-title" class="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-5 sm:p-6"><h2 id="article-sources-title" class="text-lg font-extrabold text-slate-900 mb-3">Sources & further reading</h2><ul class="list-disc pl-5 space-y-2 text-sm text-slate-700">' + sources.map(source => '<li><a href="' + escapeText(source.url) + '" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 underline underline-offset-2">' + escapeText(source.title) + '</a></li>').join('') + '</ul><p class="text-xs text-slate-500 leading-5 mt-4">Requirements, access, transport and local conditions may change. Check the latest official guidance before travelling.</p></section>';
+        }
 /* VIEW 4: BLOG & GUIDES PAGE */
         function renderBlogListView() {
             return `
@@ -11,7 +16,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                         ${BALI_BLOGS.map(blog => `
                             <div class="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
-                                <img src="${blog.image}" alt="${blog.title.replace(/&/g, '&amp;').replace(/"/g, '&quot;')}" class="w-full h-48 object-cover" loading="lazy">
+                                <img src="${blog.image}" alt="${(blog.imageAlt || blog.title).replace(/&/g, '&amp;').replace(/"/g, '&quot;')}" class="w-full h-48 object-cover" loading="lazy">
                                 <div class="p-6 flex-1 flex flex-col justify-between">
                                     <div>
                                         <div class="flex items-center gap-2 text-[10px] font-bold text-slate-400 mb-2">
@@ -52,7 +57,7 @@
                     <h1 class="text-3xl sm:text-4xl font-black text-slate-900 mt-3 mb-4 leading-tight">${blog.title}</h1>
                     <p class="text-base sm:text-lg leading-relaxed text-slate-600 mb-5">${blog.snippet || ''}</p>
                     <div class="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs text-slate-500 mb-6 pb-6 border-b border-slate-200">
-                        <time datetime="${blog.date}">Published ${blog.date}</time>
+                        <time datetime="${blog.dateISO || ''}">Published ${blog.date}</time>
                         <span aria-hidden="true">•</span>
                         <span>${blog.readTime}</span>
                     </div>
@@ -60,6 +65,7 @@
                     <div class="prose max-w-none text-slate-700 text-sm sm:text-base leading-relaxed space-y-4">
                         ${blog.content}
                     </div>
+                    ${renderArticleSources(blog.sources)}
                     <nav aria-label="Article navigation" class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-10 pt-7 border-t border-slate-200">
                         ${articleNavigation(previousBlog, 'Previous article', 'previous')}
                         ${articleNavigation(nextBlog, 'Next article', 'next')}
