@@ -91,6 +91,17 @@ jobs:
           console.log('Checked ' + views.length + ' route types, ' + new Set(discoveryKeys).size + ' discovery keys, ' + metadataKeys.length + ' metadata keys, ' + master.destinations.filter(destination => destination.route).length + ' master routes, ' + master.destinations.length + ' master records, and ' + articleIds.length + ' sourced article IDs.');
           NODE
 
+      - name: Install Chromium for browser smoke tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+
+      - name: Run mobile browser smoke tests
+        shell: bash
+        run: node scripts/browser-smoke.mjs
+
       - name: Check local HTML assets and CSS imports
         shell: bash
         run: |
