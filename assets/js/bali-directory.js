@@ -1444,5 +1444,107 @@ const BALI_ADDITIONAL_DESTINATIONS = [
       "Memeriksa akses dan aturan kunjungan sebelum berangkat"
     ],
     "visit": "Konfirmasi akses, jam operasional, biaya, dan aturan kunjungan langsung kepada pengelola. Kondisi cuaca, lalu lintas, serta aturan lokal dapat berubah."
+  },
+  {
+    "slug": "watu-klotok-temple",
+    "title": "Pura Watu Klotok",
+    "area": "Tojan, Klungkung",
+    "type": "Pura & pesisir",
+    "regionKey": "klungkung",
+    "regionLabel": "Klungkung daratan",
+    "regionSlug": "klungkung",
+    "image": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1000&q=85",
+    "summary": "Pura pesisir di Klungkung dengan pemandangan laut terbuka dan suasana ibadah lokal.",
+    "highlights": [
+      "Mengenal Pura Watu Klotok dan karakter kawasan sekitarnya",
+      "Memadukan kunjungan dengan destinasi lain di Klungkung daratan",
+      "Memeriksa akses dan aturan kunjungan sebelum berangkat"
+    ],
+    "visit": "Konfirmasi akses, jam operasional, biaya, dan aturan kunjungan langsung kepada pengelola. Kondisi cuaca, lalu lintas, serta aturan lokal dapat berubah."
+  },
+  {
+    "slug": "kamasan-village",
+    "title": "Desa Kamasan",
+    "area": "Kamasan, Klungkung",
+    "type": "Desa seni & budaya",
+    "regionKey": "klungkung",
+    "regionLabel": "Klungkung daratan",
+    "regionSlug": "klungkung",
+    "image": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1000&q=85",
+    "summary": "Desa yang dikenal dengan tradisi lukisan wayang Kamasan dan kerajinan seni.",
+    "highlights": [
+      "Mengenal Desa Kamasan dan karakter kawasan sekitarnya",
+      "Memadukan kunjungan dengan destinasi lain di Klungkung daratan",
+      "Memeriksa akses dan aturan kunjungan sebelum berangkat"
+    ],
+    "visit": "Konfirmasi akses, jam operasional, biaya, dan aturan kunjungan langsung kepada pengelola. Kondisi cuaca, lalu lintas, serta aturan lokal dapat berubah."
+  },
+  {
+    "slug": "semarajaya-museum",
+    "title": "Museum Semarajaya",
+    "area": "Semarapura, Klungkung",
+    "type": "Museum & warisan sejarah",
+    "regionKey": "klungkung",
+    "regionLabel": "Klungkung daratan",
+    "regionSlug": "klungkung",
+    "image": "https://images.unsplash.com/photo-1566127992631-137a642a90f4?auto=format&fit=crop&w=1000&q=85",
+    "summary": "Museum di kawasan pusat Klungkung untuk mengenal sejarah kerajaan dan warisan budaya setempat.",
+    "highlights": [
+      "Mengenal Museum Semarajaya dan karakter kawasan sekitarnya",
+      "Memadukan kunjungan dengan destinasi lain di Klungkung daratan",
+      "Memeriksa akses dan aturan kunjungan sebelum berangkat"
+    ],
+    "visit": "Konfirmasi akses, jam operasional, biaya, dan aturan kunjungan langsung kepada pengelola. Kondisi cuaca, lalu lintas, serta aturan lokal dapat berubah."
+  },
+  {
+    "slug": "bali-swing",
+    "title": "Bali Swing",
+    "area": "Bongkasa Pertiwi, Abiansemal, Badung",
+    "type": "Jungle swing & petualangan",
+    "regionKey": "badung",
+    "regionLabel": "Badung",
+    "regionSlug": "badung",
+    "image": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1000&q=85",
+    "summary": "Pengalaman ayunan dan titik pandang lanskap lembah; konfirmasi fasilitas, batas keselamatan, dan operasional langsung kepada pengelola.",
+    "highlights": [
+      "Mengenal Bali Swing dan karakter kawasan sekitarnya",
+      "Memadukan kunjungan dengan destinasi lain di Badung",
+      "Memeriksa akses dan aturan kunjungan sebelum berangkat"
+    ],
+    "visit": "Konfirmasi akses, jam operasional, biaya, dan aturan kunjungan langsung kepada pengelola. Kondisi cuaca, lalu lintas, serta aturan lokal dapat berubah."
+  },
+  {
+    "slug": "ubud-river-tubing",
+    "title": "River Tubing di Kawasan Ubud",
+    "area": "Kawasan Ubud, Gianyar",
+    "type": "River tubing & petualangan",
+    "regionKey": "gianyar",
+    "regionLabel": "Gianyar",
+    "regionSlug": "gianyar",
+    "image": "https://images.unsplash.com/photo-1530866495561-507c9faab2ed?auto=format&fit=crop&w=1000&q=85",
+    "summary": "Aktivitas menyusuri aliran sungai menggunakan ban melalui operator lokal; titik keberangkatan dan kondisi sungai perlu dikonfirmasi.",
+    "highlights": [
+      "Mengenal River Tubing di Kawasan Ubud dan karakter kawasan sekitarnya",
+      "Memadukan kunjungan dengan destinasi lain di Gianyar",
+      "Memeriksa akses dan aturan kunjungan sebelum berangkat"
+    ],
+    "visit": "Konfirmasi akses, jam operasional, biaya, dan aturan kunjungan langsung kepada pengelola. Kondisi cuaca, lalu lintas, serta aturan lokal dapat berubah."
+  },
+  {
+    "slug": "soka-beach-viewpoint",
+    "title": "Pemandangan Pesisir Soka",
+    "area": "Selemadeg, Tabanan",
+    "type": "Pesisir & pemandangan",
+    "regionKey": "tabanan",
+    "regionLabel": "Tabanan",
+    "regionSlug": "tabanan",
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=85",
+    "summary": "Sudut pandang tambahan di kawasan pesisir Soka untuk menikmati bentang pantai barat Tabanan.",
+    "highlights": [
+      "Mengenal Pemandangan Pesisir Soka dan karakter kawasan sekitarnya",
+      "Memadukan kunjungan dengan destinasi lain di Tabanan",
+      "Memeriksa akses dan aturan kunjungan sebelum berangkat"
+    ],
+    "visit": "Konfirmasi akses, jam operasional, biaya, dan aturan kunjungan langsung kepada pengelola. Kondisi cuaca, lalu lintas, serta aturan lokal dapat berubah."
   }
 ];
