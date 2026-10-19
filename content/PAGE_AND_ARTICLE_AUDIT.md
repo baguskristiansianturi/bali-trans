@@ -209,6 +209,7 @@ Status: perubahan source sudah ditulis pada branch audit. Uji browser langsung t
 - Source scan pada `index.html` dan seluruh view tidak menemukan tautan `href="#"` yang menjadi placeholder pada file yang diperiksa.
 - Semua tautan eksternal yang membuka tab baru pada file yang diperiksa sudah menyertakan `rel` untuk keamanan.
 - Gambar pada kartu artikel, katalog paket, keranjang, galeri detail, hasil pencarian, dan wishlist kini memiliki alt text atau alt kosong yang disengaja untuk gambar dekoratif; gambar konten dan thumbnail dimuat secara lazy. Hero homepage dan gambar utama detail tidak di-lazy-load agar tidak menunda konten utama.
+- Konfigurasi tema Tailwind dipindahkan ke `assets/js/tailwind.config.js`; `index.html` sekarang tidak menyimpan blok JavaScript inline.
 - Detail artikel kini menampilkan bagian “Sources & further reading” berdasarkan daftar sumber per artikel. Atribut `datetime` memakai tanggal ISO dan heading utama isi artikel menggunakan H2 setelah H1 judul.
 - Halaman kredit foto kini mencakup dua ilustrasi artikel dari Unsplash beserta tautan lisensinya, selain foto Wikimedia yang sudah tercatat.
 - Nama penulis perorangan yang belum terverifikasi diganti dengan “Bali Trans Editorial Team” agar tidak mengatribusikan tulisan kepada orang yang belum dikonfirmasi.
