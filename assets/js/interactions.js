@@ -497,7 +497,7 @@
             }
             const list = document.getElementById('recentlyViewedItems');
             const items = recentlyViewedState.map(id => (typeof BALI_PACKAGES !== 'undefined' ? BALI_PACKAGES.find(pkg => pkg.id === id) : null)).filter(Boolean);
-            list.innerHTML = items.length ? items.map(pkg => '<button class="w-full flex items-center gap-3 text-left p-3 mb-2 rounded-xl border border-slate-100 hover:bg-slate-50" onclick="navigateTo(\'detail\', \'' + pkg.id + '\');document.getElementById(\'recentlyViewedModal\').remove()"><img src="' + pkg.heroImage + '" alt="" class="w-16 h-16 object-cover rounded-lg"><span><strong class="block text-sm text-slate-900">' + pkg.title + '</strong><small class="text-slate-500">' + (pkg.location || 'Bali') + '</small></span></button>').join('') : '<p class="text-sm text-slate-500 text-center py-8">Aktivitas yang baru dilihat akan muncul di sini.</p>';
+            list.innerHTML = items.length ? items.map(pkg => '<button class="w-full flex items-center gap-3 text-left p-3 mb-2 rounded-xl border border-slate-100 hover:bg-slate-50" onclick="navigateTo(\'detail\', \'' + pkg.id + '\');document.getElementById(\'recentlyViewedModal\').remove()"><img src="' + pkg.heroImage + '" alt="" loading="lazy" class="w-16 h-16 object-cover rounded-lg"><span><strong class="block text-sm text-slate-900">' + pkg.title + '</strong><small class="text-slate-500">' + (pkg.location || 'Bali') + '</small></span></button>').join('') : '<p class="text-sm text-slate-500 text-center py-8">Aktivitas yang baru dilihat akan muncul di sini.</p>';
         }
         function trackRecentlyViewed(pkg) {
             if (!pkg || !pkg.id) return;
@@ -701,7 +701,7 @@
             ].slice(0,8);
             dropdown.classList.remove('hidden');
             if (results.length) {
-                dropdown.innerHTML = results.map(item => `<button type="button" onclick="${item.action}" class="w-full text-left p-2.5 hover:bg-slate-50 rounded-xl cursor-pointer flex items-center gap-3">${item.image ? `<img src="${escapeHtml(item.image)}" alt="" class="w-10 h-10 object-cover rounded-lg">` : '<span class="w-10 h-10 shrink-0 rounded-lg bg-teal-50 text-teal-700 flex items-center justify-center"><i class="fas fa-map-marker-alt"></i></span>'}<span class="min-w-0"><span class="block text-xs font-extrabold text-slate-900 line-clamp-1">${escapeHtml(item.title)}</span><span class="block text-[10px] text-slate-500">${escapeHtml(item.location)}</span></span></button>`).join('');
+                dropdown.innerHTML = results.map(item => `<button type="button" onclick="${item.action}" class="w-full text-left p-2.5 hover:bg-slate-50 rounded-xl cursor-pointer flex items-center gap-3">${item.image ? `<img src="${escapeHtml(item.image)}" alt="" loading="lazy" class="w-10 h-10 object-cover rounded-lg">` : '<span class="w-10 h-10 shrink-0 rounded-lg bg-teal-50 text-teal-700 flex items-center justify-center"><i class="fas fa-map-marker-alt"></i></span>'}<span class="min-w-0"><span class="block text-xs font-extrabold text-slate-900 line-clamp-1">${escapeHtml(item.title)}</span><span class="block text-[10px] text-slate-500">${escapeHtml(item.location)}</span></span></button>`).join('');
             } else {
                 dropdown.innerHTML = `<div class="p-3 text-xs text-slate-500 text-center">No destinations or experiences found for “${escapeHtml(term)}”</div>`;
             }
