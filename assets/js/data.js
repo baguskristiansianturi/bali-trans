@@ -59,7 +59,7 @@
                 reviewCount: 5120,
                 originalPriceIDR: 950000,
                 priceIDR: 680000,
-                badge: 'Klook Choice',
+                badge: 'bali Choice',
                 instantConfirmation: true,
                 freeCancellation: true,
                 hotelTransfer: true,
