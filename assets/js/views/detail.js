@@ -91,7 +91,7 @@ function renderDetailView(pkg) {
 
                         <!-- Right Sticky Booking Sidebar (4 Cols) -->
                         <div class="lg:col-span-4">
-                            <div class="sticky top-24 bg-white p-6 rounded-3xl border border-slate-200 bali-shadow">
+                            <div class="sticky top-24 bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
                                 <div class="mb-4 pb-4 border-b border-slate-100">
                                     <span class="text-xs text-slate-400 font-semibold">Starting Price</span>
                                     <div class="text-2xl font-black text-slate-900">${basePrice}</div>
