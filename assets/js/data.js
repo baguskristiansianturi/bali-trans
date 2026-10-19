@@ -224,6 +224,8 @@
         const BALI_BLOGS = [
             {
                 id: 'blog-1',
+                slug: 'bali-travel-guide-first-time-visitors',
+                labels: ['Travel Planning', 'Bali Guide'],
                 title: 'The Ultimate First-Timer’s Bali Travel Guide (2026 Edition)',
                 category: 'Guide',
                 readTime: '6 min read',
@@ -248,6 +250,8 @@
             },
             {
                 id: 'blog-2',
+                slug: 'nusa-penida-instagrammable-spots',
+                labels: ['Destinations', 'Beaches', 'Nusa Islands'],
                 title: 'Top 7 Instagrammable Spots in Nusa Penida & How to Visit Them',
                 category: 'Destinations',
                 readTime: '4 min read',
@@ -267,6 +271,8 @@
             },
             {
                 id: 'blog-3',
+                slug: 'balinese-food-guide',
+                labels: ['Food & Drink', 'Culture & Heritage'],
                 title: 'Bali Foodie Guide: 10 Must-Try Balinese Dishes You Can’t Miss',
                 category: 'Culinary',
                 readTime: '5 min read',
