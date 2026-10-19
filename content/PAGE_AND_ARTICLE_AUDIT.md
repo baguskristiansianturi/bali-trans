@@ -16,7 +16,7 @@ Cakupan: source code branch `refactor/clean-structure-content-audit`, master dat
 
 - CSS inline dipindahkan ke file eksternal tanpa mengubah aturan, lalu dipisah menjadi `base.css`, `navigation.css`, dan `footer.css`. `styles.css` menjadi entry point dengan urutan impor yang mempertahankan cascade.
 - JavaScript aplikasi dipisah menjadi data, state, routing, view berdasarkan fungsi, dan interaksi.
-- `views/discovery.js` menampung discovery dan halaman pendukung; `cart.js` dan `checkout.js` menampung alur masing-masing.
+- `views/discovery.js` menampung halaman wilayah/destinasi; `views/static-pages.js` menampung About, Contact, dan kredit gambar; `cart.js` dan `checkout.js` menampung alur masing-masing.
 - `index.html` menjadi entry point yang memuat stylesheet dan script modular.
 - Tidak ada perubahan yang disengaja pada teks UI, warna, layout, atau isi artikel selama pemindahan. Pemindahan resource tetap membutuhkan pemeriksaan visual.
 
