@@ -50,6 +50,13 @@ Jumlah ini adalah hitungan entri direktori, bukan jumlah seluruh objek wisata ya
 - Periksa metadata SEO dan rendering browser pada semua URL detail/hub; halaman menggunakan shell bersama dan merender konten sesuai slug melalui aplikasi.
 - Jalankan QA browser di mobile dan desktop serta uji tautan langsung/refresh/back-forward.
 
+## Status deployment dan verifikasi
+
+- Semua perubahan audit berada di branch `preview/bali-trans`.
+- Workflow GitHub Pages yang ada hanya memicu deploy dari branch `main`; perubahan ini belum dinyatakan tayang di situs publik.
+- Perbandingan saat audit: branch preview **143 commit di depan dan 49 commit di belakang** `main`, dengan 209 file berbeda. Karena divergensi ini, jangan merge seluruh branch secara langsung untuk deployment.
+- Workflow pemeriksaan sintaks JavaScript untuk branch preview sudah ditambahkan. Status check yang tersedia saat audit belum mengembalikan hasil, jadi pemeriksaan browser dan hasil deploy tetap harus dikonfirmasi sebelum menyatakan pekerjaan live.
+
 ## Referensi riset
 
 Sumber dipakai sebagai pembanding kategori dan daftar tempat; bukan untuk menyalin isi atau klaim komersial.
