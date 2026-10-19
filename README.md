@@ -46,3 +46,21 @@ Tailwind, fonts, icons, QR rendering, and remote images still use external runti
 See [AUDIT.md](./AUDIT.md) for confirmed static findings and known risks. Changes are being prepared on a draft pull request and must not be considered deployed until merged and verified on GitHub Pages.
 
 Before merge, test the homepage, mobile swipe/carousels, breadcrumbs, package detail, article detail, filters/search, cart, wishlist, checkout validation, empty states, currency selector, and footer links in a real browser at mobile and desktop widths.
+
+
+## Current source layout
+
+The implementation remains a client-rendered SPA with query-based routes. The existing visual design is intentionally preserved while source code is separated into maintainable files.
+
+- `assets/css/styles.css`: CSS entry point importing `base.css`, `navigation.css`, and `footer.css`.
+- `assets/js/tailwind.config.js`: shared Tailwind theme configuration.
+- `assets/js/data.js`: package, article, locale, and currency data.
+- `assets/js/state.js`: shared UI state.
+- `assets/js/navigation.js`: route handling and page metadata.
+- `assets/js/views/`: discovery, static pages, home, catalog, detail, articles, cart, and checkout renderers.
+- `assets/js/interactions.js`: shared UI handlers.
+- `content/bali-master-data.json`: destination/category inventory and readiness.
+- `content/PAGE_AND_ARTICLE_AUDIT.md`: destination inventory and audit findings.
+- `content/ROUTE_MASTER_MAPPING.md`: reconciliation of all 43 renderer route keys against the destination master data.
+
+Static validation does not replace browser QA. Prototype checkout is not a real booking/payment flow.

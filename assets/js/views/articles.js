@@ -1,16 +1,22 @@
-function renderBlogListView() {
+function renderArticleSources(sources) {
+            if (!Array.isArray(sources) || !sources.length) return '';
+            const escapeText = value => String(value || '').replace(/[&<>"]/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[character]));
+            return '<section aria-labelledby="article-sources-title" class="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-5 sm:p-6"><h2 id="article-sources-title" class="text-lg font-extrabold text-slate-900 mb-3">Sources & further reading</h2><ul class="list-disc pl-5 space-y-2 text-sm text-slate-700">' + sources.map(source => '<li><a href="' + escapeText(source.url) + '" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 underline underline-offset-2">' + escapeText(source.title) + '</a></li>').join('') + '</ul><p class="text-xs text-slate-500 leading-5 mt-4">Requirements, access, transport and local conditions may change. Check the latest official guidance before travelling.</p></section>';
+        }
+/* VIEW 4: BLOG & GUIDES PAGE */
+        function renderBlogListView() {
             return `
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                     <div class="text-center max-w-2xl mx-auto mb-10">
                         <span class="text-xs font-extrabold text-klook-orange uppercase tracking-wider">Bali Travel Guides & Tips</span>
                         <h1 class="text-3xl font-extrabold text-slate-900 mt-1">Plan Your Dream Trip to Bali</h1>
-                        <p class="text-slate-500 text-sm mt-2">Practical guides to Bali destinations, activities and planning your trip.</p>
+                        <p class="text-slate-500 text-sm mt-2">Practical guides for choosing areas, planning routes and enjoying your time in Bali.</p>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                         ${BALI_BLOGS.map(blog => `
                             <div class="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
-                                <img src="${blog.image}" class="w-full h-48 object-cover">
+                                <img src="${blog.image}" alt="${(blog.imageAlt || blog.title).replace(/&/g, '&amp;').replace(/"/g, '&quot;')}" class="w-full h-48 object-cover" loading="lazy">
                                 <div class="p-6 flex-1 flex flex-col justify-between">
                                     <div>
                                         <div class="flex items-center gap-2 text-[10px] font-bold text-slate-400 mb-2">
@@ -34,30 +40,41 @@ function renderBlogListView() {
 
         /* VIEW 5: BLOG READ DETAIL */
         function renderBlogDetailView(blog) {
+            const blogIndex = BALI_BLOGS.findIndex(item => item.id === blog.id);
+            const previousBlog = blogIndex > 0 ? BALI_BLOGS[blogIndex - 1] : null;
+            const nextBlog = blogIndex >= 0 && blogIndex < BALI_BLOGS.length - 1 ? BALI_BLOGS[blogIndex + 1] : null;
+            const articleNavigation = (item, label, direction) => item ? `
+                <button type="button" onclick="navigateTo('blog-read', '${item.id}')" class="group w-full min-w-0 text-left rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 hover:border-teal-300 hover:bg-teal-50/40 transition">
+                    <span class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-2">${label}</span>
+                    <span class="flex items-start gap-2 text-sm font-extrabold leading-snug text-slate-800 group-hover:text-klook-orange">${direction === 'previous' ? '<i class="fas fa-arrow-left mt-1 shrink-0"></i>' : ''}<span class="min-w-0">${item.title}</span>${direction === 'next' ? '<i class="fas fa-arrow-right mt-1 shrink-0"></i>' : ''}</span>
+                </button>` : '<div class="hidden sm:block"></div>';
             return `
-                <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
-                    <button onclick="navigateTo('blog')" class="text-xs font-bold text-slate-500 hover:text-slate-900 mb-6 flex items-center gap-2">
-                        ← Back to Travel Guides
+                <article class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+                    <button type="button" onclick="navigateTo('blog')" class="text-xs font-bold text-slate-500 hover:text-slate-900 mb-6 flex items-center gap-2">
+                        <i class="fas fa-arrow-left"></i> Back to Travel Guides
                     </button>
-                    
-                    <span class="bg-orange-100 text-klook-orange text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">${blog.category}</span>
+                    <span class="inline-flex bg-orange-100 text-klook-orange text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">${blog.category}</span>
                     <h1 class="text-3xl sm:text-4xl font-black text-slate-900 mt-3 mb-4 leading-tight">${blog.title}</h1>
-                    
-                    <div class="flex items-center gap-3 text-xs text-slate-400 mb-6 pb-6 border-b border-slate-200">
-                        <span>By <strong class="text-slate-700">${blog.author}</strong></span>
-                        <span>•</span>
-                        <span>Published ${blog.date}</span>
-                        <span>•</span>
+                    <p class="text-base sm:text-lg leading-relaxed text-slate-600 mb-5">${blog.snippet || ''}</p>
+                    <div class="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs text-slate-500 mb-6 pb-6 border-b border-slate-200">
+                        <time datetime="${blog.dateISO || ''}">Published ${blog.date}</time>
+                        <span aria-hidden="true">•</span>
                         <span>${blog.readTime}</span>
                     </div>
-
-                    <img src="${blog.image}" class="w-full h-[380px] object-cover rounded-3xl mb-8 shadow-md">
-
-                    <div class="prose max-w-none text-slate-700 text-sm leading-relaxed space-y-4">
+                    <img src="${blog.image}" alt="${(blog.imageAlt || blog.title).replace(/&/g, '&amp;').replace(/"/g, '&quot;')}" class="w-full h-56 sm:h-80 md:h-[380px] object-cover rounded-3xl mb-8 shadow-md" loading="lazy">
+                    <div class="prose max-w-none text-slate-700 text-sm sm:text-base leading-relaxed space-y-4">
                         ${blog.content}
                     </div>
-                </div>
+                    ${renderArticleSources(blog.sources)}
+                    <nav aria-label="Article navigation" class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-10 pt-7 border-t border-slate-200">
+                        ${articleNavigation(previousBlog, 'Previous article', 'previous')}
+                        ${articleNavigation(nextBlog, 'Next article', 'next')}
+                    </nav>
+                    <div class="mt-6 text-center">
+                        <button type="button" onclick="navigateTo('blog')" class="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50">
+                            View all travel guides <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </article>
             `;
         }
-
-        /* VIEW 6: SHOPPING CART PAGE */

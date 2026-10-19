@@ -3,9 +3,9 @@ tailwind.config = {
                 extend: {
                     colors: {
                         klook: {
-                            orange: '#FF5E00',
-                            hover: '#E05300',
-                            light: '#FFF2EB',
+                            orange: '#0F9D9A',
+                            hover: '#087E8B',
+                            light: '#E8F7F6',
                             dark: '#111827',
                             gray: '#F5F7FA'
                         }

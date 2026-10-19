@@ -1,4 +1,4 @@
-name: Validate prototype structure
+name: Validate Bali Trans source structure
 
 on:
   pull_request:
@@ -31,7 +31,78 @@ jobs:
             node --check "$file"
           done < <(find assets/js -type f -name '*.js' -print0)
 
-      - name: Check local asset references
+      - name: Check route and content references
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --input-type=module - <<'NODE'
+          import fs from 'node:fs';
+          const read = path => fs.readFileSync(path, 'utf8');
+          const navigation = read('assets/js/navigation.js');
+          const interactions = read('assets/js/interactions.js');
+          const discovery = read('assets/js/views/discovery.js');
+          const data = read('assets/js/data.js');
+          const viewText = interactions.match(/const supportedViews = \[([^\]]+)\]/)?.[1] || '';
+          const views = [...viewText.matchAll(/'([^']+)'/g)].map(match => match[1]);
+          const routeCases = [...navigation.matchAll(/case '([^']+)'/g)].map(match => match[1]);
+          const missingViews = views.filter(view => !routeCases.includes(view));
+          function keysFromObject(source, name) {
+            const start = source.indexOf('const ' + name + ' = {');
+            if (start < 0) return [];
+            const bodyStart = source.indexOf('{', start);
+            const end = source.indexOf('\n            };', bodyStart);
+            if (end < 0) return [];
+            return [...source.slice(bodyStart, end).matchAll(/'((?:region|place|service|duration):[^']+)'\s*:/g)].map(match => match[1]);
+          }
+          const discoveryKeys = [...keysFromObject(discovery, 'pages'), ...keysFromObject(discovery, 'extraDestinationPages')];
+          const metadataStart = navigation.indexOf('const destinationMetadata = {');
+          const metadataEnd = navigation.indexOf('\n                };', metadataStart);
+          const metadataKeys = metadataStart >= 0 && metadataEnd >= 0
+            ? [...navigation.slice(metadataStart, metadataEnd).matchAll(/'((?:region|place|service|duration):[^']+)'\s*:/g)].map(match => match[1])
+            : [];
+          const missingMetadata = discoveryKeys.filter(key => !metadataKeys.includes(key));
+          const searchKeys = [...new Set([...interactions.matchAll(/key:'((?:region|place|service|duration):[^']+)'/g)].map(match => match[1]))];
+          const missingDiscovery = searchKeys.filter(key => !discoveryKeys.includes(key));
+          const master = JSON.parse(read('content/bali-master-data.json'));
+          const destinationIds = master.destinations.map(destination => destination.id);
+          const duplicateDestinationIds = destinationIds.filter((id, index) => destinationIds.indexOf(id) !== index);
+          const regionIds = master.editorial_regions.map(region => region.id);
+          const adminAreaIds = master.administrative_areas.map(area => area.id);
+          const categoryIds = master.activity_categories.map(category => category.id);
+          const invalidRegions = master.destinations.filter(destination => !regionIds.includes(destination.region_id)).map(destination => destination.id);
+          const invalidAdminAreas = master.destinations.filter(destination => destination.admin_area_id && !adminAreaIds.includes(destination.admin_area_id)).map(destination => destination.id);
+          const invalidCategories = master.destinations.filter(destination => (destination.categories || []).some(category => !categoryIds.includes(category))).map(destination => destination.id);
+          const missingFactDates = master.destinations.filter(destination => destination.fact_status !== 'UNVERIFIED' && !destination.last_checked).map(destination => destination.id);
+          const factChecksWithoutSources = master.destinations.filter(destination => destination.fact_status === 'FACT_CHECK' && !(destination.source_urls || []).length).map(destination => destination.id);
+          const invalidMasterRoutes = master.destinations.filter(destination => destination.route).filter(destination => {
+            const query = new URLSearchParams(destination.route.replace(/^\?/, ''));
+            const view = query.get('page') || 'home';
+            const item = query.get('item');
+            return !views.includes(view) || (view === 'discovery' && !discoveryKeys.includes(item));
+          }).map(destination => destination.id);
+          const articleData = data.slice(data.indexOf('const BALI_BLOGS = ['));
+          const articleIds = [...articleData.matchAll(/id: '([^']+)'/g)].map(match => match[1]);
+          const duplicateArticleIds = articleIds.filter((id, index) => articleIds.indexOf(id) !== index);
+          const articleSourceCount = (articleData.match(/sources: \[/g) || []).length;
+          if (missingViews.length || missingDiscovery.length || invalidMasterRoutes.length || duplicateDestinationIds.length || invalidRegions.length || invalidAdminAreas.length || invalidCategories.length || missingFactDates.length || factChecksWithoutSources.length || missingMetadata.length || duplicateArticleIds.length || articleSourceCount !== articleIds.length) {
+            console.error(JSON.stringify({ missingViews, missingDiscovery, invalidMasterRoutes, duplicateDestinationIds, invalidRegions, invalidAdminAreas, invalidCategories, missingFactDates, factChecksWithoutSources, missingMetadata, duplicateArticleIds, articleSourceCount, articleCount: articleIds.length }, null, 2));
+            process.exit(1);
+          }
+          console.log('Checked ' + views.length + ' route types, ' + new Set(discoveryKeys).size + ' discovery keys, ' + metadataKeys.length + ' metadata keys, ' + master.destinations.filter(destination => destination.route).length + ' master routes, ' + master.destinations.length + ' master records, and ' + articleIds.length + ' sourced article IDs.');
+          NODE
+
+      - name: Install Chromium for browser smoke tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+
+      - name: Run mobile browser smoke tests
+        shell: bash
+        run: node scripts/browser-smoke.mjs
+
+      - name: Check local HTML assets and CSS imports
         shell: bash
         run: |
           set -euo pipefail
@@ -41,7 +112,13 @@ jobs:
           html = Path("index.html").read_text()
           refs = re.findall(r'(?:src|href)="(\./assets/[^"]+)"', html)
           missing = [ref for ref in refs if not (Path(".") / ref[2:]).is_file()]
-          if missing:
-              raise SystemExit("Missing local assets: " + ", ".join(missing))
-          print(f"Checked {len(refs)} local asset references.")
+          css_imports = []
+          for css_file in Path("assets/css").glob("*.css"):
+              css_imports.extend((css_file, ref) for ref in re.findall(r"@import\s+['\"]([^'\"]+)['\"]", css_file.read_text()))
+          missing_imports = [f"{source}: {ref}" for source, ref in css_imports if not (source.parent / ref).is_file()]
+          if missing or missing_imports:
+              problems = ["Missing local assets: " + ", ".join(missing)] if missing else []
+              problems += ["Missing CSS imports: " + ", ".join(missing_imports)] if missing_imports else []
+              raise SystemExit("\n".join(problems))
+          print(f"Checked {len(refs)} local HTML asset references and {len(css_imports)} CSS imports.")
           PY
