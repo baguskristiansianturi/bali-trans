@@ -47,7 +47,9 @@ function renderNotFoundView() {
                 {name:'Lovina Dolphins',author:'Kahadni',license:'CC BY-SA 4.0',file:'https://commons.wikimedia.org/wiki/File:Lovina-dauphins.jpg',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/'},
                 {name:'Dolphins and Sunrise in Lovina, Indonesia Bali',author:'Michelle Maria',license:'CC BY 3.0',file:'https://commons.wikimedia.org/wiki/File:Dolphins_and_Sunrise_in_Lovina,_Indonesia_Bali_-_panoramio_(3).jpg',licenseUrl:'https://creativecommons.org/licenses/by/3.0/'},
                 {name:'Beach at Lovina, Bali',author:'Ken Eckert',license:'CC BY-SA 4.0',file:'https://commons.wikimedia.org/wiki/File:Beach_at_Lovina,_Bali.jpg',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/'},
-                {name:'Pantai Lovina',author:'Tisa0603',license:'CC0 1.0',file:'https://commons.wikimedia.org/wiki/File:Pantai_Lovina.jpg',licenseUrl:'https://creativecommons.org/publicdomain/zero/1.0/'}
+                {name:'Pantai Lovina',author:'Tisa0603',license:'CC0 1.0',file:'https://commons.wikimedia.org/wiki/File:Pantai_Lovina.jpg',licenseUrl:'https://creativecommons.org/publicdomain/zero/1.0/'},
+                {name:'Bali coastal landscape (article illustration)',author:'Unsplash contributor; photo ID photo-1537996194471-e657df975ab4',license:'Unsplash License',file:'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80',licenseUrl:'https://unsplash.com/license'},
+                {name:'Balinese food (article illustration)',author:'Unsplash contributor; photo ID photo-1555400038-63f5ba517a47',license:'Unsplash License',file:'https://images.unsplash.com/photo-1555400038-63f5ba517a47?auto=format&fit=crop&w=800&q=80',licenseUrl:'https://unsplash.com/license'}
             ];
             return `
                 <section class="bg-slate-950 text-white"><div class="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16">
