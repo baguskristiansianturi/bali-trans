@@ -219,3 +219,6 @@ Status: perubahan source sudah ditulis pada branch audit. Uji browser langsung t
 - Konten 79 destinasi berstatus `PLANNED` masih belum punya sumber dan fakta terverifikasi. Jangan mengubahnya menjadi artikel penuh dengan mengarang informasi; lakukan riset per tempat sebelum publikasi.
 - Checkout dan formulir kontak masih berupa alur front-end/prototype. Jangan menyatakan email, booking, atau pembayaran sungguhan sudah diproses.
 - URL canonical dan strategi URL SEO permanen belum ditetapkan. Selama rute masih memakai query string, keputusan SEO URL harus dilakukan sebelum peluncuran.
+
+
+Route-to-master-data reconciliation is maintained separately in [`ROUTE_MASTER_MAPPING.md`](./ROUTE_MASTER_MAPPING.md). It maps all 43 current route keys and flags combined destinations that need canonical pages.
