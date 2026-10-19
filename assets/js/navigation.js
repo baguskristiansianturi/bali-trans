@@ -186,11 +186,16 @@
                     'place:nusa-ceningan':['Nusa Ceningan & Yellow Bridge | Bali Trans','Discover Nusa Ceningan and the Yellow Bridge with practical island travel notes.'],
                     'place:island-snorkelling-diving':['Snorkelling & Diving Around the Nusa Islands | Bali Trans','Review sea conditions, operator guidance and marine-care tips for Nusa Islands activities.']
                 };
-                selected = destinationMetadata[params] || metadata.discovery;
+                selected = destinationMetadata[params] || metadata['not-found'];
             }
             if (viewName === 'blog-read') {
-                const article = BALI_BLOGS.find(item => item.id === params) || BALI_BLOGS[0];
-                selected = [article.title + ' | Bali Travel Guides | Bali Trans', article.snippet || defaultDescription];
+                const article = BALI_BLOGS.find(item => item.id === params);
+                selected = article
+                    ? [article.title + ' | Bali Travel Guides | Bali Trans', article.snippet || defaultDescription]
+                    : metadata['not-found'];
+            }
+            if (viewName === 'detail' && !BALI_PACKAGES.some(pkg => pkg.id === params)) {
+                selected = metadata['not-found'];
             }
             document.title = selected[0];
             let description = document.querySelector('meta[name="description"]');
