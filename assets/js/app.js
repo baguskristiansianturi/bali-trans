@@ -700,7 +700,7 @@
             if(!categories.some(function(c){return c.key===key;})) categories.push({key:key,label:type});
           });
           const categoryRail='<div class="mt-6 mb-6" aria-label="Filter destinations by category"><div class="flex items-center gap-2 overflow-x-auto pb-2 hide-scrollbar snap-x snap-mandatory">'+categories.map(function(c,index){
-            return '<button type="button" data-region-filter="'+placeEscape(c.key)+'" aria-pressed="'+(index===0?'true':'false')+'" onclick="filterRegionDestinationCards(this)" class="region-category-chip snap-start shrink-0 rounded-full border px-3.5 py-2 text-xs font-bold transition-all duration-200 '+(index===0?'is-active':'')+'">'+placeEscape(c.label)+'</button>';
+            return '<button type="button" data-region-filter="'+placeEscape(c.key)+'" aria-pressed="'+(index===0?'true':'false')+'" onclick="filterRegionDestinationCards(this)" class="region-category-chip snap-start shrink-0 rounded-full border border-slate-200 bg-white px-3.5 py-2 text-xs font-bold text-slate-600 transition-all duration-200 '+(index===0?'is-active':'')+'">'+placeEscape(c.label)+'</button>';
           }).join('')+'</div></div>';
           const cards=places.map(function(p){
             const publishedArticle=getPublishedDestinationArticle(p.slug);const href=publishedArticle?'/bali-trans/'+publishedArticle:'?view=place&id='+encodeURIComponent(p.slug);
@@ -716,6 +716,12 @@
             const active=item===button;
             item.setAttribute('aria-pressed',active?'true':'false');
             item.classList.toggle('is-active',active);
+            item.classList.toggle('bg-slate-900',active);
+            item.classList.toggle('text-white',active);
+            item.classList.toggle('border-slate-900',active);
+            item.classList.toggle('bg-white',!active);
+            item.classList.toggle('text-slate-600',!active);
+            item.classList.toggle('border-slate-200',!active);
           });
           document.querySelectorAll('[data-region-card]').forEach(function(card){
             card.hidden=category!=='all' && card.getAttribute('data-category')!==category;
