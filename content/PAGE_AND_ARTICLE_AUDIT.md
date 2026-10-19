@@ -140,7 +140,7 @@ Status halaman, konten, dan fakta adalah tiga hal berbeda. Sumber kosong berarti
 | ID | Artikel | Perkiraan kata isi | H2 | H3 | Sumber eksternal | Status editorial |
 |---|---|---:|---:|---:|---:|---|
 | blog-1 | A Practical First-Time Guide to Bali | 258 | 5 | 0 | 2 | Draft / perlu review fakta dan tautan |
-| blog-2 | Planning a Day on Nusa Penida: Transport and Safety | 240 | 3 | 0 | 2 | Overview / internal links to four individual guides |
+| blog-2 | Planning a Day on Nusa Penida: Transport and Safety | 254 | 3 | 0 | 2 | Overview / internal links to four individual guides |
 | blog-3 | Balinese Dishes to Try on Your Trip | 170 | 2 | 0 | 1 | Draft / perlu review fakta dan bahan makanan |
 | nusa-penida-kelingking-beach | Kelingking Beach: Viewpoints, Access and Safety | 262 | 4 | 0 | 2 | Published / safety warning dated 2025, verify local signs |
 | nusa-penida-crystal-bay | Crystal Bay: Coastal Views and Marine Activities | 211 | 3 | 0 | 2 | Published / activity conditions vary |
