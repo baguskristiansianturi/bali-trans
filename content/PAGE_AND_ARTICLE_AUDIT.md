@@ -181,3 +181,15 @@ Status halaman, konten, dan fakta adalah tiga hal berbeda. Sumber kosong berarti
 ## Batas audit
 
 Dokumen ini menginventarisasi source code dan master data. Ini tidak membuktikan seluruh kandidat telah mempunyai halaman lengkap, semua fakta telah diverifikasi, atau alur booking telah diuji. Record tanpa sumber dan tanggal pengecekan harus tetap dianggap belum terverifikasi.
+
+
+## Tahap 2 — Temuan route untuk perbaikan
+
+Audit lanjutan source menemukan tiga fallback yang menyamarkan URL salah sebagai konten valid:
+
+- URL detail paket dengan ID yang tidak dikenal tetap merender paket yang sebelumnya dipilih di memori.
+- URL detail artikel dengan ID yang tidak dikenal jatuh kembali ke artikel pertama.
+- URL discovery dengan key yang tidak dikenal jatuh kembali ke halaman Bali Selatan; nama dan konten yang tampil tidak sesuai dengan URL.
+- Parameter `page` yang tidak dikenal juga jatuh kembali ke homepage.
+
+Ini perlu diperbaiki menjadi halaman tidak ditemukan yang jelas. Sampai perubahan ini diterapkan dan diuji, URL yang salah tidak boleh dianggap sudah tertangani. Uji browser langsung masih belum tersedia dari sesi ini; deployment GitHub Pages tidak berhasil diakses dari lingkungan audit.
