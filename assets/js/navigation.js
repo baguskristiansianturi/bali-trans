@@ -180,8 +180,6 @@
                     'place:perancak':['Perancak Fishing Village | Bali Trans','Learn about Perancak’s coastal village setting and visit respectfully.'],
                     'place:gilimanuk':['Gilimanuk Bay & Ferry Gateway | Bali Trans','Plan a visit to Gilimanuk Bay and confirm ferry details before travelling.'],
                     'place:west-bali-national-park':['West Bali National Park | Bali Trans','Explore West Bali National Park and check current visitor access and activity requirements.'],
-                    'place:kelingking-crystal-bay':['Kelingking & Crystal Bay | Bali Trans','Compare two Nusa Penida coastal stops and review cliff-path and sea-safety considerations.'],
-                    'place:diamond-atuh':['Diamond & Atuh Beach | Bali Trans','Discover Diamond Beach and Atuh Beach on Nusa Penida with practical access and safety tips.'],
                     'place:nusa-lembongan':['Nusa Lembongan & Mangrove Forest | Bali Trans','Plan island transfers and explore Nusa Lembongan’s coastal and mangrove areas.'],
                     'place:nusa-ceningan':['Nusa Ceningan & Yellow Bridge | Bali Trans','Discover Nusa Ceningan and the Yellow Bridge with practical island travel notes.'],
                     'place:island-snorkelling-diving':['Snorkelling & Diving Around the Nusa Islands | Bali Trans','Review sea conditions, operator guidance and marine-care tips for Nusa Islands activities.']

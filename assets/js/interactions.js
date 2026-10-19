@@ -687,17 +687,20 @@
                 {title:'Perancak Fishing Village',location:'West Bali · Coastal village',key:'place:perancak',terms:'perancak fishing village'},
                 {title:'Gilimanuk Bay',location:'West Bali · Coast, ferry gateway',key:'place:gilimanuk',terms:'gilimanuk bay ferry'},
                 {title:'West Bali National Park',location:'West Bali · Nature, wildlife',key:'place:west-bali-national-park',terms:'west bali national park'},
-                {title:'Kelingking & Crystal Bay',location:'Nusa Penida · Coastal views',key:'place:kelingking-crystal-bay',terms:'kelingking crystal bay'},
-                {title:'Diamond & Atuh Beach',location:'Nusa Penida · Beaches',key:'place:diamond-atuh',terms:'diamond atuh beach'},
+                {title:'Kelingking Beach',location:'Nusa Penida · Cliff-top views',articleId:'nusa-penida-kelingking-beach',terms:'kelingking beach nusa penida t-rex cliff'},
+                {title:'Crystal Bay',location:'Nusa Penida · Coast, marine activities',articleId:'nusa-penida-crystal-bay',terms:'crystal bay nusa penida snorkelling diving sunset'},
+                {title:'Diamond Beach',location:'Nusa Penida · East coast',articleId:'nusa-penida-diamond-beach',terms:'diamond beach nusa penida stairs cliff safety'},
+                {title:'Atuh Beach',location:'Nusa Penida · East coast',articleId:'nusa-penida-atuh-beach',terms:'atuh beach nusa penida cliffs east coast'},
+                
                 {title:'Nusa Lembongan & Mangrove Forest',location:'Nusa Lembongan · Island, nature',key:'place:nusa-lembongan',terms:'nusa lembongan mangrove'},
                 {title:'Nusa Ceningan & Yellow Bridge',location:'Nusa Ceningan · Island',key:'place:nusa-ceningan',terms:'nusa ceningan yellow bridge'},
                 {title:'Nusa Islands Snorkelling & Diving',location:'Nusa Islands · Marine activities',key:'place:island-snorkelling-diving',terms:'nusa snorkelling diving'}
             ];
             const packageMatches = BALI_PACKAGES.filter(p => [p.title,p.location,p.categoryName,p.category,...(p.highlights||[])].filter(Boolean).join(' ').toLocaleLowerCase().includes(term)).slice(0,5);
-            const destinationMatches = destinations.filter(d => (d.title+' '+d.location+' '+d.terms).toLocaleLowerCase().includes(term)).sort((a,b) => Number(b.key.startsWith('place:')) - Number(a.key.startsWith('place:'))).slice(0,5);
+            const destinationMatches = destinations.filter(d => (d.title+' '+d.location+' '+d.terms).toLocaleLowerCase().includes(term)).sort((a,b) => Number(String(b.key || '').startsWith('place:')) - Number(String(a.key || '').startsWith('place:'))).slice(0,5);
             const results = [
                 ...packageMatches.map(p => ({title:p.title,location:p.location,image:p.heroImage,action:`navigateTo('detail','${String(p.id).replace(/[^a-zA-Z0-9_-]/g,'')}'); closeHeaderSearch();`})),
-                ...destinationMatches.map(d => ({title:d.title,location:d.location,image:'',action:`navigateTo('discovery','${d.key}'); closeHeaderSearch();`}))
+                ...destinationMatches.map(d => ({title:d.title,location:d.location,image:'',action:d.articleId ? `navigateTo('blog-read','${d.articleId}'); closeHeaderSearch();` : `navigateTo('discovery','${d.key}'); closeHeaderSearch();`}))
             ].slice(0,8);
             dropdown.classList.remove('hidden');
             if (results.length) {
@@ -732,10 +735,10 @@
                 {terms:['ubud'],key:'place:ubud'},{terms:['rafting','white water'],key:'place:rafting'},{terms:['rice terrace','rice terraces'],key:'place:rice-terraces'},
                 {terms:['amed','jemeluk'],key:'place:amed'},{terms:['tulamben','usat liberty'],key:'place:tulamben'},{terms:['tirta gangga'],key:'place:tirta-gangga'},{terms:['taman ujung'],key:'place:taman-ujung'},{terms:['lempuyang'],key:'place:lempuyang'},{terms:['besakih'],key:'place:besakih'},{terms:['candidasa','padangbai'],key:'place:candidasa-padangbai'},{terms:['sidemen'],key:'place:sidemen'},
                 {terms:['medewi'],key:'place:medewi'},{terms:['rambut siwi'],key:'place:rambut-siwi'},{terms:['bunut bolong'],key:'place:bunut-bolong'},{terms:['perancak'],key:'place:perancak'},{terms:['gilimanuk'],key:'place:gilimanuk'},{terms:['west bali national park'],key:'place:west-bali-national-park'},
-                {terms:['kelingking','crystal bay'],key:'place:kelingking-crystal-bay'},{terms:['diamond beach','atuh beach'],key:'place:diamond-atuh'},{terms:['nusa lembongan','mangrove'],key:'place:nusa-lembongan'},{terms:['nusa ceningan','yellow bridge'],key:'place:nusa-ceningan'}
+                {terms:['kelingking beach','kelingking'],articleId:'nusa-penida-kelingking-beach'},{terms:['crystal bay'],articleId:'nusa-penida-crystal-bay'},{terms:['diamond beach'],articleId:'nusa-penida-diamond-beach'},{terms:['atuh beach'],articleId:'nusa-penida-atuh-beach'},{terms:['nusa lembongan','mangrove'],key:'place:nusa-lembongan'},{terms:['nusa ceningan','yellow bridge'],key:'place:nusa-ceningan'}
             ];
-            const match = destinations.filter(item => item.terms.some(term => q.includes(term))).sort((a,b) => Number(b.key.startsWith('place:')) - Number(a.key.startsWith('place:')))[0];
-            if (match) { navigateTo('discovery', match.key); return; }
+            const match = destinations.filter(item => item.terms.some(term => q.includes(term))).sort((a,b) => Number(String(b.key || '').startsWith('place:')) - Number(String(a.key || '').startsWith('place:')))[0];
+            if (match) { if (match.articleId) navigateTo('blog-read', match.articleId); else navigateTo('discovery', match.key); return; }
             navigateTo('packages');
             setTimeout(() => {
                 const target = document.getElementById('packageSearchInput');
