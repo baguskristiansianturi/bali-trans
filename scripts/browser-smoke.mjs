@@ -46,9 +46,9 @@ async function checkRoute(label, query, expectedHeading) {
   await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 30000 });
   await page.waitForFunction(() => {
     const app = document.querySelector('#appContainer');
-    return app && app.textContent.trim().length > 30 && app.querySelector('h1, h2');
+    return app && app.textContent.trim().length > 30 && app.querySelector('h1, h2, h3');
   }, { timeout: 20000 });
-  const heading = (await page.locator('#appContainer h1, #appContainer h2').first().innerText()).trim();
+  const heading = (await page.locator('#appContainer h1, #appContainer h2, #appContainer h3').first().innerText()).trim();
   if (expectedHeading && !heading.includes(expectedHeading)) {
     throw new Error(label + ': expected heading containing "' + expectedHeading + '", got "' + heading + '"');
   }
@@ -85,7 +85,7 @@ try {
   await checkRoute('unknown package ID', '?page=detail&item=unknown-package', 'We couldn’t find that page');
 
   await page.goto('http://127.0.0.1:4173/', { waitUntil: 'domcontentloaded' });
-  await page.waitForFunction(() => document.querySelector('#appContainer h1, #appContainer h2'));
+  await page.waitForFunction(() => document.querySelector('#appContainer h1, #appContainer h2, #appContainer h3'));
   await page.evaluate(() => navigateTo('blog'));
   await page.waitForFunction(() => new URLSearchParams(location.search).get('page') === 'blog');
   await page.goBack();
