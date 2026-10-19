@@ -6,9 +6,9 @@ Cakupan: semua route discovery/region/service/duration yang didefinisikan di ren
 
 ## Kesimpulan
 
-- Renderer memiliki 43 route keys: 6 wilayah, 34 route tempat, 2 route durasi, dan 1 route layanan.
-- Master data memiliki 87 record destinasi, tetapi baru 8 record yang mempunyai route eksplisit.
-- Ada halaman yang judulnya menggabungkan beberapa lokasi fisik, misalnya Menjangan + Taman Nasional Bali Barat, Amed + Jemeluk Bay, Kelingking + Crystal Bay, dan Diamond + Atuh. Ini bertentangan dengan aturan master data bahwa satu tempat fisik harus memiliki satu record kanonis.
+- Renderer memiliki 41 discovery route keys: 6 wilayah, 32 route tempat, 2 route durasi, dan 1 route layanan. Empat destinasi Nusa Penida kini menggunakan route artikel tersendiri.
+- Master data memiliki 87 record destinasi, tetapi 12 record yang mempunyai route eksplisit.
+- Ada halaman yang judulnya menggabungkan beberapa lokasi fisik, misalnya Menjangan + Taman Nasional Bali Barat, Amed + Jemeluk Bay, dan beberapa area gabungan lain. Kelingking, Crystal Bay, Diamond Beach, dan Atuh Beach sudah dipisah menjadi artikel individual. Ini bertentangan dengan aturan master data bahwa satu tempat fisik harus memiliki satu record kanonis.
 - Aktivitas seperti rafting/snorkelling dan halaman area seperti Ubud/Denpasar tidak seharusnya dipaksa menjadi record destinasi tunggal.
 - Jangan mengubah semua record menjadi `PUBLISHED` atau menambahkan tautan publik hanya karena route renderer ada. Status fakta dan kesiapan konten harus tetap terpisah.
 
@@ -54,11 +54,20 @@ Cakupan: semua route discovery/region/service/duration yang didefinisikan di ren
 | `place:perancak` | Perancak Fishing Village | perancak (PLANNED) | Kandidat satu-ke-satu; tambahkan rute master setelah review konten. |
 | `place:gilimanuk` | Gilimanuk Bay | gilimanuk-bay (PLANNED) | Kandidat satu-ke-satu; tambahkan rute master setelah review konten. |
 | `place:west-bali-national-park` | West Bali National Park | west-bali-national-park (PLANNED) | Kandidat satu-ke-satu; tentukan wilayah editorial yang konsisten dan review fakta. |
-| `place:kelingking-crystal-bay` | Kelingking & Crystal Bay, Nusa Penida | kelingking-beach (PLANNED)<br>crystal-bay (PLANNED) | Dua destinasi berbeda; buat artikel dan URL masing-masing. |
-| `place:diamond-atuh` | Diamond & Atuh Beach, Nusa Penida | diamond-beach (PLANNED)<br>atuh-beach (PLANNED) | Dua pantai berbeda; buat artikel dan URL masing-masing. |
 | `place:nusa-lembongan` | Nusa Lembongan & Mangrove Forest | lembongan-mangroves (PLANNED)<br>jungutbatu (PLANNED)<br>mushroom-bay (PLANNED) | Pulau/area dan atraksi berbeda; pecah ke halaman yang sesuai. |
 | `place:nusa-ceningan` | Nusa Ceningan & Yellow Bridge | yellow-bridge (PLANNED)<br>blue-lagoon-ceningan (PLANNED) | Pulau dan atraksi berbeda; buat halaman terpisah. |
 | `place:island-snorkelling-diving` | Snorkelling & Diving Around the Nusa Islands | — | Aktivitas lintas lokasi; pindahkan ke kategori aktivitas, bukan record destinasi. |
+
+## Artikel destinasi Nusa Penida yang sudah dipisah
+
+| Artikel ID | Destinasi master | Route master | Status |
+|---|---|---|---|
+| `nusa-penida-kelingking-beach` | `kelingking-beach` | `?page=blog-read&item=nusa-penida-kelingking-beach` | PUBLISHED — sumber Indonesia Travel dan Polri |
+| `nusa-penida-crystal-bay` | `crystal-bay` | `?page=blog-read&item=nusa-penida-crystal-bay` | PUBLISHED — sumber Indonesia Travel dan panduan keselamatan Polri |
+| `nusa-penida-diamond-beach` | `diamond-beach` | `?page=blog-read&item=nusa-penida-diamond-beach` | PUBLISHED — sumber Indonesia Travel dan Polri |
+| `nusa-penida-atuh-beach` | `atuh-beach` | `?page=blog-read&item=nusa-penida-atuh-beach` | PUBLISHED — sumber Indonesia Travel dan panduan keselamatan Polri |
+
+Kartu wilayah Nusa dan pencarian global sekarang membuka artikel individual tersebut, bukan halaman gabungan. Foto masing-masing artikel memiliki kredit dan lisensi di halaman Photo Credits.
 
 ## Urutan pembenahan yang disarankan
 
