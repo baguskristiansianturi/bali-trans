@@ -217,12 +217,17 @@
             // readable URLs. Blog articles without a matching static file use query
             // routes to avoid GitHub Pages 404s.
             const placeSlug = viewName === 'place' ? String(params || 'bali-utara') : null;
-            const isRegionHub = placeSlug === 'bali-utara' || placeSlug === 'region-directory';
+            const isRegionHub = placeSlug === 'bali-utara' || placeSlug === 'bali-barat' || placeSlug === 'region-directory';
+            const isKnownPlace = viewName === 'place' && BALI_DESTINATIONS.some(function(place) { return place.slug === placeSlug; });
             const nextUrl = placeSlug === 'bali-utara'
                 ? siteBase + 'places/bali-utara/'
-                : isRegionHub
-                    ? siteBase + '?' + query.toString()
-                    : siteBase + '?' + query.toString();
+                : placeSlug === 'bali-barat'
+                    ? siteBase + 'places/bali-barat/'
+                    : isKnownPlace
+                        ? siteBase + 'places/' + encodeURIComponent(placeSlug) + '/'
+                        : isRegionHub
+                            ? siteBase + '?' + query.toString()
+                            : siteBase + '?' + query.toString();
             if (options.history !== false) {
                 if (options.replace) window.history.replaceState({ viewName, params }, '', nextUrl);
                 else if (window.location.pathname + window.location.search !== nextUrl) window.history.pushState({ viewName, params }, '', nextUrl);
@@ -250,6 +255,7 @@
                 case 'place':
                     if (params === 'region-directory') container.innerHTML = renderRegionDirectory();
                     else if (params === 'bali-utara') container.innerHTML = renderNorthBaliHub();
+                    else if (params === 'bali-barat') container.innerHTML = renderDiscoveryView('region:west');
                     else container.innerHTML = renderPlaceDetail(params);
                     break;
                 case 'detail':
@@ -309,8 +315,8 @@
             const legacyTour = query.get('tour');
             const pathMatch = window.location.pathname.match(/\/blog\/([^/]+)\/?$/);
             const pathArticle = pathMatch ? BALI_BLOGS.find(item => (item.slug || item.id) === decodeURIComponent(pathMatch[1])) : null;
-            const placeMatch = window.location.pathname.match(/\/places\/(bali-utara|bali-barat)(?:\/([^/]+))?\/?$/);
-            const pathPlaceSlug = placeMatch ? (placeMatch[2] || placeMatch[1]) : null;
+            const placeMatch = window.location.pathname.match(/\/places\/([^/]+)\/?$/);
+            const pathPlaceSlug = placeMatch ? decodeURIComponent(placeMatch[1]) : null;
             const viewName = pathArticle ? 'blog-read' : (pathPlaceSlug ? 'place' : (query.get('view') || (legacyTour ? 'detail' : 'home')));
             const params = pathArticle ? pathArticle.id : (pathPlaceSlug || query.get('id') || (viewName === 'detail' ? legacyTour : null));
             navigateTo(viewName, params, { history: false, scroll: options.scroll !== false, replace: !query.has('view') && !pathArticle });
@@ -676,6 +682,13 @@ const cards = category.items.map(function(title) {
         function renderPlaceDetail(slug) {
           const p = BALI_DESTINATIONS.find(function(item){ return item.slug === String(slug); });
           if (!p) return renderRegionDirectory();
+          document.title = p.title + ' | Panduan Destinasi Bali - Bali Trans';
+          let descriptionMeta = document.querySelector('meta[name="description"]');
+          if (!descriptionMeta) { descriptionMeta = document.createElement('meta'); descriptionMeta.name = 'description'; document.head.appendChild(descriptionMeta); }
+          descriptionMeta.content = p.summary || ('Panduan kunjungan ke ' + p.title + ' di Bali.');
+          let canonicalMeta = document.querySelector('link[rel="canonical"]');
+          if (!canonicalMeta) { canonicalMeta = document.createElement('link'); canonicalMeta.rel = 'canonical'; document.head.appendChild(canonicalMeta); }
+          canonicalMeta.href = window.location.origin + window.location.pathname;
           const regionLabel = p.regionLabel || 'Bali Utara';
           const regionKey = p.regionKey || 'buleleng';
           const related = BALI_DESTINATIONS.filter(function(item){ return item.slug !== p.slug && item.regionKey === regionKey; }).slice(0,3);
