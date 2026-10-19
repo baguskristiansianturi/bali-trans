@@ -63,15 +63,22 @@ jobs:
           const missingMetadata = discoveryKeys.filter(key => !metadataKeys.includes(key));
           const searchKeys = [...new Set([...interactions.matchAll(/key:'((?:region|place|service|duration):[^']+)'/g)].map(match => match[1]))];
           const missingDiscovery = searchKeys.filter(key => !discoveryKeys.includes(key));
+          const master = JSON.parse(read('content/bali-master-data.json'));
+          const invalidMasterRoutes = master.destinations.filter(destination => destination.route).filter(destination => {
+            const query = new URLSearchParams(destination.route.replace(/^\\?/, ''));
+            const view = query.get('page') || 'home';
+            const item = query.get('item');
+            return !views.includes(view) || (view === 'discovery' && !discoveryKeys.includes(item));
+          }).map(destination => destination.id);
           const articleData = data.slice(data.indexOf('const BALI_BLOGS = ['));
           const articleIds = [...articleData.matchAll(/id: '([^']+)'/g)].map(match => match[1]);
           const duplicateArticleIds = articleIds.filter((id, index) => articleIds.indexOf(id) !== index);
           const articleSourceCount = (articleData.match(/sources: \[/g) || []).length;
-          if (missingViews.length || missingDiscovery.length || missingMetadata.length || duplicateArticleIds.length || articleSourceCount !== articleIds.length) {
-            console.error(JSON.stringify({ missingViews, missingDiscovery, missingMetadata, duplicateArticleIds, articleSourceCount, articleCount: articleIds.length }, null, 2));
+          if (missingViews.length || missingDiscovery.length || invalidMasterRoutes.length || missingMetadata.length || duplicateArticleIds.length || articleSourceCount !== articleIds.length) {
+            console.error(JSON.stringify({ missingViews, missingDiscovery, invalidMasterRoutes, missingMetadata, duplicateArticleIds, articleSourceCount, articleCount: articleIds.length }, null, 2));
             process.exit(1);
           }
-          console.log('Checked ' + views.length + ' route types, ' + new Set(discoveryKeys).size + ' discovery keys, ' + metadataKeys.length + ' metadata keys, and ' + articleIds.length + ' sourced article IDs.');
+          console.log('Checked ' + views.length + ' route types, ' + new Set(discoveryKeys).size + ' discovery keys, ' + metadataKeys.length + ' metadata keys, ' + master.destinations.filter(destination => destination.route).length + ' master routes, and ' + articleIds.length + ' sourced article IDs.');
           NODE
 
       - name: Check local HTML assets and CSS imports
