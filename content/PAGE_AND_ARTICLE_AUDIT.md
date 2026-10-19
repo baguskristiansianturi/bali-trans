@@ -254,9 +254,9 @@ Pemeriksaan ini memvalidasi konsistensi struktur data, bukan kebenaran setiap fa
 
 GitHub Actions menjalankan Chromium pada viewport mobile 360 × 800 dan berhasil memeriksa:
 
-- Homepage, About, Contact, katalog paket, wilayah Bali Utara, detail paket Lovina, daftar artikel, detail artikel, cart, checkout, dan halaman kredit foto.
+- Homepage, About, Contact, katalog paket, wilayah Bali Utara dan Nusa, detail paket Lovina, daftar artikel, tujuh detail artikel termasuk empat panduan Nusa Penida, cart, checkout, dan halaman kredit foto. Keempat artikel Nusa juga diperiksa memiliki panel sumber.
 - URL halaman, destinasi, artikel, dan paket yang tidak dikenal menampilkan not-found, bukan konten lain yang salah.
-- Browser Back/Forward berfungsi saat berpindah dari homepage ke daftar artikel.
+- Kartu wilayah Nusa Penida membuka artikel Kelingking yang sesuai; browser Back/Forward juga berfungsi saat berpindah dari homepage ke daftar artikel.
 - Tidak ada horizontal overflow pada route yang diuji, tidak ada elemen gambar tanpa atribut `alt`, dan tidak ada uncaught JavaScript error selama rangkaian uji.
 - Pemeriksaan otomatis menemukan bahwa `updateBadges()` menulis ke tiga elemen yang tidak ada pada header saat ini. Elemen-elemen opsional sekarang diperiksa sebelum diperbarui, sehingga navigasi dapat menyelesaikan metadata, terjemahan, dan scroll handling.
 - Checkout memakai label English pada locale default setelah kamus terjemahan diperluas.
