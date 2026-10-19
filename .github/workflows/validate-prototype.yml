@@ -74,18 +74,22 @@ jobs:
           const invalidCategories = master.destinations.filter(destination => (destination.categories || []).some(category => !categoryIds.includes(category))).map(destination => destination.id);
           const missingFactDates = master.destinations.filter(destination => destination.fact_status !== 'UNVERIFIED' && !destination.last_checked).map(destination => destination.id);
           const factChecksWithoutSources = master.destinations.filter(destination => destination.fact_status === 'FACT_CHECK' && !(destination.source_urls || []).length).map(destination => destination.id);
+          const articleData = data.slice(data.indexOf('const BALI_BLOGS = ['));
+          const articleIds = [...articleData.matchAll(/id:\s*['"]([^'"]+)['"]/g)].map(match => match[1]);
+          const duplicateArticleIds = articleIds.filter((id, index) => articleIds.indexOf(id) !== index);
+          const searchArticleIds = [...interactions.matchAll(/articleId:'([^']+)'/g)].map(match => match[1]);
+          const missingSearchArticles = searchArticleIds.filter(id => !articleIds.includes(id));
           const invalidMasterRoutes = master.destinations.filter(destination => destination.route).filter(destination => {
             const query = new URLSearchParams(destination.route.replace(/^\?/, ''));
             const view = query.get('page') || 'home';
             const item = query.get('item');
-            return !views.includes(view) || (view === 'discovery' && !discoveryKeys.includes(item));
+            return !views.includes(view)
+              || (view === 'discovery' && !discoveryKeys.includes(item))
+              || (view === 'blog-read' && !articleIds.includes(item));
           }).map(destination => destination.id);
-          const articleData = data.slice(data.indexOf('const BALI_BLOGS = ['));
-          const articleIds = [...articleData.matchAll(/id: '([^']+)'/g)].map(match => match[1]);
-          const duplicateArticleIds = articleIds.filter((id, index) => articleIds.indexOf(id) !== index);
           const articleSourceCount = (articleData.match(/sources: \[/g) || []).length;
-          if (missingViews.length || missingDiscovery.length || invalidMasterRoutes.length || duplicateDestinationIds.length || invalidRegions.length || invalidAdminAreas.length || invalidCategories.length || missingFactDates.length || factChecksWithoutSources.length || missingMetadata.length || duplicateArticleIds.length || articleSourceCount !== articleIds.length) {
-            console.error(JSON.stringify({ missingViews, missingDiscovery, invalidMasterRoutes, duplicateDestinationIds, invalidRegions, invalidAdminAreas, invalidCategories, missingFactDates, factChecksWithoutSources, missingMetadata, duplicateArticleIds, articleSourceCount, articleCount: articleIds.length }, null, 2));
+          if (missingViews.length || missingDiscovery.length || invalidMasterRoutes.length || duplicateDestinationIds.length || invalidRegions.length || invalidAdminAreas.length || invalidCategories.length || missingFactDates.length || factChecksWithoutSources.length || missingMetadata.length || duplicateArticleIds.length || missingSearchArticles.length || articleSourceCount !== articleIds.length) {
+            console.error(JSON.stringify({ missingViews, missingDiscovery, invalidMasterRoutes, duplicateDestinationIds, invalidRegions, invalidAdminAreas, invalidCategories, missingFactDates, factChecksWithoutSources, missingMetadata, duplicateArticleIds, missingSearchArticles, articleSourceCount, articleCount: articleIds.length }, null, 2));
             process.exit(1);
           }
           console.log('Checked ' + views.length + ' route types, ' + new Set(discoveryKeys).size + ' discovery keys, ' + metadataKeys.length + ' metadata keys, ' + master.destinations.filter(destination => destination.route).length + ' master routes, ' + master.destinations.length + ' master records, and ' + articleIds.length + ' sourced article IDs.');
