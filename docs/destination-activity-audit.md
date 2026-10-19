@@ -54,7 +54,7 @@ Jumlah ini adalah hitungan entri direktori, bukan jumlah seluruh objek wisata ya
 
 - Semua perubahan audit berada di branch `preview/bali-trans`.
 - Workflow GitHub Pages yang ada hanya memicu deploy dari branch `main`; perubahan ini belum dinyatakan tayang di situs publik.
-- Perbandingan saat audit: branch preview **143 commit di depan dan 49 commit di belakang** `main`, dengan 209 file berbeda. Karena divergensi ini, jangan merge seluruh branch secara langsung untuk deployment.
+- Perbandingan saat audit: branch preview **lebih dari 140 commit di depan dan 49 commit di belakang** `main`, dengan 209 file berbeda pada perbandingan terakhir. Karena divergensi ini, jangan merge seluruh branch secara langsung untuk deployment.
 - Workflow pemeriksaan sintaks JavaScript untuk branch preview sudah ditambahkan. Status check yang tersedia saat audit belum mengembalikan hasil, jadi pemeriksaan browser dan hasil deploy tetap harus dikonfirmasi sebelum menyatakan pekerjaan live.
 
 ## Referensi riset
