@@ -5,10 +5,10 @@
             if (cartState.length === 0) {
                 return `
                     <div class="max-w-2xl mx-auto px-4 py-20 text-center">
-                        <div class="w-20 h-20 bg-orange-100 text-klook-orange rounded-full flex items-center justify-center text-3xl mx-auto mb-4">🛒</div>
+                        <div class="w-20 h-20 bg-orange-100 text-bali-orange rounded-full flex items-center justify-center text-3xl mx-auto mb-4">🛒</div>
                         <h2 class="text-2xl font-extrabold text-slate-900 mb-2">Your Cart is Empty</h2>
                         <p class="text-slate-500 text-sm mb-6">Explore our top Bali experiences and add them to your cart.</p>
-                        <button onclick="navigateTo('packages')" class="bg-klook-orange text-white font-extrabold px-6 py-3 rounded-2xl text-xs shadow-lg shadow-orange-500/20">
+                        <button onclick="navigateTo('packages')" class="bg-bali-orange text-white font-extrabold px-6 py-3 rounded-2xl text-xs shadow-lg shadow-orange-500/20">
                             Browse Activities Now
                         </button>
                     </div>
@@ -71,9 +71,9 @@
                                 </div>
                                 <div class="border-t border-slate-100 pt-3 flex justify-between items-center">
                                     <span class="font-extrabold text-slate-900 text-sm">Total</span>
-                                    <span class="text-xl font-black text-klook-orange">${curr.format(grandTotal)}</span>
+                                    <span class="text-xl font-black text-bali-orange">${curr.format(grandTotal)}</span>
                                 </div>
-                                <button onclick="navigateTo('checkout')" class="w-full bg-klook-orange hover:bg-klook-hover text-white font-extrabold py-3.5 px-4 rounded-2xl transition text-xs shadow-lg shadow-orange-500/20">
+                                <button onclick="navigateTo('checkout')" class="w-full bg-bali-orange hover:bg-bali-hover text-white font-extrabold py-3.5 px-4 rounded-2xl transition text-xs shadow-lg shadow-orange-500/20">
                                     Proceed to Checkout
                                 </button>
                             </div>
