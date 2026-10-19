@@ -1,0 +1,4 @@
+.footer-link{display:inline-flex;align-items:center;gap:6px;text-align:left;color:#a8b3c4;font-size:13px;line-height:1.5;transition:color .18s}
+      .footer-link:hover,.footer-link:focus{color:#5eead4;outline:none}
+      .footer-coming-soon{display:inline-flex;align-items:center;border:1px solid rgba(45,212,191,.28);border-radius:999px;padding:2px 6px;color:#5eead4;background:rgba(45,212,191,.08);font-size:9px;font-weight:800;line-height:1.2;white-space:nowrap}
+      @media(max-width:380px){.footer-link{font-size:12px}.footer-coming-soon{font-size:8px}}

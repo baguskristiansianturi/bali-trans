@@ -1,191 +1,176 @@
-function renderHomeView() {
+/* VIEW 1: HOME PAGE */
+        function renderDiscoveryView(key) {
+            const pages = {
+                'duration:full-day': { title: 'Full Day Tours in Bali', intro: 'Plan a day of sightseeing and activities within the usual local service window. Route and traffic affect the final duration.', items: ['Ubud and central Bali', 'Uluwatu, Jimbaran and Nusa Dua', 'Custom private day trip'], note: 'The itinerary and service hours will be confirmed on each tour page.' },
+                'duration:long-trip': { title: 'Long Trips Around Bali', intro: 'Explore North Bali’s coastline, highland viewpoints and waterfalls on a longer journey. Early departures can help make the most of the day, depending on your chosen stops.', items: ['Lovina Dolphin Tour', 'Wanagiri viewpoints', 'Waterfalls and North Bali stops'], note: 'Long-trip routes may start early and exceed the standard local service hours.' },
+                'service:private-driver': { title: 'Private Driver in Bali', intro: 'Arrange private transport for your own itinerary around Denpasar, Ubud, Nusa Dua, Uluwatu, Jimbaran, Canggu and nearby areas. Lovina is handled as a long trip.', items: ['Flexible pickup and drop-off', 'Choose your own stops', 'Confirm route and duration before booking'], note: 'Route, vehicle and service duration should be confirmed before the trip.' },
+                'region:south': { title: 'Explore South Bali', intro: 'South Bali is known for coastal areas, beaches, sunset viewpoints and temple visits.', items: ['Uluwatu Temple and nearby beaches', 'Jimbaran coast', 'Nusa Dua beaches and water activities', 'Denpasar city sights'], note: 'Traffic can build up around popular beaches and sunset viewpoints. Allow extra time between stops, especially in the late afternoon.' },
+                'region:central': { title: 'Explore Central Bali', intro: 'Central Bali combines Ubud, cultural stops, green landscapes and outdoor activities.', items: ['Ubud and surrounding villages', 'River rafting experiences', 'Rice terraces and nature stops'], note: 'Rural roads and mountain routes can take longer than expected. Plan a few stops at a relaxed pace rather than rushing across the region.' },
+                'region:north': { title: 'Explore North Bali', intro: 'Explore the north coast, waterfalls, highland lakes and cultural sites around Buleleng. Choose a destination to read its own guide and plan a realistic route.', items: ['Lovina Beach & Dolphin Watching', 'Banjar Hot Springs', 'Brahmavihara-Arama Monastery', 'Gitgit Waterfall', 'Munduk Waterfalls & Highlands', 'Wanagiri Twin Lakes Viewpoint', 'Menjangan Island & West Bali National Park', 'Gedong Kirtya Library'], note: 'North Bali destinations are spread across the region. Check access, opening hours, local conditions and travel time before combining stops.' },
+                'region:east': { title: 'Explore East Bali', intro: 'East Bali combines coastal villages, underwater sites, mountain scenery and important cultural landmarks. Treat Amed, Karangasem and Sidemen as distinct trip areas when planning travel time.', items: ['Amed & Jemeluk Bay', 'Tulamben & USAT Liberty wreck', 'Tirta Gangga Water Palace', 'Taman Ujung', 'Lempuyang Temple', 'Besakih Temple', 'Candidasa & Padangbai', 'Sidemen Valley'], note: 'Access rules, sea conditions, temple etiquette and opening hours can change. Verify details before publishing a bookable trip.' },
+                'region:west': { title: 'Explore West Bali', intro: 'West Bali is quieter and more spread out, with surf coast, rural villages and protected natural areas. Distances are longer than many southern Bali day trips.', items: ['Medewi surf coast', 'Rambut Siwi Temple', 'Bunut Bolong tree tunnel', 'Perancak fishing village', 'Gilimanuk Bay', 'West Bali National Park'], note: 'National-park access and activities may require permits or approved guides. Check current conditions and transport time before combining stops.' },
+                'region:nusa': { title: 'Explore the Nusa Islands', intro: 'Nusa Penida, Nusa Lembongan and Nusa Ceningan are separate islands east of mainland Bali. Boat schedules, sea conditions and road travel time matter when planning a visit.', items: ['Nusa Penida: Kelingking & Crystal Bay', 'Nusa Penida: Diamond & Atuh Beach', 'Nusa Lembongan & mangrove forest', 'Nusa Ceningan & Yellow Bridge', 'Snorkelling and diving areas'], note: 'Do not assume every island can be covered comfortably in one day. Confirm boat pier, operator, sea conditions and island transport separately.' },
+                'place:lovina': { title: 'Lovina Beach & Dolphin Watching', intro: 'Lovina is a north-coast area known for dark volcanic sand, a relaxed seaside atmosphere and early-morning boat trips to observe dolphins in the wild.', items: ['Best known for early-morning dolphin watching', 'Walk along the black-sand coastline', 'Use Kalibukbuk as a practical base for nearby services'], note: 'Dolphins are wild animals, so sightings are never guaranteed. Choose operators who keep a respectful distance and confirm trip details before departure.' },
+                'place:banjar-hot-springs': { title: 'Banjar Hot Springs', intro: 'Air Panas Banjar is a natural hot-spring bathing site in a lush garden setting in North Bali, suitable for a relaxed stop when visiting the Lovina area.', items: ['Thermal bathing pools surrounded by tropical greenery', 'Bring a change of clothes and follow posted bathing guidance', 'Can be paired with nearby cultural sites'], note: 'Confirm current opening hours, entry fees and bathing conditions locally before travelling.' },
+                'place:brahmavihara-arama': { title: 'Brahmavihara-Arama Monastery', intro: 'Brahmavihara-Arama is a Buddhist monastery in the hills near Banjar, with meditation spaces, Buddhist architecture and views over the surrounding landscape.', items: ['Explore the monastery grounds respectfully', 'Wear modest clothing and keep noise low', 'Consider pairing the visit with Banjar Hot Springs'], note: 'Respect signs, ceremonies and areas that may be closed to visitors. Confirm visitor access before setting out.' },
+                'place:gitgit-waterfall': { title: 'Gitgit Waterfall', intro: 'Gitgit Waterfall is a well-known waterfall destination in the forested hills of Buleleng, offering a nature stop along routes between central Bali and the north coast.', items: ['Expect a walk from the access area', 'Wear shoes suitable for wet and uneven paths', 'Allow time for the return walk and changing conditions'], note: 'Trail conditions and access can change with weather. Follow local guidance and avoid entering unsafe water.' },
+                'place:munduk': { title: 'Munduk Waterfalls & Highlands', intro: 'Munduk is a cool highland area known for forest walks, waterfalls, coffee-growing landscapes and mountain scenery.', items: ['Explore waterfalls on marked local trails', 'Allow extra time for steep and winding roads', 'Consider an overnight stay for a slower visit'], note: 'Waterfall routes vary in distance and difficulty. Check current trail access and local conditions.' },
+                'place:wanagiri': { title: 'Wanagiri Twin Lakes Viewpoint', intro: 'The Wanagiri highlands overlook Lakes Buyan and Tamblingan and are known for scenic viewpoints along the mountain road.', items: ['Enjoy views across the twin lakes and surrounding forest', 'Roadside viewpoints may have separate operators or fees', 'Weather and mist can affect visibility'], note: 'Stop only in safe designated areas and confirm any photography fees before using a viewpoint.' },
+                'place:menjangan': { title: 'Menjangan Island & West Bali National Park', intro: 'Menjangan Island, off the northwest coast of Bali, is known for clear-water snorkeling and diving. Access normally requires arranging a boat and following park rules.', items: ['Snorkeling and diving around coral reefs', 'Plan boat transfers and park requirements in advance', 'Allow substantial travel time from southern Bali'], note: 'Sea conditions, permits, boat schedules and conservation rules apply. Confirm current requirements with authorized local operators.' },
+                'place:gedong-kirtya': { title: 'Gedong Kirtya Library', intro: 'Gedong Kirtya in Singaraja preserves Balinese and Indonesian lontar manuscripts and offers insight into the island’s written cultural heritage.', items: ['Learn about palm-leaf manuscript traditions', 'Check visitor access and any photography restrictions', 'Combine with other cultural stops in Singaraja'], note: 'Confirm opening hours and access arrangements before visiting.' },
+            };
+            const extraDestinationPages = {
+                'place:uluwatu': {title:'Uluwatu Temple & Coastal Cliffs',intro:'Explore the dramatic limestone cliffs and sea views around Uluwatu on Bali’s southern peninsula.',items:['Visit the temple respectfully and follow posted rules','Allow time for coastal viewpoints and nearby beaches','Plan around traffic near sunset'],note:'Temple access, ceremony restrictions and performance schedules can change. Confirm details before visiting.'},
+                'place:jimbaran': {title:'Jimbaran Coast',intro:'Jimbaran is known for its broad bay, fishing heritage and seafood dining along the southern coast.',items:['Walk along the bay and shoreline','Look for local seafood options and confirm prices before ordering','Allow extra time around evening dining hours'],note:'Sea and beach conditions vary. Follow local advice and posted safety guidance.'},
+                'place:nusa-dua': {title:'Nusa Dua Beaches & Water Activities',intro:'Nusa Dua has resort-lined beaches and a range of water-based activities on Bali’s southeast coast.',items:['Check sea conditions before choosing an activity','Confirm activity inclusions and equipment with the provider','Leave time for transfers between beach areas'],note:'Water activity availability depends on sea, weather and provider conditions.'},
+                'place:denpasar': {title:'Denpasar City Sights',intro:'Denpasar offers markets, museums, temples and everyday city life beyond Bali’s resort areas.',items:['Choose a small number of city stops to avoid rushing','Respect temple customs and local dress guidance','Allow for city traffic and parking'],note:'Check opening hours and visitor access for individual sites before setting out.'},
+                'place:ubud': {title:'Ubud & Surrounding Villages',intro:'Ubud is a cultural and inland hub surrounded by villages, art spaces, rice landscapes and nature experiences.',items:['Explore local arts, markets or cultural sites','Choose nearby villages based on available travel time','Respect private land and marked paths around rice fields'],note:'Traffic can be heavy around central Ubud. Allow time for transfers and check site access.'},
+                'place:rafting': {title:'River Rafting in Bali',intro:'River rafting is an outdoor activity offered in parts of Bali’s inland regions, with routes and difficulty depending on the river and provider.',items:['Check age, health and swimming requirements with the operator','Confirm pickup, equipment and what the price includes','Follow the guide’s safety instructions throughout the activity'],note:'Trips depend on weather, water levels and operator safety decisions.'},
+                'place:rice-terraces': {title:'Rice Terraces & Nature Stops',intro:'Bali’s rice-growing landscapes offer scenic walks and a chance to learn about local farming traditions.',items:['Use marked visitor paths and respect working fields','Check whether an entrance or local contribution applies','Visit early or later in the day for a more relaxed walk'],note:'Paths can be uneven or slippery after rain. Follow local guidance and respect private property.'},
+                'place:amed': {title:'Amed & Jemeluk Bay',intro:'Amed and Jemeluk Bay on Bali’s east coast are known for coastal villages, sea views, snorkelling and diving areas.',items:['Check sea conditions before entering the water','Confirm equipment, guide and boat arrangements in advance','Allow time for the winding coastal drive'],note:'Currents and visibility vary. Follow local operators’ safety guidance and protect coral reefs.'},
+                'place:tulamben': {title:'Tulamben & USAT Liberty Wreck',intro:'Tulamben is a coastal destination known for underwater experiences around the USAT Liberty wreck.',items:['Choose a qualified dive guide or suitable snorkelling plan','Check experience and certification requirements before booking','Confirm equipment, entry arrangements and sea conditions'],note:'Underwater conditions and access arrangements can change; follow local safety guidance.'},
+                'place:tirta-gangga': {title:'Tirta Gangga Water Palace',intro:'Tirta Gangga is a water-garden complex in Karangasem, with pools, fountains and landscaped grounds.',items:['Allow time to walk through the gardens','Follow signs about where visitors may enter','Bring sun protection and suitable walking footwear'],note:'Check current opening hours, entrance fees and any restricted areas before visiting.'},
+                'place:taman-ujung': {title:'Taman Ujung Water Palace',intro:'Taman Ujung is a historic garden complex in Karangasem with ponds, bridges and views toward the surrounding landscape.',items:['Explore the garden paths and architectural features','Allow time for outdoor walking in the sun','Combine with nearby east-coast stops if travel time allows'],note:'Confirm visitor access, fees and current site conditions before travelling.'},
+                'place:lempuyang': {title:'Lempuyang Temple',intro:'Lempuyang Temple is a significant Balinese temple complex in the highlands of East Bali.',items:['Dress respectfully and follow temple guidance','Plan extra time for transfers and any local shuttle arrangements','Respect ceremonies and areas closed to visitors'],note:'Access arrangements and visitor rules may change. Confirm current requirements before your visit.'},
+                'place:besakih': {title:'Besakih Temple',intro:'Besakih is a major temple complex on the slopes of Mount Agung and an important religious site in Bali.',items:['Wear modest clothing and follow local temple etiquette','Allow time for the large complex and uphill walking','Use only authorized visitor arrangements and guides where required'],note:'Ceremonies may affect access. Check visitor rules and local conditions before arriving.'},
+                'place:candidasa-padangbai': {title:'Candidasa & Padangbai',intro:'Candidasa and Padangbai are east-coast areas used for coastal stays, local beaches and boat connections.',items:['Confirm the correct harbour and departure time for boat trips','Check sea conditions and operator instructions','Plan coastal travel time separately from ferry or fast-boat schedules'],note:'Boat schedules and port arrangements can change. Confirm directly with the transport provider.'},
+                'place:sidemen': {title:'Sidemen Valley',intro:'Sidemen is a rural valley area known for green landscapes, village scenery and views toward Mount Agung.',items:['Choose a walk or village visit suitable for your time','Stay on public paths and respect local farms','Allow extra time on narrow rural roads'],note:'Weather can affect visibility and walking conditions. Follow local advice.'},
+                'place:medewi': {title:'Medewi Surf Coast',intro:'Medewi on Bali’s west coast is known for its surf break and a quieter coastal atmosphere.',items:['Check surf and tide conditions before entering the water','Use local surf guidance if unfamiliar with the break','Allow extra travel time from southern Bali'],note:'Surf conditions and hazards vary. Follow local safety advice and posted warnings.'},
+                'place:rambut-siwi': {title:'Rambut Siwi Temple',intro:'Rambut Siwi is a coastal temple area in Jembrana with religious significance and views toward the sea.',items:['Dress modestly and respect ceremonies','Follow signs about visitor access','Allow time for the coastal drive and safe parking'],note:'Some temple areas may be restricted during ceremonies. Follow local guidance.'},
+                'place:bunut-bolong': {title:'Bunut Bolong Tree Tunnel',intro:'Bunut Bolong is a large banyan tree with a road passing through its roots in the Jembrana highlands.',items:['Stop only where parking is safe and permitted','Treat the site respectfully as a local cultural place','Check road conditions before continuing through rural routes'],note:'Road and weather conditions may affect access. Do not stop in the active roadway for photos.'},
+                'place:perancak': {title:'Perancak Fishing Village',intro:'Perancak is a coastal village in Jembrana associated with fishing and traditional boats.',items:['Observe local working areas without obstructing activity','Ask permission before photographing people or private property','Check tide and weather conditions near the coast'],note:'Respect local livelihoods and any areas marked as private or restricted.'},
+                'place:gilimanuk': {title:'Gilimanuk Bay',intro:'Gilimanuk lies at Bali’s western gateway, with coastal scenery and ferry connections to Java.',items:['Check ferry departure information if connecting to Java','Allow extra time for port traffic and vehicle queues','Keep travel documents and vehicle details ready for the crossing'],note:'Ferry operations and queues vary. Confirm current sailing information before departure.'},
+                'place:west-bali-national-park': {title:'West Bali National Park',intro:'West Bali National Park protects coastal and forest habitats in the island’s northwest.',items:['Arrange permitted activities and guides where required','Follow park rules and stay on authorized routes','Bring water and suitable protection for outdoor conditions'],note:'Permits, access points and available activities can vary. Check current rules with park authorities or authorized local providers.'},
+                'place:kelingking-crystal-bay': {title:'Kelingking & Crystal Bay, Nusa Penida',intro:'Kelingking and Crystal Bay are two well-known coastal areas on Nusa Penida, each with different access and sea conditions.',items:['Plan road transfers between west-coast stops','Treat steep paths and cliff edges with caution','Check sea conditions before swimming or snorkelling'],note:'Cliff paths can be steep and exposed; swimming conditions can be dangerous. Follow posted warnings.'},
+                'place:diamond-atuh': {title:'Diamond & Atuh Beach, Nusa Penida',intro:'Diamond Beach and Atuh Beach sit along Nusa Penida’s southeastern coast, known for cliffs and dramatic ocean views.',items:['Allow time for stairs and steep access paths','Wear footwear suited to uneven steps','Check conditions before attempting to enter the water'],note:'Access can be physically demanding and sea conditions can be hazardous. Follow local safety advice.'},
+                'place:nusa-lembongan': {title:'Nusa Lembongan & Mangrove Forest',intro:'Nusa Lembongan offers coastal villages, reef scenery and mangrove areas east of mainland Bali.',items:['Confirm boat pier and transfer arrangements','Consider a guided mangrove visit','Leave buffer time for the return boat'],note:'Boat schedules and sea conditions can change. Confirm your transfer with the operator.'},
+                'place:nusa-ceningan': {title:'Nusa Ceningan & Yellow Bridge',intro:'Nusa Ceningan is a small island connected to Nusa Lembongan by the Yellow Bridge.',items:['Check bridge and road conditions before riding or walking','Plan transfers between the islands carefully','Use caution around cliffside viewpoints'],note:'Roads can be narrow and uneven. Follow local signs and avoid unsafe cliff edges.'},
+                'place:island-snorkelling-diving': {title:'Snorkelling & Diving Around the Nusa Islands',intro:'The waters around Nusa Penida, Lembongan and Ceningan offer marine experiences that depend on local sea conditions.',items:['Choose qualified operators and suitable equipment','Ask about currents, visibility and experience requirements','Avoid touching coral or disturbing marine wildlife'],note:'Currents can be strong in this area. Follow operator guidance and do not enter the water when conditions are unsafe.'}
+            };
+            const keyValue = String(key || 'region:south');
+            const page = pages[keyValue] || extraDestinationPages[keyValue] || pages['region:south'];
+            const showLovina = keyValue === 'duration:long-trip' || keyValue === 'region:north';
+            const cards = page.items.map(function(item, index) {
+                const destinationRoutes = {
+                    'Lovina Beach & Dolphin Watching':'place:lovina','Banjar Hot Springs':'place:banjar-hot-springs','Brahmavihara-Arama Monastery':'place:brahmavihara-arama','Gitgit Waterfall':'place:gitgit-waterfall','Munduk Waterfalls & Highlands':'place:munduk','Wanagiri Twin Lakes Viewpoint':'place:wanagiri','Menjangan Island & West Bali National Park':'place:menjangan','Gedong Kirtya Library':'place:gedong-kirtya',
+                    'Uluwatu Temple and nearby beaches':'place:uluwatu','Jimbaran coast':'place:jimbaran','Nusa Dua beaches and water activities':'place:nusa-dua','Denpasar city sights':'place:denpasar',
+                    'Ubud and surrounding villages':'place:ubud','River rafting experiences':'place:rafting','Rice terraces and nature stops':'place:rice-terraces',
+                    'Amed & Jemeluk Bay':'place:amed','Tulamben & USAT Liberty wreck':'place:tulamben','Tirta Gangga Water Palace':'place:tirta-gangga','Taman Ujung':'place:taman-ujung','Lempuyang Temple':'place:lempuyang','Besakih Temple':'place:besakih','Candidasa & Padangbai':'place:candidasa-padangbai','Sidemen Valley':'place:sidemen',
+                    'Medewi surf coast':'place:medewi','Rambut Siwi Temple':'place:rambut-siwi','Bunut Bolong tree tunnel':'place:bunut-bolong','Perancak fishing village':'place:perancak','Gilimanuk Bay':'place:gilimanuk','West Bali National Park':'place:west-bali-national-park',
+                    'Nusa Penida: Kelingking & Crystal Bay':'place:kelingking-crystal-bay','Nusa Penida: Diamond & Atuh Beach':'place:diamond-atuh','Nusa Lembongan & mangrove forest':'place:nusa-lembongan','Nusa Ceningan & Yellow Bridge':'place:nusa-ceningan','Snorkelling and diving areas':'place:island-snorkelling-diving'
+                };
+                const destinationRoute = destinationRoutes[item];
+                const isLovina = showLovina && item === 'Lovina Dolphin Tour';
+                return '<article class="rounded-2xl border border-slate-200 bg-white p-5"><span class="text-xs font-bold text-slate-400">' + String(index + 1).padStart(2, '0') + '</span><h2 class="font-extrabold text-slate-900 mt-2">' + item + '</h2>' + (destinationRoute ? '<p class="text-sm text-slate-600 mt-2">Read the destination guide, practical notes and nearby ideas.</p><button onclick="navigateTo(\'discovery\',\'' + destinationRoute + '\')" class="mt-4 rounded-xl bg-klook-orange px-4 py-2.5 text-sm font-bold text-white">Explore destination</button>' : '') + (isLovina ? '<p class="text-sm text-slate-600 mt-2">Private long-trip package with dolphin watching and optional stops.</p><button onclick="navigateTo(\'detail\',\'lovina-dolphin-tour\')" class="mt-4 rounded-xl bg-klook-orange px-4 py-2.5 text-sm font-bold text-white">View Lovina Tour</button>' : '') + '</article>';
+            }).join('');
+            const destinationLabels = {
+                'place:lovina':['Beach','Wildlife','Dolphin watching'],'place:banjar-hot-springs':['Hot springs','Nature'],'place:brahmavihara-arama':['Buddhist temple','Culture'],'place:gitgit-waterfall':['Waterfall','Nature'],'place:munduk':['Highlands','Waterfall','Trekking'],'place:wanagiri':['Viewpoint','Lakes','Nature'],'place:menjangan':['Island','Snorkelling','Diving','National park'],'place:gedong-kirtya':['Culture','Heritage','Library'],
+                'place:uluwatu':['Temple','Cliffs','Sunset'],'place:jimbaran':['Beach','Fishing village','Seafood'],'place:nusa-dua':['Beach','Water activities','Coast'],'place:denpasar':['City','Culture','Markets'],
+                'place:ubud':['Culture','Arts','Rice landscapes'],'place:rafting':['Adventure','River','Outdoor'],'place:rice-terraces':['Nature','Rice fields','Walking'],
+                'place:amed':['Coast','Snorkelling','Diving'],'place:tulamben':['Diving','Wreck','Marine life'],'place:tirta-gangga':['Water palace','Gardens','Heritage'],'place:taman-ujung':['Water palace','Gardens','Architecture'],'place:lempuyang':['Temple','Culture','Mountain'],'place:besakih':['Temple','Heritage','Mount Agung'],'place:candidasa-padangbai':['Coast','Harbour','Boat trips'],'place:sidemen':['Valley','Village','Nature'],
+                'place:medewi':['Surfing','Coast','Beach'],'place:rambut-siwi':['Temple','Coast','Culture'],'place:bunut-bolong':['Tree tunnel','Highlands','Nature'],'place:perancak':['Fishing village','Coast','Local culture'],'place:gilimanuk':['Harbour','Coast','Ferry'],'place:west-bali-national-park':['National park','Wildlife','Nature'],
+                'place:kelingking-crystal-bay':['Cliffs','Beach','Coast'],'place:diamond-atuh':['Cliffs','Beach','Walking'],'place:nusa-lembongan':['Island','Mangroves','Coast'],'place:nusa-ceningan':['Island','Bridge','Viewpoints'],'place:island-snorkelling-diving':['Snorkelling','Diving','Marine life']
+            };
+            const labels = destinationLabels[keyValue] || [];
+            const labelMarkup = labels.length ? '<div class="mt-4 flex flex-wrap gap-2" aria-label="Destination categories">' + labels.map(label => '<span class="rounded-full border border-teal-100 bg-teal-50 px-3 py-1 text-xs font-bold text-teal-800">' + label + '</span>').join('') + '</div>' : '';
+            const destinationParent = {
+                'place:lovina':'region:north','place:banjar-hot-springs':'region:north','place:brahmavihara-arama':'region:north','place:gitgit-waterfall':'region:north','place:munduk':'region:north','place:wanagiri':'region:north','place:menjangan':'region:north','place:gedong-kirtya':'region:north',
+                'place:uluwatu':'region:south','place:jimbaran':'region:south','place:nusa-dua':'region:south','place:denpasar':'region:south',
+                'place:ubud':'region:central','place:rafting':'region:central','place:rice-terraces':'region:central',
+                'place:amed':'region:east','place:tulamben':'region:east','place:tirta-gangga':'region:east','place:taman-ujung':'region:east','place:lempuyang':'region:east','place:besakih':'region:east','place:candidasa-padangbai':'region:east','place:sidemen':'region:east',
+                'place:medewi':'region:west','place:rambut-siwi':'region:west','place:bunut-bolong':'region:west','place:perancak':'region:west','place:gilimanuk':'region:west','place:west-bali-national-park':'region:west',
+                'place:kelingking-crystal-bay':'region:nusa','place:diamond-atuh':'region:nusa','place:nusa-lembongan':'region:nusa','place:nusa-ceningan':'region:nusa','place:island-snorkelling-diving':'region:nusa'
+            };
+            const parentRoute = destinationParent[keyValue];
+            const backButton = parentRoute
+                ? '<button type="button" onclick="navigateTo(\'discovery\',\'' + parentRoute + '\')" class="text-sm font-bold text-teal-700 mb-4">← Back to region</button>'
+                : '<button type="button" onclick="navigateTo(\'home\')" class="text-sm font-bold text-teal-700 mb-4">← Back to home</button>';
+            return '<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">' + backButton + '<p class="text-xs font-extrabold uppercase tracking-widest text-teal-700">Bali Trans travel guide</p><h1 class="text-3xl sm:text-4xl font-black text-slate-950 mt-2">' + page.title + '</h1><p class="text-sm sm:text-base text-slate-600 leading-7 max-w-3xl mt-3">' + page.intro + '</p>' + labelMarkup + '<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-7">' + cards + '</div><p class="mt-6 text-xs leading-6 text-slate-500">' + page.note + '</p><button onclick="navigateTo(\'packages\')" class="mt-5 rounded-xl border border-slate-300 px-4 py-3 text-sm font-bold text-slate-700">Browse available tours</button></div>';
+        }
+        function renderHomeView() {
+            const regions = [
+                { key:'region:south', title:'South Bali', sub:'Beaches, cliffs & watersports', destinationCount:4, activityCount:8, image:'https://commons.wikimedia.org/wiki/Special:FilePath/Cliff_at_Uluwatu_temple,_Bali.jpg?width=1200', places:'Uluwatu · Canggu · Sanur' },
+                { key:'region:central', title:'Central Bali', sub:'Culture, rice terraces & highlands', destinationCount:3, activityCount:6, image:'https://commons.wikimedia.org/wiki/Special:FilePath/Rice_terraces,_Ubud,_Bali.jpg?width=900', places:'Ubud · Kintamani · Bedugul' },
+                { key:'region:east', title:'East Bali', sub:'Temples, coast & quiet villages', destinationCount:8, activityCount:6, image:'https://commons.wikimedia.org/wiki/Special:FilePath/Tirta_Gangga.jpg?width=900', places:'Amed · Sidemen · Karangasem' },
+                { key:'region:north', title:'North Bali', sub:'Waterfalls, lakes & dolphin trips', destinationCount:8, activityCount:9, image:'https://commons.wikimedia.org/wiki/Special:FilePath/Lovina_Beach_Bali.jpg?width=900', places:'Lovina · Munduk · Buleleng' },
+                { key:'region:west', title:'West Bali', sub:'Surf coast & protected nature', destinationCount:6, activityCount:7, image:'https://commons.wikimedia.org/wiki/Special:FilePath/West_Bali_National_Park_Beach_from_Bali_Strait.jpg?width=900', places:'Medewi · Jembrana · Menjangan' },
+                { key:'region:nusa', title:'Nusa Islands', sub:'Island cliffs, beaches & reefs', destinationCount:5, activityCount:6, image:'https://commons.wikimedia.org/wiki/Special:FilePath/Kelingking_Beach.jpg?width=900', places:'Penida · Lembongan · Ceningan' }
+            ];
+            const activities = [
+                { key:'water', icon:'fa-water', title:'Water activities', desc:'Snorkelling, diving and watersports' },
+                { key:'temple', icon:'fa-landmark', title:'Culture & temples', desc:'Temples, villages and local arts' },
+                { key:'atv', icon:'fa-mountain-sun', title:'Outdoor adventures', desc:'Rafting, ATV and trekking ideas' },
+                { key:'driver', icon:'fa-car-side', title:'Private transport', desc:'Plan routes with a private driver' }
+            ];
+            const guides = (typeof BALI_BLOGS !== 'undefined' ? BALI_BLOGS : []).slice(0,3);
             return `
-                <!-- HERO SECTION WITH KLOOK SEARCH WIDGET -->
-                <div class="relative bg-slate-900 min-h-[480px] md:min-h-[540px] flex items-center justify-center overflow-hidden">
-                    <!-- Hero Background Image with Overlay -->
-                    <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=2000&q=80" class="absolute inset-0 w-full h-full object-cover opacity-40 scale-105 transition-transform duration-1000">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent"></div>
-
-                    <div class="relative max-w-5xl w-full mx-auto px-4 sm:px-6 py-12 text-center z-10">
-                        <span class="inline-flex items-center gap-2 bg-orange-500/20 text-orange-300 backdrop-blur-md border border-orange-500/30 text-xs font-bold px-3 py-1.5 rounded-full mb-4 uppercase tracking-wider">
-                            <i class="fas fa-bolt text-klook-orange"></i> Find experiences for your Bali trip
-                        </span>
-                        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight mb-4 leading-tight">
-                            Your Ultimate Bali Experience <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-300">Starts Here</span>
-                        </h1>
-                        <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto mb-8 font-medium">
-                            Compare tour ideas, island activities and private transport. Review each option before continuing to the demo booking steps.
-                        </p>
-
-                        <!-- KLOOK TABS & SEARCH CONTAINER -->
-                        <div class="bg-white/95 backdrop-blur-md rounded-3xl p-3 sm:p-4 shadow-2xl max-w-4xl mx-auto text-left border border-white/20">
-                            <!-- Filter Pill Quick Tabs -->
-                            <div class="flex items-center space-x-2 overflow-x-auto pb-3 mb-3 border-b border-slate-100 hide-scrollbar text-xs font-bold">
-                                <button onclick="quickFilterSearch('all')" class="px-4 py-2 bg-klook-orange text-white rounded-full whitespace-nowrap shadow-sm">All Experiences</button>
-                                <button onclick="quickFilterSearch('driver')" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-full whitespace-nowrap"><i class="fas fa-car mr-1" aria-hidden="true"></i> Private Driver</button>
-                                <button onclick="quickFilterSearch('temple')" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-full whitespace-nowrap"><i class="fas fa-landmark mr-1" aria-hidden="true"></i> Ubud & Temples</button>
-                                <button onclick="quickFilterSearch('nusa')" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-full whitespace-nowrap"><i class="fas fa-water mr-1" aria-hidden="true"></i> Nusa Penida</button>
-                                <button onclick="quickFilterSearch('water')" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-full whitespace-nowrap"><i class="fas fa-life-ring mr-1" aria-hidden="true"></i> Water Sports</button>
-                                <button onclick="quickFilterSearch('atv')" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-full whitespace-nowrap"><i class="fas fa-motorcycle mr-1" aria-hidden="true"></i> ATV & Rafting</button>
+                <section class="relative isolate overflow-hidden bg-slate-950 min-h-[440px] md:min-h-[500px] flex items-center">
+                    <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=2000&q=85" alt="Bali coastline and tropical landscape" class="absolute inset-0 -z-20 h-full w-full object-cover" fetchpriority="high">
+                    <div class="absolute inset-0 -z-10 bg-gradient-to-r from-slate-950/90 via-slate-950/65 to-slate-950/25"></div>
+                    <div class="mx-auto w-full max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+                        <div class="max-w-3xl">
+                            <span class="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-1.5 text-xs font-bold text-teal-200 backdrop-blur"><i class="fas fa-compass"></i> DISCOVER BALI</span>
+                            <h1 class="mt-5 max-w-2xl text-4xl font-black leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">Find your way around <span class="text-teal-300">Bali</span></h1>
+                            <p class="mt-4 max-w-2xl text-sm leading-6 text-slate-200 sm:text-base">From coastal towns and island trips to highland villages and cultural landmarks. Start with an area or search for an activity that fits your plans.</p>
+                            <div class="mt-7 flex max-w-2xl flex-col gap-2 rounded-2xl bg-white p-2 shadow-2xl sm:flex-row">
+                                <label for="heroSearchInput" class="flex min-w-0 flex-1 items-center gap-3 px-3 py-2"><i class="fas fa-search text-teal-600"></i><input id="heroSearchInput" type="search" class="w-full min-w-0 bg-transparent text-sm font-medium text-slate-800 outline-none placeholder:text-slate-500" placeholder="Try Lovina, Canggu, waterfalls..."></label>
+                                <button type="button" onclick="executeHeroSearch()" class="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-teal-600 px-6 py-3 text-sm font-extrabold text-white transition hover:bg-teal-700"><i class="fas fa-search"></i> Explore</button>
                             </div>
-
-                            <!-- Search Input Inputs -->
-                            <div class="grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
-                                <div class="md:col-span-5 relative">
-                                    <label class="text-[10px] uppercase tracking-wider font-extrabold text-slate-400 block px-3">Destination / Activity</label>
-                                    <div class="flex items-center px-3 py-1">
-                                        <i class="fas fa-location-dot text-klook-orange mr-2"></i>
-                                        <input type="text" id="heroSearchInput" placeholder="Where in Bali? (e.g., Ubud, Uluwatu)" class="w-full bg-transparent text-sm font-semibold text-slate-800 outline-none placeholder-slate-400">
-                                    </div>
-                                </div>
-                                <div class="md:col-span-4 border-t md:border-t-0 md:border-l border-slate-200 pt-2 md:pt-0 md:pl-3">
-                                    <label class="text-[10px] uppercase tracking-wider font-extrabold text-slate-400 block px-3">Travel Date</label>
-                                    <div class="flex items-center px-3 py-1">
-                                        <i class="far fa-calendar-alt text-klook-orange mr-2"></i>
-                                        <input type="date" value="${new Date().toISOString().split('T')[0]}" class="w-full bg-transparent text-sm font-semibold text-slate-800 outline-none">
-                                    </div>
-                                </div>
-                                <div class="md:col-span-3">
-                                    <button onclick="executeHeroSearch()" class="w-full bg-klook-orange hover:bg-klook-hover text-white font-extrabold py-3.5 px-6 rounded-2xl transition flex items-center justify-center gap-2 shadow-lg shadow-orange-500/30">
-                                        <i class="fas fa-search"></i> Search
-                                    </button>
-                                </div>
+                            <div class="mt-4 flex flex-wrap gap-2 text-xs font-semibold text-white">
+                                <button onclick="quickFilterSearch('water')" class="rounded-full border border-white/30 bg-white/10 px-3 py-2 hover:bg-white/20">Water activities</button>
+                                <button onclick="quickFilterSearch('temple')" class="rounded-full border border-white/30 bg-white/10 px-3 py-2 hover:bg-white/20">Culture & temples</button>
+                                <button onclick="quickFilterSearch('atv')" class="rounded-full border border-white/30 bg-white/10 px-3 py-2 hover:bg-white/20">Outdoor adventures</button>
+                                <button onclick="quickFilterSearch('driver')" class="rounded-full border border-white/30 bg-white/10 px-3 py-2 hover:bg-white/20">Private transport</button>
                             </div>
                         </div>
                     </div>
-                </div>
+                </section>
 
-                <!-- CATEGORY ICON PILLS GRID -->
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-20">
-                    <div class="bg-white rounded-3xl p-6 klook-shadow border border-slate-100 grid grid-cols-3 sm:grid-cols-6 gap-4 text-center">
-                        <div onclick="filterByCategory('temple'); navigateTo('packages');" class="group cursor-pointer p-3 rounded-2xl hover:bg-klook-light transition">
-                            <div class="w-14 h-14 mx-auto rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl mb-2 group-hover:scale-105 transition"><i class="fas fa-landmark" aria-hidden="true"></i></div>
-                            <span class="text-xs font-bold text-slate-800 group-hover:text-klook-orange">Temple & Art</span>
-                        </div>
-                        <div onclick="filterByCategory('nusa'); navigateTo('packages');" class="group cursor-pointer p-3 rounded-2xl hover:bg-klook-light transition">
-                            <div class="w-14 h-14 mx-auto rounded-2xl bg-cyan-50 text-cyan-600 flex items-center justify-center text-2xl mb-2 group-hover:scale-110 transition"><i class="fas fa-water" aria-hidden="true"></i></div>
-                            <span class="text-xs font-bold text-slate-800 group-hover:text-klook-orange">Nusa Penida</span>
-                        </div>
-                        <div onclick="filterByCategory('water'); navigateTo('packages');" class="group cursor-pointer p-3 rounded-2xl hover:bg-klook-light transition">
-                            <div class="w-14 h-14 mx-auto rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-2xl mb-2 group-hover:scale-110 transition"><i class="fas fa-life-ring" aria-hidden="true"></i></div>
-                            <span class="text-xs font-bold text-slate-800 group-hover:text-klook-orange">Water Sports</span>
-                        </div>
-                        <div onclick="filterByCategory('driver'); navigateTo('packages');" class="group cursor-pointer p-3 rounded-2xl hover:bg-klook-light transition">
-                            <div class="w-14 h-14 mx-auto rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl mb-2 group-hover:scale-110 transition"><i class="fas fa-car-side" aria-hidden="true"></i></div>
-                            <span class="text-xs font-bold text-slate-800 group-hover:text-klook-orange">Private Driver</span>
-                        </div>
-                        <div onclick="filterByCategory('atv'); navigateTo('packages');" class="group cursor-pointer p-3 rounded-2xl hover:bg-klook-light transition">
-                            <div class="w-14 h-14 mx-auto rounded-2xl bg-orange-50 text-orange-600 flex items-center justify-center text-2xl mb-2 group-hover:scale-110 transition"><i class="fas fa-motorcycle" aria-hidden="true"></i></div>
-                            <span class="text-xs font-bold text-slate-800 group-hover:text-klook-orange">ATV & Rafting</span>
-                        </div>
-                        <div onclick="navigateTo('blog');" class="group cursor-pointer p-3 rounded-2xl hover:bg-klook-light transition">
-                            <div class="w-14 h-14 mx-auto rounded-2xl bg-purple-50 text-purple-600 flex items-center justify-center text-2xl mb-2 group-hover:scale-110 transition"><i class="fas fa-book-open" aria-hidden="true"></i></div>
-                            <span class="text-xs font-bold text-slate-800 group-hover:text-klook-orange">Bali Guides</span>
+                <section class="relative z-10 mx-auto -mt-5 max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-2 gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-lg sm:grid-cols-4 sm:gap-4 sm:p-5">
+                        <div class="flex items-center gap-3"><span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-teal-700"><i class="fas fa-map"></i></span><span><strong class="block text-sm text-slate-900">Explore by area</strong><small class="text-xs text-slate-500">Know where to start</small></span></div>
+                        <div class="flex items-center gap-3"><span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-sky-50 text-sky-700"><i class="fas fa-water"></i></span><span><strong class="block text-sm text-slate-900">Find activities</strong><small class="text-xs text-slate-500">Browse by interest</small></span></div>
+                        <div class="flex items-center gap-3"><span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-50 text-amber-700"><i class="fas fa-book-open"></i></span><span><strong class="block text-sm text-slate-900">Travel guides</strong><small class="text-xs text-slate-500">Practical local context</small></span></div>
+                        <div class="flex items-center gap-3"><span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-violet-50 text-violet-700"><i class="fas fa-car-side"></i></span><span><strong class="block text-sm text-slate-900">Plan your route</strong><small class="text-xs text-slate-500">Confirm details before travel</small></span></div>
+                    </div>
+                </section>
+
+                <section class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 sm:py-16">
+                    <div class="mb-6 flex items-end justify-between gap-4"><div><p class="text-xs font-extrabold uppercase tracking-[.16em] text-teal-700">Explore by region</p><h2 class="mt-2 text-2xl font-black tracking-tight text-slate-900 sm:text-3xl">Explore places you’ll love in Bali</h2><p class="mt-2 max-w-2xl text-sm leading-6 text-slate-600">From coastal escapes to cultural landmarks and green highlands, find places and experiences for your Bali trip.</p></div></div>
+                    <div class="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 lg:grid-cols-3">
+                        ${regions.map(region => `<button type="button" onclick="navigateTo('discovery','${region.key}')" class="group w-[78vw] max-w-[320px] shrink-0 snap-start overflow-hidden rounded-2xl border border-slate-200 bg-white text-left shadow-sm transition hover:-translate-y-1 hover:shadow-lg sm:w-auto sm:max-w-none">
+                            <div class="relative h-40 overflow-hidden"><img src="${region.image}" alt="${region.title}" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-105"><span class="absolute bottom-3 left-3 rounded-full bg-slate-950/75 px-3 py-1 text-[11px] font-bold text-white">${region.places}</span></div>
+                            <div class="p-4"><h3 class="text-lg font-extrabold text-slate-900">${region.title}</h3><p class="mt-1 text-sm text-slate-600">${region.sub}</p><div class="mt-3 flex flex-wrap gap-2"><span class="inline-flex items-center rounded-full bg-teal-50 px-2.5 py-1 text-xs font-bold text-teal-800">${region.destinationCount} destinations</span><span class="inline-flex items-center rounded-full bg-slate-100 px-2.5 py-1 text-xs font-bold text-slate-700">${region.activityCount} activity types</span></div><span class="mt-4 inline-flex items-center gap-2 text-xs font-extrabold text-teal-700">Explore region <i class="fas fa-arrow-right"></i></span></div>
+                        </button>`).join('')}
+                    </div>
+                </section>
+
+                <section class="border-y border-slate-200 bg-slate-50 py-12 sm:py-14">
+                    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                        <div class="mb-6"><p class="text-xs font-extrabold uppercase tracking-[.16em] text-teal-700">Browse by interest</p><h2 class="mt-2 text-2xl font-black text-slate-900 sm:text-3xl">What would you like to do?</h2></div>
+                        <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                            ${activities.map(activity => `<button type="button" onclick="quickFilterSearch('${activity.key}')" class="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5 text-left transition hover:border-teal-300 hover:shadow-md"><span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-lg text-teal-700"><i class="fas ${activity.icon}"></i></span><span><strong class="block text-sm font-extrabold text-slate-900">${activity.title}</strong><span class="mt-1 block text-xs leading-5 text-slate-600">${activity.desc}</span><span class="mt-3 block text-xs font-extrabold text-teal-700">Explore ideas →</span></span></button>`).join('')}
                         </div>
                     </div>
-                </div>
+                </section>
 
-                <!-- FEATURED PACKAGES GRID (KLOOK CARDS) -->
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-                    <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
-                        <div>
-                            <span class="text-xs font-black text-klook-orange uppercase tracking-wider">Top Recommended Experiences</span>
-                            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Trending Bali Activities</h2>
-                        </div>
-                        <button onclick="navigateTo('packages')" class="inline-flex items-center text-xs font-bold text-klook-orange hover:text-klook-hover gap-2 bg-orange-50 hover:bg-orange-100 px-4 py-2.5 rounded-full transition">
-                            View All Activities <i class="fas fa-arrow-right"></i>
-                        </button>
-                    </div>
+                <section class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 sm:py-16">
+                    <div class="mb-7 flex items-end justify-between gap-4"><div><p class="text-xs font-extrabold uppercase tracking-[.16em] text-teal-700">Trip ideas</p><h2 class="mt-2 text-2xl font-black text-slate-900 sm:text-3xl">Experiences to start planning with</h2><p class="mt-2 text-sm text-slate-600">Review the available details and confirm prices, routes and availability with the team.</p></div><button type="button" onclick="navigateTo('packages')" class="shrink-0 rounded-full border border-slate-300 bg-white px-4 py-2.5 text-xs font-extrabold text-slate-800 hover:border-teal-500">All activities <i class="fas fa-arrow-right ml-1"></i></button></div>
+                    <div id="homeFeaturedGrid" class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">${renderPackageCards(BALI_PACKAGES.slice(0,3))}</div>
+                </section>
 
-                    <!-- Package Cards Grid -->
-                    <div id="homeFeaturedGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        ${renderPackageCards(BALI_PACKAGES)}
+                <section class="bg-white py-12 sm:py-14">
+                    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                        <div class="mb-7"><p class="text-xs font-extrabold uppercase tracking-[.16em] text-teal-700">Travel notes</p><h2 class="mt-2 text-2xl font-black text-slate-900 sm:text-3xl">Useful guides before you go</h2></div>
+                        <div class="grid grid-cols-1 gap-5 sm:grid-cols-3">
+                            ${guides.map(guide => `<article class="overflow-hidden rounded-2xl border border-slate-200 bg-white"><img src="${guide.image}" alt="" loading="lazy" class="h-44 w-full object-cover"><div class="p-4"><p class="text-[11px] font-bold uppercase tracking-wide text-teal-700">${guide.category || 'Travel guide'}</p><h3 class="mt-2 text-base font-extrabold leading-snug text-slate-900">${guide.title}</h3><p class="mt-2 text-sm leading-6 text-slate-600">${guide.snippet || ''}</p><button type="button" onclick="navigateTo('blog-read','${guide.id}')" class="mt-4 text-xs font-extrabold text-teal-700 hover:text-teal-900">Read guide <i class="fas fa-arrow-right ml-1"></i></button></div></article>`).join('')}
+                        </div>
+                        <div class="mt-6 text-center"><button type="button" onclick="navigateTo('blog')" class="rounded-full border border-slate-300 px-5 py-3 text-xs font-extrabold text-slate-800 hover:border-teal-500">View all travel guides</button></div>
                     </div>
-                </div>
+                </section>
 
-                <!-- WHY CHOOSE BALI EXPLORER (KLOOK VALUE PROP) -->
-                <div class="bg-white py-16 border-y border-slate-200">
-                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div class="text-center max-w-2xl mx-auto mb-12">
-                            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Why Travelers Choose Us</h2>
-                            <p class="text-slate-500 text-sm mt-2">Hassle-free booking experience with top-rated local Balinese hospitality drivers and operators.</p>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                            <div class="flex items-start gap-4 p-6 rounded-3xl bg-slate-50 border border-slate-100">
-                                <div class="w-12 h-12 rounded-2xl bg-orange-100 text-klook-orange flex items-center justify-center text-xl font-bold flex-shrink-0">⚡</div>
-                                <div>
-                                    <h4 class="font-extrabold text-slate-900 mb-1">Instant Voucher Confirmation</h4>
-                                    <p class="text-xs text-slate-500 leading-relaxed">Book in 60 seconds and receive instant digital QR e-vouchers on your smartphone.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-4 p-6 rounded-3xl bg-slate-50 border border-slate-100">
-                                <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl font-bold flex-shrink-0">🏷️</div>
-                                <div>
-                                    <h4 class="font-extrabold text-slate-900 mb-1">Best Price Guarantee</h4>
-                                    <p class="text-xs text-slate-500 leading-relaxed">Direct partner prices with no hidden booking charges or surprise fees at pickup.</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-4 p-6 rounded-3xl bg-slate-50 border border-slate-100">
-                                <div class="w-12 h-12 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center text-xl font-bold flex-shrink-0">💬</div>
-                                <div>
-                                    <h4 class="font-extrabold text-slate-900 mb-1">24/7 WhatsApp Concierge</h4>
-                                    <p class="text-xs text-slate-500 leading-relaxed">Dedicated local Balinese support team ready to assist your itinerary updates anytime.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- TESTIMONIALS CAROUSEL SECTION -->
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-                    <div class="text-center mb-10">
-                        <span class="text-xs font-black text-klook-orange uppercase tracking-wider">Verified Reviews</span>
-                        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Loved by 50,000+ Happy Travelers</h2>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm">
-                            <div class="flex items-center gap-1 text-amber-400 mb-3 text-sm">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                            <p class="text-xs text-slate-600 leading-relaxed mb-4 italic">"The Nusa Penida tour was seamless! Our driver Pak Wayan was extremely polite, drove safely, and took photo-worthy pictures at Kelingking Beach."</p>
-                            <div class="flex items-center gap-3">
-                                <div class="w-9 h-9 rounded-full bg-slate-200 font-bold flex items-center justify-center text-xs">JD</div>
-                                <div>
-                                    <h5 class="text-xs font-bold text-slate-900">Jessica Davies</h5>
-                                    <span class="text-[10px] text-slate-400">Australia • Verified Booking</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm">
-                            <div class="flex items-center gap-1 text-amber-400 mb-3 text-sm">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                            <p class="text-xs text-slate-600 leading-relaxed mb-4 italic">"Hired the private driver for 3 days in Ubud. Great air-conditioned car, very punctual, and knew all the best local Warungs for lunch."</p>
-                            <div class="flex items-center gap-3">
-                                <div class="w-9 h-9 rounded-full bg-slate-200 font-bold flex items-center justify-center text-xs">MK</div>
-                                <div>
-                                    <h5 class="text-xs font-bold text-slate-900">Marcus Chen</h5>
-                                    <span class="text-[10px] text-slate-400">Singapore • Verified Booking</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-sm">
-                            <div class="flex items-center gap-1 text-amber-400 mb-3 text-sm">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                            <p class="text-xs text-slate-600 leading-relaxed mb-4 italic">"Rafting and ATV combo is a must try! Super fun guide, locker facilities were clean, and lunch was surprisingly delicious."</p>
-                            <div class="flex items-center gap-3">
-                                <div class="w-9 h-9 rounded-full bg-slate-200 font-bold flex items-center justify-center text-xs">SL</div>
-                                <div>
-                                    <h5 class="text-xs font-bold text-slate-900">Sophie Laurent</h5>
-                                    <span class="text-[10px] text-slate-400">France • Verified Booking</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <section class="mx-auto max-w-7xl px-4 pb-14 sm:px-6 lg:px-8">
+                    <div class="flex flex-col gap-4 rounded-3xl bg-slate-900 p-6 text-white sm:flex-row sm:items-center sm:justify-between sm:p-8"><div><h2 class="text-xl font-black sm:text-2xl">Planning a trip across Bali?</h2><p class="mt-2 max-w-2xl text-sm leading-6 text-slate-300">Tell us where you want to go, your dates and group size. We can help clarify the route and service details before you decide.</p></div><button type="button" onclick="navigateTo('contact')" class="inline-flex min-h-12 shrink-0 items-center justify-center gap-2 rounded-xl bg-teal-500 px-5 py-3 text-sm font-extrabold text-slate-950 hover:bg-teal-400">Ask the team <i class="fas fa-arrow-right"></i></button></div>
+                </section>
             `;
         }
-
-        /* VIEW 2: ALL PACKAGES & CATALOG PAGE WITH FILTER BAR */

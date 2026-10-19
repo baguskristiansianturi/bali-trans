@@ -2,239 +2,79 @@
            1. DATA STORES (PACKAGES, BLOGS, STATE)
            ========================================================================== */
         const CURRENCY_RATES = {
-            IDR: { symbol: 'Rp ', rate: 1, format: (v) => 'Rp ' + Math.round(v).toLocaleString('id-ID') },
-            USD: { symbol: '$', rate: 0.000063, format: (v) => '$' + (v * 0.000063).toFixed(2) },
-            AUD: { symbol: 'A$', rate: 0.000096, format: (v) => 'A$' + (v * 0.000096).toFixed(2) },
-            EUR: { symbol: '€', rate: 0.000058, format: (v) => '€' + (v * 0.000058).toFixed(2) }
+            IDR:{symbol:'Rp ',rate:1,format:v=>'Rp '+Math.round(v).toLocaleString('id-ID')},
+            USD:{symbol:'$',rate:0.000063,format:v=>'$'+(v*0.000063).toFixed(2)},
+            MYR:{symbol:'RM ',rate:0.00027,format:v=>'RM '+(v*0.00027).toFixed(2)},
+            SGD:{symbol:'S$',rate:0.000081,format:v=>'S$'+(v*0.000081).toFixed(2)},
+            AED:{symbol:'د.إ ',rate:0.00023,format:v=>'د.إ '+(v*0.00023).toFixed(2)},
+            INR:{symbol:'₹',rate:0.00525,format:v=>'₹'+(v*0.00525).toFixed(0)},
+            AUD:{symbol:'A$',rate:0.000096,format:v=>'A$'+(v*0.000096).toFixed(2)},
+            EUR:{symbol:'€',rate:0.000058,format:v=>'€'+(v*0.000058).toFixed(2)}
         };
-
-        let currentCurrency = 'IDR';
+        const LOCALE_SETTINGS={id:{currency:'IDR',flag:'🇮🇩',code:'IDR',lang:'id',dir:'ltr',name:'Indonesia'},ms:{currency:'MYR',flag:'🇲🇾',code:'MYR',lang:'ms',dir:'ltr',name:'Bahasa Melayu'},sg:{currency:'SGD',flag:'🇸🇬',code:'SGD',lang:'en-SG',dir:'ltr',name:'Singlish'},en:{currency:'USD',flag:'🇺🇸',code:'USD',lang:'en',dir:'ltr',name:'English'},ar:{currency:'AED',flag:'🇸🇦',code:'AED',lang:'ar',dir:'rtl',name:'العربية'},hi:{currency:'INR',flag:'🇮🇳',code:'INR',lang:'hi',dir:'ltr',name:'हिन्दी'}};
+        let currentCurrency='IDR',currentLanguage='id';
+        try{currentLanguage=localStorage.getItem('baliTransLanguage')||'id';}catch(e){}
+        if(!LOCALE_SETTINGS[currentLanguage])currentLanguage='id';
+        currentCurrency=LOCALE_SETTINGS[currentLanguage].currency;
 
         const BALI_PACKAGES = [
             {
-                id: 'pkg-1',
-                title: 'Ubud Art Village, Tegallalang Rice Terrace & Jungle Swing Day Tour',
-                category: 'temple',
-                categoryName: 'Culture & Temple',
-                location: 'Ubud, Gianyar',
-                rating: 4.9,
-                reviewCount: 3420,
-                originalPriceIDR: 650000,
-                priceIDR: 450000,
-                badge: 'Bestseller',
-                instantConfirmation: true,
-                freeCancellation: true,
-                hotelTransfer: true,
-                heroImage: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1000&q=80',
-                gallery: [
-                    'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80',
-                    'https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=800&q=80',
-                    'https://images.unsplash.com/photo-1555400038-63f5ba517a47?auto=format&fit=crop&w=800&q=80'
-                ],
-                highlights: [
-                    'Swing high above lush tropical green jungle valleys in Tegallalang.',
-                    'Visit Sacred Monkey Forest Sanctuary and historic Ubud Palace.',
-                    'Enjoy hassle-free round-trip hotel pickup in air-conditioned vehicle.',
-                    'Sip authentic Luwak coffee at a traditional Balinese coffee plantation.'
-                ],
-                itinerary: [
-                    { time: '08:30 AM', title: 'Hotel Pickup', desc: 'Direct pick up from Kuta, Seminyak, Canggu, Sanur, or Ubud hotel.' },
-                    { time: '10:00 AM', title: 'Tegallalang Rice Terraces & Swing', desc: 'Explore UNESCO rice terraces and take iconic swing photos.' },
-                    { time: '12:30 PM', title: 'Traditional Balinese Lunch', desc: 'Enjoy authentic Nasi Campur overlooking the valley.' },
-                    { time: '02:00 PM', title: 'Sacred Monkey Forest Sanctuary', desc: 'Walk through ancient temple sanctuary with hundreds of playful macaques.' },
-                    { time: '04:30 PM', title: 'Ubud Art Market & Return', desc: 'Shop local handicrafts before relaxing return drive.' }
-                ],
-                options: [
-                    { id: 'opt-1-1', name: 'Standard Group Tour', extraPriceIDR: 0, desc: 'Shared vehicle, licensed guide, entry tickets included.' },
-                    { id: 'opt-1-2', name: 'VIP Private Driver + Buffet Lunch', extraPriceIDR: 200000, desc: 'Private luxury MPV driver, flexible schedule, gourmet lunch.' }
-                ]
-            },
-            {
-                id: 'pkg-2',
-                title: 'Nusa Penida All-Inclusive Island Day Tour (West & East Coast)',
-                category: 'nusa',
-                categoryName: 'Nusa Islands',
-                location: 'Nusa Penida Island',
-                rating: 4.95,
-                reviewCount: 5120,
-                originalPriceIDR: 950000,
-                priceIDR: 680000,
-                badge: 'Klook Choice',
-                instantConfirmation: true,
-                freeCancellation: true,
-                hotelTransfer: true,
-                heroImage: 'https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=1000&q=80',
-                gallery: [
-                    'https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=800&q=80',
-                    'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=800&q=80',
-                    'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80'
-                ],
-                highlights: [
-                    'Snap world-famous cliff photos at Kelingking T-Rex Beach.',
-                    'Swim in crystal clear natural infinity pools at Angel’s Billabong.',
-                    'Includes fast boat return tickets from Sanur harbor & island private transport.',
-                    'Snorkeling add-on available with Manta Rays at Manta Point.'
-                ],
-                itinerary: [
-                    { time: '06:30 AM', title: 'Hotel Pick-Up & Sanur Harbor Check-in', desc: 'Early transfer to ensure smooth fast boat departure.' },
-                    { time: '08:00 AM', title: 'Fast Boat Ride to Nusa Penida', desc: '45-minute speed boat ride across the Badung Strait.' },
-                    { time: '09:30 AM', title: 'Kelingking Beach Lookout', desc: 'Iconic T-Rex shaped rock formation view.' },
-                    { time: '12:00 PM', title: 'Broken Beach & Angel’s Billabong', desc: 'Marvel at natural archway and emerald lagoon.' },
-                    { time: '04:30 PM', title: 'Return Fast Boat to Bali', desc: 'Arrive back in Sanur harbor and transfer to hotel.' }
-                ],
-                options: [
-                    { id: 'opt-2-1', name: 'West Penida Highlight Tour', extraPriceIDR: 0, desc: 'Includes Kelingking, Broken Beach, Angel Billabong & Crystal Bay.' },
-                    { id: 'opt-2-2', name: 'West + Snorkeling with Manta Rays', extraPriceIDR: 300000, desc: 'Adds 2-hour boat snorkeling session at Manta Point & Gamat Bay.' }
-                ]
-            },
-            {
-                id: 'pkg-3',
-                title: 'Mount Batur Sunrise Volcano Trekking with Breakfast & Hot Springs',
-                category: 'atv',
-                categoryName: 'Trekking & Adventure',
-                location: 'Kintamani, Bali',
-                rating: 4.88,
-                reviewCount: 2890,
-                originalPriceIDR: 700000,
-                priceIDR: 490000,
-                badge: 'Top Rated',
-                instantConfirmation: true,
-                freeCancellation: true,
-                hotelTransfer: true,
-                heroImage: 'https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=1000&q=80',
-                gallery: [
-                    'https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=800&q=80',
-                    'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80'
-                ],
-                highlights: [
-                    'Hike to the summit of active Mount Batur volcano at 1,717m height.',
-                    'Watch unforgettable sunrise with steam-cooked eggs breakfast at the crater.',
-                    'Soak tired muscles in natural volcanic hot spring pools at Toya Devasya.'
-                ],
-                itinerary: [
-                    { time: '02:00 AM', title: 'Night Hotel Pickup', desc: 'Early morning pickup from your Bali hotel.' },
-                    { time: '03:30 AM', title: 'Begin Summit Trek', desc: 'Guided 2-hour climb with headlights and professional mountain guide.' },
-                    { time: '06:00 AM', title: 'Sunrise Summit Breakfast', desc: 'Enjoy hot tea, banana sandwich, and steam eggs.' },
-                    { time: '08:30 AM', title: 'Natural Hot Springs Soak', desc: 'Relaxing hot bath overlooking Lake Batur.' }
-                ],
-                options: [
-                    { id: 'opt-3-1', name: 'Standard Trekking + Hot Springs', extraPriceIDR: 0, desc: 'Includes guide, trekking pole, breakfast, and hot springs ticket.' },
-                    { id: 'opt-3-2', name: '4WD Mount Batur Jeep Sunrise (No Walking)', extraPriceIDR: 250000, desc: 'Ascend the volcanic black lava fields comfortably in a open 4x4 Jeep.' }
-                ]
-            },
-            {
-                id: 'pkg-4',
-                title: 'Tanjung Benoa Watersports: Parasailing, Jet Ski & Banana Boat',
-                category: 'water',
-                categoryName: 'Water Sports',
-                location: 'Nusa Dua, South Bali',
-                rating: 4.82,
-                reviewCount: 1940,
-                originalPriceIDR: 500000,
-                priceIDR: 320000,
-                badge: 'Flash Deal 35% OFF',
-                instantConfirmation: true,
-                freeCancellation: true,
+                id: 'lovina-dolphin-tour',
+                title: 'Lovina Dolphin Tour',
+                category: 'tour',
+                categoryName: 'Paket Tour',
+                location: 'Lovina, Wanagiri & Bedugul, North Bali',
+                rating: null,
+                reviewCount: 0,
+                originalPriceIDR: 0,
+                priceIDR: 462500,
+                badge: 'Paket Privat',
+                instantConfirmation: false,
+                freeCancellation: false,
                 hotelTransfer: false,
-                heroImage: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80',
+                heroImage: 'https://commons.wikimedia.org/wiki/Special:FilePath/Lovina-dauphins.jpg?width=1200',
                 gallery: [
-                    'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80'
+                    'https://commons.wikimedia.org/wiki/Special:FilePath/Lovina-dauphins.jpg?width=1200',
+                    'https://commons.wikimedia.org/wiki/Special:FilePath/Dolphins_and_Sunrise_in_Lovina,_Indonesia_Bali_-_panoramio_%283%29.jpg?width=1000',
+                    'https://commons.wikimedia.org/wiki/Special:FilePath/Lovina_Beach_Bali.jpg?width=1000',
+                    'https://commons.wikimedia.org/wiki/Special:FilePath/Beach_at_Lovina,_Bali.jpg?width=1000',
+                    'https://commons.wikimedia.org/wiki/Special:FilePath/Pantai_Lovina.jpg?width=1000'
                 ],
                 highlights: [
-                    'Soar high over Bali tropical coastline with Tandem Parasailing Adventure.',
-                    'Ride top-tier Yamaha Jet Skis with certified instructor.',
-                    'Includes full insurance safety equipment, lockers, and shower facilities.'
+                    'Berangkat dini hari untuk menyaksikan matahari terbit dan mencari lumba-lumba liar di perairan Lovina.',
+                    'Perjalanan privat dari area penjemputan yang disepakati, termasuk aktivitas utama dolphin watching dan kebutuhan pokok dalam itinerary.',
+                    'Paket mencakup perjalanan perahu, transportasi pribadi pulang-pergi, tiket masuk untuk destinasi yang termasuk dalam itinerary, dan makan siang.',
+                    'Lumba-lumba adalah satwa liar; kemunculannya tidak dapat dijamin. Urutan dan waktu kunjungan bisa berubah karena cuaca, kondisi laut, dan lalu lintas.'
                 ],
                 itinerary: [
-                    { time: '09:00 AM', title: 'Arrival & Safety Briefing', desc: 'Check in at watersports desk and gear up with life jackets.' },
-                    { time: '09:30 AM', title: '3 Watersport Activities', desc: 'Consecutive fun sessions on Parasailing, Jet Ski, and Banana Boat.' }
+                    { time: '03.30', title: 'Penjemputan hotel', desc: 'Perkiraan waktu mulai dari area Bali Selatan/Ubud. Jam akhir dikonfirmasi berdasarkan lokasi jemput.' },
+                    { time: '05.50', title: 'Tiba di Lovina', desc: 'Bersiap di tepi pantai dan mengikuti arahan kapten perahu.' },
+                    { time: '06.00', title: 'Dolphin watching saat sunrise', desc: 'Naik perahu tradisional untuk mencari lumba-lumba di habitat alaminya. Durasi dan kondisi laut dapat bervariasi.' },
+                    { time: '09.00', title: 'Waktu santai dan makan siang', desc: 'Setelah aktivitas dolphin watching, nikmati waktu istirahat dan makan siang sesuai pengaturan perjalanan.' },
+                    { time: 'Siang–sore', title: 'Perjalanan kembali', desc: 'Kembali menuju area pengantaran. Lama perjalanan bergantung pada lokasi penjemputan, kondisi lalu lintas, dan pilihan persinggahan tambahan.' },
+                    { time: 'Opsional, akhir perjalanan', title: 'Persinggahan Tanah Lot', desc: 'Tambahkan kunjungan ke Tanah Lot sebelum kembali ke lokasi pengantaran. Persinggahan ini tidak termasuk dalam paket dasar.' }
                 ],
                 options: [
-                    { id: 'opt-4-1', name: 'Fun Trio Package (Parasail + JetSki + Banana)', extraPriceIDR: 0, desc: 'Complete 3 activity combo pack.' },
-                    { id: 'opt-4-2', name: 'Extreme Sea Walker + Flying Fish Combo', extraPriceIDR: 280000, desc: 'Walk underwater on ocean floor with special air helmet.' }
-                ]
-            },
-            {
-                id: 'pkg-5',
-                title: 'Full Day Bali Private Car Charter with English Speaking Driver',
-                category: 'driver',
-                categoryName: 'Private Driver',
-                location: 'All Bali Coverage',
-                rating: 4.98,
-                reviewCount: 8900,
-                originalPriceIDR: 700000,
-                priceIDR: 520000,
-                badge: 'Super Service',
-                instantConfirmation: true,
-                freeCancellation: true,
-                hotelTransfer: true,
-                heroImage: 'https://images.unsplash.com/photo-1555400038-63f5ba517a47?auto=format&fit=crop&w=1000&q=80',
-                gallery: [
-                    'https://images.unsplash.com/photo-1555400038-63f5ba517a47?auto=format&fit=crop&w=800&q=80'
+                    { id: 'lovina-standard', name: 'Paket Tour Lovina', priceIDR: 462500, priceMode: 'person', maxGuests: 7, desc: 'Harga per orang untuk perjalanan Lovina dengan transportasi privat dan dolphin watching. Tambahan aktivitas dan upgrade kendaraan dapat dipilih saat checkout.', includes: ['Transportasi pribadi pulang-pergi', 'Driver, bahan bakar dan parkir', 'Perjalanan perahu dolphin watching', 'Tiket masuk destinasi yang termasuk dalam itinerary', 'Makan siang sesuai kesepakatan'], excludes: ['Kunjungan destinasi opsional yang tidak dipilih', 'Snorkeling atau swim with dolphin jika tidak dipilih', 'Pengeluaran pribadi'] }
                 ],
-                highlights: [
-                    '10 Hours customizable private car charter anywhere in main island Bali.',
-                    'Fuel, parking fees, highway tolls, and friendly local driver included.',
-                    'Clean modern air-conditioned Toyota Avanza or Innova MPV.'
-                ],
-                itinerary: [
-                    { time: 'Flexible', title: 'Custom Itinerary', desc: 'You choose where to go: Seminyak, Uluwatu, Tanah Lot, Bedugul, or Kintamani!' }
-                ],
-                options: [
-                    { id: 'opt-5-1', name: 'Standard MPV (1-5 Passengers)', extraPriceIDR: 0, desc: 'Toyota Avanza or Suzuki Ertiga.' },
-                    { id: 'opt-5-2', name: 'Luxury Toyota HiAce Van (Up to 12 Passengers)', extraPriceIDR: 450000, desc: 'Spacious high-roof minibus for big families or groups.' }
-                ]
-            },
-            {
-                id: 'pkg-6',
-                title: 'Ayung River White Water Rafting & Quad Bike ATV Adventure',
-                category: 'atv',
-                categoryName: 'Trekking & Adventure',
-                location: 'Ubud, Bali',
-                rating: 4.91,
-                reviewCount: 4100,
-                originalPriceIDR: 850000,
-                priceIDR: 590000,
-                badge: 'Bestseller',
-                instantConfirmation: true,
-                freeCancellation: true,
-                hotelTransfer: true,
-                heroImage: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1000&q=80',
-                gallery: [
-                    'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80'
-                ],
-                highlights: [
-                    '2 Hours thrilling white water rafting along Ayung River rainforest gorges.',
-                    '2 Hours mud track ATV quad biking through caves, waterfalls, and rice fields.',
-                    'Hot buffet lunch and hot shower facility included.'
-                ],
-                itinerary: [
-                    { time: '08:00 AM', title: 'Hotel Pick Up', desc: 'Pickup and drive to Ubud adventure center.' },
-                    { time: '09:30 AM', title: 'White Water Rafting', desc: 'Conquer Class II & III rapids with experienced rafting guide.' },
-                    { time: '12:30 PM', title: 'Buffet Lunch', desc: 'Indonesian buffet meal overlooking jungle.' },
-                    { time: '01:30 PM', title: 'ATV Quad Bike Ride', desc: 'Ride through mud tracks, tunnels, and river bed.' }
-                ],
-                options: [
-                    { id: 'opt-6-1', name: 'Single ATV Rider + Rafting', extraPriceIDR: 0, desc: '1 Person per ATV bike.' },
-                    { id: 'opt-6-2', name: 'Tandem ATV (2 Persons on 1 ATV) + Rafting', extraPriceIDR: -100000, desc: 'Great option for couples sharing an ATV.' }
-                ]
+                pricingNote: 'Area penjemputan, ketersediaan, menu makan, dan rincian perjalanan dikonfirmasi sebelum pembayaran.'
             }
         ];
 
         const BALI_BLOGS = [
             {
                 id: 'blog-1',
-                title: 'The Ultimate First-Timer’s Bali Travel Guide (2026 Edition)',
+                title: 'A Practical First-Time Guide to Bali',
                 category: 'Guide',
                 readTime: '6 min read',
                 author: 'Siti Rahma',
                 date: 'Oct 12, 2026',
                 image: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80',
-                snippet: 'Everything you need to know about Visa on Arrival, best neighborhoods to stay, currency tips, and avoiding tourist traps in Bali.',
+                snippet: 'A starting point for choosing where to stay, checking entry requirements, planning local transport and preparing for your first visit.',
                 content: `
-                    <p class="mb-4">Planning your dream vacation to Bali in 2026? Known as the Island of the Gods, Bali continues to top global travel wishlists. Whether you seek spiritual retreats in Ubud, party beaches in Canggu, or pristine underwater coral reefs in Nusa Penida, this guide has you covered.</p>
+                    <p class="mb-4">A first trip to Bali is easier to plan when you choose a few areas that fit your interests instead of trying to cross the island every day. Coastlines, inland villages and island trips offer different experiences, and travel between them can take longer than a map suggests.</p>
                     <h3 class="text-xl font-bold text-slate-900 mb-2">1. Entry Requirements & E-Visa</h3>
-                    <p class="mb-4">Travelers from over 90 countries can obtain a 30-day Visa on Arrival (VoA) either at Ngurah Rai International Airport or online prior to arrival. Ensure your passport is valid for at least 6 months.</p>
+                    <p class="mb-4">Entry requirements depend on your passport and travel plans. Check the latest visa and passport rules through official Indonesian immigration sources before departure rather than relying on an old checklist.</p>
                     <h3 class="text-xl font-bold text-slate-900 mb-2">2. Choosing Where to Stay</h3>
                     <ul class="list-disc pl-5 mb-4 space-y-1">
                         <li><strong>Canggu & Seminyak:</strong> Beach clubs, trendy cafes, surfing, vibrant nightlife.</li>
@@ -243,40 +83,56 @@
                         <li><strong>Sanur:</strong> Family-friendly, calm water beaches, peaceful vibe.</li>
                     </ul>
                     <h3 class="text-xl font-bold text-slate-900 mb-2">3. Getting Around Bali</h3>
-                    <p class="mb-4">Public transit is limited. The most convenient way to explore is hiring a private driver for 10-hour day trips or renting a scooter if you are an experienced rider with an international driving permit.</p>
+                    <p class="mb-4">Transport depends on the route and your comfort level. For a multi-stop day, agree the route, service duration, pickup point and any extra charges with a driver before confirming. Scooters are not suitable for every visitor; check licence and insurance requirements, wear a helmet and never ride beyond your experience.</p>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">4. Keep the Daily Route Realistic</h3>
+                    <p class="mb-4">Avoid combining distant areas just because each stop looks close on a map. Pick a main area for the day, leave room for meals and traffic, and confirm the final route with your transport provider.</p>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">5. Check Practical Details Before You Go</h3>
+                    <p class="mb-4">Check current entry rules through official sources, confirm opening hours directly with attractions, and carry sun protection and water. For temples, follow local dress guidance and respect ceremonies or areas closed to visitors.</p>
                 `
             },
             {
                 id: 'blog-2',
-                title: 'Top 7 Instagrammable Spots in Nusa Penida & How to Visit Them',
+                title: 'Nusa Penida Highlights: Kelingking, Diamond Beach & Atuh',
                 category: 'Destinations',
                 readTime: '4 min read',
                 author: 'Alex Rivera',
                 date: 'Sep 28, 2026',
-                image: 'https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=800&q=80',
-                snippet: 'Discover Kelingking Beach, Diamond Beach, Atuh, and the famous treehouse with step-by-step fast boat schedules.',
+                image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Kelingking_Beach.jpg?width=1200',
+                snippet: 'Compare three dramatic coastal stops and plan island transport around road conditions, sea conditions and your boat schedule.',
                 content: `
-                    <p class="mb-4">Nusa Penida is a rugged island just 45 minutes off the coast of Bali. It boasts some of the most spectacular coastal cliffs in Southeast Asia.</p>
-                    <h3 class="text-xl font-bold text-slate-900 mb-2">Must-Visit Spots:</h3>
+                    <p class="mb-4">Nusa Penida is known for steep limestone cliffs, beaches and viewpoints. Boat time varies by departure point and sea conditions, so confirm the pier, check-in time and return schedule with your boat operator before planning the day.</p>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Three Stops to Compare</h3>
                     <ol class="list-decimal pl-5 mb-4 space-y-2">
-                        <li><strong>Kelingking T-Rex Beach:</strong> The famous cliff shaped like a Tyrannosaurus Rex.</li>
-                        <li><strong>Diamond Beach:</strong> Pristine white sand with diamond-shaped karst rocks.</li>
-                        <li><strong>Molenteng Tree House:</strong> Iconic wooden house perched on the edge overlooking Thousand Island viewpoint.</li>
+                        <li><strong>Kelingking:</strong> Best known for its dramatic cliff profile and elevated coastal views. The descent is steep and physically demanding; visitors can enjoy the viewpoint without attempting the beach trail.</li>
+                        <li><strong>Diamond Beach:</strong> Known for pale sand and limestone formations. Access involves steep stairs, and swimming may be unsafe when surf is strong.</li>
+                        <li><strong>Atuh Beach:</strong> A curved bay framed by rock formations. Allow time for the access path and check local conditions before entering the water.</li>
                     </ol>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Plan Transfers and Safety</h3>
+                    <p class="mb-4">Roads can be narrow, uneven and slow between stops. Choose fewer places rather than rushing across the island, use safe transport, bring water and footwear with grip, and follow local signs near cliffs and beaches. Never rely on a viewpoint photo to judge whether a path or sea is safe.</p>
                 `
             },
             {
                 id: 'blog-3',
-                title: 'Bali Foodie Guide: 10 Must-Try Balinese Dishes You Can’t Miss',
+                title: 'Balinese Dishes to Try on Your Trip',
                 category: 'Culinary',
                 readTime: '5 min read',
                 author: 'Made Budi',
                 date: 'Sep 15, 2026',
                 image: 'https://images.unsplash.com/photo-1555400038-63f5ba517a47?auto=format&fit=crop&w=800&q=80',
-                snippet: 'From Babi Guling to Duck Bebek Betutu and fresh Jimbaran seafood, indulge your tastebuds in Bali authentic cuisine.',
+                snippet: 'Get to know a few well-known Balinese dishes and coastal seafood options to look out for during your stay.',
                 content: `
-                    <p class="mb-4">Balinese cuisine is rich with aromatic spices like turmeric, lemongrass, galangal, and chili paste (Sambal Matah).</p>
-                    <p class="mb-4">Do not leave Bali without tasting <strong>Babi Guling</strong> (suckling roast pig), <strong>Bebek Betutu</strong> (slow-roasted spiced duck), and grilling fresh snapper at Jimbaran Bay right on the beach!</p>
+                    <p class="mb-4">Balinese food often balances aromatic spices, herbs and sambal. Recipes vary by household and region, so the same dish can taste different from one kitchen to another.</p>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Dishes Worth Looking For</h3>
+                    <ul class="list-disc pl-5 mb-4 space-y-2">
+                        <li><strong>Babi guling:</strong> Roast pork commonly served with rice and a selection of sides.</li>
+                        <li><strong>Bebek betutu:</strong> Duck prepared with a spiced seasoning; cooking methods and serving styles vary.</li>
+                        <li><strong>Ayam betutu:</strong> A chicken version seasoned with a rich spice mixture.</li>
+                        <li><strong>Nasi campur Bali:</strong> Rice served with several small portions of vegetables, meat or other accompaniments.</li>
+                        <li><strong>Lawar:</strong> A mixed dish made with vegetables, herbs and other ingredients; recipes can include meat or animal blood, so ask about ingredients if needed.</li>
+                        <li><strong>Seafood in Jimbaran:</strong> Coastal restaurants serve fish and other seafood. Check the price, portion size and cooking method before ordering.</li>
+                    </ul>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Eat Well and Ask Questions</h3>
+                    <p class="mb-4">Tell the restaurant about allergies and dietary needs before ordering, and ask whether a dish contains meat, seafood, peanuts or other ingredients you avoid. Choose food that is freshly prepared and stored appropriately, especially in hot weather.</p>
                 `
             }
         ];
