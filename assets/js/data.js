@@ -12,9 +12,9 @@
             EUR:{symbol:'€',rate:0.000058,format:v=>'€'+(v*0.000058).toFixed(2)}
         };
         const LOCALE_SETTINGS={id:{currency:'IDR',flag:'🇮🇩',code:'IDR',lang:'id',dir:'ltr',name:'Indonesia'},ms:{currency:'MYR',flag:'🇲🇾',code:'MYR',lang:'ms',dir:'ltr',name:'Bahasa Melayu'},sg:{currency:'SGD',flag:'🇸🇬',code:'SGD',lang:'en-SG',dir:'ltr',name:'Singlish'},en:{currency:'USD',flag:'🇺🇸',code:'USD',lang:'en',dir:'ltr',name:'English'},ar:{currency:'AED',flag:'🇸🇦',code:'AED',lang:'ar',dir:'rtl',name:'العربية'},hi:{currency:'INR',flag:'🇮🇳',code:'INR',lang:'hi',dir:'ltr',name:'हिन्दी'}};
-        let currentCurrency='IDR',currentLanguage='id';
-        try{currentLanguage=localStorage.getItem('baliTransLanguage')||'id';}catch(e){}
-        if(!LOCALE_SETTINGS[currentLanguage])currentLanguage='id';
+        let currentCurrency='USD',currentLanguage='en';
+        try{currentLanguage=localStorage.getItem('baliTransLanguage')||'en';}catch(e){}
+        if(!LOCALE_SETTINGS[currentLanguage])currentLanguage='en';
         currentCurrency=LOCALE_SETTINGS[currentLanguage].currency;
 
         const BALI_PACKAGES = [
