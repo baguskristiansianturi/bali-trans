@@ -1,9 +1,115 @@
-function renderNotFoundView() {
-            return '<main class="max-w-3xl mx-auto px-4 sm:px-6 py-16 text-center"><p class="text-xs font-extrabold uppercase tracking-widest text-teal-700">Bali Trans</p><h1 class="text-3xl sm:text-4xl font-black text-slate-950 mt-3">We couldn’t find that page</h1><p class="text-sm sm:text-base leading-7 text-slate-600 mt-4">This link may be outdated, or the page has not been added yet.</p><div class="flex flex-col sm:flex-row justify-center gap-3 mt-7"><button type="button" onclick="navigateTo(\'home\')" class="rounded-xl bg-klook-orange px-5 py-3 text-sm font-bold text-white">Back to home</button><button type="button" onclick="navigateTo(\'discovery\',\'region:north\')" class="rounded-xl border border-slate-300 px-5 py-3 text-sm font-bold text-slate-700">Explore destinations</button><button type="button" onclick="navigateTo(\'blog\')" class="rounded-xl border border-slate-300 px-5 py-3 text-sm font-bold text-slate-700">Read travel guides</button></div></main>';
+        const BALI_HELP_TOPICS = {
+          faq: { title: 'Frequently asked questions', intro: 'Quick answers about planning a trip, checking service details and contacting our team.', sections: [
+            ['How do I ask about a trip?', 'Open Contact, choose the service you need, and share your planned date, pickup area, group size and destinations.'],
+            ['Is my booking confirmed when I send an enquiry?', 'No. An enquiry is not a confirmed booking. Wait for written confirmation of the agreed service, price, schedule and payment instructions.'],
+            ['What should I check before paying?', 'Check the total price, what is included, pickup details, timing, payment method and cancellation terms for your specific service.'],
+            ['Can plans change after confirmation?', 'Contact the team as soon as possible. Changes depend on timing, availability and the terms agreed for your booking.']
+          ]},
+          'booking-payments': { title: 'Booking and payments', intro: 'Understand the steps from your first enquiry to a confirmed service.', sections: [
+            ['1. Share your trip details', 'Tell us the service, date, number of guests, pickup point and places you want to visit.'],
+            ['2. Review the proposal', 'Before accepting, check the itinerary or route, service duration, inclusions, exclusions, total price and any additional charges.'],
+            ['3. Wait for confirmation', 'Your booking is confirmed only after the agreed details and payment status have been confirmed by the team in writing.'],
+            ['4. Pay using the confirmed instructions', 'Use only the payment method and recipient details supplied in your confirmed booking. If anything looks unclear, contact the team before transferring money.'],
+            ['Payment records', 'Keep your payment receipt and booking messages so they can be referenced if you need assistance.']
+          ]},
+          cancellations: { title: 'Changes and cancellations', intro: 'What to do when your plans change.', sections: [
+            ['Request changes early', 'Contact the team as soon as you know your date, route, pickup or group size may change. A change is not confirmed until the team agrees to it.'],
+            ['Availability and price', 'Changes can affect availability, timing and price. The team will need to confirm any revised details before you rely on them.'],
+            ['Cancellation and refunds', 'The cancellation and refund conditions depend on the service and the terms confirmed at booking. Review those terms before payment and contact the team for clarification.'],
+            ['Weather or unexpected disruption', 'If conditions may affect a trip, contact the team for guidance. Do not assume a change or refund is automatic unless the confirmed terms say so.']
+          ]},
+          'manage-booking': { title: 'Manage a booking', intro: 'Find the information you need before asking for a change to an existing booking.', sections: [
+            ['Prepare your booking details', 'Include the name used for the booking, service or trip name, travel date and any reference number supplied to you.'],
+            ['Tell us what needs to change', 'Explain whether your request concerns the date, pickup location, route, guest count, payment or cancellation. Do not send passwords or full payment-card details.'],
+            ['Wait for written confirmation', 'Continue using the original arrangements until the team confirms the requested change.'],
+            ['Need help now?', 'Use the Contact page and include only the details needed to identify your booking.']
+          ]},
+          'airport-transfer': { title: 'Airport transfers', intro: 'Information to prepare when asking about transport to or from Bali’s airport.', sections: [
+            ['Details to share', 'Provide your flight number, arrival or departure date and time, number of passengers, luggage count, destination and preferred pickup point.'],
+            ['Confirm before travel', 'Ask the team to confirm the pickup location, waiting arrangements, vehicle capacity, price and what happens if your flight is delayed.'],
+            ['Availability', 'Submitting an enquiry does not reserve a vehicle. Wait for confirmation of availability and the agreed price.']
+          ]},
+          'private-transport': { title: 'Private transport', intro: 'Plan a private ride around Bali with the important details agreed in advance.', sections: [
+            ['Share the route', 'List your pickup point, destinations, date, approximate start time, number of passengers and luggage.'],
+            ['Check what is included', 'Confirm the service duration, route, waiting time, parking or attraction fees, overtime and any other possible charges.'],
+            ['Before departure', 'Keep the confirmed itinerary and contact instructions available on the day of travel.']
+          ]},
+          tours: { title: 'Tours and activities', intro: 'Use these checks when choosing a tour or activity.', sections: [
+            ['Review the itinerary', 'Check the places included, expected duration, pickup arrangements, activity requirements and any restrictions.'],
+            ['Check inclusions and exclusions', 'Confirm meals, tickets, equipment, guide services and other costs rather than assuming they are included.'],
+            ['Prepare for the day', 'Follow the confirmed meeting time and any safety or clothing instructions provided for the activity.']
+          ]},
+          'island-trip': { title: 'Island trips', intro: 'Plan an island visit by checking transfers, departure points and activity requirements in advance.', sections: [
+            ['Confirm the destination and route', 'Share which island you plan to visit, your travel date, group size and any places or activities you want to include.'],
+            ['Check transfers and departure times', 'Confirm where and when you need to meet, how transfers are arranged, and whether boat or other transport tickets are included.'],
+            ['Prepare for conditions', 'Ask about luggage limits, sea conditions, activity requirements and any documents or equipment you should bring.'],
+            ['Confirm the full price', 'Check what is included and which costs, such as meals, entry fees or optional activities, are separate.']
+          ]}
+        };
+
+        function renderHelpCenterView() {
+          const topics = [
+            ['faq','Frequently asked questions','Answers to common planning questions','fa-circle-question'],
+            ['booking-payments','Booking and payments','Enquiry steps, confirmation and payment checks','fa-credit-card'],
+            ['cancellations','Changes and cancellations','What to do if plans change','fa-calendar-xmark'],
+            ['manage-booking','Manage a booking','Prepare details for an existing booking','fa-clipboard-list'],
+            ['airport-transfer','Airport transfers','Flight, pickup and luggage details','fa-plane-arrival'],
+            ['private-transport','Private transport','Routes, timing and inclusions','fa-car'],
+            ['tours','Tours and activities','Itinerary and activity information','fa-map-location-dot'],
+            ['island-trip','Island trips','Transfers, departure times and activity preparation','fa-water']
+          ];
+          return `<main class="min-h-screen bg-slate-50"><section class="bg-slate-900 text-white"><div class="mx-auto max-w-6xl px-4 py-12 sm:py-16"><p class="text-xs font-extrabold uppercase tracking-[.18em] text-teal-300">Bali Trans · Help centre</p><h1 class="mt-3 max-w-3xl text-3xl font-black tracking-tight sm:text-5xl">How can we help?</h1><p class="mt-4 max-w-2xl text-sm leading-7 text-slate-300 sm:text-base">Browse clear answers about trips, bookings, payments and changes. If your question is specific to your plans, contact our team.</p><button onclick="navigateTo('contact')" class="mt-6 rounded-xl bg-teal-500 px-5 py-3 text-sm font-extrabold text-white transition hover:bg-teal-400">Contact the team <i class="fas fa-arrow-right ml-2"></i></button></div></section><section class="mx-auto max-w-6xl px-4 py-10 sm:py-14"><div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">${topics.map(function(t){return '<a href="?view=help-topic&id='+t[0]+'" onclick="event.preventDefault();navigateTo(\'help-topic\',\''+t[0]+'\')" class="group rounded-2xl border border-slate-200 bg-white p-5 transition hover:-translate-y-0.5 hover:border-teal-200 hover:shadow-md"><span class="flex h-11 w-11 items-center justify-center rounded-xl bg-teal-50 text-teal-700"><i class="fas '+t[3]+'"></i></span><h2 class="mt-4 font-extrabold text-slate-900 group-hover:text-teal-800">'+t[1]+'</h2><p class="mt-2 text-sm leading-6 text-slate-600">'+t[2]+'</p><span class="mt-4 inline-flex items-center text-xs font-bold text-teal-700">Read guide <i class="fas fa-arrow-right ml-2"></i></span></a>';}).join('')}</div><div class="mt-10 rounded-2xl border border-slate-200 bg-white p-5 sm:p-7"><h2 class="text-xl font-black text-slate-900">Before you confirm a trip</h2><p class="mt-2 max-w-3xl text-sm leading-7 text-slate-600">Always review the agreed price, service details, timing, pickup arrangements and cancellation terms. An enquiry by itself is not a confirmed booking.</p><div class="mt-4 flex flex-wrap gap-3"><button onclick="navigateTo('terms')" class="rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-bold text-slate-700">Terms and conditions</button><button onclick="navigateTo('contact')" class="rounded-xl bg-teal-700 px-4 py-2.5 text-sm font-bold text-white">Ask a question</button></div></div></section></main>`;
+        }
+
+        function renderHelpTopicView(slug) {
+          const topic = BALI_HELP_TOPICS[String(slug || '')];
+          if (!topic) return renderHelpCenterView();
+          return `<main class="min-h-screen bg-slate-50"><section class="mx-auto max-w-4xl px-4 py-8 sm:py-12"><nav class="mb-6 text-xs text-slate-500"><button onclick="navigateTo('home')" class="hover:text-teal-700">Home</button><span class="mx-2">/</span><button onclick="navigateTo('help')" class="hover:text-teal-700">Help centre</button><span class="mx-2">/</span><span>${topic.title}</span></nav><p class="text-xs font-extrabold uppercase tracking-[.18em] text-teal-700">Help guide</p><h1 class="mt-3 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">${topic.title}</h1><p class="mt-4 max-w-3xl text-sm leading-7 text-slate-600 sm:text-base">${topic.intro}</p><div class="mt-8 space-y-4">${topic.sections.map(function(section,index){return '<article class="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6"><h2 class="font-extrabold text-slate-900">'+section[0]+'</h2><p class="mt-2 text-sm leading-7 text-slate-600">'+section[1]+'</p></article>';}).join('')}</div><div class="mt-8 rounded-2xl bg-teal-50 p-5 sm:p-6"><h2 class="font-extrabold text-slate-900">Still need help?</h2><p class="mt-2 text-sm leading-6 text-slate-600">Send the team your question and relevant trip details. Do not include passwords or full payment-card information.</p><div class="mt-4 flex flex-wrap gap-3"><button onclick="navigateTo('contact')" class="rounded-xl bg-teal-700 px-4 py-3 text-sm font-bold text-white">Contact us</button><button onclick="navigateTo('help')" class="rounded-xl border border-teal-200 bg-white px-4 py-3 text-sm font-bold text-teal-800">All help topics</button></div></div></section></main>`;
+        }
+
+        function renderLegalView(kind) {
+          const isPrivacy = kind === 'privacy';
+          const title = isPrivacy ? 'Privacy policy' : 'Terms and conditions';
+          const sections = isPrivacy ? [
+            ['1. Information you provide','If you contact Bali Trans, the information you submit may include your name, email address, planned travel date, service request and message. Please provide only information needed to respond to your enquiry.'],
+            ['2. How information is used','Information provided through an enquiry is intended to help understand and respond to your request, clarify service details and communicate about a possible booking.'],
+            ['3. Sharing and service providers','Information should only be shared where needed to respond to your request, provide an agreed service, operate the website or comply with applicable law. Do not send passwords or full payment-card details through the contact form.'],
+            ['4. Storage and security','Reasonable steps should be taken to protect personal information, but no internet transmission or storage method can be guaranteed completely secure.'],
+            ['5. Cookies and technical data','The website may use browser storage or technical data to support features such as trip lists and recently viewed items. Your browser settings may allow you to manage local storage and cookies.'],
+            ['6. Your choices and requests','You may contact the team to ask about personal information you have provided or request correction where applicable. Additional rights may apply under relevant data protection law.'],
+            ['7. Policy updates','This policy may be updated when website features, services or legal requirements change. The latest version should be reviewed before submitting personal information.'],
+            ['8. Contact','For a privacy-related question, use the Contact page and clearly mark the enquiry as a privacy request.']
+          ] : [
+            ['1. Scope','These terms apply to use of the Bali Trans website and enquiries about tours, activities and private transport. Service-specific conditions may also apply and should be provided or confirmed before booking.'],
+            ['2. Enquiries and booking confirmation','Submitting a form or asking a question does not itself create a confirmed booking. A booking is confirmed only when the service details, availability, price and applicable payment arrangements are agreed in writing.'],
+            ['3. Service details and prices','Routes, schedules, inclusions, exclusions, prices and availability may vary by service and date. Review the details provided for your specific trip and ask questions before making payment.'],
+            ['4. Payments and receipts','Follow only the payment instructions confirmed for your booking. Keep relevant receipts and written booking details. Contact the team if payment instructions or a requested amount are unclear.'],
+            ['5. Changes, cancellations and refunds','Changes, cancellations and any refund eligibility depend on the terms confirmed for the particular service and applicable law. Review these conditions before payment and request clarification if needed.'],
+            ['6. Guest responsibilities','Provide accurate trip details, arrive at the agreed pickup point and time, follow applicable safety instructions and respect local laws, communities, cultural sites and property.'],
+            ['7. Website information','Website content is provided to help with planning and may be updated. Confirm time-sensitive information, access conditions, prices and availability with the team before relying on it for a trip.'],
+            ['8. Third-party services','Some services may involve independent operators or venues. Any operator-specific terms should be reviewed alongside the details confirmed for your booking.'],
+            ['9. Updates and contact','These terms may be updated as services and requirements change. For questions about a particular booking or term, contact the team before payment or travel.']
+          ];
+          return `<main class="min-h-screen bg-slate-50"><section class="bg-slate-900 text-white"><div class="mx-auto max-w-5xl px-4 py-10 sm:py-14"><p class="text-xs font-extrabold uppercase tracking-[.18em] text-teal-300">Bali Trans · Information</p><h1 class="mt-3 text-3xl font-black tracking-tight sm:text-5xl">${title}</h1><p class="mt-4 max-w-3xl text-sm leading-7 text-slate-300">Please read this information together with any terms specifically confirmed for your service.</p></div></section><section class="mx-auto max-w-5xl px-4 py-8 sm:py-12"><nav class="mb-6 text-xs text-slate-500"><button onclick="navigateTo('home')" class="hover:text-teal-700">Home</button><span class="mx-2">/</span><button onclick="navigateTo('help')" class="hover:text-teal-700">Help centre</button><span class="mx-2">/</span><span>${title}</span></nav><div class="rounded-2xl border border-slate-200 bg-white p-5 sm:p-8"><p class="mb-7 text-sm leading-7 text-slate-600">${isPrivacy ? 'This page explains how enquiry information should be handled when you use this website.' : 'These general terms apply to website use and service enquiries. The specific terms agreed for a booking also apply.'}</p><div class="space-y-7">${sections.map(function(section){return '<section><h2 class="text-lg font-extrabold text-slate-900">'+section[0]+'</h2><p class="mt-2 text-sm leading-7 text-slate-600">'+section[1]+'</p></section>';}).join('')}</div><p class="mt-8 border-t border-slate-100 pt-5 text-xs leading-6 text-slate-500">For a question about these terms or this policy, please use the Contact page.</p><button onclick="navigateTo('contact')" class="mt-4 rounded-xl bg-teal-700 px-4 py-3 text-sm font-bold text-white">Contact Bali Trans</button></div></section></main>`;
+        }
+
+        function renderPartnersView() {
+          return `<main class="min-h-screen bg-slate-50"><section class="bg-slate-900 text-white"><div class="mx-auto max-w-5xl px-4 py-12 sm:py-16"><p class="text-xs font-extrabold uppercase tracking-[.18em] text-teal-300">Bali Trans · Working together</p><h1 class="mt-3 text-3xl font-black tracking-tight sm:text-5xl">Local partners</h1><p class="mt-4 max-w-2xl text-sm leading-7 text-slate-300 sm:text-base">Good travel experiences depend on clear communication and respectful cooperation with local service providers.</p></div></section><section class="mx-auto max-w-5xl px-4 py-10 sm:py-14"><div class="grid gap-4 sm:grid-cols-2"><article class="rounded-2xl border border-slate-200 bg-white p-5"><h2 class="font-extrabold text-slate-900">Transport providers</h2><p class="mt-2 text-sm leading-7 text-slate-600">Transport arrangements should be confirmed for each route, date, vehicle capacity and pickup location.</p></article><article class="rounded-2xl border border-slate-200 bg-white p-5"><h2 class="font-extrabold text-slate-900">Tour and activity operators</h2><p class="mt-2 text-sm leading-7 text-slate-600">Activity details, access conditions, inclusions and operator requirements should be reviewed before a trip is confirmed.</p></article><article class="rounded-2xl border border-slate-200 bg-white p-5"><h2 class="font-extrabold text-slate-900">Local communities and venues</h2><p class="mt-2 text-sm leading-7 text-slate-600">Visitors should respect local customs, site rules, private property and the communities that host them.</p></article><article class="rounded-2xl border border-slate-200 bg-white p-5"><h2 class="font-extrabold text-slate-900">Partner enquiries</h2><p class="mt-2 text-sm leading-7 text-slate-600">If you provide a relevant service in Bali and would like to discuss cooperation, share your service area, credentials and contact details.</p><button onclick="navigateTo('contact')" class="mt-4 rounded-xl bg-teal-700 px-4 py-2.5 text-sm font-bold text-white">Make an enquiry</button></article></div></section></main>`;
+        }
+
+        function renderServiceInfoView(slug) {
+          const key = String(slug || 'airport-transfer');
+          const service = BALI_HELP_TOPICS[key] || BALI_HELP_TOPICS['airport-transfer'];
+          return `<main class="min-h-screen bg-slate-50"><section class="bg-slate-900 text-white"><div class="mx-auto max-w-5xl px-4 py-12 sm:py-16"><p class="text-xs font-extrabold uppercase tracking-[.18em] text-teal-300">Bali Trans · Service guide</p><h1 class="mt-3 text-3xl font-black tracking-tight sm:text-5xl">${service.title}</h1><p class="mt-4 max-w-2xl text-sm leading-7 text-slate-300 sm:text-base">${service.intro}</p><button onclick="navigateTo('contact')" class="mt-6 rounded-xl bg-teal-500 px-5 py-3 text-sm font-extrabold text-white hover:bg-teal-400">Ask about this service</button></div></section><section class="mx-auto max-w-5xl px-4 py-10 sm:py-14"><div class="space-y-4">${service.sections.map(function(section){return '<article class="rounded-2xl border border-slate-200 bg-white p-5"><h2 class="font-extrabold text-slate-900">'+section[0]+'</h2><p class="mt-2 text-sm leading-7 text-slate-600">'+section[1]+'</p></article>';}).join('')}</div><button onclick="navigateTo('help')" class="mt-7 rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm font-bold text-slate-700">Browse help centre</button></section></main>`;
+        }
+
+
+        function renderNotFoundView() {
+            return '<main class="max-w-3xl mx-auto px-4 sm:px-6 py-16 text-center"><p class="text-xs font-extrabold uppercase tracking-widest text-teal-700">Bali Trans</p><h1 class="text-3xl sm:text-4xl font-black text-slate-950 mt-3">We couldn’t find that page</h1><p class="text-sm sm:text-base leading-7 text-slate-600 mt-4">This link may be outdated, or the page has not been added yet.</p><div class="flex flex-col sm:flex-row justify-center gap-3 mt-7"><button type="button" onclick="navigateTo(\'home\')" class="rounded-xl bg-bali-orange px-5 py-3 text-sm font-bold text-white">Back to home</button><button type="button" onclick="navigateTo(\'discovery\',\'region:north\')" class="rounded-xl border border-slate-300 px-5 py-3 text-sm font-bold text-slate-700">Explore destinations</button><button type="button" onclick="navigateTo(\'blog\')" class="rounded-xl border border-slate-300 px-5 py-3 text-sm font-bold text-slate-700">Read travel guides</button></div></main>';
         }
 
 /* ==========================================================================
-           3. VIEW RENDERING FUNCTIONS (KLOOK STYLE)
+           3. VIEW RENDERING FUNCTIONS (bali STYLE)
            ========================================================================== */
         
 
@@ -14,11 +120,11 @@ function renderNotFoundView() {
                 <p class="text-xs font-extrabold uppercase tracking-[0.2em] text-teal-300 mb-4">About Bali Trans</p>
                 <h1 class="text-3xl sm:text-5xl font-black tracking-tight leading-tight max-w-3xl mb-6">A simpler way to plan your time in Bali.</h1>
                 <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl">Bali Trans helps travellers explore tour options and arrange private transport around Bali. We want the important details to be clear before you decide: where you’ll go, what the trip includes, and what needs to be confirmed.</p>
-                <button onclick="navigateTo('packages')" class="mt-8 inline-flex items-center gap-2 bg-klook-orange hover:bg-klook-hover text-white font-bold px-5 py-3 rounded-xl transition">Explore tours & services <i class="fas fa-arrow-right"></i></button>
+                <button onclick="navigateTo('packages')" class="mt-8 inline-flex items-center gap-2 bg-bali-orange hover:bg-bali-hover text-white font-bold px-5 py-3 rounded-xl transition">Explore tours & services <i class="fas fa-arrow-right"></i></button>
               </div></section>
               <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start"><div>
-                  <p class="text-xs font-extrabold uppercase tracking-wider text-klook-orange mb-3">What matters to us</p>
+                  <p class="text-xs font-extrabold uppercase tracking-wider text-bali-orange mb-3">What matters to us</p>
                   <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-5">Good trips start with clear expectations.</h2>
                   <p class="text-sm sm:text-base text-slate-600 leading-relaxed mb-4">From day tours to private transport, every trip starts with understanding your plans. Browse the options on this website and get in touch to clarify the route, timing, pickup arrangements or what is included.</p>
                   <p class="text-sm sm:text-base text-slate-600 leading-relaxed">We aim to make planning straightforward. Specific schedules, inclusions, prices and availability should be checked for each service before a booking is confirmed.</p>
@@ -31,7 +137,7 @@ function renderNotFoundView() {
               </section>
               <section class="bg-slate-50 border-y border-slate-100"><div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
                 <div><h2 class="text-2xl font-black text-slate-900 mb-2">Planning a trip to Bali?</h2><p class="text-sm text-slate-600">Tell us what you have in mind and ask about the available options.</p></div>
-                <button onclick="navigateTo('contact')" class="inline-flex items-center justify-center gap-2 bg-klook-orange hover:bg-klook-hover text-white font-bold px-5 py-3 rounded-xl transition">Contact Bali Trans <i class="fas fa-arrow-right"></i></button>
+                <button onclick="navigateTo('contact')" class="inline-flex items-center justify-center gap-2 bg-bali-orange hover:bg-bali-hover text-white font-bold px-5 py-3 rounded-xl transition">Contact Bali Trans <i class="fas fa-arrow-right"></i></button>
               </div></section>
             `;
         }
@@ -92,15 +198,15 @@ function renderNotFoundView() {
                   <h2 class="text-xl font-black text-slate-900 mb-2">Send an enquiry</h2><p class="text-sm text-slate-500 mb-6">Fields marked * are required.</p>
                   <form id="contactEnquiryForm" onsubmit="submitContactEnquiry(event)" class="space-y-5">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div><label for="contactName" class="block text-sm font-bold text-slate-700 mb-2">Your name *</label><input id="contactName" name="name" required autocomplete="name" class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-klook-orange" placeholder="Name"></div>
-                      <div><label for="contactEmail" class="block text-sm font-bold text-slate-700 mb-2">Email address *</label><input id="contactEmail" name="email" type="email" required autocomplete="email" class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-klook-orange" placeholder="you@example.com"></div>
+                      <div><label for="contactName" class="block text-sm font-bold text-slate-700 mb-2">Your name *</label><input id="contactName" name="name" required autocomplete="name" class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-bali-orange" placeholder="Name"></div>
+                      <div><label for="contactEmail" class="block text-sm font-bold text-slate-700 mb-2">Email address *</label><input id="contactEmail" name="email" type="email" required autocomplete="email" class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-bali-orange" placeholder="you@example.com"></div>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div><label for="contactService" class="block text-sm font-bold text-slate-700 mb-2">What do you need? *</label><select id="contactService" name="service" required class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-900 bg-white focus:outline-none focus:ring-2 focus:ring-klook-orange"><option value="">Choose a service</option><option>Day tour</option><option>Private transport</option><option>Airport transfer</option><option>Island trip</option><option>Other trip enquiry</option></select></div>
-                      <div><label for="contactDate" class="block text-sm font-bold text-slate-700 mb-2">Planned date</label><input id="contactDate" name="date" type="date" min="${new Date().toISOString().split('T')[0]}" class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-klook-orange"></div>
+                      <div><label for="contactService" class="block text-sm font-bold text-slate-700 mb-2">What do you need? *</label><select id="contactService" name="service" required class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-900 bg-white focus:outline-none focus:ring-2 focus:ring-bali-orange"><option value="">Choose a service</option><option>Day tour</option><option>Private transport</option><option>Airport transfer</option><option>Island trip</option><option>Other trip enquiry</option></select></div>
+                      <div><label for="contactDate" class="block text-sm font-bold text-slate-700 mb-2">Planned date</label><input id="contactDate" name="date" type="date" min="${new Date().toISOString().split('T')[0]}" class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-bali-orange"></div>
                     </div>
-                    <div><label for="contactMessage" class="block text-sm font-bold text-slate-700 mb-2">Trip details *</label><textarea id="contactMessage" name="message" required rows="5" class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-klook-orange" placeholder="Tell us your pickup area, group size, places you want to visit, and any questions."></textarea></div>
-                    <button type="submit" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-klook-orange hover:bg-klook-hover text-white font-extrabold px-6 py-3.5 rounded-xl transition">Prepare enquiry <i class="fas fa-arrow-right"></i></button>
+                    <div><label for="contactMessage" class="block text-sm font-bold text-slate-700 mb-2">Trip details *</label><textarea id="contactMessage" name="message" required rows="5" class="w-full border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-bali-orange" placeholder="Tell us your pickup area, group size, places you want to visit, and any questions."></textarea></div>
+                    <button type="submit" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-bali-orange hover:bg-bali-hover text-white font-extrabold px-6 py-3.5 rounded-xl transition">Prepare enquiry <i class="fas fa-arrow-right"></i></button>
                     <p class="text-xs text-slate-500 leading-relaxed">Confirm service details and availability before making payment.</p>
                   </form>
                 </div>
