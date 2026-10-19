@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bali Trans | Bali Tours, Activities & Private Transport</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        klook: {
+                            orange: '#0F9D9A',
+                            hover: '#087E8B',
+                            light: '#E8F7F6',
+                            dark: '#111827',
+                            gray: '#F5F7FA'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/bali-trans/assets/css/site.css">
+    <!-- QRCode.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col pb-16 md:pb-0">
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="bg-gradient-to-r from-orange-600 to-amber-500 text-white text-xs sm:text-sm py-1.5 px-4 text-center font-medium flex justify-between items-center md:px-12">
+        <div class="hidden md:flex items-center space-x-2">
+            <span class="bg-white/20 px-2 py-0.5 rounded text-xs uppercase tracking-wider font-bold">Explore Bali</span>
+            <span>🌴 Discover Bali tours, island trips and private transport.</span>
+        </div>
+        <div class="w-full md:w-auto flex items-center justify-between md:justify-end space-x-4 text-xs">
+            <span id="countdownTimer" class="font-bold">Plan your Bali trip</span>
+            <div class="flex items-center space-x-3 border-l border-white/30 pl-3">
+                <span id="topLiveChatStatus" class="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-2 py-1 text-[11px] font-semibold leading-none whitespace-nowrap" role="status" aria-live="polite"><span id="topLiveChatDot" class="h-2 w-2 rounded-full bg-slate-300"></span><i class="far fa-comments"></i><span id="topLiveChatLabel">Live Chat</span><span aria-hidden="true">·</span><span id="topLiveChatState">Offline</span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- MOBILE-FIRST HEADER -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-200 shadow-sm">
+      <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between gap-2 min-h-[68px] md:min-h-[78px]">
+          <button type="button" onclick="navigateTo('home')" aria-label="Bali Trans home" class="flex items-center gap-2 min-w-0 text-left">
+            <span class="w-10 h-10 shrink-0 rounded-xl bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center text-white text-xl font-black shadow-md">B</span>
+            <span class="min-w-0"><span class="block text-lg sm:text-xl font-extrabold tracking-tight text-slate-900 leading-tight">Bali<span class="text-klook-orange"> Trans</span></span><span class="hidden xs:block text-[9px] sm:text-[10px] text-slate-500 font-semibold tracking-wide">TOURS · TRIPS · TRANSFER</span></span>
+          </button>
+
+          <div class="flex items-center gap-1.5 sm:gap-2">
+            <div class="relative" id="localeControl">
+              <button type="button" onclick="toggleLocaleMenu(event)" id="localeButton" aria-label="Language and currency" aria-controls="localeMenu" aria-expanded="false" class="h-10 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center gap-2 px-3 text-sm font-bold"><span id="localeCurrentFlag" class="text-lg">🇮🇩</span><span id="localeCurrentCode">IDR</span><i class="fas fa-chevron-down text-[10px]"></i></button>
+              <div id="localeMenu" class="hidden absolute right-0 top-full mt-2 w-64 rounded-2xl border border-slate-200 bg-white p-2 shadow-xl z-[60]">
+                <button type="button" onclick="changeLocale('id')" class="locale-option w-full flex items-center gap-3 rounded-xl px-3 py-3 text-left hover:bg-slate-50"><span class="text-xl">🇮🇩</span><span class="flex-1"><span class="block text-sm font-bold text-slate-800">Indonesia</span><span class="block text-xs text-slate-500">Bahasa Indonesia · IDR</span></span><i id="localeCheckId" class="fas fa-check text-teal-600"></i></button>
+                <button type="button" onclick="changeLocale('ms')" class="locale-option w-full flex items-center gap-3 rounded-xl px-3 py-3 text-left hover:bg-slate-50"><span class="text-xl">🇲🇾</span><span class="flex-1"><span class="block text-sm font-bold text-slate-800">Bahasa Melayu</span><span class="block text-xs text-slate-500">Malay · MYR (RM)</span></span><i id="localeCheckMs" class="fas fa-check text-teal-600 hidden"></i></button>
+                <button type="button" onclick="changeLocale('sg')" class="locale-option w-full flex items-center gap-3 rounded-xl px-3 py-3 text-left hover:bg-slate-50"><span class="text-xl">🇸🇬</span><span class="flex-1"><span class="block text-sm font-bold text-slate-800">Singlish</span><span class="block text-xs text-slate-500">Singapore English · SGD (S$)</span></span><i id="localeCheckSg" class="fas fa-check text-teal-600 hidden"></i></button>
+                <button type="button" onclick="changeLocale('en')" class="locale-option w-full flex items-center gap-3 rounded-xl px-3 py-3 text-left hover:bg-slate-50"><span class="text-xl">🇺🇸</span><span class="flex-1"><span class="block text-sm font-bold text-slate-800">English</span><span class="block text-xs text-slate-500">English · USD ($)</span></span><i id="localeCheckEn" class="fas fa-check text-teal-600 hidden"></i></button>
+                <button type="button" onclick="changeLocale('ar')" class="locale-option w-full flex items-center gap-3 rounded-xl px-3 py-3 text-left hover:bg-slate-50"><span class="text-xl">🇸🇦</span><span class="flex-1"><span class="block text-sm font-bold text-slate-800">العربية</span><span class="block text-xs text-slate-500">Arabic · AED (د.إ)</span></span><i id="localeCheckAr" class="fas fa-check text-teal-600 hidden"></i></button>
+                <button type="button" onclick="changeLocale('hi')" class="locale-option w-full flex items-center gap-3 rounded-xl px-3 py-3 text-left hover:bg-slate-50"><span class="text-xl">🇮🇳</span><span class="flex-1"><span class="block text-sm font-bold text-slate-800">हिन्दी</span><span class="block text-xs text-slate-500">Hindi · INR (₹)</span></span><i id="localeCheckHi" class="fas fa-check text-teal-600 hidden"></i></button>
+              </div>
+            </div>
+            <button type="button" onclick="toggleHeaderSearch(event)" aria-label="Cari" aria-controls="headerSearchPanel" aria-expanded="false" id="headerSearchButton" class="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-800 hover:bg-slate-100">
+              <i id="headerSearchIcon" class="fas fa-search text-lg"></i>
+            </button>
+            <button type="button" onclick="toggleMobileMenu(event)" aria-label="Buka menu" aria-controls="mobileMenuPanel" aria-expanded="false" id="mobileMenuButton" class="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-800 hover:bg-slate-100">
+              <i id="mobileMenuIcon" class="fas fa-bars text-lg"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="headerSearchPanel" class="hidden border-t border-slate-100 bg-white">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-3">
+          <div class="relative">
+            <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+            <input type="search" id="headerSearchInput" oninput="handleGlobalSearch(this.value)" placeholder="Cari tour, aktivitas, atau tempat..." class="w-full pl-11 pr-4 py-3 bg-slate-100 focus:bg-white rounded-xl text-sm border border-slate-200 focus:border-klook-orange focus:outline-none">
+            <div id="searchResultsDropdown" class="hidden absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-2xl border border-slate-100 p-3 z-50 max-h-80 overflow-y-auto"></div>
+          </div>
+        </div>
+      </div>
+      <div id="mobileMenuPanel" class="hidden border-t border-slate-100 bg-white shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 py-3">
+          <div class="grid grid-cols-2 gap-2">
+            <button onclick="closeMobileMenu(); showHelpMenu()" class="mobile-menu-item"><i class="far fa-circle-question"></i><span>Bantuan</span></button>
+            <button onclick="closeMobileMenu(); showRegisterPrompt()" class="mobile-menu-item"><i class="far fa-user"></i><span>Mendaftar</span></button>
+            <button onclick="closeMobileMenu(); toggleWishlistModal()" class="mobile-menu-item"><i class="far fa-heart"></i><span>Wishlist <span id="mobileWishlistCount" class="text-xs text-slate-400">(0)</span></span></button>
+            <button onclick="closeMobileMenu(); showRecentlyViewed()" class="mobile-menu-item"><i class="far fa-clock"></i><span>Baru saja dilihat</span></button>
+            <button onclick="closeMobileMenu(); navigateTo('contact')" class="mobile-menu-item col-span-2"><i class="far fa-envelope"></i><span>Contact</span></button>
+          </div>
+          <button onclick="closeMobileMenu(); showRegisterPrompt()" class="mt-3 w-full rounded-xl bg-klook-orange px-4 py-3 text-sm font-extrabold text-white shadow-sm hover:bg-klook-hover"><i class="fas fa-user-plus mr-2"></i>Mendaftar / Buat Akun</button>
+          <p class="text-[11px] text-slate-400 text-center mt-2">Simpan aktivitas favorit dan temukan kembali rencana perjalanan Anda.</p>
+        </div>
+      </div>
+    </header>
+    
+
+    <!-- MAIN VIEW CONTAINER (SINGLE PAGE APPLICATION RENDERER) -->
+    <main id="appContainer" class="flex-1">
+        <!-- Dynamic Views will be injected here via JavaScript -->
+    </main>
+
+    <!-- FOOTER SECTION -->
+    <footer class="bg-slate-950 text-slate-300 text-sm mt-16 border-t border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 md:pt-14 pb-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-9 lg:gap-10 pb-10">
+          <div class="lg:col-span-4">
+            <button type="button" onclick="navigateTo('home')" aria-label="Bali Trans home" class="flex items-center gap-3 mb-4 text-left">
+              <span class="w-11 h-11 rounded-2xl bg-gradient-to-br from-teal-400 via-cyan-500 to-blue-600 flex items-center justify-center text-white text-xl font-black shadow-lg">B</span>
+              <span class="text-xl font-extrabold tracking-tight text-white">Bali<span class="text-teal-400"> Trans</span></span>
+            </button>
+            <p class="text-slate-400 text-sm leading-6 max-w-sm mb-5">Discover Bali tours, local experiences and private transport. Compare trip details and contact our team to discuss your plans before booking.</p>
+            <button type="button" onclick="navigateTo('contact')" class="inline-flex items-center gap-2 rounded-xl bg-teal-500 hover:bg-teal-400 px-4 py-3 text-sm font-extrabold text-slate-950 transition">
+              Talk to our team <i class="fas fa-arrow-right"></i>
+            </button>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-6 max-w-md">
+              <div class="rounded-xl border border-white/10 bg-white/[0.04] p-3 flex items-start gap-3">
+                <span class="w-8 h-8 shrink-0 rounded-lg bg-teal-400/10 text-teal-300 flex items-center justify-center"><i class="fas fa-map-marked-alt"></i></span>
+                <span><strong class="block text-white text-xs mb-1">Explore Bali</strong><span class="block text-xs leading-5 text-slate-400">Tours and places worth discovering.</span></span>
+              </div>
+              <div class="rounded-xl border border-white/10 bg-white/[0.04] p-3 flex items-start gap-3">
+                <span class="w-8 h-8 shrink-0 rounded-lg bg-amber-400/10 text-amber-300 flex items-center justify-center"><i class="fas fa-car-side"></i></span>
+                <span><strong class="block text-white text-xs mb-1">Private transport</strong><span class="block text-xs leading-5 text-slate-400">Discuss routes, pickup and timing.</span></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-8 grid grid-cols-2 sm:grid-cols-2 xl:grid-cols-4 gap-x-5 gap-y-8">
+            <div>
+              <h3 class="text-white font-extrabold mb-4 text-xs uppercase tracking-[0.14em]">Discover</h3>
+              <ul class="space-y-3.5">
+                <li><button type="button" onclick="navigateTo('packages')" class="footer-link">All tours & activities</button></li>
+                <li><button type="button" onclick="navigateTo('discovery','region:south')" class="footer-link">South Bali</button></li>
+                <li><button type="button" onclick="navigateTo('discovery','region:central')" class="footer-link">Central Bali</button></li>
+                <li><button type="button" onclick="navigateTo('place','bali-utara')" class="footer-link">North Bali</button></li>
+                <li><button type="button" onclick="navigateTo('place','region-directory')" class="footer-link">All Bali regions</button></li>
+                <li><button type="button" onclick="navigateTo('blog')" class="footer-link">Bali travel guides</button></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="text-white font-extrabold mb-4 text-xs uppercase tracking-[0.14em]">Plan your trip</h3>
+              <ul class="space-y-3.5">
+                <li><button type="button" onclick="navigateTo('packages')" class="footer-link">Tour packages</button></li>
+                <li><button type="button" onclick="navigateTo('packages')" class="footer-link">Private transport</button></li>
+                <li><button type="button" onclick="navigateTo('cart')" class="footer-link">View my trip list</button></li>
+                <li><button type="button" onclick="navigateTo('contact')" class="footer-link">Ask about availability</button></li>
+                <li><button type="button" onclick="showFooterComingSoon('Airport transfers')" class="footer-link">Airport transfers <span class="footer-coming-soon">Coming Soon</span></button></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="text-white font-extrabold mb-4 text-xs uppercase tracking-[0.14em]">Help & support</h3>
+              <ul class="space-y-3.5">
+                <li><button type="button" onclick="navigateTo('contact')" class="footer-link">Contact our team</button></li>
+                <li><button type="button" onclick="showFooterComingSoon('Frequently asked questions')" class="footer-link">FAQs <span class="footer-coming-soon">Coming Soon</span></button></li>
+                <li><button type="button" onclick="showFooterComingSoon('Booking and payment information')" class="footer-link">Booking & payments <span class="footer-coming-soon">Coming Soon</span></button></li>
+                <li><button type="button" onclick="showFooterComingSoon('Changes and cancellation policy')" class="footer-link">Changes & cancellations <span class="footer-coming-soon">Coming Soon</span></button></li>
+                <li><button type="button" onclick="showFooterComingSoon('Manage booking')" class="footer-link">Manage a booking <span class="footer-coming-soon">Coming Soon</span></button></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="text-white font-extrabold mb-4 text-xs uppercase tracking-[0.14em]">About us</h3>
+              <ul class="space-y-3.5">
+                <li><button type="button" onclick="navigateTo('about')" class="footer-link">About Bali Trans</button></li>
+                <li><button type="button" onclick="showFooterComingSoon('Our local partners')" class="footer-link">Local partners <span class="footer-coming-soon">Coming Soon</span></button></li>
+                <li><button type="button" onclick="showFooterComingSoon('Terms and conditions')" class="footer-link">Terms & conditions <span class="footer-coming-soon">Coming Soon</span></button></li>
+                <li><button type="button" onclick="showFooterComingSoon('Privacy policy')" class="footer-link">Privacy policy <span class="footer-coming-soon">Coming Soon</span></button></li>
+                <li><button type="button" onclick="navigateTo('home')" class="footer-link">Back to home</button></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-2xl border border-white/10 bg-gradient-to-r from-teal-500/10 via-cyan-500/[0.06] to-amber-400/10 p-4 sm:p-5 mb-7 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5">
+          <span class="w-10 h-10 rounded-xl bg-teal-400/10 text-teal-300 flex items-center justify-center text-lg shrink-0"><i class="fas fa-circle-info"></i></span>
+          <div class="flex-1">
+            <p class="text-white font-bold text-sm mb-1">Planning something special in Bali?</p>
+            <p class="text-slate-400 text-xs sm:text-sm leading-5">Tell us your destination, dates and group size. We’ll help you clarify the trip details and next steps.</p>
+          </div>
+          <button type="button" onclick="navigateTo('contact')" class="shrink-0 rounded-xl border border-teal-300/40 px-4 py-2.5 text-xs font-extrabold text-teal-200 hover:bg-teal-300/10 transition">Make an enquiry <i class="fas fa-arrow-right ml-1"></i></button>
+        </div>
+
+        <div class="border-t border-white/10 pt-5 flex flex-col md:flex-row justify-between gap-3 text-xs text-slate-500">
+          <p>© 2026 Bali Trans. Tours, experiences and private transport in Bali.</p>
+          <p class="leading-5">Trip details, prices and availability should be confirmed with our team before booking.</p>
+        </div>
+      </div>
+    </footer>
+    
+
+    <!-- MOBILE BOTTOM NAVIGATION BAR (KLOOK MOBILE STYLE) -->
+    <div class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 z-50 py-1.5 px-6 flex justify-between items-center shadow-lg">
+        <button onclick="navigateTo('home')" class="flex flex-col items-center gap-1 text-slate-600 hover:text-klook-orange focus:text-klook-orange">
+            <i class="fas fa-compass text-lg"></i>
+            <span class="text-[10px] font-bold">Explore</span>
+        </button>
+        <button onclick="navigateTo('packages')" class="flex flex-col items-center gap-1 text-slate-600 hover:text-klook-orange focus:text-klook-orange">
+            <i class="fas fa-th-large text-lg"></i>
+            <span class="text-[10px] font-bold">Activities</span>
+        </button>
+        <button onclick="navigateTo('blog')" class="flex flex-col items-center gap-1 text-slate-600 hover:text-klook-orange focus:text-klook-orange">
+            <i class="fas fa-book-open text-lg"></i>
+            <span class="text-[10px] font-bold">Guides</span>
+        </button>
+        <button onclick="navigateTo('cart')" class="relative flex flex-col items-center gap-1 text-slate-600 hover:text-klook-orange focus:text-klook-orange">
+            <i class="fas fa-shopping-bag text-lg"></i>
+            <span id="mobileCartBadge" class="absolute -top-1 right-2 bg-klook-orange text-white text-[9px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+            <span class="text-[10px] font-bold">Cart</span>
+        </button>
+    </div>
+
+    <!-- TOAST NOTIFICATION BOX -->
+    <div id="toastContainer" class="fixed bottom-20 md:bottom-8 right-4 md:right-8 z-50 space-y-2 pointer-events-none"></div>
+
+    <!-- WISHLIST MODAL -->
+    <div id="wishlistModal" class="hidden fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-lg rounded-3xl shadow-2xl p-6 relative max-h-[85vh] flex flex-col">
+            <div class="flex justify-between items-center pb-4 border-b border-slate-100">
+                <h3 class="text-lg font-extrabold text-slate-900 flex items-center gap-2">
+                    <i class="fas fa-heart text-rose-500"></i> My Wishlist Saved Packages
+                </h3>
+                <button onclick="toggleWishlistModal()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center font-bold">✕</button>
+            </div>
+            <div id="wishlistItemsList" class="flex-1 overflow-y-auto py-4 space-y-3">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN JAVASCRIPT APPLICATION LOGIC -->
+    <script src="/bali-trans/assets/js/bali-directory.js"></script>
+    <script src="/bali-trans/assets/js/app.js"></script>
+</body>
+</html>
