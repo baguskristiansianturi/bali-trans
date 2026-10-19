@@ -517,7 +517,7 @@
                     list.innerHTML = wishlistState.map(pkg => `
                         <div class="flex items-center justify-between p-3 rounded-2xl bg-slate-50 border border-slate-100">
                             <div class="flex items-center gap-3">
-                                <img src="${pkg.heroImage}" class="w-12 h-12 object-cover rounded-xl">
+                                <img src="${pkg.heroImage}" alt="" loading="lazy" class="w-12 h-12 object-cover rounded-xl">
                                 <div>
                                     <h5 class="text-xs font-bold text-slate-900 line-clamp-1">${pkg.title}</h5>
                                     <span class="text-[10px] text-slate-400">${pkg.location}</span>
