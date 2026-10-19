@@ -244,3 +244,17 @@ Pemeriksaan ini memvalidasi konsistensi struktur data, bukan kebenaran setiap fa
 - Audit browser awal menemukan `index.html` memakai `lang="en"`, tetapi pengunjung baru memulai dengan locale Indonesia. Karena kamus terjemahan belum mencakup seluruh heading dan isi, halaman katalog tampil campuran bahasa.
 - Default pengunjung baru sekarang memakai English dan currency USD agar sesuai dengan bahasa utama dokumen serta `LOCALE_SETTINGS.en`. Preferensi bahasa/currency yang sudah tersimpan tetap dihormati.
 - Terjemahan Indonesia, Melayu, Singlish, Arab, dan Hindi belum boleh dianggap lengkap. Setiap locale memerlukan pemeriksaan halaman per halaman sebelum dipromosikan sebagai terjemahan penuh.
+
+
+## Tahap 6 — Uji browser otomatis
+
+GitHub Actions menjalankan Chromium pada viewport mobile 360 × 800 dan berhasil memeriksa:
+
+- Homepage, About, Contact, katalog paket, wilayah Bali Utara, detail paket Lovina, daftar artikel, detail artikel, cart, checkout, dan halaman kredit foto.
+- URL halaman, destinasi, artikel, dan paket yang tidak dikenal menampilkan not-found, bukan konten lain yang salah.
+- Browser Back/Forward berfungsi saat berpindah dari homepage ke daftar artikel.
+- Tidak ada horizontal overflow pada route yang diuji, tidak ada elemen gambar tanpa atribut `alt`, dan tidak ada uncaught JavaScript error selama rangkaian uji.
+- Pemeriksaan otomatis menemukan bahwa `updateBadges()` menulis ke tiga elemen yang tidak ada pada header saat ini. Elemen-elemen opsional sekarang diperiksa sebelum diperbarui, sehingga navigasi dapat menyelesaikan metadata, terjemahan, dan scroll handling.
+- Checkout memakai label English pada locale default setelah kamus terjemahan diperluas.
+
+**Batas uji:** ini adalah browser smoke test pada build lokal branch, bukan pemeriksaan visual terhadap deployment GitHub Pages. Test ini memeriksa keberadaan heading, isi halaman, overflow, atribut alt, route, dan JavaScript errors; belum memvalidasi semua tombol/form dengan data booking lengkap atau membandingkan screenshot desain dengan versi sebelumnya.
