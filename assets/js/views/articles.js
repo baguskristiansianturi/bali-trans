@@ -24,7 +24,7 @@ function getBlogSlug(blog) {
                     </div>
                     <div class="flex flex-wrap justify-center gap-2 mb-8">
                         ${[...new Set(BALI_BLOGS.flatMap(getBlogLabels))].sort().map(label => `
-                            <button type="button" onclick="navigateTo('blog-label', '${encodeURIComponent(label)}')" class="rounded-full border border-slate-200 bg-white px-3 py-2 text-xs font-bold text-slate-700 hover:border-orange-300 hover:text-orange-700">${label}</button>
+                            <button type="button" onclick="navigateTo('blog-label', decodeURIComponent('${encodeURIComponent(label)}'))" class="rounded-full border border-slate-200 bg-white px-3 py-2 text-xs font-bold text-slate-700 hover:border-orange-300 hover:text-orange-700">${label}</button>
                         `).join('')}
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
