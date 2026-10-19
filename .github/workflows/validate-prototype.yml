@@ -39,15 +39,15 @@ jobs:
           from pathlib import Path
           import re
           html = Path("index.html").read_text()
-          refs = re.findall(r'(?:src|href)="(\\./assets/[^"]+)"', html)
+          refs = re.findall(r'(?:src|href)="(\./assets/[^"]+)"', html)
           missing = [ref for ref in refs if not (Path(".") / ref[2:]).is_file()]
           css_imports = []
           for css_file in Path("assets/css").glob("*.css"):
-              css_imports.extend((css_file, ref) for ref in re.findall(r'@import\\s+["\\']([^"\\']+)["\\']', css_file.read_text()))
+              css_imports.extend((css_file, ref) for ref in re.findall(r"@import\s+['\"]([^'\"]+)['\"]", css_file.read_text()))
           missing_imports = [f"{source}: {ref}" for source, ref in css_imports if not (source.parent / ref).is_file()]
           if missing or missing_imports:
               problems = ["Missing local assets: " + ", ".join(missing)] if missing else []
               problems += ["Missing CSS imports: " + ", ".join(missing_imports)] if missing_imports else []
-              raise SystemExit("\\n".join(problems))
+              raise SystemExit("\n".join(problems))
           print(f"Checked {len(refs)} local HTML asset references and {len(css_imports)} CSS imports.")
           PY
