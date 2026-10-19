@@ -649,6 +649,10 @@
             }
             const escapeHtml = value => String(value || '').replace(/[&<>"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch]));
             const destinations = [
+                {title:'North Bali',location:'Lovina · Singaraja · Buleleng',key:'region:north',terms:'north bali bali utara buleleng singaraja'},
+                {title:'Private Driver in Bali',location:'Private transport · Flexible itinerary',key:'service:private-driver',terms:'private driver private transport sopir pribadi driver charter'},
+                {title:'Full Day Tours in Bali',location:'Day trips · Itinerary planning',key:'duration:full-day',terms:'full day full-day day tour one day seharian tur sehari'},
+                {title:'Long Trips Around Bali',location:'Long-distance · North Bali and beyond',key:'duration:long-trip',terms:'long trip long-trip longer journey perjalanan jauh trip panjang'},
                 {title:'Lovina Beach & Dolphin Watching',location:'North Bali · Beach, wildlife',key:'place:lovina',terms:'lovina dolphin lumba-lumba north bali buleleng'},
                 {title:'Banjar Hot Springs',location:'North Bali · Hot springs',key:'place:banjar-hot-springs',terms:'banjar hot springs air panas'},
                 {title:'Brahmavihara-Arama Monastery',location:'North Bali · Culture',key:'place:brahmavihara-arama',terms:'brahmavihara monastery buddhist temple'},

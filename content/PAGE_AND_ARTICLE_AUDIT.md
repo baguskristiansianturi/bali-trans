@@ -9,7 +9,7 @@ Cakupan: source code branch `refactor/clean-structure-content-audit`, master dat
 - Sebelum perubahan, halaman utama memuat sekitar 213,149 karakter JavaScript aplikasi inline dan tiga blok CSS inline; file modular yang sudah ada tidak menjadi sumber yang dipakai oleh halaman utama.
 - Rute tetap berupa SPA berbasis query string (`?page=...`), bukan dokumen HTML terpisah. Back/Forward ditangani router aplikasi dan harus diuji pada browser nyata.
 - Master data mencakup 87 kandidat destinasi, 6 wilayah editorial, dan 14 kategori aktivitas.
-- Status master data: 8 record `STRUCTURE_READY`, 79 `PLANNED`.
+- Status master data: 8 record `STRUCTURE_READY`, 79 `PLANNED`. Ini belum selaras dengan source renderer yang memuat 34 key tempat; master data hanya memberi rute eksplisit pada 8 record.
 - Data aplikasi memuat 3 artikel. Artikel yang dapat dirender belum tentu siap diterbitkan.
 
 ## Struktur yang dirapikan pada branch ini
@@ -19,6 +19,12 @@ Cakupan: source code branch `refactor/clean-structure-content-audit`, master dat
 - `views/discovery.js` menampung discovery dan halaman pendukung; `cart.js` dan `checkout.js` menampung alur masing-masing.
 - `index.html` menjadi entry point yang memuat stylesheet dan script modular.
 - Tidak ada perubahan yang disengaja pada teks UI, warna, layout, atau isi artikel selama pemindahan. Pemindahan resource tetap membutuhkan pemeriksaan visual.
+
+## Rekonsiliasi route source dengan master data
+
+- Renderer discovery memiliki 43 key: 34 tempat, 6 wilayah, 2 pilihan durasi, dan 1 layanan private driver.
+- Sebelum perbaikan pencarian pada branch ini, dropdown pencarian hanya mencakup 39 key: 34 tempat dan 5 wilayah. Route wilayah Bali Utara, private driver, full-day, dan long-trip tidak semuanya bisa ditemukan dari pencarian global. Empat alias tersebut kini ditambahkan.
+- Master data memuat 87 destinasi, tetapi hanya 8 record mempunyai field `route`; 34 key tempat di UI mencakup beberapa tempat gabungan. Perlu pemetaan satu per satu antara record master, key renderer, URL, dan artikel yang benar. Jangan menandai halaman siap hanya karena ada alias pencarian.
 
 ## Audit template halaman dan alur
 
