@@ -76,6 +76,9 @@ function renderDiscoveryView(key) {
                 const destinationRoute = destinationRoutes[item];
                 const destinationArticleId = destinationArticles[item];
                 const isLovina = showLovina && item === 'Lovina Dolphin Tour';
+                if (keyValue.startsWith('place:')) {
+                    return '<li class="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-4"><span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-teal-50 text-xs font-extrabold text-teal-800">' + String(index + 1) + '</span><span class="text-sm leading-6 text-slate-700">' + item + '</span></li>';
+                }
                 const routePage = destinationRoute ? (pages[destinationRoute] || extraDestinationPages[destinationRoute]) : null;
                 const summary = routePage && routePage.intro ? routePage.intro : (destinationArticleId ? 'Read practical destination details and safety notes for planning your visit.' : 'Destination information is being reviewed before a full guide is published.');
                 const imageByRoute = {
@@ -124,5 +127,5 @@ function renderDiscoveryView(key) {
             const backButton = parentRoute
                 ? '<button type="button" onclick="navigateTo(\'discovery\',\'' + parentRoute + '\')" class="text-sm font-bold text-teal-700 mb-4">← Back to region</button>'
                 : '<button type="button" onclick="navigateTo(\'home\')" class="text-sm font-bold text-teal-700 mb-4">← Back to home</button>';
-            return '<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">' + backButton + '<p class="text-xs font-extrabold uppercase tracking-widest text-teal-700">Bali Trans travel guide</p><h1 class="text-3xl sm:text-4xl font-black text-slate-950 mt-2">' + page.title + '</h1><p class="text-sm sm:text-base text-slate-600 leading-7 max-w-3xl mt-3">' + page.intro + '</p>' + labelMarkup + '<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-7">' + cards + '</div><p class="mt-6 text-xs leading-6 text-slate-500">' + page.note + '</p><button onclick="navigateTo(\'packages\')" class="mt-5 rounded-xl border border-slate-300 px-4 py-3 text-sm font-bold text-slate-700">Browse available tours</button></div>';
+            return '<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">' + backButton + '<p class="text-xs font-extrabold uppercase tracking-widest text-teal-700">Bali Trans travel guide</p><h1 class="text-3xl sm:text-4xl font-black text-slate-950 mt-2">' + page.title + '</h1><p class="text-sm sm:text-base text-slate-600 leading-7 max-w-3xl mt-3">' + page.intro + '</p>' + labelMarkup + (keyValue.startsWith('place:') ? '<ul class="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2">' + cards + '</ul>' : '<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-7">' + cards + '</div>') + '<p class="mt-6 text-xs leading-6 text-slate-500">' + page.note + '</p><button onclick="navigateTo(\'packages\')" class="mt-5 rounded-xl border border-slate-300 px-4 py-3 text-sm font-bold text-slate-700">Browse available tours</button></div>';
         }
