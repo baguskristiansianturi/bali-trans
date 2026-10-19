@@ -523,7 +523,7 @@
                                     <span class="text-[10px] text-slate-400">${pkg.location}</span>
                                 </div>
                             </div>
-                            <button onclick="navigateTo('detail', '${pkg.id}'); toggleWishlistModal();" class="text-xs font-bold text-klook-orange hover:underline">View</button>
+                            <button onclick="navigateTo('detail', '${pkg.id}'); toggleWishlistModal();" class="text-xs font-bold text-bali-orange hover:underline">View</button>
                         </div>
                     `).join('');
                 }
@@ -779,7 +779,7 @@
             const container = document.getElementById('toastContainer');
             const toast = document.createElement('div');
             toast.className = 'bg-slate-900 text-white text-xs font-bold px-4 py-3 rounded-2xl shadow-xl flex items-center gap-2 pointer-events-auto transition-all transform translate-y-2 opacity-0';
-            toast.innerHTML = `<i class="fas fa-info-circle text-klook-orange"></i> ${msg}`;
+            toast.innerHTML = `<i class="fas fa-info-circle text-bali-orange"></i> ${msg}`;
             
             container.appendChild(toast);
             setTimeout(() => {
