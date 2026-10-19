@@ -74,21 +74,29 @@
                 case 'discovery':
                     container.innerHTML = renderDiscoveryView(params || 'region:south');
                     break;
-                case 'detail':
-                    if (params) {
-                        const pkg = BALI_PACKAGES.find(p => p.id === params);
-                        if (pkg) { currentDetailPackage = pkg; trackRecentlyViewed(pkg); }
-                    }
+                case 'detail': {
+                    const pkg = params ? BALI_PACKAGES.find(p => p.id === params) : null;
                     currentDetailQty = 1;
-                    container.innerHTML = renderDetailView(currentDetailPackage);
-                    setTimeout(() => { updatePackageOptionDetails(); selectLovinaGallery(0); initDetailSectionTracking(); }, 0);
+                    if (!pkg) {
+                        container.innerHTML = renderNotFoundView();
+                    } else {
+                        currentDetailPackage = pkg;
+                        trackRecentlyViewed(pkg);
+                        container.innerHTML = renderDetailView(pkg);
+                        setTimeout(() => { updatePackageOptionDetails(); selectLovinaGallery(0); initDetailSectionTracking(); }, 0);
+                    }
                     break;
+                }
                 case 'blog':
                     container.innerHTML = renderBlogListView();
                     break;
-                case 'blog-read':
-                    const blog = BALI_BLOGS.find(b => b.id === params) || BALI_BLOGS[0];
-                    container.innerHTML = renderBlogDetailView(blog);
+                case 'blog-read': {
+                    const blog = BALI_BLOGS.find(b => b.id === params);
+                    container.innerHTML = blog ? renderBlogDetailView(blog) : renderNotFoundView();
+                    break;
+                }
+                case 'not-found':
+                    container.innerHTML = renderNotFoundView();
                     break;
                 case 'cart':
                     container.innerHTML = renderCartView();
@@ -128,7 +136,8 @@
                 'blog-read': null,
                 cart: ['Your Trip List | Bali Trans', 'Review the Bali tours and activities you have added to your trip list.'],
                 checkout: ['Booking Enquiry | Bali Trans', 'Review your trip details and prepare a booking enquiry with Bali Trans.'],
-                'image-credits': ['Photo Credits | Bali Trans', 'Sources, authors and licenses for destination photographs used on Bali Trans.']
+                'image-credits': ['Photo Credits | Bali Trans', 'Sources, authors and licenses for destination photographs used on Bali Trans.'],
+                'not-found': ['Page Not Found | Bali Trans', 'This Bali Trans page could not be found. Explore destinations or read the available travel guides.']
             };
             let selected = metadata[viewName] || metadata.home;
             if (viewName === 'discovery') {
