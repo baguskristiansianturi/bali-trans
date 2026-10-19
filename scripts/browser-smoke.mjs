@@ -78,6 +78,18 @@ try {
   await checkRoute('article detail', '?page=blog-read&item=blog-1', 'A Practical First-Time Guide to Bali');
   if (await page.locator('#article-sources-title').count() !== 1) throw new Error('Existing article detail is missing its source list');
   await checkRoute('Nusa Islands region', '?page=discovery&item=region%3Anusa', 'Explore the Nusa Islands');
+  await checkRoute('South Bali region', '?page=discovery&item=region%3Asouth', 'Explore South Bali');
+  await checkRoute('Uluwatu Temple article', '?page=blog-read&item=south-bali-uluwatu-temple', 'Uluwatu Temple: Cliff Views, Culture and Visitor Etiquette');
+  if (await page.locator('#article-sources-title').count() !== 1) throw new Error('Uluwatu article is missing its source list');
+  await checkRoute('Jimbaran Bay article', '?page=blog-read&item=south-bali-jimbaran-bay', 'Jimbaran Bay: Sunset, Seafood and a Coastal Walk');
+  if (await page.locator('#article-sources-title').count() !== 1) throw new Error('Jimbaran article is missing its source list');
+  await checkRoute('Nusa Dua Beach article', '?page=blog-read&item=south-bali-nusa-dua-beach', 'Nusa Dua Beach: Water Activities and Coastal Walks');
+  if (await page.locator('#article-sources-title').count() !== 1) throw new Error('Nusa Dua article is missing its source list');
+  await checkRoute('Kuta Beach article', '?page=blog-read&item=south-bali-kuta-beach', 'Kuta Beach: Surf, Sunset and Practical Tips');
+  if (await page.locator('#article-sources-title').count() !== 1) throw new Error('Kuta article is missing its source list');
+  await checkRoute('Sanur Beach article', '?page=blog-read&item=south-bali-sanur-beach', 'Sanur Beach: Sunrise and the Coastal Walkway');
+  if (await page.locator('#article-sources-title').count() !== 1) throw new Error('Sanur article is missing its source list');
+
   await checkRoute('Kelingking Beach article', '?page=blog-read&item=nusa-penida-kelingking-beach', 'Kelingking Beach: Viewpoints, Access and Safety');
   if (await page.locator('#article-sources-title').count() !== 1) throw new Error('Kelingking article is missing its source list');
   await checkRoute('Crystal Bay article', '?page=blog-read&item=nusa-penida-crystal-bay', 'Crystal Bay: Coastal Views and Marine Activities');
@@ -92,6 +104,12 @@ try {
   await page.waitForFunction(() => new URLSearchParams(location.search).get('item') === 'nusa-penida-kelingking-beach');
   await page.waitForFunction(() => document.querySelector('#appContainer h1')?.textContent.includes('Kelingking Beach'));
   console.log('PASS Nusa region card opens its matching destination article');
+  await page.goto('http://127.0.0.1:4173/?page=discovery&item=region%3Asouth', { waitUntil: 'domcontentloaded' });
+  await page.waitForFunction(() => document.querySelector('#appContainer h1'));
+  await page.getByRole('button', { name: 'Read destination guide' }).first().click();
+  await page.waitForFunction(() => new URLSearchParams(location.search).get('item') === 'south-bali-uluwatu-temple');
+  await page.waitForFunction(() => document.querySelector('#appContainer h1')?.textContent.includes('Uluwatu Temple'));
+  console.log('PASS South Bali region card opens its matching destination article');
   await checkRoute('cart', '?page=cart', 'Cart');
   await checkRoute('checkout', '?page=checkout', 'Vehicle & optional activities');
   await checkRoute('photo credits', '?page=image-credits', 'Photo credits');
