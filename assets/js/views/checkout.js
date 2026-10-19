@@ -4,10 +4,10 @@ function renderCartView() {
             if (cartState.length === 0) {
                 return `
                     <div class="max-w-2xl mx-auto px-4 py-20 text-center">
-                        <div class="w-20 h-20 bg-orange-100 text-klook-orange rounded-full flex items-center justify-center text-3xl mx-auto mb-4"><i class="fas fa-shopping-cart" aria-hidden="true"></i></div>
+                        <div class="w-20 h-20 bg-orange-100 text-bali-orange rounded-full flex items-center justify-center text-3xl mx-auto mb-4"><i class="fas fa-shopping-cart" aria-hidden="true"></i></div>
                         <h2 class="text-2xl font-extrabold text-slate-900 mb-2">Your cart is empty</h2>
                         <p class="text-slate-500 text-sm mb-6">Browse experiences and add an option to review it here.</p>
-                        <button onclick="navigateTo('packages')" class="bg-klook-orange text-white font-extrabold px-6 py-3 rounded-2xl text-xs shadow-lg shadow-orange-500/20">
+                        <button onclick="navigateTo('packages')" class="bg-bali-orange text-white font-extrabold px-6 py-3 rounded-2xl text-xs shadow-lg shadow-orange-500/20">
                             Browse Activities Now
                         </button>
                     </div>
@@ -69,9 +69,9 @@ function renderCartView() {
                                 </div>
                                 <div class="border-t border-slate-100 pt-3 flex justify-between items-center">
                                     <span class="font-extrabold text-slate-900 text-sm">Total</span>
-                                    <span class="text-xl font-black text-klook-orange">${curr.format(grandTotal)}</span>
+                                    <span class="text-xl font-black text-bali-orange">${curr.format(grandTotal)}</span>
                                 </div>
-                                <button onclick="navigateTo('checkout')" class="w-full bg-klook-orange hover:bg-klook-hover text-white font-extrabold py-3.5 px-4 rounded-2xl transition text-xs shadow-lg shadow-orange-500/20">
+                                <button onclick="navigateTo('checkout')" class="w-full bg-bali-orange hover:bg-bali-hover text-white font-extrabold py-3.5 px-4 rounded-2xl transition text-xs shadow-lg shadow-orange-500/20">
                                     Proceed to Checkout
                                 </button>
                             </div>
@@ -90,18 +90,18 @@ function renderCartView() {
                 <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
                     <!-- Step Progress Indicator -->
                     <div class="flex items-center justify-between mb-8 max-w-xl mx-auto text-xs font-bold">
-                        <div class="flex flex-col items-center gap-1 ${currentCheckoutStep >= 1 ? 'text-klook-orange' : 'text-slate-400'}">
-                            <div class="w-8 h-8 rounded-full ${currentCheckoutStep >= 1 ? 'bg-klook-orange text-white' : 'bg-slate-200'} flex items-center justify-center font-bold">1</div>
+                        <div class="flex flex-col items-center gap-1 ${currentCheckoutStep >= 1 ? 'text-bali-orange' : 'text-slate-400'}">
+                            <div class="w-8 h-8 rounded-full ${currentCheckoutStep >= 1 ? 'bg-bali-orange text-white' : 'bg-slate-200'} flex items-center justify-center font-bold">1</div>
                             <span>Guest Details</span>
                         </div>
                         <div class="h-0.5 flex-1 bg-slate-200 mx-2"></div>
-                        <div class="flex flex-col items-center gap-1 ${currentCheckoutStep >= 2 ? 'text-klook-orange' : 'text-slate-400'}">
-                            <div class="w-8 h-8 rounded-full ${currentCheckoutStep >= 2 ? 'bg-klook-orange text-white' : 'bg-slate-200'} flex items-center justify-center font-bold">2</div>
+                        <div class="flex flex-col items-center gap-1 ${currentCheckoutStep >= 2 ? 'text-bali-orange' : 'text-slate-400'}">
+                            <div class="w-8 h-8 rounded-full ${currentCheckoutStep >= 2 ? 'bg-bali-orange text-white' : 'bg-slate-200'} flex items-center justify-center font-bold">2</div>
                             <span>Payment</span>
                         </div>
                         <div class="h-0.5 flex-1 bg-slate-200 mx-2"></div>
-                        <div class="flex flex-col items-center gap-1 ${currentCheckoutStep >= 3 ? 'text-klook-orange' : 'text-slate-400'}">
-                            <div class="w-8 h-8 rounded-full ${currentCheckoutStep >= 3 ? 'bg-klook-orange text-white' : 'bg-slate-200'} flex items-center justify-center font-bold">3</div>
+                        <div class="flex flex-col items-center gap-1 ${currentCheckoutStep >= 3 ? 'text-bali-orange' : 'text-slate-400'}">
+                            <div class="w-8 h-8 rounded-full ${currentCheckoutStep >= 3 ? 'bg-bali-orange text-white' : 'bg-slate-200'} flex items-center justify-center font-bold">3</div>
                             <span>E-Voucher</span>
                         </div>
                     </div>
@@ -124,23 +124,23 @@ function renderCartView() {
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-bold">
                             <div>
                                 <label class="block mb-1 text-slate-700">Full Name (Matching Passport)</label>
-                                <input type="text" id="guestName"  class="w-full bg-slate-100 border border-slate-200 p-3 rounded-xl font-medium focus:outline-none focus:border-klook-orange">
+                                <input type="text" id="guestName"  class="w-full bg-slate-100 border border-slate-200 p-3 rounded-xl font-medium focus:outline-none focus:border-bali-orange">
                             </div>
                             <div>
                                 <label class="block mb-1 text-slate-700">Email Address (For Voucher Delivery)</label>
-                                <input type="email" id="guestEmail"  class="w-full bg-slate-100 border border-slate-200 p-3 rounded-xl font-medium focus:outline-none focus:border-klook-orange">
+                                <input type="email" id="guestEmail"  class="w-full bg-slate-100 border border-slate-200 p-3 rounded-xl font-medium focus:outline-none focus:border-bali-orange">
                             </div>
                             <div>
                                 <label class="block mb-1 text-slate-700">WhatsApp / Phone Number</label>
-                                <input type="text" id="guestPhone"  class="w-full bg-slate-100 border border-slate-200 p-3 rounded-xl font-medium focus:outline-none focus:border-klook-orange">
+                                <input type="text" id="guestPhone"  class="w-full bg-slate-100 border border-slate-200 p-3 rounded-xl font-medium focus:outline-none focus:border-bali-orange">
                             </div>
                             <div>
                                 <label class="block mb-1 text-slate-700">Hotel Pickup Location in Bali</label>
-                                <input type="text" id="guestHotel"  class="w-full bg-slate-100 border border-slate-200 p-3 rounded-xl font-medium focus:outline-none focus:border-klook-orange">
+                                <input type="text" id="guestHotel"  class="w-full bg-slate-100 border border-slate-200 p-3 rounded-xl font-medium focus:outline-none focus:border-bali-orange">
                             </div>
                         </div>
 
-                        <button onclick="advanceCheckoutStep(2)" class="w-full bg-klook-orange hover:bg-klook-hover text-white font-extrabold py-3.5 px-6 rounded-2xl transition text-xs shadow-lg shadow-orange-500/20">
+                        <button onclick="advanceCheckoutStep(2)" class="w-full bg-bali-orange hover:bg-bali-hover text-white font-extrabold py-3.5 px-6 rounded-2xl transition text-xs shadow-lg shadow-orange-500/20">
                             Continue to Payment →
                         </button>
                     </div>
@@ -151,23 +151,23 @@ function renderCartView() {
                         <h3 class="text-xl font-extrabold text-slate-900">Select Payment Method</h3>
                         
                         <div class="space-y-3">
-                            <label class="flex items-center justify-between p-4 rounded-2xl border-2 border-klook-orange bg-orange-50/30 cursor-pointer">
+                            <label class="flex items-center justify-between p-4 rounded-2xl border-2 border-bali-orange bg-orange-50/30 cursor-pointer">
                                 <div class="flex items-center gap-3">
-                                    <input type="radio" name="paymentMethod" checked class="accent-klook-orange">
+                                    <input type="radio" name="paymentMethod" checked class="accent-bali-orange">
                                     <span class="text-xs font-extrabold text-slate-900">Credit / Debit Card (Visa / Mastercard)</span>
                                 </div>
                                 <span class="text-xs text-slate-400">Instant</span>
                             </label>
                             <label class="flex items-center justify-between p-4 rounded-2xl border-2 border-slate-200 cursor-pointer">
                                 <div class="flex items-center gap-3">
-                                    <input type="radio" name="paymentMethod" class="accent-klook-orange">
+                                    <input type="radio" name="paymentMethod" class="accent-bali-orange">
                                     <span class="text-xs font-extrabold text-slate-900">QRIS / GoPay / OVO</span>
                                 </div>
                                 <span class="text-xs text-slate-400">Indonesian E-Wallet</span>
                             </label>
                             <label class="flex items-center justify-between p-4 rounded-2xl border-2 border-slate-200 cursor-pointer">
                                 <div class="flex items-center gap-3">
-                                    <input type="radio" name="paymentMethod" class="accent-klook-orange">
+                                    <input type="radio" name="paymentMethod" class="accent-bali-orange">
                                     <span class="text-xs font-extrabold text-slate-900">Direct WhatsApp Cash on Pickup</span>
                                 </div>
                                 <span class="text-xs text-slate-400">Pay Driver</span>
@@ -176,10 +176,10 @@ function renderCartView() {
 
                         <div class="bg-slate-50 p-4 rounded-2xl flex justify-between items-center">
                             <span class="text-xs font-bold text-slate-600">Total Payable Amount</span>
-                            <span class="text-xl font-black text-klook-orange">${curr.format(totalIDR)}</span>
+                            <span class="text-xl font-black text-bali-orange">${curr.format(totalIDR)}</span>
                         </div>
 
-                        <button onclick="advanceCheckoutStep(3)" class="w-full bg-klook-orange hover:bg-klook-hover text-white font-extrabold py-3.5 px-6 rounded-2xl transition text-xs shadow-lg shadow-orange-500/20">
+                        <button onclick="advanceCheckoutStep(3)" class="w-full bg-bali-orange hover:bg-bali-hover text-white font-extrabold py-3.5 px-6 rounded-2xl transition text-xs shadow-lg shadow-orange-500/20">
                             Preview Demo Voucher
                         </button>
                     </div>
