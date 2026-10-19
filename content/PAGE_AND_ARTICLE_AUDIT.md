@@ -183,13 +183,14 @@ Status halaman, konten, dan fakta adalah tiga hal berbeda. Sumber kosong berarti
 Dokumen ini menginventarisasi source code dan master data. Ini tidak membuktikan seluruh kandidat telah mempunyai halaman lengkap, semua fakta telah diverifikasi, atau alur booking telah diuji. Record tanpa sumber dan tanggal pengecekan harus tetap dianggap belum terverifikasi.
 
 
-## Tahap 2 — Temuan route untuk perbaikan
+## Tahap 2 — Route fallback diperbaiki di source
 
-Audit lanjutan source menemukan tiga fallback yang menyamarkan URL salah sebagai konten valid:
+Audit lanjutan menemukan fallback yang menyamarkan URL salah sebagai konten valid. Perubahan sekarang pada branch audit:
 
-- URL detail paket dengan ID yang tidak dikenal tetap merender paket yang sebelumnya dipilih di memori.
-- URL detail artikel dengan ID yang tidak dikenal jatuh kembali ke artikel pertama.
-- URL discovery dengan key yang tidak dikenal jatuh kembali ke halaman Bali Selatan; nama dan konten yang tampil tidak sesuai dengan URL.
-- Parameter `page` yang tidak dikenal juga jatuh kembali ke homepage.
+- URL detail paket dengan ID yang tidak dikenal menampilkan halaman not-found, bukan paket yang sebelumnya dipilih di memori.
+- URL detail artikel dengan ID yang tidak dikenal menampilkan halaman not-found, bukan artikel pertama.
+- URL discovery dengan key yang tidak dikenal menampilkan halaman not-found, bukan Bali Selatan.
+- Parameter page yang tidak dikenal diarahkan ke halaman not-found, bukan homepage.
+- GitHub Actions kini memeriksa bahwa setiap route type memiliki switch case, semua kunci discovery yang digunakan pencarian global memiliki halaman, dan ID artikel tidak duplikat.
 
-Ini perlu diperbaiki menjadi halaman tidak ditemukan yang jelas. Sampai perubahan ini diterapkan dan diuji, URL yang salah tidak boleh dianggap sudah tertangani. Uji browser langsung masih belum tersedia dari sesi ini; deployment GitHub Pages tidak berhasil diakses dari lingkungan audit.
+Status: perubahan source sudah ditulis pada branch audit. Uji browser langsung tetap belum tersedia dari sesi ini; deployment GitHub Pages tidak berhasil diakses dari lingkungan audit.
