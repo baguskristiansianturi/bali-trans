@@ -1,3 +1,7 @@
+function renderNotFoundView() {
+            return '<main class="max-w-3xl mx-auto px-4 sm:px-6 py-16 text-center"><p class="text-xs font-extrabold uppercase tracking-widest text-teal-700">Bali Trans</p><h1 class="text-3xl sm:text-4xl font-black text-slate-950 mt-3">We couldn’t find that page</h1><p class="text-sm sm:text-base leading-7 text-slate-600 mt-4">This link may be outdated, or the page has not been added yet.</p><div class="flex flex-col sm:flex-row justify-center gap-3 mt-7"><button type="button" onclick="navigateTo(\'home\')" class="rounded-xl bg-klook-orange px-5 py-3 text-sm font-bold text-white">Back to home</button><button type="button" onclick="navigateTo(\'discovery\',\'region:north\')" class="rounded-xl border border-slate-300 px-5 py-3 text-sm font-bold text-slate-700">Explore destinations</button><button type="button" onclick="navigateTo(\'blog\')" class="rounded-xl border border-slate-300 px-5 py-3 text-sm font-bold text-slate-700">Read travel guides</button></div></main>';
+        }
+
 /* ==========================================================================
            3. VIEW RENDERING FUNCTIONS (KLOOK STYLE)
            ========================================================================== */
