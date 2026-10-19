@@ -110,7 +110,7 @@
                     { title: 'Indonesia Travel — Nusa Penida guide', url: 'https://www.indonesia.travel/id/id/travel-ideas/adventure/nusa-penida' },
                     { title: 'Bali Police — Safety reminders for Nusa Penida beaches', url: 'https://tribratanews.bali.polri.go.id/artikel/view/pb-163144-polsek-nusa-penida-imbau-wisatawan' }
                 ],
-                snippet: 'Compare three dramatic coastal stops and plan island transport around road conditions, sea conditions and your boat schedule.',
+                snippet: 'Plan island transport, choose a realistic group of coastal stops and check current safety guidance.',
                 content: `
                     <p class="mb-4">Nusa Penida lies southeast of mainland Bali and is reached by boat. Its coastal stops are spread across the island, so a realistic plan needs to account for the crossing, road transfers and the return journey rather than treating every point on the map as nearby.</p>
                     <h2 class="text-xl font-bold text-slate-900 mb-2">Plan transport before choosing every stop</h2>
