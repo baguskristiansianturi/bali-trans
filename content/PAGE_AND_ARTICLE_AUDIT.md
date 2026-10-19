@@ -223,3 +223,17 @@ Status: perubahan source sudah ditulis pada branch audit. Uji browser langsung t
 
 
 Route-to-master-data reconciliation is maintained separately in [`ROUTE_MASTER_MAPPING.md`](./ROUTE_MASTER_MAPPING.md). It maps all 43 current route keys and flags combined destinations that need canonical pages.
+
+
+## Tahap 4 — Integritas master data
+
+Pemeriksaan statis pada `bali-master-data.json` menemukan:
+
+- 87 record destinasi, 6 wilayah editorial, 9 area administratif, dan 14 kategori aktivitas.
+- Tidak ada ID destinasi duplikat.
+- Semua `region_id`, `admin_area_id`, dan kategori yang direferensikan cocok dengan daftar master masing-masing.
+- Tidak ada route duplikat.
+- Semua record dengan status fakta selain `UNVERIFIED` memiliki tanggal pengecekan; seluruh record `FACT_CHECK` memiliki setidaknya satu URL sumber.
+- Hanya 8 dari 87 destinasi yang mempunyai route eksplisit pada master data. Matriks pemetaan 43 route UI ke master data ada di `ROUTE_MASTER_MAPPING.md`; route gabungan masih perlu dipisahkan sebelum dianggap kanonis.
+
+Pemeriksaan ini memvalidasi konsistensi struktur data, bukan kebenaran setiap fakta atau status operasi destinasi.
