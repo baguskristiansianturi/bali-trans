@@ -70,23 +70,29 @@
                 author: 'Siti Rahma',
                 date: 'Oct 12, 2026',
                 image: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80',
+                imageAlt: 'Bali coastal landscape illustrating a first-time travel guide',
+                dateISO: '2026-10-12',
+                sources: [
+                    { title: 'Official Indonesia e-Visa portal', url: 'https://evisa.imigrasi.go.id/' },
+                    { title: 'Ngurah Rai Immigration Office', url: 'https://ngurahrai.imigrasi.go.id/' }
+                ],
                 snippet: 'A starting point for choosing where to stay, checking entry requirements, planning local transport and preparing for your first visit.',
                 content: `
                     <p class="mb-4">A first trip to Bali is easier to plan when you choose a few areas that fit your interests instead of trying to cross the island every day. Coastlines, inland villages and island trips offer different experiences, and travel between them can take longer than a map suggests.</p>
-                    <h3 class="text-xl font-bold text-slate-900 mb-2">1. Entry Requirements & E-Visa</h3>
+                    <h2 class="text-xl font-bold text-slate-900 mb-2">1. Entry Requirements & E-Visa</h2>
                     <p class="mb-4">Entry requirements depend on your passport and travel plans. Check the latest visa and passport rules through official Indonesian immigration sources before departure rather than relying on an old checklist.</p>
-                    <h3 class="text-xl font-bold text-slate-900 mb-2">2. Choosing Where to Stay</h3>
+                    <h2 class="text-xl font-bold text-slate-900 mb-2">2. Choosing Where to Stay</h2>
                     <ul class="list-disc pl-5 mb-4 space-y-1">
                         <li><strong>Canggu & Seminyak:</strong> Beach clubs, trendy cafes, surfing, vibrant nightlife.</li>
                         <li><strong>Ubud:</strong> Rice terraces, yoga retreats, traditional arts, monkey forest.</li>
                         <li><strong>Uluwatu:</strong> Dramatic cliffs, world-class luxury resorts, surf breaks, Kecak fire dance.</li>
                         <li><strong>Sanur:</strong> Family-friendly, calm water beaches, peaceful vibe.</li>
                     </ul>
-                    <h3 class="text-xl font-bold text-slate-900 mb-2">3. Getting Around Bali</h3>
+                    <h2 class="text-xl font-bold text-slate-900 mb-2">3. Getting Around Bali</h2>
                     <p class="mb-4">Transport depends on the route and your comfort level. For a multi-stop day, agree the route, service duration, pickup point and any extra charges with a driver before confirming. Scooters are not suitable for every visitor; check licence and insurance requirements, wear a helmet and never ride beyond your experience.</p>
-                    <h3 class="text-xl font-bold text-slate-900 mb-2">4. Keep the Daily Route Realistic</h3>
+                    <h2 class="text-xl font-bold text-slate-900 mb-2">4. Keep the Daily Route Realistic</h2>
                     <p class="mb-4">Avoid combining distant areas just because each stop looks close on a map. Pick a main area for the day, leave room for meals and traffic, and confirm the final route with your transport provider.</p>
-                    <h3 class="text-xl font-bold text-slate-900 mb-2">5. Check Practical Details Before You Go</h3>
+                    <h2 class="text-xl font-bold text-slate-900 mb-2">5. Check Practical Details Before You Go</h2>
                     <p class="mb-4">Check current entry rules through official sources, confirm opening hours directly with attractions, and carry sun protection and water. For temples, follow local dress guidance and respect ceremonies or areas closed to visitors.</p>
                 `
             },
@@ -98,16 +104,22 @@
                 author: 'Alex Rivera',
                 date: 'Sep 28, 2026',
                 image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Kelingking_Beach.jpg?width=1200',
+                imageAlt: 'Kelingking Beach cliff and coastline on Nusa Penida',
+                dateISO: '2026-09-28',
+                sources: [
+                    { title: 'Indonesia Travel — Nusa Penida guide', url: 'https://www.indonesia.travel/id/id/travel-ideas/adventure/nusa-penida' },
+                    { title: 'Bali Police — Safety reminders for Nusa Penida beaches', url: 'https://tribratanews.bali.polri.go.id/artikel/view/pb-163144-polsek-nusa-penida-imbau-wisatawan' }
+                ],
                 snippet: 'Compare three dramatic coastal stops and plan island transport around road conditions, sea conditions and your boat schedule.',
                 content: `
                     <p class="mb-4">Nusa Penida is known for steep limestone cliffs, beaches and viewpoints. Boat time varies by departure point and sea conditions, so confirm the pier, check-in time and return schedule with your boat operator before planning the day.</p>
-                    <h3 class="text-xl font-bold text-slate-900 mb-2">Three Stops to Compare</h3>
+                    <h2 class="text-xl font-bold text-slate-900 mb-2">Three Stops to Compare</h2>
                     <ol class="list-decimal pl-5 mb-4 space-y-2">
                         <li><strong>Kelingking:</strong> Best known for its dramatic cliff profile and elevated coastal views. The descent is steep and physically demanding; visitors can enjoy the viewpoint without attempting the beach trail.</li>
                         <li><strong>Diamond Beach:</strong> Known for pale sand and limestone formations. Access involves steep stairs, and swimming may be unsafe when surf is strong.</li>
                         <li><strong>Atuh Beach:</strong> A curved bay framed by rock formations. Allow time for the access path and check local conditions before entering the water.</li>
                     </ol>
-                    <h3 class="text-xl font-bold text-slate-900 mb-2">Plan Transfers and Safety</h3>
+                    <h2 class="text-xl font-bold text-slate-900 mb-2">Plan Transfers and Safety</h2>
                     <p class="mb-4">Roads can be narrow, uneven and slow between stops. Choose fewer places rather than rushing across the island, use safe transport, bring water and footwear with grip, and follow local signs near cliffs and beaches. Never rely on a viewpoint photo to judge whether a path or sea is safe.</p>
                 `
             },
@@ -119,10 +131,15 @@
                 author: 'Made Budi',
                 date: 'Sep 15, 2026',
                 image: 'https://images.unsplash.com/photo-1555400038-63f5ba517a47?auto=format&fit=crop&w=800&q=80',
+                imageAlt: 'Food photograph illustrating Balinese dishes and local cuisine',
+                dateISO: '2026-09-15',
+                sources: [
+                    { title: 'Indonesia Travel — Balinese dishes to try', url: 'https://www.indonesia.travel/id/id/travel-ideas/gastronomy/10-iconic-cuisine-s-that-you-must-try-on-your-next-visit-to-bali' }
+                ],
                 snippet: 'Get to know a few well-known Balinese dishes and coastal seafood options to look out for during your stay.',
                 content: `
                     <p class="mb-4">Balinese food often balances aromatic spices, herbs and sambal. Recipes vary by household and region, so the same dish can taste different from one kitchen to another.</p>
-                    <h3 class="text-xl font-bold text-slate-900 mb-2">Dishes Worth Looking For</h3>
+                    <h2 class="text-xl font-bold text-slate-900 mb-2">Dishes Worth Looking For</h2>
                     <ul class="list-disc pl-5 mb-4 space-y-2">
                         <li><strong>Babi guling:</strong> Roast pork commonly served with rice and a selection of sides.</li>
                         <li><strong>Bebek betutu:</strong> Duck prepared with a spiced seasoning; cooking methods and serving styles vary.</li>
@@ -131,7 +148,7 @@
                         <li><strong>Lawar:</strong> A mixed dish made with vegetables, herbs and other ingredients; recipes can include meat or animal blood, so ask about ingredients if needed.</li>
                         <li><strong>Seafood in Jimbaran:</strong> Coastal restaurants serve fish and other seafood. Check the price, portion size and cooking method before ordering.</li>
                     </ul>
-                    <h3 class="text-xl font-bold text-slate-900 mb-2">Eat Well and Ask Questions</h3>
+                    <h2 class="text-xl font-bold text-slate-900 mb-2">Eat Well and Ask Questions</h2>
                     <p class="mb-4">Tell the restaurant about allergies and dietary needs before ordering, and ask whether a dish contains meat, seafood, peanuts or other ingredients you avoid. Choose food that is freshly prepared and stored appropriately, especially in hot weather.</p>
                 `
             }
