@@ -60,5 +60,6 @@ The implementation remains a client-rendered SPA with query-based routes. The ex
 - `assets/js/interactions.js`: shared UI handlers.
 - `content/bali-master-data.json`: destination/category inventory and readiness.
 - `content/PAGE_AND_ARTICLE_AUDIT.md`: destination inventory and audit findings.
+- `content/ROUTE_MASTER_MAPPING.md`: reconciliation of all 43 renderer route keys against the destination master data.
 
 Static validation does not replace browser QA. Prototype checkout is not a real booking/payment flow.
