@@ -214,4 +214,75 @@
                 snippet: "Plan for Atuh Beach’s eastern-coast setting, stair access and changing sea conditions.",
                 content: "<p class=\"mb-4\">Atuh Beach lies on the eastern coast of Nusa Penida, close to Diamond Beach. Indonesia Travel describes the area as a stretch of coast framed by limestone cliffs and rock formations. The two beaches can fit into the same broad outing, but each has its own access route and conditions.</p>\n<h2 class=\"text-xl font-bold text-slate-900 mb-2\">Prepare for the steps</h2>\n<p class=\"mb-4\">Access from the upper area involves stairs. Take your time on the way down and back up, wear shoes with grip and avoid rushing when the steps are wet or crowded. Visitors who are unsure about steep access can enjoy the viewpoint without committing to the descent.</p>\n<h2 class=\"text-xl font-bold text-slate-900 mb-2\">Respect local safety instructions</h2>\n<p class=\"mb-4\">Sea conditions can be hazardous around Nusa Penida. Bali Police has warned visitors to obey posted restrictions and not to assume calm-looking water is safe. Check the current signs at Atuh Beach and follow local guidance before approaching the water; this article does not promise that swimming is permitted.</p>\n<h2 class=\"text-xl font-bold text-slate-900 mb-2\">Keep the itinerary flexible</h2>\n<p class=\"mb-4\">Plan transport and return time with the stair access in mind. Carry drinking water and sun protection, and leave enough time to travel between eastern-coast stops without rushing.</p>\n<p class=\"mb-4\">For a more comfortable day, choose the stops that suit your group’s fitness and mobility, and let local conditions decide how long you stay.</p>"
             }
+,
+            {
+                id: "south-bali-uluwatu-temple",
+                title: "Uluwatu Temple: Cliff Views, Culture and Visitor Etiquette",
+                date: "Oct 19, 2026",
+                category: "South Bali",
+                readTime: "3 min read",
+                author: "Bali Trans Editorial Team",
+                image: "https://commons.wikimedia.org/wiki/Special:FilePath/Pura_Uluwatu_Bali.jpg?width=1200",
+                imageAlt: "Uluwatu Temple on a cliff above the Indian Ocean",
+                dateISO: "2026-10-19",
+                sources: [{"title":"Indonesia Travel — Pura Luhur Uluwatu","url":"https://www.indonesia.travel/in/en/destination/bali-nusa-tenggara/bali/pura-luhur-uluwatu/"}],
+                snippet: "Plan a respectful visit to Uluwatu Temple with cliffside views, cultural etiquette and practical safety notes.",
+                content: "<p class=\"mb-4\">Pura Luhur Uluwatu stands on a cliff above the Indian Ocean on Bali’s southern peninsula. The setting combines a sacred Hindu temple, ocean views and a popular sunset area. Treat it first as a place of worship, not only as a viewpoint.</p>\n<h2 class=\"text-xl font-bold text-slate-900 mb-2\">Visit respectfully</h2>\n<p class=\"mb-4\">Wear clothing that follows the site’s dress requirements, observe signs and barriers, and keep voices and behaviour considerate around worshippers. Some temple areas may be restricted; follow the instructions of temple staff rather than entering every space for a photograph.</p>\n<h2 class=\"text-xl font-bold text-slate-900 mb-2\">Stay aware near the cliff</h2>\n<p class=\"mb-4\">The coastal setting includes exposed edges and uneven paths. Keep a safe distance from the cliff edge, supervise children closely and do not climb over barriers. If you visit near sunset, allow time to leave with the crowd and travel onward without rushing.</p>\n<h2 class=\"text-xl font-bold text-slate-900 mb-2\">Watch your belongings around monkeys</h2>\n<p class=\"mb-4\">Indonesia Travel advises visitors to be careful with personal belongings around the monkeys in the surrounding area. Keep loose items secured and follow staff instructions; do not try to feed or handle wildlife.</p>\n<p class=\"mb-4\">Check current access rules and any performance schedule with the official site before planning around a specific time. This guide does not promise that every area or event will be available on your visit.</p>"
+            },
+            {
+                id: "south-bali-jimbaran-bay",
+                title: "Jimbaran Bay: Sunset, Seafood and a Coastal Walk",
+                date: "Oct 19, 2026",
+                category: "South Bali",
+                readTime: "3 min read",
+                author: "Bali Trans Editorial Team",
+                image: "https://commons.wikimedia.org/wiki/Special:FilePath/Jimbaran_Beach,_Bali_SF0001.jpg?width=1200",
+                imageAlt: "Jimbaran Bay’s long sandy shoreline on Bali’s southern coast",
+                dateISO: "2026-10-19",
+                sources: [{"title":"Indonesia Travel — Pantai Jimbaran","url":"https://www.indonesia.travel/us/en/destination/bali-nusa-tenggara/bali/pantai-jimbaran"}],
+                snippet: "A practical guide to Jimbaran Bay’s shoreline, sunset atmosphere and seafood dining.",
+                content: "<p class=\"mb-4\">Jimbaran Bay is on Bali’s southern coast and is known for its sandy shoreline, sunset views and seafood restaurants along the waterfront. It can work as a relaxed coastal stop or as the setting for an evening meal after a day exploring the peninsula.</p>\n<h2 class=\"text-xl font-bold text-slate-900 mb-2\">Choose your timing</h2>\n<p class=\"mb-4\">Late afternoon brings changing light and a busier dining scene. If you want a quieter walk, arrive earlier and leave enough time to find your chosen restaurant. Traffic around the south can be slow, especially when many visitors head to the coast around sunset.</p>\n<h2 class=\"text-xl font-bold text-slate-900 mb-2\">Ask about seafood and prices</h2>\n<p class=\"mb-4\">Restaurants may offer fish and other seafood based on the day’s supply. Ask to see the menu, confirm the price and serving size before ordering, and tell staff about allergies or dietary requirements. Do not assume every dish or ingredient is available every day.</p>\n<h2 class=\"text-xl font-bold text-slate-900 mb-2\">Be sensible around the water</h2>\n<p class=\"mb-4\">Conditions differ along the shoreline and can change. Follow local signs and lifeguard instructions, and do not enter the sea when conditions or warnings advise against it.</p>\n<p class=\"mb-4\">Jimbaran pairs well with a simple plan: beach time, an early dinner or sunset meal, then a return journey with extra time allowed for traffic.</p>"
+            },
+            {
+                id: "south-bali-nusa-dua-beach",
+                title: "Nusa Dua Beach: Water Activities and Coastal Walks",
+                date: "Oct 19, 2026",
+                category: "South Bali",
+                readTime: "3 min read",
+                author: "Bali Trans Editorial Team",
+                image: "https://commons.wikimedia.org/wiki/Special:FilePath/NusaDuaBeachBali.jpg?width=1200",
+                imageAlt: "Nusa Dua Beach with pale sand and shallow coastal water",
+                dateISO: "2026-10-19",
+                sources: [{"title":"Indonesia Travel — Pantai Nusa Dua","url":"https://www.indonesia.travel/id/id/destination/bali-nusa-tenggara/bali/pantai-nusa-dua"}],
+                snippet: "Explore Nusa Dua’s managed resort coast, walking paths and water activities with practical planning tips.",
+                content: "<p class=\"mb-4\">Nusa Dua is a planned resort area on Bali’s southern peninsula. Its coastline includes pale sandy beaches, hotel areas and pedestrian routes, with water activities offered in designated locations. The area is more than one single beach, so check which access point fits your plan.</p>\n<h2 class=\"text-xl font-bold text-slate-900 mb-2\">Pick the right part of the coast</h2>\n<p class=\"mb-4\">If you are staying in a resort, ask which beach access is public and which facilities belong to the property. For a walk, follow the designated coastal path and respect signs around landscaped or managed areas.</p>\n<h2 class=\"text-xl font-bold text-slate-900 mb-2\">Check activity conditions</h2>\n<p class=\"mb-4\">Snorkelling and motorised water activities may be offered by local operators. Confirm what is included, the equipment provided, the price and the safety briefing before paying. Sea conditions and activity restrictions vary, so do not assume an activity will run just because it is advertised.</p>\n<h2 class=\"text-xl font-bold text-slate-900 mb-2\">Plan a relaxed visit</h2>\n<p class=\"mb-4\">Nusa Dua can suit a slower day built around a beach walk, a meal and one optional activity. Allow time to travel between the resort area and other parts of South Bali rather than treating all southern beaches as next door to one another.</p>\n<p class=\"mb-4\">Follow local signs and operator instructions near the water, and check current conditions before swimming or booking an activity.</p>"
+            },
+            {
+                id: "south-bali-kuta-beach",
+                title: "Kuta Beach: Surf, Sunset and Practical Tips",
+                date: "Oct 19, 2026",
+                category: "South Bali",
+                readTime: "3 min read",
+                author: "Bali Trans Editorial Team",
+                image: "https://commons.wikimedia.org/wiki/Special:FilePath/Kuta_Beach_Bali.jpg?width=1200",
+                imageAlt: "Kuta Beach’s broad sandy shoreline and surf on Bali’s southern coast",
+                dateISO: "2026-10-19",
+                sources: [{"title":"Indonesia Travel — Kuta Beach","url":"https://www.indonesia.travel/id/en/destination/bali-nusa-tenggara/bali/kuta---kuta-beach"}],
+                snippet: "A practical guide to Kuta Beach’s long shoreline, surf culture and busy sunset period.",
+                content: "<p class=\"mb-4\">Kuta Beach is one of South Bali’s best-known coastal areas. Its long sandy shoreline, surf culture and sunset views make it a busy place throughout the day, with restaurants, shops and accommodation in the surrounding streets.</p>\n<h2 class=\"text-xl font-bold text-slate-900 mb-2\">Surf within your ability</h2>\n<p class=\"mb-4\">Kuta attracts both experienced surfers and people learning the basics. If you are new to surfing, choose a qualified instructor and ask about the conditions before entering the water. Watch the flags and follow lifeguard instructions; do not assume every section of beach is suitable for swimming.</p>\n<h2 class=\"text-xl font-bold text-slate-900 mb-2\">Expect crowds near sunset</h2>\n<p class=\"mb-4\">The shoreline gets busier as visitors gather for the evening view. Keep valuables secure, agree on a meeting point if travelling in a group and allow extra time to cross nearby streets or arrange a ride.</p>\n<h2 class=\"text-xl font-bold text-slate-900 mb-2\">Keep the visit simple</h2>\n<p class=\"mb-4\">A walk on the beach, a surf lesson or a meal nearby can fill an easy half-day. If you plan to continue to another South Bali stop, check traffic before choosing a tight schedule.</p>\n<p class=\"mb-4\">Local conditions, surf restrictions and lifeguard guidance can change. Follow the signs on the day and put safety ahead of photographs or a planned activity.</p>"
+            },
+            {
+                id: "south-bali-sanur-beach",
+                title: "Sanur Beach: Sunrise and the Coastal Walkway",
+                date: "Oct 19, 2026",
+                category: "South Bali",
+                readTime: "3 min read",
+                author: "Bali Trans Editorial Team",
+                image: "https://commons.wikimedia.org/wiki/Special:FilePath/Sanur_Beach_Bali.jpg?width=1200",
+                imageAlt: "Sanur Beach’s shoreline with a traditional boat and coastal resort in the background",
+                dateISO: "2026-10-19",
+                sources: [{"title":"Indonesia Travel — Sanur Beach","url":"https://www.indonesia.travel/id/en/destination/bali-nusa-tenggara/bali/sanur0"}],
+                snippet: "Plan an easy Sanur visit around sunrise, the coastal walkway and changing sea conditions.",
+                content: "<p class=\"mb-4\">Sanur lies on Bali’s eastern coast within Denpasar. It is known for sunrise views and a long pedestrian route along the shoreline, making it a good choice for walking, jogging or cycling before the day gets hot.</p>\n<h2 class=\"text-xl font-bold text-slate-900 mb-2\">Go early for the coast</h2>\n<p class=\"mb-4\">The eastern-facing shoreline is a natural place to watch the morning light. If sunrise is your goal, arrive with enough time to find a comfortable stretch of the coast and keep your route flexible; cloud cover can change the view on any given morning.</p>\n<h2 class=\"text-xl font-bold text-slate-900 mb-2\">Use the coastal path considerately</h2>\n<p class=\"mb-4\">The walkway is shared by people walking, jogging and cycling. Keep to the appropriate side, give others room and slow down near busy access points. Sanur is a neighbourhood as well as a visitor area, so be mindful of residents and local activities.</p>\n<h2 class=\"text-xl font-bold text-slate-900 mb-2\">Check water conditions</h2>\n<p class=\"mb-4\">The sea can appear calmer in some areas, but conditions and activity rules vary along the coast. Follow local signs and operator guidance before swimming, snorkelling or using small craft.</p>\n<p class=\"mb-4\">Sanur can be combined with a relaxed breakfast or a visit to nearby cultural sites. Allow extra travel time if you are continuing across South Bali during busy periods.</p>"
+            }
         ];

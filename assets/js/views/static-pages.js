@@ -53,7 +53,12 @@ function renderNotFoundView() {
                 {name:'Pantai Kelingking, Nusa Penida',author:'Kresnanta',license:'CC BY-SA 4.0',file:'https://commons.wikimedia.org/wiki/File:Pantai_Kelingking,_Nusa_Penida.jpg',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/'},
                 {name:'Crystal Bay Beach',author:'Siapus',license:'CC BY-SA 4.0',file:'https://commons.wikimedia.org/wiki/File:Crystal_Bay_Beach.jpg',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/'},
                 {name:'Diamond Beach in Nusa Penida, Bali',author:'Stryn',license:'CC BY-SA 4.0',file:'https://commons.wikimedia.org/wiki/File:Diamond_Beach_in_Nusa_Penida,_Bali.jpg',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/'},
-                {name:'Atuh Beach, Nusa Penida Bali',author:'Hendrojkson',license:'CC BY-SA 4.0',file:'https://commons.wikimedia.org/wiki/File:Atuh_Beach,_Nusa_Penida_Bali.jpg',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/'}
+                {name:'Atuh Beach, Nusa Penida Bali',author:'Hendrojkson',license:'CC BY-SA 4.0',file:'https://commons.wikimedia.org/wiki/File:Atuh_Beach,_Nusa_Penida_Bali.jpg',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/'},
+                {name:'Pura Uluwatu Bali',author:'Mimihartono',license:'CC BY-SA 4.0',file:'https://commons.wikimedia.org/wiki/File:Pura_Uluwatu_Bali.jpg',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/'},
+                {name:'Jimbaran Beach, Bali',author:'DerFussi',license:'CC BY-SA 4.0',file:'https://commons.wikimedia.org/wiki/File:Jimbaran_Beach,_Bali_SF0001.jpg',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/'},
+                {name:'Nusa Dua Beach Bali',author:'HidayatOemar',license:'CC BY-SA 4.0',file:'https://commons.wikimedia.org/wiki/File:NusaDuaBeachBali.jpg',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/'},
+                {name:'Kuta Beach Bali',author:'Pushkraj9',license:'CC BY-SA 4.0',file:'https://commons.wikimedia.org/wiki/File:Kuta_Beach_Bali.jpg',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/'},
+                {name:'Sanur Beach Bali',author:'Hoedhud',license:'CC BY-SA 4.0',file:'https://commons.wikimedia.org/wiki/File:Sanur_Beach_Bali.jpg',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/'}
             ];
             return `
                 <section class="bg-slate-950 text-white"><div class="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16">

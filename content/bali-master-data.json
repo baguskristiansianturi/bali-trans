@@ -197,15 +197,17 @@
       "type": "destination",
       "categories": [
         "surfing",
-        "culture-temples"
+        "watersports"
       ],
-      "route": null,
-      "page_status": "PLANNED",
-      "content_status": "UNVERIFIED",
-      "fact_status": "UNVERIFIED",
-      "source_urls": [],
-      "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "route": "?page=blog-read&item=south-bali-kuta-beach",
+      "page_status": "PUBLISHED",
+      "content_status": "PUBLISHED",
+      "fact_status": "PUBLISHED",
+      "source_urls": [
+        "https://www.indonesia.travel/id/en/destination/bali-nusa-tenggara/bali/kuta---kuta-beach"
+      ],
+      "last_checked": "2026-10-19",
+      "notes": "Individual destination article reviewed against the official Indonesia Travel guide; check current local access and safety signs before travel."
     },
     {
       "id": "waterbom-bali",
@@ -344,15 +346,18 @@
       "subregion": "Jimbaran & Kedonganan",
       "type": "destination",
       "categories": [
-        "food-drink"
+        "food-drink",
+        "watersports"
       ],
-      "route": null,
-      "page_status": "PLANNED",
-      "content_status": "UNVERIFIED",
-      "fact_status": "UNVERIFIED",
-      "source_urls": [],
-      "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "route": "?page=blog-read&item=south-bali-jimbaran-bay",
+      "page_status": "PUBLISHED",
+      "content_status": "PUBLISHED",
+      "fact_status": "PUBLISHED",
+      "source_urls": [
+        "https://www.indonesia.travel/us/en/destination/bali-nusa-tenggara/bali/pantai-jimbaran"
+      ],
+      "last_checked": "2026-10-19",
+      "notes": "Individual destination article reviewed against the official Indonesia Travel guide; check current local access and safety signs before travel."
     },
     {
       "id": "kedonganan-market",
@@ -401,13 +406,15 @@
       "categories": [
         "culture-temples"
       ],
-      "route": null,
-      "page_status": "PLANNED",
-      "content_status": "UNVERIFIED",
-      "fact_status": "UNVERIFIED",
-      "source_urls": [],
-      "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "route": "?page=blog-read&item=south-bali-uluwatu-temple",
+      "page_status": "PUBLISHED",
+      "content_status": "PUBLISHED",
+      "fact_status": "PUBLISHED",
+      "source_urls": [
+        "https://www.indonesia.travel/in/en/destination/bali-nusa-tenggara/bali/pura-luhur-uluwatu/"
+      ],
+      "last_checked": "2026-10-19",
+      "notes": "Individual destination article reviewed against the official Indonesia Travel guide; check current local access and safety signs before travel."
     },
     {
       "id": "padang-padang-beach",
@@ -453,15 +460,18 @@
       "subregion": "Nusa Dua",
       "type": "destination",
       "categories": [
-        "watersports"
+        "watersports",
+        "boat-island"
       ],
-      "route": null,
-      "page_status": "PLANNED",
-      "content_status": "UNVERIFIED",
-      "fact_status": "UNVERIFIED",
-      "source_urls": [],
-      "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "route": "?page=blog-read&item=south-bali-nusa-dua-beach",
+      "page_status": "PUBLISHED",
+      "content_status": "PUBLISHED",
+      "fact_status": "PUBLISHED",
+      "source_urls": [
+        "https://www.indonesia.travel/id/id/destination/bali-nusa-tenggara/bali/pantai-nusa-dua"
+      ],
+      "last_checked": "2026-10-19",
+      "notes": "Individual destination article reviewed against the official Indonesia Travel guide; check current local access and safety signs before travel."
     },
     {
       "id": "tanjung-benoa",
@@ -491,17 +501,18 @@
       "subregion": "Sanur",
       "type": "destination",
       "categories": [
-        "snorkeling-diving",
-        "boat-island",
-        "cycling"
+        "cycling",
+        "watersports"
       ],
-      "route": null,
-      "page_status": "PLANNED",
-      "content_status": "UNVERIFIED",
-      "fact_status": "UNVERIFIED",
-      "source_urls": [],
-      "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "route": "?page=blog-read&item=south-bali-sanur-beach",
+      "page_status": "PUBLISHED",
+      "content_status": "PUBLISHED",
+      "fact_status": "PUBLISHED",
+      "source_urls": [
+        "https://www.indonesia.travel/id/en/destination/bali-nusa-tenggara/bali/sanur0"
+      ],
+      "last_checked": "2026-10-19",
+      "notes": "Individual destination article reviewed against the official Indonesia Travel guide; check current local access and safety signs before travel."
     },
     {
       "id": "serangan-island",
