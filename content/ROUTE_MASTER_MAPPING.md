@@ -6,9 +6,9 @@ Cakupan: semua route discovery/region/service/duration yang didefinisikan di ren
 
 ## Kesimpulan
 
-- Renderer memiliki 41 discovery route keys: 6 wilayah, 32 route tempat, 2 route durasi, dan 1 route layanan. Empat destinasi Nusa Penida kini menggunakan route artikel tersendiri.
-- Master data memiliki 87 record destinasi, tetapi 12 record yang mempunyai route eksplisit.
-- Ada halaman yang judulnya menggabungkan beberapa lokasi fisik, misalnya Menjangan + Taman Nasional Bali Barat, Amed + Jemeluk Bay, dan beberapa area gabungan lain. Kelingking, Crystal Bay, Diamond Beach, dan Atuh Beach sudah dipisah menjadi artikel individual. Ini bertentangan dengan aturan master data bahwa satu tempat fisik harus memiliki satu record kanonis.
+- Renderer memiliki 38 discovery route keys: 6 wilayah, 29 route tempat, 2 route durasi, dan 1 route layanan. Sembilan destinasi South Bali dan Nusa Penida kini menggunakan route artikel tersendiri.
+- Master data memiliki 87 record destinasi, dengan 17 record yang mempunyai route eksplisit.
+- Ada halaman yang judulnya menggabungkan beberapa lokasi fisik, misalnya Menjangan + Taman Nasional Bali Barat, Amed + Jemeluk Bay, dan beberapa area gabungan lain. Kelingking, Crystal Bay, Diamond Beach, Atuh Beach, Uluwatu Temple, Jimbaran Bay, Nusa Dua Beach, Kuta Beach, dan Sanur Beach sudah dipisah menjadi artikel individual. Ini bertentangan dengan aturan master data bahwa satu tempat fisik harus memiliki satu record kanonis.
 - Aktivitas seperti rafting/snorkelling dan halaman area seperti Ubud/Denpasar tidak seharusnya dipaksa menjadi record destinasi tunggal.
 - Jangan mengubah semua record menjadi `PUBLISHED` atau menambahkan tautan publik hanya karena route renderer ada. Status fakta dan kesiapan konten harus tetap terpisah.
 
@@ -33,9 +33,6 @@ Cakupan: semua route discovery/region/service/duration yang didefinisikan di ren
 | `place:wanagiri` | Wanagiri Twin Lakes Viewpoint | wanagiri (STRUCTURE_READY · route terisi) | Rute sudah ada; verifikasi nama viewpoint spesifik dan bedakan dari tempat sekitar. |
 | `place:menjangan` | Menjangan Island & West Bali National Park | menjangan (STRUCTURE_READY · route terisi)<br>west-bali-national-park (PLANNED) | Pulau dan taman nasional bukan satu tempat; pisahkan record dan rute. |
 | `place:gedong-kirtya` | Gedong Kirtya Library | gedong-kirtya (STRUCTURE_READY · route terisi) | Rute sudah ada; lanjutkan fact-check dan review konten. |
-| `place:uluwatu` | Uluwatu Temple & Coastal Cliffs | uluwatu-temple (PLANNED) | Kandidat satu-ke-satu; tambahkan rute master setelah review konten. |
-| `place:jimbaran` | Jimbaran Coast | jimbaran-bay (PLANNED) | Kandidat satu-ke-satu; tambahkan rute master setelah review konten. |
-| `place:nusa-dua` | Nusa Dua Beaches & Water Activities | nusa-dua-beach (PLANNED) | Kandidat satu-ke-satu; tambahkan rute master setelah review konten. |
 | `place:denpasar` | Denpasar City Sights | — | Halaman area/kota, bukan satu destinasi fisik; klasifikasikan sebagai halaman area atau buat record kanonis yang tepat. |
 | `place:ubud` | Ubud & Surrounding Villages | ubud-monkey-forest (PLANNED)<br>ubud-palace (PLANNED)<br>campuhan-ridge (PLANNED)<br>tegalalang-terrace (PLANNED) | Gabungan area dan beberapa tempat; pisahkan artikel destinasi individual. |
 | `place:rafting` | River Rafting in Bali | — | Aktivitas, bukan destinasi; pindahkan ke model/kategori aktivitas. |
@@ -68,6 +65,18 @@ Cakupan: semua route discovery/region/service/duration yang didefinisikan di ren
 | `nusa-penida-atuh-beach` | `atuh-beach` | `?page=blog-read&item=nusa-penida-atuh-beach` | PUBLISHED — sumber Indonesia Travel dan panduan keselamatan Polri |
 
 Kartu wilayah Nusa dan pencarian global sekarang membuka artikel individual tersebut, bukan halaman gabungan. Foto masing-masing artikel memiliki kredit dan lisensi di halaman Photo Credits.
+
+## Artikel destinasi South Bali yang sudah dipisah
+
+| Artikel ID | Destinasi master | Route master | Status |
+|---|---|---|---|
+| `south-bali-uluwatu-temple` | `uluwatu-temple` | `?page=blog-read&item=south-bali-uluwatu-temple` | PUBLISHED — Indonesia Travel |
+| `south-bali-jimbaran-bay` | `jimbaran-bay` | `?page=blog-read&item=south-bali-jimbaran-bay` | PUBLISHED — Indonesia Travel |
+| `south-bali-nusa-dua-beach` | `nusa-dua-beach` | `?page=blog-read&item=south-bali-nusa-dua-beach` | PUBLISHED — Indonesia Travel |
+| `south-bali-kuta-beach` | `kuta-beach` | `?page=blog-read&item=south-bali-kuta-beach` | PUBLISHED — Indonesia Travel |
+| `south-bali-sanur-beach` | `sanur-beach` | `?page=blog-read&item=south-bali-sanur-beach` | PUBLISHED — Indonesia Travel |
+
+Kartu wilayah South Bali dan pencarian global/cepat sekarang membuka artikel individual tersebut. Foto tiap artikel memiliki kredit dan tautan lisensi di halaman Photo Credits.
 
 ## Urutan pembenahan yang disarankan
 
