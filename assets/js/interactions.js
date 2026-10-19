@@ -735,10 +735,10 @@
                 {terms:['ubud'],key:'place:ubud'},{terms:['rafting','white water'],key:'place:rafting'},{terms:['rice terrace','rice terraces'],key:'place:rice-terraces'},
                 {terms:['amed','jemeluk'],key:'place:amed'},{terms:['tulamben','usat liberty'],key:'place:tulamben'},{terms:['tirta gangga'],key:'place:tirta-gangga'},{terms:['taman ujung'],key:'place:taman-ujung'},{terms:['lempuyang'],key:'place:lempuyang'},{terms:['besakih'],key:'place:besakih'},{terms:['candidasa','padangbai'],key:'place:candidasa-padangbai'},{terms:['sidemen'],key:'place:sidemen'},
                 {terms:['medewi'],key:'place:medewi'},{terms:['rambut siwi'],key:'place:rambut-siwi'},{terms:['bunut bolong'],key:'place:bunut-bolong'},{terms:['perancak'],key:'place:perancak'},{terms:['gilimanuk'],key:'place:gilimanuk'},{terms:['west bali national park'],key:'place:west-bali-national-park'},
-                {terms:['kelingking','crystal bay'],key:'place:kelingking-crystal-bay'},{terms:['diamond beach','atuh beach'],key:'place:diamond-atuh'},{terms:['nusa lembongan','mangrove'],key:'place:nusa-lembongan'},{terms:['nusa ceningan','yellow bridge'],key:'place:nusa-ceningan'}
+                {terms:['kelingking beach','kelingking'],articleId:'nusa-penida-kelingking-beach'},{terms:['crystal bay'],articleId:'nusa-penida-crystal-bay'},{terms:['diamond beach'],articleId:'nusa-penida-diamond-beach'},{terms:['atuh beach'],articleId:'nusa-penida-atuh-beach'},{terms:['nusa lembongan','mangrove'],key:'place:nusa-lembongan'},{terms:['nusa ceningan','yellow bridge'],key:'place:nusa-ceningan'}
             ];
-            const match = destinations.filter(item => item.terms.some(term => q.includes(term))).sort((a,b) => Number(b.key.startsWith('place:')) - Number(a.key.startsWith('place:')))[0];
-            if (match) { navigateTo('discovery', match.key); return; }
+            const match = destinations.filter(item => item.terms.some(term => q.includes(term))).sort((a,b) => Number(String(b.key || '').startsWith('place:')) - Number(String(a.key || '').startsWith('place:')))[0];
+            if (match) { if (match.articleId) navigateTo('blog-read', match.articleId); else navigateTo('discovery', match.key); return; }
             navigateTo('packages');
             setTimeout(() => {
                 const target = document.getElementById('packageSearchInput');
