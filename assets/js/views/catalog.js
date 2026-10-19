@@ -50,7 +50,7 @@
                 const isWishlist = wishlistState.some(item => item.id === pkg.id);
 
                 return `
-                    <div class="bg-white rounded-3xl overflow-hidden border border-slate-200/80 bali-shadow bali-hover flex flex-col justify-between group relative">
+                    <div class="bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-sm bali-hover flex flex-col justify-between group relative">
                         <!-- Image Container -->
                         <div class="relative h-52 overflow-hidden bg-slate-100">
                             <img src="${pkg.heroImage}" alt="${pkg.title}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
