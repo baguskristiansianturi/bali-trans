@@ -673,7 +673,7 @@
                 {title:'Jimbaran Bay',location:'South Bali · Coast, seafood',articleId:'south-bali-jimbaran-bay',terms:'jimbaran bay seafood sunset beach'},
                 {title:'Nusa Dua Beach',location:'South Bali · Beach, water activities',articleId:'south-bali-nusa-dua-beach',terms:'nusa dua beach snorkeling water activities'},
                 {title:'Kuta Beach',location:'South Bali · Surf, sunset',articleId:'south-bali-kuta-beach',terms:'kuta beach surf sunset'},
-                {title:'Sanur Beach',location:'South Bali · Sunrise, coastal walk',articleId:'south-bali-sanur-beach',terms:'sanur beach sunrise coastal walk cycling'}
+                {title:'Sanur Beach',location:'South Bali · Sunrise, coastal walk',articleId:'south-bali-sanur-beach',terms:'sanur beach sunrise coastal walk cycling'},
                 {title:'Denpasar City Sights',location:'South Bali · City, culture',key:'place:denpasar',terms:'denpasar city'},
                 {title:'Ubud & Surrounding Villages',location:'Central Bali · Culture, nature',key:'place:ubud',terms:'ubud villages art'},
                 {title:'River Rafting',location:'Central Bali · Outdoor activity',key:'place:rafting',terms:'rafting river adventure'},
