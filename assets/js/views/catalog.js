@@ -53,7 +53,7 @@ function renderPackagesCatalogView() {
                 const isWishlist = wishlistState.some(item => item.id === pkg.id);
 
                 return `
-                    <div class="bg-white rounded-3xl overflow-hidden border border-slate-200/80 klook-shadow klook-hover flex flex-col justify-between group relative">
+                    <div class="bg-white rounded-3xl overflow-hidden border border-slate-200/80 bali-shadow bali-hover flex flex-col justify-between group relative">
                         <!-- Image Container -->
                         <div class="relative h-52 overflow-hidden bg-slate-100">
                             <img src="${pkg.heroImage}" alt="${pkg.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
@@ -76,13 +76,13 @@ function renderPackagesCatalogView() {
                         <div class="p-5 flex-1 flex flex-col justify-between">
                             <div>
                                 <span class="text-[10px] font-extrabold uppercase tracking-widest text-slate-400 block mb-1">
-                                    <i class="fas fa-location-dot text-klook-orange"></i> ${pkg.location}
+                                    <i class="fas fa-location-dot text-bali-orange"></i> ${pkg.location}
                                 </span>
-                                <h3 onclick="navigateTo('detail', '${pkg.id}')" class="font-extrabold text-slate-900 text-sm leading-snug line-clamp-2 hover:text-klook-orange cursor-pointer transition mb-3">
+                                <h3 onclick="navigateTo('detail', '${pkg.id}')" class="font-extrabold text-slate-900 text-sm leading-snug line-clamp-2 hover:text-bali-orange cursor-pointer transition mb-3">
                                     ${pkg.title}
                                 </h3>
 
-                                <!-- Klook Style Tags -->
+                                <!-- bali Style Tags -->
                                 <div class="flex flex-wrap gap-1.5 mb-4">
                                     ${pkg.instantConfirmation ? `<span class="text-[10px] bg-slate-100 font-semibold text-slate-600 px-2 py-0.5 rounded">⚡ Instant Confirmation</span>` : ''}
                                     ${pkg.freeCancellation ? `<span class="text-[10px] bg-emerald-50 font-semibold text-emerald-700 px-2 py-0.5 rounded">✓ Free Cancellation</span>` : ''}
@@ -98,7 +98,7 @@ function renderPackagesCatalogView() {
                                         <span class="text-lg font-black text-slate-900">${formattedPrice}</span>
                                     </div>
                                 </div>
-                                <button onclick="navigateTo('detail', '${pkg.id}')" class="bg-orange-50 group-hover:bg-klook-orange group-hover:text-white text-klook-orange font-bold text-xs px-4 py-2.5 rounded-xl transition">
+                                <button onclick="navigateTo('detail', '${pkg.id}')" class="bg-orange-50 group-hover:bg-bali-orange group-hover:text-white text-bali-orange font-bold text-xs px-4 py-2.5 rounded-xl transition">
                                     View Options
                                 </button>
                             </div>
