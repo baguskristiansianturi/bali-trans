@@ -259,7 +259,7 @@
                     break;
                 case 'place':
                     if (params === 'region-directory') container.innerHTML = renderRegionDirectory();
-                    else if (params === 'bali-utara') container.innerHTML = renderNorthBaliHub();
+                    else if (params === 'bali-utara') container.innerHTML = renderDiscoveryView('region:north');
                     else if (params === 'bali-barat') container.innerHTML = renderDiscoveryView('region:west');
                     else if (['bali-selatan','bali-tengah','bali-timur'].includes(params)) container.innerHTML = renderDiscoveryView('region:' + ({'bali-selatan':'south','bali-tengah':'central','bali-timur':'east'}[params]));
                     else if (BALI_REGION_GROUPS.some(function(group) { return group.key === params; })) container.innerHTML = renderDiscoveryView('region:' + params);
