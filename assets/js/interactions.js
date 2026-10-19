@@ -762,10 +762,14 @@
             const cartTotal = cartState.reduce((sum, i) => sum + (i.unitPriceIDR * i.quantity), 0);
             const curr = CURRENCY_RATES[currentCurrency];
 
-            document.getElementById('cartCountBadge').innerText = cartCount;
-            document.getElementById('mobileCartBadge').innerText = cartCount;
-            document.getElementById('cartHeaderSubtotal').innerText = curr.format(cartTotal);
-            document.getElementById('wishlistCountBadge').innerText = wishlistState.length;
+            const cartCountBadge = document.getElementById('cartCountBadge');
+            const mobileCartBadge = document.getElementById('mobileCartBadge');
+            const cartHeaderSubtotal = document.getElementById('cartHeaderSubtotal');
+            const wishlistCountBadge = document.getElementById('wishlistCountBadge');
+            if (cartCountBadge) cartCountBadge.innerText = cartCount;
+            if (mobileCartBadge) mobileCartBadge.innerText = cartCount;
+            if (cartHeaderSubtotal) cartHeaderSubtotal.innerText = curr.format(cartTotal);
+            if (wishlistCountBadge) wishlistCountBadge.innerText = wishlistState.length;
         }
 
         function showToast(msg) {
