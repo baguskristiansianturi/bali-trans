@@ -99,8 +99,20 @@ button:disabled{opacity:.5;cursor:not-allowed}
     </section>
     <section class="panel" id="step2" hidden aria-labelledby="progress2">
       <div class="grid">
-        <div class="field"><label for="name">Full name *</label><input id="name" required autocomplete="name" placeholder="Name of lead passenger"></div>
-        <div class="field"><label for="phone">WhatsApp number *</label><input id="phone" type="tel" required autocomplete="tel" placeholder="+62..."></div>
+        <div class="field full"><span class="field-label">Who is this booking for?</span>
+          <div class="payment-list">
+            <label class="payment-option"><input type="radio" name="bookingFor" value="self" checked><span class="payment-copy"><span class="payment-name">For myself</span><span class="payment-desc">The person booking is also the passenger.</span></span></label>
+            <label class="payment-option"><input type="radio" name="bookingFor" value="someone"><span class="payment-copy"><span class="payment-name">For someone else</span><span class="payment-desc">Enter the guest's details as well as your own contact details.</span></span></label>
+          </div>
+        </div>
+        <div class="field"><label for="name">Booker's full name *</label><input id="name" required autocomplete="name" placeholder="Your full name"></div>
+        <div class="field"><label for="phone">Booker's WhatsApp number *</label><input id="phone" type="tel" required autocomplete="tel" placeholder="+62..."></div>
+        <div class="field full" id="guestFields" hidden>
+          <div class="grid">
+            <div class="field"><label for="guestName">Guest's full name *</label><input id="guestName" autocomplete="name" placeholder="Name of the passenger"></div>
+            <div class="field"><label for="guestPhone">Guest's phone number *</label><input id="guestPhone" type="tel" autocomplete="tel" placeholder="+62..."></div>
+          </div>
+        </div>
         <div class="field full"><span class="field-label">Payment method *</span>
           <div class="payment-list">
             <label class="payment-option"><input type="radio" name="payment" value="Pay at pickup" checked><span class="payment-icon">PAY LATER</span><span class="payment-copy"><span class="payment-name">Pay on pickup day</span><span class="payment-desc">Pay directly on the day of pickup.</span></span></label>
@@ -144,6 +156,7 @@ $('price').textContent=money(quote.total);
 $('priceNote').textContent='Route estimate for '+z[0]+(night?' · includes late-night pickup adjustment':'')+(up?' · includes vehicle selection':'')+'. Final fare and any stop charge are confirmed by the team.';
 }
 function setStep(n){const first=n===1;$('step1').hidden=!first;$('step2').hidden=first;$('progress1').classList.toggle('active',first);$('progress2').classList.toggle('active',!first);$('progress1').classList.toggle('done',!first);$('step1Status').textContent='';$('step2Status').textContent='';window.scrollTo({top:0,behavior:'smooth'})}
+function syncBookingFor(){const other=document.querySelector('input[name="bookingFor"]:checked').value==='someone';$('guestFields').hidden=!other;$('guestName').required=other;$('guestPhone').required=other}
 function valid(ids){for(const id of ids){const el=$(id);if(!el.checkValidity()){el.reportValidity();el.focus();return false}}return true}
 const step1Fields=['direction','terminal','date','time','passengers','address'];
 ['direction','terminal','date','time','passengers','address'].forEach(id=>$(id).addEventListener('input',()=>{sync();recalc()}));
@@ -151,18 +164,22 @@ document.querySelectorAll('input[name="vehicle"]').forEach(el=>el.addEventListen
 $('stopover').addEventListener('change',()=>{$('stopoverField').hidden=!$('stopover').checked;$('stopoverDetails').required=$('stopover').checked});
 $('nextButton').addEventListener('click',()=>{sync();recalc();if(!valid(step1Fields))return;if($('flight').required&&!valid(['flight']))return;if($('stopover').checked&&!valid(['stopoverDetails']))return;if(!quote){$('step1Status').textContent='Please enter a supported destination area so the estimated fare can be calculated.';return}setStep(2)});
 $('backButton').addEventListener('click',()=>setStep(1));
+document.querySelectorAll('input[name="bookingFor"]').forEach(el=>el.addEventListener('change',syncBookingFor));
 $('checkoutForm').addEventListener('submit',e=>{
 e.preventDefault();$('step2Status').textContent='';
+syncBookingFor();
 if(!valid(['name','phone']))return;
+const bookingFor=document.querySelector('input[name="bookingFor"]:checked').value;
+if(bookingFor==='someone'&&!valid(['guestName','guestPhone']))return;
 if(!$('terms').checked){$('terms').reportValidity();$('step2Status').textContent='Please accept the Terms & Conditions before continuing.';return}
 recalc();
 if(!quote){setStep(1);$('step1Status').textContent='Please check the destination so the fare can be calculated.';return}
 const pickup=$('direction').value==='jemput';
 const payment=document.querySelector('input[name="payment"]:checked').value;
-const lines=['Hello Bali Trans, I would like to request an airport transfer booking.','Lead passenger: '+$('name').value,'WhatsApp: '+$('phone').value,'Trip: '+(pickup?'Airport to hotel':'Hotel to airport'),'Terminal: '+$('terminal').value,'Date: '+$('date').value,'Time: '+$('time').value,pickup?'Flight number: '+$('flight').value:'','Address: '+$('address').value,'Passengers: '+$('passengers').value,'Vehicle: '+vehicleNames[chosenVehicle()],'Estimated fare: '+money(quote.total),'Area: '+quote.zone,'Additional stop: '+($('stopover').checked?$('stopoverDetails').value+' (additional charge to be confirmed)':'None'),'Payment preference: '+payment,payment==='Pay at pickup'?'Customer plans to pay on the day of pickup.':'Online payment is under maintenance; please confirm payment arrangements via WhatsApp.',$('notes').value?'Special request: '+$('notes').value:'','Terms & Conditions accepted: Yes'].filter(Boolean);
+const lines=['Hello Bali Trans, I would like to request an airport transfer booking.','Booking for: '+(bookingFor==='someone'?'Someone else':'Myself'),'Booker name: '+$('name').value,'Booker WhatsApp: '+$('phone').value,bookingFor==='someone'?'Guest name: '+$('guestName').value:'',bookingFor==='someone'?'Guest phone: '+$('guestPhone').value:'','Trip: '+(pickup?'Airport to hotel':'Hotel to airport'),'Terminal: '+$('terminal').value,'Date: '+$('date').value,'Time: '+$('time').value,pickup?'Flight number: '+$('flight').value:'','Address: '+$('address').value,'Passengers: '+$('passengers').value,'Vehicle: '+vehicleNames[chosenVehicle()],'Estimated fare: '+money(quote.total),'Area: '+quote.zone,'Additional stop: '+($('stopover').checked?$('stopoverDetails').value+' (additional charge to be confirmed)':'None'),'Payment preference: '+payment,payment==='Pay at pickup'?'Customer plans to pay on the day of pickup.':'Online payment is under maintenance; please confirm payment arrangements via WhatsApp.',$('notes').value?'Special request: '+$('notes').value:'','Terms & Conditions accepted: Yes'].filter(Boolean);
 window.location.href='https://wa.me/628218187917?text='+encodeURIComponent(lines.join('\n'));
 });
-sync();recalc();
+sync();syncBookingFor();recalc();
 })();
 </script>
 </body>
