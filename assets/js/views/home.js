@@ -38,39 +38,47 @@ function renderHomeView() {
                     </div>
                 </section>
 
-                <section id="homeTransportServices" class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 sm:py-10">
-                    <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
-                        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                            <div>
-                                <p class="text-xs font-extrabold uppercase tracking-[.16em] text-[#4267A9]">Our Transport Service</p>
-                                <h2 class="mt-1 text-xl font-black tracking-tight text-slate-900 sm:text-2xl">Choose your transport service</h2>
-                            </div>
-                            <a href="./transport-service.html" class="inline-flex min-h-10 items-center gap-2 self-start rounded-lg px-3 py-2 text-sm font-extrabold text-[#4267A9] transition hover:bg-blue-50 sm:self-auto">View all services <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                        <div class="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-4">
-                            <a href="./bali-airport-transfer.html" class="group flex min-w-0 items-start gap-3 rounded-xl border border-slate-200 bg-slate-50 p-3 transition hover:border-[#4267A9]/40 hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-[#4267A9]">
-                                <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white text-[#4267A9] shadow-sm"><i class="fas fa-plane-arrival"></i></span>
-                                <span class="min-w-0"><span class="block text-sm font-extrabold text-slate-900">Airport Transfer</span><span class="mt-1 block text-xs leading-5 text-slate-600">Pickup and drop-off at Bali Airport</span></span>
-                            </a>
-                            <a href="./bali-port-transfer.html" class="group flex min-w-0 items-start gap-3 rounded-xl border border-slate-200 bg-slate-50 p-3 transition hover:border-[#4267A9]/40 hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-[#4267A9]">
-                                <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white text-[#4267A9] shadow-sm"><i class="fas fa-ship"></i></span>
-                                <span class="min-w-0"><span class="block text-sm font-extrabold text-slate-900">Port Transfer</span><span class="mt-1 block text-xs leading-5 text-slate-600">Rides to and from Bali harbours</span></span>
-                            </a>
-                            <a href="./bali-intercity-transfer.html" class="group flex min-w-0 items-start gap-3 rounded-xl border border-slate-200 bg-slate-50 p-3 transition hover:border-[#4267A9]/40 hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-[#4267A9]">
-                                <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white text-[#4267A9] shadow-sm"><i class="fas fa-route"></i></span>
-                                <span class="min-w-0"><span class="block text-sm font-extrabold text-slate-900">Intercity Transfer</span><span class="mt-1 block text-xs leading-5 text-slate-600">Travel between towns and stays</span></span>
-                            </a>
-                            <a href="./bali-private-day-tour.html" class="group flex min-w-0 items-start gap-3 rounded-xl border border-slate-200 bg-slate-50 p-3 transition hover:border-[#4267A9]/40 hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-[#4267A9]">
-                                <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white text-[#4267A9] shadow-sm"><i class="fas fa-map-marked-alt"></i></span>
-                                <span class="min-w-0"><span class="block text-sm font-extrabold text-slate-900">Private Day Tour</span><span class="mt-1 block text-xs leading-5 text-slate-600">Explore Bali with a private driver</span></span>
-                            </a>
+                <section class="relative z-10 mx-auto -mt-5 max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-2 gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-lg sm:grid-cols-4 sm:gap-4 sm:p-5">
+                        <a href="./bali-airport-transfer.html" class="flex items-center gap-3 rounded-xl p-1 transition hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-teal-500"><span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-teal-700"><i class="fas fa-plane-arrival"></i></span><span><strong class="block text-sm text-slate-900">Airport Transfer</strong><small class="text-xs text-slate-500">Airport pickup & drop-off</small></span></a>
+                        <a href="./bali-port-transfer.html" class="flex items-center gap-3 rounded-xl p-1 transition hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-teal-500"><span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-sky-50 text-sky-700"><i class="fas fa-ship"></i></span><span><strong class="block text-sm text-slate-900">Port Transfer</strong><small class="text-xs text-slate-500">Harbour connections</small></span></a>
+                        <a href="./bali-intercity-transfer.html" class="flex items-center gap-3 rounded-xl p-1 transition hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-teal-500"><span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-50 text-amber-700"><i class="fas fa-route"></i></span><span><strong class="block text-sm text-slate-900">Intercity Transfer</strong><small class="text-xs text-slate-500">Between towns and stays</small></span></a>
+                        <a href="./bali-private-day-tour.html" class="flex items-center gap-3 rounded-xl p-1 transition hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-teal-500"><span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-violet-50 text-violet-700"><i class="fas fa-map-marked-alt"></i></span><span><strong class="block text-sm text-slate-900">Private Day Tour</strong><small class="text-xs text-slate-500">Explore Bali your way</small></span></a>
+                    </div>
+                </section>
+
+                <section class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 sm:py-16">
+                    <div class="mb-6 flex items-end justify-between gap-4"><div><p class="text-xs font-extrabold uppercase tracking-[.16em] text-teal-700">Explore by region</p><h2 class="mt-2 text-2xl font-black tracking-tight text-slate-900 sm:text-3xl">Explore places you’ll love in Bali</h2><p class="mt-2 max-w-2xl text-sm leading-6 text-slate-600">From coastal escapes to cultural landmarks and green highlands, find places and experiences for your Bali trip.</p></div></div>
+                    <div class="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 lg:grid-cols-3">
+                        ${regions.map(region => `<button type="button" onclick="navigateTo('discovery','${region.key}')" class="group w-[78vw] max-w-[320px] shrink-0 snap-start overflow-hidden rounded-2xl border border-slate-200 bg-white text-left shadow-sm transition hover:-translate-y-1 hover:shadow-lg sm:w-auto sm:max-w-none">
+                            <div class="relative h-40 overflow-hidden"><img src="${region.image}" alt="${region.title}" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-105"><span class="absolute bottom-3 left-3 rounded-full bg-slate-950/75 px-3 py-1 text-[11px] font-bold text-white">${region.places}</span></div>
+                            <div class="p-4"><h3 class="text-lg font-extrabold text-slate-900">${region.title}</h3><p class="mt-1 text-sm text-slate-600">${region.sub}</p><div class="mt-3 flex flex-wrap gap-2"><span class="inline-flex items-center rounded-full bg-teal-50 px-2.5 py-1 text-xs font-bold text-teal-800">${region.destinationCount} destinations</span><span class="inline-flex items-center rounded-full bg-slate-100 px-2.5 py-1 text-xs font-bold text-slate-700">${region.activityCount} activity types</span></div><span class="mt-4 inline-flex items-center gap-2 text-xs font-extrabold text-teal-700">Explore region <i class="fas fa-arrow-right"></i></span></div>
+                        </button>`).join('')}
+                    </div>
+                </section>
+
+                <section class="border-y border-slate-200 bg-slate-50 py-12 sm:py-14">
+                    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                        <div class="mb-6"><p class="text-xs font-extrabold uppercase tracking-[.16em] text-teal-700">Browse by interest</p><h2 class="mt-2 text-2xl font-black text-slate-900 sm:text-3xl">What would you like to do?</h2></div>
+                        <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                            ${activities.map(activity => `<button type="button" onclick="quickFilterSearch('${activity.key}')" class="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5 text-left transition hover:border-teal-300 hover:shadow-md"><span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-lg text-teal-700"><i class="fas ${activity.icon}"></i></span><span><strong class="block text-sm font-extrabold text-slate-900">${activity.title}</strong><span class="mt-1 block text-xs leading-5 text-slate-600">${activity.desc}</span><span class="mt-3 block text-xs font-extrabold text-teal-700">Explore ideas →</span></span></button>`).join('')}
                         </div>
                     </div>
                 </section>
 
                 <section class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 sm:py-16">
-                    <div class="mb-7 flex items-end justify-between gap-4"><div><p class="text-xs font-extrabold uppercase tracking-[.16em] text-teal-700">Popular activities</p><h2 class="mt-2 text-2xl font-black text-slate-900 sm:text-3xl">Popular experiences to explore in Bali</h2><p class="mt-2 text-sm text-slate-600">Browse trip ideas and confirm prices, routes and availability with our team.</p></div><button type="button" onclick="navigateTo('packages')" class="shrink-0 rounded-full border border-slate-300 bg-white px-4 py-2.5 text-xs font-extrabold text-slate-800 hover:border-teal-500">All activities <i class="fas fa-arrow-right ml-1"></i></button></div>
+                    <div class="mb-7 flex items-end justify-between gap-4"><div><p class="text-xs font-extrabold uppercase tracking-[.16em] text-teal-700">Trip ideas</p><h2 class="mt-2 text-2xl font-black text-slate-900 sm:text-3xl">Experiences to start planning with</h2><p class="mt-2 text-sm text-slate-600">Review the available details and confirm prices, routes and availability with the team.</p></div><button type="button" onclick="navigateTo('packages')" class="shrink-0 rounded-full border border-slate-300 bg-white px-4 py-2.5 text-xs font-extrabold text-slate-800 hover:border-teal-500">All activities <i class="fas fa-arrow-right ml-1"></i></button></div>
                     <div id="homeFeaturedGrid" class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">${renderPackageCards(BALI_PACKAGES.slice(0,3))}</div>
+                </section>
+
+                <section class="bg-white py-12 sm:py-14">
+                    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                        <div class="mb-7"><p class="text-xs font-extrabold uppercase tracking-[.16em] text-teal-700">Travel notes</p><h2 class="mt-2 text-2xl font-black text-slate-900 sm:text-3xl">Useful guides before you go</h2></div>
+                        <div class="grid grid-cols-1 gap-5 sm:grid-cols-3">
+                            ${guides.map(guide => `<article class="overflow-hidden rounded-2xl border border-slate-200 bg-white"><img src="${guide.image}" alt="" loading="lazy" class="h-44 w-full object-cover"><div class="p-4"><p class="text-[11px] font-bold uppercase tracking-wide text-teal-700">${guide.category || 'Travel guide'}</p><h3 class="mt-2 text-base font-extrabold leading-snug text-slate-900">${guide.title}</h3><p class="mt-2 text-sm leading-6 text-slate-600">${guide.snippet || ''}</p><button type="button" onclick="navigateTo('blog-read','${guide.id}')" class="mt-4 text-xs font-extrabold text-teal-700 hover:text-teal-900">Read guide <i class="fas fa-arrow-right ml-1"></i></button></div></article>`).join('')}
+                        </div>
+                        <div class="mt-6 text-center"><button type="button" onclick="navigateTo('blog')" class="rounded-full border border-slate-300 px-5 py-3 text-xs font-extrabold text-slate-800 hover:border-teal-500">View all travel guides</button></div>
+                    </div>
                 </section>
 
                 <section class="mx-auto max-w-7xl px-4 pb-14 sm:px-6 lg:px-8">
