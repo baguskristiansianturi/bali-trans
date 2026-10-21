@@ -47,6 +47,36 @@ function renderHomeView() {
                     </div>
                 </section>
 
+                <section id="homeTransportServices" class="border-y border-slate-200 bg-white py-12 sm:py-16">
+                    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                        <div class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+                            <div class="max-w-2xl">
+                                <p class="text-xs font-extrabold uppercase tracking-[.16em] text-[#4267A9]">Private transport in Bali</p>
+                                <h2 class="mt-2 text-2xl font-black tracking-tight text-slate-900 sm:text-3xl">Need a ride for your Bali trip?</h2>
+                                <p class="mt-3 text-sm leading-6 text-slate-600 sm:text-base">Choose the journey you need. From airport pickup to travel between towns, each service has its own details and a direct way to request a quote.</p>
+                            </div>
+                            <a href="./transport-service.html" class="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 self-start rounded-xl bg-[#4267A9] px-5 py-3 text-sm font-extrabold text-white transition hover:bg-[#35568F] md:self-auto">View all transport services <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                        <div class="mt-7 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                            <a href="./bali-airport-transfer.html" class="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 transition hover:-translate-y-1 hover:border-[#4267A9]/40 hover:bg-white hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-[#4267A9]">
+                                <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=900&q=80" alt="Airport terminal for arrival and departure transfers" loading="lazy" class="h-36 w-full object-cover transition duration-300 group-hover:scale-[1.02]">
+                                <div class="flex flex-1 flex-col p-4"><span class="text-[11px] font-extrabold uppercase tracking-wide text-[#4267A9]">Airport pickup</span><h3 class="mt-2 text-base font-extrabold text-slate-900">Bali Airport Transfer</h3><p class="mt-2 flex-1 text-sm leading-6 text-slate-600">From Ngurah Rai Airport to your hotel, villa or address — and back.</p><span class="mt-4 inline-flex items-center gap-2 text-sm font-extrabold text-[#4267A9]">Explore service <i class="fas fa-arrow-right transition group-hover:translate-x-1"></i></span></div>
+                            </a>
+                            <a href="./bali-port-transfer.html" class="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 transition hover:-translate-y-1 hover:border-[#4267A9]/40 hover:bg-white hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-[#4267A9]">
+                                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=900&q=80" alt="Harbour and boat for Bali port transfers" loading="lazy" class="h-36 w-full object-cover transition duration-300 group-hover:scale-[1.02]">
+                                <div class="flex flex-1 flex-col p-4"><span class="text-[11px] font-extrabold uppercase tracking-wide text-[#4267A9]">Harbour connection</span><h3 class="mt-2 text-base font-extrabold text-slate-900">Bali Port Transfer</h3><p class="mt-2 flex-1 text-sm leading-6 text-slate-600">Private transfers for Padangbai, Benoa, Matahari Terbit and Gilimanuk.</p><span class="mt-4 inline-flex items-center gap-2 text-sm font-extrabold text-[#4267A9]">Explore service <i class="fas fa-arrow-right transition group-hover:translate-x-1"></i></span></div>
+                            </a>
+                            <a href="./bali-intercity-transfer.html" class="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 transition hover:-translate-y-1 hover:border-[#4267A9]/40 hover:bg-white hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-[#4267A9]">
+                                <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=900&q=80" alt="Scenic road and town landscape in Bali" loading="lazy" class="h-36 w-full object-cover transition duration-300 group-hover:scale-[1.02]"><div class="flex flex-1 flex-col p-4"><span class="text-[11px] font-extrabold uppercase tracking-wide text-[#4267A9]">Point-to-point</span><h3 class="mt-2 text-base font-extrabold text-slate-900">Bali Intercity Transfer</h3><p class="mt-2 flex-1 text-sm leading-6 text-slate-600">Go between towns, hotels and villas without booking a full-day tour.</p><span class="mt-4 inline-flex items-center gap-2 text-sm font-extrabold text-[#4267A9]">Explore service <i class="fas fa-arrow-right transition group-hover:translate-x-1"></i></span></div>
+                            </a>
+                            <a href="./bali-private-day-tour.html" class="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 transition hover:-translate-y-1 hover:border-[#4267A9]/40 hover:bg-white hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-[#4267A9]">
+                                <img src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&fit=crop&w=900&q=80" alt="Bali landscape for a private day tour" loading="lazy" class="h-36 w-full object-cover transition duration-300 group-hover:scale-[1.02]"><div class="flex flex-1 flex-col p-4"><span class="text-[11px] font-extrabold uppercase tracking-wide text-[#4267A9]">Flexible day out</span><h3 class="mt-2 text-base font-extrabold text-slate-900">Bali Private Day Tour</h3><p class="mt-2 flex-1 text-sm leading-6 text-slate-600">Plan a private day with your preferred places, stops and schedule.</p><span class="mt-4 inline-flex items-center gap-2 text-sm font-extrabold text-[#4267A9]">Explore service <i class="fas fa-arrow-right transition group-hover:translate-x-1"></i></span></div>
+                            </a>
+                        </div>
+                        <p class="mt-5 text-xs leading-5 text-slate-500"><i class="fas fa-info-circle mr-1"></i> Private rides are arranged for your group. Availability and final pricing are confirmed after you share your trip details.</p>
+                    </div>
+                </section>
+
                 <section class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 sm:py-16">
                     <div class="mb-6 flex items-end justify-between gap-4"><div><p class="text-xs font-extrabold uppercase tracking-[.16em] text-teal-700">Explore by region</p><h2 class="mt-2 text-2xl font-black tracking-tight text-slate-900 sm:text-3xl">Explore places you’ll love in Bali</h2><p class="mt-2 max-w-2xl text-sm leading-6 text-slate-600">From coastal escapes to cultural landmarks and green highlands, find places and experiences for your Bali trip.</p></div></div>
                     <div class="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 lg:grid-cols-3">
