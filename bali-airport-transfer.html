@@ -37,7 +37,18 @@ main .service-shortcut-arrow{font-size:10px;color:#7890b6;flex:0 0 auto}
 main .heroInner{padding:66px 0 78px;max-width:740px}
 main .hero h1{font-size:clamp(36px,6vw,58px);line-height:1.06;letter-spacing:-1.8px;margin:18px 0}
 main .hero p{font-size:17px;line-height:1.75;max-width:660px;margin:0}
-@media(max-width:700px){main .heroInner{padding:48px 0 62px}main .hero h1{font-size:clamp(34px,9vw,42px);line-height:1.08;letter-spacing:-1px;margin:16px 0 12px}main .hero p{font-size:15px;line-height:1.7;margin:0 0 22px}}</style><script src="https://cdn.tailwindcss.com"></script><script src="./assets/js/tailwind.config.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="./assets/css/styles.css"></head><body class="pb-16 md:pb-0">    <!-- TOP ANNOUNCEMENT BAR -->
+@media(max-width:700px){main .heroInner{padding:48px 0 62px}main .hero h1{font-size:clamp(34px,9vw,42px);line-height:1.08;letter-spacing:-1px;margin:16px 0 12px}main .hero p{font-size:15px;line-height:1.7;margin:0 0 22px}}/* Reference design tokens and button/link treatment — copied from transport-service.html */
+:root{--blue:#4267a9;--navy:#172b4d;--muted:#64748b}
+body{color:var(--navy);background:#f3f6fc}
+a{color:inherit;text-decoration:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--blue);color:white;border:0;border-radius:13px;padding:13px 18px;font-weight:800;cursor:pointer;min-height:48px;text-decoration:none}
+.btn:hover{background:#35568f}
+.btnLight{background:#ffffffed;color:#243e6c}
+.btnLight:hover{background:white}
+.hero{color:white}
+.hero p{color:#f0f4fb}
+.eyebrow{color:#e3ebf9}
+</style><script src="https://cdn.tailwindcss.com"></script><script src="./assets/js/tailwind.config.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="./assets/css/styles.css"></head><body class="pb-16 md:pb-0">    <!-- TOP ANNOUNCEMENT BAR -->
     <div class="bg-[#EEF3FB] text-[#172B4D] border-b border-[#DCE5F2] text-xs sm:text-sm py-1.5 px-4 text-center font-medium flex justify-between items-center md:px-12">
         <div class="hidden md:flex items-center space-x-2">
             <span class="bg-white/20 px-2 py-0.5 rounded text-xs uppercase tracking-wider font-bold">Explore Bali</span>
