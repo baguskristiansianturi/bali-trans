@@ -63,6 +63,8 @@
 @media(max-width:760px){.ws-hero-inner{padding:48px 0 62px}.ws-hero p{font-size:15px}.ws-panel{padding:17px;border-radius:19px}.ws-section{padding:40px 0}.ws-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.ws-card img{height:150px}.ws-card-body{padding:13px;gap:8px}.ws-card h3{font-size:15px}.ws-card .ws-btn{font-size:12px;padding:10px}.ws-trust-grid,.ws-steps,.ws-faq{grid-template-columns:1fr}.ws-bottom-cta{align-items:flex-start;flex-direction:column}.ws-booking{grid-template-columns:1fr}.ws-field-full{grid-column:auto}}
 @media(max-width:390px){.ws-cards{grid-template-columns:1fr}.ws-card img{height:190px}.ws-card-body{padding:14px}}
 @media(prefers-reduced-motion:reduce){.ws-card{transition:none!important}}
+
+.ws-card-price{background:#f0f5ff;border:1px solid #d9e5f6;border-radius:12px;padding:10px 12px;margin-top:4px}.ws-card-price-label{display:block}.ws-card-price-value{display:block}.ws-foreign-note,.ws-price-foreign{display:flex;flex-direction:column;gap:3px;background:#f7f8fa;border:1px solid #e3e7ee;border-radius:12px;padding:10px 12px;margin:7px 0 12px!important;color:#52647e!important;font-size:12px;line-height:1.45}.ws-foreign-note strong,.ws-price-foreign strong{font-size:16px;color:#172b4d}.ws-price-foreign small{font-size:11px;color:#63748d}.price{background:#eef4ff;border:1px solid #d9e5f6;border-radius:14px;padding:13px 15px;margin:8px 0 10px!important;color:#172b4d}.ws-gallery{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:12px;margin:18px 0 28px}.ws-gallery figure{margin:0;overflow:hidden;border-radius:16px;border:1px solid #dfe7f2;background:#fff}.ws-gallery img{display:block;width:100%;height:220px;object-fit:cover}.ws-gallery figcaption{padding:9px 11px;font-size:12px;color:#52647e}.ws-related{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}.ws-related-card{display:grid;grid-template-columns:108px minmax(0,1fr);gap:12px;align-items:center;padding:10px;border:1px solid #dfe7f2;border-radius:15px;background:#fff}.ws-related-card img{width:108px;height:94px;object-fit:cover;border-radius:10px}.ws-related-card h3{font-size:14px;line-height:1.35;margin:0 0 5px;color:#172b4d}.ws-related-card a{font-size:12px;font-weight:800;color:#36578f}.ws-other-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.ws-other-tags a{border:1px solid #d8e2f0;border-radius:999px;padding:9px 12px;background:#f7f9fc;color:#36578f;font-size:12px;font-weight:800}@media(max-width:760px){.ws-gallery{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:5px}.ws-gallery figure{flex:0 0 78%;scroll-snap-align:start}.ws-gallery img{height:190px}.ws-related{grid-template-columns:repeat(2,minmax(0,1fr))}.ws-related-card{display:block;padding:9px}.ws-related-card img{width:100%;height:115px;margin-bottom:8px}.ws-related-card h3{font-size:13px}.ws-related-card a{display:inline-block;margin-top:5px}}@media(max-width:390px){.ws-related{grid-template-columns:1fr}.ws-related-card{display:grid;grid-template-columns:94px minmax(0,1fr)}.ws-related-card img{width:94px;height:86px;margin:0}}
 </style></head><body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col pb-16 md:pb-0"><!-- TOP ANNOUNCEMENT BAR -->
     <div class="bg-[#EEF3FB] text-[#172B4D] border-b border-[#DCE5F2] text-xs sm:text-sm py-1.5 px-4 text-center font-medium flex justify-between items-center md:px-12">
         <div class="hidden md:flex items-center space-x-2">
@@ -165,11 +167,11 @@
  </div>
  <div class="ws-cards" id="watersportCards">
   <article class="ws-card" data-category="adrenalin">
-   <img src="https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&w=900&q=80" alt="Pengunjung menikmati aktivitas jet ski di laut Bali" loading="lazy">
+   <img src="https://cdn.getyourguide.com/image/format%3Dauto%2Cfit%3Dcrop%2Cgravity%3Dcenter%2Cquality%3D60%2Cwidth%3D400%2Cheight%3D265%2Cdpr%3D2/tour_img/f92b1eb2aa70f339f58e7c3ae81ebf4d260d9b9b58ff9140d7a685287380957a.jpg" alt="Pengunjung melihat penyu melalui panel transparan pada perahu wisata" loading="lazy">
    <div class="ws-card-body">
     <span class="ws-tag">Adrenalin</span>
-    <h3>Jet Ski Tanjung Benoa</h3>
-    <p class="ws-muted text-sm">Rasakan pengalaman melaju di atas air dengan pengarahan sesuai ketentuan aktivitas.</p>
+    <h3>Glass Bottom Boat + Pulau Penyu</h3>
+    <p class="ws-muted text-sm">Perjalanan perahu berdasar transparan dan kunjungan Pulau Penyu sesuai tiket.</p>
     <div class="ws-card-price"><span class="ws-card-price-label">Harga tiket</span><span class="ws-card-price-value">Segera tersedia</span></div>
     <a class="ws-btn" href="./watersport-jet-ski.html">Lihat detail <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
    </div>
@@ -201,7 +203,7 @@
     <h3>Flying Fish dan Donut Boat</h3>
     <p class="ws-muted text-sm">Pilihan permainan air untuk menambah keseruan liburan di pantai.</p>
     <div class="ws-card-price"><span class="ws-card-price-label">Harga tiket</span><span class="ws-card-price-value">Segera tersedia</span></div>
-    <a class="ws-btn" href="./watersport-flying-fish-donut-boat.html">Lihat detail <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+    <a class="ws-btn" href="./watersport-flying-fish-tanjung-benoa.html">Lihat detail <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
    </div>
   </article>
   <article class="ws-card" data-category="bawah-laut">
@@ -211,7 +213,7 @@
     <h3>Sea Walker dan Snorkeling</h3>
     <p class="ws-muted text-sm">Jelajahi kehidupan bawah laut dengan pilihan pengalaman sesuai persyaratan peserta.</p>
     <div class="ws-card-price"><span class="ws-card-price-label">Harga tiket</span><span class="ws-card-price-value">Segera tersedia</span></div>
-    <a class="ws-btn" href="./watersport-sea-walker-snorkeling.html">Lihat detail <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+    <a class="ws-btn" href="./watersport-sea-walker-tanjung-benoa.html">Lihat detail <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
    </div>
   </article>
   <article class="ws-card" data-category="wisata-laut">
@@ -258,7 +260,7 @@
  <p id="wsEmpty" class="hidden mt-6 rounded-xl border border-slate-200 bg-white p-5 text-sm text-slate-500">Belum ada aktivitas pada kategori ini.</p>
  <p class="ws-note mt-4">Pilihan di atas merupakan kategori aktivitas. Harga, jadwal, varian tiket, dan ketersediaan ditampilkan setelah produk terverifikasi dan dapat dipesan.</p>
 </div></section>
-<section class="ws-section pt-0" id="standar-mitra"><div class="ws-wrap">
+<section class="ws-section pt-0" id="galeri"><div class="ws-wrap"><span class="ws-tag">Galeri foto</span><h2 class="mt-3">Lihat suasana watersport Tanjung Benoa</h2><p class="ws-muted max-w-2xl">Foto aktivitas laut dan pengalaman bawah air membantu Anda membandingkan pilihan sebelum memesan.</p><div class="ws-gallery"><figure><img src="https://www.jtb.co.jp/smartphone/kaigai_opt/img/front/srh/200004072_base_14542929989130.jpg" alt="Peserta memakai pelampung saat menaiki banana boat di laut tropis" loading="lazy"><figcaption>Banana Boat · aktivitas bersama</figcaption></figure><figure><img src="https://cdn.getyourguide.com/img/tour/1dc2d777020d814ac9a947e69744698b8c310304ae51132677d6cf6eac9f46b9.jpg/98.jpg" alt="Peserta Sea Walker melihat ikan tropis di bawah laut Bali" loading="lazy"><figcaption>Sea Walker · pengalaman bawah laut</figcaption></figure><figure><img src="https://excursionmania.com/cdn-cgi/image/quality%3D75%2Cformat%3Dwebp%2Cw%3Dauto%2Ch%3Dauto%2Cfit%3Dscale-down%2Ctrim%3Dborder/https%3A/excursionmania.com/supplier/uploads/excursions/excursions/ex-2666/exciting-parasailing-jet-ski-b17386131421.jpg" alt="Parasailing di atas perairan Tanjung Benoa" loading="lazy"><figcaption>Parasailing · pemandangan pesisir</figcaption></figure></div></div></section>\n<section class="ws-section pt-0" id="standar-mitra"><div class="ws-wrap">
  <span class="ws-tag">Layanan yang dipilih dengan cermat</span><h2 class="mt-3">Liburan nyaman dimulai dari pilihan yang tepat</h2>
  <p class="ws-muted max-w-3xl">Kami bermitra dengan penyelenggara watersport terpercaya dan profesional di Tanjung Benoa. Kami memperhatikan kualitas layanan, kenyamanan area menunggu bagi pendamping yang tidak ikut bermain, serta kejelasan standar keselamatan dan perlindungan asuransi sebelum memilih layanan untuk ditawarkan.</p>
  <div class="ws-trust-grid">
@@ -287,7 +289,7 @@
   <details><summary>Apakah aktivitas aman untuk semua orang?</summary><p>Setiap aktivitas dapat memiliki batasan usia, kondisi kesehatan, atau persyaratan peserta. Baca ketentuan tiket dan ikuti instruksi petugas.</p></details>
  </div>
 </div></section>
-<section class="ws-section pt-0"><div class="ws-wrap"><div class="ws-bottom-cta">
+<section class="ws-section pt-0" id="petualangan-lainnya"><div class="ws-wrap"><span class="ws-tag">Lanjutkan eksplorasi</span><h2 class="mt-3">Petualangan Bali lainnya</h2><p class="ws-muted max-w-2xl">Lihat pilihan watersport lain atau jelajahi tur dan pengalaman luar ruang di Bali.</p><div class="ws-related"><article class="ws-related-card"><img src="https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW%2BQmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF%2BVkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk%3D/8059095816824/Diving-at-Tanjung-Benoa-Beach-by-Suci-Tiara-Wisata-963dfb5f-62a0-4986-a37b-672a13ff6573.jpeg?_src=imagekit&tr=q-60%2Cc-at_max%2Cw-1280%2Ch-720" alt="Pemandangan bawah laut untuk aktivitas wisata bahari" loading="lazy"><div><h3>Wisata bawah laut</h3><a href="#aktivitas">Lihat snorkeling & diving →</a></div></article><article class="ws-related-card"><img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1000&q=85" alt="Pemandangan perairan tropis Bali" loading="lazy"><div><h3>Private day tour Bali</h3><a href="./bali-private-day-tour.html">Jelajahi tur Bali →</a></div></article></div><div class="ws-other-tags" aria-label="Pilihan petualangan Bali"><a href="./bali-private-day-tour.html">ATV Ubud</a><a href="./bali-private-day-tour.html">Rafting Bali</a><a href="./bali-private-day-tour.html">Zipline Bali</a><a href="./bali-private-day-tour.html">Private tour</a><a href="#aktivitas">Semua watersport</a></div></div></section>\n<section class="ws-section pt-0"><div class="ws-wrap"><div class="ws-bottom-cta">
  <div><h2>Siap memilih watersport?</h2><p class="ws-muted m-0">Bandingkan aktivitas dan periksa informasi tiket sebelum menentukan jadwal.</p></div><a class="ws-btn" href="#aktivitas">Lihat aktivitas <i class="fas fa-arrow-up"></i></a>
 </div></div></section>
 </main>
