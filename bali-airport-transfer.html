@@ -241,6 +241,10 @@ function toggleMobileMenu(event) {
   if (icon) icon.className=opening?'fas fa-times text-lg':'fas fa-bars text-lg';
 }
 function closeMobileMenu() { document.getElementById('mobileMenuPanel')?.classList.add('hidden'); document.getElementById('mobileMenuButton')?.setAttribute('aria-expanded','false'); }
+function showHelpMenu() { navigateTo('help'); }
+function showRegisterPrompt() { navigateTo('contact'); }
+function toggleWishlistModal() { navigateTo('cart'); }
+function showRecentlyViewed() { navigateTo('home'); }
 function changeLocale(locale) {
   const map={id:['🇮🇩','IDR'],ms:['🇲🇾','MYR'],sg:['🇸🇬','SGD'],en:['🇺🇸','USD'],ar:['🇸🇦','AED'],hi:['🇮🇳','INR']};
   const choice=map[locale]||map.id;
