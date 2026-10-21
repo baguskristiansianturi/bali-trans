@@ -3,11 +3,11 @@ tailwind.config = {
                 extend: {
                     colors: {
                         bali: {
-                            orange: '#0F9D9A',
-                            hover: '#087E8B',
-                            light: '#E8F7F6',
-                            dark: '#111827',
-                            gray: '#F5F7FA'
+                            orange: '#4267A9',
+                            hover: '#35568F',
+                            light: '#EEF3FB',
+                            dark: '#172B4D',
+                            gray: '#F3F6FC'
                         }
                     },
                     fontFamily: {
