@@ -42,6 +42,12 @@ textarea{min-height:72px;resize:vertical}
 .payment-icon{display:grid;place-items:center;width:42px;height:29px;flex:none;border:1px solid #dfe5ec;border-radius:6px;background:#fff;color:#344054;font-size:11px;font-weight:850}
 .payment-copy{flex:1;display:grid;gap:3px}.payment-name{font-size:14px;font-weight:700}.payment-desc{font-size:12px;line-height:1.45;color:var(--muted)}
 .maintenance{display:flex;gap:9px;align-items:flex-start;padding:12px;border-radius:10px;background:#fff7e8;border:1px solid #f0dfb7;color:#76531a;font-size:12px;line-height:1.55}
+.trust-list{display:grid;gap:0;border:1px solid var(--line);border-radius:12px;background:#fff;padding:0 13px}
+.trust-item{display:flex;gap:10px;align-items:flex-start;padding:12px 0;color:#475467;font-size:12px;line-height:1.5}
+.trust-item+.trust-item{border-top:1px solid #edf0f4}
+.trust-icon{display:grid;place-items:center;flex:none;width:22px;height:22px;border-radius:50%;background:#edf5f0;color:#26734d;font-size:13px;font-weight:800}
+.trust-item>span:last-child{display:grid;gap:2px}
+.trust-item strong{font-size:13px;color:var(--ink);font-weight:750}
 .terms-box{padding:13px;border:1px solid var(--line);border-radius:11px;background:#fafbfd}
 .terms-check a{color:var(--accent);text-underline-offset:2px}
 .actions{display:flex;justify-content:space-between;gap:10px;margin-top:22px}
@@ -122,6 +128,13 @@ button:disabled{opacity:.5;cursor:not-allowed}
           </div>
         </div>
         <div class="field full"><div class="maintenance"><span aria-hidden="true">ⓘ</span><span>Online payment is temporarily under maintenance. For now, send your booking request via WhatsApp to confirm the details and arrange payment. You can pay on the day of pickup.</span></div></div>
+        <div class="field full">
+          <div class="trust-list" aria-label="Booking and payment information">
+            <div class="trust-item"><span class="trust-icon" aria-hidden="true">✓</span><span><strong>Clear payment process</strong><span>No card details are collected on this page. Online card and PayPal payments are not available until the payment gateway is restored.</span></span></div>
+            <div class="trust-item"><span class="trust-icon" aria-hidden="true">↗</span><span><strong>Booking handled by our team</strong><span>Your request and contact details are sent to Bali Trans via WhatsApp so the team can review the trip and contact you.</span></span></div>
+            <div class="trust-item"><span class="trust-icon" aria-hidden="true">✓</span><span><strong>Confirmation before travel</strong><span>Sending this request does not mean the booking is confirmed. Wait for confirmation from the Bali Trans team.</span></span></div>
+          </div>
+        </div>
         <div class="field full"><div class="terms-box"><label class="terms-check"><input id="terms" type="checkbox" required><span>I have read and agree to the <a href="./terms-and-conditions.html" target="_blank" rel="noopener">Terms &amp; Conditions</a>. *</span></label></div></div>
       </div>
       <div class="actions"><button class="btn-secondary" id="backButton" type="button">← Back</button><button class="btn-primary" id="submitButton" type="submit">Continue via WhatsApp</button></div>
