@@ -3,17 +3,17 @@
   'use strict';
   const money = n => new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(n);
   const singles = {
-    'banana-boat': {name:'Banana Boat', base:70000, unit:'orang', min:2, duration:'17 menit', activities:1, file:'watersport-banana-boat.html'},
-    'parasailing': {name:'Parasailing Adventure', base:275000, unit:'orang', min:1, duration:'1 putaran (perkiraan 8 menit di udara)', activities:1, file:'watersport-parasailing.html'},
-    'jet-ski': {name:'Jet Ski dengan instruktur', base:150000, unit:'orang', min:1, duration:'17 menit', activities:1, file:'watersport-jet-ski.html'},
-    'rolling-donut': {name:'Rolling Donut', base:90000, unit:'orang', min:2, duration:'15 menit', activities:1, file:'watersport-flying-fish-donut-boat.html'},
-    'flying-fish': {name:'Flying Fish', base:150000, unit:'orang', min:2, duration:'2 kali terbang (perkiraan 12–17 menit)', activities:1, file:'watersport-flying-fish-donut-boat.html'},
-    'seawalker': {name:'Sea Walker', base:350000, unit:'orang', min:1, duration:'30 menit', activities:1, file:'watersport-sea-walker-snorkeling.html'},
-    'scuba-diving': {name:'Scuba Diving', base:300000, unit:'orang', min:1, duration:'30 menit di bawah air', activities:1, file:'watersport-sea-walker-snorkeling.html'},
-    'snorkeling': {name:'Snorkeling', base:150000, unit:'orang', min:2, duration:'60 menit', activities:1, file:'watersport-sea-walker-snorkeling.html'},
-    'flyboard': {name:'Flyboard', base:450000, unit:'orang', min:1, duration:'15–20 menit', activities:1, file:'watersport-paket-watersport-wisata-laut.html'},
-    'wakeboard': {name:'Wakeboard', base:300000, unit:'orang', min:1, duration:'1 sesi (perkiraan 15 menit)', activities:1, file:'watersport-paket-watersport-wisata-laut.html'},
-    'glass-bottom-boat': {name:'Glass Bottom Boat + Pulau Penyu', base:500000, unit:'boat', min:1, duration:'Sekitar 60 menit; maksimal 10 orang per boat', activities:1, file:'watersport-glass-bottom-boat-pulau-penyu.html'}
+    'banana-boat': {name:'Banana Boat', base:70000, unit:'orang', min:2, duration:'17 menit', activities:1, file:'watersport-banana-boat.html', age:7, description:'Duduk bersama peserta lain di atas perahu berbentuk pisang yang ditarik speedboat. Ikuti instruksi petugas dan posisi duduk yang ditentukan.', note:'Minimal pemesanan acuan: 2 orang.'},
+    'parasailing': {name:'Parasailing Adventure', base:275000, unit:'orang', min:1, duration:'1 putaran (perkiraan 8 menit di udara)', activities:1, file:'watersport-parasailing.html', age:7, description:'Nikmati pemandangan pantai dari udara saat parasut ditarik perahu. Pelaksanaan bergantung pada angin, cuaca, dan keputusan keselamatan operator.', note:'Jika cuaca tidak mendukung, jadwal atau penggantian aktivitas harus dikonfirmasi sebelum menyetujui.'},
+    'jet-ski': {name:'Jet Ski dengan instruktur', base:150000, unit:'orang', min:1, duration:'17 menit', activities:1, file:'watersport-jet-ski.html', age:7, description:'Rasakan pengalaman mengendarai jet ski dengan pendamping instruktur. Untuk tiket acuan ini, peserta didampingi instruktur; bukan tiket berkendara mandiri.', note:'Ikuti arahan instruktur, gunakan perlengkapan keselamatan, dan konfirmasi ketentuan usia/berat sebelum memesan.'},
+    'rolling-donut': {name:'Rolling Donut', base:90000, unit:'orang', min:2, duration:'15 menit', activities:1, file:'watersport-flying-fish-donut-boat.html', age:7, description:'Duduk di atas pelampung berbentuk donat yang ditarik speedboat. Gerakan dan tingkat guncangan bergantung pada kondisi laut serta arahan operator.', note:'Minimal pemesanan acuan: 2 orang. Pastikan peserta memenuhi syarat kesehatan dan keselamatan.'},
+    'flying-fish': {name:'Flying Fish', base:150000, unit:'orang', min:2, duration:'2 kali terbang (perkiraan 12–17 menit)', activities:1, file:'watersport-flying-fish-donut-boat.html', age:7, description:'Berbaring atau berpegangan pada wahana berbentuk ikan yang ditarik speedboat sehingga dapat terangkat oleh angin. Pengalaman bergantung pada kondisi cuaca dan laut.', note:'Minimal pemesanan acuan: 2 orang. Ikuti posisi tubuh dan instruksi keselamatan dari petugas.'},
+    'seawalker': {name:'Sea Walker', base:350000, unit:'orang', min:1, duration:'30 menit', activities:1, file:'watersport-sea-walker-snorkeling.html', age:12, description:'Berjalan di bawah permukaan laut menggunakan helm khusus dan mengikuti pendampingan operator. Waktu aktivitas mengacu pada sesi berjalan di bawah air.', note:'Panduan acuan usia minimal 12 tahun; persyaratan kesehatan dan ketentuan operator wajib dikonfirmasi.'},
+    'scuba-diving': {name:'Scuba Diving', base:300000, unit:'orang', min:1, duration:'30 menit di bawah air', activities:1, file:'watersport-sea-walker-snorkeling.html', age:12, description:'Pengalaman menyelam dengan peralatan scuba dan pengarahan instruktur. Durasi acuan adalah waktu di bawah air; total waktu di lokasi dapat lebih lama.', note:'Panduan acuan usia minimal 12 tahun. Peserta harus mengikuti pemeriksaan dan instruksi operator.'},
+    'snorkeling': {name:'Snorkeling', base:150000, unit:'orang', min:2, duration:'60 menit', activities:1, file:'watersport-sea-walker-snorkeling.html', age:12, description:'Amati kehidupan laut dari permukaan menggunakan masker dan snorkel. Acuan ini tidak mencakup pendamping yang selalu berada di samping peserta saat berenang.', note:'Acuan menyebut minimal 2 orang dan usia minimal 12 tahun. Peserta harus bisa berenang; konfirmasi ketentuan operator sebelum memesan.'},
+    'flyboard': {name:'Flyboard', base:450000, unit:'orang', min:1, duration:'15–20 menit', activities:1, file:'watersport-paket-watersport-wisata-laut.html', age:12, description:'Berdiri di atas papan yang didorong tekanan air dan mendapat arahan instruktur untuk menjaga keseimbangan.', note:'Acuan usia minimal 12 tahun; ketersediaan wahana, syarat fisik, dan sesi perlu dikonfirmasi.'},
+    'wakeboard': {name:'Wakeboard', base:300000, unit:'orang', min:1, duration:'1 sesi (perkiraan 15 menit)', activities:1, file:'watersport-paket-watersport-wisata-laut.html', age:12, description:'Berdiri di atas papan sambil ditarik perahu, dengan pengarahan teknik dan keselamatan sebelum memulai.', note:'Acuan usia minimal 12 tahun; konfirmasi tingkat pengalaman dan persyaratan operator.'},
+    'glass-bottom-boat': {name:'Glass Bottom Boat + Pulau Penyu', base:500000, unit:'boat', min:1, duration:'Sekitar 60 menit; maksimal 10 orang per boat', activities:1, file:'watersport-glass-bottom-boat-pulau-penyu.html', age:0, description:'Perjalanan menggunakan perahu dengan bagian dasar transparan untuk melihat bawah laut, dilanjutkan kunjungan ke Pulau Penyu.', note:'Harga acuan dihitung per boat, maksimal 10 orang. Tiket masuk Pulau Penyu belum termasuk dalam harga boat acuan.'}
   };
   const packages = {
     A:{name:'Paket A · Banana Boat, Parasailing, Jet Ski',base:450000,activities:3,items:['Banana Boat','Parasailing Adventure','Jet Ski dengan instruktur']},
@@ -98,6 +98,13 @@
         const price=aside.querySelector('.price');
         if(price) price.insertAdjacentHTML('afterend','<a class="btn" style="margin:12px 0 4px" href="./watersport-checkout.html?type=single&product='+encodeURIComponent(key)+'">Pesan aktivitas ini</a>');
       }
+      const content=document.querySelector('.wrap.content');
+      if(content && !content.querySelector('[data-ws-expanded-detail]')) {
+        const section=document.createElement('section'); section.className='panel'; section.dataset.wsExpandedDetail=''; section.style.gridColumn='1 / -1';
+        const age=item.age ? 'Panduan usia acuan: minimal '+item.age+' tahun; syarat akhir dapat berbeda menurut operator.' : 'Periksa ketentuan peserta yang berlaku sebelum berangkat.';
+        section.innerHTML='<h2>Rincian '+item.name+'</h2><p>'+item.description+'</p><div class="facts"><div class="fact"><b>Durasi</b><span>'+item.duration+'</span></div><div class="fact"><b>Harga</b><span>'+money(singlePrice(item,'domestic'))+(item.unit==='boat'?'/boat':'/orang')+' untuk domestik/KITAS; '+money(singlePrice(item,'foreign'))+(item.unit==='boat'?'/boat':'/orang')+' untuk wisatawan asing.</span></div><div class="fact"><b>Persyaratan peserta</b><span>'+age+' '+item.note+'</span></div><div class="fact"><b>Sebelum aktivitas</b><span>Ikuti briefing dan gunakan perlengkapan yang diwajibkan. Harga akhir, isi tiket, jadwal, cuaca, pembatalan, dan fasilitas yang termasuk harus dikonfirmasi sebelum pembayaran.</span></div></div><p class="sub">Makan siang, dokumentasi, biaya tambahan, atau tiket masuk destinasi tidak dianggap termasuk kecuali tertulis jelas pada konfirmasi pemesanan.</p>';
+        content.appendChild(section);
+      }
     } else if (file.startsWith('watersport-paket-')) {
       const p=document.querySelector('.price');
       if(p) p.textContent='Paket mulai '+money(Math.min(...Object.values(packages).map(x=>packagePrice(x,'domestic').final)))+'/orang';
@@ -105,6 +112,13 @@
       if(aside && !aside.querySelector('[data-ws-package-cta]')) {
         const a=document.createElement('a'); a.className='btn'; a.dataset.wsPackageCta=''; a.style.margin='12px 0 4px'; a.href='./watersport-checkout.html?type=package'; a.textContent='Pilih paket dan tanggal'; p?.insertAdjacentElement('afterend',a);
         const note=document.createElement('p'); note.style.cssText='font-size:13px;line-height:1.6;color:#63748d'; note.textContent='Tersedia Paket A–H. Harga berbeda untuk wisatawan domestik/KITAS dan wisatawan asing; rincian diskon ditampilkan sebelum permintaan dikirim.'; a.insertAdjacentElement('afterend',note);
+      }
+      const content=document.querySelector('.wrap.content');
+      if(content && !content.querySelector('[data-ws-package-list]')) {
+        const section=document.createElement('section'); section.className='panel'; section.dataset.wsPackageList=''; section.style.gridColumn='1 / -1';
+        const cards=Object.entries(packages).map(([code,pkg])=>{const local=packagePrice(pkg,'domestic');const foreign=packagePrice(pkg,'foreign');return '<article style="border:1px solid #dfe7f2;border-radius:12px;padding:14px;margin-top:10px"><h3 style="font-size:16px;margin:0 0 7px">'+pkg.name+'</h3><p style="margin:0 0 8px">'+pkg.items.join(' · ')+'</p><div style="font-size:13px;line-height:1.7"><b>Domestik/KITAS: '+money(local.final)+'/orang</b><br>Wisatawan asing: '+money(foreign.final)+'/orang<br><span style="color:#18794e">Diskon paket domestik '+money(local.discount)+' · asing '+money(foreign.discount)+' per peserta</span></div><a class="btn" style="margin-top:10px" href="./watersport-checkout.html?type=package&package='+code+'">Pilih Paket '+code+'</a></article>';}).join('');
+        section.innerHTML='<h2>Pilih paket watersport</h2><p>Harga paket mengacu pada daftar harga paket yang digunakan sebagai dasar, ditambah margin per aktivitas, lalu dikurangi diskon 15% dengan batas maksimal Rp35.000 untuk domestik/KITAS dan Rp50.000 untuk wisatawan asing.</p>'+cards+'<p class="sub">Harga akhir dan ketersediaan harus dikonfirmasi sebelum pembayaran. Komponen yang termasuk mengikuti konfirmasi tiket.</p>';
+        content.appendChild(section);
       }
     }
   }
