@@ -34,6 +34,18 @@
   }
   function currentProduct() {
     const file = location.pathname.split('/').pop() || '';
+    const title = (document.querySelector('h1')?.textContent || '').toLowerCase();
+    if (title.includes('banana')) return 'banana-boat';
+    if (title.includes('jet ski') || title.includes('jetski')) return 'jet-ski';
+    if (title.includes('parasailing')) return 'parasailing';
+    if (title.includes('flying fish')) return 'flying-fish';
+    if (title.includes('rolling donut') || title.includes('donut boat')) return 'rolling-donut';
+    if (title.includes('sea walker') || title.includes('seawalker')) return 'seawalker';
+    if (title.includes('scuba')) return 'scuba-diving';
+    if (title.includes('snorkel')) return 'snorkeling';
+    if (title.includes('glass bottom') || title.includes('pulau penyu')) return 'glass-bottom-boat';
+    if (title.includes('flyboard')) return 'flyboard';
+    if (title.includes('wakeboard')) return 'wakeboard';
     return Object.keys(singles).find(k => singles[k].file === file) || null;
   }
   function setPriceText(el, text) { if (el) el.textContent = text; }
