@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,follow">
+<title>Airport Transfer Checkout | Bali Trans</title>
+<style>
+:root{color-scheme:light;--ink:#172b4d;--muted:#667085;--line:#dfe5ec;--accent:#4267a9;--bg:#f5f7fa}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg)}
+main{width:min(100%,760px);margin:0 auto;padding:clamp(12px,3vw,24px)}
+form{background:#fff;border:1px solid var(--line);border-radius:16px;padding:clamp(16px,4vw,28px);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;box-shadow:0 8px 28px rgba(23,43,77,.05)}
+.field{min-width:0;display:flex;flex-direction:column;gap:6px}.full{grid-column:1/-1}
+label{font-size:13px;font-weight:650;color:#344054}
+input,select,textarea{width:100%;min-height:44px;border:1px solid #cfd7e2;border-radius:9px;background:#fff;padding:10px 12px;font:inherit;font-size:15px;color:var(--ink);outline:none}
+input:focus,select:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(66,103,169,.13)}
+textarea{min-height:72px;resize:vertical}
+.price{font-size:24px;font-weight:750;letter-spacing:-.4px;min-height:31px}.price-wrap{background:#f7f9fc;border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.options{display:grid;gap:8px}.option{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:9px;padding:10px 12px;font-weight:500}.option input{width:17px;min-height:17px;height:17px;margin:0;flex:none}
+button{grid-column:1/-1;border:0;border-radius:10px;min-height:48px;background:var(--accent);color:#fff;font-size:15px;font-weight:700;padding:12px 16px;cursor:pointer}button:disabled{opacity:.45;cursor:not-allowed}
+[hidden]{display:none!important}
+@media(max-width:520px){main{padding:10px}form{grid-template-columns:1fr;gap:12px;padding:14px;border-radius:12px}.field,.full{grid-column:1/-1}.price{font-size:22px}}
+</style>
+</head>
+<body>
+<main>
+<form id="checkoutForm">
+<div class="field full"><label for="direction">Perjalanan *</label><select id="direction" required><option value="jemput">Dari bandara ke hotel</option><option value="antar">Dari hotel ke bandara</option></select></div>
+<div class="field"><label for="terminal">Terminal *</label><select id="terminal" required><option>Internasional</option><option>Domestik</option></select></div>
+<div class="field"><label for="date">Tanggal *</label><input id="date" type="date" required></div>
+<div class="field"><label for="time">Waktu *</label><input id="time" type="time" value="09:00" required></div>
+<div class="field"><label for="passengers">Jumlah penumpang *</label><select id="passengers" required><option value="1">1 orang</option><option value="2" selected>2 orang</option><option value="3">3 orang</option><option value="4">4 orang</option><option value="5">5 orang</option><option value="6">6 orang</option><option value="7">7 orang</option><option value="8">8 orang atau lebih</option></select></div>
+<div class="field full"><label for="address" id="addressLabel">Alamat hotel / tujuan *</label><input id="address" required autocomplete="street-address"></div>
+<div class="field full" id="flightField"><label for="flight">Nomor penerbangan *</label><input id="flight" autocomplete="off"></div>
+<div class="field full"><label for="vehicle">Kendaraan *</label><select id="vehicle" required><option value="standard">Toyota Avanza, Wuling atau sejenisnya</option><option value="innova">Toyota Innova (+Rp150.000)</option><option value="reborn">Toyota Innova Reborn (+Rp200.000)</option><option value="hiace">Toyota HiAce (+Rp350.000)</option></select></div>
+<div class="field full"><div class="price-wrap"><label for="price">Estimasi tarif</label><div class="price" id="price" aria-live="polite">—</div><input type="hidden" id="zoneName"></div></div>
+<div class="field"><label for="name">Nama lengkap *</label><input id="name" required autocomplete="name"></div>
+<div class="field"><label for="phone">Nomor WhatsApp *</label><input id="phone" type="tel" required autocomplete="tel" placeholder="+62..." ></div>
+<div class="field full"><label class="option"><input id="stopover" type="checkbox"> Tambahkan persinggahan</label><div id="stopoverField" hidden><label for="stopoverDetails">Lokasi persinggahan *</label><textarea id="stopoverDetails"></textarea></div></div>
+<div class="field full"><label for="notes">Catatan (opsional)</label><textarea id="notes"></textarea></div>
+<div class="field full"><label for="payment">Pembayaran *</label><select id="payment" required><option value="Bayar di lokasi">Bayar di lokasi</option><option value="Bayar langsung">Bayar langsung</option></select></div>
+<button id="submitButton" type="submit">Konfirmasi &amp; kirim booking</button>
+</form>
+</main>
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+const zones=[['Kuta / Tuban / Legian',['kuta','tuban','legian'],125000],['Seminyak',['seminyak'],175000],['Jimbaran / Nusa Dua',['jimbaran','nusa dua','nusadua','ungasan'],200000],['Canggu / Berawa',['canggu','berawa','pererenan'],275000],['Sanur',['sanur','renon'],225000],['Ubud',['ubud','tegallalang','tegalalang'],350000],['Lovina / North Bali',['lovina','singaraja','munduk'],650000],['Amed / East Bali',['amed','karangasem','candidasa'],550000]];
+const vehicleNames={standard:'Toyota Avanza, Wuling atau sejenisnya',innova:'Toyota Innova',reborn:'Toyota Innova Reborn',hiace:'Toyota HiAce'};
+const upgrades={standard:0,innova:150000,reborn:200000,hiace:350000};
+const money=n=>'Rp'+Math.round(n).toLocaleString('id-ID');
+const zoneFor=value=>{const a=(value||'').toLowerCase();return zones.find(z=>z[1].some(k=>a.includes(k)))};
+let quote=null,lastPassengers=2;
+const params=new URLSearchParams(location.search);
+[['destination','address'],['direction','direction'],['terminal','terminal'],['date','date'],['time','time'],['passengers','passengers'],['vehicle','vehicle']].forEach(([p,id])=>{const value=params.get(p);if(value&&$(id)&&[...$(id).options||[]].some(o=>o.value===value)||value&&$(id)&&$(id).tagName==='INPUT')$(id).value=value});
+if(!$('date').value){const today=new Date();$('date').min=today.getFullYear()+'-'+String(today.getMonth()+1).padStart(2,'0')+'-'+String(today.getDate()).padStart(2,'0')}
+function sync(){const pickup=$('direction').value==='jemput';$('flightField').hidden=!pickup;$('flight').required=pickup;$('addressLabel').textContent=pickup?'Alamat hotel / tujuan *':'Alamat jemput (hotel / vila) *'}
+function recalc(){
+const p=+$('passengers').value;let v=$('vehicle').value;
+if(p>=6){v='hiace';$('vehicle').value='hiace';$('vehicle').disabled=true}else{$('vehicle').disabled=false;if(lastPassengers>=6&&v==='hiace'){v='standard';$('vehicle').value=v}}
+lastPassengers=p;
+const z=zoneFor($('address').value),t=$('time').value||'09:00',mins=Number(t.slice(0,2))*60+Number(t.slice(3,5));
+if(!z){quote=null;$('price').textContent='—';$('zoneName').value='';$('submitButton').disabled=false;return}
+const night=$('direction').value==='jemput'?(mins>=1320?30000:mins<120?40000:mins<300?50000:0):0;
+const base=z[2]+($('direction').value==='jemput'?25000:0);
+const up=p>=6?0:(upgrades[v]||0);
+quote={zone:z[0],vehicle:v,p,total:base+night+up,night,up};
+$('price').textContent=money(quote.total);$('zoneName').value=z[0];
+}
+['direction','terminal','date','time','passengers','address','vehicle'].forEach(id=>$(id).addEventListener('input',()=>{sync();recalc()}));
+$('stopover').addEventListener('change',()=>{$('stopoverField').hidden=!$('stopover').checked;$('stopoverDetails').required=$('stopover').checked});
+$('checkoutForm').addEventListener('submit',e=>{
+e.preventDefault();if(!$('checkoutForm').reportValidity())return;
+recalc();
+const pickup=$('direction').value==='jemput';
+const lines=['Halo Bali Trans, saya ingin booking airport transfer.','Nama: '+$('name').value,'WhatsApp: '+$('phone').value,'Perjalanan: '+(pickup?'Dari bandara ke hotel':'Dari hotel ke bandara'),'Terminal: '+$('terminal').value,'Tanggal: '+$('date').value,'Waktu: '+$('time').value,pickup?'Nomor penerbangan: '+$('flight').value:'','Alamat: '+$('address').value,'Penumpang: '+$('passengers').value,'Kendaraan: '+vehicleNames[$('vehicle').value],'Estimasi tarif: '+(quote?money(quote.total):'Mohon dikonfirmasi tim'),'Area: '+(quote?quote.zone:'Perlu dikonfirmasi'),'Persinggahan: '+($('stopover').checked?$('stopoverDetails').value+' (biaya tambahan mohon dikonfirmasi)':'Tidak ada'),'Pembayaran: '+$('payment').value,$('notes').value?'Catatan: '+$('notes').value:''].filter(Boolean);
+window.location.href='https://wa.me/628218187917?text='+encodeURIComponent(lines.join('\n'));
+});
+sync();recalc();
+})();
+</script>
+</body>
+</html>
