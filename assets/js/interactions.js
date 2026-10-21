@@ -370,6 +370,11 @@
                 }
                 window.scrollTo({ top: scrollY, left: 0, behavior: 'auto' });
             }
+            // Re-translate the entire document after changing language, not just the
+            // re-rendered SPA view. This includes the shared announcement bar, desktop
+            // navbar, mobile navigation, search controls, and footer outside appContainer.
+            applyLanguageCopy(document);
+            syncLocaleSelector();
         }
         if (!window.__baliTransLocaleObserver) {
             window.__baliTransLocaleObserver = new MutationObserver(records => {
