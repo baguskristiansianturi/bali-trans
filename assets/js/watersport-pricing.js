@@ -78,6 +78,12 @@
     }
     document.querySelectorAll('#watersportCards .ws-card').forEach(card => {
       const title = (card.querySelector('h3')?.textContent || '').toLowerCase();
+      if(card.dataset.category==='paket') {
+        const label=card.querySelector('.ws-card-price-label'); const target=card.querySelector('.ws-card-price-value');
+        if(label) label.textContent='Harga paket';
+        if(target && !/^paket [a-h] ·/i.test(title)) target.textContent='Pilih paket untuk melihat harga';
+        return;
+      }
       let key = null;
       if (title.includes('banana')) key='banana-boat';
       else if (title.includes('jet ski') || title.includes('jetski')) key='jet-ski';
