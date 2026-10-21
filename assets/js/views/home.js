@@ -47,13 +47,36 @@ function renderHomeView() {
                     </div>
                 </section>
 
-                <section class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 sm:py-16">
-                    <div class="mb-6 flex items-end justify-between gap-4"><div><p class="text-xs font-extrabold uppercase tracking-[.16em] text-teal-700">Explore by region</p><h2 class="mt-2 text-2xl font-black tracking-tight text-slate-900 sm:text-3xl">Explore places you’ll love in Bali</h2><p class="mt-2 max-w-2xl text-sm leading-6 text-slate-600">From coastal escapes to cultural landmarks and green highlands, find places and experiences for your Bali trip.</p></div></div>
-                    <div class="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 lg:grid-cols-3">
-                        ${regions.map(region => `<button type="button" onclick="navigateTo('discovery','${region.key}')" class="group w-[78vw] max-w-[320px] shrink-0 snap-start overflow-hidden rounded-2xl border border-slate-200 bg-white text-left shadow-sm transition hover:-translate-y-1 hover:shadow-lg sm:w-auto sm:max-w-none">
-                            <div class="relative h-40 overflow-hidden"><img src="${region.image}" alt="${region.title}" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-105"><span class="absolute bottom-3 left-3 rounded-full bg-slate-950/75 px-3 py-1 text-[11px] font-bold text-white">${region.places}</span></div>
-                            <div class="p-4"><h3 class="text-lg font-extrabold text-slate-900">${region.title}</h3><p class="mt-1 text-sm text-slate-600">${region.sub}</p><div class="mt-3 flex flex-wrap gap-2"><span class="inline-flex items-center rounded-full bg-teal-50 px-2.5 py-1 text-xs font-bold text-teal-800">${region.destinationCount} destinations</span><span class="inline-flex items-center rounded-full bg-slate-100 px-2.5 py-1 text-xs font-bold text-slate-700">${region.activityCount} activity types</span></div><span class="mt-4 inline-flex items-center gap-2 text-xs font-extrabold text-teal-700">Explore region <i class="fas fa-arrow-right"></i></span></div>
-                        </button>`).join('')}
+                <section class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 sm:py-16" aria-labelledby="popular-activities-title">
+                    <div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+                        <div>
+                            <p class="text-xs font-extrabold uppercase tracking-[.16em] text-teal-700">Popular experiences</p>
+                            <h2 id="popular-activities-title" class="mt-2 text-2xl font-black tracking-tight text-slate-900 sm:text-3xl">Popular things to do in Bali</h2>
+                            <p class="mt-2 max-w-2xl text-sm leading-6 text-slate-600">Start with Bali’s sea experiences. Explore activities, compare ticket details and find the right fit for your trip.</p>
+                        </div>
+                    </div>
+                    <div class="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 sm:mx-0 sm:px-0" aria-label="Popular activity categories">
+                        <article class="group w-[82vw] max-w-[340px] shrink-0 snap-start overflow-hidden rounded-2xl border border-slate-200 bg-white text-left shadow-sm transition duration-200 hover:-translate-y-1 hover:border-teal-200 hover:shadow-xl sm:w-[320px]">
+                            <a href="./watersport-tanjung-benoa.html" class="block overflow-hidden bg-slate-100" aria-label="Explore watersports in Tanjung Benoa">
+                                <div class="relative aspect-[4/3] overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1530053969600-caed2596d242?auto=format&fit=crop&w=900&q=85" alt="Sea and water recreation in Bali" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-105">
+                                    <span class="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full border border-white/70 bg-white/95 px-3 py-1.5 text-[11px] font-extrabold text-slate-800 shadow-sm"><i class="fas fa-water text-teal-700" aria-hidden="true"></i> Featured category</span>
+                                </div>
+                            </a>
+                            <div class="p-4 sm:p-5">
+                                <div class="flex flex-wrap items-center gap-2">
+                                    <span class="rounded-full bg-teal-50 px-2.5 py-1 text-[11px] font-extrabold text-teal-800">Watersports</span>
+                                    <span class="rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-bold text-slate-600">Tanjung Benoa</span>
+                                </div>
+                                <h3 class="mt-3 text-lg font-extrabold leading-snug text-slate-900">Watersports in Tanjung Benoa</h3>
+                                <p class="mt-2 min-h-[4.5rem] text-sm leading-6 text-slate-600">From Banana Boat and Jet Ski to snorkeling and Sea Walker, discover 11 ways to enjoy Bali’s coastline.</p>
+                                <div class="mt-4 flex flex-wrap gap-2 border-t border-slate-100 pt-4">
+                                    <span class="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-2.5 py-2 text-xs font-semibold text-slate-600"><i class="far fa-clock text-teal-700" aria-hidden="true"></i> Multiple durations</span>
+                                    <span class="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-2.5 py-2 text-xs font-semibold text-slate-600"><i class="fas fa-ticket-alt text-teal-700" aria-hidden="true"></i> Single & combo tickets</span>
+                                </div>
+                                <a href="./watersport-tanjung-benoa.html" class="mt-4 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl bg-teal-700 px-4 py-3 text-sm font-extrabold text-white transition hover:bg-teal-800 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2">Explore watersports <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                            </div>
+                        </article>
                     </div>
                 </section>
 
