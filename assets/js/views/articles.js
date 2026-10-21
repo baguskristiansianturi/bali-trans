@@ -3,7 +3,7 @@ function renderRelatedBlogGuides(blog) {
             const related = relatedIds.map(id => BALI_BLOGS.find(item => item.id === id)).filter(Boolean);
             if (!related.length) return '';
             const escapeHtml = value => String(value || '').replace(/[&<>"]/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[character]));
-            return '<section class="mt-10" aria-labelledby="related-guides-title"><h2 id="related-guides-title" class="text-xl font-extrabold text-slate-900 mb-4">Lanjutkan menjelajahi Bali</h2><div class="grid grid-cols-1 sm:grid-cols-2 gap-3">' + related.map(item => '<a href="?page=blog-read&amp;item=' + encodeURIComponent(item.id) + '" class="group rounded-2xl border border-slate-200 bg-white p-4 hover:border-teal-300 hover:bg-teal-50/30 transition"><span class="block text-[10px] font-extrabold uppercase tracking-wider text-teal-700 mb-2">' + escapeHtml(item.category) + '</span><span class="block font-bold text-slate-900 leading-snug group-hover:text-teal-800">' + escapeHtml(item.title) + '</span><span class="mt-2 block text-xs text-slate-500">' + escapeHtml(item.readTime) + ' · Baca panduan <span aria-hidden="true">→</span></span></a>').join('') + '</div></section>';
+            return '<section class="mt-10" aria-labelledby="related-guides-title"><h2 id="related-guides-title" class="text-xl font-extrabold text-slate-900 mb-4">Lanjutkan menjelajahi Bali</h2><div class="grid grid-cols-1 sm:grid-cols-2 gap-3">' + related.map(item => '<a href="?page=blog-read&amp;item=' + encodeURIComponent(item.id) + '" class="group rounded-2xl border border-slate-200 bg-white p-4 hover:border-teal-300 hover:bg-teal-50/30 transition"><span class="block text-[10px] font-extrabold uppercase tracking-wider text-teal-700 mb-2">' + escapeHtml(item.location || item.category) + '</span><span class="block font-bold text-slate-900 leading-snug group-hover:text-teal-800">' + escapeHtml(item.title) + '</span><span class="mt-2 block text-xs text-slate-500">' + escapeHtml(item.readTime) + ' · Baca panduan <span aria-hidden="true">→</span></span></a>').join('') + '</div></section>';
         }
 
         function renderArticleSources(sources) {
@@ -28,7 +28,8 @@ function renderRelatedBlogGuides(blog) {
                                 <div class="p-6 flex-1 flex flex-col justify-between">
                                     <div>
                                         <div class="flex items-center gap-2 text-[10px] font-bold text-slate-400 mb-2">
-                                            <span class="bg-slate-100 text-slate-700 px-2 py-0.5 rounded-full">${blog.category}</span>
+                                            <span class="bg-slate-100 text-slate-700 px-2 py-0.5 rounded-full">${blog.region || blog.category}</span>
+                                            ${blog.location ? `<span class="text-slate-500">${blog.location}</span>` : ""}
                                             <span>•</span>
                                             <span>${blog.readTime}</span>
                                         </div>
@@ -61,7 +62,7 @@ function renderRelatedBlogGuides(blog) {
                     <button type="button" onclick="navigateTo('blog')" class="text-xs font-bold text-slate-500 hover:text-slate-900 mb-6 flex items-center gap-2">
                         <i class="fas fa-arrow-left"></i> Back to Travel Guides
                     </button>
-                    <span class="inline-flex bg-orange-100 text-bali-orange text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">${blog.category}</span>
+                    <div class="flex flex-wrap items-center gap-2"><span class="inline-flex bg-orange-100 text-bali-orange text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">${blog.region || blog.category}</span>${blog.location ? `<span class="text-xs font-bold text-slate-500">${blog.location}</span>` : ""}</div>
                     <h1 class="text-3xl sm:text-4xl font-black text-slate-900 mt-3 mb-4 leading-tight">${blog.title}</h1>
                     <p class="text-base sm:text-lg leading-relaxed text-slate-600 mb-5">${blog.snippet || ''}</p>
                     <div class="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs text-slate-500 mb-6 pb-6 border-b border-slate-200">
