@@ -85,6 +85,9 @@
         const label=card.querySelector('.ws-card-price-label'); const target=card.querySelector('.ws-card-price-value');
         if(label) label.textContent='Harga paket';
         if(target && !/^paket [a-h] ·/i.test(title)) target.textContent='Pilih paket untuk melihat harga';
+        let meta=card.querySelector('.ws-card-meta');
+        if(!meta){meta=document.createElement('div');meta.className='ws-card-meta';(card.querySelector('.ws-card-price')||card.querySelector('.ws-btn'))?.insertAdjacentElement('beforebegin',meta);}
+        meta.innerHTML='<span><i class="far fa-clock" aria-hidden="true"></i> Durasi mengikuti aktivitas</span><span><i class="fas fa-water" aria-hidden="true"></i> Beberapa aktivitas</span>';
         return;
       }
       let key = null;
@@ -100,16 +103,27 @@
       else if (title.includes('flyboard')) key='flyboard';
       else if (title.includes('wakeboard')) key='wakeboard';
       const target = card.querySelector('.ws-card-price-value');
+      if (key) {
+        const item = singles[key];
+        const image=card.querySelector('img');
+        if(image){image.src=imgFor(key);image.alt=item.name+' di Tanjung Benoa, Bali';image.loading='lazy';}
+        const detailLink=card.querySelector('a.ws-btn');
+        if(detailLink){detailLink.href='./'+item.file+'?product='+key;detailLink.innerHTML='Lihat detail <i class="fas fa-arrow-right" aria-hidden="true"></i>';}
+        let meta=card.querySelector('.ws-card-meta');
+        if(!meta){meta=document.createElement('div');meta.className='ws-card-meta';(card.querySelector('.ws-card-price')||detailLink)?.insertAdjacentElement('beforebegin',meta);}
+        const durationLabels={'banana-boat':'18 menit','rolling-donut':'18 menit','flying-fish':'3 kali terbang','parasailing':'±5 menit di udara','jet-ski':'15 menit','seawalker':'30 menit di bawah air','scuba-diving':'±30 menit di bawah air','snorkeling':'±60 menit','flyboard':'15–20 menit','wakeboard':'±15 menit per sesi','glass-bottom-boat':'±60 menit'};
+        const participantLabels=item.unit==='boat'?'Maks. 10 orang/boat':'Min. '+item.min+' '+(item.min===1?'peserta':'peserta');
+        meta.innerHTML='<span><i class="far fa-clock" aria-hidden="true"></i> '+(durationLabels[key]||item.duration)+'</span><span><i class="fas fa-user-friends" aria-hidden="true"></i> '+participantLabels+'</span>';
+      }
       if (key && target) {
         const item = singles[key];
         target.textContent = money(singlePrice(item,'domestic')) + (item.unit === 'boat' ? '/boat' : '/orang');
         const label = card.querySelector('.ws-card-price-label');
         if (label) label.textContent = 'Domestik · harga per ' + item.unit;
-        if (!card.querySelector('.ws-foreign-note')) {
-          const note=document.createElement('p'); note.className='ws-foreign-note'; note.style.cssText='';
-          note.className='ws-foreign-note ws-price-foreign'; note.innerHTML='<span>Wisatawan asing</span><strong>'+money(singlePrice(item,'foreign'))+(item.unit==='boat'?'/boat':'/orang')+'</strong>'; 
-          target.parentElement?.insertAdjacentElement('afterend',note);
-        }
+        let note=card.querySelector('.ws-foreign-note');
+        if (!note) { note=document.createElement('div'); note.className='ws-foreign-note ws-price-foreign'; target.parentElement?.insertAdjacentElement('afterend',note); }
+        note.className='ws-foreign-note ws-price-foreign';
+        note.innerHTML='<span>Wisatawan asing</span><strong>'+money(singlePrice(item,'foreign'))+(item.unit==='boat'?'/boat':'/orang')+'</strong>';
       } else if (title.includes('paket')) {
         const label=card.querySelector('.ws-card-price-label'); const target2=card.querySelector('.ws-card-price-value');
         if (label) label.textContent='Harga paket';
