@@ -112,6 +112,11 @@ body.booking-mode main #bookingDetails button,body.booking-mode main #paymentFor
 /* Booking form must contain the form only: no promotional copy or return-to-fare CTA. */
 body.booking-mode .booking-copy{display:none!important}
 body.booking-mode #backFare{display:none!important}
+
+/* Klook-style booking view: focus on booking fields, not a large content card. */
+body.booking-mode main #request.panel{background:transparent!important;border:0!important;box-shadow:none!important;border-radius:0!important}
+body.booking-mode #request>.pill,body.booking-mode #request>#request-title,body.booking-mode #request>p{display:none!important}
+body.booking-mode #bookingDetails .field:has(#bookingPrice){display:none!important}
 </style><script src="https://cdn.tailwindcss.com"></script><script src="./assets/js/tailwind.config.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="./assets/css/styles.css"></head><body class="pb-16 md:pb-0">    <!-- TOP ANNOUNCEMENT BAR -->
     <div id="topAnnouncement" class="bg-[#EEF3FB] text-[#172B4D] border-b border-[#DCE5F2] text-xs sm:text-sm py-1.5 px-4 text-center font-medium flex justify-between items-center md:px-12">
         <div class="hidden md:flex items-center space-x-2">
