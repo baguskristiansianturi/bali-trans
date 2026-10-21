@@ -34,6 +34,8 @@
   }
   function currentProduct() {
     const file = location.pathname.split('/').pop() || '';
+    const requested = new URLSearchParams(location.search).get('product');
+    if (requested && singles[requested]) return requested;
     const title = (document.querySelector('h1')?.textContent || '').toLowerCase();
     if (title.includes('banana')) return 'banana-boat';
     if (title.includes('jet ski') || title.includes('jetski')) return 'jet-ski';
@@ -46,10 +48,33 @@
     if (title.includes('glass bottom') || title.includes('pulau penyu')) return 'glass-bottom-boat';
     if (title.includes('flyboard')) return 'flyboard';
     if (title.includes('wakeboard')) return 'wakeboard';
+    if (file.startsWith('watersport-paket-')) return null;
     return Object.keys(singles).find(k => singles[k].file === file) || null;
   }
   function setPriceText(el, text) { if (el) el.textContent = text; }
   function initListing() {
+    const cardsRoot=document.querySelector('#watersportCards');
+    if(cardsRoot && !cardsRoot.dataset.expandedCatalog) {
+      cardsRoot.dataset.expandedCatalog='true';
+      const present=(key)=>[...cardsRoot.querySelectorAll('h3')].some(h=>{
+        const t=h.textContent.toLowerCase();
+        return key==='rolling-donut'?t.includes('donut'):key==='scuba-diving'?t.includes('scuba'):key==='flyboard'?t.includes('flyboard'):key==='wakeboard'?t.includes('wakeboard'):key==='snorkeling'?t.includes('snorkel'):key==='seawalker'?t.includes('sea walker')||t.includes('seawalker'):key==='flying-fish'?t.includes('flying fish'):key==='glass-bottom-boat'?t.includes('glass bottom'):key==='jet-ski'?t.includes('jet ski'):key==='banana-boat'?t.includes('banana'):key==='parasailing'?t.includes('parasailing'):false;
+      });
+      const extraActivities=['rolling-donut','scuba-diving','flyboard','wakeboard'];
+      const img='https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=900&q=80';
+      extraActivities.forEach(key=>{
+        const item=singles[key]; if(!item || present(key)) return;
+        const article=document.createElement('article'); article.className='ws-card'; article.dataset.category=key==='scuba-diving'?'bawah-laut':'adrenalin';
+        article.innerHTML='<img src="'+img+'" alt="'+item.name+' di Tanjung Benoa Bali" loading="lazy"><div class="ws-card-body"><span class="ws-tag">Aktivitas watersport</span><h3>'+item.name+' Tanjung Benoa</h3><p class="ws-muted text-sm">'+item.description+'</p><div class="ws-card-price"><span class="ws-card-price-label">Domestik · harga per '+item.unit+'</span><span class="ws-card-price-value">'+money(singlePrice(item,'domestic'))+(item.unit==='boat'?'/boat':'/orang')+'</span></div><p class="ws-foreign-note" style="font-size:12px;color:#63748d;margin:4px 0 12px">Wisatawan asing: '+money(singlePrice(item,'foreign'))+(item.unit==='boat'?'/boat':'/orang')+'</p><a class="ws-btn" href="./'+item.file+'?product='+key+'">Lihat detail <i class="fas fa-arrow-right" aria-hidden="true"></i></a></div>';
+        cardsRoot.appendChild(article);
+      });
+      Object.entries(packages).forEach(([code,pkg])=>{
+        const article=document.createElement('article'); article.className='ws-card'; article.dataset.category='paket';
+        const local=packagePrice(pkg,'domestic'), foreign=packagePrice(pkg,'foreign');
+        article.innerHTML='<img src="'+img+'" alt="'+pkg.name+'" loading="lazy"><div class="ws-card-body"><span class="ws-tag">Paket kombinasi</span><h3>'+pkg.name+'</h3><p class="ws-muted text-sm">'+pkg.items.join(' · ')+'.</p><div class="ws-card-price"><span class="ws-card-price-label">Domestik / orang</span><span class="ws-card-price-value">'+money(local.final)+'</span></div><p class="ws-foreign-note" style="font-size:12px;color:#63748d;margin:4px 0 12px">Wisatawan asing: '+money(foreign.final)+'/orang</p><a class="ws-btn" href="./watersport-checkout.html?type=package&package='+code+'">Pilih Paket '+code+' <i class="fas fa-arrow-right" aria-hidden="true"></i></a></div>';
+        cardsRoot.appendChild(article);
+      });
+    }
     document.querySelectorAll('#watersportCards .ws-card').forEach(card => {
       const title = (card.querySelector('h3')?.textContent || '').toLowerCase();
       let key = null;
