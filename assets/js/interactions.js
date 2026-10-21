@@ -747,7 +747,11 @@
         }
 
         function quickFilterSearch(cat) {
-            const routes = { water: 'region:nusa', temple: 'region:east', atv: 'region:central', driver: 'service:private-driver' };
+            if (cat === 'driver') {
+                window.location.href = './private-transport.html';
+                return;
+            }
+            const routes = { water: 'region:nusa', temple: 'region:east', atv: 'region:central' };
             const route = routes[cat];
             if (route) {
                 window.packageCatalogQuery = '';
