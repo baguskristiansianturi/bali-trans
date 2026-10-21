@@ -281,7 +281,7 @@ const zones=[
 ];
 const money=n=>'Rp'+Math.round(n).toLocaleString('id-ID');
 function zoneForAddress(){const address=$('route').value.toLowerCase();return zones.find(z=>z.keywords.some(k=>address.includes(k)))||null}
-function nightCharge(time){const [h,m]=time.split(':').map(Number),mins=h*60+m;if(mins>=1320)return 25000;if(mins<300)return 50000;return 0}
+function nightCharge(time){const [h,m]=time.split(':').map(Number),mins=h*60+m;if(mins>=1320||mins<60)return 25000;if(mins>=60&&mins<300)return 50000;return 0}
 function recalc(){
  const zone=zoneForAddress(),direction=$('direction').value,vehicle=$('vehicle').value,passengers=Number($('passengers').value),waiting=Number($('waiting').value),stops=Number($('stopover').value),time=$('time').value||'09:00';
  const hint=$('vehicleHint');let valid=true;
