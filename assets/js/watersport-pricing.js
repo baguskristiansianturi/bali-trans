@@ -61,7 +61,7 @@
         if(t.includes(' dan ') && key!=='glass-bottom-boat') return false;
         return key==='rolling-donut'?t.includes('rolling donut'):key==='scuba-diving'?t.includes('scuba'):key==='flyboard'?t.includes('flyboard'):key==='wakeboard'?t.includes('wakeboard'):key==='snorkeling'?t.includes('snorkel'):key==='seawalker'?t.includes('sea walker')||t.includes('seawalker'):key==='flying-fish'?t.includes('flying fish'):key==='glass-bottom-boat'?t.includes('glass bottom'):key==='jet-ski'?t.includes('jet ski'):key==='banana-boat'?t.includes('banana'):key==='parasailing'?t.includes('parasailing'):false;
       });
-      const extraActivities=['rolling-donut','scuba-diving','flyboard','wakeboard'];
+      const extraActivities=['flying-fish','rolling-donut','seawalker','snorkeling','scuba-diving','flyboard','wakeboard'];
       const img='https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=900&q=80';
       extraActivities.forEach(key=>{
         const item=singles[key]; if(!item || present(key)) return;
