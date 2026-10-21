@@ -1,5 +1,5 @@
 .locale-option{min-height:58px}
       .mobile-menu-item{display:flex;align-items:center;gap:10px;padding:13px 12px;border:1px solid #e2e8f0;border-radius:12px;color:#334155;background:#fff;text-align:left;font-size:14px;font-weight:650;min-height:48px}
-      .mobile-menu-item i{color:#0f9d9a;width:18px;text-align:center}
-      .mobile-menu-item:hover,.mobile-menu-item:focus{background:#f0fdfa;border-color:#99f6e4;outline:none}
+      .mobile-menu-item i{color:#4267a9;width:18px;text-align:center}
+      .mobile-menu-item:hover,.mobile-menu-item:focus{background:#eef3fb;border-color:#cbd8ee;outline:none}
       @media(max-width:380px){.mobile-menu-item{font-size:12px;padding:11px 9px}}
