@@ -167,8 +167,10 @@
       if(copyBtn) copyBtn.onclick=()=>navigator.clipboard?.writeText(details).then(()=>{copyBtn.textContent='Ringkasan disalin';}).catch(()=>{});
     });
     const toggle=form.elements.forSomeone;
-    const guestFields=document.querySelector('[data-guest-fields]');
-    toggle?.addEventListener('change',()=>{if(guestFields)guestFields.hidden=!toggle.checked;});
+    const guestFields=document.querySelectorAll('[data-guest-fields]');
+    const setGuestFields=()=>guestFields.forEach(el=>{el.hidden=!toggle?.checked;});
+    setGuestFields();
+    toggle?.addEventListener('change',setGuestFields);
   }
   document.addEventListener('DOMContentLoaded',()=>{initListing();initDetail();initCheckout();});
   window.BaliTransWatersport={singles,packages,singlePrice,packagePrice,money};
