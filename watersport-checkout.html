@@ -12,7 +12,7 @@ a{color:inherit}.checkout-head{width:min(100%,780px);margin:auto;padding:18px 16
 .brand{font-size:15px;font-weight:850;text-decoration:none;letter-spacing:.01em}.brand span{color:var(--accent)}
 .back{font-size:13px;text-decoration:none;font-weight:700;border:1px solid var(--line);background:white;border-radius:9px;padding:9px 12px}
 main{width:min(100%,780px);margin:auto;padding:0 12px 34px}.panel{background:white;border:1px solid var(--line);border-radius:16px;padding:clamp(16px,4vw,26px);box-shadow:0 10px 28px #172b4d0b;margin-bottom:14px}
-h1{font-size:clamp(22px,4vw,29px);letter-spacing:-.5px;margin:0 0 6px}h2{font-size:17px;margin:0 0 15px}p{color:var(--muted);line-height:1.55;font-size:14px}
+h1{font-size:clamp(22px,4vw,29px);letter-spacing:-.5px;margin:0 0 6px}h2{font-size:17px;margin:0 0 15px}.flow-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:16px 0 20px}.flow-step{border:1px solid var(--line);border-radius:10px;background:#f8fafc;padding:10px 8px;font-size:12px;font-weight:750;color:#475467}.flow-step b{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:#e7eef9;color:#294a7d;margin-right:5px}.section-heading{grid-column:1/-1;margin:7px 0 0;padding-top:14px;border-top:1px solid #eef1f5;font-size:14px;font-weight:800;color:#172b4d}.reassurance{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:14px 0 4px}.reassurance div{border:1px solid var(--line);background:#f8fafc;border-radius:10px;padding:10px;font-size:11px;line-height:1.45;color:#52647e}.reassurance strong{display:block;color:#172b4d;font-size:12px;margin-bottom:3px}p{color:var(--muted);line-height:1.55;font-size:14px}
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.field{display:flex;flex-direction:column;gap:6px;min-width:0}.full{grid-column:1/-1}
 label,.field-label{font-size:13px;font-weight:700;color:#344054}
 input,select,textarea{width:100%;min-height:45px;border:1px solid #cfd7e2;border-radius:9px;background:#fff;padding:10px 12px;font:inherit;font-size:15px;color:var(--ink)}
@@ -22,7 +22,7 @@ textarea{min-height:85px;resize:vertical}input:focus,select:focus,textarea:focus
 .primary{display:block;width:100%;min-height:48px;border:0;border-radius:10px;background:var(--accent);color:white;font-size:15px;font-weight:800;cursor:pointer;margin-top:16px}.secondary{display:inline-block;border:1px solid var(--line);background:white;padding:10px 13px;border-radius:9px;font-weight:700;font-size:13px;text-decoration:none}
 .note{font-size:12px;color:var(--muted);line-height:1.6}.result{border-color:#b7d9c7}.result pre{white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.6 inherit;color:var(--ink)}
 [hidden]{display:none!important}
-@media(max-width:560px){.grid{grid-template-columns:1fr}.full{grid-column:auto}.checkout-head{padding:14px 12px}.panel{border-radius:13px}}
+@media(max-width:560px){.grid{grid-template-columns:1fr}.full{grid-column:auto}.checkout-head{padding:14px 12px}.panel{border-radius:13px}.flow-steps{gap:5px}.flow-step{font-size:10px;padding:8px 5px}.flow-step b{display:block;margin:0 0 5px}.reassurance{grid-template-columns:1fr}}
 </style>
 <script src="./assets/js/watersport-pricing.js" defer></script>
 </head>
@@ -31,9 +31,11 @@ textarea{min-height:85px;resize:vertical}input:focus,select:focus,textarea:focus
 <main>
 <section class="panel">
 <h1>Pemesanan watersport</h1>
-<p>Pilih tiket dan isi data pemesanan. Estimasi harga ditampilkan sebelum permintaan dibuat.</p>
+<p>Pilih aktivitas, isi data, lalu periksa ringkasan sebelum mengirim permintaan.</p>
+<div class="flow-steps" aria-label="Alur pemesanan"><div class="flow-step"><b>1</b> Aktivitas & jadwal</div><div class="flow-step"><b>2</b> Data peserta</div><div class="flow-step"><b>3</b> Ringkasan</div></div>
 <form id="watersportBookingForm">
 <div class="grid">
+<div class="section-heading">1. Aktivitas & jadwal</div>
 <div class="field full"><label for="product">Aktivitas atau paket</label><select id="product" name="product" required>
 <option value="banana-boat">Banana Boat</option><option value="parasailing">Parasailing Adventure</option><option value="jet-ski">Jet Ski dengan instruktur</option><option value="rolling-donut">Rolling Donut</option><option value="flying-fish">Flying Fish</option><option value="seawalker">Sea Walker</option><option value="scuba-diving">Scuba Diving</option><option value="snorkeling">Snorkeling</option><option value="flyboard">Flyboard</option><option value="wakeboard">Wakeboard</option><option value="glass-bottom-boat">Glass Bottom Boat + Pulau Penyu (per boat)</option><option value="package">Paket watersport A–H</option>
 </select></div>
@@ -41,6 +43,7 @@ textarea{min-height:85px;resize:vertical}input:focus,select:focus,textarea:focus
 <div class="field"><label for="audience">Jenis wisatawan</label><select id="audience" name="audience" required><option value="domestic">Domestik / pemegang KITAS</option><option value="foreign">Wisatawan asing</option></select></div>
 <div class="field"><label for="activityDate">Tanggal aktivitas</label><input id="activityDate" name="activityDate" type="date" required></div>
 <div class="field"><label for="quantity" data-quantity-label>Jumlah peserta</label><input id="quantity" name="quantity" type="number" min="2" value="2" step="1" required></div>
+<div class="section-heading">2. Data pemesan dan peserta</div>
 <div class="field"><label for="buyerName">Nama pemesan</label><input id="buyerName" name="buyerName" autocomplete="name" required></div>
 <div class="field"><label for="buyerPhone">Nomor telepon pemesan</label><input id="buyerPhone" name="buyerPhone" type="tel" autocomplete="tel" placeholder="+62..." required></div>
 <div class="field full"><label class="checkrow"><input type="checkbox" name="forSomeone" value="yes"> Pemesanan untuk orang lain</label></div>
@@ -49,9 +52,10 @@ textarea{min-height:85px;resize:vertical}input:focus,select:focus,textarea:focus
 <div class="field full"><label for="notes">Catatan (opsional)</label><textarea id="notes" name="notes" placeholder="Permintaan khusus atau informasi peserta"></textarea></div>
 </div>
 <input type="hidden" name="estimatedTotal" value="0">
-<h2 style="margin-top:22px">Ringkasan harga</h2><div class="summary" id="bookingSummary" aria-live="polite"></div>
+<h2 style="margin-top:22px">3. Ringkasan pesanan</h2><div class="summary" id="bookingSummary" aria-live="polite"></div>
+<div class="reassurance" aria-label="Informasi sebelum mengirim"><div><strong>Harga jelas</strong>Estimasi total tampil sebelum dikirim.</div><div><strong>Konfirmasi jadwal</strong>Ketersediaan diperiksa sebelum pembayaran.</div><div><strong>Belum ada pembayaran</strong>Formulir ini belum mengirim data ke server.</div></div>
 <p class="note">Harga paket dihitung dari harga paket acuan ditambah margin per aktivitas, lalu mendapat diskon 15% dengan batas maksimal Rp35.000 untuk domestik/KITAS atau Rp50.000 untuk wisatawan asing. Harga merupakan estimasi; ketersediaan dan detail akhir harus dikonfirmasi sebelum pembayaran. Pengiriman formulir ini tidak memproses pembayaran.</p>
-<button class="primary" type="submit">Siapkan ringkasan pemesanan</button>
+<button class="primary" type="submit">Lanjutkan permintaan</button>
 </form>
 </section>
 <section class="panel result" id="bookingResult" hidden><h2>Ringkasan permintaan</h2><p>Periksa kembali data berikut. Salin ringkasan untuk dikirim ke kanal pemesanan resmi Bali Trans setelah tersedia.</p><pre></pre><button class="primary" type="button" id="copyBooking">Salin ringkasan</button><p class="note">Formulir ini saat ini hanya menyiapkan ringkasan di browser. Tidak ada data yang dikirim ke server atau diproses sebagai pembayaran.</p></section>
