@@ -217,6 +217,8 @@
 ,
             {
                       id: "nusa-dua-guide",
+                region: "Bali Selatan",
+                location: "Nusa Dua",
                       title: "Tempat Wisata di Nusa Dua Bali: Pantai, Water Blow, dan Aktivitas Sekitarnya",
                       category: "Nusa Dua",
                       readTime: "9 min read",
@@ -245,6 +247,8 @@
             },
             {
                       id: "water-blow-peninsula",
+                region: "Bali Selatan",
+                location: "Water Blow",
                       title: "Water Blow Nusa Dua: Panduan Berkunjung ke Peninsula Island",
                       category: "Nusa Dua",
                       readTime: "5 min read",
@@ -273,6 +277,8 @@
             },
             {
                       id: "itdc-nusa-dua-guide",
+                region: "Bali Selatan",
+                location: "ITDC Nusa Dua",
                       title: "ITDC Nusa Dua: Mengenal Kawasan Wisata dan Cara Merencanakan Kunjungan",
                       category: "Nusa Dua",
                       readTime: "5 min read",
@@ -301,6 +307,8 @@
             },
             {
                       id: "tanjung-benoa-guide",
+                region: "Bali Selatan",
+                location: "Tanjung Benoa",
                       title: "Tanjung Benoa Bali: Panduan Kawasan, Watersport, dan Persiapan Kunjungan",
                       category: "Tanjung Benoa",
                       readTime: "8 min read",
