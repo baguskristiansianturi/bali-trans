@@ -75,16 +75,6 @@ function renderHomeView() {
                     <div id="homeFeaturedGrid" class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">${renderPackageCards(BALI_PACKAGES.slice(0,3))}</div>
                 </section>
 
-                <section class="bg-white py-12 sm:py-14">
-                    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                        <div class="mb-7"><p class="text-xs font-extrabold uppercase tracking-[.16em] text-teal-700">Travel notes</p><h2 class="mt-2 text-2xl font-black text-slate-900 sm:text-3xl">Useful guides before you go</h2></div>
-                        <div class="grid grid-cols-1 gap-5 sm:grid-cols-3">
-                            ${guides.map(guide => `<article class="overflow-hidden rounded-2xl border border-slate-200 bg-white"><img src="${guide.image}" alt="" loading="lazy" class="h-44 w-full object-cover"><div class="p-4"><p class="text-[11px] font-bold uppercase tracking-wide text-teal-700">${guide.category || 'Travel guide'}</p><h3 class="mt-2 text-base font-extrabold leading-snug text-slate-900">${guide.title}</h3><p class="mt-2 text-sm leading-6 text-slate-600">${guide.snippet || ''}</p><button type="button" onclick="navigateTo('blog-read','${guide.id}')" class="mt-4 text-xs font-extrabold text-teal-700 hover:text-teal-900">Read guide <i class="fas fa-arrow-right ml-1"></i></button></div></article>`).join('')}
-                        </div>
-                        <div class="mt-6 text-center"><button type="button" onclick="navigateTo('blog')" class="rounded-full border border-slate-300 px-5 py-3 text-xs font-extrabold text-slate-800 hover:border-teal-500">View all travel guides</button></div>
-                    </div>
-                </section>
-
                 <section class="mx-auto max-w-7xl px-4 pb-14 sm:px-6 lg:px-8">
                     <div class="flex flex-col gap-4 rounded-3xl bg-slate-900 p-6 text-white sm:flex-row sm:items-center sm:justify-between sm:p-8"><div><h2 class="text-xl font-black sm:text-2xl">Planning a trip across Bali?</h2><p class="mt-2 max-w-2xl text-sm leading-6 text-slate-300">Tell us where you want to go, your dates and group size. We can help clarify the route and service details before you decide.</p></div><button type="button" onclick="navigateTo('contact')" class="inline-flex min-h-12 shrink-0 items-center justify-center gap-2 rounded-xl bg-teal-500 px-5 py-3 text-sm font-extrabold text-slate-950 hover:bg-teal-400">Ask the team <i class="fas fa-arrow-right"></i></button></div>
                 </section>
