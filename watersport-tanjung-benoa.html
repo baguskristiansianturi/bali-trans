@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bali Trans | Private Transport Bali, Airport Transfers & Tours</title>
+    <meta name="description" content="Find private transport in Bali with Bali Trans: airport transfers, port transfers, intercity rides and private day tours. Explore each service and request a quote for your trip.">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./assets/js/tailwind.config.js"></script>
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <!-- QRCode.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    
+</head>
+<style>
+:root{--ws-blue:#4267a9;--ws-navy:#172b4d;--ws-muted:#63748d;--ws-line:#dfe7f2;--ws-bg:#f3f6fc}
+.ws-wrap{width:min(1120px,calc(100% - 32px));margin-inline:auto}
+.ws-hero{color:#fff;background:linear-gradient(100deg,rgba(20,39,72,.86),rgba(55,83,133,.35)),url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1800&q=85') center 52%/cover}
+.ws-hero-inner{max-width:740px;padding:66px 0 78px}
+.ws-eyebrow{font-size:12px;letter-spacing:1.5px;font-weight:800;text-transform:uppercase;color:#e3ebf9}
+.ws-hero h1{font-size:clamp(36px,6vw,58px);line-height:1.06;letter-spacing:-1.8px;margin:18px 0}
+.ws-hero p{max-width:650px;font-size:17px;line-height:1.7;color:#f0f4fb;margin:0}
+.ws-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.ws-btn{display:inline-flex;min-height:48px;align-items:center;justify-content:center;gap:8px;padding:12px 18px;border-radius:13px;background:var(--ws-blue);color:#fff;font-weight:800;border:1px solid transparent;cursor:pointer}
+.ws-btn:hover{background:#35568f}.ws-btn-light{background:#fff;color:#243e6c}.ws-btn-light:hover{background:#edf2fa}
+.ws-panel{position:relative;margin-top:-28px;background:#fff;border:1px solid var(--ws-line);border-radius:22px;box-shadow:0 18px 55px #172b4d16;padding:22px}
+.ws-section{padding:54px 0}.ws-section h2{font-size:clamp(25px,4vw,35px);letter-spacing:-.8px;line-height:1.15;margin:0 0 10px;color:var(--ws-navy)}
+.ws-muted{color:var(--ws-muted);line-height:1.7}.ws-cats{display:flex;gap:9px;overflow-x:auto;padding:4px 1px 10px;scrollbar-width:thin;overscroll-behavior-inline:contain}
+.ws-chip{flex:0 0 auto;border:1px solid #d8e2f0;background:#fff;border-radius:999px;padding:10px 14px;font-size:13px;font-weight:750;color:#425675;cursor:pointer;white-space:nowrap}
+.ws-chip[aria-pressed="true"]{background:#eaf0fa;border-color:#9fb4d7;color:#234779}
+.ws-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:22px}
+.ws-card{background:#fff;border:1px solid var(--ws-line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.ws-card img{width:100%;height:178px;object-fit:cover;display:block;background:#e7edf5}
+.ws-card-body{padding:17px;display:flex;flex-direction:column;gap:10px;flex:1}
+.ws-card h3{font-size:18px;line-height:1.3;font-weight:800;margin:0;color:var(--ws-navy)}
+.ws-tag{display:inline-flex;align-items:center;width:max-content;max-width:100%;border-radius:999px;background:#eaf0fa;color:#36578f;padding:6px 9px;font-size:11px;font-weight:800}
+.ws-card .ws-btn{width:100%;margin-top:auto}
+.ws-detail{border-top:1px solid #e8edf5;padding-top:12px;margin-top:2px}
+.ws-detail summary{font-size:13px;font-weight:800;cursor:pointer;color:#36578f}
+.ws-detail p,.ws-detail li{font-size:13px;line-height:1.65;color:#5c6e87}
+.ws-detail ul{padding-left:18px;margin:8px 0}
+.ws-trust-grid,.ws-steps,.ws-faq{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:22px}
+.ws-info{background:#fff;border:1px solid var(--ws-line);border-radius:17px;padding:19px}
+.ws-info h3{font-weight:800;color:var(--ws-navy);margin:10px 0 6px;font-size:16px}
+.ws-icon{display:flex;width:40px;height:40px;align-items:center;justify-content:center;border-radius:12px;background:#eaf0fa;color:#36578f}
+.ws-info p{font-size:14px;line-height:1.7;color:var(--ws-muted);margin:0}
+.ws-booking{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+.ws-field label{display:block;font-size:12px;font-weight:800;color:#53657f;margin-bottom:7px}
+.ws-field select,.ws-field input{width:100%;min-height:48px;border:1px solid #d8e2f0;border-radius:12px;padding:12px;background:#fff;color:#172b4d}
+.ws-field-full{grid-column:1/-1}
+.ws-note{font-size:12px;line-height:1.6;color:#65758d}
+.ws-faq details{border:1px solid var(--ws-line);background:#fff;border-radius:15px;padding:16px}
+.ws-faq summary{font-weight:800;font-size:14px;cursor:pointer;color:var(--ws-navy)}
+.ws-faq p{font-size:13px;line-height:1.7;color:var(--ws-muted);margin:10px 0 0}
+.ws-bottom-cta{background:#eaf0fa;border:1px solid #d9e4f4;border-radius:22px;padding:26px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.ws-bottom-cta h2{font-size:clamp(23px,4vw,30px);margin:0 0 7px}
+@media(max-width:760px){.ws-hero-inner{padding:48px 0 62px}.ws-hero p{font-size:15px}.ws-panel{padding:17px;border-radius:19px}.ws-section{padding:40px 0}.ws-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.ws-card img{height:135px}.ws-card-body{padding:13px;gap:8px}.ws-card h3{font-size:15px}.ws-card .ws-btn{font-size:12px;padding:10px}.ws-trust-grid,.ws-steps,.ws-faq{grid-template-columns:1fr}.ws-bottom-cta{align-items:flex-start;flex-direction:column}.ws-booking{grid-template-columns:1fr}.ws-field-full{grid-column:auto}}
+@media(max-width:390px){.ws-cards{grid-template-columns:1fr}.ws-card{display:grid;grid-template-columns:112px minmax(0,1fr)}.ws-card img{height:100%;min-height:150px}.ws-card-body{padding:12px}.ws-card .ws-detail{grid-column:1/-1}}
+@media(prefers-reduced-motion:reduce){.ws-card{transition:none!important}}
+</style></head><body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col pb-16 md:pb-0"><!-- TOP ANNOUNCEMENT BAR -->
+    <div class="bg-[#EEF3FB] text-[#172B4D] border-b border-[#DCE5F2] text-xs sm:text-sm py-1.5 px-4 text-center font-medium flex justify-between items-center md:px-12">
+        <div class="hidden md:flex items-center space-x-2">
+            <span class="bg-white/20 px-2 py-0.5 rounded text-xs uppercase tracking-wider font-bold">Explore Bali</span>
+            <span>🌴 Discover Bali tours, island trips and private transport.</span>
+        </div>
+        <div class="w-full md:w-auto flex items-center justify-between md:justify-end space-x-4 text-xs">
+            <span id="countdownTimer" class="font-bold">Plan your Bali trip</span>
+            <div class="flex items-center space-x-3 border-l border-white/30 pl-3">
+                <span id="topLiveChatStatus" class="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-2 py-1 text-[11px] font-semibold leading-none whitespace-nowrap" role="status" aria-live="polite"><span id="topLiveChatDot" class="h-2 w-2 rounded-full bg-slate-300"></span><i class="far fa-comments"></i><span id="topLiveChatLabel">Live Chat</span><span aria-hidden="true">·</span><span id="topLiveChatState">Offline</span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- MOBILE-FIRST HEADER -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-200 shadow-sm">
+      <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between gap-2 min-h-[68px] md:min-h-[78px]">
+          <button type="button" onclick="navigateTo('home')" aria-label="Bali Trans home" class="flex items-center gap-2 min-w-0 text-left">
+            <span class="w-10 h-10 shrink-0 rounded-xl bg-gradient-to-br from-[#4267A9] to-[#172B4D] flex items-center justify-center text-white text-xl font-black shadow-md">B</span>
+            <span class="min-w-0"><span class="block text-lg sm:text-xl font-extrabold tracking-tight text-slate-900 leading-tight">Bali<span class="text-bali-orange"> Trans</span></span><span class="hidden xs:block text-[9px] sm:text-[10px] text-slate-500 font-semibold tracking-wide">TOURS · TRIPS · TRANSFER</span></span>
+          </button>
+
+          <nav class="hidden md:flex items-center gap-3 lg:gap-5 text-sm font-semibold text-slate-600" aria-label="Main navigation">
+            <button type="button" onclick="navigateTo('home')" class="hover:text-[#4267A9] transition">Home</button>
+            <button type="button" onclick="navigateTo('discovery','region:south')" class="hover:text-[#4267A9] transition">Destinations</button>
+            <button type="button" onclick="navigateTo('packages')" class="hover:text-[#4267A9] transition">Tours</button>
+            <a href="./transport-service.html" class="hover:text-[#4267A9] transition">Transport service</a>
+            <button type="button" onclick="navigateTo('blog')" class="hover:text-[#4267A9] transition">Travel guides</button>
+            <button type="button" onclick="navigateTo('about')" class="hover:text-[#4267A9] transition">About</button>
+            <button type="button" onclick="navigateTo('contact')" class="hover:text-[#4267A9] transition">Contact</button>
+          </nav>
+
+          <div class="flex items-center gap-1.5 sm:gap-2">
+            <div class="relative" id="localeControl">
+              <button type="button" onclick="toggleLocaleMenu(event)" id="localeButton" aria-label="Language and currency" aria-controls="localeMenu" aria-expanded="false" class="h-10 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center gap-2 px-3 text-sm font-bold"><span id="localeCurrentFlag" class="text-lg">🇮🇩</span><span id="localeCurrentCode">IDR</span><i class="fas fa-chevron-down text-[10px]"></i></button>
+              <div id="localeMenu" class="hidden absolute right-0 top-full mt-2 w-64 rounded-2xl border border-slate-200 bg-white p-2 shadow-xl z-[60]">
+                <button type="button" onclick="changeLocale('id')" class="locale-option w-full flex items-center gap-3 rounded-xl px-3 py-3 text-left hover:bg-slate-50"><span class="text-xl">🇮🇩</span><span class="flex-1"><span class="block text-sm font-bold text-slate-800">Indonesia</span><span class="block text-xs text-slate-500">Bahasa Indonesia · IDR</span></span><i id="localeCheckId" class="fas fa-check text-[#4267A9]"></i></button>
+                <button type="button" onclick="changeLocale('ms')" class="locale-option w-full flex items-center gap-3 rounded-xl px-3 py-3 text-left hover:bg-slate-50"><span class="text-xl">🇲🇾</span><span class="flex-1"><span class="block text-sm font-bold text-slate-800">Bahasa Melayu</span><span class="block text-xs text-slate-500">Malay · MYR (RM)</span></span><i id="localeCheckMs" class="fas fa-check text-[#4267A9] hidden"></i></button>
+                <button type="button" onclick="changeLocale('sg')" class="locale-option w-full flex items-center gap-3 rounded-xl px-3 py-3 text-left hover:bg-slate-50"><span class="text-xl">🇸🇬</span><span class="flex-1"><span class="block text-sm font-bold text-slate-800">Singlish</span><span class="block text-xs text-slate-500">Singapore English · SGD (S$)</span></span><i id="localeCheckSg" class="fas fa-check text-[#4267A9] hidden"></i></button>
+                <button type="button" onclick="changeLocale('en')" class="locale-option w-full flex items-center gap-3 rounded-xl px-3 py-3 text-left hover:bg-slate-50"><span class="text-xl">🇺🇸</span><span class="flex-1"><span class="block text-sm font-bold text-slate-800">English</span><span class="block text-xs text-slate-500">English · USD ($)</span></span><i id="localeCheckEn" class="fas fa-check text-[#4267A9] hidden"></i></button>
+                <button type="button" onclick="changeLocale('ar')" class="locale-option w-full flex items-center gap-3 rounded-xl px-3 py-3 text-left hover:bg-slate-50"><span class="text-xl">🇸🇦</span><span class="flex-1"><span class="block text-sm font-bold text-slate-800">العربية</span><span class="block text-xs text-slate-500">Arabic · AED (د.إ)</span></span><i id="localeCheckAr" class="fas fa-check text-[#4267A9] hidden"></i></button>
+                <button type="button" onclick="changeLocale('hi')" class="locale-option w-full flex items-center gap-3 rounded-xl px-3 py-3 text-left hover:bg-slate-50"><span class="text-xl">🇮🇳</span><span class="flex-1"><span class="block text-sm font-bold text-slate-800">हिन्दी</span><span class="block text-xs text-slate-500">Hindi · INR (₹)</span></span><i id="localeCheckHi" class="fas fa-check text-[#4267A9] hidden"></i></button>
+              </div>
+            </div>
+            <button type="button" onclick="toggleHeaderSearch(event)" aria-label="Cari" aria-controls="headerSearchPanel" aria-expanded="false" id="headerSearchButton" class="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-800 hover:bg-slate-100">
+              <i id="headerSearchIcon" class="fas fa-search text-lg"></i>
+            </button>
+            <button type="button" onclick="toggleMobileMenu(event)" aria-label="Buka menu" aria-controls="mobileMenuPanel" aria-expanded="false" id="mobileMenuButton" class="md:hidden w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-800 hover:bg-slate-100">
+              <i id="mobileMenuIcon" class="fas fa-bars text-lg"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="headerSearchPanel" class="hidden border-t border-slate-100 bg-white">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-3">
+          <div class="relative">
+            <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+            <input type="search" id="headerSearchInput" oninput="handleGlobalSearch(this.value)" placeholder="Cari tour, aktivitas, atau tempat..." class="w-full pl-11 pr-4 py-3 bg-slate-100 focus:bg-white rounded-xl text-sm border border-slate-200 focus:border-bali-orange focus:outline-none">
+            <div id="searchResultsDropdown" class="hidden absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-2xl border border-slate-100 p-3 z-50 max-h-80 overflow-y-auto"></div>
+          </div>
+        </div>
+      </div>
+      <div id="mobileMenuPanel" class="hidden border-t border-slate-100 bg-white shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 py-3">
+          <div class="grid grid-cols-2 gap-2">
+            <button onclick="closeMobileMenu(); showHelpMenu()" class="mobile-menu-item"><i class="far fa-circle-question"></i><span>Bantuan</span></button>
+            <button onclick="closeMobileMenu(); showRegisterPrompt()" class="mobile-menu-item"><i class="far fa-user"></i><span>Mendaftar</span></button>
+            <button onclick="closeMobileMenu(); toggleWishlistModal()" class="mobile-menu-item"><i class="far fa-heart"></i><span>Wishlist <span id="mobileWishlistCount" class="text-xs text-slate-400">(0)</span></span></button>
+            <button onclick="closeMobileMenu(); showRecentlyViewed()" class="mobile-menu-item"><i class="far fa-clock"></i><span>Baru saja dilihat</span></button>
+            <a href="./transport-service.html" class="mobile-menu-item"><i class="fas fa-car-side"></i><span>Private transport</span></a>
+            <button onclick="closeMobileMenu(); navigateTo('contact')" class="mobile-menu-item col-span-2"><i class="far fa-envelope"></i><span>Contact</span></button>
+          </div>
+          <button onclick="closeMobileMenu(); showRegisterPrompt()" class="mt-3 w-full rounded-xl bg-bali-orange px-4 py-3 text-sm font-extrabold text-white shadow-sm hover:bg-bali-hover"><i class="fas fa-user-plus mr-2"></i>Mendaftar / Buat Akun</button>
+          <p class="text-[11px] text-slate-400 text-center mt-2">Simpan aktivitas favorit dan temukan kembali rencana perjalanan Anda.</p>
+        </div>
+      </div>
+    </header>
+<main id="main-content">
+<section class="ws-hero">
+ <div class="ws-wrap ws-hero-inner">
+  <div class="ws-eyebrow">Bali Trans · Aktivitas Wisata Bali</div>
+  <h1>Watersport Tanjung Benoa Bali</h1>
+  <p>Pilih aktivitas laut dan paket watersport yang sesuai untuk liburan Anda. Informasi tiket, jadwal, dan cara menggunakan voucher dijelaskan sebelum pemesanan.</p>
+  <div class="ws-actions"><a class="ws-btn ws-btn-light" href="#aktivitas">Pilih aktivitas <i class="fas fa-arrow-right"></i></a><a class="ws-btn" href="#standar-mitra">Standar layanan kami</a></div>
+ </div>
+</section>
+<div class="ws-wrap"><section class="ws-panel" aria-label="Ringkasan layanan">
+ <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+  <div class="flex items-start gap-3"><span class="ws-icon"><i class="fas fa-ticket-alt"></i></span><div><strong class="block text-sm text-slate-800">Informasi tiket jelas</strong><span class="text-sm text-slate-500">Lihat aktivitas dan ketentuan sebelum memesan.</span></div></div>
+  <div class="flex items-start gap-3"><span class="ws-icon"><i class="fas fa-shield-alt"></i></span><div><strong class="block text-sm text-slate-800">Mitra terpilih</strong><span class="text-sm text-slate-500">Kami menilai standar layanan dan keselamatan.</span></div></div>
+  <div class="flex items-start gap-3"><span class="ws-icon"><i class="fas fa-file-invoice"></i></span><div><strong class="block text-sm text-slate-800">Voucher BDM Trans</strong><span class="text-sm text-slate-500">Ikuti jadwal dan petunjuk pada invoice/voucher Anda.</span></div></div>
+ </div>
+</section></div>
+<section class="ws-section" id="aktivitas"><div class="ws-wrap">
+ <span class="ws-tag">Jelajahi aktivitas</span><h2 class="mt-3">Pilih watersport di Tanjung Benoa</h2>
+ <p class="ws-muted max-w-2xl">Mulai dari permainan seru bersama keluarga hingga pengalaman menjelajah bawah laut. Pilih jenis aktivitas untuk menemukan pilihan yang sesuai.</p>
+ <div class="ws-cats" role="group" aria-label="Filter aktivitas watersport">
+  <button class="ws-chip" type="button" data-filter="all" aria-pressed="true">Semua aktivitas</button><button class="ws-chip" type="button" data-filter="adrenalin" aria-pressed="false">Adrenalin</button><button class="ws-chip" type="button" data-filter="keluarga" aria-pressed="false">Seru bersama</button><button class="ws-chip" type="button" data-filter="bawah-laut" aria-pressed="false">Bawah laut</button><button class="ws-chip" type="button" data-filter="wisata-laut" aria-pressed="false">Wisata laut</button><button class="ws-chip" type="button" data-filter="paket" aria-pressed="false">Paket kombinasi</button>
+ </div>
+ <div class="ws-cards" id="watersportCards">
+  <article class="ws-card" data-category="adrenalin"><img src="https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&w=900&q=80" alt="Pengunjung menikmati aktivitas jet ski di laut Bali" loading="lazy"><div class="ws-card-body"><span class="ws-tag">Adrenalin</span><h3>Jet Ski Tanjung Benoa</h3><p class="ws-muted text-sm">Rasakan pengalaman melaju di atas air dengan pengarahan sesuai ketentuan aktivitas.</p><details class="ws-detail"><summary>Detail aktivitas</summary><ul><li>Durasi dan ketentuan mengikuti tiket yang dipilih.</li><li>Ikuti arahan instruktur dan perlengkapan keselamatan.</li><li>Periksa syarat peserta sebelum memesan.</li></ul></details><button class="ws-btn" type="button" data-select="Jet Ski Tanjung Benoa">Pilih aktivitas</button></div></article>
+  <article class="ws-card" data-category="keluarga"><img src="https://images.unsplash.com/photo-1530053969600-caed2596d242?auto=format&fit=crop&w=900&q=80" alt="Aktivitas rekreasi air untuk dinikmati bersama di Bali" loading="lazy"><div class="ws-card-body"><span class="ws-tag">Seru bersama</span><h3>Banana Boat Tanjung Benoa</h3><p class="ws-muted text-sm">Permainan air bersama teman atau keluarga, mengikuti kapasitas dan aturan operator.</p><details class="ws-detail"><summary>Detail aktivitas</summary><ul><li>Jumlah peserta mengikuti ketentuan tiket.</li><li>Perlengkapan keselamatan dan pengarahan sebelum aktivitas.</li><li>Ketentuan usia dan kondisi peserta perlu diperhatikan.</li></ul></details><button class="ws-btn" type="button" data-select="Banana Boat Tanjung Benoa">Pilih aktivitas</button></div></article>
+  <article class="ws-card" data-category="adrenalin"><img src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&fit=crop&w=900&q=80" alt="Pemandangan laut dan langit cerah untuk pengalaman wisata air di Bali" loading="lazy"><div class="ws-card-body"><span class="ws-tag">Adrenalin</span><h3>Parasailing Tanjung Benoa</h3><p class="ws-muted text-sm">Nikmati pemandangan pesisir dari udara dengan pilihan yang mengikuti kondisi dan ketentuan operator.</p><details class="ws-detail"><summary>Detail aktivitas</summary><ul><li>Jenis parasailing, durasi, dan jumlah peserta harus tercantum pada tiket.</li><li>Pelaksanaan bergantung pada kondisi cuaca dan keselamatan.</li><li>Pastikan persyaratan peserta sebelum memesan.</li></ul></details><button class="ws-btn" type="button" data-select="Parasailing Tanjung Benoa">Pilih aktivitas</button></div></article>
+  <article class="ws-card" data-category="keluarga"><img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=900&q=80" alt="Permukaan laut biru di kawasan wisata pesisir Bali" loading="lazy"><div class="ws-card-body"><span class="ws-tag">Seru bersama</span><h3>Flying Fish dan Donut Boat</h3><p class="ws-muted text-sm">Pilihan permainan air untuk menambah pengalaman seru saat liburan di pantai.</p><details class="ws-detail"><summary>Detail aktivitas</summary><ul><li>Ketersediaan aktivitas dapat berbeda menurut pilihan tiket.</li><li>Periksa durasi, batas peserta, dan ketentuan keselamatan.</li><li>Pelaksanaan mengikuti kondisi laut.</li></ul></details><button class="ws-btn" type="button" data-select="Flying Fish atau Donut Boat">Pilih aktivitas</button></div></article>
+  <article class="ws-card" data-category="bawah-laut"><img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=900&q=80" alt="Pengalaman melihat kehidupan bawah laut di perairan tropis" loading="lazy"><div class="ws-card-body"><span class="ws-tag">Bawah laut</span><h3>Sea Walker dan Snorkeling</h3><p class="ws-muted text-sm">Jelajahi kehidupan bawah laut dengan pengalaman yang sesuai pilihan dan persyaratan peserta.</p><details class="ws-detail"><summary>Detail aktivitas</summary><ul><li>Metode aktivitas, durasi, dan perlengkapan mengikuti tiket.</li><li>Persyaratan kesehatan dan usia dapat berlaku.</li><li>Ikuti arahan keselamatan dari petugas.</li></ul></details><button class="ws-btn" type="button" data-select="Sea Walker atau Snorkeling">Pilih aktivitas</button></div></article>
+  <article class="ws-card" data-category="wisata-laut"><img src="https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?auto=format&fit=crop&w=900&q=80" alt="Wisata perahu di perairan tropis Bali" loading="lazy"><div class="ws-card-body"><span class="ws-tag">Wisata laut</span><h3>Glass Bottom Boat dan Pulau Penyu</h3><p class="ws-muted text-sm">Pilihan wisata laut untuk menikmati pemandangan perairan dan kunjungan sesuai paket yang tersedia.</p><details class="ws-detail"><summary>Detail aktivitas</summary><ul><li>Periksa apakah tiket mencakup perahu, kunjungan, dan biaya masuk.</li><li>Durasi dan titik keberangkatan harus sesuai voucher.</li><li>Ikuti ketentuan kunjungan yang berlaku.</li></ul></details><button class="ws-btn" type="button" data-select="Glass Bottom Boat dan Pulau Penyu">Pilih aktivitas</button></div></article>
+  <article class="ws-card" data-category="paket"><img src="https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&w=900&q=80" alt="Pilihan aktivitas watersport di laut Bali" loading="lazy"><div class="ws-card-body"><span class="ws-tag">Paket kombinasi</span><h3>Paket 2 Aktivitas Watersport</h3><p class="ws-muted text-sm">Gabungkan dua aktivitas yang tercantum dalam varian paket untuk pengalaman yang lebih praktis.</p><details class="ws-detail"><summary>Detail aktivitas</summary><ul><li>Aktivitas yang termasuk harus tertera pada tiket.</li><li>Periksa durasi, jumlah peserta, dan urutan pelaksanaan.</li><li>Harga mengikuti varian paket yang dipilih.</li></ul></details><button class="ws-btn" type="button" data-select="Paket 2 Aktivitas Watersport">Pilih paket</button></div></article>
+  <article class="ws-card" data-category="paket"><img src="https://images.unsplash.com/photo-1530053969600-caed2596d242?auto=format&fit=crop&w=900&q=80" alt="Aktivitas watersport untuk liburan bersama di Bali" loading="lazy"><div class="ws-card-body"><span class="ws-tag">Paket kombinasi</span><h3>Paket 3 Aktivitas Watersport</h3><p class="ws-muted text-sm">Bandingkan pilihan kombinasi sebelum memilih tiket dan tanggal kunjungan.</p><details class="ws-detail"><summary>Detail aktivitas</summary><ul><li>Daftar aktivitas yang termasuk ditampilkan pada varian tiket.</li><li>Ketentuan masing-masing aktivitas tetap berlaku.</li><li>Pelaksanaan dapat menyesuaikan kondisi cuaca dan keselamatan.</li></ul></details><button class="ws-btn" type="button" data-select="Paket 3 Aktivitas Watersport">Pilih paket</button></div></article>
+  <article class="ws-card" data-category="paket"><img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=900&q=80" alt="Pengalaman wisata laut dan aktivitas air di Bali" loading="lazy"><div class="ws-card-body"><span class="ws-tag">Paket kombinasi</span><h3>Paket Watersport dan Wisata Laut</h3><p class="ws-muted text-sm">Kombinasikan aktivitas air dan wisata laut sesuai isi tiket yang dipilih.</p><details class="ws-detail"><summary>Detail aktivitas</summary><ul><li>Pastikan kunjungan dan transportasi laut termasuk dalam paket.</li><li>Periksa titik pertemuan dan estimasi durasi.</li><li>Ketentuan tiket menjelaskan hal yang termasuk dan tidak termasuk.</li></ul></details><button class="ws-btn" type="button" data-select="Paket Watersport dan Wisata Laut">Pilih paket</button></div></article>
+ </div>
+ <p id="wsEmpty" class="hidden mt-6 rounded-xl border border-slate-200 bg-white p-5 text-sm text-slate-500">Belum ada aktivitas pada kategori ini.</p>
+ <p class="ws-note mt-4">Pilihan di atas merupakan kategori aktivitas. Harga, jadwal, varian tiket, dan ketersediaan ditampilkan setelah produk terverifikasi dan dapat dipesan.</p>
+</div></section>
+<section class="ws-section pt-0" id="standar-mitra"><div class="ws-wrap">
+ <span class="ws-tag">Layanan yang dipilih dengan cermat</span><h2 class="mt-3">Liburan nyaman dimulai dari pilihan yang tepat</h2>
+ <p class="ws-muted max-w-3xl">Kami bermitra dengan penyelenggara watersport terpercaya dan profesional di Tanjung Benoa. Kami memperhatikan kualitas layanan, kenyamanan area menunggu bagi pendamping yang tidak ikut bermain, serta kejelasan standar keselamatan dan perlindungan asuransi sebelum memilih layanan untuk ditawarkan.</p>
+ <div class="ws-trust-grid">
+  <article class="ws-info"><span class="ws-icon"><i class="fas fa-couch"></i></span><h3>Memperhatikan pendamping</h3><p>Kami mempertimbangkan kenyamanan area menunggu bagi keluarga atau teman yang tidak mengikuti aktivitas.</p></article>
+  <article class="ws-info"><span class="ws-icon"><i class="fas fa-shield-alt"></i></span><h3>Standar keselamatan</h3><p>Kami mengutamakan kejelasan prosedur keselamatan, perlengkapan, dan informasi persyaratan peserta.</p></article>
+  <article class="ws-info"><span class="ws-icon"><i class="fas fa-file-medical"></i></span><h3>Perlindungan yang jelas</h3><p>Informasi perlindungan atau asuransi hanya dicantumkan sesuai cakupan yang benar-benar dikonfirmasi untuk tiket terkait.</p></article>
+ </div>
+</div></section>
+<section class="ws-section pt-0"><div class="ws-wrap">
+ <h2>Bagaimana cara menggunakan tiket?</h2><p class="ws-muted max-w-2xl">Simpan invoice atau voucher BDM Trans dan ikuti informasi kunjungan yang tertera di dalamnya.</p>
+ <div class="ws-steps">
+  <article class="ws-info"><span class="ws-icon"><i class="fas fa-calendar-check"></i></span><h3>1. Pilih jadwal</h3><p>Periksa tanggal, jumlah peserta, pilihan aktivitas, dan ketentuan tiket sebelum menyelesaikan pemesanan.</p></article>
+  <article class="ws-info"><span class="ws-icon"><i class="fas fa-file-invoice"></i></span><h3>2. Simpan invoice BDM Trans</h3><p>Invoice atau voucher berisi ringkasan pesanan dan instruksi kedatangan. Pastikan nama dan jadwal sudah benar.</p></article>
+  <article class="ws-info"><span class="ws-icon"><i class="fas fa-ticket-alt"></i></span><h3>3. Tunjukkan saat tiba</h3><p>Datang sesuai jadwal dan tunjukkan invoice atau voucher berlabel BDM Trans kepada petugas di titik layanan yang tercantum.</p></article>
+ </div>
+ <p class="ws-note mt-4">Titik kedatangan, jam kunjungan, dan instruksi redeem akan tercantum pada invoice/voucher sesuai pesanan.</p>
+</div></section>
+<section class="ws-section pt-0"><div class="ws-wrap">
+ <h2>Pertanyaan umum</h2>
+ <div class="ws-faq">
+  <details><summary>Apakah harga sudah termasuk semua biaya?</summary><p>Periksa bagian termasuk dan tidak termasuk pada tiket. Biaya tambahan yang berlaku harus dijelaskan sebelum pembayaran.</p></details>
+  <details><summary>Apakah aktivitas selalu tersedia?</summary><p>Ketersediaan mengikuti tanggal, jadwal, kapasitas, dan kondisi cuaca atau laut. Pilihan yang dapat dipesan perlu dikonfirmasi sebelum transaksi.</p></details>
+  <details><summary>Bagaimana jika cuaca tidak mendukung?</summary><p>Ikuti arahan keselamatan dan kebijakan perubahan jadwal atau refund yang tercantum pada tiket Anda.</p></details>
+  <details><summary>Apakah saya perlu menghubungi operator sendiri?</summary><p>Ikuti instruksi pada invoice atau voucher BDM Trans. Jika reservasi tambahan diperlukan, petunjuknya akan disampaikan pada detail tiket.</p></details>
+  <details><summary>Di mana lokasi watersport yang dipesan?</summary><p>Titik kedatangan yang tepat akan dicantumkan pada invoice atau voucher setelah pemesanan dikonfirmasi.</p></details>
+  <details><summary>Apakah aktivitas aman untuk semua orang?</summary><p>Setiap aktivitas dapat memiliki batasan usia, kondisi kesehatan, atau persyaratan peserta. Baca ketentuan tiket dan ikuti instruksi petugas.</p></details>
+ </div>
+</div></section>
+<section class="ws-section pt-0"><div class="ws-wrap"><div class="ws-bottom-cta">
+ <div><h2>Siap memilih watersport?</h2><p class="ws-muted m-0">Bandingkan aktivitas dan periksa informasi tiket sebelum menentukan jadwal.</p></div><a class="ws-btn" href="#aktivitas">Lihat aktivitas <i class="fas fa-arrow-up"></i></a>
+</div></div></section>
+</main>
+<script>
+(function(){
+ const chips=[...document.querySelectorAll('[data-filter]')], cards=[...document.querySelectorAll('.ws-card')], empty=document.getElementById('wsEmpty'), select=document.getElementById('wsBookingActivity');
+ chips.forEach(chip=>chip.addEventListener('click',()=>{const filter=chip.dataset.filter;chips.forEach(c=>c.setAttribute('aria-pressed',String(c===chip)));let shown=0;cards.forEach(card=>{const visible=filter==='all'||card.dataset.category===filter;card.classList.toggle('hidden',!visible);if(visible)shown++});empty.classList.toggle('hidden',shown>0)}));
+ document.querySelectorAll('[data-select]').forEach(btn=>btn.addEventListener('click',()=>{const item=btn.dataset.select;if(select)select.value=item;document.getElementById('wsBooking')?.scrollIntoView({behavior:'smooth',block:'start'});}));
+})();
+</script>
+<footer class="bg-slate-950 text-slate-300 text-sm mt-16 border-t border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 md:pt-14 pb-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-9 lg:gap-10 pb-10">
+          <div class="lg:col-span-4">
+            <button type="button" onclick="navigateTo('home')" aria-label="Bali Trans home" class="flex items-center gap-3 mb-4 text-left">
+              <span class="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#4267A9] via-[#6E8EC5] to-[#172B4D] flex items-center justify-center text-white text-xl font-black shadow-lg">B</span>
+              <span class="text-xl font-extrabold tracking-tight text-white">Bali<span class="text-[#4267A9]"> Trans</span></span>
+            </button>
+            <p class="text-slate-400 text-sm leading-6 max-w-sm mb-5">Discover Bali tours, local experiences and private transport. Compare trip details and contact our team to discuss your plans before booking.</p>
+            <button type="button" onclick="navigateTo('contact')" class="inline-flex items-center gap-2 rounded-xl bg-[#4267A9] hover:bg-[#4267A9] px-4 py-3 text-sm font-extrabold text-slate-950 transition">
+              Talk to our team <i class="fas fa-arrow-right"></i>
+            </button>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-6 max-w-md">
+              <div class="rounded-xl border border-white/10 bg-white/[0.04] p-3 flex items-start gap-3">
+                <span class="w-8 h-8 shrink-0 rounded-lg bg-[#4267A9]/10 text-[#4267A9] flex items-center justify-center"><i class="fas fa-map-marked-alt"></i></span>
+                <span><strong class="block text-white text-xs mb-1">Explore Bali</strong><span class="block text-xs leading-5 text-slate-400">Tours and places worth discovering.</span></span>
+              </div>
+              <div class="rounded-xl border border-white/10 bg-white/[0.04] p-3 flex items-start gap-3">
+                <span class="w-8 h-8 shrink-0 rounded-lg bg-[#4267A9]/10 text-[#4267A9] flex items-center justify-center"><i class="fas fa-car-side"></i></span>
+                <span><strong class="block text-white text-xs mb-1">Private transport</strong><span class="block text-xs leading-5 text-slate-400">Discuss routes, pickup and timing.</span></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-8 grid grid-cols-2 sm:grid-cols-2 xl:grid-cols-4 gap-x-5 gap-y-8">
+            <div>
+              <h3 class="text-white font-extrabold mb-4 text-xs uppercase tracking-[0.14em]">Discover</h3>
+              <ul class="space-y-3.5">
+                <li><button type="button" onclick="navigateTo('packages')" class="footer-link">All tours & activities</button></li>
+                <li><button type="button" onclick="navigateTo('discovery','region:south')" class="footer-link">South Bali</button></li>
+                <li><button type="button" onclick="navigateTo('discovery','region:central')" class="footer-link">Central Bali</button></li>
+                <li><button type="button" onclick="navigateTo('discovery','region:north')" class="footer-link">North Bali</button></li>
+                <li><button type="button" onclick="navigateTo('blog')" class="footer-link">Bali travel guides</button></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="text-white font-extrabold mb-4 text-xs uppercase tracking-[0.14em]">Plan your trip</h3>
+              <ul class="space-y-3.5">
+                <li><button type="button" onclick="navigateTo('packages')" class="footer-link">Tour packages</button></li>
+                <li><button type="button" onclick="navigateTo('service-info','tours')" class="footer-link">Tours & activities</button></li>
+                <li><a href="./transport-service.html" class="footer-link">Private transport</a></li>
+                <li><a href="./bali-airport-transfer.html" class="footer-link">Airport transfers</a></li>
+                <li><button type="button" onclick="navigateTo('service-info','island-trip')" class="footer-link">Island trips</button></li>
+                <li><button type="button" onclick="navigateTo('cart')" class="footer-link">View my trip list</button></li>
+                <li><button type="button" onclick="navigateTo('contact')" class="footer-link">Ask about availability</button></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="text-white font-extrabold mb-4 text-xs uppercase tracking-[0.14em]">Help & support</h3>
+              <ul class="space-y-3.5">
+                <li><button type="button" onclick="navigateTo('help')" class="footer-link">Help centre</button></li>
+                <li><button type="button" onclick="navigateTo('help-topic','faq')" class="footer-link">FAQs</button></li>
+                <li><button type="button" onclick="navigateTo('help-topic','booking-payments')" class="footer-link">Booking & payments</button></li>
+                <li><button type="button" onclick="navigateTo('help-topic','cancellations')" class="footer-link">Changes & cancellations</button></li>
+                <li><button type="button" onclick="navigateTo('help-topic','manage-booking')" class="footer-link">Manage a booking</button></li>
+                <li><button type="button" onclick="navigateTo('contact')" class="footer-link">Contact our team</button></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="text-white font-extrabold mb-4 text-xs uppercase tracking-[0.14em]">About us</h3>
+              <ul class="space-y-3.5">
+                <li><button type="button" onclick="navigateTo('about')" class="footer-link">About Bali Trans</button></li>
+                <li><button type="button" onclick="navigateTo('partners')" class="footer-link">Local partners</button></li>
+                <li><button type="button" onclick="navigateTo('terms')" class="footer-link">Terms & conditions</button></li>
+                <li><button type="button" onclick="navigateTo('privacy')" class="footer-link">Privacy policy</button></li>
+                <li><button type="button" onclick="navigateTo('image-credits')" class="footer-link">Photo credits</button></li>
+                <li><button type="button" onclick="navigateTo('home')" class="footer-link">Back to home</button></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-2xl border border-white/10 bg-gradient-to-r from-[#EEF3FB] via-white to-[#EEF3FB] p-4 sm:p-5 mb-7 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5">
+          <span class="w-10 h-10 rounded-xl bg-[#4267A9]/10 text-[#4267A9] flex items-center justify-center text-lg shrink-0"><i class="fas fa-circle-info"></i></span>
+          <div class="flex-1">
+            <p class="text-white font-bold text-sm mb-1">Planning something special in Bali?</p>
+            <p class="text-slate-400 text-xs sm:text-sm leading-5">Tell us your destination, dates and group size. We’ll help you clarify the trip details and next steps.</p>
+          </div>
+          <button type="button" onclick="navigateTo('contact')" class="shrink-0 rounded-xl border border-[#4267A9]/30 px-4 py-2.5 text-xs font-extrabold text-[#4267A9] hover:bg-[#4267A9]/10 transition">Make an enquiry <i class="fas fa-arrow-right ml-1"></i></button>
+        </div>
+
+        <div class="border-t border-white/10 pt-5 flex flex-col md:flex-row justify-between gap-3 text-xs text-slate-500">
+          <p>© 2026 Bali Trans. Tours, experiences and private transport in Bali.</p>
+          <p class="leading-5">Trip details, prices and availability should be confirmed with our team before booking.</p>
+        </div>
+      </div>
+    </footer>
+    
+
+    <!-- MOBILE BOTTOM NAVIGATION BAR (bali MOBILE STYLE) -->
+    <div class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 z-50 py-1.5 px-6 flex justify-between items-center shadow-lg">
+        <button onclick="navigateTo('home')" class="flex flex-col items-center gap-1 text-slate-600 hover:text-bali-orange focus:text-bali-orange">
+            <i class="fas fa-compass text-lg"></i>
+            <span class="text-[10px] font-bold">Explore</span>
+        </button>
+        <button onclick="navigateTo('packages')" class="flex flex-col items-center gap-1 text-slate-600 hover:text-bali-orange focus:text-bali-orange">
+            <i class="fas fa-th-large text-lg"></i>
+            <span class="text-[10px] font-bold">Activities</span>
+        </button>
+        <button onclick="navigateTo('blog')" class="flex flex-col items-center gap-1 text-slate-600 hover:text-bali-orange focus:text-bali-orange">
+            <i class="fas fa-book-open text-lg"></i>
+            <span class="text-[10px] font-bold">Guides</span>
+        </button>
+        <button onclick="navigateTo('cart')" class="relative flex flex-col items-center gap-1 text-slate-600 hover:text-bali-orange focus:text-bali-orange">
+            <i class="fas fa-shopping-bag text-lg"></i>
+            <span id="mobileCartBadge" class="absolute -top-1 right-2 bg-bali-orange text-white text-[9px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+            <span class="text-[10px] font-bold">Cart</span>
+        </button>
+    </div>
+
+    <!-- TOAST NOTIFICATION BOX -->
+    <div id="toastContainer" class="fixed bottom-20 md:bottom-8 right-4 md:right-8 z-50 space-y-2 pointer-events-none"></div>
+
+    <!-- WISHLIST MODAL -->
+    <div id="wishlistModal" class="hidden fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-lg rounded-3xl shadow-2xl p-6 relative max-h-[85vh] flex flex-col">
+            <div class="flex justify-between items-center pb-4 border-b border-slate-100">
+                <h3 class="text-lg font-extrabold text-slate-900 flex items-center gap-2">
+                    <i class="fas fa-heart text-rose-500"></i> My Wishlist Saved Packages
+                </h3>
+                <button onclick="toggleWishlistModal()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center font-bold">✕</button>
+            </div>
+            <div id="wishlistItemsList" class="flex-1 overflow-y-auto py-4 space-y-3">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN JAVASCRIPT APPLICATION LOGIC -->
+        <script src="./assets/js/data.js"></script>
+    <script src="./assets/js/state.js"></script>
+    <script src="./assets/js/navigation.js"></script>
+    <script src="./assets/js/views/static-pages.js"></script>
+    <script src="./assets/js/views/discovery.js"></script>
+    <script src="./assets/js/views/home.js"></script>
+    <script src="./assets/js/views/catalog.js"></script>
+    <script src="./assets/js/views/detail.js"></script>
+    <script src="./assets/js/views/articles.js"></script>
+    <script src="./assets/js/views/cart.js"></script>
+    <script src="./assets/js/views/checkout.js"></script>
+    <script src="./assets/js/interactions.js"></script>
+</body>
+</html>
