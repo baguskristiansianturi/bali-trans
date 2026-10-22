@@ -21,6 +21,19 @@ if(!entries.some(x=>x.label==='Cara redeem')){const section=document.createEleme
 const before=candidates.find(el=>/syarat|ketentuan|pembatalan|kebijakan|rincian dan ketentuan/i.test(el.querySelector('h2,h3')?.textContent||''));(before||entries[entries.length-1].el).insertAdjacentElement('beforebegin',section);entries.push({label:'Cara redeem',id:section.id,el:section})}
 const priority=['Ringkasan','Paket & harga','Yang termasuk','Lokasi','Cara redeem','Jadwal','Ketentuan'];entries.sort((a,b)=>priority.indexOf(a.label)-priority.indexOf(b.label));
 const nav=document.createElement('nav');nav.className='ws-product-tabs';nav.dataset.wsProductTabs='';nav.setAttribute('aria-label','Navigasi detail aktivitas');nav.innerHTML='<div class="ws-product-tabs-inner">'+entries.map((x,i)=>'<a href="#'+x.id+'" data-ws-tab="'+x.id+'"'+(i===0?' aria-current="location"':'')+'>'+x.label+'</a>').join('')+'</div>';
+const productByFile={
+'watersport-banana-boat.html':'banana-boat','watersport-parasailing.html':'parasailing','watersport-jet-ski.html':'jet-ski','watersport-rolling-donut-tanjung-benoa.html':'rolling-donut','watersport-flying-fish-tanjung-benoa.html':'flying-fish','watersport-flyboard-tanjung-benoa.html':'flyboard','watersport-sea-walker-tanjung-benoa.html':'seawalker','watersport-scuba-diving-tanjung-benoa.html':'scuba-diving','watersport-snorkeling-tanjung-benoa.html':'snorkeling','watersport-wakeboard-tanjung-benoa.html':'wakeboard','watersport-glass-bottom-boat-pulau-penyu.html':'glass-bottom-boat'
+};
+const product=productByFile[location.pathname.split('/').pop()];
+if(product){
+ const href='./watersport-checkout.html?product='+encodeURIComponent(product);
+ const side=main.querySelector('.content aside,aside.panel');
+ if(side){
+  let cta=side.querySelector('[data-ws-book-cta]');
+  if(!cta){cta=document.createElement('a');cta.className='btn ws-book-cta';cta.dataset.wsBookCta='';cta.href=href;cta.textContent='Pilih tanggal & pesan';const secondary=side.querySelector('.btn.secondary');if(secondary)secondary.insertAdjacentElement('beforebegin',cta);else side.appendChild(cta)}
+  const sticky=document.createElement('div');sticky.className='ws-mobile-bookbar';sticky.innerHTML='<span>Siap merencanakan aktivitas?</span><a href="'+href+'">Pilih tanggal</a>';document.body.appendChild(sticky);
+ }
+}
 const hero=main.querySelector('.hero,.ws-hero');if(hero)hero.insertAdjacentElement('afterend',nav);else main.insertAdjacentElement('afterbegin',nav);
 const links=[...nav.querySelectorAll('[data-ws-tab]')];const activate=id=>{links.forEach(a=>{if(a.dataset.wsTab===id)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current')});const active=links.find(a=>a.dataset.wsTab===id);if(active)active.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'})};
 links.forEach(a=>a.addEventListener('click',e=>{const target=document.getElementById(a.dataset.wsTab);if(!target)return;e.preventDefault();history.replaceState(null,'','#'+target.id);target.scrollIntoView({behavior:'smooth',block:'start'});activate(target.id)}));
