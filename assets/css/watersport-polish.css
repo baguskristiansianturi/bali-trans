@@ -1,0 +1,261 @@
+/* Shared responsive and typography polish for standalone watersport pages.
+   Loaded last so every activity page follows the same readable type scale and spacing. */
+:root {
+  --ws-type-body: 14px;
+  --ws-type-small: 12px;
+  --ws-type-line: 1.7;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: 5rem;
+}
+body {
+  max-width: 100%;
+  overflow-x: clip;
+  letter-spacing: 0;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.025em;
+  overflow-wrap: anywhere;
+}
+p, li, label, input, select, textarea, button, a {
+  letter-spacing: 0;
+}
+p, li {
+  line-height: var(--ws-type-line);
+}
+img, video, iframe, svg {
+  max-width: 100%;
+}
+img {
+  height: auto;
+}
+button, a, input, select, textarea, summary {
+  -webkit-tap-highlight-color: transparent;
+}
+a:focus-visible, button:focus-visible, summary:focus-visible,
+input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 3px solid #77a9ed;
+  outline-offset: 3px;
+}
+button, .btn, .ws-btn {
+  min-height: 44px;
+}
+.wrap, .ws-wrap {
+  width: min(100% - 32px, 1080px);
+}
+.hero h1, .ws-hero h1 {
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+.hero p, .ws-hero p {
+  max-width: 65ch;
+}
+.panel h2, .ws-section h2 {
+  line-height: 1.2;
+  text-wrap: balance;
+}
+.panel p, .panel li {
+  font-size: var(--ws-type-body);
+  line-height: var(--ws-type-line);
+}
+.crumb {
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.facts, .content, .related, .ws-cards, .ws-trust-grid, .ws-steps, .ws-faq {
+  min-width: 0;
+}
+.content > *, .related-card > *, .ws-card-body, .ws-related-card > * {
+  min-width: 0;
+}
+.related-card h3, .ws-related-card h3, .ws-card h3 {
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+.related-card a, .ws-related-card a, .tags a, .ws-other-tags a {
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+.gallery, .ws-gallery {
+  min-width: 0;
+}
+@media (max-width: 760px) {
+  .wrap, .ws-wrap {
+    width: calc(100% - 28px);
+  }
+  .hero h1, .ws-hero h1 {
+    font-size: clamp(28px, 7vw, 40px);
+    letter-spacing: -0.03em;
+  }
+  .hero p, .ws-hero p {
+    font-size: 15px;
+    line-height: 1.65;
+  }
+  .panel {
+    padding: clamp(15px, 4vw, 20px);
+    border-radius: 16px;
+  }
+  .panel h2, .ws-section h2 {
+    font-size: clamp(20px, 5.5vw, 25px);
+  }
+  .related {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .related-card {
+    display: grid;
+    grid-template-columns: 96px minmax(0, 1fr);
+    align-items: center;
+    gap: 12px;
+  }
+  .related-card img {
+    width: 96px;
+    height: 86px;
+    margin: 0;
+  }
+  .related-card h3 {
+    font-size: 14px;
+  }
+  .related-card a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+    font-size: 13px;
+  }
+  .facts {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .gallery, .ws-gallery {
+    display: flex;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .gallery figure, .ws-gallery figure {
+    flex: 0 0 min(82%, 340px);
+    scroll-snap-align: start;
+  }
+  .gallery img, .ws-gallery img {
+    height: 190px;
+  }
+  .ws-cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .ws-card {
+    display: grid;
+    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1fr);
+    align-items: stretch;
+  }
+  .ws-card > img {
+    width: 100%;
+    height: 100%;
+    min-height: 190px;
+    aspect-ratio: auto;
+    object-fit: cover;
+  }
+  .ws-card-body {
+    padding: 14px;
+    gap: 10px;
+  }
+  .ws-card h3 {
+    min-height: 0;
+    font-size: 16px;
+  }
+  .ws-card .ws-muted {
+    min-height: 0;
+    font-size: 13px;
+    line-height: 1.6;
+    -webkit-line-clamp: 4;
+  }
+  .ws-card-price-value {
+    font-size: 16px;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+  }
+  .ws-card .ws-btn {
+    font-size: 13px;
+    min-height: 44px;
+    padding: 10px;
+  }
+  .ws-related {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .ws-related-card {
+    display: grid;
+    grid-template-columns: 96px minmax(0, 1fr);
+    align-items: center;
+    gap: 12px;
+  }
+  .ws-related-card img {
+    width: 96px;
+    height: 86px;
+    margin: 0;
+  }
+}
+@media (max-width: 420px) {
+  .wrap, .ws-wrap {
+    width: calc(100% - 24px);
+  }
+  .navin {
+    gap: 8px;
+  }
+  .brand {
+    font-size: 18px;
+  }
+  .back {
+    max-width: 58%;
+    text-align: right;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  .hero, .ws-hero {
+    min-height: 250px;
+  }
+  .heroText {
+    padding: 30px 0 38px;
+  }
+  .content {
+    gap: 12px;
+  }
+  .ws-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .ws-card > img {
+    height: 190px;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+  }
+  .ws-card-body {
+    padding: 14px;
+  }
+  .ws-card .ws-muted {
+    -webkit-line-clamp: initial;
+  }
+  .ws-card-meta {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .ws-card-price {
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .related-card, .ws-related-card {
+    grid-template-columns: 84px minmax(0, 1fr);
+  }
+  .related-card img, .ws-related-card img {
+    width: 84px;
+    height: 78px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
