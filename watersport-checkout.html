@@ -58,7 +58,7 @@ textarea{min-height:85px;resize:vertical}input:focus,select:focus,textarea:focus
 <button class="primary" type="submit">Lanjutkan permintaan</button>
 </form>
 </section>
-<section class="panel result" id="bookingResult" hidden><h2>Ringkasan permintaan</h2><p>Periksa kembali data berikut. Salin ringkasan untuk dikirim ke kanal pemesanan resmi Bali Trans setelah tersedia.</p><pre></pre><button class="primary" type="button" id="copyBooking">Salin ringkasan</button><p class="note">Formulir ini saat ini hanya menyiapkan ringkasan di browser. Tidak ada data yang dikirim ke server atau diproses sebagai pembayaran.</p></section>
+<section class="panel result" id="bookingResult" hidden><h2>Ringkasan permintaan</h2><pre></pre><button class="primary" type="button" id="copyBooking">Salin ringkasan</button></section>
 </main>
 <script>
 document.addEventListener('DOMContentLoaded',()=>{const date=document.querySelector('#activityDate');if(date){const now=new Date();date.min=new Date(now.getTime()-now.getTimezoneOffset()*60000).toISOString().slice(0,10);}const f=document.querySelector('#watersportBookingForm');const p=new URLSearchParams(location.search);if(f&&p.get('type')==='package')f.elements.product.value='package';});
