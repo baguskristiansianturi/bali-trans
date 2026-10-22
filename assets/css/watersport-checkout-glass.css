@@ -1,0 +1,20 @@
+/* Focused mobile-first checkout with a soft blurred surround */
+html,body{min-height:100%;background:#e8edf4}
+body{position:relative;isolation:isolate;padding:clamp(14px,4vh,36px) 0 28px}
+body::before,body::after{content:"";position:fixed;z-index:-1;pointer-events:none;border-radius:50%;filter:blur(64px);opacity:.72}
+body::before{width:48vw;height:48vw;min-width:240px;min-height:240px;top:-12vw;left:-10vw;background:rgba(121,164,216,.34)}
+body::after{width:52vw;height:52vw;min-width:260px;min-height:260px;right:-16vw;bottom:-12vw;background:rgba(190,205,226,.72)}
+.checkout-head{display:none!important}
+main{width:min(100% - 24px,760px);padding:0;margin:0 auto}
+main>.panel:first-child{background:rgba(255,255,255,.88);backdrop-filter:blur(22px) saturate(135%);-webkit-backdrop-filter:blur(22px) saturate(135%);border:1px solid rgba(255,255,255,.82);border-radius:22px;box-shadow:0 22px 70px rgba(28,48,78,.13);padding:clamp(18px,4vw,30px)}
+h1{margin:0 0 18px;font-size:clamp(22px,5vw,28px);letter-spacing:-.65px}
+.flow-steps{margin:0 0 18px;gap:8px}
+.flow-step{min-height:58px;border-radius:12px;background:rgba(247,249,252,.8);font-size:12px}
+.grid{gap:13px}.section-heading{padding-top:16px;margin-top:4px}
+input,select,textarea{border-radius:11px;background:rgba(255,255,255,.94);min-height:48px}
+.ws-checkout-layout{gap:14px}
+.ws-checkout-layout .panel{background:rgba(255,255,255,.72);border-color:rgba(220,228,238,.88);box-shadow:none}
+.ws-checkout-layout .ws-order-aside .summary{background:rgba(246,249,253,.88)}
+.ws-checkout-layout .primary{min-height:50px}
+@media(max-width:560px){body{padding:14px 0 20px}main{width:100%;padding:0 10px}main>.panel:first-child{padding:19px 15px 20px;border-radius:20px}h1{font-size:23px;margin-bottom:15px}.flow-steps{gap:6px;margin-bottom:14px}.flow-step{padding:9px 7px;font-size:10px;min-height:62px}.flow-step b{display:inline-grid;margin:0 0 5px}.grid{gap:12px}.section-heading{padding-top:14px}.ws-checkout-layout .ws-order-aside{order:0}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
