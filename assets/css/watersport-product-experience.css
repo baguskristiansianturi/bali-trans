@@ -1,5 +1,5 @@
 /* Activity product pages: clear, booking-led tabs and Klook-inspired checkout */
-.ws-product-tabs{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-block:1px solid #dfe7f2;box-shadow:0 5px 18px rgba(23,43,77,.06);margin:0;overflow:hidden}
+.ws-product-tabs{position:sticky;top:64px;z-index:20;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-block:1px solid #dfe7f2;box-shadow:0 5px 18px rgba(23,43,77,.06);margin:0;overflow:hidden}
 .ws-product-tabs-inner{display:flex;gap:6px;align-items:center;width:min(1080px,100%);margin:auto;padding:0 16px;overflow-x:auto;overscroll-behavior-inline:contain;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .ws-product-tabs-inner::-webkit-scrollbar{display:none}
 .ws-product-tabs a{display:inline-flex;align-items:center;justify-content:center;flex:none;min-height:52px;padding:0 13px;border-bottom:3px solid transparent;color:#52647e;font-size:13px;font-weight:750;white-space:nowrap}
