@@ -1,0 +1,23 @@
+/* Activity product pages: clear, booking-led tabs and Klook-inspired checkout */
+.ws-product-tabs{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-block:1px solid #dfe7f2;box-shadow:0 5px 18px rgba(23,43,77,.06);margin:0;overflow:hidden}
+.ws-product-tabs-inner{display:flex;gap:6px;align-items:center;width:min(1080px,100%);margin:auto;padding:0 16px;overflow-x:auto;overscroll-behavior-inline:contain;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.ws-product-tabs-inner::-webkit-scrollbar{display:none}
+.ws-product-tabs a{display:inline-flex;align-items:center;justify-content:center;flex:none;min-height:52px;padding:0 13px;border-bottom:3px solid transparent;color:#52647e;font-size:13px;font-weight:750;white-space:nowrap}
+.ws-product-tabs a[aria-current=location]{color:#31558e;border-bottom-color:#4267a9}
+.ws-tab-section{scroll-margin-top:124px}
+.ws-redeem-list{padding-left:20px}
+.ws-checkout-shell{max-width:1000px!important}
+.ws-checkout-layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.75fr);gap:18px;align-items:start}
+.ws-checkout-layout #watersportBookingForm{min-width:0}
+.ws-checkout-layout .ws-order-aside{position:sticky;top:16px}
+.ws-checkout-layout .ws-order-aside .summary{background:#f7f9fc}
+.ws-checkout-layout .panel{border-radius:16px}
+.ws-checkout-layout .section-heading{margin-top:14px}
+.ws-checkout-layout .primary{background:#4267a9;border-radius:10px;box-shadow:0 5px 12px rgba(66,103,169,.18)}
+.ws-checkout-layout .flow-step.is-active{border-color:#4267a9;background:#eef4ff;color:#294a7d}
+.ws-checkout-layout .checkout-product-heading{display:flex;align-items:flex-start;gap:12px;margin-bottom:16px}
+.ws-checkout-layout .checkout-product-icon{display:grid;place-items:center;flex:none;width:44px;height:44px;border-radius:12px;background:#edf3fc;color:#31558e;font-size:21px}
+.ws-checkout-layout .secure-note{display:flex;gap:8px;align-items:flex-start;font-size:12px;line-height:1.55;color:#52647e;margin-top:12px}
+.ws-checkout-layout .secure-note b{color:#18794e}
+@media(max-width:760px){.ws-product-tabs-inner{padding-inline:12px}.ws-product-tabs a{min-height:48px;padding-inline:11px;font-size:12px}.ws-checkout-layout{grid-template-columns:minmax(0,1fr)}.ws-checkout-layout .ws-order-aside{position:static;order:-1}.ws-checkout-layout .reassurance{grid-template-columns:1fr}.ws-checkout-layout .flow-step{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.ws-product-tabs *{scroll-behavior:auto!important;transition:none!important}}
