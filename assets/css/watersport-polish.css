@@ -259,3 +259,132 @@ button, .btn, .ws-btn {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Final cross-page normalization: consistent tracking and resilient layouts. */
+*, *::before, *::after {
+  letter-spacing: 0 !important;
+}
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.02em !important;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+p, li, dt, dd, label, input, select, textarea, button, a, summary,
+small, figcaption, .eyebrow, .ws-eyebrow, .ws-tag, .crumb, .back,
+.ws-card-price-label, .ws-card-meta, .sub, .ws-note {
+  letter-spacing: 0 !important;
+}
+h1 { line-height: 1.12; }
+h2 { line-height: 1.22; }
+h3, h4, h5, h6 { line-height: 1.32; }
+p, li, dd {
+  overflow-wrap: anywhere;
+}
+button, a, input, select, textarea, summary {
+  max-width: 100%;
+}
+input, select, textarea {
+  min-width: 0;
+}
+.content, .panel, .ws-panel, .ws-card, .ws-card-body,
+.related-card, .ws-related-card, .ws-booking, .ws-field,
+.ws-gallery, .gallery {
+  min-width: 0;
+}
+.ws-card img, .related-card img, .ws-related-card img,
+.gallery img, .ws-gallery img {
+  max-width: 100%;
+}
+@media (min-width: 761px) and (max-width: 1024px) {
+  .wrap, .ws-wrap {
+    width: calc(100% - 40px);
+  }
+  .content {
+    grid-template-columns: minmax(0, 1.4fr) minmax(245px, .8fr);
+    gap: 16px;
+  }
+  .ws-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 760px) {
+  .hero h1, .ws-hero h1 {
+    line-height: 1.12;
+    text-wrap: balance;
+  }
+  .crumb {
+    font-size: 12px;
+    line-height: 1.55;
+  }
+  .navin {
+    flex-wrap: wrap;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  .content {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .ws-booking, .ws-booking form {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .ws-field-full {
+    grid-column: auto;
+  }
+  .panel, .ws-panel {
+    overflow-wrap: anywhere;
+  }
+}
+@media (max-width: 420px) {
+  .wrap, .ws-wrap {
+    width: calc(100% - 24px);
+  }
+  .hero h1, .ws-hero h1 {
+    font-size: clamp(27px, 8vw, 34px);
+    line-height: 1.14;
+  }
+  .hero p, .ws-hero p {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+  .panel, .ws-panel {
+    padding: 14px;
+    border-radius: 14px;
+  }
+  .panel h2, .ws-section h2 {
+    font-size: clamp(19px, 6vw, 23px);
+  }
+  .related-card, .ws-related-card {
+    grid-template-columns: 76px minmax(0, 1fr);
+    gap: 10px;
+  }
+  .related-card img, .ws-related-card img {
+    width: 76px;
+    height: 72px;
+  }
+  .ws-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .ws-card > img {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+  .ws-card-body {
+    padding: 13px;
+  }
+  .ws-card h3 {
+    font-size: 16px;
+    line-height: 1.3;
+  }
+  .ws-card .ws-btn, .btn {
+    width: 100%;
+    min-height: 44px;
+    white-space: normal;
+  }
+  .facts {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
