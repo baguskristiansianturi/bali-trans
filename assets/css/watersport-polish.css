@@ -12,7 +12,7 @@ html {
 }
 body {
   max-width: 100%;
-  overflow-x: clip;
+  overflow-x: hidden;
   letter-spacing: 0;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
