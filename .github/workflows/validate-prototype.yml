@@ -171,7 +171,20 @@ jobs:
               expected = canonical.group(1) if canonical else site_base + html_file.name
               if expected not in sitemap_urls:
                   missing_sitemap.append(f"{html_file}: {expected}")
+          private_brand_pattern = re.compile(r"\\b" + "BDM" + r"\\s*Trans\\b|" + "BDM" + "Trans" + r"(?:\\.com)?", re.I)
+          private_brand_refs = []
+          text_extensions = {".html", ".md", ".json", ".js", ".css", ".txt", ".xml", ".yml", ".yaml"}
+          for candidate in root.rglob("*"):
+              if not candidate.is_file() or candidate.suffix.lower() not in text_extensions or ".git" in candidate.parts:
+                  continue
+              try:
+                  source = candidate.read_text(encoding="utf-8")
+              except UnicodeDecodeError:
+                  continue
+              if private_brand_pattern.search(source):
+                  private_brand_refs.append(str(candidate))
           problems = []
+          if private_brand_refs: problems.append("Private pre-launch brand references in public files:\\n" + "\\n".join(private_brand_refs))
           if missing_sitemap: problems.append("Public HTML pages missing from sitemap:\n" + "\n".join(missing_sitemap))
           if missing_html: problems.append("Missing HTML assets:\n" + "\n".join(missing_html))
           if missing_css: problems.append("Missing CSS URLs/imports:\n" + "\n".join(missing_css))
