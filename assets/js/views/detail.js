@@ -13,7 +13,7 @@
             var mobileDate = document.getElementById('dolphinMobileDate');
             var chosen = (date && date.value) || (mobileDate && mobileDate.value);
             if (!chosen) { showToast('Please choose your travel date first.'); return; }
-            showToast('Design preview only — live availability is not connected yet.');
+            showToast('Thanks — availability still needs to be confirmed by the Bali Trans team.');
         }
         function setDolphinActiveTab(link) {
             document.querySelectorAll('.dolphin-tab').forEach(function(tab) {
@@ -39,7 +39,7 @@
             var recCards = recs.map(function(p){return '<a href="javascript:void(0)" onclick="navigateTo(\'detail\',\''+p.id+'\')" class="block border border-slate-200 rounded-xl overflow-hidden"><img src="'+p.heroImage+'" alt="" class="w-full h-28 object-cover"><div class="p-3"><strong class="block text-xs leading-5 text-slate-800">'+p.title+'</strong><small class="text-slate-500">'+p.location+'</small></div></a>';}).join('');
             var recSide = recs.map(function(p){return '<a href="javascript:void(0)" onclick="navigateTo(\'detail\',\''+p.id+'\')" class="flex gap-3 py-2.5 border-t border-slate-100 first:border-0"><img src="'+p.heroImage+'" alt="" class="w-14 h-12 object-cover rounded-lg"><span class="min-w-0"><strong class="block text-xs leading-5 text-slate-800">'+p.title+'</strong><small class="text-slate-500">'+p.location+'</small></span></a>';}).join('');
             return '<div class="dolphin-detail-page max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 pb-28 lg:pb-8">' +
-              '<div class="text-xs font-semibold text-slate-400 mb-4 flex flex-wrap items-center gap-2"><button onclick="navigateTo(\'home\')" class="hover:text-slate-700">Home</button><span>/</span><span class="text-slate-700">Bali Dolphin Tour</span><span class="ml-auto rounded-full border border-amber-200 bg-amber-50 text-amber-800 px-2 py-1 text-[10px] uppercase tracking-wider">Layout preview</span></div>' +
+              '<div class="text-xs font-semibold text-slate-400 mb-4 flex flex-wrap items-center gap-2"><button onclick="navigateTo(\'home\')" class="hover:text-slate-700">Home</button><span>/</span><span class="text-slate-700">Bali Dolphin Tour</span><span class="ml-auto rounded-full border border-slate-200 bg-white text-slate-600 px-2 py-1 text-[10px] uppercase tracking-wider">Private day tour</span></div>' +
               '<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">' +
                 '<main class="lg:col-span-8 min-w-0">' +
                   '<div class="dolphin-gallery grid grid-cols-1 md:grid-cols-3 gap-2.5 rounded-2xl sm:rounded-3xl overflow-hidden mb-6">' +
@@ -71,7 +71,7 @@
 
 /* VIEW 3: PACKAGE DETAIL PAGE */
         function renderDetailView(pkg) {
-            if (pkg && pkg.id === 'dolphin-tour-preview') return renderDolphinTourDetailView(pkg);
+            if (pkg && (pkg.id === 'dolphin-tour-preview' || pkg.id === 'lovina-dolphin-tour')) return renderDolphinTourDetailView(pkg);
             const curr = CURRENCY_RATES[currentCurrency];
             const basePrice = curr.format(Math.min(...pkg.options.map(opt => opt.priceIDR)));
             return `
