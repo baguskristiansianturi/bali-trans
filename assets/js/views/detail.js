@@ -3,7 +3,8 @@
             window.dolphinGuestCategory = category === 'international' ? 'international' : 'local';
             var isInternational = window.dolphinGuestCategory === 'international';
             var adultIDR = isInternational ? 950000 : 750000;
-            var currency = CURRENCY_RATES[currentCurrency] || CURRENCY_RATES.IDR;
+            var displayCurrency = isInternational ? (currentCurrency === 'IDR' ? 'USD' : currentCurrency) : 'IDR';
+            var currency = CURRENCY_RATES[displayCurrency] || CURRENCY_RATES.IDR;
             var adultEl = document.getElementById('dolphinAdultRate');
             var childEl = document.getElementById('dolphinChildRate');
             var localTab = document.getElementById('dolphinLocalRateTab');
@@ -22,6 +23,7 @@
             if (!sheet) return;
             sheet.classList.toggle('hidden');
             var isOpen = !sheet.classList.contains('hidden');
+            if (isOpen) setDolphinGuestCategory(window.dolphinGuestCategory || 'local');
             sheet.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
             document.body.classList.toggle('dolphin-sheet-open', isOpen);
             if (isOpen && focusDate) setTimeout(function(){ var d=document.getElementById('dolphinMobileDate'); if(d)d.focus(); }, 80);
@@ -40,6 +42,11 @@
             draft.adults = Math.max(1, Number(adultsInput && adultsInput.value) || 2);
             draft.children = Math.max(0, Number(childrenInput && childrenInput.value) || 0);
             draft.pickup = (pickupInput && pickupInput.value.trim()) || draft.pickup || '';
+            draft.guestCategory = window.dolphinGuestCategory || 'local';
+            draft.adultPriceIDR = draft.guestCategory === 'international' ? 950000 : 750000;
+            draft.childPriceIDR = draft.adultPriceIDR * 0.6;
+            draft.freeChildAgeUnder = 4;
+            draft.adultAgeFrom = 6;
             dolphinBookingStep = 1;
             navigateTo('checkout', 'dolphin-tour');
         }
