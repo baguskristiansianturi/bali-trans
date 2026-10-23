@@ -53,7 +53,7 @@
   header.innerHTML =
     '<div class="bt-shell"><div class="bt-header-row">' +
       '<a class="bt-brand" href="' + routes.home + '" aria-label="Bali Trans home">' +
-        '<span class="bt-brand-mark">B</span><span class="bt-brand-copy"><span class="bt-brand-name">Bali<span> Trans</span></span><span class="bt-brand-tag">TOURS · TRIPS · TRANSFER</span></span>' +
+        '<span class="bt-brand-mark">B</span><span class="bt-brand-copy"><span class="bt-brand-name">Bali<span> Trans</span></span></span>' +
       '</a><nav class="bt-main-nav" aria-label="Main navigation">' + linkHTML + '</nav>' +
       '<div class="bt-actions">' +
         '<div class="bt-locale-control" id="localeControl">' +
