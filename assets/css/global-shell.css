@@ -72,7 +72,6 @@
 body.checkout-mode #topAnnouncementBar,
 body.checkout-mode .bt-site-header,
 body.checkout-mode .bt-site-footer,
-body.checkout-mode #mobileBottomNavigation,
-body.checkout-mode #toastContainer{display:none!important}
+body.checkout-mode #mobileBottomNavigation{display:none!important}
 body.checkout-mode{padding-bottom:0!important;background:#f7f9fc}
 body.checkout-mode #appContainer{padding-bottom:0!important}
