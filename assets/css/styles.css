@@ -201,3 +201,34 @@ header .text-white.bg-slate-50, header .text-white.bg-slate-100 {
   footer .grid { gap: 1.5rem; }
   .fixed.bottom-0 { padding-left: max(1rem,env(safe-area-inset-left)); padding-right: max(1rem,env(safe-area-inset-right)); padding-bottom: max(.4rem,env(safe-area-inset-bottom)); }
 }
+
+
+/* Isolated Bali Dolphin Tour layout test — scoped only to its preview page. */
+.dolphin-detail-page .dolphin-gallery { min-height:230px; }
+.dolphin-detail-page .dolphin-gallery img { display:block; }
+.dolphin-detail-page .dolphin-tabs { top:78px; }
+.dolphin-detail-page .dolphin-tab { display:inline-block; text-decoration:none; border-bottom:2px solid transparent; }
+.dolphin-detail-page .dolphin-tab.active-tab { border-bottom-color:#244a75; color:#244a75; font-weight:800; }
+.dolphin-choice { display:flex; align-items:center; gap:.65rem; padding:.7rem .65rem; border:1px solid #e2e8f0; border-radius:.8rem; cursor:pointer; }
+.dolphin-choice:has(input:checked) { border-color:#244a75; background:#f4f7fb; }
+.dolphin-choice input { accent-color:#244a75; flex-shrink:0; }
+.dolphin-choice strong { display:block; color:#1e293b; font-size:.75rem; line-height:1.3; }
+.dolphin-choice small { display:block; color:#64748b; font-size:.68rem; margin-top:.2rem; line-height:1.35; }
+.dolphin-mobile-bar { display:none; }
+.dolphin-price-sheet { position:fixed; inset:0; z-index:100; }
+.dolphin-sheet-backdrop { position:absolute; inset:0; width:100%; height:100%; background:rgba(15,23,42,.45); }
+.dolphin-sheet-panel { position:absolute; bottom:0; left:0; right:0; max-height:86dvh; overflow-y:auto; background:#fff; border-radius:1.25rem 1.25rem 0 0; padding:1.25rem 1rem max(1.25rem,env(safe-area-inset-bottom)); box-shadow:0 -12px 40px rgba(15,23,42,.16); }
+body.dolphin-sheet-open { overflow:hidden; }
+@media (max-width:1023px) {
+ .dolphin-detail-page .dolphin-tabs { top:64px !important; position:sticky !important; }
+ .dolphin-detail-page .dolphin-desktop-sidebar { display:none !important; }
+ .dolphin-mobile-bar { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.15fr); gap:.55rem; position:fixed; z-index:60; left:0; right:0; bottom:0; background:rgba(255,255,255,.98); border-top:1px solid #e2e8f0; padding:.65rem 1rem max(.55rem,env(safe-area-inset-bottom)); box-shadow:0 -5px 20px rgba(15,23,42,.08); }
+ .dolphin-mobile-bar .dolphin-show-price { text-align:left; border:1px solid #e2e8f0; border-radius:.8rem; padding:.55rem .7rem; background:#fff; }
+ .dolphin-mobile-bar .dolphin-check-availability { border-radius:.8rem; padding:.65rem .5rem; color:#fff; background:#244a75; font-size:.8rem; font-weight:800; }
+ .dolphin-mobile-bar p { grid-column:1 / -1; margin:0; text-align:center; font-size:.68rem; color:#64748b; }
+ .dolphin-mobile-bar a { color:#244a75; text-decoration:underline; text-underline-offset:2px; font-weight:700; }
+}
+@media (min-width:1024px) {
+ .dolphin-detail-page .dolphin-desktop-sidebar { display:block !important; }
+ .dolphin-detail-page .dolphin-tabs { top:78px; }
+}
