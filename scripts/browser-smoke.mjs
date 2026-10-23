@@ -166,7 +166,8 @@ try {
   await page.goto('http://127.0.0.1:4173/bali-airport-transfer-checkout.html', { waitUntil: 'domcontentloaded' });
   if (await page.locator('.bt-site-header, .bt-site-footer, .brand').count()) throw new Error('Airport checkout must not show the site shell or logo');
   if (!(await page.locator('.back-link').isVisible())) throw new Error('Airport checkout must retain a clear Back control');
-  await page.locator('#date').fill('2026-10-24');
+  const futureDate = await page.evaluate(() => { const d = new Date(); d.setDate(d.getDate() + 1); return [d.getFullYear(), String(d.getMonth() + 1).padStart(2, '0'), String(d.getDate()).padStart(2, '0')].join('-'); });
+  await page.locator('#date').fill(futureDate);
   await page.locator('#address').fill('Kuta');
   await page.locator('#flight').fill('QZ 506');
   await page.locator('#nextButton').click();
