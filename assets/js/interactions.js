@@ -465,12 +465,10 @@
         }
 
         function showRegisterPrompt() {
-            showToast('Pendaftaran akun belum aktif. Untuk bantuan pemesanan, silakan hubungi kami melalui Contact.');
-            navigateTo('contact');
+            navigateTo('account');
         }
         function showHelpMenu() {
-            navigateTo('contact');
-            setTimeout(() => showToast('Butuh bantuan? Hubungi tim Bali Trans melalui halaman Contact.'), 150);
+            navigateTo('help');
         }
         function showRecentlyViewed() {
             let modal = document.getElementById('recentlyViewedModal');
