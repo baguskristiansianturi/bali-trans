@@ -29,7 +29,7 @@ Scope: static source audit and safe refactor of the existing single-page prototy
 
 ## Risks and items requiring business confirmation
 
-- The repository's working business target is BDM Trans. The current page still mixes “Bali Explorer” and “Bali Trans” in visible brand areas. During this prototype phase, temporary copy is acceptable for testing page structure and flows; before launch, all visible brand names, metadata, links, and contact details must be standardized to BDM Trans. Do not treat prototype copy as final business claims.
+- The current public-facing prototype uses the temporary name Bali Trans. Keep visible brand names, metadata, links, and contact details consistent with the approved public presentation. Do not treat prototype copy as final business claims.
 - WhatsApp number `6281234567890` appears to be a placeholder and must be confirmed before launch.
 - The UI claims “Verified Booking”, “50,000+ Happy Travelers”, instant confirmation, best-price guarantees, and payment methods without evidence/configuration. These must be removed or substantiated.
 - Social, policy, partner and help links still use `#`.
@@ -51,7 +51,7 @@ Scope: static source audit and safe refactor of the existing single-page prototy
 ## Next steps
 
 1. Use temporary, plausible prototype copy to validate the hierarchy and user journeys; do not spend time polishing launch copy yet.
-2. Standardize all launch branding to BDM Trans at the final content/launch stage.
+2. Confirm final public brand presentation and approved business/contact details before launch.
 3. Replace unverified claims and placeholder contact/social/policy links before launch.
 4. Decide whether to retain a demo-only booking journey or implement a real inquiry/booking flow.
 5. Run mobile browser QA across homepage swipe/carousels, breadcrumbs/back navigation, search and category filters, package detail/date/options, cart, wishlist, article listing/detail, footer links, currency selector, checkout validation, and empty states.
