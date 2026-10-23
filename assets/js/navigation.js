@@ -101,7 +101,7 @@
                         currentDetailPackage = pkg;
                         trackRecentlyViewed(pkg);
                         container.innerHTML = renderDetailView(pkg);
-                        setTimeout(() => { if (pkg.id !== 'dolphin-tour-preview') { updatePackageOptionDetails(); selectLovinaGallery(0); } initDetailSectionTracking(); }, 0);
+                        setTimeout(() => { if (pkg.id !== 'dolphin-tour-preview' && pkg.id !== 'lovina-dolphin-tour') { updatePackageOptionDetails(); selectLovinaGallery(0); } initDetailSectionTracking(); }, 0);
                     }
                     break;
                 }
