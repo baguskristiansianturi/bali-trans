@@ -137,6 +137,47 @@ try {
   await page.waitForURL('**/index.html?page=blog');
   console.log('PASS shared shell, mobile menu and working travel-guide route');
 
+  await page.goto('http://127.0.0.1:4173/watersport-tanjung-benoa.html', { waitUntil: 'domcontentloaded' });
+  const penyuLink = page.locator('a[href*="watersport-glass-bottom-boat-pulau-penyu.html"]').first();
+  if (!(await penyuLink.count())) throw new Error('Watersport catalogue is missing the Glass Bottom Boat + Pulau Penyu detail link');
+  await penyuLink.click();
+  await page.waitForURL('**/watersport-glass-bottom-boat-pulau-penyu.html');
+  if (!(await page.locator('h1').first().innerText()).includes('Glass Bottom Boat')) {
+    throw new Error('Pulau Penyu card opened the wrong activity detail');
+  }
+  console.log('PASS Pulau Penyu card opens its matching detail page');
+
+  await page.goto('http://127.0.0.1:4173/watersport-checkout.html?product=glass-bottom-boat', { waitUntil: 'domcontentloaded' });
+  await page.waitForFunction(() => document.querySelector('#product')?.value === 'glass-bottom-boat');
+  if (await page.locator('.bt-site-header, .bt-site-footer, .brand').count()) throw new Error('Watersport checkout must remain form-only without site shell or logo');
+  const watersportWidth = await page.evaluate(() => ({ width: document.documentElement.scrollWidth, viewport: window.innerWidth }));
+  if (watersportWidth.width > watersportWidth.viewport + 2) throw new Error('Watersport checkout has horizontal overflow: ' + JSON.stringify(watersportWidth));
+  if (!(await page.locator('#activityDate').getAttribute('min'))) throw new Error('Watersport checkout must set a minimum activity date');
+  await page.locator('input[name="forSomeone"]').check();
+  if (!(await page.locator('[data-guest-fields]').first().isVisible())) throw new Error('Watersport checkout did not reveal guest fields for someone-else bookings');
+  await page.locator('input[name="forSomeone"]').uncheck();
+  if (await page.locator('[data-guest-fields]').first().isVisible()) throw new Error('Watersport checkout did not hide guest fields for self bookings');
+  await page.locator('#product').selectOption('package');
+  if (!(await page.locator('[data-package-wrap]').isVisible()) || await page.locator('#quantity').getAttribute('min') !== '2') {
+    throw new Error('Watersport package selection did not show package fields or enforce the minimum participant count');
+  }
+  console.log('PASS watersport checkout query selection, guest toggle, package rules and clean layout');
+
+  await page.goto('http://127.0.0.1:4173/bali-airport-transfer-checkout.html', { waitUntil: 'domcontentloaded' });
+  if (await page.locator('.bt-site-header, .bt-site-footer, .brand').count()) throw new Error('Airport checkout must not show the site shell or logo');
+  if (!(await page.locator('.back-link').isVisible())) throw new Error('Airport checkout must retain a clear Back control');
+  await page.locator('input[name="bookingFor"][value="someone"]').check();
+  if (!(await page.locator('#guestFields').isVisible()) || !(await page.locator('#guestName').isRequired())) {
+    throw new Error('Airport checkout did not enable required guest details for someone-else bookings');
+  }
+  await page.locator('input[name="bookingFor"][value="self"]').check();
+  if (await page.locator('#guestFields').isVisible() || await page.locator('#guestName').isRequired()) {
+    throw new Error('Airport checkout did not reset guest fields for self bookings');
+  }
+  const airportWidth = await page.evaluate(() => ({ width: document.documentElement.scrollWidth, viewport: window.innerWidth }));
+  if (airportWidth.width > airportWidth.viewport + 2) throw new Error('Airport checkout has horizontal overflow: ' + JSON.stringify(airportWidth));
+  console.log('PASS airport checkout clean layout and self/guest validation');
+
   const standalonePages = [
     'bali-adventure-activities.html', 'bali-airport-transfer.html',
     'bali-intercity-transfer.html', 'bali-port-transfer.html',
