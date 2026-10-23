@@ -24,7 +24,7 @@
 <body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col pb-16 md:pb-0">
 
     <!-- TOP ANNOUNCEMENT BAR -->
-    <div class="bg-[#EEF3FB] text-[#172B4D] border-b border-[#DCE5F2] text-xs sm:text-sm py-1.5 px-4 text-center font-medium flex justify-between items-center md:px-12">
+    <div id="topAnnouncementBar" class="bg-[#EEF3FB] text-[#172B4D] border-b border-[#DCE5F2] text-xs sm:text-sm py-1.5 px-4 text-center font-medium flex justify-between items-center md:px-12">
         <div class="hidden md:flex items-center space-x-2">
             <span class="bg-white/20 px-2 py-0.5 rounded text-xs uppercase tracking-wider font-bold">Explore Bali</span>
             <span>🌴 Discover Bali tours, island trips and private transport.</span>
@@ -43,7 +43,7 @@
     </main>
 
     <!-- MOBILE BOTTOM NAVIGATION BAR (bali MOBILE STYLE) -->
-    <div class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 z-50 py-1.5 px-6 flex justify-between items-center shadow-lg">
+    <div id="mobileBottomNavigation" class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 z-50 py-1.5 px-6 flex justify-between items-center shadow-lg">
         <button onclick="navigateTo('home')" class="flex flex-col items-center gap-1 text-slate-600 hover:text-bali-orange focus:text-bali-orange">
             <i class="fas fa-compass text-lg"></i>
             <span class="text-[10px] font-bold">Explore</span>
