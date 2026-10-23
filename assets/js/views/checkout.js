@@ -1,5 +1,97 @@
 /* VIEW 7: MULTI-STEP CHECKOUT FLOW */
+        // Dedicated Bali Dolphin all-inclusive booking flow. Kept separate from the general cart checkout.
+        let dolphinBookingStep = 1;
+        const DOLPHIN_BOOKING_STEPS = ['Date & guests', 'Your package', 'Guest details', 'Review request'];
+
+        function captureDolphinBookingFields() {
+            const d = window.dolphinBookingDraft;
+            if (!d) return;
+            const fields = {
+                date: 'dolphinBookDate', adults: 'dolphinBookAdults', children: 'dolphinBookChildren',
+                pickup: 'dolphinBookPickup', childAges: 'dolphinBookChildAges', name: 'dolphinBookName',
+                email: 'dolphinBookEmail', phone: 'dolphinBookPhone', notes: 'dolphinBookNotes'
+            };
+            Object.keys(fields).forEach(key => {
+                const el = document.getElementById(fields[key]);
+                if (el) d[key] = key === 'adults' || key === 'children' ? Math.max(0, Number(el.value) || 0) : el.value.trim();
+            });
+        }
+
+        function renderDolphinBookingFlow() {
+            const d = window.dolphinBookingDraft;
+            const step = dolphinBookingStep;
+            const progress = DOLPHIN_BOOKING_STEPS.map((label, i) => {
+                const active = i + 1 === step, done = i + 1 < step;
+                return '<div class="flex min-w-0 flex-1 items-center gap-2"><div class="grid h-8 w-8 shrink-0 place-items-center rounded-full text-xs font-extrabold '+(active || done ? 'bg-[#172B4D] text-white' : 'bg-slate-100 text-slate-500')+'">'+(done ? '✓' : i + 1)+'</div><span class="hidden sm:block text-xs font-bold '+(active ? 'text-[#172B4D]' : 'text-slate-400')+'">'+label+'</span></div>'+(i < 3 ? '<div class="mx-2 h-px flex-1 bg-slate-200"></div>' : '');
+            }).join('');
+            const inputClass = 'mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3.5 py-3 text-sm font-medium text-slate-800 outline-none transition focus:border-[#4267A9] focus:ring-2 focus:ring-[#4267A9]/10';
+            const labelClass = 'block text-sm font-bold text-slate-700';
+            const allInItems = ['Private return transport for your group','Lovina sunrise dolphin-watching boat trip','Stops at Wanagiri Hidden Hill, Handara Gate and Ulun Danu Beratan Temple','Entrance tickets listed in the confirmed package','Lunch and drinking water as stated in the final inclusions','English-speaking driver, fuel and parking'];
+            const summaryRow = (label, value) => '<div class="flex items-start justify-between gap-4 border-b border-slate-100 py-3 text-sm last:border-0"><span class="text-slate-500">'+label+'</span><strong class="max-w-[65%] text-right text-slate-800">'+(value || '—')+'</strong></div>';
+            let content = '';
+            if (step === 1) {
+                content = '<div class="space-y-5"><div><h2 class="text-xl font-extrabold text-slate-900">When would you like to go?</h2><p class="mt-1 text-sm leading-6 text-slate-500">Choose your date, group size and pickup location. We will confirm availability and the final all-inclusive quote.</p></div><div class="grid gap-4 sm:grid-cols-2"><label class="'+labelClass+'">Travel date *<input id="dolphinBookDate" type="date" min="'+new Date(Date.now()-new Date().getTimezoneOffset()*60000).toISOString().slice(0,10)+'" value="'+d.date+'" class="'+inputClass+'" required></label><label class="'+labelClass+'">Pickup area / hotel *<input id="dolphinBookPickup" type="text" value="'+d.pickup+'" placeholder="Hotel name and area" class="'+inputClass+'" required></label><label class="'+labelClass+'">Adults (12 years and over) *<input id="dolphinBookAdults" type="number" min="1" max="30" value="'+d.adults+'" class="'+inputClass+'" required></label><label class="'+labelClass+'">Children (under 12)<input id="dolphinBookChildren" type="number" min="0" max="30" value="'+d.children+'" class="'+inputClass+'"></label></div><p class="rounded-xl bg-[#EEF3FB] p-3 text-xs leading-5 text-[#172B4D]"><strong>Private full-day experience.</strong> Your vehicle is arranged for your group. Please share children’s ages in the next step so we can confirm suitable arrangements.</p></div>';
+            } else if (step === 2) {
+                content = '<div class="space-y-5"><div><h2 class="text-xl font-extrabold text-slate-900">Your all-inclusive tour</h2><p class="mt-1 text-sm leading-6 text-slate-500">One coordinated package from pickup to drop-off. You do not need to book the listed experiences separately.</p></div><div class="rounded-2xl border border-[#DCE5F2] bg-[#F7F9FC] p-4"><div class="text-xs font-extrabold uppercase tracking-wider text-[#4267A9]">Selected package</div><h3 class="mt-1 text-lg font-extrabold text-slate-900">Bali Dolphin & North Bali All-Inclusive Full-Day Tour</h3><p class="mt-1 text-sm text-slate-500">Private vehicle · Sunrise dolphin watching · North Bali highlights</p></div><div><h3 class="mb-3 text-sm font-extrabold text-slate-900">Included in your package</h3><ul class="grid gap-3 sm:grid-cols-2">'+allInItems.map(x=>'<li class="flex gap-2 text-sm leading-6 text-slate-600"><span class="mt-0.5 text-[#4267A9]">✓</span><span>'+x+'</span></li>').join('')+'</ul></div><div class="rounded-xl border border-amber-200 bg-amber-50 p-3 text-xs leading-5 text-amber-900">The team will confirm the final inclusions and total quote before you commit. Any item not included in the confirmed package will be clearly disclosed in advance—no surprise charges for included services.</div><label class="'+labelClass+'">Children’s ages (if applicable)<input id="dolphinBookChildAges" type="text" value="'+d.childAges+'" placeholder="e.g. 5 and 9 years old" class="'+inputClass+'"></label></div>';
+            } else if (step === 3) {
+                content = '<div class="space-y-5"><div><h2 class="text-xl font-extrabold text-slate-900">Who is travelling?</h2><p class="mt-1 text-sm leading-6 text-slate-500">We use these details to follow up about availability, pickup arrangements and your all-inclusive quote.</p></div><div class="grid gap-4 sm:grid-cols-2"><label class="'+labelClass+'">Full name *<input id="dolphinBookName" autocomplete="name" value="'+d.name+'" placeholder="Name of lead traveller" class="'+inputClass+'" required></label><label class="'+labelClass+'">Email address *<input id="dolphinBookEmail" type="email" autocomplete="email" value="'+d.email+'" placeholder="you@example.com" class="'+inputClass+'" required></label><label class="'+labelClass+'">WhatsApp number *<input id="dolphinBookPhone" type="tel" autocomplete="tel" value="'+d.phone+'" placeholder="Include country code" class="'+inputClass+'" required></label><label class="'+labelClass+'">Special requests<textarea id="dolphinBookNotes" rows="3" placeholder="Dietary needs, accessibility or other requests" class="'+inputClass+'">'+d.notes+'</textarea></label></div></div>';
+            } else {
+                content = '<div class="space-y-5"><div><h2 class="text-xl font-extrabold text-slate-900">Review your booking request</h2><p class="mt-1 text-sm leading-6 text-slate-500">Check your details before sharing the request with Bali Trans. This is a request, not a confirmed reservation or payment.</p></div><div class="rounded-2xl border border-slate-200 p-4">'+summaryRow('Package','Bali Dolphin & North Bali All-Inclusive Full-Day Tour')+summaryRow('Travel date',d.date)+summaryRow('Guests',(d.adults||0)+' adults, '+(d.children||0)+' children')+summaryRow('Pickup',d.pickup)+summaryRow('Children’s ages',d.childAges)+summaryRow('Lead traveller',d.name)+summaryRow('Email',d.email)+summaryRow('WhatsApp',d.phone)+summaryRow('Special requests',d.notes)+'</div><div class="rounded-xl bg-[#EEF3FB] p-4 text-sm leading-6 text-[#172B4D]"><strong>All-inclusive means one coordinated package.</strong> Bali Trans will confirm the exact itinerary, inclusions, pickup time and total price with you before the booking is finalised.</div><button type="button" onclick="copyDolphinBookingRequest()" class="w-full rounded-xl bg-[#172B4D] px-5 py-3.5 text-sm font-extrabold text-white transition hover:bg-[#243e68]"><i class="fas fa-copy mr-2"></i>Copy booking request</button><p id="dolphinCopyStatus" class="text-center text-xs text-slate-500" role="status">Copy the details, then send them to Bali Trans through your usual contact channel.</p></div>';
+            }
+            return '<div class="min-h-[75vh] bg-[#F7F9FC] px-4 py-6 sm:px-6 sm:py-10"><div class="mx-auto max-w-5xl"><button type="button" onclick="navigateTo(\'detail\',\'lovina-dolphin-tour\')" class="mb-6 inline-flex items-center gap-2 text-sm font-bold text-slate-600 hover:text-[#172B4D]"><i class="fas fa-arrow-left"></i> Back to tour</button><div class="mb-6 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-slate-400"><span>Secure booking request</span><span>·</span><span>Step '+step+' of 4</span></div><div class="mb-8 flex items-center">'+progress+'</div><div class="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_300px]"><main class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-8">'+content+'<div class="mt-8 flex flex-col-reverse gap-3 border-t border-slate-100 pt-5 sm:flex-row sm:justify-between">'+(step > 1 ? '<button type="button" onclick="advanceDolphinBookingStep(-1)" class="rounded-xl border border-slate-200 px-5 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50">Back</button>' : '<span></span>')+(step < 4 ? '<button type="button" onclick="advanceDolphinBookingStep(1)" class="rounded-xl bg-[#172B4D] px-6 py-3 text-sm font-extrabold text-white hover:bg-[#243e68]">Continue <i class="fas fa-arrow-right ml-2"></i></button>' : '<button type="button" onclick="navigateTo(\'detail\',\'lovina-dolphin-tour\')" class="rounded-xl border border-slate-200 px-5 py-3 text-sm font-bold text-slate-700">Back to tour</button>')+'</div></main><aside class="rounded-2xl border border-slate-200 bg-white p-5"><h2 class="font-extrabold text-slate-900">Your tour</h2><div class="mt-3 overflow-hidden rounded-xl"><img src="https://images.unsplash.com/photo-1568430462989-44163eb1752f?auto=format&fit=crop&w=700&q=80" alt="Dolphins swimming in the sea" class="h-36 w-full object-cover"></div><h3 class="mt-3 text-sm font-extrabold leading-6 text-slate-900">Bali Dolphin & North Bali All-Inclusive Full-Day Tour</h3><p class="mt-1 text-xs leading-5 text-slate-500">Full-day private tour · North Bali</p><div class="mt-4 border-t border-slate-100 pt-3 text-sm">'+summaryRow('Travel date',d.date||'To be selected')+summaryRow('Guests',((d.adults||0)+' adults, '+(d.children||0)+' children'))+'</div><p class="mt-3 text-xs leading-5 text-slate-500">Final price and availability are confirmed before you commit.</p></aside></div><p class="mt-6 text-center text-xs text-slate-400">Your request is not confirmed until Bali Trans replies with availability and final details.</p></div></div>';
+        }
+
+        function advanceDolphinBookingStep(direction) {
+            captureDolphinBookingFields();
+            const d = window.dolphinBookingDraft;
+            if (direction > 0 && dolphinBookingStep === 1) {
+                if (!d.date || !d.pickup || Number(d.adults) < 1) { showToast('Please enter a travel date, pickup location and at least one adult.'); return; }
+                if (d.date < new Date(Date.now()-new Date().getTimezoneOffset()*60000).toISOString().slice(0,10)) { showToast('Please choose a future travel date.'); return; }
+            }
+            if (direction > 0 && dolphinBookingStep === 3) {
+                if (!d.name || !d.email || !d.phone) { showToast('Please complete your name, email and WhatsApp number.'); return; }
+                if (!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(d.email)) { showToast('Please enter a valid email address.'); return; }
+            }
+            dolphinBookingStep = Math.max(1, Math.min(4, dolphinBookingStep + direction));
+            const container = document.getElementById('appContainer');
+            if (container) container.innerHTML = renderDolphinBookingFlow();
+            window.scrollTo({top:0,behavior:'auto'});
+        }
+
+        function copyDolphinBookingRequest() {
+            captureDolphinBookingFields();
+            const d = window.dolphinBookingDraft;
+            const message = [
+                'BALI DOLPHIN & NORTH BALI ALL-INCLUSIVE FULL-DAY TOUR',
+                'Travel date: '+d.date,
+                'Guests: '+d.adults+' adults, '+d.children+' children',
+                'Pickup: '+d.pickup,
+                'Children ages: '+(d.childAges||'Not specified'),
+                'Lead traveller: '+d.name,
+                'Email: '+d.email,
+                'WhatsApp: '+d.phone,
+                'Special requests: '+(d.notes||'None'),
+                '',
+                'Please confirm availability, exact inclusions, pickup time and the final all-inclusive quote.'
+            ].join('\\n');
+            const status = document.getElementById('dolphinCopyStatus');
+            const fallback = () => {
+                const area = document.createElement('textarea');
+                area.value = message; area.setAttribute('readonly',''); area.style.position='fixed'; area.style.opacity='0';
+                document.body.appendChild(area); area.select();
+                let copied = false;
+                try { copied = document.execCommand('copy'); } catch (e) {}
+                area.remove();
+                if (status) status.textContent = copied ? 'Booking request copied. Send it to Bali Trans to confirm availability.' : 'Copy was not available on this browser. Please select and copy your details from the review above.';
+                if (copied) showToast('Booking request copied.');
+            };
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(message).then(() => { if(status)status.textContent='Booking request copied. Send it to Bali Trans to confirm availability.'; showToast('Booking request copied.'); }).catch(fallback);
+            } else fallback();
+        }
+
         function renderCheckoutView() {
+            if (currentViewParams === 'dolphin-tour') return renderDolphinBookingFlow();
             const curr = CURRENCY_RATES[currentCurrency];
             let grandTotal = cartState.reduce((sum, item) => sum + (item.unitPriceIDR * item.quantity), 0);
 
