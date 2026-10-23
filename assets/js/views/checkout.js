@@ -121,52 +121,75 @@
         function buildDolphinBookingWhatsAppMessage() {
             captureDolphinBookingFields();
             const d = window.dolphinBookingDraft;
+            const money = n => 'Rp' + Math.round(Number(n || 0)).toLocaleString('id-ID');
+            const adults = Number(d.adults) || 0;
+            const children = Number(d.children) || 0;
+            const guests = adults + children;
             const adultRate = d.guestType === 'international' ? 950000 : 750000;
-            const money = n => 'Rp' + Number(n || 0).toLocaleString('id-ID');
-            const subtotal = (Number(d.adults)||0) * adultRate;
-            const ref = d.reference || (d.reference = 'BT-DOL-' + Math.random().toString(36).slice(2,8).toUpperCase());
+            const childRate = d.guestType === 'international' ? 700000 : 500000;
+            const discountRate = guests >= 11 ? .075 : guests >= 7 ? .05 : guests >= 3 ? .025 : 0;
+            const adultSubtotal = adults * adultRate;
+            const childSubtotal = children * childRate;
+            const baseSubtotal = adultSubtotal + childSubtotal;
+            const groupDiscount = Math.round(baseSubtotal * discountRate);
+            const snorkel = !!(d.addons && d.addons.snorkel);
+            const tanahLot = !!(d.addons && d.addons.tanahLot);
+            const swing = !!(d.addons && d.addons.swing);
+            const addonSnorkel = snorkel ? guests * 250000 : 0;
+            const addonTanahLot = tanahLot ? adults * (d.guestType === 'international' ? 70000 : 30000) + children * (d.guestType === 'international' ? 35000 : 15000) + 300000 : 0;
+            const vehicle = d.vehicle || 'standard';
+            const vehicleExtra = vehicle === 'reborn' ? 300000 : (vehicle === 'zenix' || vehicle === 'hiace') ? 500000 : 0;
+            const total = Number(d.estimatedTotal) || Math.max(0, baseSubtotal - groupDiscount + addonSnorkel + addonTanahLot + vehicleExtra);
+            const ref = d.reference || (d.reference = 'BT-DOL-' + Date.now().toString(36).toUpperCase().slice(-6));
             const rule = '────────────────────────────────';
-            const guestCount = (Number(d.adults)||0) + (Number(d.children)||0);
             return [
                 'BALI TRANS',
                 'BOOKING BILL · BALI DOLPHIN TOUR',
                 rule,
-                'REFERENCE : ' + ref,
-                'STATUS    : Awaiting confirmation',
+                'BOOKING REF : ' + ref,
+                'BOOKING STATUS: Awaiting availability confirmation',
                 '',
                 'TRIP DETAILS',
                 rule,
-                'Travel date : ' + (d.date || '—'),
+                'Tour date   : ' + (d.date || '—'),
                 'Pickup      : ' + (d.pickup || '—'),
-                'Guest type  : ' + (d.guestType === 'international' ? 'International' : 'Local'),
-                'Guests      : ' + guestCount + ' (' + (d.adults||0) + ' adults, ' + (d.children||0) + ' children)',
-                'Child ages  : ' + (d.children ? (d.childAges || 'To be confirmed') : 'N/A'),
+                'Pickup time : To be confirmed',
+                'Guest type  : ' + (d.guestType === 'international' ? 'International' : 'Local / domestic'),
+                'Guests      : ' + guests + ' (' + adults + ' adults, ' + children + ' children)',
+                'Child ages  : ' + (children ? (d.childAges || 'To be confirmed') : 'N/A'),
+                'Vehicle     : ' + ({standard:'Standard vehicle',reborn:'Innova Reborn',zenix:'Innova Zenix',hiace:'Toyota HiAce'}[vehicle] || vehicle),
+                'Add-ons     : ' + [snorkel?'Snorkelling':'',tanahLot?'Tanah Lot stop':'',swing?'Swing (price to confirm)':''].filter(Boolean).join(', ') .replace(/^$/, 'None'),
                 '',
-                'ITEMISED ESTIMATE',
+                'PRICE BREAKDOWN (ESTIMATE)',
                 rule,
-                'Adult rate  : ' + money(adultRate) + ' × ' + (d.adults||0),
-                'Adult subtotal: ' + money(subtotal),
-                'Children    : ' + (d.children ? 'Fare pending age confirmation' : 'N/A'),
-                'ESTIMATED SUBTOTAL: ' + money(subtotal),
-                d.children ? 'Note: child fare is excluded until ages and rates are confirmed.' : 'Final itinerary and inclusions are subject to confirmation.',
+                'Adult fare  : ' + money(adultRate) + ' × ' + adults + ' = ' + money(adultSubtotal),
+                'Child fare  : ' + money(childRate) + ' × ' + children + ' = ' + money(childSubtotal),
+                'Subtotal    : ' + money(baseSubtotal),
+                'Group discount (' + (discountRate * 100).toLocaleString('en-US') + '%): −' + money(groupDiscount),
+                snorkel ? 'Snorkelling : ' + money(addonSnorkel) : '',
+                tanahLot ? 'Tanah Lot add-on: ' + money(addonTanahLot) : '',
+                vehicleExtra ? 'Vehicle upgrade: ' + money(vehicleExtra) : '',
+                swing ? 'Swing admission: price to be confirmed separately' : '',
+                'ESTIMATED TOTAL DUE: ' + money(total),
                 '',
                 'LEAD TRAVELLER',
                 rule,
                 'Name        : ' + (d.name || '—'),
                 'Email       : ' + (d.email || '—'),
                 'WhatsApp    : ' + (d.phone || '—'),
-                'Requests    : ' + (d.notes || 'None'),
+                'Special requests: ' + (d.notes || 'None'),
                 '',
-                'PAYMENT PREFERENCE',
+                'PAYMENT',
                 rule,
-                d.paymentMethod === 'tour-day' ? 'Pay on the day of the tour (subject to confirmation).' : 'Confirm booking and final quote via WhatsApp.',
-                'Online card and PayPal payments are temporarily unavailable.',
+                'Payment status: NOT PAID',
+                'Payment timing: Pay on the day of the tour',
+                'No payment is collected when sending this booking request.',
+                'Please confirm availability, final itinerary, add-on prices and total before the tour.',
                 '',
-                'Please confirm availability, pickup time, inclusions and final price before the booking is confirmed.',
                 'This is a booking estimate, not a payment receipt or final tax invoice.',
                 rule,
                 'Bali Trans · Tours, trips & private transport'
-            ].join('\n');
+            ].filter(Boolean).join('\\n');
         }
 
         function renderDolphinPaymentChoiceNote(method) {
