@@ -1,8 +1,8 @@
 # Bali Trans — Code and UX Audit
 
 Date: 2026-10-18
-Branch: `refactor/separate-assets-and-audit`
-Scope: static source audit and safe refactor of the existing single-page prototype. This is not a claim that live booking/payment has been tested.
+Branch: `main`
+Scope: current source architecture, shared site shell, standalone page assets, route integrity, responsive browser smoke tests, and launch risks. This is not a claim that live booking/payment has been tested.
 
 ## Confirmed structure issues
 
@@ -12,14 +12,14 @@ Scope: static source audit and safe refactor of the existing single-page prototy
 - Tailwind is loaded from its CDN at runtime, so extracting files alone does not make the site lightweight. A production build with generated/minified CSS should be evaluated separately.
 - External fonts, Font Awesome, QRCode.js, and Unsplash images remain runtime dependencies.
 
-## Changes on this branch
+## Architecture and fixes recorded in this audit
 
 - Extracted custom CSS to `assets/css/styles.css`.
 - Extracted Tailwind theme configuration to `assets/js/tailwind.config.js` and load it before the Tailwind CDN.
 - Extracted data constants to `assets/js/data.js`.
 - Split application state, navigation, view rendering, and interactions into focused JavaScript files.
 - Split view rendering by feature: homepage, catalog/cards, package detail, articles, and cart/checkout.
-- Added a GitHub Actions validation workflow to check JavaScript syntax and local asset references on pull requests.
+- Added GitHub Actions validation and deployment workflows for syntax, route/content references, browser smoke tests, local assets, CSS/JS separation, and sitemap coverage.
 - Fixed the homepage search so the entered keyword filters packages, with a clear empty state.
 - Fixed article routing to search `BALI_BLOGS`, rather than `BALI_PACKAGES`.
 - Added basic checkout guest-field validation and activity-date validation.
@@ -41,7 +41,7 @@ Scope: static source audit and safe refactor of the existing single-page prototy
 
 ## Verification performed
 
-- Confirmed on the branch that the HTML contains no inline `<style>` blocks or inline application script bodies.
+- Confirmed current HTML contains no inline `<style>` blocks, inline style attributes, or executable inline script bodies. JSON-LD structured data intentionally remains inline.
 - Confirmed the monolithic `assets/js/app.js` and combined `assets/js/views.js` were removed and replaced by focused files.
 - Confirmed local asset references and script order: Tailwind configuration before Tailwind CDN; data before application logic.
 - Confirmed referenced inline handler names found in the static HTML have corresponding application functions.
@@ -54,8 +54,8 @@ Scope: static source audit and safe refactor of the existing single-page prototy
 2. Confirm final public brand presentation and approved business/contact details before launch.
 3. Replace unverified claims and placeholder contact/social/policy links before launch.
 4. Decide whether to retain a demo-only booking journey or implement a real inquiry/booking flow.
-5. Run mobile browser QA across homepage swipe/carousels, breadcrumbs/back navigation, search and category filters, package detail/date/options, cart, wishlist, article listing/detail, footer links, currency selector, checkout validation, and empty states.
-6. Merge/deploy only after the branch has passed the agreed checks.
+5. Automated browser smoke coverage is now in CI; manually review visual polish on a physical Android phone, especially homepage carousel behavior and text/spacing.
+6. Changes are committed directly to `main` without a PR. Confirm both validation and GitHub Pages deployment workflows succeed, then inspect the live preview.
 
 
 ## Follow-up UI fixes (2026-10-18)
@@ -81,6 +81,6 @@ Scope: static source audit and safe refactor of the existing single-page prototy
 - Standalone HTML page styles and executable inline scripts have been moved into external files under `assets/css/pages/` and `assets/js/pages/`. JSON-LD structured data remains inline intentionally.
 - Inline style attributes in HTML and static style attributes in JS-generated markup have been replaced with classes and stylesheet rules.
 - CI checks JavaScript syntax, SPA route/content references, browser smoke tests, local HTML assets, CSS URLs/imports, absence of inline styles/scripts in HTML, JS-generated style markup, and sitemap coverage for public pages.
-- Both checkout pages intentionally omit the shared site header/footer; the airport checkout also omits branding and uses a glass-style form surface.
+- Homepage and standalone public pages now use the same injected header/footer component. Both checkout pages intentionally omit the shared shell; the airport checkout also omits branding and uses a glass-style form surface.
 - Latest confirmed deployment at the time of this audit must be read from the most recent successful `Deploy Bali Trans to GitHub Pages` workflow run; do not infer live deployment from a commit alone.
 - Still not production-ready: there is no real booking backend, live inventory, online payment processing, email delivery, or server-side validation. Final manual visual QA and destination/operator fact-checking remain necessary.
