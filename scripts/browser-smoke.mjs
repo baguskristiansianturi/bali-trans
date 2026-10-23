@@ -69,6 +69,28 @@ async function checkRoute(label, query, expectedHeading) {
 
 try {
   await checkRoute('homepage', '', 'Find your way around Bali');
+  await page.waitForSelector('.bt-site-header[data-ready="true"]');
+  await page.waitForSelector('.bt-site-footer');
+  const homepageShellCounts = await page.evaluate(() => ({
+    headers: document.querySelectorAll('.bt-site-header').length,
+    footers: document.querySelectorAll('.bt-site-footer').length
+  }));
+  if (homepageShellCounts.headers !== 1 || homepageShellCounts.footers !== 1) {
+    throw new Error('Homepage must use exactly one shared header and footer: ' + JSON.stringify(homepageShellCounts));
+  }
+  await page.locator('#localeButton').click();
+  if (!(await page.locator('#localeMenu').isVisible())) throw new Error('Shared language/currency menu did not open on the homepage');
+  await page.locator('#headerSearchButton').click();
+  if (!(await page.locator('#headerSearchPanel').isVisible()) || await page.locator('#localeMenu').isVisible()) {
+    throw new Error('Opening search should close the locale menu and reveal the search overlay');
+  }
+  await page.locator('#mobileMenuButton').click();
+  if (!(await page.locator('#mobileMenuPanel').isVisible()) || await page.locator('#headerSearchPanel').isVisible()) {
+    throw new Error('Opening the mobile menu should close search and reveal navigation');
+  }
+  await page.locator('#mobileMenuButton').click();
+  if (await page.locator('#mobileMenuPanel').isVisible()) throw new Error('Mobile navigation did not close when toggled');
+  console.log('PASS homepage uses the shared shell with functional locale, search and mobile overlays');
   await checkRoute('about', '?page=about', 'A simpler way');
   await checkRoute('contact', '?page=contact', 'Let’s talk');
   await checkRoute('package catalogue', '?page=packages', 'Tours & Activities');
