@@ -1,0 +1,2 @@
+/* Extracted from watersport-checkout.html; original execution position preserved. */
+document.addEventListener('DOMContentLoaded',()=>{const date=document.querySelector('#activityDate');if(date){const now=new Date();date.min=new Date(now.getTime()-now.getTimezoneOffset()*60000).toISOString().slice(0,10);}const f=document.querySelector('#watersportBookingForm');const p=new URLSearchParams(location.search);if(f&&p.get('type')==='package')f.elements.product.value='package';});
