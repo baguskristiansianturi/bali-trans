@@ -55,8 +55,8 @@
           '<button class="bt-locale" type="button" id="localeButton" aria-label="Language and currency" aria-controls="localeMenu" aria-expanded="false"><span id="localeCurrentCode">ID</span><span aria-hidden="true">⌄</span></button>' +
           '<div class="bt-locale-menu hidden" id="localeMenu">' + localeHTML + '</div>' +
         '</div>' +
-        '<button class="bt-action" type="button" id="headerSearchButton" aria-label="Open search" aria-controls="headerSearchPanel" aria-expanded="false"><span id="headerSearchIcon" aria-hidden="true">⌕</span></button>' +
-        '<button class="bt-action bt-mobile-toggle" type="button" id="mobileMenuButton" aria-label="Open menu" aria-controls="mobileMenuPanel" aria-expanded="false"><span id="mobileMenuIcon" aria-hidden="true">☰</span></button>' +
+        '<button class="bt-action" type="button" id="headerSearchButton" aria-label="Open search" aria-controls="headerSearchPanel" aria-expanded="false"><svg id="headerSearchIcon" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg></button>' +
+        '<button class="bt-action bt-mobile-toggle" type="button" id="mobileMenuButton" aria-label="Open menu" aria-controls="mobileMenuPanel" aria-expanded="false"><svg id="mobileMenuIcon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"></path></svg></button>' +
         (hasLiveChatBar ? '' : '<a class="bt-live-chat" href="' + routes.contact + '" aria-label="Live Chat status: offline"><span class="bt-live-dot" aria-hidden="true"></span><span><strong>Live Chat</strong><small>Offline</small></span></a>') +
       '</div>' +
     '</div></div>' +
@@ -86,14 +86,8 @@
       '<div class="bt-footer-bottom"><p>© 2026 Bali Trans. Tours, experiences and private transport in Bali.</p><p>Trip details, prices and availability should be confirmed with our team before booking.</p></div></div>';
 
   function init() {
-    // Keep exactly one shared shell if an earlier script execution or partial navigation ran twice.
-    const existingHeaders = Array.from(document.querySelectorAll('.bt-site-header'));
-    const existingFooters = Array.from(document.querySelectorAll('.bt-site-footer'));
-    if (existingHeaders.length) {
-      existingHeaders.slice(1).forEach(node => node.remove());
-      existingFooters.slice(1).forEach(node => node.remove());
-      return;
-    }
+    // Rebuild the shared shell from one canonical template instead of retaining stale/duplicated controls.
+    document.querySelectorAll('.bt-site-header, .bt-site-footer').forEach(node => node.remove());
 
     // Preserve the approved four-item mobile bottom navigation on the SPA homepage.
     // The shared header supplements this navigation; it must never remove it.
@@ -126,8 +120,8 @@
       if (mobileButton) mobileButton.setAttribute('aria-label', 'Open menu');
       const searchIcon = document.getElementById('headerSearchIcon');
       const mobileIcon = document.getElementById('mobileMenuIcon');
-      if (searchIcon) searchIcon.textContent = '⌕';
-      if (mobileIcon) mobileIcon.textContent = '☰';
+      if (searchIcon) searchIcon.innerHTML = '<circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path>';
+      if (mobileIcon) mobileIcon.innerHTML = '<path d="M4 6h16M4 12h16M4 18h16"></path>';
     }
 
     localeButton?.addEventListener('click', function (event) {
@@ -161,7 +155,7 @@
         searchPanel.classList.remove('hidden');
         searchButton.setAttribute('aria-expanded', 'true');
         searchButton.setAttribute('aria-label', 'Close search');
-        document.getElementById('headerSearchIcon').textContent = '×';
+        document.getElementById('headerSearchIcon').innerHTML = '<path d="m6 6 12 12M18 6 6 18"></path>';
         searchInput.focus();
       }
     });
@@ -173,7 +167,7 @@
         mobilePanel.classList.remove('hidden');
         mobileButton.setAttribute('aria-expanded', 'true');
         mobileButton.setAttribute('aria-label', 'Close menu');
-        document.getElementById('mobileMenuIcon').textContent = '×';
+        document.getElementById('mobileMenuIcon').innerHTML = '<path d="m6 6 12 12M18 6 6 18"></path>';
       }
     });
 
