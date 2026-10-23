@@ -88,10 +88,10 @@ try {
   if (await page.locator('#article-sources-title').count() !== 1) throw new Error('Atuh Beach article is missing its source list');
   await page.goto('http://127.0.0.1:4173/?page=discovery&item=region%3Anusa', { waitUntil: 'domcontentloaded' });
   await page.waitForFunction(() => document.querySelector('#appContainer h1'));
-  await page.getByRole('button', { name: 'Read destination guide' }).first().click();
-  await page.waitForFunction(() => new URLSearchParams(location.search).get('item') === 'nusa-penida-kelingking-beach');
-  await page.waitForFunction(() => document.querySelector('#appContainer h1')?.textContent.includes('Kelingking Beach'));
-  console.log('PASS Nusa region card opens its matching destination article');
+  await page.getByRole('button', { name: 'Explore destination' }).first().click();
+  await page.waitForFunction(() => new URLSearchParams(location.search).get('item') === 'place:kelingking-beach');
+  await page.waitForFunction(() => document.querySelector('#appContainer h1, #appContainer h2')?.textContent.includes('Kelingking Beach'));
+  console.log('PASS Nusa region card opens its matching destination detail');
   await checkRoute('cart', '?page=cart', 'Cart');
   await checkRoute('checkout', '?page=checkout', 'Vehicle & optional activities');
   await checkRoute('photo credits', '?page=image-credits', 'Photo credits');
