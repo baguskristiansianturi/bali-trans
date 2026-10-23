@@ -13,28 +13,37 @@ function renderDetailView(pkg) {
                         <span class="text-slate-800 line-clamp-1">${pkg.title}</span>
                     </div>
 
-                    <!-- Title & Header Meta -->
-                    <div class="mb-6">
-                        <h1 class="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight mb-3">${pkg.title}</h1>
-                        <div class="flex flex-wrap items-center gap-4 text-xs font-semibold text-slate-600">
+                    <!-- Hero image first -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 rounded-3xl overflow-hidden mb-6 h-[260px] sm:h-[340px] md:h-[420px]">
+                        <div class="md:col-span-2 h-full min-h-0">
+                            <img src="${pkg.gallery[0] || pkg.heroImage}" alt="${pkg.title}" class="w-full h-full object-cover">
+                        </div>
+                        <div class="hidden md:grid grid-rows-2 gap-3 h-full min-h-0">
+                            <img src="${pkg.gallery[1] || pkg.heroImage}" alt="${pkg.title} gallery photo 2" class="w-full h-full object-cover">
+                            <img src="${pkg.gallery[2] || pkg.heroImage}" alt="${pkg.title} gallery photo 3" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+
+                    <!-- Title and short description follow the image -->
+                    <div class="mb-5">
+                        <div class="flex flex-wrap items-center gap-3 mb-3 text-xs font-semibold text-slate-600">
                             <span class="flex items-center gap-1 text-slate-900 bg-amber-50 border border-amber-200 px-2.5 py-1 rounded-full font-bold">
                                 <i class="fas fa-star text-amber-500"></i> ${pkg.rating} (${pkg.reviewCount} reviews)
                             </span>
                             <span class="flex items-center gap-1"><i class="fas fa-location-dot text-bali-orange"></i> ${pkg.location}</span>
-                            <span class="flex items-center gap-1"><i class="fas fa-bolt text-amber-500"></i> Booking details</span>
                         </div>
+                        <h1 class="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight mb-3">${pkg.title}</h1>
+                        <p class="text-sm sm:text-base leading-7 text-slate-600 max-w-4xl">${pkg.shortDescription || pkg.summary || (pkg.highlights && pkg.highlights[0]) || 'Explore Bali at your own pace with a thoughtfully planned tour and clear trip details.'}</p>
                     </div>
 
-                    <!-- Photo Gallery Grid -->
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-3 rounded-3xl overflow-hidden mb-8 h-[340px] md:h-[420px]">
-                        <div class="md:col-span-2 h-full">
-                            <img src="${pkg.gallery[0] || pkg.heroImage}" class="w-full h-full object-cover">
+                    <!-- Detail tabs -->
+                    <nav aria-label="Tour details" class="sticky top-[68px] md:top-[78px] z-30 -mx-4 px-4 sm:mx-0 sm:px-0 mb-7 border-b border-slate-200 bg-white/95 backdrop-blur">
+                        <div class="flex gap-6 overflow-x-auto hide-scrollbar whitespace-nowrap">
+                            <a href="#tour-overview" class="py-3 border-b-2 border-bali-orange text-slate-900 text-sm font-bold">Overview</a>
+                            <a href="#tour-itinerary" class="py-3 border-b-2 border-transparent text-slate-600 hover:text-slate-900 text-sm font-semibold">Itinerary</a>
+                            <a href="#tour-options" class="py-3 border-b-2 border-transparent text-slate-600 hover:text-slate-900 text-sm font-semibold">Package options</a>
                         </div>
-                        <div class="hidden md:grid grid-rows-2 gap-3 h-full">
-                            <img src="${pkg.gallery[1] || pkg.heroImage}" class="w-full h-full object-cover">
-                            <img src="${pkg.gallery[2] || pkg.heroImage}" class="w-full h-full object-cover">
-                        </div>
-                    </div>
+                    </nav>
 
                     <!-- Content & Sticky Sidebar Layout -->
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
@@ -42,6 +51,14 @@ function renderDetailView(pkg) {
                         <!-- Left Details Content (8 Cols) -->
                         <div class="lg:col-span-8 space-y-8">
                             
+                            <!-- Long description and overview -->
+                            <section id="tour-overview" class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm scroll-mt-32">
+                                <h2 class="text-lg font-extrabold text-slate-900 mb-3">About this tour</h2>
+                                <div class="text-sm leading-7 text-slate-600 space-y-3">
+                                    ${pkg.longDescription || pkg.description || (pkg.highlights || []).slice(0, 2).join(' ')}
+                                </div>
+                            </section>
+
                             <!-- Highlights -->
                             <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
                                 <h3 class="text-lg font-extrabold text-slate-900 mb-4 flex items-center gap-2">
@@ -53,7 +70,7 @@ function renderDetailView(pkg) {
                             </div>
 
                             <!-- Package Options Selection -->
-                            <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
+                            <div id="tour-options" class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm scroll-mt-32">
                                 <h3 class="text-lg font-extrabold text-slate-900 mb-4">Select Package Option</h3>
                                 <div class="space-y-3">
                                     ${pkg.options.map((opt, index) => `
@@ -74,7 +91,7 @@ function renderDetailView(pkg) {
                             </div>
 
                             <!-- Timeline Itinerary -->
-                            <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
+                            <div id="tour-itinerary" class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm scroll-mt-32">
                                 <h3 class="text-lg font-extrabold text-slate-900 mb-6">Itinerary Timeline</h3>
                                 <div class="relative border-l-2 border-orange-200 pl-6 space-y-6 ml-2">
                                     ${pkg.itinerary.map(item => `
