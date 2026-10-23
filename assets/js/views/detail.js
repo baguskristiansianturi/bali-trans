@@ -36,9 +36,19 @@
             var nav = link && link.closest('.dolphin-tabs');
             var scroller = nav && nav.querySelector('div');
             if (link && scroller) {
-                var tabRect = link.getBoundingClientRect(), scrollerRect = scroller.getBoundingClientRect();
-                if (tabRect.left < scrollerRect.left || tabRect.right > scrollerRect.right) {
-                    scroller.scrollTo({left: link.offsetLeft - scroller.clientWidth / 2 + link.offsetWidth / 2, behavior: 'smooth'});
+                var tabRect = link.getBoundingClientRect();
+                var scrollerRect = scroller.getBoundingClientRect();
+                var edge = 20;
+                var current = scroller.scrollLeft;
+                var target = current;
+                if (tabRect.left < scrollerRect.left + edge) {
+                    target = current + tabRect.left - scrollerRect.left - edge;
+                } else if (tabRect.right > scrollerRect.right - edge) {
+                    target = current + tabRect.right - scrollerRect.right + edge;
+                }
+                target = Math.max(0, Math.min(target, scroller.scrollWidth - scroller.clientWidth));
+                if (Math.abs(target - current) > 2) {
+                    scroller.scrollTo({left: target, behavior: 'smooth'});
                 }
             }
         }
