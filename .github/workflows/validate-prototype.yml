@@ -121,12 +121,12 @@ jobs:
           html_refs = 0
           for html_file in html_files:
               source = html_file.read_text(encoding="utf-8")
-              if re.search(r"<style\\b", source, re.I):
+              if re.search(r"<style\b", source, re.I):
                   inline_styles.append(str(html_file))
-              for attrs, body in re.findall(r"<script\\b([^>]*)>([\\s\\S]*?)</script\\s*>", source, re.I):
-                  if not re.search(r"\\bsrc\\s*=", attrs, re.I) and not re.search(r"application/ld\\+json", attrs, re.I) and body.strip():
+              for attrs, body in re.findall(r"<script\b([^>]*)>([\s\S]*?)</script\s*>", source, re.I):
+                  if not re.search(r"\bsrc\s*=", attrs, re.I) and not re.search(r"application/ld\+json", attrs, re.I) and body.strip():
                       inline_scripts.append(str(html_file))
-              refs = re.findall(r"(?:src|href)\\s*=\\s*[\"']([^\"']+)[\"']", source, re.I)
+              refs = re.findall(r"(?:src|href)\s*=\s*[\"']([^\"']+)[\"']", source, re.I)
               for ref in refs:
                   if ref.startswith(("http://", "https://", "//", "mailto:", "tel:", "data:", "#", "?")):
                       continue
@@ -141,8 +141,8 @@ jobs:
           css_refs = 0
           for css_file in css_files:
               source = css_file.read_text(encoding="utf-8")
-              refs = re.findall(r"@import\\s+(?:url\\()?\\s*[\"']?([^\"')\\s]+)", source, re.I)
-              refs += re.findall(r"url\\(\\s*[\"']?([^\"')]+)", source, re.I)
+              refs = re.findall(r"@import\s+(?:url\()?\s*[\"']?([^\"')\s]+)", source, re.I)
+              refs += re.findall(r"url\(\s*[\"']?([^\"')]+)", source, re.I)
               for ref in refs:
                   ref = ref.strip().strip("\"'")
                   if not ref or ref.startswith(("http://", "https://", "//", "data:", "#", "/")):
@@ -152,11 +152,11 @@ jobs:
                   if not (css_file.parent / clean).is_file():
                       missing_css.append(f"{css_file}: {ref}")
           problems = []
-          if missing_html: problems.append("Missing HTML assets:\\n" + "\\n".join(missing_html))
-          if missing_css: problems.append("Missing CSS URLs/imports:\\n" + "\\n".join(missing_css))
-          if inline_styles: problems.append("Inline style blocks remain:\\n" + "\\n".join(inline_styles))
-          if inline_scripts: problems.append("Inline executable scripts remain:\\n" + "\\n".join(inline_scripts))
+          if missing_html: problems.append("Missing HTML assets:\n" + "\n".join(missing_html))
+          if missing_css: problems.append("Missing CSS URLs/imports:\n" + "\n".join(missing_css))
+          if inline_styles: problems.append("Inline style blocks remain:\n" + "\n".join(inline_styles))
+          if inline_scripts: problems.append("Inline executable scripts remain:\n" + "\n".join(inline_scripts))
           if problems:
-              raise SystemExit("\\n".join(problems))
+              raise SystemExit("\n".join(problems))
           print(f"Checked {len(html_files)} HTML pages, {html_refs} local HTML references, {len(css_files)} CSS files, and {css_refs} local CSS references; no inline CSS or executable JS remains.")
           PY
