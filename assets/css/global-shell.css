@@ -34,6 +34,7 @@
 .bt-footer-bottom{display:flex;flex-direction:column;gap:8px;border-top:1px solid #ffffff18;padding-top:17px;color:#8490a3;font-size:11px}
 .bt-footer-bottom p{margin:0}
 @media(min-width:768px){.bt-shell{padding-inline:24px}.bt-header-row{min-height:78px}.bt-main-nav{display:flex}.bt-mobile-toggle{display:none!important}.bt-footer-inner{padding:54px 24px 24px}.bt-footer-grid{grid-template-columns:minmax(250px,1.1fr) 2fr;gap:45px}.bt-footer-cols{grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}.bt-footer-bottom{flex-direction:row;justify-content:space-between;gap:20px}}
+@media(min-width:1100px){.bt-footer-cols{grid-template-columns:repeat(5,minmax(0,1fr));gap:18px}}
 @media(max-width:380px){.bt-brand-name{font-size:18px}.bt-brand-tag{font-size:8px}.bt-locale{padding-inline:9px;font-size:12px}.bt-actions{gap:5px}.bt-footer-inner{padding-top:34px}.bt-footer-cols{gap:22px 12px}}
 
 .bt-footer-highlights{display:grid;grid-template-columns:1fr;gap:9px;margin-top:18px;max-width:440px}.bt-footer-highlights>div{display:grid;gap:3px;padding:11px 12px;border:1px solid #ffffff1a;border-radius:12px;background:#ffffff0a}.bt-footer-highlights strong{color:#fff;font-size:12px}.bt-footer-highlights span{color:#94a3b8;font-size:11px;line-height:1.5}.bt-footer-note-icon{flex:none;font-size:22px;line-height:1.2;color:#b9c9e5}.bt-search-label{display:block;margin-bottom:8px;color:#334155;font-size:12px;font-weight:750}.bt-search-hint{margin:7px 0 0;color:#64748b;font-size:11px}
