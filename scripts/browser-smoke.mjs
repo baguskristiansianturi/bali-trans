@@ -167,11 +167,11 @@ try {
   if (await page.locator('.bt-site-header, .bt-site-footer, .brand').count()) throw new Error('Airport checkout must not show the site shell or logo');
   if (!(await page.locator('.back-link').isVisible())) throw new Error('Airport checkout must retain a clear Back control');
   await page.locator('input[name="bookingFor"][value="someone"]').check();
-  if (!(await page.locator('#guestFields').isVisible()) || !(await page.locator('#guestName').isRequired())) {
+  if (!(await page.locator('#guestFields').isVisible()) || !(await page.locator('#guestName').evaluate(el => el.required))) {
     throw new Error('Airport checkout did not enable required guest details for someone-else bookings');
   }
   await page.locator('input[name="bookingFor"][value="self"]').check();
-  if (await page.locator('#guestFields').isVisible() || await page.locator('#guestName').isRequired()) {
+  if (await page.locator('#guestFields').isVisible() || await page.locator('#guestName').evaluate(el => el.required)) {
     throw new Error('Airport checkout did not reset guest fields for self bookings');
   }
   const airportWidth = await page.evaluate(() => ({ width: document.documentElement.scrollWidth, viewport: window.innerWidth }));
