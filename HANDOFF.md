@@ -13,7 +13,7 @@ Live preview: https://baguskristiansianturi.github.io/bali-trans/
 - Footer routes were corrected: Help Centre, FAQ guide, Contact, About, Terms, Privacy Policy, Partner Enquiries, Account Access, and guest browsing.
 - Account Access is now an honest status page. Account creation, sign-in, password recovery and saved booking history are not implemented because there is no secure account backend.
 - Footer now has five groups at desktop width; CSS has a five-column breakpoint for large screens.
-- The last known successful validation before these edits was not current enough to verify the latest changes. Recheck Actions runs before claiming completion.
+- Source validation passed on commit `9fb63cd` (run 755). GitHub Pages deployment also succeeded for that commit; manual visual QA on a physical phone remains outstanding.
 
 ## Recent commits
 
@@ -31,6 +31,8 @@ Live preview: https://baguskristiansianturi.github.io/bali-trans/
 - Real registration cannot be completed on static hosting alone; connect a secure backend/auth provider before enabling account creation.
 - The official WhatsApp number and other business/contact details still require confirmation.
 - Check all footer/header links in a browser at mobile and desktop sizes.
-- Confirm latest source validation and GitHub Pages deployment workflows have both succeeded, then inspect the live site.
-- Open PRs #29, #32 and #33 still need reconciliation against current `main`; do not merge blindly because their recorded mergeability/check states are not all clean.
-- PR #23 (homepage redesign) was closed to preserve the approved homepage.
+- PR #29 remains a draft and needs reconciliation with current `main` before merge.
+- PR #32 remains open; reconcile its South Bali article changes with current `main` before merge.
+- PR #33 was closed as superseded because the current service-page CSS already shares hero rules.
+- PR #23 was closed to preserve the approved homepage.
+- `invoice.html` and `invoice-generator.html` now use external CSS and JavaScript files; their visual design was not changed.
