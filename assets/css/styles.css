@@ -64,3 +64,19 @@ body.dolphin-sheet-open { overflow:hidden; }
 .dolphin-rate-row small{font-size:10px;font-weight:500;color:#64748b}
 .dolphin-special-rate{display:block;background:#f8fafc}
 .dolphin-special-rate p{margin-top:5px;color:#64748b;line-height:1.55}
+
+/* Mobile Dolphin booking bar: preserve the original shared navbar and menu. */
+@media(max-width:1023px){
+ .dolphin-detail-page .dolphin-mobile-bar{display:block!important;grid-template-columns:none!important;gap:0!important;padding:10px 16px max(10px,env(safe-area-inset-bottom));background:rgba(255,255,255,.98);}
+ .dolphin-detail-page .dolphin-mobile-bar>div{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:10px;align-items:stretch;}
+ .dolphin-detail-page .dolphin-mobile-bar .dolphin-show-price,.dolphin-detail-page .dolphin-mobile-bar .dolphin-check-availability{min-height:52px;text-align:center;display:flex;align-items:center;justify-content:center;white-space:normal;line-height:1.25;padding:12px 10px;border-radius:14px;font-size:14px;}
+ .dolphin-detail-page .dolphin-mobile-bar p{margin:10px 0 0;text-align:center;font-size:12px;line-height:1.5;color:#64748b;}
+ .dolphin-detail-page .dolphin-mobile-bar a{text-decoration:none;color:#244a75;font-weight:700;}
+ .dolphin-detail-page{padding-bottom:150px!important;}
+}
+/* Do not let price-panel styles leak into the site's shared navigation. */
+.dolphin-detail-page .dolphin-rate-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;border:1px solid #e2e8f0;border-radius:10px;padding:11px 12px;font-size:12px;color:#334155;}
+.dolphin-detail-page .dolphin-rate-row>span{text-align:right;white-space:nowrap;font-weight:700;line-height:1.8;}
+.dolphin-detail-page .dolphin-rate-row small{font-size:10px;font-weight:500;color:#64748b;}
+.dolphin-detail-page .dolphin-special-rate{display:block;background:#f8fafc;}
+.dolphin-detail-page .dolphin-special-rate p{margin-top:5px;color:#64748b;line-height:1.55;}
