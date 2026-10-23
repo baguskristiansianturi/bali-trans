@@ -797,7 +797,7 @@
             const requestedTour = query.get('tour');
             if (requestedTour === 'lovina-dolphin-tour') return { view: 'detail', params: requestedTour };
             const view = query.get('page') || 'home';
-            const supportedViews = ['home','about','contact','packages','discovery','detail','blog','blog-read','cart','checkout','image-credits','not-found'];
+            const supportedViews = ['home','about','contact','help','help-topic','terms','privacy','partners','service-info','account','packages','discovery','detail','blog','blog-read','cart','checkout','image-credits','not-found'];
             return {
                 view: supportedViews.includes(view) ? view : 'not-found',
                 params: query.get('item') || (view === 'discovery' ? 'region:south' : null)
