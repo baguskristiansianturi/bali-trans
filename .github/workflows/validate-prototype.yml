@@ -100,7 +100,7 @@ jobs:
         run: |
           set -euo pipefail
           npm install --no-save playwright
-          npx playwright install --with-deps chromium
+          npx playwright install chromium
 
       - name: Run mobile browser smoke tests
         shell: bash
