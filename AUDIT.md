@@ -108,8 +108,12 @@ Real sign-up, sign-in, password recovery, saved booking history, and server-side
 - PR #23 homepage redesign was closed on 24 October 2026 because it conflicts with the explicit requirement to preserve the approved homepage.
 - PR #29 remains a draft and needs reconciliation with the current SPA router.
 - PR #32 adds South Bali destination articles; its recorded head check passed, but the branch must be reconciled with current `main` before merge.
-- PR #33 aligns standalone service heroes; its recorded browser smoke test failed while waiting for a destination-guide button. Investigate the test selector/route behavior before merging.
+- PR #33 was closed as superseded after confirming the current service-page stylesheets already share hero rules; its old branch had a stale browser-smoke selector.
 
 ### Current release verification
 
-Latest source validation and Pages deployment runs must be checked from GitHub Actions after the latest commits. Do not infer deployment success from the presence of a commit.
+- Source validation passed on commit `9fb63cd` in workflow run 755: https://github.com/baguskristiansianturi/bali-trans/actions/runs/40002061000
+- GitHub Pages deployment succeeded for the same commit: https://github.com/baguskristiansianturi/bali-trans/actions/runs/40002060328
+- Browser smoke coverage now includes Help Centre, FAQ, Terms, Privacy Policy, Partner Enquiries and Account Access routes.
+- `invoice.html` and `invoice-generator.html` have had inline CSS and executable script bodies extracted into `assets/css/pages/` and `assets/js/pages/`; the validation workflow checks these references.
+- Manual visual QA on a physical Android phone remains outstanding.
