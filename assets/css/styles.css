@@ -33,3 +33,23 @@ body.dolphin-sheet-open { overflow:hidden; }
  .dolphin-detail-page .dolphin-desktop-sidebar { display:block !important; }
  .dolphin-detail-page .dolphin-tabs { top:78px; }
 }
+
+/* Dolphin Tour mobile price sheet and group-rate disclosure */
+.dolphin-detail-page .dolphin-sheet-handle{display:flex;justify-content:center;padding:0 0 .85rem}
+.dolphin-detail-page .dolphin-sheet-handle span{display:block;width:2.5rem;height:.25rem;border-radius:999px;background:#cbd5e1}
+.dolphin-detail-page .dolphin-group-prices{border:1px solid #e2e8f0;border-radius:.9rem;padding:.9rem}
+.dolphin-detail-page .dolphin-group-prices summary{display:flex;align-items:center;justify-content:space-between;gap:.75rem;cursor:pointer;list-style:none}
+.dolphin-detail-page .dolphin-group-prices summary::-webkit-details-marker{display:none}
+.dolphin-detail-page .dolphin-group-prices summary strong{display:block;font-size:.9rem;color:#0f172a}
+.dolphin-detail-page .dolphin-group-prices summary small{display:block;margin-top:.2rem;font-size:.72rem;line-height:1.4;color:#64748b}
+.dolphin-detail-page .dolphin-group-prices[open] summary i{transform:rotate(180deg)}
+.dolphin-detail-page .dolphin-group-prices summary i{transition:transform .2s ease;color:#64748b}
+.dolphin-detail-page .dolphin-rate-row{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:.5rem;padding:.75rem 0;border-bottom:1px solid #f1f5f9;font-size:.8rem}
+.dolphin-detail-page .dolphin-rate-row:last-child{border-bottom:0}
+.dolphin-detail-page .dolphin-rate-row>strong{color:#334155;font-weight:700}
+.dolphin-detail-page .dolphin-rate-row>span{color:#0f172a;font-weight:800;text-align:right}
+.dolphin-detail-page .dolphin-rate-row>span small{font-weight:500;color:#64748b}
+.dolphin-detail-page .dolphin-special-rate{grid-template-columns:minmax(0,1fr) auto}
+.dolphin-detail-page .dolphin-special-rate p{grid-column:1/-1;margin-top:-.25rem;color:#64748b;font-size:.75rem;line-height:1.5}
+.dolphin-detail-page .dolphin-special-rate button{grid-column:1/-1;width:100%;border-radius:.7rem;background:#1e293b;color:#fff;padding:.7rem;font-weight:700;font-size:.8rem}
+@media(min-width:1024px){.dolphin-detail-page .dolphin-sheet-panel{max-width:34rem;left:auto;right:1.5rem;bottom:1.5rem;border-radius:1.25rem}}
