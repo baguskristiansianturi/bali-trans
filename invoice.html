@@ -4,10 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>Bali Trans | Digital Invoice</title>
-<style>
-:root{--navy:#18345a;--pale:#edf3fb;--ink:#1a2940;--muted:#6d7b8e;--line:#e1e7ef}
-*{box-sizing:border-box}body{margin:0;padding:24px 14px;background:#f2f5f9;color:var(--ink);font:15px/1.5 Arial,Helvetica,sans-serif}.page{max-width:720px;margin:auto}.toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:16px}.toolbar span{font-size:12px;color:var(--muted)}button{border:0;border-radius:9px;padding:11px 14px;background:var(--navy);color:#fff;font-weight:700;cursor:pointer}.sheet{background:#fff;border:1px solid var(--line);border-radius:18px;padding:clamp(22px,5vw,42px);box-shadow:0 12px 36px #18345a0d}.head{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;padding-bottom:22px;border-bottom:2px solid var(--navy)}.brand{display:flex;gap:10px;align-items:center}.mark{height:42px;width:42px;display:grid;place-items:center;background:var(--navy);border-radius:11px;color:white;font-weight:800}.brand h1{margin:0;font-size:17px;letter-spacing:.1em}.brand p{margin:3px 0 0;color:var(--muted);font-size:10px;letter-spacing:.13em}.label{font-size:10px;letter-spacing:.13em;font-weight:800;color:var(--muted);text-transform:uppercase}.inv{text-align:right;max-width:45%}.inv strong{display:block;font-size:13px;overflow-wrap:anywhere;margin-top:4px}.pill{display:inline-block;margin-top:8px;border-radius:30px;padding:5px 10px;background:#fff1d5;color:#875c0c;font-size:10px;font-weight:800}.pill.confirmed{background:#e8f0ff;color:#214f91}.pill.paid{background:#e2f5eb;color:#176844}.title{padding:24px 0 14px}.title h2{font-size:26px;letter-spacing:-.04em;margin:0}.title p{margin:5px 0 0;font-size:12px;color:var(--muted)}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.v{font-size:13px;font-weight:700;overflow-wrap:anywhere;margin-top:4px}.sub{font-size:12px;color:var(--muted);margin-top:3px}.section{font-size:10px;letter-spacing:.12em;font-weight:800;color:var(--muted);margin:22px 0 8px}.item{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:13px}.item b{white-space:nowrap}.totals{margin:14px 0 0 auto;max-width:300px}.row{display:flex;justify-content:space-between;gap:12px;padding:6px 0;font-size:12px}.grand{font-size:16px;font-weight:800;color:var(--navy);border-top:1px solid var(--line);padding-top:14px;margin-top:5px}.balance{background:var(--pale);padding:12px;border-radius:10px;margin-top:8px;font-weight:800;font-size:13px}.payment{background:#f5f8fc;padding:15px;border-radius:12px;margin-top:24px}.payment b{font-size:12px}.payment p{font-size:12px;color:#53647a;white-space:pre-line;overflow-wrap:anywhere;margin:6px 0 0}.foot{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--line);margin-top:24px;padding-top:14px;color:var(--muted);font-size:10px}.notice{text-align:center;color:var(--muted);font-size:11px;margin:15px 0 0}.empty{display:none;background:#fff;padding:30px;border-radius:14px}.empty h2{margin-top:0}@media(max-width:430px){body{padding:12px 8px}.sheet{padding:20px 17px}.brand h1{font-size:14px}.inv strong{font-size:11px}.grid{gap:12px}.title h2{font-size:23px}}@media print{body{background:#fff;padding:0}.toolbar,.notice{display:none}.sheet{border:0;box-shadow:none;border-radius:0;padding:12mm}.page{max-width:none}@page{size:A4;margin:0}}
-</style></head>
+<link rel="stylesheet" href="./assets/css/pages/invoice.css"></head>
 <body><main class="page">
 <div class="toolbar"><span>BALI TRANS · DIGITAL INVOICE</span><button onclick="window.print()">Print / Save PDF</button></div>
 <article class="sheet" id="sheet">
@@ -15,7 +12,7 @@
 <div class="title"><h2>Booking invoice</h2><p>Thank you for choosing Bali Trans.</p></div>
 <div class="grid">
 <div><div class="label">Billed to</div><div class="v" id="guest">Guest</div><div class="sub" id="phone"></div></div>
-<div><div class="label">Invoice date</div><div class="v" id="date">—</div><div class="label" style="margin-top:12px">Travel date</div><div class="v" id="traveldate">—</div></div>
+<div><div class="label">Invoice date</div><div class="v" id="date">—</div><div class="label label-spaced">Travel date</div><div class="v" id="traveldate">—</div></div>
 <div><div class="label">Tour / service</div><div class="v" id="tour">—</div><div class="sub" id="guests"></div></div>
 <div><div class="label">Pickup location</div><div class="v" id="pickup">To be confirmed</div></div>
 </div>
@@ -29,13 +26,4 @@
 </article><p class="notice">Please contact Bali Trans directly if you need to verify this invoice or update your booking.</p>
 <section class="empty" id="empty"><h2>Invoice link incomplete</h2><p>This link does not contain invoice details. Please request the original invoice link from Bali Trans.</p></section>
 </main>
-<script>
-const q=new URLSearchParams(location.search),get=k=>q.get(k)||'',num=k=>Math.max(0,Number(get(k))||0),money=n=>'IDR '+n.toLocaleString('en-US');
-function fmt(s){if(!s)return '—';const d=new Date(s+'T12:00:00');return isNaN(d)?s:d.toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'})}
-if(!get('n')&&!get('g')&&!get('t')){document.getElementById('sheet').style.display='none';document.getElementById('empty').style.display='block'}
-const set=(id,v)=>document.getElementById(id).textContent=v;
-set('number',get('n')||'—');set('guest',get('g')||'Guest');set('phone',get('ph'));set('date',fmt(get('d')));set('traveldate',fmt(get('td')));set('tour',get('t')||'Tour / service');set('tourdesc',get('t'));set('guests',get('gu') );set('pickup',get('pu')||'To be confirmed');
-const subtotal=num('pp')+num('ex'),total=Math.max(0,subtotal-num('di')),paid=num('pa'),balance=Math.max(0,total-paid);
-set('packageprice',money(num('pp')));set('extras',money(num('ex')));set('discount','− '+money(num('di')));set('total',money(total));set('paid',money(paid));set('balance',money(balance));set('paymentmethod',get('pm')||'Please contact Bali Trans to confirm the available payment method.');set('notes',get('nt'));set('paystatus','PAYMENT: '+(get('ps')||'Pending').toUpperCase());
-const st=get('s')||'Pending';set('status',st.toUpperCase());document.getElementById('status').className='pill'+(st==='Confirmed'?' confirmed':(st==='Completed'||get('ps')==='Paid'?' paid':''));
-</script></body></html>
+<script src="./assets/js/pages/invoice.js" defer></script></body></html>
