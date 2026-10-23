@@ -46,7 +46,7 @@ Scope: static source audit and safe refactor of the existing single-page prototy
 - Confirmed local asset references and script order: Tailwind configuration before Tailwind CDN; data before application logic.
 - Confirmed referenced inline handler names found in the static HTML have corresponding application functions.
 - Confirmed source contains the targeted search, article-route, date/guest validation, and prototype disclaimer fixes.
-- Full browser/mobile interaction testing has **not** been completed in this environment. The GitHub Actions run for commit `bb98be24c7548cb82566ad55a99459133360b585` completed successfully: JavaScript syntax and local asset-reference checks both passed. Do not merge or claim production readiness based on static checks alone.
+- Current GitHub Actions browser smoke tests cover the homepage SPA routes, articles, package detail, navigation, shared shell, 25 standalone pages, 360px overflow, watersport detail routing, and checkout interactions. This is automated smoke coverage, not full manual visual QA or production-readiness approval.
 
 ## Next steps
 
@@ -63,7 +63,7 @@ Scope: static source audit and safe refactor of the existing single-page prototy
 - Added mobile overflow safeguards and reduced mobile header spacing while preserving horizontal swipe on category/filter strips.
 - Added targeted text-contrast overrides for white text placed on pale backgrounds.
 - Replaced category-tab emoji with Font Awesome icons, removed template-attribution text from the header, and removed flag/cart/close emoji-style placeholders where practical.
-- Automated source validation and a real mobile browser pass are still required before claiming the deployed page is fully verified. Check GitHub Pages after the change is merged; horizontal scrolling inside category strips is intentional, while page-level horizontal overflow is not.
+- Automated source validation and Playwright browser smoke tests now run in CI. Manual visual verification on a physical phone is still required; horizontal scrolling inside category strips is intentional, while page-level horizontal overflow is not.
 
 
 ## UI/UX follow-up (2026-10-18)
@@ -73,3 +73,14 @@ Scope: static source audit and safe refactor of the existing single-page prototy
 - Replaced countdown/discount urgency and instant-booking claims with accurate prototype wording.
 - Standardized visible brand text to Bali Trans and replaced homepage category emoji with Font Awesome icons.
 - Automated validation checks source structure only; final visual verification still requires checking the live GitHub Pages page on a phone at narrow viewport widths.
+
+
+## Current verified status — 23 October 2026
+
+- Changes are made directly on `main`; no pull request is required for this workflow.
+- Standalone HTML page styles and executable inline scripts have been moved into external files under `assets/css/pages/` and `assets/js/pages/`. JSON-LD structured data remains inline intentionally.
+- Inline style attributes in HTML and static style attributes in JS-generated markup have been replaced with classes and stylesheet rules.
+- CI checks JavaScript syntax, SPA route/content references, browser smoke tests, local HTML assets, CSS URLs/imports, absence of inline styles/scripts in HTML, JS-generated style markup, and sitemap coverage for public pages.
+- Both checkout pages intentionally omit the shared site header/footer; the airport checkout also omits branding and uses a glass-style form surface.
+- Latest confirmed deployment at the time of this audit must be read from the most recent successful `Deploy Bali Trans to GitHub Pages` workflow run; do not infer live deployment from a commit alone.
+- Still not production-ready: there is no real booking backend, live inventory, online payment processing, email delivery, or server-side validation. Final manual visual QA and destination/operator fact-checking remain necessary.
