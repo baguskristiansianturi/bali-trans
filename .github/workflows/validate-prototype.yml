@@ -119,6 +119,7 @@ jobs:
           inline_styles = []
           inline_style_attrs = []
           inline_scripts = []
+          inline_js_styles = []
           html_refs = 0
           for html_file in html_files:
               source = html_file.read_text(encoding="utf-8")
@@ -139,6 +140,11 @@ jobs:
                   html_refs += 1
                   if not (html_file.parent / clean).is_file():
                       missing_html.append(f"{html_file}: {ref}")
+          js_files = sorted((root / "assets" / "js").rglob("*.js"))
+          for js_file in js_files:
+              source = js_file.read_text(encoding="utf-8")
+              if re.search(r"\bstyle\s*=\s*[\"']", source, re.I):
+                  inline_js_styles.append(str(js_file))
           css_files = sorted((root / "assets" / "css").rglob("*.css"))
           missing_css = []
           css_refs = 0
@@ -160,7 +166,8 @@ jobs:
           if inline_styles: problems.append("Inline style blocks remain:\n" + "\n".join(inline_styles))
           if inline_style_attrs: problems.append("Inline style attributes remain in HTML:\n" + "\n".join(inline_style_attrs))
           if inline_scripts: problems.append("Inline executable scripts remain:\n" + "\n".join(inline_scripts))
+          if inline_js_styles: problems.append("Inline style attributes in JS-generated markup remain:\n" + "\n".join(inline_js_styles))
           if problems:
               raise SystemExit("\n".join(problems))
-          print(f"Checked {len(html_files)} HTML pages, {html_refs} local HTML references, {len(css_files)} CSS files, and {css_refs} local CSS references; no inline style blocks/attributes or executable JS remains in HTML.")
+          print(f"Checked {len(html_files)} HTML pages, {html_refs} local HTML references, {len(css_files)} CSS files, and {css_refs} local CSS references; no inline styles/scripts in HTML or style attributes in JS-generated markup remain.")
           PY
