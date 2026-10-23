@@ -67,4 +67,3 @@
 #localeButton::before,#localeButton::after{content:none!important}
 #localeButton .bt-locale-flag{display:none!important}
 .bt-locale-option .bt-locale-check{font-family:Inter,system-ui,sans-serif;font-style:normal}
-.bt-site-header .bt-action>i,.bt-site-header .bt-action>svg{display:none}
