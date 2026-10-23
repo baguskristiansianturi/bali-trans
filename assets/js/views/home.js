@@ -1,13 +1,6 @@
 /* HOME PAGE */
 function renderHomeView() {
-            const regions = [
-                { key:'region:south', title:'South Bali', sub:'Beaches, cliffs & watersports', destinationCount:4, activityCount:8, image:'https://commons.wikimedia.org/wiki/Special:FilePath/Cliff_at_Uluwatu_temple,_Bali.jpg?width=1200', places:'Uluwatu · Canggu · Sanur' },
-                { key:'region:central', title:'Central Bali', sub:'Culture, rice terraces & highlands', destinationCount:3, activityCount:6, image:'https://commons.wikimedia.org/wiki/Special:FilePath/Rice_terraces,_Ubud,_Bali.jpg?width=900', places:'Ubud · Kintamani · Bedugul' },
-                { key:'region:east', title:'East Bali', sub:'Temples, coast & quiet villages', destinationCount:8, activityCount:6, image:'https://commons.wikimedia.org/wiki/Special:FilePath/Tirta_Gangga.jpg?width=900', places:'Amed · Sidemen · Karangasem' },
-                { key:'region:north', title:'North Bali', sub:'Waterfalls, lakes & dolphin trips', destinationCount:8, activityCount:9, image:'https://commons.wikimedia.org/wiki/Special:FilePath/Lovina_Beach_Bali.jpg?width=900', places:'Lovina · Munduk · Buleleng' },
-                { key:'region:west', title:'West Bali', sub:'Surf coast & protected nature', destinationCount:6, activityCount:7, image:'https://commons.wikimedia.org/wiki/Special:FilePath/West_Bali_National_Park_Beach_from_Bali_Strait.jpg?width=900', places:'Medewi · Jembrana · Menjangan' },
-                { key:'region:nusa', title:'Nusa Islands', sub:'Island cliffs, beaches & reefs', destinationCount:5, activityCount:6, image:'https://commons.wikimedia.org/wiki/Special:FilePath/Kelingking_Beach.jpg?width=900', places:'Penida · Lembongan · Ceningan' }
-            ];
+            const popularTours = (typeof BALI_PACKAGES !== 'undefined' ? BALI_PACKAGES : []).filter(pkg => pkg.category === 'tour').slice(0,6);
             const activities = [
                 { key:'water', icon:'fa-water', title:'Water activities', desc:'Snorkelling, diving and watersports' },
                 { key:'temple', icon:'fa-landmark', title:'Culture & temples', desc:'Temples, villages and local arts' },
@@ -47,14 +40,40 @@ function renderHomeView() {
                     </div>
                 </section>
 
-                <section class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 sm:py-16">
-                    <div class="mb-6 flex items-end justify-between gap-4"><div><p class="text-xs font-extrabold uppercase tracking-[.16em] text-teal-700">Explore by region</p><h2 class="mt-2 text-2xl font-black tracking-tight text-slate-900 sm:text-3xl">Explore places you’ll love in Bali</h2><p class="mt-2 max-w-2xl text-sm leading-6 text-slate-600">From coastal escapes to cultural landmarks and green highlands, find places and experiences for your Bali trip.</p></div></div>
-                    <div class="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 lg:grid-cols-3">
-                        ${regions.map(region => `<button type="button" onclick="navigateTo('discovery','${region.key}')" class="group w-[78vw] max-w-[320px] shrink-0 snap-start overflow-hidden rounded-2xl border border-slate-200 bg-white text-left shadow-sm transition hover:-translate-y-1 hover:shadow-lg sm:w-auto sm:max-w-none">
-                            <div class="relative h-40 overflow-hidden"><img src="${region.image}" alt="${region.title}" loading="lazy" class="h-full w-full object-cover transition duration-500 group-hover:scale-105"><span class="absolute bottom-3 left-3 rounded-full bg-slate-950/75 px-3 py-1 text-[11px] font-bold text-white">${region.places}</span></div>
-                            <div class="p-4"><h3 class="text-lg font-extrabold text-slate-900">${region.title}</h3><p class="mt-1 text-sm text-slate-600">${region.sub}</p><div class="mt-3 flex flex-wrap gap-2"><span class="inline-flex items-center rounded-full bg-teal-50 px-2.5 py-1 text-xs font-bold text-teal-800">${region.destinationCount} destinations</span><span class="inline-flex items-center rounded-full bg-slate-100 px-2.5 py-1 text-xs font-bold text-slate-700">${region.activityCount} activity types</span></div><span class="mt-4 inline-flex items-center gap-2 text-xs font-extrabold text-teal-700">Explore region <i class="fas fa-arrow-right"></i></span></div>
-                        </button>`).join('')}
+                <section class="home-popular-tours mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 sm:py-16">
+                    <div class="mb-6 flex items-end justify-between gap-4">
+                        <div><p class="text-xs font-extrabold uppercase tracking-[.16em] text-teal-700">Discover your next experience</p><h2 class="mt-2 text-2xl font-black tracking-tight text-slate-900 sm:text-3xl">Popular Tours in Bali</h2><p class="mt-2 max-w-2xl text-sm leading-6 text-slate-600">Memorable experiences, handpicked for your Bali trip.</p></div>
+                        <button type="button" onclick="navigateTo('catalog')" class="hidden shrink-0 text-sm font-extrabold text-teal-700 sm:inline-flex">View all tours <i class="fas fa-arrow-right ml-2"></i></button>
                     </div>
+                    <div class="home-popular-tours-grid">
+                        ${popularTours.map(pkg => {
+                            const image = pkg.heroImage || (pkg.gallery && pkg.gallery[0]) || '';
+                            const title = pkg.title || 'Bali Tour';
+                            const area = /lovina|dolphin/i.test(title + ' ' + (pkg.location || '')) ? 'North Bali' : ((pkg.location || 'Bali').split(',').slice(-1)[0].trim() || 'Bali');
+                            const duration = pkg.durationLabel || pkg.duration || 'Private tour';
+                            const price = Number(pkg.priceIDR || 0);
+                            const original = Number(pkg.originalPriceIDR || 0);
+                            const money = (typeof CURRENCY_RATES !== 'undefined' && CURRENCY_RATES[currentCurrency]) ? CURRENCY_RATES[currentCurrency].format(price) : ('Rp ' + price.toLocaleString('id-ID'));
+                            const oldMoney = original > price ? ((typeof CURRENCY_RATES !== 'undefined' && CURRENCY_RATES[currentCurrency]) ? CURRENCY_RATES[currentCurrency].format(original) : ('Rp ' + original.toLocaleString('id-ID'))) : '';
+                            const desc = (pkg.shortDescription || pkg.description || (pkg.highlights && pkg.highlights[0]) || 'Explore Bali with a private tour designed around your trip.').replace(/<[^>]*>/g,'').slice(0,105);
+                            return `<button type="button" class="home-tour-card group" onclick="navigateTo('detail','${pkg.id}')">
+                                <span class="home-tour-visual">
+                                    <img src="${image}" alt="${title}" loading="lazy">
+                                    <span class="home-tour-image-shade"></span>
+                                    <span class="home-tour-badges"><span>${area}</span><span>${duration}</span></span>
+                                    <span class="home-tour-overlay-copy"><strong>${title}</strong><span>${desc}</span></span>
+                                    ${pkg.badge ? `<span class="home-tour-tag">${pkg.badge}</span>` : ''}
+                                </span>
+                                <span class="home-tour-card-bottom">
+                                    <span class="home-tour-price-label">Starting from</span>
+                                    <span class="home-tour-price-line"><strong>${money}</strong>${oldMoney ? `<del>${oldMoney}</del>` : ''}<small>/ person</small></span>
+                                    <span class="home-tour-cta">Explore tour <i class="fas fa-arrow-right"></i></span>
+                                </span>
+                            </button>`;
+                        }).join('')}
+                        ${popularTours.length ? '' : '<p class="text-sm text-slate-600">Tours are being prepared. Please check back soon.</p>'}
+                    </div>
+                    <div class="mt-5 text-center sm:hidden"><button type="button" onclick="navigateTo('catalog')" class="rounded-full border border-slate-300 px-5 py-3 text-xs font-extrabold text-slate-800">View all tours <i class="fas fa-arrow-right ml-1"></i></button></div>
                 </section>
 
                 <section class="border-y border-slate-200 bg-slate-50 py-12 sm:py-14">
