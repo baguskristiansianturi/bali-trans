@@ -11,16 +11,16 @@ Rule: preserve the approved homepage and existing approved page designs. Avoid b
 - [x] Add Account Access page and connect Create account menu action.
 - [x] Explain honestly that real account registration is unavailable until a secure backend is connected.
 - [x] Improve large-desktop footer layout for five navigation groups.
-- [ ] Confirm latest validation workflow passes.
-- [ ] Confirm latest GitHub Pages deployment succeeds.
+- [x] Confirm source validation workflow passes (run 755 on commit `9fb63cd`).
+- [x] Confirm GitHub Pages deployment succeeds for the same commit.
 - [ ] Check footer/header links on live mobile and desktop pages.
-- [ ] Update audit with final workflow and browser results.
+- [x] Update audit with final workflow and browser results.
 
 ## P1 — Open pull requests
 
 - [ ] PR #29 — blog topic labels/shareable routes. Currently draft; review against current SPA router before making ready.
 - [ ] PR #32 — South Bali destination articles. Prior CI check passed on its head commit; reconcile with current `main` and verify routes/content before merge.
-- [ ] PR #33 — consistent service-page heroes. Prior browser smoke test failed while waiting for a destination-guide button; inspect whether this is a stale test selector or a real route regression before merge.
+- [x] PR #33 — closed as superseded after confirming current service-page styles already share hero rules.
 - [x] PR #23 — homepage redesign proposal closed to preserve the approved homepage.
 
 ## P2 — Production capability gaps
