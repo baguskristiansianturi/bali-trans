@@ -261,10 +261,23 @@ try {
   await page.goto('http://127.0.0.1:4173/transport-service.html', { waitUntil: 'domcontentloaded' });
   await page.waitForSelector('.bt-site-header[data-ready="true"]');
   await page.locator('#localeButton').click();
-  await page.locator('#localeMenu [data-locale="sg"]').click();
-  await page.waitForFunction(() => location.pathname.endsWith('/index.html') && localStorage.getItem('baliTransLanguage') === 'sg');
-  await page.waitForFunction(() => document.querySelector('#localeCurrentCode')?.textContent === 'SGD');
-  console.log('PASS language/currency selection carries from standalone pages to the homepage');
+  if (await page.locator('#localeMenu [data-locale]').count() !== 2) {
+    throw new Error('Language menu must contain exactly English and Indonesian');
+  }
+  await page.locator('#localeMenu [data-locale="en"]').click();
+  await page.waitForFunction(() => location.pathname.endsWith('/index.html') && localStorage.getItem('baliTransLanguage') === 'en');
+  await page.waitForFunction(() => document.querySelector('#localeCurrentCode')?.textContent.trim() === 'EN');
+  if (await page.locator('.bt-site-header').count() !== 1 || await page.locator('#localeButton #localeCurrentCode').count() !== 1) {
+    throw new Error('English selection duplicated the shared header or language label');
+  }
+  await page.locator('#localeButton').click();
+  await page.locator('#localeMenu [data-locale="id"]').click();
+  await page.waitForFunction(() => localStorage.getItem('baliTransLanguage') === 'id');
+  await page.waitForFunction(() => document.querySelector('#localeCurrentCode')?.textContent.trim() === 'ID');
+  if (await page.locator('#localeMenu [data-locale]').count() !== 2) {
+    throw new Error('Language menu changed unexpectedly after switching back to Indonesian');
+  }
+  console.log('PASS English/Indonesian switching, persisted locale, and single shared header');
 
   if (pageErrors.length) throw new Error('Browser JavaScript errors: ' + pageErrors.join(' | '));
   console.log('PASS no uncaught browser JavaScript errors');
