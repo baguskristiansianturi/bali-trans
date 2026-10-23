@@ -984,13 +984,16 @@ const cards = category.items.map(function(title) {
                     const popularTourCopy = pkg.id === 'lovina-dolphin-tour'
                         ? 'Set out before sunrise and watch wild dolphins surface in the waters off Lovina, along Bali’s beautiful northern coast.'
                         : (pkg.shortDescription || pkg.description || 'Discover a memorable experience in Bali.');
+                    const popularTourImage = pkg.id === 'lovina-dolphin-tour'
+                        ? 'https://images.unsplash.com/photo-1594755281809-c9d3217efe5a?auto=format&fit=crop&w=900&q=85'
+                        : pkg.heroImage;
 
                     return `
                     <article class="popular-tour-card group relative isolate h-[440px] w-[78vw] max-w-[300px] shrink-0 snap-start cursor-pointer overflow-hidden rounded-2xl bg-slate-900 text-white shadow-sm transition duration-300 hover:shadow-lg sm:h-[480px] sm:w-[320px]"
                         role="link" tabindex="0" aria-label="Discover ${pkg.title}"
                         onclick="navigateTo('detail', '${pkg.id}')"
                         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();navigateTo('detail','${pkg.id}')}">
-                        <img src="${pkg.heroImage}" alt="${pkg.title}" loading="lazy" class="absolute inset-0 -z-20 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=900&q=80'">
+                        <img src="${popularTourImage}" alt="${pkg.title}" loading="lazy" class="absolute inset-0 -z-20 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=900&q=80'">
                         <div class="absolute inset-0 -z-10 bg-gradient-to-t from-slate-950/95 via-slate-950/35 to-transparent"></div>
                         <div class="absolute inset-x-0 bottom-0 p-5 sm:p-6">
                             <p class="mb-3 text-[10px] font-bold uppercase tracking-[0.18em] text-white/80">North Bali · Sunrise experience</p>
