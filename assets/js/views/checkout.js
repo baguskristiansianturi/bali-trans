@@ -50,7 +50,7 @@
             }
             if (direction > 0 && dolphinBookingStep === 3) {
                 if (!d.name || !d.email || !d.phone) { showToast('Please complete your name, email and WhatsApp number.'); return; }
-                if (!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(d.email)) { showToast('Please enter a valid email address.'); return; }
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)) { showToast('Please enter a valid email address.'); return; }
             }
             dolphinBookingStep = Math.max(1, Math.min(4, dolphinBookingStep + direction));
             const container = document.getElementById('appContainer');
