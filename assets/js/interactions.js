@@ -795,6 +795,7 @@
            before the main view on slower mobile connections. */
         function readRouteFromUrl() {
             const query = new URLSearchParams(window.location.search);
+            if (query.get('preview') === 'dolphin-tour') return { view: 'detail', params: 'dolphin-tour-preview' };
             const requestedTour = query.get('tour');
             if (requestedTour === 'lovina-dolphin-tour') return { view: 'detail', params: requestedTour };
             const view = query.get('page') || 'home';

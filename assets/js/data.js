@@ -61,6 +61,21 @@
             }
         ];
 
+
+        // Isolated design-test fixture. Not added to the public package catalogue.
+        const BALI_DOLPHIN_TOUR_PREVIEW = {
+            id: 'dolphin-tour-preview',
+            title: 'Bali Dolphin Tour',
+            location: 'Lovina, North Bali',
+            shortDescription: 'Watch dolphins at sunrise in Lovina, with private transport and optional experiences to tailor your day in Bali.',
+            heroImage: 'https://images.unsplash.com/photo-1568430462989-44163eb1752f?auto=format&fit=crop&w=1200&q=85',
+            gallery: [
+                'https://images.unsplash.com/photo-1568430462989-44163eb1752f?auto=format&fit=crop&w=1200&q=85',
+                'https://images.unsplash.com/photo-1530053969600-caed2596d242?auto=format&fit=crop&w=900&q=80',
+                'https://images.unsplash.com/photo-1518467166778-b88f373ffec7?auto=format&fit=crop&w=900&q=80'
+            ]
+        };
+
         const BALI_BLOGS = [
             {
                 id: 'blog-1',

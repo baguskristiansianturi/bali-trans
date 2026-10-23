@@ -93,7 +93,7 @@
                     container.innerHTML = renderDiscoveryView(params || 'region:south');
                     break;
                 case 'detail': {
-                    const pkg = params ? BALI_PACKAGES.find(p => p.id === params) : null;
+                    const pkg = params === 'dolphin-tour-preview' ? BALI_DOLPHIN_TOUR_PREVIEW : (params ? BALI_PACKAGES.find(p => p.id === params) : null);
                     currentDetailQty = 1;
                     if (!pkg) {
                         container.innerHTML = renderNotFoundView();
@@ -101,7 +101,7 @@
                         currentDetailPackage = pkg;
                         trackRecentlyViewed(pkg);
                         container.innerHTML = renderDetailView(pkg);
-                        setTimeout(() => { updatePackageOptionDetails(); selectLovinaGallery(0); initDetailSectionTracking(); }, 0);
+                        setTimeout(() => { if (pkg.id !== 'dolphin-tour-preview') { updatePackageOptionDetails(); selectLovinaGallery(0); } initDetailSectionTracking(); }, 0);
                     }
                     break;
                 }
