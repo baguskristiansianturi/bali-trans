@@ -230,8 +230,10 @@
                 showToast('Added to Wishlist ❤️');
             }
             updateBadges();
-            if (document.getElementById('appContainer').innerHTML.includes('Trending Bali Activities')) {
-                document.getElementById('homeFeaturedGrid').innerHTML = renderPackageCards(BALI_PACKAGES);
+            const appContainer = document.getElementById('appContainer');
+            const featuredGrid = document.getElementById('homeFeaturedGrid');
+            if (appContainer && featuredGrid && appContainer.innerHTML.includes('Trending Bali Activities')) {
+                featuredGrid.innerHTML = renderPackageCards(BALI_PACKAGES);
             }
         }
 
