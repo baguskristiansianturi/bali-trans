@@ -20,7 +20,7 @@
         const BALI_PACKAGES = [
             {
                 id: 'lovina-dolphin-tour',
-                title: 'Lovina Dolphin Tour',
+                title: 'Bali Dolphin Tour',
                 category: 'tour',
                 categoryName: 'Paket Tour',
                 location: 'Lovina, Wanagiri & Bedugul, North Bali',
