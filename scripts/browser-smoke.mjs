@@ -166,11 +166,16 @@ try {
   await page.goto('http://127.0.0.1:4173/bali-airport-transfer-checkout.html', { waitUntil: 'domcontentloaded' });
   if (await page.locator('.bt-site-header, .bt-site-footer, .brand').count()) throw new Error('Airport checkout must not show the site shell or logo');
   if (!(await page.locator('.back-link').isVisible())) throw new Error('Airport checkout must retain a clear Back control');
-  await page.locator('input[name="bookingFor"][value="someone"]').check();
+  await page.locator('#date').fill('2026-10-24');
+  await page.locator('#address').fill('Kuta');
+  await page.locator('#flight').fill('QZ 506');
+  await page.locator('#nextButton').click();
+  await page.waitForFunction(() => document.querySelector('#step2') && !document.querySelector('#step2').hidden);
+  await page.locator('label.payment-option').filter({ hasText: 'For someone else' }).click();
   if (!(await page.locator('#guestFields').isVisible()) || !(await page.locator('#guestName').evaluate(el => el.required))) {
     throw new Error('Airport checkout did not enable required guest details for someone-else bookings');
   }
-  await page.locator('input[name="bookingFor"][value="self"]').check();
+  await page.locator('label.payment-option').filter({ hasText: 'For myself' }).click();
   if (await page.locator('#guestFields').isVisible() || await page.locator('#guestName').evaluate(el => el.required)) {
     throw new Error('Airport checkout did not reset guest fields for self bookings');
   }
