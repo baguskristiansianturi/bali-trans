@@ -1,6 +1,6 @@
-# BDM Trans — Travel Website Prototype
+# Bali Trans — Travel Website Prototype
 
-This repository is being prepared as a **structural and UX prototype** for the future BDM Trans travel business. The public copy, brand presentation, and offers in this phase are temporary working content: they help us validate page hierarchy, navigation, responsive layouts, and user journeys. They must not be treated as final launch claims.
+This repository is being prepared as a **structural and UX prototype** for the Bali Trans travel website. The public copy, brand presentation, and offers in this phase are temporary working content: they help us validate page hierarchy, navigation, responsive layouts, and user journeys. They must not be treated as final launch claims.
 
 ## Prototype priorities
 
@@ -26,7 +26,9 @@ This repository is being prepared as a **structural and UX prototype** for the f
 - `assets/js/views/articles.js` — article list and detail rendering.
 - `assets/js/views/checkout.js` — cart and checkout rendering.
 - `assets/js/interactions.js` — search, cart, wishlist, checkout, and UI actions.
-- `.github/workflows/validate-prototype.yml` — JavaScript syntax and local asset checks.
+- `.github/workflows/validate-prototype.yml` — JavaScript syntax, route/content references, Playwright smoke tests, HTML/CSS asset checks, externalized CSS/JS checks, and sitemap coverage.
+- `assets/css/pages/` — page-specific stylesheets extracted from standalone HTML pages.
+- `assets/js/pages/` — page-specific/shared scripts extracted from standalone HTML pages.
 
 Tailwind, fonts, icons, QR rendering, and remote images still use external runtime dependencies. Splitting the files improves maintainability, but production asset-size optimization is a separate task.
 
@@ -43,9 +45,9 @@ Tailwind, fonts, icons, QR rendering, and remote images still use external runti
 
 ## Audit and release discipline
 
-See [AUDIT.md](./AUDIT.md) for confirmed static findings and known risks. Changes are being prepared on a draft pull request and must not be considered deployed until merged and verified on GitHub Pages.
+See [AUDIT.md](./AUDIT.md) for confirmed static findings and known risks. The default branch is `main`; changes are committed directly without pull requests when requested. A change is only considered deployed after the GitHub Pages workflow succeeds and the live site is checked.
 
-Before merge, test the homepage, mobile swipe/carousels, breadcrumbs, package detail, article detail, filters/search, cart, wishlist, checkout validation, empty states, currency selector, and footer links in a real browser at mobile and desktop widths.
+The automated browser suite covers SPA routes, articles, package detail, mobile navigation, 360px overflow, the shared shell, watersport detail routing, and checkout interactions. Manual visual QA on a physical phone is still required before launch.
 
 
 ## Current source layout
