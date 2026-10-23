@@ -186,13 +186,7 @@
  <div><h2>Siap memilih watersport?</h2><p class="ws-muted m-0">Bandingkan aktivitas dan periksa informasi tiket sebelum menentukan jadwal.</p></div><a class="ws-btn" href="#aktivitas">Lihat aktivitas <i class="fas fa-arrow-up"></i></a>
 </div></div></section>
 </main>
-<script>
-(function(){
- const chips=[...document.querySelectorAll('[data-filter]')], cards=[...document.querySelectorAll('.ws-card')], empty=document.getElementById('wsEmpty');
- chips.forEach(chip=>chip.addEventListener('click',()=>{const filter=chip.dataset.filter;chips.forEach(c=>c.setAttribute('aria-pressed',String(c===chip)));let shown=0;cards.forEach(card=>{const visible=filter==='all'||card.dataset.category===filter;card.classList.toggle('hidden',!visible);if(visible)shown++});empty.classList.toggle('hidden',shown>0)}));
-
-})();
-</script>
+<script src="./assets/js/pages/watersport-catalog-filters.js"></script>
 
     
 
