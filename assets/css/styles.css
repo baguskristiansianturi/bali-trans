@@ -53,3 +53,14 @@ body.dolphin-sheet-open { overflow:hidden; }
 .dolphin-detail-page .dolphin-special-rate p{grid-column:1/-1;margin-top:-.25rem;color:#64748b;font-size:.75rem;line-height:1.5}
 .dolphin-detail-page .dolphin-special-rate button{grid-column:1/-1;width:100%;border-radius:.7rem;background:#1e293b;color:#fff;padding:.7rem;font-weight:700;font-size:.8rem}
 @media(min-width:1024px){.dolphin-detail-page .dolphin-sheet-panel{max-width:34rem;left:auto;right:1.5rem;bottom:1.5rem;border-radius:1.25rem}}
+
+/* Dolphin Tour guest-category pricing */
+.dolphin-rate-category{display:flex;flex-direction:column;align-items:flex-start;gap:5px;text-align:left;border:1px solid #e2e8f0;border-radius:12px;background:#fff;padding:12px;font-size:12px;font-weight:800;color:#334155;min-width:0}
+.dolphin-rate-category small{font-size:11px;font-weight:500;color:#64748b}
+.dolphin-rate-category.is-selected{border:2px solid #2455a4;background:#eff6ff;color:#1e40af;padding:11px}
+.dolphin-rate-category.is-selected small{color:#2455a4}
+.dolphin-rate-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;border:1px solid #e2e8f0;border-radius:10px;padding:11px 12px;font-size:12px;color:#334155}
+.dolphin-rate-row>span{text-align:right;white-space:nowrap;font-weight:700;line-height:1.8}
+.dolphin-rate-row small{font-size:10px;font-weight:500;color:#64748b}
+.dolphin-special-rate{display:block;background:#f8fafc}
+.dolphin-special-rate p{margin-top:5px;color:#64748b;line-height:1.55}
