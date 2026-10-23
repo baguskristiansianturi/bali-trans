@@ -217,7 +217,7 @@
         const action = button.dataset.shellAction;
         const actions = {
           help: 'showHelpMenu',
-          register: 'openAccountPage',
+          register: 'showRegisterPrompt',
           wishlist: 'toggleWishlistModal',
           recent: 'showRecentlyViewed'
         };
