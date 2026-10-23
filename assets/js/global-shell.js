@@ -11,6 +11,7 @@
     about: home + '?page=about',
     contact: home + '?page=contact',
     help: home + '?page=help',
+    faq: home + '?page=help-topic&item=faq',
     terms: home + '?page=terms',
     privacy: home + '?page=privacy',
     account: home + '?page=account',
@@ -83,7 +84,7 @@
       '<div class="bt-footer-cols">' +
         '<section><h2>Discover</h2><ul><li><a href="' + routes.tours + '">All tours &amp; activities</a></li><li><a href="' + routes.destinations + '">South Bali</a></li><li><a href="' + home + '?page=discovery&amp;item=region%3Acentral">Central Bali</a></li><li><a href="' + home + '?page=discovery&amp;item=region%3Anorth">North Bali</a></li><li><a href="' + routes.guides + '">Blog</a></li></ul></section>' +
         '<section><h2>Plan your trip</h2><ul><li><a href="' + routes.tours + '">Tour packages</a></li><li><a href="./transport-service.html">Private transport</a></li><li><a href="./bali-airport-transfer.html">Airport transfer</a></li><li><a href="./bali-port-transfer.html">Port transfer</a></li><li><a href="./bali-private-day-tour.html">Private day tour</a></li></ul></section>' +
-        '<section><h2>Help &amp; support</h2><ul><li><a href="' + routes.help + '">Help centre</a></li><li><a href="' + routes.help + '">FAQs</a></li><li><a href="' + routes.contact + '">Contact our team</a></li></ul></section>' +
+        '<section><h2>Help &amp; support</h2><ul><li><a href="' + routes.help + '">Help centre</a></li><li><a href="' + routes.faq + '">FAQs</a></li><li><a href="' + routes.contact + '">Contact our team</a></li></ul></section>' +
         '<section><h2>About us</h2><ul><li><a href="' + routes.about + '">About Bali Trans</a></li><li><a href="' + routes.terms + '">Terms &amp; conditions</a></li><li><a href="' + routes.privacy + '">Privacy policy</a></li><li><a href="' + routes.partners + '">Partner enquiries</a></li></ul></section>' +
         '<section><h2>Your account</h2><ul><li><a href="' + routes.account + '">Create account</a></li><li><a href="' + routes.account + '">Continue as guest</a></li><li><a href="' + routes.contact + '">Booking assistance</a></li></ul></section>' +
       '</div></div>' +
