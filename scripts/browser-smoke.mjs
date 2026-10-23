@@ -130,9 +130,9 @@ try {
   if (shellCheck.headers !== 1 || shellCheck.footers !== 1) throw new Error('Standalone page must have exactly one shared header and footer');
   if (!shellCheck.headerBeforeMain || !shellCheck.topbarBeforeHeader) throw new Error('Shared header order is incorrect on standalone page');
   if (shellCheck.width > shellCheck.viewport + 2) throw new Error('Standalone transport page has horizontal overflow');
-  await page.locator('#btMenuToggle').click();
-  const menuState = await page.evaluate(() => ({ className: document.querySelector('#btMobilePanel')?.className, expanded: document.querySelector('#btMenuToggle')?.getAttribute('aria-expanded'), display: getComputedStyle(document.querySelector('#btMobilePanel')).display, height: document.querySelector('#btMobilePanel').getBoundingClientRect().height }));
-  if (!(await page.locator('#btMobilePanel').isVisible())) throw new Error('Shared mobile navigation did not open: ' + JSON.stringify(menuState));
+  await page.locator('#mobileMenuButton').click();
+  const menuState = await page.evaluate(() => ({ className: document.querySelector('#mobileMenuPanel')?.className, expanded: document.querySelector('#mobileMenuButton')?.getAttribute('aria-expanded'), display: getComputedStyle(document.querySelector('#btMobilePanel')).display, height: document.querySelector('#btMobilePanel').getBoundingClientRect().height }));
+  if (!(await page.locator('#mobileMenuPanel').isVisible())) throw new Error('Shared mobile navigation did not open: ' + JSON.stringify(menuState));
   await page.getByRole('link', { name: 'Travel guides' }).last().click();
   await page.waitForURL('**/index.html?page=blog');
   console.log('PASS shared shell, mobile menu and working travel-guide route');
