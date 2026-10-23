@@ -92,7 +92,8 @@ main p{overflow-wrap:break-word}
   main .hero h1{font-size:30px}
   main #request.panel{padding:16px 13px}
 }
-</style><script src="https://cdn.tailwindcss.com"></script><script src="./assets/js/tailwind.config.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="./assets/css/styles.css"></head><body class="pb-16 md:pb-0">    <!-- TOP ANNOUNCEMENT BAR -->
+</style><script src="https://cdn.tailwindcss.com"></script><script src="./assets/js/tailwind.config.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="./assets/css/styles.css"><link rel="stylesheet" href="./assets/css/global-shell.css">
+</head><body class="pb-16 md:pb-0">    <!-- TOP ANNOUNCEMENT BAR -->
     <div class="bg-[#EEF3FB] text-[#172B4D] border-b border-[#DCE5F2] text-xs sm:text-sm py-1.5 px-4 text-center font-medium flex justify-between items-center md:px-12">
         <div class="hidden md:flex items-center space-x-2">
             <span class="bg-white/20 px-2 py-0.5 rounded text-xs uppercase tracking-wider font-bold">Explore Bali</span>
@@ -107,162 +108,11 @@ main p{overflow-wrap:break-word}
     </div>
 
     <!-- MOBILE-FIRST HEADER -->
-    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-200 shadow-sm">
-      <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between gap-2 min-h-[68px] md:min-h-[78px]">
-          <button type="button" onclick="navigateTo('home')" aria-label="Bali Trans home" class="flex items-center gap-2 min-w-0 text-left">
-            <span class="w-10 h-10 shrink-0 rounded-xl bg-gradient-to-br from-[#4267A9] to-[#172B4D] flex items-center justify-center text-white text-xl font-black shadow-md">B</span>
-            <span class="min-w-0"><span class="block text-lg sm:text-xl font-extrabold tracking-tight text-slate-900 leading-tight">Bali<span class="text-bali-orange"> Trans</span></span><span class="hidden xs:block text-[9px] sm:text-[10px] text-slate-500 font-semibold tracking-wide">TOURS · TRIPS · TRANSFER</span></span>
-          </button>
-
-          <nav class="hidden md:flex items-center gap-3 lg:gap-5 text-sm font-semibold text-slate-600" aria-label="Main navigation">
-            <button type="button" onclick="navigateTo('home')" class="hover:text-[#4267A9] transition">Home</button>
-            <button type="button" onclick="navigateTo('discovery','region:south')" class="hover:text-[#4267A9] transition">Destinations</button>
-            <button type="button" onclick="navigateTo('packages')" class="hover:text-[#4267A9] transition">Tours</button>
-            <a href="./transport-service.html" class="hover:text-[#4267A9] transition">Transport service</a>
-            <button type="button" onclick="navigateTo('blog')" class="hover:text-[#4267A9] transition">Travel guides</button>
-            <button type="button" onclick="navigateTo('about')" class="hover:text-[#4267A9] transition">About</button>
-            <button type="button" onclick="navigateTo('contact')" class="hover:text-[#4267A9] transition">Contact</button>
-          </nav>
-
-          <div class="flex items-center gap-1.5 sm:gap-2">
-            <div class="relative" id="localeControl">
-              <button type="button" onclick="toggleLocaleMenu(event)" id="localeButton" aria-label="Language and currency" aria-controls="localeMenu" aria-expanded="false" class="h-10 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center gap-2 px-3 text-sm font-bold"><span id="localeCurrentFlag" class="text-lg">🇮🇩</span><span id="localeCurrentCode">IDR</span><i class="fas fa-chevron-down text-[10px]"></i></button>
-              <div id="localeMenu" class="hidden absolute right-0 top-full mt-2 w-64 rounded-2xl border border-slate-200 bg-white p-2 shadow-xl z-[60]">
-                <button type="button" onclick="changeLocale('id')" class="locale-option w-full flex items-center gap-3 rounded-xl px-3 py-3 text-left hover:bg-slate-50"><span class="text-xl">🇮🇩</span><span class="flex-1"><span class="block text-sm font-bold text-slate-800">Indonesia</span><span class="block text-xs text-slate-500">Bahasa Indonesia · IDR</span></span><i id="localeCheckId" class="fas fa-check text-[#4267A9]"></i></button>
-                <button type="button" onclick="changeLocale('ms')" class="locale-option w-full flex items-center gap-3 rounded-xl px-3 py-3 text-left hover:bg-slate-50"><span class="text-xl">🇲🇾</span><span class="flex-1"><span class="block text-sm font-bold text-slate-800">Bahasa Melayu</span><span class="block text-xs text-slate-500">Malay · MYR (RM)</span></span><i id="localeCheckMs" class="fas fa-check text-[#4267A9] hidden"></i></button>
-                <button type="button" onclick="changeLocale('sg')" class="locale-option w-full flex items-center gap-3 rounded-xl px-3 py-3 text-left hover:bg-slate-50"><span class="text-xl">🇸🇬</span><span class="flex-1"><span class="block text-sm font-bold text-slate-800">Singlish</span><span class="block text-xs text-slate-500">Singapore English · SGD (S$)</span></span><i id="localeCheckSg" class="fas fa-check text-[#4267A9] hidden"></i></button>
-                <button type="button" onclick="changeLocale('en')" class="locale-option w-full flex items-center gap-3 rounded-xl px-3 py-3 text-left hover:bg-slate-50"><span class="text-xl">🇺🇸</span><span class="flex-1"><span class="block text-sm font-bold text-slate-800">English</span><span class="block text-xs text-slate-500">English · USD ($)</span></span><i id="localeCheckEn" class="fas fa-check text-[#4267A9] hidden"></i></button>
-                <button type="button" onclick="changeLocale('ar')" class="locale-option w-full flex items-center gap-3 rounded-xl px-3 py-3 text-left hover:bg-slate-50"><span class="text-xl">🇸🇦</span><span class="flex-1"><span class="block text-sm font-bold text-slate-800">العربية</span><span class="block text-xs text-slate-500">Arabic · AED (د.إ)</span></span><i id="localeCheckAr" class="fas fa-check text-[#4267A9] hidden"></i></button>
-                <button type="button" onclick="changeLocale('hi')" class="locale-option w-full flex items-center gap-3 rounded-xl px-3 py-3 text-left hover:bg-slate-50"><span class="text-xl">🇮🇳</span><span class="flex-1"><span class="block text-sm font-bold text-slate-800">हिन्दी</span><span class="block text-xs text-slate-500">Hindi · INR (₹)</span></span><i id="localeCheckHi" class="fas fa-check text-[#4267A9] hidden"></i></button>
-              </div>
-            </div>
-            <button type="button" onclick="toggleHeaderSearch(event)" aria-label="Cari" aria-controls="headerSearchPanel" aria-expanded="false" id="headerSearchButton" class="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-800 hover:bg-slate-100">
-              <i id="headerSearchIcon" class="fas fa-search text-lg"></i>
-            </button>
-            <button type="button" onclick="toggleMobileMenu(event)" aria-label="Buka menu" aria-controls="mobileMenuPanel" aria-expanded="false" id="mobileMenuButton" class="md:hidden w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-800 hover:bg-slate-100">
-              <i id="mobileMenuIcon" class="fas fa-bars text-lg"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div id="headerSearchPanel" class="hidden border-t border-slate-100 bg-white">
-        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-3">
-          <div class="relative">
-            <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
-            <input type="search" id="headerSearchInput" oninput="handleGlobalSearch(this.value)" placeholder="Cari tour, aktivitas, atau tempat..." class="w-full pl-11 pr-4 py-3 bg-slate-100 focus:bg-white rounded-xl text-sm border border-slate-200 focus:border-bali-orange focus:outline-none">
-            <div id="searchResultsDropdown" class="hidden absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-2xl border border-slate-100 p-3 z-50 max-h-80 overflow-y-auto"></div>
-          </div>
-        </div>
-      </div>
-      <div id="mobileMenuPanel" class="hidden border-t border-slate-100 bg-white shadow-xl">
-        <div class="max-w-7xl mx-auto px-4 py-3">
-          <div class="grid grid-cols-2 gap-2">
-            <button onclick="closeMobileMenu(); showHelpMenu()" class="mobile-menu-item"><i class="far fa-circle-question"></i><span>Bantuan</span></button>
-            <button onclick="closeMobileMenu(); showRegisterPrompt()" class="mobile-menu-item"><i class="far fa-user"></i><span>Mendaftar</span></button>
-            <button onclick="closeMobileMenu(); toggleWishlistModal()" class="mobile-menu-item"><i class="far fa-heart"></i><span>Wishlist <span id="mobileWishlistCount" class="text-xs text-slate-400">(0)</span></span></button>
-            <button onclick="closeMobileMenu(); showRecentlyViewed()" class="mobile-menu-item"><i class="far fa-clock"></i><span>Baru saja dilihat</span></button>
-            <a href="./transport-service.html" class="mobile-menu-item"><i class="fas fa-car-side"></i><span>Private transport</span></a>
-            <button onclick="closeMobileMenu(); navigateTo('contact')" class="mobile-menu-item col-span-2"><i class="far fa-envelope"></i><span>Contact</span></button>
-          </div>
-          <button onclick="closeMobileMenu(); showRegisterPrompt()" class="mt-3 w-full rounded-xl bg-bali-orange px-4 py-3 text-sm font-extrabold text-white shadow-sm hover:bg-bali-hover"><i class="fas fa-user-plus mr-2"></i>Mendaftar / Buat Akun</button>
-          <p class="text-[11px] text-slate-400 text-center mt-2">Simpan aktivitas favorit dan temukan kembali rencana perjalanan Anda.</p>
-        </div>
-      </div>
-    </header>
+    
     
 
 <main><section class="hero"><div class="wrap heroInner"><span class="eyebrow">Private transport · Bali</span><h1>Bali Port Transfer Service</h1><p>Your ferry is only one part of the journey. Arrange the road transfer to your hotel, villa, or next stop ahead of time, with the harbour and meeting details considered before travel.</p><a class="btn btnLight" href="#experience" data-slow-scroll>See how it works <span aria-hidden="true">→</span></a></div></section><section class="section" id="experience"><div class="wrap"><span class="pill">From harbour to your next stop</span><h2>Let the ferry be the only part of your journey you need to think about</h2><p class="muted" style="max-width:850px;margin:0 0 14px">After a ferry crossing, you may still have a drive ahead to your hotel, villa, or another part of Bali. If you are unfamiliar with the harbour or travelling with luggage, finding the next ride on arrival can add an unnecessary decision to your day.</p><p class="muted" style="max-width:850px;margin:0 0 14px">Plan the road journey around your crossing. Share the harbour, your expected arrival, and where you need to go; then confirm the meeting point and how the pickup will be coordinated. Because ferry schedules can change, it is worth agreeing in advance how delays should be handled.</p><p class="muted" style="max-width:850px;margin:0 0 14px">Whether you arrive at Padangbai, Sanur, Benoa, or Gilimanuk, the aim is simple: make the transition from boat to road clearer, with the important details discussed before you travel.</p><div class="cards"><article class="card"><div class="cardbody"><h3>Connect both parts of the trip</h3><p class="muted">Plan the drive from your arrival harbour to the next destination, rather than leaving the road journey until the ferry docks.</p></div></article><article class="card"><div class="cardbody"><h3>Allow for changing schedules</h3><p class="muted">Discuss the expected arrival and what to do if the ferry is delayed or the timing changes.</p></div></article><article class="card"><div class="cardbody"><h3>Agree on the meeting point</h3><p class="muted">Confirm where to meet, how to identify your driver, and what waiting arrangements apply.</p></div></article></div><p style="margin:22px 0 0"><a class="btn" href="#request" data-slow-scroll>Plan your port transfer <span aria-hidden="true">→</span></a></p></div></section><section class="booking-section section" aria-labelledby="request-title"><div class="wrap"><div class="panel" id="request" style="max-width:820px;margin:0 auto"><span class="pill">No payment required to enquire</span><h2 id="request-title">Planning a transfer from the harbour?</h2><p class="muted">Share your ferry or harbour details and destination. The team can discuss the pickup plan, vehicle, availability, and final fare with you.</p><div class="terms-summary booking-notice" id="booking-notice" tabindex="-1" aria-label="Important information before booking"><strong>Before you book</strong>Ferry schedules and arrival times can change. Pickup coordination, waiting time, port access, parking and any additional charges should be confirmed before the trip.<a href="./terms-and-conditions.html">Read full terms &amp; conditions →</a></div><form id="tripForm"><div class="grid"><div class="field"><label for="date">Travel date *</label><input id="date" type="date" required></div><div class="field"><label for="time">Pickup time *</label><input id="time" type="time" value="09:00" required></div><div class="field"><label for="port">Port / harbour *</label><select id="port" required><option value="">Choose port</option><option>Padangbai Harbour</option><option>Benoa Harbour</option><option>Matahari Terbit (Sanur) Harbour</option><option>Gilimanuk Harbour</option></select></div><div class="field"><label for="direction">Direction *</label><select id="direction"><option>From port to accommodation</option><option>Accommodation to port</option></select></div><div class="field full"><label for="route">Accommodation / destination address *</label><input id="route" required placeholder="Hotel, villa, or full address"></div><div class="field"><label for="passengers">Passengers *</label><select id="passengers"><option>1 passenger</option><option selected>2 passengers</option><option>3 passengers</option><option>4 passengers</option><option>5 passengers</option><option>6 passengers</option><option>7 passengers</option><option>8+ passengers</option></select></div><div class="field"><label for="luggage">Luggage</label><select id="luggage"><option>Carry-on only</option><option selected>1–2 suitcases</option><option>3–4 suitcases</option><option>5+ suitcases</option></select></div><div class="field full"><label for="notes">Additional details (optional)</label><textarea id="notes" placeholder="Child seat, ferry details, preferred stops, or other requests"></textarea></div><div class="full"><button class="btn" style="width:100%" type="submit">Continue on WhatsApp →</button><p class="notice muted">Sending these details starts an enquiry, not a confirmed booking. We’ll confirm availability and the final price with you.</p></div></div></form></div></div></section><section class="section service-options" style="padding-top:0"><div class="wrap"><div class="service-options-heading"><h2>Explore other transport options</h2><p class="muted">Choose the service that fits your journey.</p></div><nav class="service-shortcuts" aria-label="Explore transport services"><a href="./bali-airport-transfer.html" class="service-shortcut"><span class="service-shortcut-icon teal"><i class="fas fa-plane-arrival" aria-hidden="true"></i></span><span class="service-shortcut-copy"><strong>Airport Transfer</strong><small>Airport pickup & drop-off</small></span><i class="fas fa-arrow-right service-shortcut-arrow" aria-hidden="true"></i></a><a href="./bali-port-transfer.html" class="service-shortcut"><span class="service-shortcut-icon sky"><i class="fas fa-ship" aria-hidden="true"></i></span><span class="service-shortcut-copy"><strong>Port Transfer</strong><small>Harbour connections</small></span><i class="fas fa-arrow-right service-shortcut-arrow" aria-hidden="true"></i></a><a href="./bali-intercity-transfer.html" class="service-shortcut"><span class="service-shortcut-icon amber"><i class="fas fa-route" aria-hidden="true"></i></span><span class="service-shortcut-copy"><strong>Intercity Transfer</strong><small>Between towns and stays</small></span><i class="fas fa-arrow-right service-shortcut-arrow" aria-hidden="true"></i></a><a href="./bali-private-day-tour.html" class="service-shortcut"><span class="service-shortcut-icon violet"><i class="fas fa-map-marked-alt" aria-hidden="true"></i></span><span class="service-shortcut-copy"><strong>Private Day Tour</strong><small>Explore Bali your way</small></span><i class="fas fa-arrow-right service-shortcut-arrow" aria-hidden="true"></i></a></nav></div></section></main>    <!-- FOOTER SECTION -->
-    <footer class="bg-slate-950 text-slate-300 text-sm mt-16 border-t border-slate-800">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 md:pt-14 pb-6">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-9 lg:gap-10 pb-10">
-          <div class="lg:col-span-4">
-            <button type="button" onclick="navigateTo('home')" aria-label="Bali Trans home" class="flex items-center gap-3 mb-4 text-left">
-              <span class="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#4267A9] via-[#6E8EC5] to-[#172B4D] flex items-center justify-center text-white text-xl font-black shadow-lg">B</span>
-              <span class="text-xl font-extrabold tracking-tight text-white">Bali<span class="text-[#4267A9]"> Trans</span></span>
-            </button>
-            <p class="text-slate-400 text-sm leading-6 max-w-sm mb-5">Discover Bali tours, local experiences and private transport. Compare trip details and contact our team to discuss your plans before booking.</p>
-            <button type="button" onclick="navigateTo('contact')" class="inline-flex items-center gap-2 rounded-xl bg-[#4267A9] hover:bg-[#4267A9] px-4 py-3 text-sm font-extrabold text-slate-950 transition">
-              Talk to our team <i class="fas fa-arrow-right"></i>
-            </button>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-6 max-w-md">
-              <div class="rounded-xl border border-white/10 bg-white/[0.04] p-3 flex items-start gap-3">
-                <span class="w-8 h-8 shrink-0 rounded-lg bg-[#4267A9]/10 text-[#4267A9] flex items-center justify-center"><i class="fas fa-map-marked-alt"></i></span>
-                <span><strong class="block text-white text-xs mb-1">Explore Bali</strong><span class="block text-xs leading-5 text-slate-400">Tours and places worth discovering.</span></span>
-              </div>
-              <div class="rounded-xl border border-white/10 bg-white/[0.04] p-3 flex items-start gap-3">
-                <span class="w-8 h-8 shrink-0 rounded-lg bg-[#4267A9]/10 text-[#4267A9] flex items-center justify-center"><i class="fas fa-car-side"></i></span>
-                <span><strong class="block text-white text-xs mb-1">Private transport</strong><span class="block text-xs leading-5 text-slate-400">Discuss routes, pickup and timing.</span></span>
-              </div>
-            </div>
-          </div>
-
-          <div class="lg:col-span-8 grid grid-cols-2 sm:grid-cols-2 xl:grid-cols-4 gap-x-5 gap-y-8">
-            <div>
-              <h3 class="text-white font-extrabold mb-4 text-xs uppercase tracking-[0.14em]">Discover</h3>
-              <ul class="space-y-3.5">
-                <li><button type="button" onclick="navigateTo('packages')" class="footer-link">All tours & activities</button></li>
-                <li><button type="button" onclick="navigateTo('discovery','region:south')" class="footer-link">South Bali</button></li>
-                <li><button type="button" onclick="navigateTo('discovery','region:central')" class="footer-link">Central Bali</button></li>
-                <li><button type="button" onclick="navigateTo('discovery','region:north')" class="footer-link">North Bali</button></li>
-                <li><button type="button" onclick="navigateTo('blog')" class="footer-link">Bali travel guides</button></li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 class="text-white font-extrabold mb-4 text-xs uppercase tracking-[0.14em]">Plan your trip</h3>
-              <ul class="space-y-3.5">
-                <li><button type="button" onclick="navigateTo('packages')" class="footer-link">Tour packages</button></li>
-                <li><button type="button" onclick="navigateTo('service-info','tours')" class="footer-link">Tours & activities</button></li>
-                <li><a href="./transport-service.html" class="footer-link">Private transport</a></li>
-                <li><a href="./bali-airport-transfer.html" class="footer-link">Airport transfers</a></li>
-                <li><button type="button" onclick="navigateTo('service-info','island-trip')" class="footer-link">Island trips</button></li>
-                <li><button type="button" onclick="navigateTo('cart')" class="footer-link">View my trip list</button></li>
-                <li><button type="button" onclick="navigateTo('contact')" class="footer-link">Ask about availability</button></li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 class="text-white font-extrabold mb-4 text-xs uppercase tracking-[0.14em]">Help & support</h3>
-              <ul class="space-y-3.5">
-                <li><button type="button" onclick="navigateTo('help')" class="footer-link">Help centre</button></li>
-                <li><button type="button" onclick="navigateTo('help-topic','faq')" class="footer-link">FAQs</button></li>
-                <li><button type="button" onclick="navigateTo('help-topic','booking-payments')" class="footer-link">Booking & payments</button></li>
-                <li><button type="button" onclick="navigateTo('help-topic','cancellations')" class="footer-link">Changes & cancellations</button></li>
-                <li><button type="button" onclick="navigateTo('help-topic','manage-booking')" class="footer-link">Manage a booking</button></li>
-                <li><button type="button" onclick="navigateTo('contact')" class="footer-link">Contact our team</button></li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 class="text-white font-extrabold mb-4 text-xs uppercase tracking-[0.14em]">About us</h3>
-              <ul class="space-y-3.5">
-                <li><button type="button" onclick="navigateTo('about')" class="footer-link">About Bali Trans</button></li>
-                <li><button type="button" onclick="navigateTo('partners')" class="footer-link">Local partners</button></li>
-                <li><button type="button" onclick="navigateTo('terms')" class="footer-link">Terms & conditions</button></li>
-                <li><button type="button" onclick="navigateTo('privacy')" class="footer-link">Privacy policy</button></li>
-                <li><button type="button" onclick="navigateTo('image-credits')" class="footer-link">Photo credits</button></li>
-                <li><button type="button" onclick="navigateTo('home')" class="footer-link">Back to home</button></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="rounded-2xl border border-white/10 bg-gradient-to-r from-[#EEF3FB] via-white to-[#EEF3FB] p-4 sm:p-5 mb-7 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5">
-          <span class="w-10 h-10 rounded-xl bg-[#4267A9]/10 text-[#4267A9] flex items-center justify-center text-lg shrink-0"><i class="fas fa-circle-info"></i></span>
-          <div class="flex-1">
-            <p class="text-white font-bold text-sm mb-1">Planning something special in Bali?</p>
-            <p class="text-slate-400 text-xs sm:text-sm leading-5">Tell us your destination, dates and group size. We’ll help you clarify the trip details and next steps.</p>
-          </div>
-          <button type="button" onclick="navigateTo('contact')" class="shrink-0 rounded-xl border border-[#4267A9]/30 px-4 py-2.5 text-xs font-extrabold text-[#4267A9] hover:bg-[#4267A9]/10 transition">Make an enquiry <i class="fas fa-arrow-right ml-1"></i></button>
-        </div>
-
-        <div class="border-t border-white/10 pt-5 flex flex-col md:flex-row justify-between gap-3 text-xs text-slate-500">
-          <p>© 2026 Bali Trans. Tours, experiences and private transport in Bali.</p>
-          <p class="leading-5">Trip details, prices and availability should be confirmed with our team before booking.</p>
-        </div>
-      </div>
-    </footer>
+    
     
 
 <script>document.getElementById('tripForm').addEventListener('submit',function(e){e.preventDefault();if(!this.reportValidity())return;const ids=['date','time','direction','flight','port','route','pickup','destination','places','passengers','luggage','notes'];const labels={date:'Travel date',time:'Pickup time',direction:'Direction',flight:'Flight number',port:'Port',route:'Accommodation / destination',pickup:'Pickup',destination:'Destination',places:'Places to visit',passengers:'Passengers',luggage:'Luggage',notes:'Additional details'};const lines=['Hello Bali Trans, I would like to request a quote.','Service: Bali Port Transfer'];ids.forEach(id=>{const el=document.getElementById(id);if(el&&el.value.trim())lines.push(labels[id]+': '+el.value.trim())});window.open('https://wa.me/628218187917?text='+encodeURIComponent(lines.join('\n')),'_blank','noopener,noreferrer')});</script>    <!-- MOBILE BOTTOM NAVIGATION BAR (bali MOBILE STYLE) -->
@@ -422,4 +272,5 @@ document.addEventListener('click', function(event) {
   if (!event.target.closest('#localeControl')) { document.getElementById('localeMenu')?.classList.add('hidden'); document.getElementById('localeButton')?.setAttribute('aria-expanded','false'); }
   if (!event.target.closest('#headerSearchPanel') && !event.target.closest('#headerSearchButton')) document.getElementById('searchResultsDropdown')?.classList.add('hidden');
 });
-</script><script>(function(){const track=document.querySelector('[data-review-track]');if(!track)return;const cards=[...track.querySelectorAll('.review-slide')],dots=[...document.querySelectorAll('[data-review-dot]')],prev=document.querySelector('[data-review-prev]'),next=document.querySelector('[data-review-next]'),section=document.querySelector('.review-section');let index=0,visible=false,paused=false,timer=null;function go(n){index=(n+cards.length)%cards.length;track.scrollTo({left:cards[index].offsetLeft-track.offsetLeft,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});dots.forEach((d,i)=>{if(i===index)d.setAttribute('aria-current','true');else d.removeAttribute('aria-current')})}function pauseBriefly(){paused=true;clearTimeout(timer);timer=setTimeout(()=>paused=false,9000)}prev&&prev.addEventListener('click',()=>{go(index-1);pauseBriefly()});next&&next.addEventListener('click',()=>{go(index+1);pauseBriefly()});dots.forEach((d,i)=>d.addEventListener('click',()=>{go(i);pauseBriefly()}));track.addEventListener('pointerdown',pauseBriefly);track.addEventListener('focusin',pauseBriefly);track.addEventListener('mouseenter',()=>paused=true);track.addEventListener('mouseleave',()=>paused=false);track.addEventListener('scroll',()=>{let closest=0,dist=Infinity;cards.forEach((c,i)=>{const d=Math.abs(c.offsetLeft-track.offsetLeft-track.scrollLeft);if(d<dist){dist=d;closest=i}});index=closest;dots.forEach((d,i)=>{if(i===index)d.setAttribute('aria-current','true');else d.removeAttribute('aria-current')})},{passive:true});if('IntersectionObserver'in window)new IntersectionObserver(entries=>{visible=entries[0].isIntersecting}).observe(section);else visible=true;if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches)setInterval(()=>{if(visible&&!paused)go(index+1)},5000)})();</script><script>(function(){var link=document.querySelector('[data-slow-scroll][href="#booking-notice"]'),target=document.getElementById("booking-notice");if(!link||!target)return;link.addEventListener("click",function(event){event.preventDefault();if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){target.scrollIntoView({block:"start"});history.replaceState(null,"","#booking-notice");return;}var start=window.scrollY,top=target.getBoundingClientRect().top+start-92,distance=top-start,duration=Math.min(1350,Math.max(850,Math.abs(distance)*0.65)),begin=null;function step(now){if(begin===null)begin=now;var p=Math.min(1,(now-begin)/duration),ease=p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2;window.scrollTo(0,start+distance*ease);if(p<1)requestAnimationFrame(step);else{target.focus({preventScroll:true});history.replaceState(null,"","#booking-notice");}}requestAnimationFrame(step);});})();</script></body></html>
+</script><script>(function(){const track=document.querySelector('[data-review-track]');if(!track)return;const cards=[...track.querySelectorAll('.review-slide')],dots=[...document.querySelectorAll('[data-review-dot]')],prev=document.querySelector('[data-review-prev]'),next=document.querySelector('[data-review-next]'),section=document.querySelector('.review-section');let index=0,visible=false,paused=false,timer=null;function go(n){index=(n+cards.length)%cards.length;track.scrollTo({left:cards[index].offsetLeft-track.offsetLeft,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});dots.forEach((d,i)=>{if(i===index)d.setAttribute('aria-current','true');else d.removeAttribute('aria-current')})}function pauseBriefly(){paused=true;clearTimeout(timer);timer=setTimeout(()=>paused=false,9000)}prev&&prev.addEventListener('click',()=>{go(index-1);pauseBriefly()});next&&next.addEventListener('click',()=>{go(index+1);pauseBriefly()});dots.forEach((d,i)=>d.addEventListener('click',()=>{go(i);pauseBriefly()}));track.addEventListener('pointerdown',pauseBriefly);track.addEventListener('focusin',pauseBriefly);track.addEventListener('mouseenter',()=>paused=true);track.addEventListener('mouseleave',()=>paused=false);track.addEventListener('scroll',()=>{let closest=0,dist=Infinity;cards.forEach((c,i)=>{const d=Math.abs(c.offsetLeft-track.offsetLeft-track.scrollLeft);if(d<dist){dist=d;closest=i}});index=closest;dots.forEach((d,i)=>{if(i===index)d.setAttribute('aria-current','true');else d.removeAttribute('aria-current')})},{passive:true});if('IntersectionObserver'in window)new IntersectionObserver(entries=>{visible=entries[0].isIntersecting}).observe(section);else visible=true;if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches)setInterval(()=>{if(visible&&!paused)go(index+1)},5000)})();</script><script>(function(){var link=document.querySelector('[data-slow-scroll][href="#booking-notice"]'),target=document.getElementById("booking-notice");if(!link||!target)return;link.addEventListener("click",function(event){event.preventDefault();if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){target.scrollIntoView({block:"start"});history.replaceState(null,"","#booking-notice");return;}var start=window.scrollY,top=target.getBoundingClientRect().top+start-92,distance=top-start,duration=Math.min(1350,Math.max(850,Math.abs(distance)*0.65)),begin=null;function step(now){if(begin===null)begin=now;var p=Math.min(1,(now-begin)/duration),ease=p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2;window.scrollTo(0,start+distance*ease);if(p<1)requestAnimationFrame(step);else{target.focus({preventScroll:true});history.replaceState(null,"","#booking-notice");}}requestAnimationFrame(step);});})();</script><script src="./assets/js/global-shell.js" defer></script>
+</body></html>
