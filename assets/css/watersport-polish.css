@@ -388,3 +388,19 @@ input, select, textarea {
   }
 }
 
+
+/* Structured styles for pricing-generated cards and booking summaries */
+.ws-foreign-note{font-size:12px;color:#63748d;margin:4px 0 12px}
+.ws-single-book-cta{margin:12px 0 4px}
+.ws-audience-prices{margin:8px 0 14px;font-size:13px;line-height:1.7;color:#63748d}
+.ws-expanded-detail,.ws-package-list{grid-column:1 / -1}
+.ws-package-note{font-size:13px;line-height:1.6;color:#63748d}
+.ws-package-card{border:1px solid #dfe7f2;border-radius:12px;padding:14px;margin-top:10px}
+.ws-package-card-title{font-size:16px;margin:0 0 7px}
+.ws-package-card-items{margin:0 0 8px}
+.ws-package-card-prices{font-size:13px;line-height:1.7}
+.ws-discount-note,.ws-summary-discount{color:#18794e}
+.ws-package-cta{margin-top:10px}
+.ws-summary-title{font-weight:800;font-size:16px;margin-bottom:8px}
+.ws-summary-total{display:flex;justify-content:space-between;gap:12px;border-top:1px solid #dfe5ec;margin-top:10px;padding-top:12px;font-weight:850}
+.ws-summary-disclaimer{display:block;color:#667085;margin-top:8px}
