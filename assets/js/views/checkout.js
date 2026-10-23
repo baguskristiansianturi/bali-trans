@@ -67,7 +67,7 @@
             return '<div class="min-h-screen bg-white px-4 py-6 sm:py-10"><div class="mx-auto max-w-2xl">' +
                 '<button type="button" onclick="navigateTo(\'detail\',\'lovina-dolphin-tour\')" class="mb-5 text-sm font-semibold text-slate-600 hover:text-[#172B4D]">← Back to tour</button>' +
                 '<div class="mb-6 border-b border-slate-200 pb-5"><p class="text-xs font-bold uppercase tracking-widest text-slate-500">Bali Trans</p><h1 class="mt-2 text-2xl font-bold text-slate-900">Booking request</h1><p class="mt-1 text-sm text-slate-600">Bali Dolphin Tour</p></div>' +
-                '<form id="dolphinCleanBookingForm" class="space-y-5" onsubmit="event.preventDefault();captureDolphinBookingFields();sendDolphinBookingToWhatsApp();">' +
+                '<form id="dolphinCleanBookingForm" class="space-y-5" onsubmit="event.preventDefault();captureDolphinBookingFields();window.dolphinBookingDraft.paymentMethod='tour-day';sendDolphinBookingToWhatsApp();">' +
                 '<div class="grid gap-4 sm:grid-cols-2">' +
                 '<label class="'+label+'">Tour date *<input id="dolphinBookDate" type="date" min="'+today+'" value="'+(d.date||'')+'" class="'+input+'" required></label>' +
                 '<label class="'+label+'">Pickup hotel / area *<input id="dolphinBookPickup" type="text" value="'+(d.pickup||'')+'" placeholder="Hotel name and area" class="'+input+'" required></label>' +
