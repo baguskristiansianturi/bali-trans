@@ -111,7 +111,7 @@ try {
   console.log('PASS browser Back/Forward navigation');
 
   await page.goto('http://127.0.0.1:4173/transport-service.html', { waitUntil: 'domcontentloaded' });
-  await page.waitForSelector('.bt-site-header');
+  await page.waitForSelector('.bt-site-header[data-ready="true"]');
   await page.waitForSelector('.bt-site-footer');
   const shellCheck = await page.evaluate(() => {
     const header = document.querySelectorAll('.bt-site-header');
@@ -153,7 +153,7 @@ try {
   ];
   for (const route of standalonePages) {
     await page.goto('http://127.0.0.1:4173/' + route, { waitUntil: 'domcontentloaded' });
-    await page.waitForSelector('.bt-site-header');
+    await page.waitForSelector('.bt-site-header[data-ready="true"]');
     const audit = await page.evaluate(() => ({
       headers: document.querySelectorAll('.bt-site-header').length,
       footers: document.querySelectorAll('.bt-site-footer').length,
@@ -166,7 +166,7 @@ try {
   console.log('PASS shared shell and 360px overflow audit across ' + standalonePages.length + ' standalone pages');
 
   await page.goto('http://127.0.0.1:4173/watersport-jet-ski.html', { waitUntil: 'domcontentloaded' });
-  await page.waitForSelector('.bt-site-header');
+  await page.waitForSelector('.bt-site-header[data-ready="true"]');
   if (await page.locator('.bt-site-header').count() !== 1 || await page.locator('.bt-site-footer').count() !== 1) {
     throw new Error('Watersport detail must use one shared site shell');
   }
