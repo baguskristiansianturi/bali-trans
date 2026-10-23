@@ -61,7 +61,7 @@
         '</div>' +
         '<button class="bt-action" type="button" id="headerSearchButton" aria-label="Open search" aria-controls="headerSearchPanel" aria-expanded="false"><span id="headerSearchIcon" aria-hidden="true">⌕</span></button>' +
         '<button class="bt-action bt-mobile-toggle" type="button" id="mobileMenuButton" aria-label="Open menu" aria-controls="mobileMenuPanel" aria-expanded="false"><span id="mobileMenuIcon" aria-hidden="true">☰</span></button>' +
-        (hasLiveChatBar ? '' : '<a class="bt-live-chat" href="' + routes.contact + '"><span class="bt-live-dot" aria-hidden="true"></span><span><strong>Live Chat</strong><small>Offline</small></span></a>') +
+        (hasLiveChatBar ? '' : '<a class="bt-live-chat" href="' + routes.contact + '" aria-label="Live Chat status: offline"><span class="bt-live-dot" aria-hidden="true"></span><span><strong>Live Chat</strong><small>Offline</small></span></a>') +
       '</div>' +
     '</div></div>' +
     '<div class="bt-search-panel hidden" id="headerSearchPanel"><div class="bt-shell">' +
