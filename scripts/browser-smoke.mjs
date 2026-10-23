@@ -152,12 +152,24 @@ try {
   if (shellCheck.headers !== 1 || shellCheck.footers !== 1) throw new Error('Standalone page must have exactly one shared header and footer');
   if (!shellCheck.headerBeforeMain || !shellCheck.topbarBeforeHeader) throw new Error('Shared header order is incorrect on standalone page');
   if (shellCheck.width > shellCheck.viewport + 2) throw new Error('Standalone transport page has horizontal overflow');
+  await page.locator('#headerSearchButton').click();
+  await page.locator('#headerSearchInput').fill('North Bali');
+  await page.locator('#btSearchForm').press('Enter');
+  await page.waitForFunction(() => location.pathname.endsWith('/index.html') && new URLSearchParams(location.search).get('q') === 'North Bali');
+  await page.waitForFunction(() => document.querySelector('#searchResultsDropdown')?.textContent.includes('North Bali'));
+  console.log('PASS search from standalone pages returns to matching homepage results');
+
+  await page.goto('http://127.0.0.1:4173/transport-service.html', { waitUntil: 'domcontentloaded' });
+  await page.waitForSelector('.bt-site-header[data-ready="true"]');
   await page.locator('#mobileMenuButton').click();
   const menuState = await page.evaluate(() => ({ className: document.querySelector('#mobileMenuPanel')?.className, expanded: document.querySelector('#mobileMenuButton')?.getAttribute('aria-expanded'), display: getComputedStyle(document.querySelector('#mobileMenuPanel')).display, height: document.querySelector('#mobileMenuPanel').getBoundingClientRect().height }));
   if (!(await page.locator('#mobileMenuPanel').isVisible())) throw new Error('Shared mobile navigation did not open: ' + JSON.stringify(menuState));
+  await page.mouse.click(2, 790);
+  if (await page.locator('#mobileMenuPanel').isVisible()) throw new Error('Shared mobile navigation did not close after an outside click');
+  await page.locator('#mobileMenuButton').click();
   await page.getByRole('link', { name: 'Travel guides' }).last().click();
   await page.waitForURL('**/index.html?page=blog');
-  console.log('PASS shared shell, mobile menu and working travel-guide route');
+  console.log('PASS shared shell, outside-click close and working travel-guide route');
 
   await page.goto('http://127.0.0.1:4173/watersport-tanjung-benoa.html', { waitUntil: 'domcontentloaded' });
   const penyuLink = page.locator('a[href*="watersport-glass-bottom-boat-pulau-penyu.html"]').first();
