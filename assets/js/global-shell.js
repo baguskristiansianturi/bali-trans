@@ -25,12 +25,8 @@
   const isHomePage = !!document.querySelector('#appContainer');
   const hasLiveChatBar = !!document.getElementById('topLiveChatState');
   const localeOptions = [
-    { code: 'id', flag: '🇮🇩', name: 'Indonesia', detail: 'Bahasa Indonesia · IDR', check: 'localeCheckId' },
-    { code: 'ms', flag: '🇲🇾', name: 'Bahasa Melayu', detail: 'Malay · MYR (RM)', check: 'localeCheckMs' },
-    { code: 'sg', flag: '🇸🇬', name: 'Singlish', detail: 'Singapore English · SGD (S$)', check: 'localeCheckSg' },
-    { code: 'en', flag: '🇺🇸', name: 'English', detail: 'English · USD ($)', check: 'localeCheckEn' },
-    { code: 'ar', flag: '🇸🇦', name: 'العربية', detail: 'Arabic · AED (د.إ)', check: 'localeCheckAr' },
-    { code: 'hi', flag: '🇮🇳', name: 'हिन्दी', detail: 'Hindi · INR (₹)', check: 'localeCheckHi' }
+    { code: 'id', flag: '🇮🇩', name: 'Bahasa Indonesia', detail: 'Bahasa Indonesia · IDR', check: 'localeCheckId' },
+    { code: 'en', flag: '🇬🇧', name: 'English', detail: 'English · USD ($)', check: 'localeCheckEn' }
   ];
   const localeHTML = localeOptions.map(option =>
     '<button type="button" class="bt-locale-option locale-option" data-locale="' + option.code + '">' +
@@ -56,7 +52,7 @@
       '</a><nav class="bt-main-nav" aria-label="Main navigation">' + linkHTML + '</nav>' +
       '<div class="bt-actions">' +
         '<div class="bt-locale-control" id="localeControl">' +
-          '<button class="bt-locale" type="button" id="localeButton" aria-label="Language and currency" aria-controls="localeMenu" aria-expanded="false"><span id="localeCurrentFlag">🇮🇩</span><span id="localeCurrentCode">IDR</span><span aria-hidden="true">⌄</span></button>' +
+          '<button class="bt-locale" type="button" id="localeButton" aria-label="Language and currency" aria-controls="localeMenu" aria-expanded="false"><span id="localeCurrentCode">ID</span><span aria-hidden="true">⌄</span></button>' +
           '<div class="bt-locale-menu hidden" id="localeMenu">' + localeHTML + '</div>' +
         '</div>' +
         '<button class="bt-action" type="button" id="headerSearchButton" aria-label="Open search" aria-controls="headerSearchPanel" aria-expanded="false"><span id="headerSearchIcon" aria-hidden="true">⌕</span></button>' +
@@ -90,7 +86,14 @@
       '<div class="bt-footer-bottom"><p>© 2026 Bali Trans. Tours, experiences and private transport in Bali.</p><p>Trip details, prices and availability should be confirmed with our team before booking.</p></div></div>';
 
   function init() {
-    if (document.querySelector('.bt-site-header')) return;
+    // Keep exactly one shared shell if an earlier script execution or partial navigation ran twice.
+    const existingHeaders = Array.from(document.querySelectorAll('.bt-site-header'));
+    const existingFooters = Array.from(document.querySelectorAll('.bt-site-footer'));
+    if (existingHeaders.length) {
+      existingHeaders.slice(1).forEach(node => node.remove());
+      existingFooters.slice(1).forEach(node => node.remove());
+      return;
+    }
 
     // Preserve the approved four-item mobile bottom navigation on the SPA homepage.
     // The shared header supplements this navigation; it must never remove it.
@@ -113,12 +116,9 @@
     const mobilePanel = document.getElementById('mobileMenuPanel');
 
     function closePanels() {
-      if (typeof window.closeLocaleMenu === 'function') window.closeLocaleMenu();
-      else if (localeMenu) localeMenu.classList.add('hidden');
-      if (typeof window.closeHeaderSearch === 'function') window.closeHeaderSearch();
-      else if (searchPanel) searchPanel.classList.add('hidden');
-      if (typeof window.closeMobileMenu === 'function') window.closeMobileMenu();
-      else if (mobilePanel) mobilePanel.classList.add('hidden');
+      if (localeMenu) localeMenu.classList.add('hidden');
+      if (searchPanel) searchPanel.classList.add('hidden');
+      if (mobilePanel) mobilePanel.classList.add('hidden');
       localeButton?.setAttribute('aria-expanded', 'false');
       searchButton?.setAttribute('aria-expanded', 'false');
       mobileButton?.setAttribute('aria-expanded', 'false');
