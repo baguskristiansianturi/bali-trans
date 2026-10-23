@@ -271,7 +271,7 @@
             const code = document.getElementById('localeCurrentCode');
             if (flag) flag.textContent = setting.flag;
             if (code) code.textContent = setting.code;
-            const ids = {id:'localeCheckId',ms:'localeCheckMs',sg:'localeCheckSg',en:'localeCheckEn',ar:'localeCheckAr',hi:'localeCheckHi'};
+            const ids = {id:'localeCheckId',en:'localeCheckEn'};
             Object.entries(ids).forEach(([lang,id]) => {
                 const el = document.getElementById(id);
                 if (el) el.classList.toggle('hidden', lang !== currentLanguage);
