@@ -92,17 +92,8 @@
   function init() {
     if (document.querySelector('.bt-site-header')) return;
 
-    // Remove the retired mobile bottom navigation. The shared responsive header
-    // now owns site navigation; leaving the old fixed bar creates a second,
-    // conflicting navigation system on phones.
-    document.querySelectorAll('body > div').forEach(function (element) {
-      const isLegacyBottomNav =
-        element.classList.contains('fixed') &&
-        element.classList.contains('bottom-0') &&
-        element.classList.contains('md:hidden') &&
-        element.querySelector('button[onclick*="navigateTo("]');
-      if (isLegacyBottomNav) element.remove();
-    });
+    // Preserve the approved four-item mobile bottom navigation on the SPA homepage.
+    // The shared header supplements this navigation; it must never remove it.
     const announcement = document.getElementById('countdownTimer');
     const announcementBar = announcement && announcement.parentElement && announcement.parentElement.parentElement;
     if (announcementBar && announcementBar.parentElement === document.body) {
