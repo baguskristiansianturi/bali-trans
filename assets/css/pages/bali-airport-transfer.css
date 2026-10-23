@@ -118,3 +118,11 @@ body.booking-mode #backFare{display:none!important}
 body.booking-mode main #request.panel{background:transparent!important;border:0!important;box-shadow:none!important;border-radius:0!important}
 body.booking-mode #request>.pill,body.booking-mode #request>#request-title,body.booking-mode #request>p{display:none!important}
 body.booking-mode #bookingDetails .field:has(#bookingPrice){display:none!important}
+
+/* Extracted inline declarations */
+.bt-inline-w7bq9x{max-width: 850px !important; margin: 0 0 14px !important}
+.bt-inline-1j06jlv{margin: 22px 0 0 !important}
+.bt-inline-w083pk{max-width: 860px !important; margin: 0 auto !important}
+.bt-inline-akjizx{width: 100% !important}
+.bt-inline-165a0xk{width: 100% !important; margin-top: 8px !important}
+.bt-inline-168z4ve{padding-top: 0 !important}
