@@ -15,6 +15,20 @@
                 const el = document.getElementById(fields[key]);
                 if (el) d[key] = key === 'adults' || key === 'children' ? Math.max(0, Number(el.value) || 0) : el.value.trim();
             });
+            const swing = document.getElementById('dolphinAddonSwing');
+            const snorkel = document.getElementById('dolphinAddonSnorkel');
+            const tanahLot = document.getElementById('dolphinAddonTanahLot');
+            if (swing || snorkel || tanahLot) d.addons = { swing: !!(swing && swing.checked), snorkel: !!(snorkel && snorkel.checked), tanahLot: !!(tanahLot && tanahLot.checked) };
+            const guests = (Number(d.adults)||0)+(Number(d.children)||0);
+            const adultRate = d.guestType === 'international' ? 950000 : 750000;
+            const childRate = d.guestType === 'international' ? 700000 : 500000;
+            const discount = guests >= 11 ? .075 : guests >= 7 ? .05 : guests >= 3 ? .025 : 0;
+            let estimate = ((Number(d.adults)||0)*adultRate+(Number(d.children)||0)*childRate)*(1-discount);
+            if (d.addons && d.addons.snorkel) estimate += guests*250000;
+            if (d.addons && d.addons.tanahLot) estimate += (Number(d.adults)||0)*(d.guestType === 'international' ? 70000 : 30000)+(Number(d.children)||0)*(d.guestType === 'international' ? 35000 : 15000)+300000;
+            if (d.vehicle === 'reborn') estimate += 300000;
+            if (d.vehicle === 'zenix' || (d.vehicle === 'hiace' && guests < 6)) estimate += 500000;
+            d.estimatedTotal = estimate;
         }
 
         function updateDolphinEstimate() {
@@ -54,7 +68,7 @@
             const inputClass = 'mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3.5 py-3 text-sm font-medium text-slate-800 outline-none transition focus:border-[#4267A9] focus:ring-2 focus:ring-[#4267A9]/10';
             const labelClass = 'block text-sm font-bold text-slate-700';
             const allInItems = ['Private return transport for your group','Traditional boat trip for sunrise dolphin watching in Lovina','Lunch during the North Bali itinerary','Entrance fees for attractions explicitly listed in your confirmed quote'];
-            const adultRate = d.guestType === 'international' ? 950000 : 750000; const childRate = adultRate / 2; const money = n => 'Rp' + Number(n || 0).toLocaleString('id-ID'); const estimatedPackage = (Number(d.adults) || 0) * adultRate;
+            const adultRate = d.guestType === 'international' ? 950000 : 750000; const childRate = d.guestType === 'international' ? 700000 : 500000; const money = n => 'Rp' + Number(n || 0).toLocaleString('id-ID'); const groupSize = (Number(d.adults)||0)+(Number(d.children)||0); const groupDiscount = groupSize >= 11 ? .075 : groupSize >= 7 ? .05 : groupSize >= 3 ? .025 : 0; const estimatedPackage = ((Number(d.adults)||0)*adultRate+(Number(d.children)||0)*childRate)*(1-groupDiscount);
             const summaryRow = (label, value) => '<div class="flex items-start justify-between gap-4 border-b border-slate-100 py-3 text-sm last:border-0"><span class="text-slate-500">'+label+'</span><strong class="max-w-[65%] text-right text-slate-800">'+(value || '—')+'</strong></div>';
             let content = '';
             if (step === 1) {
@@ -71,8 +85,8 @@
                     '<section class="mt-5"><h3 class="mb-1 text-xs font-extrabold uppercase tracking-wider text-[#4267A9]">01 · Trip details</h3>' +
                       summaryRow('Travel date',d.date)+summaryRow('Pickup location / hotel',d.pickup)+summaryRow('Guest category',d.guestType==='international'?'International guest':'Local guest')+summaryRow('Group size',(Number(d.adults||0)+Number(d.children||0))+' guests ('+d.adults+' adults, '+d.children+' children)')+summaryRow('Children’s ages',d.children?(d.childAges||'Please provide ages'):'No children')+
                     '</section><section class="mt-5 border-t border-slate-200 pt-5"><h3 class="mb-1 text-xs font-extrabold uppercase tracking-wider text-[#4267A9]">02 · Itemised estimate</h3>' +
-                      summaryRow('Adult rate',money(adultRate)+' × '+d.adults)+summaryRow('Adult subtotal',money(estimatedPackage))+summaryRow('Children’s fare',d.children?'To be confirmed after ages are reviewed':'Not applicable')+
-                      '<div class="mt-3 rounded-xl border border-[#DCE5F2] bg-[#F7F9FC] p-4"><div class="flex items-start justify-between gap-4"><span class="text-sm font-extrabold text-slate-700">Estimated subtotal</span><strong class="text-xl font-black text-[#172B4D]">'+money(estimatedPackage)+'</strong></div><p class="mt-2 text-xs leading-5 text-slate-500">'+(d.children?'Adult subtotal only; children’s fare is excluded until their ages and applicable rate are confirmed.':'Estimate based on the adult rate. Final itinerary, inclusions and any applicable adjustments will be confirmed before booking.')+'</p></div>' +
+                      summaryRow('Adult rate',money(adultRate)+' × '+d.adults)+summaryRow('Adult subtotal',money((Number(d.adults)||0)*adultRate))+summaryRow('Children’s fare',d.children?money((Number(d.children)||0)*childRate):'Not applicable')+summaryRow('Group discount',groupDiscount ? (groupDiscount*100)+'% off' : 'Not applicable')+summaryRow('Optional extras',d.addons ? [d.addons.swing?'Bali swing':null,d.addons.snorkel?'Snorkelling':null,d.addons.tanahLot?'Tanah Lot':null].filter(Boolean).join(', ') || 'None' : 'None')+summaryRow('Vehicle',d.vehicle || 'HiAce / standard as arranged')+
+                      '<div class="mt-3 rounded-xl border border-[#DCE5F2] bg-[#F7F9FC] p-4"><div class="flex items-start justify-between gap-4"><span class="text-sm font-extrabold text-slate-700">Estimated subtotal</span><strong class="text-xl font-black text-[#172B4D]">'+money(d.estimatedTotal || estimatedPackage)+'</strong></div><p class="mt-2 text-xs leading-5 text-slate-500">'+(d.children?'Adult subtotal only; children’s fare is excluded until their ages and applicable rate are confirmed.':'Estimate based on the adult rate. Final itinerary, inclusions and any applicable adjustments will be confirmed before booking.')+'</p></div>' +
                     '</section><section class="mt-5 border-t border-slate-200 pt-5"><h3 class="mb-1 text-xs font-extrabold uppercase tracking-wider text-[#4267A9]">03 · Lead traveller</h3>' +
                       summaryRow('Full name',d.name)+summaryRow('Email address',d.email)+summaryRow('WhatsApp number',d.phone)+summaryRow('Special requests',d.notes||'None')+
                     '</section><section class="mt-5 border-t border-slate-200 pt-5"><h3 class="mb-2 text-xs font-extrabold uppercase tracking-wider text-[#4267A9]">04 · Payment preference</h3><p class="mb-3 text-sm leading-6 text-slate-500">Choose an available way to proceed. No payment is taken on this page.</p>' +
