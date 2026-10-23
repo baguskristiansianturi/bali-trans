@@ -61,3 +61,10 @@
 @media(max-width:480px){.bt-live-chat{padding:7px 8px}.bt-live-chat strong,.bt-live-chat small{font-size:9px}.bt-actions{gap:5px}}
 
 @media(max-width:380px){.bt-live-chat{width:32px;height:32px;justify-content:center;padding:0;gap:0}.bt-live-chat>span:last-child{display:none}.bt-live-dot{width:8px;height:8px}}
+
+/* Language switcher: render one compact code label; avoid flag/icon duplication from inherited icon rules. */
+#localeButton #localeCurrentCode{display:inline-block;min-width:2ch;text-align:center;font-size:12px;line-height:1;font-weight:800}
+#localeButton::before,#localeButton::after{content:none!important}
+#localeButton .bt-locale-flag{display:none!important}
+.bt-locale-option .bt-locale-check{font-family:Inter,system-ui,sans-serif;font-style:normal}
+.bt-site-header .bt-action>i,.bt-site-header .bt-action>svg{display:none}
