@@ -59,3 +59,5 @@
 .bt-mobile-extras button{min-height:44px;padding:10px;border:1px solid var(--bt-line);border-radius:11px;background:#fff;color:#334155;font:650 12px/1.4 Inter,system-ui,sans-serif;text-align:left}
 .bt-mobile-extras button:hover{background:#eef3fb}
 @media(max-width:480px){.bt-live-chat{padding:7px 8px}.bt-live-chat strong,.bt-live-chat small{font-size:9px}.bt-actions{gap:5px}}
+
+@media(max-width:380px){.bt-live-chat{width:32px;height:32px;justify-content:center;padding:0;gap:0}.bt-live-chat>span:last-child{display:none}.bt-live-dot{width:8px;height:8px}}
