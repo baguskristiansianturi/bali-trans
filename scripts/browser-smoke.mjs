@@ -93,6 +93,12 @@ try {
   console.log('PASS homepage uses the shared shell with functional locale, search and mobile overlays');
   await checkRoute('about', '?page=about', 'A simpler way');
   await checkRoute('contact', '?page=contact', 'Let’s talk');
+  await checkRoute('help centre', '?page=help', 'How can we help?');
+  await checkRoute('FAQ guide', '?page=help-topic&item=faq', 'Frequently asked questions');
+  await checkRoute('terms and conditions', '?page=terms', 'Terms and conditions');
+  await checkRoute('privacy policy', '?page=privacy', 'Privacy policy');
+  await checkRoute('partner enquiries', '?page=partners', 'Local partners');
+  await checkRoute('account access', '?page=account', 'Account access');
   await checkRoute('package catalogue', '?page=packages', 'Tours & Activities');
   await checkRoute('North Bali region', '?page=discovery&item=region%3Anorth', 'Explore North Bali');
   await checkRoute('valid package detail', '?page=detail&item=lovina-dolphin-tour', 'Bali Dolphin Tour');
