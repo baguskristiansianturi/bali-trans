@@ -105,7 +105,9 @@
       link.addEventListener('click', closePanels);
     });
     document.addEventListener('click', function (event) {
-      if (!header.contains(event.target)) closePanels();
+      const target = event.target;
+      if (target && typeof target.closest === 'function' && target.closest('.bt-site-header')) return;
+      closePanels();
     });
     form.addEventListener('submit', function (event) {
       event.preventDefault();
