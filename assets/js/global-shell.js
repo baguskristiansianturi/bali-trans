@@ -113,6 +113,7 @@
       if (!query) return;
       location.href = routes.tours + '&q=' + encodeURIComponent(query);
     });
+    header.dataset.ready = 'true';
   }
 
   if (document.readyState === 'loading') {
