@@ -160,8 +160,20 @@ jobs:
                   css_refs += 1
                   if not (css_file.parent / clean).is_file():
                       missing_css.append(f"{css_file}: {ref}")
+          sitemap_urls = set(re.findall(r"<loc>(.*?)</loc>", (root / "sitemap.xml").read_text(encoding="utf-8"), re.I))
+          missing_sitemap = []
+          site_base = "https://baguskristiansianturi.github.io/bali-trans/"
+          for html_file in html_files:
+              source = html_file.read_text(encoding="utf-8")
+              if re.search(r'<meta\\b[^>]*name=["\\']robots["\\'][^>]*content=["\\'][^"\\']*noindex', source, re.I):
+                  continue
+              canonical = re.search(r'<link\\b[^>]*rel=["\\']canonical["\\'][^>]*href=["\\']([^"\\']+)', source, re.I)
+              expected = canonical.group(1) if canonical else site_base + html_file.name
+              if expected not in sitemap_urls:
+                  missing_sitemap.append(f"{html_file}: {expected}")
           problems = []
-          if missing_html: problems.append("Missing HTML assets:\n" + "\n".join(missing_html))
+          if missing_sitemap: problems.append("Public HTML pages missing from sitemap:\\n" + "\\n".join(missing_sitemap))
+          if missing_html: problems.append("Missing HTML assets:\\n" + "\\n".join(missing_html))
           if missing_css: problems.append("Missing CSS URLs/imports:\n" + "\n".join(missing_css))
           if inline_styles: problems.append("Inline style blocks remain:\n" + "\n".join(inline_styles))
           if inline_style_attrs: problems.append("Inline style attributes remain in HTML:\n" + "\n".join(inline_style_attrs))
@@ -169,5 +181,5 @@ jobs:
           if inline_js_styles: problems.append("Inline style attributes in JS-generated markup remain:\n" + "\n".join(inline_js_styles))
           if problems:
               raise SystemExit("\n".join(problems))
-          print(f"Checked {len(html_files)} HTML pages, {html_refs} local HTML references, {len(css_files)} CSS files, and {css_refs} local CSS references; no inline styles/scripts in HTML or style attributes in JS-generated markup remain.")
+          print(f"Checked {len(html_files)} HTML pages, {html_refs} local HTML references, {len(css_files)} CSS files, {css_refs} local CSS references, and {len(sitemap_urls)} sitemap URLs; no inline styles/scripts in HTML or style attributes in JS-generated markup remain.")
           PY
