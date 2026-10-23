@@ -11,7 +11,7 @@
             AUD:{symbol:'A$',rate:0.000096,format:v=>'A$'+(v*0.000096).toFixed(2)},
             EUR:{symbol:'€',rate:0.000058,format:v=>'€'+(v*0.000058).toFixed(2)}
         };
-        const LOCALE_SETTINGS={id:{currency:'IDR',flag:'🇮🇩',code:'IDR',lang:'id',dir:'ltr',name:'Indonesia'},ms:{currency:'MYR',flag:'🇲🇾',code:'MYR',lang:'ms',dir:'ltr',name:'Bahasa Melayu'},sg:{currency:'SGD',flag:'🇸🇬',code:'SGD',lang:'en-SG',dir:'ltr',name:'Singlish'},en:{currency:'USD',flag:'🇺🇸',code:'USD',lang:'en',dir:'ltr',name:'English'},ar:{currency:'AED',flag:'🇸🇦',code:'AED',lang:'ar',dir:'rtl',name:'العربية'},hi:{currency:'INR',flag:'🇮🇳',code:'INR',lang:'hi',dir:'ltr',name:'हिन्दी'}};
+        const LOCALE_SETTINGS={id:{currency:'IDR',flag:'🇮🇩',code:'ID',lang:'id',dir:'ltr',name:'Bahasa Indonesia'},en:{currency:'USD',flag:'🇬🇧',code:'EN',lang:'en',dir:'ltr',name:'English'}};
         let currentCurrency='USD',currentLanguage='en';
         try{currentLanguage=localStorage.getItem('baliTransLanguage')||'en';}catch(e){}
         if(!LOCALE_SETTINGS[currentLanguage])currentLanguage='en';
