@@ -22,7 +22,8 @@ This repository is being prepared as a **structural and UX prototype** for the B
 - `assets/js/navigation.js` — route switching.
 - `assets/js/views/home.js` — homepage rendering.
 - `assets/js/views/catalog.js` — package catalog and cards.
-- `assets/js/views/detail.js` — package detail rendering.
+- `assets/js/views/tour-detail.js` — dedicated tour-detail template and tour-specific interactions (currently the approved Dolphin Tour layout).
+- `assets/js/views/detail.js` — standard package/activity detail rendering; routes tour-template packages through the dedicated renderer.
 - `assets/js/views/articles.js` — article list and detail rendering.
 - `assets/js/views/checkout.js` — cart and checkout rendering.
 - `assets/js/interactions.js` — search, cart, wishlist, checkout, and UI actions.
