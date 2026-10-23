@@ -184,7 +184,7 @@ jobs:
               if private_brand_pattern.search(source):
                   private_brand_refs.append(str(candidate))
           problems = []
-          if private_brand_refs: problems.append("Private pre-launch brand references in public files:\\n" + "\\n".join(private_brand_refs))
+          if private_brand_refs: problems.append("Private pre-launch brand references in public files:\n" + "\n".join(private_brand_refs))
           if missing_sitemap: problems.append("Public HTML pages missing from sitemap:\n" + "\n".join(missing_sitemap))
           if missing_html: problems.append("Missing HTML assets:\n" + "\n".join(missing_html))
           if missing_css: problems.append("Missing CSS URLs/imports:\n" + "\n".join(missing_css))
