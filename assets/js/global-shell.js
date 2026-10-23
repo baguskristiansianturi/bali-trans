@@ -10,7 +10,7 @@
     guides: home + '?page=blog',
     about: home + '?page=about',
     contact: home + '?page=contact',
-    help: home + '?page=help'
+    help: home + '?page=contact'
   };
   const links = [
     ['Home', routes.home],
@@ -21,8 +21,32 @@
     ['About', routes.about],
     ['Contact', routes.contact]
   ];
-  const linkHTML = links.map(([label, url]) => '<a href="' + url + '">' + label + '</a>').join('');
-
+  const linkHTML = links.map(([label, url]) => '<a href="' + url.replace(/&/g, '&amp;') + '">' + label + '</a>').join('');
+  const isHomePage = !!document.querySelector('#appContainer');
+  const hasLiveChatBar = !!document.getElementById('topLiveChatState');
+  const localeOptions = [
+    { code: 'id', flag: '🇮🇩', name: 'Indonesia', detail: 'Bahasa Indonesia · IDR', check: 'localeCheckId' },
+    { code: 'ms', flag: '🇲🇾', name: 'Bahasa Melayu', detail: 'Malay · MYR (RM)', check: 'localeCheckMs' },
+    { code: 'sg', flag: '🇸🇬', name: 'Singlish', detail: 'Singapore English · SGD (S$)', check: 'localeCheckSg' },
+    { code: 'en', flag: '🇺🇸', name: 'English', detail: 'English · USD ($)', check: 'localeCheckEn' },
+    { code: 'ar', flag: '🇸🇦', name: 'العربية', detail: 'Arabic · AED (د.إ)', check: 'localeCheckAr' },
+    { code: 'hi', flag: '🇮🇳', name: 'हिन्दी', detail: 'Hindi · INR (₹)', check: 'localeCheckHi' }
+  ];
+  const localeHTML = localeOptions.map(option =>
+    '<button type="button" class="bt-locale-option locale-option" data-locale="' + option.code + '">' +
+      '<span class="bt-locale-flag">' + option.flag + '</span>' +
+      '<span class="bt-locale-copy"><span class="bt-locale-name">' + option.name + '</span><span class="bt-locale-description">' + option.detail + '</span></span>' +
+      '<span id="' + option.check + '" class="bt-locale-check hidden" aria-hidden="true">✓</span>' +
+    '</button>'
+  ).join('');
+  const mobileExtraHTML = isHomePage
+    ? '<div class="bt-mobile-extras">' +
+        '<button type="button" data-shell-action="help">Help</button>' +
+        '<button type="button" data-shell-action="register">Create account</button>' +
+        '<button type="button" data-shell-action="wishlist">Wishlist <span id="mobileWishlistCount">(0)</span></button>' +
+        '<button type="button" data-shell-action="recent">Recently viewed</button>' +
+      '</div>'
+    : '';
   const header = document.createElement('header');
   header.className = 'bt-site-header';
   header.innerHTML =
@@ -30,13 +54,24 @@
       '<a class="bt-brand" href="' + routes.home + '" aria-label="Bali Trans home">' +
         '<span class="bt-brand-mark">B</span><span class="bt-brand-copy"><span class="bt-brand-name">Bali<span> Trans</span></span><span class="bt-brand-tag">TOURS · TRIPS · TRANSFER</span></span>' +
       '</a><nav class="bt-main-nav" aria-label="Main navigation">' + linkHTML + '</nav>' +
-      '<div class="bt-actions"><a class="bt-locale" href="' + routes.home + '" aria-label="Language and currency">🇮🇩 <span>IDR</span>⌄</a>' +
-        '<button class="bt-action" type="button" id="btSearchToggle" aria-label="Open search" aria-controls="btSearchPanel" aria-expanded="false"><span aria-hidden="true">⌕</span></button>' +
-        '<button class="bt-action bt-mobile-toggle" type="button" id="btMenuToggle" aria-label="Open menu" aria-controls="btMobilePanel" aria-expanded="false"><span aria-hidden="true">☰</span></button>' +
-      '</div></div></div>' +
-    '<div class="bt-search-panel bt-hidden" id="btSearchPanel"><div class="bt-shell"><form id="btSearchForm" role="search"><label class="bt-search-label" for="btSearchInput">Search Bali tours and services</label><input class="bt-search-input" type="search" id="btSearchInput" placeholder="Search tours, activities or places..." aria-label="Search tours, activities or places"><p class="bt-search-hint">Search is available from the main Bali Trans homepage.</p></form></div></div>' +
-    '<div class="bt-mobile-panel bt-hidden" id="btMobilePanel"><div class="bt-shell"><nav class="bt-mobile-links" aria-label="Mobile navigation">' + linkHTML + '</nav></div></div>';
-
+      '<div class="bt-actions">' +
+        '<div class="bt-locale-control" id="localeControl">' +
+          '<button class="bt-locale" type="button" id="localeButton" aria-label="Language and currency" aria-controls="localeMenu" aria-expanded="false"><span id="localeCurrentFlag">🇮🇩</span><span id="localeCurrentCode">IDR</span><span aria-hidden="true">⌄</span></button>' +
+          '<div class="bt-locale-menu hidden" id="localeMenu">' + localeHTML + '</div>' +
+        '</div>' +
+        '<button class="bt-action" type="button" id="headerSearchButton" aria-label="Open search" aria-controls="headerSearchPanel" aria-expanded="false"><span id="headerSearchIcon" aria-hidden="true">⌕</span></button>' +
+        '<button class="bt-action bt-mobile-toggle" type="button" id="mobileMenuButton" aria-label="Open menu" aria-controls="mobileMenuPanel" aria-expanded="false"><span id="mobileMenuIcon" aria-hidden="true">☰</span></button>' +
+        (hasLiveChatBar ? '' : '<a class="bt-live-chat" href="' + routes.contact + '"><span class="bt-live-dot" aria-hidden="true"></span><span><strong>Live Chat</strong><small>Offline</small></span></a>') +
+      '</div>' +
+    '</div></div>' +
+    '<div class="bt-search-panel hidden" id="headerSearchPanel"><div class="bt-shell">' +
+      '<form id="btSearchForm" role="search"><label class="bt-search-label" for="headerSearchInput">Search Bali tours and services</label>' +
+      '<input class="bt-search-input" type="search" id="headerSearchInput" placeholder="Search tours, activities or places..." aria-label="Search tours, activities or places">' +
+      '<div class="bt-search-results hidden" id="searchResultsDropdown"></div></form>' +
+    '</div></div>' +
+    '<div class="bt-mobile-panel hidden" id="mobileMenuPanel"><div class="bt-shell">' +
+      '<nav class="bt-mobile-links" aria-label="Mobile navigation">' + linkHTML + '</nav>' + mobileExtraHTML +
+    '</div></div>';
   const footer = document.createElement('footer');
   footer.className = 'bt-site-footer';
   footer.innerHTML =
@@ -65,63 +100,153 @@
     }
     document.body.appendChild(footer);
 
-    const menu = document.getElementById('btMenuToggle');
-    const panel = document.getElementById('btMobilePanel');
-    const search = document.getElementById('btSearchToggle');
-    const searchPanel = document.getElementById('btSearchPanel');
-    const form = document.getElementById('btSearchForm');
-    const input = document.getElementById('btSearchInput');
+    const localeButton = document.getElementById('localeButton');
+    const localeMenu = document.getElementById('localeMenu');
+    const searchButton = document.getElementById('headerSearchButton');
+    const searchPanel = document.getElementById('headerSearchPanel');
+    const searchInput = document.getElementById('headerSearchInput');
+    const searchForm = document.getElementById('btSearchForm');
+    const mobileButton = document.getElementById('mobileMenuButton');
+    const mobilePanel = document.getElementById('mobileMenuPanel');
 
     function closePanels() {
-      panel.classList.add('bt-hidden');
-      searchPanel.classList.add('bt-hidden');
-      menu.setAttribute('aria-expanded', 'false');
-      search.setAttribute('aria-expanded', 'false');
-      menu.setAttribute('aria-label', 'Open menu');
-      menu.innerHTML = '<span aria-hidden="true">☰</span>';
-      search.setAttribute('aria-label', 'Open search');
+      if (typeof window.closeLocaleMenu === 'function') window.closeLocaleMenu();
+      else if (localeMenu) localeMenu.classList.add('hidden');
+      if (typeof window.closeHeaderSearch === 'function') window.closeHeaderSearch();
+      else if (searchPanel) searchPanel.classList.add('hidden');
+      if (typeof window.closeMobileMenu === 'function') window.closeMobileMenu();
+      else if (mobilePanel) mobilePanel.classList.add('hidden');
+      localeButton?.setAttribute('aria-expanded', 'false');
+      searchButton?.setAttribute('aria-expanded', 'false');
+      mobileButton?.setAttribute('aria-expanded', 'false');
+      if (searchButton) searchButton.setAttribute('aria-label', 'Open search');
+      if (mobileButton) mobileButton.setAttribute('aria-label', 'Open menu');
+      const searchIcon = document.getElementById('headerSearchIcon');
+      const mobileIcon = document.getElementById('mobileMenuIcon');
+      if (searchIcon) searchIcon.textContent = '⌕';
+      if (mobileIcon) mobileIcon.textContent = '☰';
     }
+
+    localeButton?.addEventListener('click', function (event) {
+      event.stopPropagation();
+      const opening = localeMenu.classList.contains('hidden');
+      closePanels();
+      if (opening) {
+        localeMenu.classList.remove('hidden');
+        localeButton.setAttribute('aria-expanded', 'true');
+      }
+    });
+    localeMenu?.querySelectorAll('[data-locale]').forEach(function (button) {
+      button.addEventListener('click', function (event) {
+        event.stopPropagation();
+        const code = button.dataset.locale;
+        closePanels();
+        if (isHomePage && typeof window.changeLocale === 'function') {
+          window.changeLocale(code);
+        } else {
+          const target = new URL(home, window.location.href);
+          target.searchParams.set('locale', code);
+          window.location.href = target.href;
+        }
+      });
+    });
+    searchButton?.addEventListener('click', function (event) {
+      event.stopPropagation();
+      const opening = searchPanel.classList.contains('hidden');
+      closePanels();
+      if (opening) {
+        searchPanel.classList.remove('hidden');
+        searchButton.setAttribute('aria-expanded', 'true');
+        searchButton.setAttribute('aria-label', 'Close search');
+        document.getElementById('headerSearchIcon').textContent = '×';
+        searchInput.focus();
+      }
+    });
+    mobileButton?.addEventListener('click', function (event) {
+      event.stopPropagation();
+      const opening = mobilePanel.classList.contains('hidden');
+      closePanels();
+      if (opening) {
+        mobilePanel.classList.remove('hidden');
+        mobileButton.setAttribute('aria-expanded', 'true');
+        mobileButton.setAttribute('aria-label', 'Close menu');
+        document.getElementById('mobileMenuIcon').textContent = '×';
+      }
+    });
+
+    searchInput?.addEventListener('input', function () {
+      if (typeof window.handleGlobalSearch === 'function') window.handleGlobalSearch(searchInput.value);
+    });
+    searchForm?.addEventListener('submit', function (event) {
+      event.preventDefault();
+      const query = searchInput.value.trim();
+      if (!query) return;
+      if (isHomePage && typeof window.handleGlobalSearch === 'function') {
+        window.handleGlobalSearch(query);
+        return;
+      }
+      const target = new URL(routes.tours, window.location.href);
+      target.searchParams.set('q', query);
+      window.location.href = target.href;
+    });
+
+    function routeLink(event, link) {
+      if (!isHomePage || typeof window.navigateTo !== 'function') return;
+      const target = new URL(link.href, window.location.href);
+      if (!target.pathname.endsWith('/index.html') && !target.pathname.endsWith('/')) return;
+      event.preventDefault();
+      const view = target.searchParams.get('page') || 'home';
+      const item = target.searchParams.get('item');
+      window.navigateTo(view, item);
+      closePanels();
+    }
+    header.addEventListener('click', function (event) {
+      const link = event.target.closest('a');
+      if (link) routeLink(event, link);
+    });
+    footer.addEventListener('click', function (event) {
+      const link = event.target.closest('a');
+      if (link) routeLink(event, link);
+    });
+    header.querySelectorAll('[data-shell-action]').forEach(function (button) {
+      button.addEventListener('click', function () {
+        closePanels();
+        const action = button.dataset.shellAction;
+        const actions = {
+          help: 'showHelpMenu',
+          register: 'showRegisterPrompt',
+          wishlist: 'toggleWishlistModal',
+          recent: 'showRecentlyViewed'
+        };
+        const fn = actions[action];
+        if (isHomePage && fn && typeof window[fn] === 'function') window[fn]();
+        else window.location.href = routes.contact;
+      });
+    });
     document.addEventListener('click', function (event) {
-      const target = event.target && typeof event.target.closest === 'function'
-        ? event.target.closest('button')
-        : null;
-      if (target && target.id === 'btMenuToggle') {
-        const open = panel.classList.contains('bt-hidden');
-        closePanels();
-        if (open) {
-          panel.classList.remove('bt-hidden');
-          menu.setAttribute('aria-expanded', 'true');
-          menu.setAttribute('aria-label', 'Close menu');
-          menu.innerHTML = '<span aria-hidden="true">×</span>';
-        }
-        return;
-      }
-      if (target && target.id === 'btSearchToggle') {
-        const open = searchPanel.classList.contains('bt-hidden');
-        closePanels();
-        if (open) {
-          searchPanel.classList.remove('bt-hidden');
-          search.setAttribute('aria-expanded', 'true');
-          search.setAttribute('aria-label', 'Close search');
-          input.focus();
-        }
-        return;
-      }
-      if (event.target && typeof event.target.closest === 'function' && event.target.closest('.bt-site-header')) return;
+      if (event.target && header.contains(event.target)) return;
       closePanels();
     });
-    header.querySelectorAll('.bt-mobile-links a, .bt-main-nav a').forEach(function (link) {
-      link.addEventListener('click', closePanels);
-    });
-    form.addEventListener('submit', function (event) {
-      event.preventDefault();
-      const query = input.value.trim();
-      if (!query) return;
-      location.href = routes.tours + '&q=' + encodeURIComponent(query);
-    });
+
+    if (typeof window.syncLocaleSelector === 'function') window.syncLocaleSelector();
+    const params = new URLSearchParams(window.location.search);
+    if (isHomePage && params.has('locale') && typeof window.changeLocale === 'function') {
+      window.changeLocale(params.get('locale'));
+      params.delete('locale');
+      const query = params.toString();
+      history.replaceState(history.state, '', window.location.pathname + (query ? '?' + query : '') + window.location.hash);
+    }
+    if (isHomePage && params.has('q') && typeof window.handleGlobalSearch === 'function') {
+      const query = params.get('q');
+      searchPanel.classList.remove('hidden');
+      searchButton.setAttribute('aria-expanded', 'true');
+      searchButton.setAttribute('aria-label', 'Close search');
+      document.getElementById('headerSearchIcon').textContent = '×';
+      searchInput.value = query;
+      window.handleGlobalSearch(query);
+    }
     header.dataset.ready = 'true';
   }
-
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init, { once: true });
   } else {
