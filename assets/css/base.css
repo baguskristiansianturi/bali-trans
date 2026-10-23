@@ -23,3 +23,7 @@ body.checkout-mode > .bg-gradient-to-r,
         .lovina-gallery-track::-webkit-scrollbar{display:none}
         .lovina-gallery-slide{scroll-snap-align:center}
         .lovina-thumb{transition:border-color .15s,opacity .15s;cursor:pointer}
+
+
+/* Thin horizontal scrollbar for gallery thumbnails */
+.bt-gallery-thumbs{scrollbar-width:thin}
