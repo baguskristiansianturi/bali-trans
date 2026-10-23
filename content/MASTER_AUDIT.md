@@ -99,6 +99,10 @@ Sources prioritized for this batch:
 
 This batch confirms basic identity/location for several candidates, not current operating hours, entry fees, operator conduct, transport schedules, trail conditions, or current availability. Those details remain out of scope until checked individually. Menjangan's editorial-region placement and the exact scope of the combined Munduk/Wanagiri page remain explicit taxonomy decisions to resolve.
 
-## Business and domain context
+## Public launch readiness
 
-The target public domain is **BDMTrans.com**, planned before December 2026. The project is BDM Trans's own travel website. The destination and activity structure should support BDM Trans's regions, destination guides, activities, itineraries/packages, and transport services; it is not a third-party operator directory. See `content/BDMTRANSDOM_LAUNCH_PLAN.md` for the launch checklist and technical preparation.
+- The current public preview is `https://baguskristiansianturi.github.io/bali-trans/`.
+- Keep canonical URLs, Open Graph URLs, sitemap entries, and robots rules aligned with the host that is actually serving the public site.
+- Do not switch canonical URLs to a custom domain until DNS, HTTPS, redirects, and the deployed site have been verified.
+- Publish only approved brand, contact, price, review, availability, and policy details. Never present prototype data as verified inventory or confirmed bookings.
+- Before launch, verify direct page loads, refresh/back navigation, mobile layout, missing assets, 404 behavior, and all public sitemap routes.
