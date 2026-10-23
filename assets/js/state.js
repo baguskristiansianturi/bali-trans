@@ -7,3 +7,6 @@
         // Preserve the active route when locale changes; language switching must never send users home.
         let currentViewName = 'home';
         let currentViewParams = null;
+
+// Draft data for the dedicated all-inclusive Bali Dolphin Tour booking form.
+window.dolphinBookingDraft = { date:'', adults:2, children:0, pickup:'', childAges:'', name:'', email:'', phone:'', notes:'' };
