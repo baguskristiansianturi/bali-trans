@@ -221,5 +221,11 @@ function changeCurrency(val) {
 
         /* INITIAL APP LAUNCH */
         window.onload = function() {
-            navigateTo('home');
+            const previewRoute = new URLSearchParams(window.location.search).get('preview');
+            if (previewRoute === 'dolphin-tour') {
+                currentDetailPackage = BALI_DOLPHIN_TOUR_PREVIEW;
+                navigateTo('detail');
+            } else {
+                navigateTo('home');
+            }
         };
