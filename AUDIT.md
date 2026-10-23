@@ -84,3 +84,32 @@ Scope: current source architecture, shared site shell, standalone page assets, r
 - Homepage and standalone public pages now use the same injected header/footer component. Both checkout pages intentionally omit the shared shell; the airport checkout also omits branding and uses a glass-style form surface.
 - Latest confirmed deployment at the time of this audit must be read from the most recent successful `Deploy Bali Trans to GitHub Pages` workflow run; do not infer live deployment from a commit alone.
 - Still not production-ready: there is no real booking backend, live inventory, online payment processing, email delivery, or server-side validation. Final manual visual QA and destination/operator fact-checking remain necessary.
+
+
+## Footer and account navigation audit — 24 October 2026
+
+### Fixed in source
+
+- Footer FAQ previously pointed to the Help Centre landing page instead of the FAQ guide. It now targets the dedicated FAQ topic.
+- Footer Privacy questions previously pointed to Contact; it now opens the Privacy Policy view.
+- Terms & Conditions now points to the actual Terms view.
+- Partner Enquiries now has a direct route to the existing Partners page.
+- Added a dedicated Account Access page and connected the Create account menu action to it.
+- The account page explicitly states that account registration is not active in this static preview; it does not collect credentials or pretend to save an account.
+- Help menu now opens the Help Centre rather than redirecting to Contact.
+- Expanded footer navigation from four to five groups and added a large-desktop five-column layout.
+
+### Account capability status
+
+Real sign-up, sign-in, password recovery, saved booking history, and server-side identity storage are **not implemented**. GitHub Pages is static hosting; do not imply these functions work until a secure backend/authentication provider is connected.
+
+### Open pull-request inventory
+
+- PR #23 homepage redesign was closed on 24 October 2026 because it conflicts with the explicit requirement to preserve the approved homepage.
+- PR #29 remains a draft and needs reconciliation with the current SPA router.
+- PR #32 adds South Bali destination articles; its recorded head check passed, but the branch must be reconciled with current `main` before merge.
+- PR #33 aligns standalone service heroes; its recorded browser smoke test failed while waiting for a destination-guide button. Investigate the test selector/route behavior before merging.
+
+### Current release verification
+
+Latest source validation and Pages deployment runs must be checked from GitHub Actions after the latest commits. Do not infer deployment success from the presence of a commit.
