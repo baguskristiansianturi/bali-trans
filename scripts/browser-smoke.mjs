@@ -131,7 +131,7 @@ try {
   if (!shellCheck.headerBeforeMain || !shellCheck.topbarBeforeHeader) throw new Error('Shared header order is incorrect on standalone page');
   if (shellCheck.width > shellCheck.viewport + 2) throw new Error('Standalone transport page has horizontal overflow');
   await page.locator('#mobileMenuButton').click();
-  const menuState = await page.evaluate(() => ({ className: document.querySelector('#mobileMenuPanel')?.className, expanded: document.querySelector('#mobileMenuButton')?.getAttribute('aria-expanded'), display: getComputedStyle(document.querySelector('#mobileMenuPanel')).display, height: document.querySelector('#btMobilePanel').getBoundingClientRect().height }));
+  const menuState = await page.evaluate(() => ({ className: document.querySelector('#mobileMenuPanel')?.className, expanded: document.querySelector('#mobileMenuButton')?.getAttribute('aria-expanded'), display: getComputedStyle(document.querySelector('#mobileMenuPanel')).display, height: document.querySelector('#mobileMenuPanel').getBoundingClientRect().height }));
   if (!(await page.locator('#mobileMenuPanel').isVisible())) throw new Error('Shared mobile navigation did not open: ' + JSON.stringify(menuState));
   await page.getByRole('link', { name: 'Travel guides' }).last().click();
   await page.waitForURL('**/index.html?page=blog');
