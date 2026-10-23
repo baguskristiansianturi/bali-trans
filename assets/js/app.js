@@ -1954,7 +1954,7 @@ const cards = category.items.map(function(title) {
                     if (!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
                     const parent = node.parentElement;
                     if (!parent || /^(SCRIPT|STYLE|NOSCRIPT|TEXTAREA|INPUT|OPTION)$/i.test(parent.tagName)) return NodeFilter.FILTER_REJECT;
-                    if (parent.closest('[data-no-translate]')) return NodeFilter.FILTER_REJECT;
+                    if (parent.closest('[data-no-translate],i,svg,[data-icon],.fa,.fas,.far,.fab')) return NodeFilter.FILTER_REJECT;
                     return NodeFilter.FILTER_ACCEPT;
                 }
             });
@@ -1997,7 +1997,7 @@ const cards = category.items.map(function(title) {
                 records.forEach(record => {
                     record.addedNodes && record.addedNodes.forEach(node => {
                         if (node.nodeType === Node.ELEMENT_NODE) applyLanguageCopy(node);
-                        else if (node.nodeType === Node.TEXT_NODE && node.parentElement && !/^(SCRIPT|STYLE)$/i.test(node.parentElement.tagName)) {
+                        else if (node.nodeType === Node.TEXT_NODE && node.parentElement && !/^(SCRIPT|STYLE)$/i.test(node.parentElement.tagName) && !node.parentElement.closest('i,svg,[data-icon],.fa,.fas,.far,.fab,[data-no-translate]')) {
                             if (!originalTextNodes.has(node)) originalTextNodes.set(node, node.nodeValue);
                             node.nodeValue = translateCopy(originalTextNodes.get(node));
                         }
