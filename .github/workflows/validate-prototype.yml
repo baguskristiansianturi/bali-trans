@@ -118,6 +118,7 @@ jobs:
           missing_html = []
           inline_styles = []
           inline_style_attrs = []
+          noindex_missing = []
           inline_scripts = []
           inline_js_styles = []
           html_refs = 0
@@ -125,6 +126,8 @@ jobs:
               source = html_file.read_text(encoding="utf-8")
               if re.search(r"<style\b", source, re.I):
                   inline_styles.append(str(html_file))
+              if not re.search(r'<meta\b[^>]*name=["\']robots["\'][^>]*content=["\'][^"\']*noindex', source, re.I):
+                  noindex_missing.append(str(html_file))
               if re.search(r"\sstyle\s*=", source, re.I):
                   inline_style_attrs.append(str(html_file))
               for attrs, body in re.findall(r"<script\b([^>]*)>([\s\S]*?)</script\s*>", source, re.I):
@@ -185,6 +188,10 @@ jobs:
                   private_brand_refs.append(str(candidate))
           problems = []
           if private_brand_refs: problems.append("Private pre-launch brand references in public files:\n" + "\n".join(private_brand_refs))
+          if noindex_missing: problems.append("Preview HTML pages missing noindex meta:\n" + "\n".join(noindex_missing))
+          if sitemap_urls: problems.append("Preview sitemap must remain empty while the preview is noindex.")
+          if re.search(r"^\s*Sitemap\s*:", (root / "robots.txt").read_text(encoding="utf-8"), re.I | re.M):
+              problems.append("Preview robots.txt must not advertise a sitemap before launch.")
           if missing_sitemap: problems.append("Public HTML pages missing from sitemap:\n" + "\n".join(missing_sitemap))
           if missing_html: problems.append("Missing HTML assets:\n" + "\n".join(missing_html))
           if missing_css: problems.append("Missing CSS URLs/imports:\n" + "\n".join(missing_css))
