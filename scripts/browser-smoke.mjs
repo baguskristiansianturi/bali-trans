@@ -141,7 +141,7 @@ try {
   const penyuLink = page.locator('a[href*="watersport-glass-bottom-boat-pulau-penyu.html"]').first();
   if (!(await penyuLink.count())) throw new Error('Watersport catalogue is missing the Glass Bottom Boat + Pulau Penyu detail link');
   await penyuLink.click();
-  await page.waitForURL('**/watersport-glass-bottom-boat-pulau-penyu.html', { waitUntil: 'domcontentloaded', timeout: 15000 });
+  await page.waitForURL('**/watersport-glass-bottom-boat-pulau-penyu.html*', { waitUntil: 'domcontentloaded', timeout: 15000 });
   if (!(await page.locator('h1').first().innerText()).includes('Glass Bottom Boat')) {
     throw new Error('Pulau Penyu card opened the wrong activity detail');
   }
