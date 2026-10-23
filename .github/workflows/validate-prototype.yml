@@ -171,7 +171,7 @@ jobs:
               expected = canonical.group(1) if canonical else site_base + html_file.name
               if expected not in sitemap_urls:
                   missing_sitemap.append(f"{html_file}: {expected}")
-          private_brand_pattern = re.compile(r"\\b" + "BDM" + r"\\s*Trans\\b|" + "BDM" + "Trans" + r"(?:\\.com)?", re.I)
+          private_brand_pattern = re.compile(r"\b" + "BDM" + r"\s*Trans\b|" + "BDM" + "Trans" + r"(?:\.com)?", re.I)
           private_brand_refs = []
           text_extensions = {".html", ".md", ".json", ".js", ".css", ".txt", ".xml", ".yml", ".yaml"}
           for candidate in root.rglob("*"):
