@@ -10,7 +10,11 @@
     guides: home + '?page=blog',
     about: home + '?page=about',
     contact: home + '?page=contact',
-    help: home + '?page=contact'
+    help: home + '?page=help',
+    terms: home + '?page=terms',
+    privacy: home + '?page=privacy',
+    account: home + '?page=account',
+    partners: home + '?page=partners'
   };
   const links = [
     ['Home', routes.home],
@@ -80,7 +84,8 @@
         '<section><h2>Discover</h2><ul><li><a href="' + routes.tours + '">All tours &amp; activities</a></li><li><a href="' + routes.destinations + '">South Bali</a></li><li><a href="' + home + '?page=discovery&amp;item=region%3Acentral">Central Bali</a></li><li><a href="' + home + '?page=discovery&amp;item=region%3Anorth">North Bali</a></li><li><a href="' + routes.guides + '">Blog</a></li></ul></section>' +
         '<section><h2>Plan your trip</h2><ul><li><a href="' + routes.tours + '">Tour packages</a></li><li><a href="./transport-service.html">Private transport</a></li><li><a href="./bali-airport-transfer.html">Airport transfer</a></li><li><a href="./bali-port-transfer.html">Port transfer</a></li><li><a href="./bali-private-day-tour.html">Private day tour</a></li></ul></section>' +
         '<section><h2>Help &amp; support</h2><ul><li><a href="' + routes.help + '">Help centre</a></li><li><a href="' + routes.help + '">FAQs</a></li><li><a href="' + routes.contact + '">Contact our team</a></li></ul></section>' +
-        '<section><h2>About us</h2><ul><li><a href="' + routes.about + '">About Bali Trans</a></li><li><a href="./terms-and-conditions.html">Terms &amp; conditions</a></li><li><a href="' + routes.contact + '">Privacy questions</a></li></ul></section>' +
+        '<section><h2>About us</h2><ul><li><a href="' + routes.about + '">About Bali Trans</a></li><li><a href="' + routes.terms + '">Terms &amp; conditions</a></li><li><a href="' + routes.privacy + '">Privacy policy</a></li><li><a href="' + routes.partners + '">Partner enquiries</a></li></ul></section>' +
+        '<section><h2>Your account</h2><ul><li><a href="' + routes.account + '">Create account</a></li><li><a href="' + routes.account + '">Continue as guest</a></li><li><a href="' + routes.contact + '">Booking assistance</a></li></ul></section>' +
       '</div></div>' +
       '<div class="bt-footer-note"><span class="bt-footer-note-icon" aria-hidden="true">ⓘ</span><div><strong>Planning something special in Bali?</strong><p>Tell us your destination, dates and group size. Confirm trip details, prices and availability with our team before booking.</p></div></div>' +
       '<div class="bt-footer-bottom"><p>© 2026 Bali Trans. Tours, experiences and private transport in Bali.</p><p>Trip details, prices and availability should be confirmed with our team before booking.</p></div></div>';
@@ -211,7 +216,7 @@
         const action = button.dataset.shellAction;
         const actions = {
           help: 'showHelpMenu',
-          register: 'showRegisterPrompt',
+          register: 'openAccountPage',
           wishlist: 'toggleWishlistModal',
           recent: 'showRecentlyViewed'
         };
