@@ -258,6 +258,14 @@ try {
   if (await page.locator('.bt-site-header, .bt-site-footer').count() !== 0) throw new Error('Airport checkout must remain distraction-free without global shell');
   console.log('PASS shared shell on service details and clean checkout layouts');
 
+  await page.goto('http://127.0.0.1:4173/transport-service.html', { waitUntil: 'domcontentloaded' });
+  await page.waitForSelector('.bt-site-header[data-ready="true"]');
+  await page.locator('#localeButton').click();
+  await page.locator('#localeMenu [data-locale="sg"]').click();
+  await page.waitForFunction(() => location.pathname.endsWith('/index.html') && localStorage.getItem('baliTransLanguage') === 'sg');
+  await page.waitForFunction(() => document.querySelector('#localeCurrentCode')?.textContent === 'SGD');
+  console.log('PASS language/currency selection carries from standalone pages to the homepage');
+
   if (pageErrors.length) throw new Error('Browser JavaScript errors: ' + pageErrors.join(' | '));
   console.log('PASS no uncaught browser JavaScript errors');
 } finally {
