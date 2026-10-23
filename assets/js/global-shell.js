@@ -81,33 +81,37 @@
       menu.innerHTML = '<span aria-hidden="true">☰</span>';
       search.setAttribute('aria-label', 'Open search');
     }
-    menu.addEventListener('click', function () {
-      const open = panel.classList.contains('bt-hidden');
-      closePanels();
-      if (open) {
-        panel.classList.remove('bt-hidden');
-        menu.setAttribute('aria-expanded', 'true');
-        menu.setAttribute('aria-label', 'Close menu');
-        menu.innerHTML = '<span aria-hidden="true">×</span>';
+    document.addEventListener('click', function (event) {
+      const target = event.target && typeof event.target.closest === 'function'
+        ? event.target.closest('button')
+        : null;
+      if (target && target.id === 'btMenuToggle') {
+        const open = panel.classList.contains('bt-hidden');
+        closePanels();
+        if (open) {
+          panel.classList.remove('bt-hidden');
+          menu.setAttribute('aria-expanded', 'true');
+          menu.setAttribute('aria-label', 'Close menu');
+          menu.innerHTML = '<span aria-hidden="true">×</span>';
+        }
+        return;
       }
-    });
-    search.addEventListener('click', function () {
-      const open = searchPanel.classList.contains('bt-hidden');
-      closePanels();
-      if (open) {
-        searchPanel.classList.remove('bt-hidden');
-        search.setAttribute('aria-expanded', 'true');
-        search.setAttribute('aria-label', 'Close search');
-        input.focus();
+      if (target && target.id === 'btSearchToggle') {
+        const open = searchPanel.classList.contains('bt-hidden');
+        closePanels();
+        if (open) {
+          searchPanel.classList.remove('bt-hidden');
+          search.setAttribute('aria-expanded', 'true');
+          search.setAttribute('aria-label', 'Close search');
+          input.focus();
+        }
+        return;
       }
+      if (event.target && typeof event.target.closest === 'function' && event.target.closest('.bt-site-header')) return;
+      closePanels();
     });
     header.querySelectorAll('.bt-mobile-links a, .bt-main-nav a').forEach(function (link) {
       link.addEventListener('click', closePanels);
-    });
-    document.addEventListener('click', function (event) {
-      const target = event.target;
-      if (target && typeof target.closest === 'function' && target.closest('.bt-site-header')) return;
-      closePanels();
     });
     form.addEventListener('submit', function (event) {
       event.preventDefault();
