@@ -117,7 +117,8 @@ body.booking-mode #backFare{display:none!important}
 body.booking-mode main #request.panel{background:transparent!important;border:0!important;box-shadow:none!important;border-radius:0!important}
 body.booking-mode #request>.pill,body.booking-mode #request>#request-title,body.booking-mode #request>p{display:none!important}
 body.booking-mode #bookingDetails .field:has(#bookingPrice){display:none!important}
-</style><script src="https://cdn.tailwindcss.com"></script><script src="./assets/js/tailwind.config.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="./assets/css/styles.css"></head><body class="pb-16 md:pb-0">    <!-- TOP ANNOUNCEMENT BAR -->
+</style><script src="https://cdn.tailwindcss.com"></script><script src="./assets/js/tailwind.config.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="./assets/css/styles.css"><link rel="stylesheet" href="./assets/css/global-shell.css">
+</head><body class="pb-16 md:pb-0">    <!-- TOP ANNOUNCEMENT BAR -->
     <div id="topAnnouncement" class="bg-[#EEF3FB] text-[#172B4D] border-b border-[#DCE5F2] text-xs sm:text-sm py-1.5 px-4 text-center font-medium flex justify-between items-center md:px-12">
         <div class="hidden md:flex items-center space-x-2">
             <span class="bg-white/20 px-2 py-0.5 rounded text-xs uppercase tracking-wider font-bold">Explore Bali</span>
@@ -132,69 +133,7 @@ body.booking-mode #bookingDetails .field:has(#bookingPrice){display:none!importa
     </div>
 
     <!-- MOBILE-FIRST HEADER -->
-    <header id="mainHeader" class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-200 shadow-sm">
-      <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between gap-2 min-h-[68px] md:min-h-[78px]">
-          <button type="button" onclick="navigateTo('home')" aria-label="Bali Trans home" class="flex items-center gap-2 min-w-0 text-left">
-            <span class="w-10 h-10 shrink-0 rounded-xl bg-gradient-to-br from-[#4267A9] to-[#172B4D] flex items-center justify-center text-white text-xl font-black shadow-md">B</span>
-            <span class="min-w-0"><span class="block text-lg sm:text-xl font-extrabold tracking-tight text-slate-900 leading-tight">Bali<span class="text-bali-orange"> Trans</span></span><span class="hidden xs:block text-[9px] sm:text-[10px] text-slate-500 font-semibold tracking-wide">TOURS · TRIPS · TRANSFER</span></span>
-          </button>
-
-          <nav class="hidden md:flex items-center gap-3 lg:gap-5 text-sm font-semibold text-slate-600" aria-label="Main navigation">
-            <button type="button" onclick="navigateTo('home')" class="hover:text-[#4267A9] transition">Home</button>
-            <button type="button" onclick="navigateTo('discovery','region:south')" class="hover:text-[#4267A9] transition">Destinations</button>
-            <button type="button" onclick="navigateTo('packages')" class="hover:text-[#4267A9] transition">Tours</button>
-            <a href="./transport-service.html" class="hover:text-[#4267A9] transition">Transport service</a>
-            <button type="button" onclick="navigateTo('blog')" class="hover:text-[#4267A9] transition">Travel guides</button>
-            <button type="button" onclick="navigateTo('about')" class="hover:text-[#4267A9] transition">About</button>
-            <button type="button" onclick="navigateTo('contact')" class="hover:text-[#4267A9] transition">Contact</button>
-          </nav>
-
-          <div class="flex items-center gap-1.5 sm:gap-2">
-            <div class="relative" id="localeControl">
-              <button type="button" onclick="toggleLocaleMenu(event)" id="localeButton" aria-label="Language and currency" aria-controls="localeMenu" aria-expanded="false" class="h-10 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center gap-2 px-3 text-sm font-bold"><span id="localeCurrentFlag" class="text-lg">🇮🇩</span><span id="localeCurrentCode">IDR</span><i class="fas fa-chevron-down text-[10px]"></i></button>
-              <div id="localeMenu" class="hidden absolute right-0 top-full mt-2 w-64 rounded-2xl border border-slate-200 bg-white p-2 shadow-xl z-[60]">
-                <button type="button" onclick="changeLocale('id')" class="locale-option w-full flex items-center gap-3 rounded-xl px-3 py-3 text-left hover:bg-slate-50"><span class="text-xl">🇮🇩</span><span class="flex-1"><span class="block text-sm font-bold text-slate-800">Indonesia</span><span class="block text-xs text-slate-500">Bahasa Indonesia · IDR</span></span><i id="localeCheckId" class="fas fa-check text-[#4267A9]"></i></button>
-                <button type="button" onclick="changeLocale('ms')" class="locale-option w-full flex items-center gap-3 rounded-xl px-3 py-3 text-left hover:bg-slate-50"><span class="text-xl">🇲🇾</span><span class="flex-1"><span class="block text-sm font-bold text-slate-800">Bahasa Melayu</span><span class="block text-xs text-slate-500">Malay · MYR (RM)</span></span><i id="localeCheckMs" class="fas fa-check text-[#4267A9] hidden"></i></button>
-                <button type="button" onclick="changeLocale('sg')" class="locale-option w-full flex items-center gap-3 rounded-xl px-3 py-3 text-left hover:bg-slate-50"><span class="text-xl">🇸🇬</span><span class="flex-1"><span class="block text-sm font-bold text-slate-800">Singlish</span><span class="block text-xs text-slate-500">Singapore English · SGD (S$)</span></span><i id="localeCheckSg" class="fas fa-check text-[#4267A9] hidden"></i></button>
-                <button type="button" onclick="changeLocale('en')" class="locale-option w-full flex items-center gap-3 rounded-xl px-3 py-3 text-left hover:bg-slate-50"><span class="text-xl">🇺🇸</span><span class="flex-1"><span class="block text-sm font-bold text-slate-800">English</span><span class="block text-xs text-slate-500">English · USD ($)</span></span><i id="localeCheckEn" class="fas fa-check text-[#4267A9] hidden"></i></button>
-                <button type="button" onclick="changeLocale('ar')" class="locale-option w-full flex items-center gap-3 rounded-xl px-3 py-3 text-left hover:bg-slate-50"><span class="text-xl">🇸🇦</span><span class="flex-1"><span class="block text-sm font-bold text-slate-800">العربية</span><span class="block text-xs text-slate-500">Arabic · AED (د.إ)</span></span><i id="localeCheckAr" class="fas fa-check text-[#4267A9] hidden"></i></button>
-                <button type="button" onclick="changeLocale('hi')" class="locale-option w-full flex items-center gap-3 rounded-xl px-3 py-3 text-left hover:bg-slate-50"><span class="text-xl">🇮🇳</span><span class="flex-1"><span class="block text-sm font-bold text-slate-800">हिन्दी</span><span class="block text-xs text-slate-500">Hindi · INR (₹)</span></span><i id="localeCheckHi" class="fas fa-check text-[#4267A9] hidden"></i></button>
-              </div>
-            </div>
-            <button type="button" onclick="toggleHeaderSearch(event)" aria-label="Cari" aria-controls="headerSearchPanel" aria-expanded="false" id="headerSearchButton" class="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-800 hover:bg-slate-100">
-              <i id="headerSearchIcon" class="fas fa-search text-lg"></i>
-            </button>
-            <button type="button" onclick="toggleMobileMenu(event)" aria-label="Buka menu" aria-controls="mobileMenuPanel" aria-expanded="false" id="mobileMenuButton" class="md:hidden w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-800 hover:bg-slate-100">
-              <i id="mobileMenuIcon" class="fas fa-bars text-lg"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div id="headerSearchPanel" class="hidden border-t border-slate-100 bg-white">
-        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-3">
-          <div class="relative">
-            <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
-            <input type="search" id="headerSearchInput" oninput="handleGlobalSearch(this.value)" placeholder="Cari tour, aktivitas, atau tempat..." class="w-full pl-11 pr-4 py-3 bg-slate-100 focus:bg-white rounded-xl text-sm border border-slate-200 focus:border-bali-orange focus:outline-none">
-            <div id="searchResultsDropdown" class="hidden absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-2xl border border-slate-100 p-3 z-50 max-h-80 overflow-y-auto"></div>
-          </div>
-        </div>
-      </div>
-      <div id="mobileMenuPanel" class="hidden border-t border-slate-100 bg-white shadow-xl">
-        <div class="max-w-7xl mx-auto px-4 py-3">
-          <div class="grid grid-cols-2 gap-2">
-            <button onclick="closeMobileMenu(); showHelpMenu()" class="mobile-menu-item"><i class="far fa-circle-question"></i><span>Bantuan</span></button>
-            <button onclick="closeMobileMenu(); showRegisterPrompt()" class="mobile-menu-item"><i class="far fa-user"></i><span>Mendaftar</span></button>
-            <button onclick="closeMobileMenu(); toggleWishlistModal()" class="mobile-menu-item"><i class="far fa-heart"></i><span>Wishlist <span id="mobileWishlistCount" class="text-xs text-slate-400">(0)</span></span></button>
-            <button onclick="closeMobileMenu(); showRecentlyViewed()" class="mobile-menu-item"><i class="far fa-clock"></i><span>Baru saja dilihat</span></button>
-            <a href="./transport-service.html" class="mobile-menu-item"><i class="fas fa-car-side"></i><span>Private transport</span></a>
-            <button onclick="closeMobileMenu(); navigateTo('contact')" class="mobile-menu-item col-span-2"><i class="far fa-envelope"></i><span>Contact</span></button>
-          </div>
-          <button onclick="closeMobileMenu(); showRegisterPrompt()" class="mt-3 w-full rounded-xl bg-bali-orange px-4 py-3 text-sm font-extrabold text-white shadow-sm hover:bg-bali-hover"><i class="fas fa-user-plus mr-2"></i>Mendaftar / Buat Akun</button>
-          <p class="text-[11px] text-slate-400 text-center mt-2">Simpan aktivitas favorit dan temukan kembali rencana perjalanan Anda.</p>
-        </div>
-      </div>
-    </header>
+    
     
 
 <main><section class="hero"><div class="wrap heroInner"><span class="eyebrow">Private transport · Bali</span><h1>Private Bali Airport Transfer to Your Hotel</h1><p>Skip the arrival hassle with a fixed-rate private pickup from Ngurah Rai International Airport (DPS) to your destination in Bali. No hidden fees.</p><a class="btn btnLight" href="#bookingFlow" id="heroBookNow">Book Now <span aria-hidden="true">→</span></a></div></section><section class="section" id="experience"><div class="wrap"><span class="pill">Private pickup from Ngurah Rai Airport</span><h2>A stress-free welcome, right from the arrival gate</h2><p class="muted" style="max-width:850px;margin:0 0 14px">After a long flight, skip the search for a ride. Your driver monitors your flight and waits at the arrival hall with a name sign, ready to welcome you when you come out.</p><p class="muted" style="max-width:850px;margin:0 0 14px">Get help with your luggage and settle into a clean, air-conditioned vehicle for a private ride to your hotel, villa, or destination anywhere in Bali. Your pickup details and fare are agreed before you travel.</p><div class="cards"><article class="card"><div class="cardbody"><h3>Real-time flight tracking</h3><p class="muted">We monitor your flight and adjust pickup timing if your plane arrives early or is delayed, at no extra charge.</p></div></article><article class="card"><div class="cardbody"><h3>Meet &amp; greet with luggage help</h3><p class="muted">Find your driver by your name sign at the arrival hall, then get help carrying your bags to the vehicle.</p></div></article><article class="card"><div class="cardbody"><h3>Transparent, fixed pricing</h3><p class="muted">Know your fare upfront, with no surge pricing or hidden luggage fees and secure payment options.</p></div></article></div><p style="margin:22px 0 0"><a class="btn" href="#bookingFlow" data-booking-open>Book Your Airport Pickup <span aria-hidden="true">→</span></a></p></div></section><section class="booking-section section" aria-labelledby="request-title"><div class="wrap"><div class="panel fare-checker" id="request" style="max-width:860px;margin:0 auto"><span class="pill">CHECK YOUR FARE</span><h2 id="request-title">Check your Bali airport transfer fare</h2><p class="muted">Masukkan alamat hotel, waktu perjalanan, dan jumlah penumpang. Kendaraan reguler dan estimasi tarif dihitung otomatis.</p>
@@ -210,96 +149,7 @@ body.booking-mode #bookingDetails .field:has(#bookingPrice){display:none!importa
 <div id="bookingFlow" hidden><div class="booking-progress"><span id="step1" class="active">1. Detail booking</span><span id="step2">2. Pembayaran</span></div>
 <form id="bookingDetails"><div class="grid"><div class="field full"><label for="bookingDirection">Perjalanan *</label><select id="bookingDirection"><option value="jemput">Dari bandara ke hotel</option><option value="antar">Dari hotel ke bandara</option></select></div><div class="field"><label for="bookingAirport">Terminal *</label><select id="bookingAirport"><option>Internasional</option><option>Domestik</option></select></div><div class="field"><label for="bookingDate">Tanggal *</label><input id="bookingDate" type="date" required></div><div class="field"><label for="bookingTime">Waktu *</label><input id="bookingTime" type="time" value="09:00" required></div><div class="field"><label for="bookingPassengers">Jumlah penumpang *</label><select id="bookingPassengers"><option value="1">1 orang</option><option value="2" selected>2 orang</option><option value="3">3 orang</option><option value="4">4 orang</option><option value="5">5 orang</option><option value="6">6 orang</option><option value="7">7 orang</option><option value="8">8 orang atau lebih</option></select></div><div class="field full"><label for="bookingVehicle">Kendaraan *</label><select id="bookingVehicle"><option value="standard">Toyota Avanza, Wuling atau sejenisnya</option><option value="innova">Toyota Innova (+Rp150.000)</option><option value="reborn">Toyota Innova Reborn (+Rp200.000)</option><option value="hiace">Toyota HiAce (+Rp350.000)</option></select></div><div class="field full"><div class="fare-result" aria-live="polite"><span class="pill">ESTIMASI TARIF</span><h3 id="bookingPrice">Isi area tujuan</h3></div></div><div class="field"><label for="guestName">Nama lengkap *</label><input id="guestName" required></div><div class="field"><label for="guestPhone">Nomor WhatsApp *</label><input id="guestPhone" type="tel" required placeholder="+62..."></div><div class="field full" id="flightField"><label for="flight">Nomor penerbangan *</label><input id="flight" placeholder=""></div><div class="field full"><label id="addressLabel" for="bookingAddress">Alamat hotel / tujuan *</label><input id="bookingAddress" required></div><div class="field full"><label class="premium-option"><input id="addStopover" type="checkbox"> <span><strong>Tambahkan persinggahan</strong></span></label></div><div class="field full" id="stopoverField" hidden><label for="stopoverDetails">Lokasi dan kebutuhan persinggahan *</label><textarea id="stopoverDetails" placeholder=""></textarea></div><div class="field full"><label for="notes">Catatan (opsional)</label><textarea id="notes" placeholder=""></textarea></div><div class="full"><button class="btn" type="submit" style="width:100%">Lanjut ke pembayaran →</button><button class="btn btnLight" id="backFare" type="button" style="width:100%;margin-top:8px">Kembali ke cek tarif</button></div></div></form>
 <form id="paymentForm" hidden><h3>Pilih cara pembayaran</h3><label class="payment-option"><input type="radio" name="payment" value="Lokasi" checked> Bayar di lokasi</label><label class="payment-option"><input type="radio" name="payment" value="Langsung"> Bayar langsung</label><h3 id="paymentTotal"></h3><button class="btn" type="submit" style="width:100%">Konfirmasi & kirim booking →</button><button class="btn btnLight" id="backDetails" type="button" style="width:100%;margin-top:8px">Kembali ke detail</button></form></div></div></div></section><section class="section service-options" style="padding-top:0"><div class="wrap"><div class="service-options-heading"><h2>Explore other transport options</h2><p class="muted">Choose the service that fits your journey.</p></div><nav class="service-shortcuts" aria-label="Explore transport services"><a href="./bali-airport-transfer.html" class="service-shortcut"><span class="service-shortcut-icon teal"><i class="fas fa-plane-arrival" aria-hidden="true"></i></span><span class="service-shortcut-copy"><strong>Airport Transfer</strong><small>Airport pickup & drop-off</small></span><i class="fas fa-arrow-right service-shortcut-arrow" aria-hidden="true"></i></a><a href="./bali-port-transfer.html" class="service-shortcut"><span class="service-shortcut-icon sky"><i class="fas fa-ship" aria-hidden="true"></i></span><span class="service-shortcut-copy"><strong>Port Transfer</strong><small>Harbour connections</small></span><i class="fas fa-arrow-right service-shortcut-arrow" aria-hidden="true"></i></a><a href="./bali-intercity-transfer.html" class="service-shortcut"><span class="service-shortcut-icon amber"><i class="fas fa-route" aria-hidden="true"></i></span><span class="service-shortcut-copy"><strong>Intercity Transfer</strong><small>Between towns and stays</small></span><i class="fas fa-arrow-right service-shortcut-arrow" aria-hidden="true"></i></a><a href="./bali-private-day-tour.html" class="service-shortcut"><span class="service-shortcut-icon violet"><i class="fas fa-map-marked-alt" aria-hidden="true"></i></span><span class="service-shortcut-copy"><strong>Private Day Tour</strong><small>Explore Bali your way</small></span><i class="fas fa-arrow-right service-shortcut-arrow" aria-hidden="true"></i></a></nav></div></section></main>    <!-- FOOTER SECTION -->
-    <footer class="bg-slate-950 text-slate-300 text-sm mt-16 border-t border-slate-800">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 md:pt-14 pb-6">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-9 lg:gap-10 pb-10">
-          <div class="lg:col-span-4">
-            <button type="button" onclick="navigateTo('home')" aria-label="Bali Trans home" class="flex items-center gap-3 mb-4 text-left">
-              <span class="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#4267A9] via-[#6E8EC5] to-[#172B4D] flex items-center justify-center text-white text-xl font-black shadow-lg">B</span>
-              <span class="text-xl font-extrabold tracking-tight text-white">Bali<span class="text-[#4267A9]"> Trans</span></span>
-            </button>
-            <p class="text-slate-400 text-sm leading-6 max-w-sm mb-5">Discover Bali tours, local experiences and private transport. Compare trip details and contact our team to discuss your plans before booking.</p>
-            <button type="button" onclick="navigateTo('contact')" class="inline-flex items-center gap-2 rounded-xl bg-[#4267A9] hover:bg-[#4267A9] px-4 py-3 text-sm font-extrabold text-slate-950 transition">
-              Talk to our team <i class="fas fa-arrow-right"></i>
-            </button>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-6 max-w-md">
-              <div class="rounded-xl border border-white/10 bg-white/[0.04] p-3 flex items-start gap-3">
-                <span class="w-8 h-8 shrink-0 rounded-lg bg-[#4267A9]/10 text-[#4267A9] flex items-center justify-center"><i class="fas fa-map-marked-alt"></i></span>
-                <span><strong class="block text-white text-xs mb-1">Explore Bali</strong><span class="block text-xs leading-5 text-slate-400">Tours and places worth discovering.</span></span>
-              </div>
-              <div class="rounded-xl border border-white/10 bg-white/[0.04] p-3 flex items-start gap-3">
-                <span class="w-8 h-8 shrink-0 rounded-lg bg-[#4267A9]/10 text-[#4267A9] flex items-center justify-center"><i class="fas fa-car-side"></i></span>
-                <span><strong class="block text-white text-xs mb-1">Private transport</strong><span class="block text-xs leading-5 text-slate-400">Discuss routes, pickup and timing.</span></span>
-              </div>
-            </div>
-          </div>
-
-          <div class="lg:col-span-8 grid grid-cols-2 sm:grid-cols-2 xl:grid-cols-4 gap-x-5 gap-y-8">
-            <div>
-              <h3 class="text-white font-extrabold mb-4 text-xs uppercase tracking-[0.14em]">Discover</h3>
-              <ul class="space-y-3.5">
-                <li><button type="button" onclick="navigateTo('packages')" class="footer-link">All tours & activities</button></li>
-                <li><button type="button" onclick="navigateTo('discovery','region:south')" class="footer-link">South Bali</button></li>
-                <li><button type="button" onclick="navigateTo('discovery','region:central')" class="footer-link">Central Bali</button></li>
-                <li><button type="button" onclick="navigateTo('discovery','region:north')" class="footer-link">North Bali</button></li>
-                <li><button type="button" onclick="navigateTo('blog')" class="footer-link">Bali travel guides</button></li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 class="text-white font-extrabold mb-4 text-xs uppercase tracking-[0.14em]">Plan your trip</h3>
-              <ul class="space-y-3.5">
-                <li><button type="button" onclick="navigateTo('packages')" class="footer-link">Tour packages</button></li>
-                <li><button type="button" onclick="navigateTo('service-info','tours')" class="footer-link">Tours & activities</button></li>
-                <li><a href="./transport-service.html" class="footer-link">Private transport</a></li>
-                <li><a href="./bali-airport-transfer.html" class="footer-link">Airport transfers</a></li>
-                <li><button type="button" onclick="navigateTo('service-info','island-trip')" class="footer-link">Island trips</button></li>
-                <li><button type="button" onclick="navigateTo('cart')" class="footer-link">View my trip list</button></li>
-                <li><button type="button" onclick="navigateTo('contact')" class="footer-link">Ask about availability</button></li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 class="text-white font-extrabold mb-4 text-xs uppercase tracking-[0.14em]">Help & support</h3>
-              <ul class="space-y-3.5">
-                <li><button type="button" onclick="navigateTo('help')" class="footer-link">Help centre</button></li>
-                <li><button type="button" onclick="navigateTo('help-topic','faq')" class="footer-link">FAQs</button></li>
-                <li><button type="button" onclick="navigateTo('help-topic','booking-payments')" class="footer-link">Booking & payments</button></li>
-                <li><button type="button" onclick="navigateTo('help-topic','cancellations')" class="footer-link">Changes & cancellations</button></li>
-                <li><button type="button" onclick="navigateTo('help-topic','manage-booking')" class="footer-link">Manage a booking</button></li>
-                <li><button type="button" onclick="navigateTo('contact')" class="footer-link">Contact our team</button></li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 class="text-white font-extrabold mb-4 text-xs uppercase tracking-[0.14em]">About us</h3>
-              <ul class="space-y-3.5">
-                <li><button type="button" onclick="navigateTo('about')" class="footer-link">About Bali Trans</button></li>
-                <li><button type="button" onclick="navigateTo('partners')" class="footer-link">Local partners</button></li>
-                <li><button type="button" onclick="navigateTo('terms')" class="footer-link">Terms & conditions</button></li>
-                <li><button type="button" onclick="navigateTo('privacy')" class="footer-link">Privacy policy</button></li>
-                <li><button type="button" onclick="navigateTo('image-credits')" class="footer-link">Photo credits</button></li>
-                <li><button type="button" onclick="navigateTo('home')" class="footer-link">Back to home</button></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="rounded-2xl border border-white/10 bg-gradient-to-r from-[#EEF3FB] via-white to-[#EEF3FB] p-4 sm:p-5 mb-7 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5">
-          <span class="w-10 h-10 rounded-xl bg-[#4267A9]/10 text-[#4267A9] flex items-center justify-center text-lg shrink-0"><i class="fas fa-circle-info"></i></span>
-          <div class="flex-1">
-            <p class="text-white font-bold text-sm mb-1">Planning something special in Bali?</p>
-            <p class="text-slate-400 text-xs sm:text-sm leading-5">Tell us your destination, dates and group size. We’ll help you clarify the trip details and next steps.</p>
-          </div>
-          <button type="button" onclick="navigateTo('contact')" class="shrink-0 rounded-xl border border-[#4267A9]/30 px-4 py-2.5 text-xs font-extrabold text-[#4267A9] hover:bg-[#4267A9]/10 transition">Make an enquiry <i class="fas fa-arrow-right ml-1"></i></button>
-        </div>
-
-        <div class="border-t border-white/10 pt-5 flex flex-col md:flex-row justify-between gap-3 text-xs text-slate-500">
-          <p>© 2026 Bali Trans. Tours, experiences and private transport in Bali.</p>
-          <p class="leading-5">Trip details, prices and availability should be confirmed with our team before booking.</p>
-        </div>
-      </div>
-    </footer>
+    
     
 
 <script>(function(){const $=id=>document.getElementById(id),form=$('fareForm');if(!form)return;const zones=[['Kuta / Tuban / Legian',['kuta','tuban','legian'],125000],['Seminyak',['seminyak'],175000],['Jimbaran / Nusa Dua',['jimbaran','nusa dua','nusadua','ungasan'],200000],['Canggu / Berawa',['canggu','berawa','pererenan'],275000],['Sanur',['sanur','renon'],225000],['Ubud',['ubud','tegallalang','tegalalang'],350000],['Lovina / North Bali',['lovina','singaraja','munduk'],650000],['Amed / East Bali',['amed','karangasem','candidasa'],550000]];const money=n=>'Rp'+Math.round(n).toLocaleString('id-ID'),upgrades={standard:0,innova:150000,reborn:200000,hiace:350000},vehicleNames={standard:'Toyota Avanza, Wuling atau sejenisnya',innova:'Toyota Innova (premium)',reborn:'Toyota Innova Reborn (premium)',hiace:'Toyota HiAce'};let quote=null,bookingQuote=null;function zoneFor(value){let a=(value||'').toLowerCase();return zones.find(z=>z[1].some(k=>a.includes(k)))}function zone(){return zoneFor($('route').value)}function choice(){return document.querySelector('input[name="vehicleChoice"]:checked')?.value||'standard'}let lastPassengers=+$('passengers').value;function recalc(){let p=+$('passengers').value;if(p>=6){document.querySelector('input[name="vehicleChoice"][value="hiace"]').checked=true}else if(lastPassengers>=6&&p<6&&choice()==='hiace'){document.querySelector('input[name="vehicleChoice"][value="standard"]').checked=true}lastPassengers=p;let v=choice(),z=zone(),t=$('time').value||'09:00',mins=+t.slice(0,2)*60 + +t.slice(3,5),night=$('direction').value==='jemput'?(mins>=1320?30000:mins<120?40000:mins<300?50000:0):0,up=(p>=6&&v==='hiace')?0:(upgrades[v]||0);$('vehicleName').textContent=p>=6?'Toyota HiAce':vehicleNames[v];$('vehicleDescription').textContent=p>=6?'Toyota HiAce otomatis untuk 6 penumpang atau lebih.':v==='standard'?'Mobil reguler untuk 1–5 penumpang. Tarif dasar mengikuti area dan waktu perjalanan.':v==='hiace'?'Toyota HiAce dipilih sebagai kendaraan premium.': 'Kendaraan premium dipilih sesuai preferensi Anda.';$('togglePremium').hidden=p>=6;$('togglePremium').textContent=v==='standard'?'Upgrade mobil premium':'Ubah pilihan kendaraan';if(!z){quote=null;$('priceTotal').textContent='—';$('priceSummary').textContent='Area belum dikenali. Coba Kuta, Seminyak, Jimbaran, Canggu, Sanur, Ubud, Lovina, atau Amed.';$('priceBreakdown').textContent='';return}let base=z[2]+($('direction').value==='jemput'?25000:0);quote={zone:z[0],direction:$('direction').value,vehicle:v,total:base+night+up,night,up,p,base};$('priceTotal').textContent=money(quote.total);$('priceSummary').textContent='Tarif '+(p>=6?'kendaraan rombongan':v==='standard'?'reguler':'dengan upgrade')+' · '+z[0]+' · '+p+' penumpang';$('priceBreakdown').textContent=(night?'Tambahan waktu malam ('+(mins>=1320?'22.00–23.59':mins<120?'00.00–01.59':'02.00–04.59')+'): +'+money(night)+'. ':'')+(p>=6?'Toyota HiAce otomatis untuk 6+ penumpang.':up?'Upgrade '+vehicleNames[v]+': +'+money(up)+'.':'Kendaraan reguler termasuk tarif dasar.')+' Biaya persinggahan, jika ada, dibahas saat booking.';$('bookingStart').disabled=false}['route','time','direction','passengers','date','airport'].forEach(id=>$(id).addEventListener('input',recalc));$('togglePremium').onclick=()=>{$('premiumOptions').hidden=!$('premiumOptions').hidden};document.querySelectorAll('[name="vehicleChoice"]').forEach(x=>x.onchange=()=>{$('premiumOptions').hidden=true;recalc()});$('addStopover').addEventListener('change',()=>{$('stopoverField').hidden=!$('addStopover').checked;$('stopoverDetails').required=$('addStopover').checked});let lastBookingPassengers=+$('bookingPassengers').value;function recalcBooking(){let p=+$('bookingPassengers').value,v=$('bookingVehicle').value,hiaceOption=$('bookingVehicle').querySelector('option[value="hiace"]');if(p>=6){v='hiace';$('bookingVehicle').value='hiace';if(hiaceOption)hiaceOption.textContent='Toyota HiAce (otomatis untuk 6+ penumpang)'}else{if(lastBookingPassengers>=6&&v==='hiace'){$('bookingVehicle').value='standard';v='standard'}if(hiaceOption)hiaceOption.textContent='Toyota HiAce (+Rp350.000)'}lastBookingPassengers=p;let z=zoneFor($('bookingAddress').value),t=$('bookingTime').value||'09:00',mins=+t.slice(0,2)*60 + +t.slice(3,5),night=$('bookingDirection').value==='jemput'?(mins>=1320?30000:mins<120?40000:mins<300?50000:0):0,up=(p>=6&&v==='hiace')?0:(upgrades[v]||0);if(!z){bookingQuote=null;$('bookingPrice').textContent='Tarif dikonfirmasi tim';return}let base=z[2]+($('bookingDirection').value==='jemput'?25000:0);bookingQuote={zone:z[0],direction:$('bookingDirection').value,vehicle:v,total:base+night+up,night,up,p,base};$('bookingPrice').textContent=money(bookingQuote.total)}$('bookingPassengers').addEventListener('change',recalcBooking);$('bookingVehicle').addEventListener('change',recalcBooking);function sync(){let pick=$('bookingDirection').value==='jemput';$('flightField').hidden=!pick;$('flight').required=pick;$('addressLabel').textContent=pick?'Alamat hotel / tujuan *':'Alamat jemput (hotel / vila) *'}function openBooking(){const params=new URLSearchParams();[['route','destination'],['direction','direction'],['airport','terminal'],['date','date'],['time','time'],['passengers','passengers']].forEach(([a,b])=>{const el=$(a);if(el&&el.value)params.set(b,el.value)});params.set('vehicle',choice());window.location.href='./bali-airport-transfer-checkout.html?'+params.toString()}$('heroBookNow').addEventListener('click',e=>{e.preventDefault();openBooking()});document.querySelectorAll('[data-booking-open]').forEach(el=>el.addEventListener('click',e=>{e.preventDefault();openBooking()}));$('bookingStart').onclick=openBooking;$('backFare').onclick=()=>{document.body.classList.remove('booking-mode');$('bookingFlow').hidden=true;form.hidden=false};sync();recalc();recalcBooking()})();</script>    <!-- MOBILE BOTTOM NAVIGATION BAR (bali MOBILE STYLE) -->
@@ -461,5 +311,6 @@ document.addEventListener('click', function(event) {
 });
 </script><script>(function(){const track=document.querySelector('[data-review-track]');if(!track)return;const cards=[...track.querySelectorAll('.review-slide')],dots=[...document.querySelectorAll('[data-review-dot]')],prev=document.querySelector('[data-review-prev]'),next=document.querySelector('[data-review-next]'),section=document.querySelector('.review-section');let index=0,visible=false,paused=false,timer=null;function go(n){index=(n+cards.length)%cards.length;track.scrollTo({left:cards[index].offsetLeft-track.offsetLeft,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});dots.forEach((d,i)=>{if(i===index)d.setAttribute('aria-current','true');else d.removeAttribute('aria-current')})}function pauseBriefly(){paused=true;clearTimeout(timer);timer=setTimeout(()=>paused=false,9000)}prev&&prev.addEventListener('click',()=>{go(index-1);pauseBriefly()});next&&next.addEventListener('click',()=>{go(index+1);pauseBriefly()});dots.forEach((d,i)=>d.addEventListener('click',()=>{go(i);pauseBriefly()}));track.addEventListener('pointerdown',pauseBriefly);track.addEventListener('focusin',pauseBriefly);track.addEventListener('mouseenter',()=>paused=true);track.addEventListener('mouseleave',()=>paused=false);track.addEventListener('scroll',()=>{let closest=0,dist=Infinity;cards.forEach((c,i)=>{const d=Math.abs(c.offsetLeft-track.offsetLeft-track.scrollLeft);if(d<dist){dist=d;closest=i}});index=closest;dots.forEach((d,i)=>{if(i===index)d.setAttribute('aria-current','true');else d.removeAttribute('aria-current')})},{passive:true});if('IntersectionObserver'in window)new IntersectionObserver(entries=>{visible=entries[0].isIntersecting}).observe(section);else visible=true;if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches)setInterval(()=>{if(visible&&!paused)go(index+1)},5000)})();</script><script>(function(){var link=document.querySelector('[data-slow-scroll][href="#booking-notice"]'),target=document.getElementById("booking-notice");if(!link||!target)return;link.addEventListener("click",function(event){event.preventDefault();if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){target.scrollIntoView({block:"start"});history.replaceState(null,"","#booking-notice");return;}var start=window.scrollY,top=target.getBoundingClientRect().top+start-92,distance=top-start,duration=Math.min(1350,Math.max(850,Math.abs(distance)*0.65)),begin=null;function step(now){if(begin===null)begin=now;var p=Math.min(1,(now-begin)/duration),ease=p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2;window.scrollTo(0,start+distance*ease);if(p<1)requestAnimationFrame(step);else{target.focus({preventScroll:true});history.replaceState(null,"","#booking-notice");}}requestAnimationFrame(step);});})();</script>
 <!-- Pages redeploy trigger: airport transfer booking form -->
+<script src="./assets/js/global-shell.js" defer></script>
 </body>
 </html>
