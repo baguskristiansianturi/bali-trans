@@ -42,8 +42,6 @@
 </section>
 <section class="panel result" id="bookingResult" hidden><h2>Ringkasan permintaan</h2><pre></pre><button class="primary" type="button" id="copyBooking">Salin ringkasan</button></section>
 </main>
-<script>
-document.addEventListener('DOMContentLoaded',()=>{const date=document.querySelector('#activityDate');if(date){const now=new Date();date.min=new Date(now.getTime()-now.getTimezoneOffset()*60000).toISOString().slice(0,10);}const f=document.querySelector('#watersportBookingForm');const p=new URLSearchParams(location.search);if(f&&p.get('type')==='package')f.elements.product.value='package';});
-</script>
+<script src="./assets/js/pages/watersport-checkout.js"></script>
 <script src="./assets/js/watersport-checkout-layout.js" defer></script>
 </body></html>
