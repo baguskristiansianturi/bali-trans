@@ -26,7 +26,7 @@
             }).join('');
             const inputClass = 'mt-1.5 w-full rounded-xl border border-slate-200 bg-white px-3.5 py-3 text-sm font-medium text-slate-800 outline-none transition focus:border-[#4267A9] focus:ring-2 focus:ring-[#4267A9]/10';
             const labelClass = 'block text-sm font-bold text-slate-700';
-            const allInItems = ['Private return transport for your group','Lovina sunrise dolphin-watching boat trip','Stops at Wanagiri Hidden Hill, Handara Gate and Ulun Danu Beratan Temple','Entrance tickets listed in the confirmed package','Lunch and drinking water as stated in the final inclusions','English-speaking driver, fuel and parking'];
+            const allInItems = ['Private return transport in an air-conditioned vehicle','Lovina sunrise dolphin-watching boat trip','Stops at Wanagiri Hidden Hill, Handara Gate and Ulun Danu Beratan Temple','Entrance fees for the listed attractions','Light breakfast, Indonesian lunch and mineral water','English-speaking driver, fuel and parking'];
             const summaryRow = (label, value) => '<div class="flex items-start justify-between gap-4 border-b border-slate-100 py-3 text-sm last:border-0"><span class="text-slate-500">'+label+'</span><strong class="max-w-[65%] text-right text-slate-800">'+(value || '—')+'</strong></div>';
             let content = '';
             if (step === 1) {
