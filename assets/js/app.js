@@ -896,8 +896,8 @@ const cards = category.items.map(function(title) {
 
                 <!-- FEATURED PRODUCTS: preserve the existing package-card component -->
                 <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14" aria-labelledby="featuredExperiencesTitle">
-                    <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4"><div><span class="text-xs font-black text-bali-orange uppercase tracking-wider">Explore available options</span><h2 id="featuredExperiencesTitle" class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Popular Bali experiences</h2><p class="text-sm text-slate-500 mt-2">Browse the tours and activities currently listed in our catalogue.</p></div><button onclick="navigateTo('packages')" class="inline-flex items-center text-xs font-bold text-bali-orange hover:text-bali-hover gap-2 bg-orange-50 hover:bg-orange-100 px-4 py-2.5 rounded-full transition">View all options <i class="fas fa-arrow-right"></i></button></div>
-                    <div id="homeFeaturedGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">${renderPackageCards(BALI_PACKAGES, true)}</div>
+                    <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4"><div><span class="text-xs font-black text-bali-orange uppercase tracking-wider">Explore available options</span><h2 id="featuredExperiencesTitle" class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Popular tours in Bali</h2><p class="text-sm text-slate-500 mt-2">Find an experience that makes your time in Bali unforgettable.</p></div><button onclick="navigateTo('packages')" class="inline-flex items-center text-xs font-bold text-bali-orange hover:text-bali-hover gap-2 bg-orange-50 hover:bg-orange-100 px-4 py-2.5 rounded-full transition">View all options <i class="fas fa-arrow-right"></i></button></div>
+                    <div id="homeFeaturedGrid" class="flex gap-5 overflow-x-auto snap-x snap-mandatory pb-4 -mx-4 px-4 sm:mx-0 sm:px-0 scroll-smooth" aria-label="Popular tours carousel">${renderPackageCards(BALI_PACKAGES, true)}</div>
                 </section>
 
                 <!-- TRANSPORT PLANNING -->
@@ -981,33 +981,22 @@ const cards = category.items.map(function(title) {
                 const isWishlist = wishlistState.some(item => item.id === pkg.id);
 
                 if (imageOverlay) {
+                    const popularTourCopy = pkg.id === 'lovina-dolphin-tour'
+                        ? 'Set out before sunrise and watch wild dolphins surface in the waters off Lovina, along Bali’s beautiful northern coast.'
+                        : (pkg.shortDescription || pkg.description || 'Discover a memorable experience in Bali.');
+
                     return `
-                    <article class="popular-tour-card group relative isolate min-h-[360px] sm:min-h-[410px] overflow-hidden rounded-2xl bg-slate-900 text-white shadow-md transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+                    <article class="popular-tour-card group relative isolate h-[440px] w-[78vw] max-w-[300px] shrink-0 snap-start cursor-pointer overflow-hidden rounded-2xl bg-slate-900 text-white shadow-sm transition duration-300 hover:shadow-lg sm:h-[480px] sm:w-[320px]"
+                        role="link" tabindex="0" aria-label="Discover ${pkg.title}"
+                        onclick="navigateTo('detail', '${pkg.id}')"
+                        onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();navigateTo('detail','${pkg.id}')}">
                         <img src="${pkg.heroImage}" alt="${pkg.title}" loading="lazy" class="absolute inset-0 -z-20 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=900&q=80'">
-                        <div class="absolute inset-0 -z-10 bg-gradient-to-t from-slate-950 via-slate-950/45 to-slate-900/5"></div>
-                        <div class="absolute inset-x-0 top-0 flex items-start justify-between gap-3 p-4">
-                            <span class="inline-flex max-w-[75%] rounded-full border border-white/30 bg-slate-950/35 px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-wide text-white backdrop-blur-sm">${pkg.categoryName}</span>
-                            <button type="button" aria-label="${isWishlist ? 'Remove from wishlist' : 'Add to wishlist'}" onclick="event.stopPropagation();toggleWishlist('${pkg.id}')" class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/40 bg-slate-950/30 text-white backdrop-blur-sm transition hover:bg-white hover:text-rose-500">
-                                <i class="${isWishlist ? 'fas fa-heart text-rose-400' : 'far fa-heart'}"></i>
-                            </button>
-                        </div>
-                        <div class="flex min-h-[360px] flex-col justify-end p-5 sm:min-h-[410px] sm:p-6">
-                            ${pkg.badge ? `<span class="mb-3 inline-flex w-fit rounded-md bg-white px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wide text-slate-900 shadow-sm">${pkg.badge}</span>` : ''}
-                            <p class="mb-2 flex items-center gap-1.5 text-xs font-semibold text-white/85"><i class="fas fa-location-dot"></i>${pkg.location}</p>
-                            <h3 class="mb-2 text-xl font-extrabold leading-tight tracking-tight sm:text-2xl">${pkg.title}</h3>
-                            <p class="mb-4 line-clamp-2 max-w-prose text-xs leading-5 text-white/80 sm:text-sm">${pkg.shortDescription || pkg.description || 'Discover this Bali experience with a private, well-planned itinerary.'}</p>
-                            <div class="mb-4 flex flex-wrap gap-2">
-                                ${pkg.instantConfirmation ? '<span class="rounded-md border border-white/25 bg-white/10 px-2 py-1 text-[10px] font-semibold text-white backdrop-blur-sm">⚡ Instant confirmation</span>' : ''}
-                                ${pkg.freeCancellation ? '<span class="rounded-md border border-white/25 bg-white/10 px-2 py-1 text-[10px] font-semibold text-white backdrop-blur-sm">✓ Free cancellation</span>' : ''}
-                            </div>
-                            <div class="flex items-end justify-between gap-3 border-t border-white/25 pt-4">
-                                <div class="min-w-0">
-                                    ${pkg.originalPriceIDR > 0 ? `<span class="mb-0.5 block text-xs font-medium text-white/65 line-through">${formattedOrig}</span>` : ''}
-                                    <span class="block text-[10px] font-semibold uppercase tracking-wider text-white/70">Starting from</span>
-                                    <span class="block text-xl font-black leading-tight sm:text-2xl">${formattedPrice}</span>
-                                </div>
-                                <button type="button" onclick="navigateTo('detail', '${pkg.id}')" class="shrink-0 rounded-xl bg-white px-4 py-3 text-xs font-extrabold text-slate-900 shadow-sm transition hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">View details <i class="fas fa-arrow-right ml-1"></i></button>
-                            </div>
+                        <div class="absolute inset-0 -z-10 bg-gradient-to-t from-slate-950/95 via-slate-950/35 to-transparent"></div>
+                        <div class="absolute inset-x-0 bottom-0 p-5 sm:p-6">
+                            <p class="mb-3 text-[10px] font-bold uppercase tracking-[0.18em] text-white/80">North Bali · Sunrise experience</p>
+                            <h3 class="mb-3 text-2xl font-extrabold leading-tight tracking-tight sm:text-3xl">${pkg.title}</h3>
+                            <p class="max-w-prose text-sm leading-6 text-white/90">${popularTourCopy}</p>
+                            <span class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-white">Discover the experience <i class="fas fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i></span>
                         </div>
                     </article>`;
                 }
@@ -1887,7 +1876,7 @@ const cards = category.items.map(function(title) {
             }
             updateBadges();
             if (document.getElementById('appContainer').innerHTML.includes('Trending Bali Activities')) {
-                document.getElementById('homeFeaturedGrid').innerHTML = renderPackageCards(BALI_PACKAGES);
+                document.getElementById('homeFeaturedGrid').innerHTML = renderPackageCards(BALI_PACKAGES, true);
             }
         }
 
