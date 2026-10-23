@@ -136,6 +136,35 @@ try {
   await page.waitForURL('**/index.html?page=blog');
   console.log('PASS shared shell, mobile menu and working travel-guide route');
 
+  const standalonePages = [
+    'bali-adventure-activities.html', 'bali-airport-transfer.html',
+    'bali-intercity-transfer.html', 'bali-port-transfer.html',
+    'bali-private-day-tour.html', 'private-transport.html',
+    'terms-and-conditions.html', 'transport-service.html',
+    'watersport-banana-boat.html', 'watersport-flyboard-tanjung-benoa.html',
+    'watersport-flying-fish-donut-boat.html', 'watersport-flying-fish-tanjung-benoa.html',
+    'watersport-glass-bottom-boat-pulau-penyu.html', 'watersport-jet-ski.html',
+    'watersport-paket-2-aktivitas.html', 'watersport-paket-3-aktivitas.html',
+    'watersport-paket-watersport-wisata-laut.html', 'watersport-parasailing.html',
+    'watersport-rolling-donut-tanjung-benoa.html', 'watersport-scuba-diving-tanjung-benoa.html',
+    'watersport-sea-walker-snorkeling.html', 'watersport-sea-walker-tanjung-benoa.html',
+    'watersport-snorkeling-tanjung-benoa.html', 'watersport-tanjung-benoa.html',
+    'watersport-wakeboard-tanjung-benoa.html'
+  ];
+  for (const route of standalonePages) {
+    await page.goto('http://127.0.0.1:4173/' + route, { waitUntil: 'domcontentloaded' });
+    await page.waitForSelector('.bt-site-header');
+    const audit = await page.evaluate(() => ({
+      headers: document.querySelectorAll('.bt-site-header').length,
+      footers: document.querySelectorAll('.bt-site-footer').length,
+      width: document.documentElement.scrollWidth,
+      viewport: window.innerWidth
+    }));
+    if (audit.headers !== 1 || audit.footers !== 1) throw new Error(route + ': expected exactly one shared header and footer');
+    if (audit.width > audit.viewport + 2) throw new Error(route + ': horizontal overflow (' + audit.width + 'px vs ' + audit.viewport + 'px)');
+  }
+  console.log('PASS shared shell and 360px overflow audit across ' + standalonePages.length + ' standalone pages');
+
   await page.goto('http://127.0.0.1:4173/watersport-jet-ski.html', { waitUntil: 'domcontentloaded' });
   await page.waitForSelector('.bt-site-header');
   if (await page.locator('.bt-site-header').count() !== 1 || await page.locator('.bt-site-footer').count() !== 1) {
