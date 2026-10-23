@@ -110,6 +110,43 @@ try {
   await page.waitForFunction(() => new URLSearchParams(location.search).get('page') === 'blog');
   console.log('PASS browser Back/Forward navigation');
 
+  await page.goto('http://127.0.0.1:4173/transport-service.html', { waitUntil: 'domcontentloaded' });
+  await page.waitForSelector('.bt-site-header');
+  await page.waitForSelector('.bt-site-footer');
+  const shellCheck = await page.evaluate(() => {
+    const header = document.querySelectorAll('.bt-site-header');
+    const footer = document.querySelectorAll('.bt-site-footer');
+    const main = document.querySelector('main');
+    const topbar = document.getElementById('countdownTimer')?.parentElement?.parentElement;
+    return {
+      headers: header.length,
+      footers: footer.length,
+      headerBeforeMain: !!(main && header[0].compareDocumentPosition(main) & Node.DOCUMENT_POSITION_FOLLOWING),
+      topbarBeforeHeader: !!(topbar && topbar.compareDocumentPosition(header[0]) & Node.DOCUMENT_POSITION_FOLLOWING),
+      viewport: window.innerWidth,
+      width: document.documentElement.scrollWidth
+    };
+  });
+  if (shellCheck.headers !== 1 || shellCheck.footers !== 1) throw new Error('Standalone page must have exactly one shared header and footer');
+  if (!shellCheck.headerBeforeMain || !shellCheck.topbarBeforeHeader) throw new Error('Shared header order is incorrect on standalone page');
+  if (shellCheck.width > shellCheck.viewport + 2) throw new Error('Standalone transport page has horizontal overflow');
+  await page.getByRole('button', { name: 'Open menu' }).click();
+  if (!(await page.locator('#btMobilePanel').isVisible())) throw new Error('Shared mobile navigation did not open');
+  await page.getByRole('link', { name: 'Travel guides' }).last().click();
+  await page.waitForURL('**/index.html?page=blog');
+  console.log('PASS shared shell, mobile menu and working travel-guide route');
+
+  await page.goto('http://127.0.0.1:4173/watersport-jet-ski.html', { waitUntil: 'domcontentloaded' });
+  await page.waitForSelector('.bt-site-header');
+  if (await page.locator('.bt-site-header').count() !== 1 || await page.locator('.bt-site-footer').count() !== 1) {
+    throw new Error('Watersport detail must use one shared site shell');
+  }
+  await page.goto('http://127.0.0.1:4173/watersport-checkout.html', { waitUntil: 'domcontentloaded' });
+  if (await page.locator('.bt-site-header, .bt-site-footer').count() !== 0) throw new Error('Watersport checkout must remain distraction-free without global shell');
+  await page.goto('http://127.0.0.1:4173/bali-airport-transfer-checkout.html', { waitUntil: 'domcontentloaded' });
+  if (await page.locator('.bt-site-header, .bt-site-footer').count() !== 0) throw new Error('Airport checkout must remain distraction-free without global shell');
+  console.log('PASS shared shell on service details and clean checkout layouts');
+
   if (pageErrors.length) throw new Error('Browser JavaScript errors: ' + pageErrors.join(' | '));
   console.log('PASS no uncaught browser JavaScript errors');
 } finally {
