@@ -150,7 +150,7 @@
                 home: ['Bali Trans | Bali Tours, Activities & Private Transport', defaultDescription],
                 about: ['About Bali Trans | Our Approach to Bali Travel', 'Learn about Bali Trans and how we help travellers explore Bali tours and arrange private transport.'],
                 contact: ['Contact Bali Trans | Plan Your Bali Trip', 'Contact Bali Trans to discuss Bali tours, private transport, pickup arrangements and trip details.'],
-                account: ['Account Access | Bali Trans', 'Learn about account registration availability and continue browsing as a guest.']
+                account: ['Account Access | Bali Trans', 'Learn about account registration availability and continue browsing as a guest.'],
                 help: ['Help Centre | Bali Trans', 'Find practical answers about trips, bookings, payments, changes and cancellations.'],
                 'help-topic': ['Travel Help Guide | Bali Trans', 'Practical information about Bali Trans services and booking arrangements.'],
                 terms: ['Terms and Conditions | Bali Trans', 'Read the terms that apply to Bali Trans website use and service enquiries.'],
