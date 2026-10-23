@@ -39,7 +39,7 @@ await new Promise(resolve => server.listen(4173, '127.0.0.1', resolve));
 const browser = await chromium.launch({ headless: true });
 const page = await browser.newPage({ viewport: { width: 360, height: 800 } });
 const pageErrors = [];
-page.on('pageerror', error => pageErrors.push(error.message));
+page.on('pageerror', error => pageErrors.push(page.url() + ': ' + error.message));
 
 async function checkRoute(label, query, expectedHeading) {
   const url = 'http://127.0.0.1:4173/' + query;
