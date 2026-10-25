@@ -212,3 +212,80 @@ body.booking-mode #bookingDetails .field:has(#bookingPrice){display:none!importa
 .bt-fleet-showcase-track .bt-legend-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#c9d8e9}
 .bt-fleet-showcase-track .bt-legend-dot.is-blocked{background:#e0e5ec;outline:1px solid #b45353}
 @media(max-width:600px){.bt-fleet-showcase-track>.bt-fleet-card{height:540px!important;min-height:540px!important;max-height:540px!important}.bt-fleet-showcase-track .bt-card-date-chips{gap:3px}.bt-fleet-showcase-track .bt-card-date-chips .bt-date-chip b{font-size:9px}}
+
+
+/* FIX: the fleet cards are injected inside .bt-fleet-showcase-track.
+   Keep that inner track a true horizontal carousel at every viewport. */
+#btFleetShowcase.bt-fleet-showcase{
+  display:block!important;
+  width:100%!important;
+  min-width:0!important;
+  overflow:visible!important;
+  padding:0!important;
+  border:0!important;
+  background:transparent!important;
+}
+#btFleetShowcase .bt-fleet-carousel-shell{
+  position:relative!important;
+  display:block!important;
+  width:100%!important;
+  min-width:0!important;
+}
+#btFleetShowcase .bt-fleet-showcase-track{
+  display:grid!important;
+  grid-auto-flow:column!important;
+  grid-auto-columns:calc((100% - 36px)/3)!important;
+  grid-template-columns:none!important;
+  align-items:stretch!important;
+  gap:18px!important;
+  width:100%!important;
+  min-width:0!important;
+  margin:0!important;
+  overflow-x:auto!important;
+  overflow-y:hidden!important;
+  padding:4px 2px 18px!important;
+  scroll-snap-type:x mandatory!important;
+  scroll-padding-inline:2px;
+  overscroll-behavior-x:contain;
+  -webkit-overflow-scrolling:touch;
+}
+#btFleetShowcase .bt-fleet-showcase-track>.bt-fleet-card{
+  display:flex!important;
+  flex-direction:column!important;
+  float:none!important;
+  position:relative!important;
+  flex:none!important;
+  width:auto!important;
+  min-width:0!important;
+  max-width:none!important;
+  height:540px!important;
+  min-height:540px!important;
+  max-height:540px!important;
+  margin:0!important;
+  scroll-snap-align:start;
+}
+#btFleetShowcase .bt-fleet-showcase-track>.bt-fleet-card>.bt-fleet-card-body{
+  display:flex!important;
+  flex:1 1 auto!important;
+  flex-direction:column!important;
+  min-height:0!important;
+}
+#btFleetShowcase .bt-fleet-showcase-track .bt-fleet-main-image{
+  display:block!important;
+  width:100%!important;
+  height:170px!important;
+  object-fit:cover!important;
+}
+#btFleetShowcase .bt-fleet-carousel-arrow{z-index:2}
+@media(max-width:760px){
+  #btFleetShowcase .bt-fleet-showcase-track{
+    grid-auto-columns:min(84vw,340px)!important;
+    gap:12px!important;
+    padding:3px 2px 15px!important;
+  }
+  #btFleetShowcase .bt-fleet-showcase-track>.bt-fleet-card{
+    height:540px!important;
+    min-height:540px!important;
+    max-height:540px!important;
+  }
+}
