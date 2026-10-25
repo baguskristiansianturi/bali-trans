@@ -326,12 +326,13 @@ try {
   await page.locator('#btDestination').fill('Ubud');
   await page.locator('#btAvailabilityForm button[type="submit"]').click();
   await page.waitForFunction(() => document.querySelector('#btAvailabilityResult')?.textContent.includes('vehicle options shown as available'));
-  if (!(await page.locator('#btRequestVehicle').isVisible())) throw new Error('Airport search must offer a WhatsApp request after showing simulated availability');
-  await page.evaluate(() => { window.__capturedWhatsApp = ''; window.open = url => { window.__capturedWhatsApp = url; }; });
-  await page.locator('#btRequestVehicle').click();
-  const airportWhatsApp = await page.evaluate(() => window.__capturedWhatsApp);
-  if (!airportWhatsApp.includes('wa.me/628218187917') || !decodeURIComponent(airportWhatsApp).includes('Ubud')) throw new Error('Airport search WhatsApp request must include the selected trip details');
-  console.log('PASS airport search shows ten vehicles, enforces two-day minimum, and opens WhatsApp with trip details');
+  const airportBookButton = page.locator('#btAvailabilityResult [data-book-car]').first();
+  if (!(await airportBookButton.isVisible())) throw new Error('Airport search must show a per-vehicle booking CTA');
+  await airportBookButton.click();
+  await page.waitForURL('**/booking-form.html?**');
+  if (await page.locator('.bt-site-header, .bt-site-footer, .booking-footer').count()) throw new Error('Booking form must not show the global navbar or footer');
+  if (!(await page.locator('#summaryVehicle').textContent()).includes('Toyota Avanza') || !(await page.locator('#summaryLocation').textContent()).includes('Ubud') || !(await page.locator('#summaryDate').textContent()).length) throw new Error('Airport booking form must preserve selected vehicle, destination and date');
+  console.log('PASS airport vehicle CTA opens clean booking form with trip details preserved');
 
   await page.goto('http://127.0.0.1:4173/car-rental.html', { waitUntil: 'domcontentloaded' });
   await page.waitForSelector('.bt-site-header[data-ready="true"]');
@@ -350,12 +351,13 @@ try {
   await page.locator('#rentalPickup').fill('Seminyak hotel');
   await page.locator('#btRentalForm button[type="submit"]').click();
   await page.waitForFunction(() => document.querySelector('#rentalAvailabilityResult')?.textContent.includes('vehicle options shown as available'));
-  if (!(await page.locator('#rentalWhatsApp').isVisible())) throw new Error('Car rental search must offer a WhatsApp request after showing simulated availability');
-  await page.evaluate(() => { window.__capturedWhatsApp = ''; window.open = url => { window.__capturedWhatsApp = url; }; });
-  await page.locator('#rentalWhatsApp').click();
-  const rentalWhatsApp = await page.evaluate(() => window.__capturedWhatsApp);
-  if (!rentalWhatsApp.includes('wa.me/628218187917') || !decodeURIComponent(rentalWhatsApp).includes('Seminyak hotel')) throw new Error('Car rental WhatsApp request must include pickup details');
-  console.log('PASS car rental search shows ten vehicles, enforces two-day minimum, and opens WhatsApp with rental details');
+  const rentalBookButton = page.locator('#rentalAvailabilityResult [data-book-rental]').first();
+  if (!(await rentalBookButton.isVisible())) throw new Error('Car rental search must show a per-vehicle booking CTA');
+  await rentalBookButton.click();
+  await page.waitForURL('**/booking-form.html?**');
+  if (await page.locator('.bt-site-header, .bt-site-footer, .booking-footer').count()) throw new Error('Rental booking form must not show the global navbar or footer');
+  if (!(await page.locator('#summaryVehicle').textContent()).includes('Toyota Avanza') || !(await page.locator('#summaryLocation').textContent()).includes('Seminyak hotel') || !(await page.locator('#summaryDuration').textContent()).includes('8 hours')) throw new Error('Rental booking form must preserve vehicle, pickup and duration');
+  console.log('PASS rental vehicle CTA opens clean booking form with trip details preserved');
 
   const standalonePages = [
     'car-rental.html', 'bali-adventure-activities.html', 'bali-airport-transfer.html',
