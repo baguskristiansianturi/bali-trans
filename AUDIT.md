@@ -122,8 +122,8 @@ Real sign-up, sign-in, password recovery, saved booking history, and server-side
 ## Follow-up verification — 25 October 2026
 
 - Kept the global footer free of the unrequested WhatsApp CTA; enquiry access remains within the existing Contact and transport forms.
-- Added Playwright smoke checks for the private-transport form: date/time, passenger count, flight details, notes, service-tab switching, and the generated WhatsApp message are checked against the configured number.
-- Added Playwright coverage for Contact enquiry submission, asserting that guest/service details are included in the WhatsApp handoff.
+- Added Playwright smoke checks for private transport: date/time, passenger count, flight details, notes, service-tab switching, and generated WhatsApp message are checked against the configured number. Intercity transfer, port transfer and private day-tour forms are also checked for correct WhatsApp destination and preservation of entered details.
+- Added Playwright coverage for Contact enquiry submission and Lovina Dolphin Tour booking request, asserting that guest/service details are included, the tour request remains pending availability confirmation, and no payment is collected.
 - Corrected the Contact form's planned-date minimum to use the visitor's local calendar date instead of UTC.
 - Unified the legacy terms-and-conditions.html URL with the SPA's canonical expandable Terms view, avoiding two competing terms pages.
 - Extended CI to inspect local HTML anchor links and verify their fragments exist on the destination static page (SPA index.html fragments are excluded because its view anchors are rendered dynamically).
