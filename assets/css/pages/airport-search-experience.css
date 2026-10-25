@@ -417,3 +417,12 @@
 .bt-booking-page .bt-status-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#4d9b78}
 .bt-booking-page .bt-status-dot.is-blocked{background:#c7ced8}
 .bt-booking-page .bt-fleet-showcase-section[hidden]{display:none!important}
+
+
+/* Static HTML fallback: keep fleet cards horizontally carouseled even if page JS fails. */
+/* JS upgrades this container with arrow controls; these rules preserve swipe-carousel behaviour before that runs. */
+#btFleetShowcase:not(:has(.bt-fleet-carousel-shell)){display:flex;gap:14px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding:3px 2px 15px}
+#btFleetShowcase:not(:has(.bt-fleet-carousel-shell))::-webkit-scrollbar{display:none}
+#btFleetShowcase:not(:has(.bt-fleet-carousel-shell))>.bt-fleet-card{flex:0 0 calc((100% - 28px)/3);min-width:0;scroll-snap-align:start}
+@media(max-width:760px){#btFleetShowcase:not(:has(.bt-fleet-carousel-shell))>.bt-fleet-card{flex-basis:86%}}
+@media(max-width:380px){#btFleetShowcase:not(:has(.bt-fleet-carousel-shell))>.bt-fleet-card{flex-basis:92%}}
