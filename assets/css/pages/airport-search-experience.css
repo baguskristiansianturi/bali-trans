@@ -235,3 +235,34 @@
  .bt-fleet-card .bt-price-currency{font-size:10px}
  .bt-fleet-capacity{font-size:9px}
 }
+
+
+/* Readable page typography and a lighter, compact schedule treatment. */
+.bt-date-guide-heading p,
+.bt-fleet-showcase-heading>p,
+.bt-airport-faq-heading>p{font-size:15px;line-height:1.7}
+.bt-airport-copy-grid p,
+.bt-airport-copy-grid li{font-size:15px;line-height:1.8}
+.bt-airport-copy-grid h3{font-size:18px;line-height:1.4}
+.bt-airport-faq-list summary{font-size:14px;line-height:1.5}
+.bt-airport-faq-list details p{font-size:14px;line-height:1.75}
+.bt-fleet-showcase-heading{margin-bottom:20px}
+.bt-card-date-label{margin-top:10px;padding:0;border:0;font-size:12px;font-weight:700;color:#526b88}
+.bt-card-date-chips{display:flex;gap:9px;align-items:center;margin-top:5px;padding:2px 0 3px;overflow-x:auto}
+.bt-card-date-chips .bt-date-chip{position:relative;display:inline-flex;flex:0 0 auto;min-width:30px;align-items:center;gap:2px;padding:3px 1px;border:0;border-radius:0;background:transparent;color:#526b88;line-height:1.15}
+.bt-card-date-chips .bt-date-chip b{font-size:12px;font-weight:700}
+.bt-card-date-chips .bt-date-chip small{margin:0;font-size:10px;color:#7b8ba1}
+.bt-card-date-chips .bt-date-chip.is-bookable{background:transparent;color:#244f7b}
+.bt-card-date-chips .bt-date-chip.is-blocked{background:transparent;color:#b6bfcb;opacity:.75}
+.bt-card-date-chips .bt-date-chip i{position:absolute;inset:-1px;display:flex;align-items:center;justify-content:center;border-radius:0;background:transparent;color:#c15b5b;font-size:17px}
+@media(max-width:760px){
+ .bt-date-guide-heading p,.bt-fleet-showcase-heading>p,.bt-airport-faq-heading>p{font-size:14px}
+ .bt-airport-copy-grid p,.bt-airport-copy-grid li{font-size:15px}
+ .bt-airport-faq-list summary{font-size:14px}
+ .bt-airport-faq-list details p{font-size:14px}
+ .bt-card-date-label{font-size:12px}
+ .bt-card-date-chips{gap:8px}
+ .bt-card-date-chips .bt-date-chip{min-width:29px;padding:3px 0}
+ .bt-card-date-chips .bt-date-chip b{font-size:12px}
+ .bt-card-date-chips .bt-date-chip small{font-size:10px}
+}
