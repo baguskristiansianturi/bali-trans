@@ -212,3 +212,43 @@ body.booking-mode #bookingDetails .field:has(#bookingPrice){display:none!importa
 .bt-fleet-showcase-track .bt-legend-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#c9d8e9}
 .bt-fleet-showcase-track .bt-legend-dot.is-blocked{background:#e0e5ec;outline:1px solid #b45353}
 @media(max-width:600px){.bt-fleet-showcase-track>.bt-fleet-card{height:540px!important;min-height:540px!important;max-height:540px!important}.bt-fleet-showcase-track .bt-card-date-chips{gap:3px}.bt-fleet-showcase-track .bt-card-date-chips .bt-date-chip b{font-size:9px}}
+
+/* Content-page fleet carousel: styles apply to the JS-generated track, not search results. */
+#btFleetShowcase.bt-fleet-showcase{
+  display:block!important;
+  width:100%;
+  min-width:0;
+  overflow:visible!important;
+  padding:0!important;
+  border:0;
+  background:transparent;
+}
+#btFleetShowcase .bt-fleet-carousel-shell{position:relative;display:block;width:100%;min-width:0}
+#btFleetShowcase .bt-fleet-showcase-track{
+  display:grid!important;
+  grid-auto-flow:column!important;
+  grid-auto-columns:calc((100% - 36px)/3)!important;
+  grid-template-columns:none!important;
+  gap:18px!important;
+  width:100%;
+  min-width:0;
+  overflow-x:auto!important;
+  overflow-y:hidden!important;
+  padding:4px 2px 18px;
+  scroll-snap-type:x mandatory;
+  scroll-padding-inline:2px;
+  overscroll-behavior-x:contain;
+  -webkit-overflow-scrolling:touch;
+}
+#btFleetShowcase .bt-fleet-showcase-track>.bt-fleet-card{
+  display:flex!important;
+  flex:initial!important;
+  width:auto!important;
+  min-width:0!important;
+  max-width:none!important;
+  grid-row:1;
+  scroll-snap-align:start;
+}
+@media(max-width:600px){
+  #btFleetShowcase .bt-fleet-showcase-track{grid-auto-columns:min(84vw,340px)!important;gap:12px!important}
+}
