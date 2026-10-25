@@ -80,3 +80,14 @@ body.checkout-mode #appContainer{padding-bottom:0!important}
 /* Mobile header: only search, flag-based language/currency and hamburger in the action row. */
 @media(max-width:767px){.bt-header-row{gap:8px;min-height:60px}.bt-brand-mark{width:34px;height:34px;border-radius:10px;font-size:18px}.bt-brand-name{font-size:18px}.bt-actions{gap:6px}.bt-live-chat{display:none!important}.bt-action{width:36px;height:36px}.bt-locale{height:36px;min-width:36px;padding:0 7px;display:flex;align-items:center;justify-content:center;gap:0}.bt-locale-control #localeButton .bt-locale-flag{display:inline-block!important;font-size:21px;line-height:1}.bt-locale-current-code{display:none!important}}
 @media(max-width:380px){.bt-header-row{gap:5px}.bt-brand{gap:7px}.bt-brand-name{font-size:16px}.bt-brand-mark{width:31px;height:31px}.bt-actions{gap:4px}}
+
+/* Desktop navigation: logo left, compact utility actions right. */
+.bt-desktop-link{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:8px 3px;border:0;background:transparent;color:#334155;text-decoration:none;font:650 12px/1.2 Inter,system-ui,sans-serif;white-space:nowrap;cursor:pointer}
+.bt-desktop-link:hover{color:var(--bt-blue)}
+.bt-desktop-link svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.bt-account-control{position:relative}
+.bt-account-menu{position:absolute;right:0;top:calc(100% + 9px);width:190px;padding:7px;border:1px solid var(--bt-line);border-radius:13px;background:#fff;box-shadow:0 16px 40px #172b4d20;z-index:1200}
+.bt-account-menu a,.bt-account-menu button{display:block;width:100%;padding:11px 12px;border:0;border-radius:8px;background:#fff;color:#334155;text-decoration:none;text-align:left;font:650 12px/1.3 Inter,system-ui,sans-serif;cursor:pointer}
+.bt-account-menu a:hover,.bt-account-menu button:hover{background:#f1f5f9}
+@media(min-width:768px){.bt-header-row{justify-content:space-between}.bt-actions{margin-left:auto;gap:clamp(10px,1.4vw,20px)}.bt-actions>.bt-locale-control{order:10}.bt-actions>.bt-mobile-toggle{display:none!important}.bt-actions>.bt-live-chat{display:none!important}.bt-actions>#headerSearchButton{order:1}.bt-actions>.bt-desktop-link:nth-of-type(2){order:2}.bt-actions>.bt-desktop-link:nth-of-type(3){order:3}.bt-actions>.bt-recent-action{order:4}.bt-actions>.bt-account-control{order:5}}
+@media(max-width:767px){.bt-desktop-link,.bt-account-control{display:none!important}.bt-actions{margin-left:auto}}
