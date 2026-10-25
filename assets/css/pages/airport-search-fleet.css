@@ -1,34 +1,26 @@
-/* Airport search-result fleet cards only. Separate from the content-page carousel. */
-#btAvailabilityResult .bt-result-fleet-list{
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-  min-width:0;
-  width:100%;
-}
-#btAvailabilityResult .bt-result-fleet-card{
-  display:grid;
-  grid-template-columns:minmax(110px,30%) minmax(0,1fr);
-  gap:14px;
-  width:100%;
-  min-width:0;
-  padding:14px;
-  border:1px solid #dce5f0;
-  border-radius:14px;
-  background:#fff;
-}
-#btAvailabilityResult .bt-result-fleet-card img{
-  display:block;
-  width:100%;
-  height:112px;
-  object-fit:cover;
-  border-radius:9px;
-}
-@media(max-width:520px){
-  #btAvailabilityResult .bt-result-fleet-card{
-    grid-template-columns:100px minmax(0,1fr);
-    gap:10px;
-    padding:10px;
-  }
-  #btAvailabilityResult .bt-result-fleet-card img{height:96px}
-}
+
+/* Search-result vehicle cards only; kept separate from the content-page carousel. */
+#btAvailabilityResult .bt-results-card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:stretch}
+#btAvailabilityResult .bt-result-fleet-card{display:flex;flex-direction:column;min-width:0;overflow:hidden;border:1px solid #e1e8f2;border-radius:18px;background:#fff;box-shadow:0 8px 24px rgba(28,51,82,.07)}
+#btAvailabilityResult .bt-result-fleet-card .bt-fleet-image-wrap{position:relative;height:210px;margin:0;overflow:hidden}
+#btAvailabilityResult .bt-result-fleet-card .bt-fleet-main-image{display:block;width:100%;height:100%;object-fit:cover}
+#btAvailabilityResult .bt-result-fleet-card .bt-fleet-card-body{display:flex;flex-direction:column;gap:0;padding:16px}
+#btAvailabilityResult .bt-result-fleet-card .bt-fleet-title-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:start}
+#btAvailabilityResult .bt-result-fleet-card h3{margin:1px 0 5px;font-size:17px;font-weight:850;line-height:1.35;color:#172b4d}
+#btAvailabilityResult .bt-result-fleet-card .bt-fleet-title-row p{margin:0;color:#68809d;font-size:12px;line-height:1.55}
+#btAvailabilityResult .bt-result-fleet-card .bt-fleet-price-block{min-width:92px;text-align:right}
+#btAvailabilityResult .bt-result-fleet-card .bt-fleet-starting-price{display:flex;align-items:baseline;gap:4px;margin:1px 0 0;color:#e87924;font-size:0;line-height:1.2}
+#btAvailabilityResult .bt-result-fleet-card .bt-price-currency{font-size:12px;color:#49627f}
+#btAvailabilityResult .bt-result-fleet-card .bt-price-number{font-size:21px;font-weight:800;color:#ed7627}
+#btAvailabilityResult .bt-result-fleet-card .bt-price-unit{font-size:10px;color:#687990}
+#btAvailabilityResult .bt-result-fleet-card .bt-fleet-capacity{margin-top:12px;color:#405a7d;font-size:11px;font-weight:750}
+#btAvailabilityResult .bt-result-fleet-card .bt-card-date-label{margin-top:13px;padding-top:10px;border-top:1px solid #edf1f6;color:#687990;font-size:10px;font-weight:800}
+#btAvailabilityResult .bt-result-fleet-card .bt-card-date-chips{display:flex;flex-wrap:wrap;gap:7px;padding:8px 0}
+#btAvailabilityResult .bt-result-fleet-card .bt-date-chip{min-width:34px}
+#btAvailabilityResult .bt-result-fleet-card .bt-date-status-legend{display:flex;flex-wrap:wrap;gap:8px;font-size:10px;color:#687990}
+#btAvailabilityResult .bt-result-fleet-card .bt-result-book-button{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:15px;padding:12px;border-radius:9px;background:#284d82;color:#fff;text-decoration:none;font-size:12px;font-weight:850}
+#btAvailabilityResult .bt-result-fleet-card .bt-included-heading{margin-top:13px;font-size:11px;font-weight:850;color:#405a7d}
+#btAvailabilityResult .bt-result-fleet-card .bt-included-list{display:grid;gap:6px;margin:8px 0 0;padding:0;list-style:none;font-size:11px;color:#526681}
+#btAvailabilityResult .bt-result-fleet-card .bt-included-list li{display:flex;gap:7px;align-items:center}
+@media(max-width:760px){#btAvailabilityResult .bt-results-card-grid{grid-template-columns:minmax(0,1fr);gap:14px}#btAvailabilityResult .bt-result-fleet-card .bt-fleet-image-wrap{height:195px}#btAvailabilityResult .bt-result-fleet-card .bt-fleet-card-body{padding:14px}}
+@media(max-width:380px){#btAvailabilityResult .bt-result-fleet-card .bt-fleet-title-row{grid-template-columns:minmax(0,1fr) auto;gap:8px}#btAvailabilityResult .bt-result-fleet-card .bt-fleet-price-block{min-width:80px}#btAvailabilityResult .bt-result-fleet-card .bt-price-number{font-size:17px}}
