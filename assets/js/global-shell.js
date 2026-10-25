@@ -3,7 +3,8 @@
   'use strict';
 
   // Single source of truth for the shared site identity. Keep brand changes here first.
-  const siteConfig = Object.freeze({ brandName: 'Bali Trans', shortName: 'Bali' });
+  const siteConfig = Object.freeze({ brandName: 'Bali Trans', shortName: 'Bali', whatsappNumber: '628218187917' });
+  window.BALI_TRANS_WHATSAPP_NUMBER = siteConfig.whatsappNumber;
   const brandName = siteConfig.brandName;
   const home = './index.html';
   const routes = {
@@ -86,6 +87,7 @@
       '<div class="bt-footer-intro"><a class="bt-footer-brand" href="' + routes.home + '" aria-label="' + brandName + ' home"><span class="bt-brand-mark">' + brandName.charAt(0) + '</span><span class="bt-brand-name">' + brandName + '</span></a>' +
         '<p class="bt-footer-copy">Discover Bali tours, local experiences and private transport. Compare trip details and contact our team to discuss your plans before booking.</p>' +
         '<a class="bt-footer-cta" href="' + routes.contact + '">Talk to our team <span aria-hidden="true">→</span></a>' +
+        '<a class="bt-footer-cta" href="https://wa.me/' + siteConfig.whatsappNumber + '?text=' + encodeURIComponent('Hello Bali Trans, I would like to ask about a trip.') + '" target="_blank" rel="noopener noreferrer">Chat on WhatsApp <span aria-hidden="true">↗</span></a>' +
         '<div class="bt-footer-highlights"><div><strong>Explore Bali</strong><span>Tours and places worth discovering.</span></div><div><strong>Private transport</strong><span>Discuss routes, pickup and timing.</span></div></div></div>' +
       '<div class="bt-footer-cols">' +
         '<section><h2>Discover</h2><ul><li><a href="' + routes.tours + '">All tours &amp; activities</a></li><li><a href="' + routes.destinations + '">South Bali</a></li><li><a href="' + home + '?page=discovery&amp;item=region%3Acentral">Central Bali</a></li><li><a href="' + home + '?page=discovery&amp;item=region%3Anorth">North Bali</a></li><li><a href="' + routes.guides + '">Blog</a></li></ul></section>' +
