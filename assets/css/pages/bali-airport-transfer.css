@@ -171,3 +171,28 @@ body.booking-mode #bookingDetails .field:has(#bookingPrice){display:none!importa
   }
   .bt-fleet-showcase .bt-fleet-main-image{height:170px}
 }
+
+
+/* Keep every airport fleet card at the exact same height. */
+.bt-fleet-showcase>.bt-fleet-card{
+  height:500px!important;
+  min-height:500px!important;
+  max-height:500px!important;
+}
+.bt-fleet-showcase .bt-fleet-card-body{
+  display:flex!important;
+  flex:1 1 auto!important;
+  flex-direction:column!important;
+  min-height:0;
+}
+.bt-fleet-showcase .bt-fleet-title-row{min-height:68px}
+.bt-fleet-showcase .bt-fleet-capacity{min-height:22px}
+.bt-fleet-showcase .bt-card-date-label{margin-top:12px}
+.bt-fleet-showcase .bt-date-status-legend{margin-top:auto}
+@media(max-width:600px){
+  .bt-fleet-showcase>.bt-fleet-card{
+    height:480px!important;
+    min-height:480px!important;
+    max-height:480px!important;
+  }
+}
