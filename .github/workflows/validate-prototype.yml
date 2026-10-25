@@ -112,6 +112,8 @@ jobs:
           set -euo pipefail
           python3 - <<'PY'
           from pathlib import Path
+          from html.parser import HTMLParser
+          from urllib.parse import unquote, urlsplit
           import re
           root = Path(".")
           html_files = sorted(root.glob("*.html"))
@@ -122,6 +124,19 @@ jobs:
           inline_scripts = []
           inline_js_styles = []
           html_refs = 0
+          local_link_errors = []
+          class LinkInventory(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.ids = set()
+                  self.hrefs = []
+              def handle_starttag(self, tag, attrs):
+                  attrs = dict(attrs)
+                  if attrs.get("id"):
+                      self.ids.add(attrs["id"])
+                  if tag.lower() == "a" and attrs.get("href"):
+                      self.hrefs.append(attrs["href"])
+          html_inventory = {}
           for html_file in html_files:
               source = html_file.read_text(encoding="utf-8")
               if re.search(r"<style\b", source, re.I):
@@ -143,6 +158,21 @@ jobs:
                   html_refs += 1
                   if not (html_file.parent / clean).is_file():
                       missing_html.append(f"{html_file}: {ref}")
+          for html_file, inventory in html_inventory.items():
+              for href in inventory.hrefs:
+                  parsed = urlsplit(href.strip())
+                  if parsed.scheme or parsed.netloc or not parsed.fragment:
+                      continue
+                  target_path = (html_file.parent / unquote(parsed.path)).resolve() if parsed.path else html_file.resolve()
+                  if target_path.name == "index.html":
+                      continue  # SPA view anchors are rendered dynamically.
+                  if target_path.suffix.lower() != ".html" or target_path not in {p.resolve() for p in html_files}:
+                      continue
+                  target_inventory = html_inventory.get(Path(str(target_path).replace(str(root.resolve()) + "/", "")))
+                  if target_inventory is None:
+                      target_inventory = next((value for path, value in html_inventory.items() if path.resolve() == target_path), None)
+                  if target_inventory and unquote(parsed.fragment) not in target_inventory.ids:
+                      local_link_errors.append(f"{html_file}: {href} (missing #{unquote(parsed.fragment)} in {target_path.name})")
           js_files = sorted((root / "assets" / "js").rglob("*.js"))
           for js_file in js_files:
               source = js_file.read_text(encoding="utf-8")
