@@ -196,7 +196,8 @@
                 return;
             }
             const message = buildDolphinBookingWhatsAppMessage();
-            const url = 'https://wa.me/628218187917?text=' + encodeURIComponent(message);
+            const whatsappNumber = window.BALI_TRANS_WHATSAPP_NUMBER || '628218187917';
+            const url = 'https://wa.me/' + whatsappNumber.replace(/[^0-9]/g, '') + '?text=' + encodeURIComponent(message);
             window.open(url, '_blank', 'noopener,noreferrer');
             const status = document.getElementById('dolphinWhatsAppStatus');
             if (status) status.textContent = 'WhatsApp opened with the formatted booking bill. Review it and tap Send.';
