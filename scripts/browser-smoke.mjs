@@ -179,8 +179,9 @@ try {
   await page.goto('http://127.0.0.1:4173/private-transport.html', { waitUntil: 'domcontentloaded' });
   await page.waitForSelector('.bt-site-header[data-ready="true"]');
   await page.evaluate(() => { window.__capturedWhatsApp = []; window.open = (url) => { window.__capturedWhatsApp.push(String(url)); return null; }; });
-  await page.locator('#pickupAirport').selectOption({ index: 0 });
-  await page.locator('#destination').fill('Kuta family hotel');
+  await page.locator('input[name="direction"][value="to"]').check();
+  await page.locator('#pickup').fill('Kuta family hotel');
+  await page.locator('#destinationAirport').selectOption({ index: 0 });
   const nextDay = await page.evaluate(() => { const d = new Date(); d.setDate(d.getDate() + 2); return [d.getFullYear(), String(d.getMonth()+1).padStart(2,'0'), String(d.getDate()).padStart(2,'0')].join('-'); });
   await page.locator('#travelDate').fill(nextDay);
   await page.locator('#travelTime').fill('10:30');
@@ -193,7 +194,7 @@ try {
   const privateTransportUrl = new URL(privateTransportRequest);
   const privateTransportMessage = privateTransportUrl.searchParams.get('text') || '';
   if (privateTransportUrl.hostname !== 'wa.me' || privateTransportUrl.pathname !== '/628218187917') throw new Error('Private transport must target the configured WhatsApp number');
-  for (const detail of ['Airport transfer', 'Kuta family hotel', nextDay, '10:30', 'QZ 506', '3 passengers', 'Please quote a child seat.']) { if (!privateTransportMessage.includes(detail)) throw new Error('Private transport WhatsApp message is missing: ' + detail); }
+  for (const detail of ['Airport transfer', 'Kuta family hotel', 'Ngurah Rai International Airport', nextDay, '10:30', 'QZ 506', '3 passengers', 'Please quote a child seat.']) { if (!privateTransportMessage.includes(detail)) throw new Error('Private transport WhatsApp message is missing: ' + detail); }
   await page.locator('[data-service="daily"]').click();
   if (!(await page.locator('#durationWrap').isVisible()) || await page.locator('#flightWrap').isVisible()) throw new Error('Daily car hire must show duration and hide flight-only fields');
   await page.locator('[data-service="harbour"]').click();
