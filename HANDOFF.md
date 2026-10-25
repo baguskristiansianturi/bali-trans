@@ -1,6 +1,6 @@
 # Bali Trans — Handoff
 
-Updated: 2026-10-24
+Updated: 2026-10-25
 Default branch: `main`
 Repository: https://github.com/baguskristiansianturi/bali-trans
 Live preview: https://baguskristiansianturi.github.io/bali-trans/
@@ -13,7 +13,7 @@ Live preview: https://baguskristiansianturi.github.io/bali-trans/
 - Footer routes were corrected: Help Centre, FAQ guide, Contact, About, Terms, Privacy Policy, Partner Enquiries, Account Access, and guest browsing.
 - Account Access is now an honest status page. Account creation, sign-in, password recovery and saved booking history are not implemented because there is no secure account backend.
 - Footer now has five groups at desktop width; CSS has a five-column breakpoint for large screens.
-- Source validation passed on commit `9fb63cd` (run 755). GitHub Pages deployment also succeeded for that commit; manual visual QA on a physical phone remains outstanding.
+- Latest verified source validation and GitHub Pages deployment passed on commit `a8bd69c` (25 Oct 2026). CI covers 360px browser smoke checks, shared navigation overlays, SPA/static routes, the private-transport WhatsApp message payload, Contact-to-WhatsApp handoff, and local HTML anchor targets. Manual visual QA on a physical Android phone and desktop browser remains outstanding.
 
 ## Recent commits
 
@@ -29,10 +29,19 @@ Live preview: https://baguskristiansianturi.github.io/bali-trans/
 ## Known limitations / next verification
 
 - Real registration cannot be completed on static hosting alone; connect a secure backend/auth provider before enabling account creation.
-- The official WhatsApp number and other business/contact details still require confirmation.
-- Check all footer/header links in a browser at mobile and desktop sizes.
-- PR #29 remains a draft and needs reconciliation with current `main` before merge.
-- PR #32 remains open; reconcile its South Bali article changes with current `main` before merge.
+- WhatsApp is configured as `628218187917` for Contact and transport enquiries; confirm this is the final official business number before launch.
+- Automated 360px navigation and route smoke checks are passing; physical-device visual review is still outstanding.
+- PR #29 (blog labels/shareable routes) and PR #32 (South Bali articles) remain separate, unmerged work; do not merge them into the transport soft-opening scope without checking the current router and launch priorities.
 - PR #33 was closed as superseded because the current service-page CSS already shares hero rules.
 - PR #23 was closed to preserve the approved homepage.
 - `invoice.html` and `invoice-generator.html` now use external CSS and JavaScript files; their visual design was not changed.
+
+
+## Verified work — 25 October 2026
+
+- Removed the unrequested WhatsApp button from the global footer; WhatsApp remains available through intended enquiry forms only.
+- Private transport form and Contact form are covered by browser tests that capture the generated WhatsApp URL and assert the configured number and submitted trip details.
+- Contact form's minimum planned date now uses the visitor's local calendar date rather than UTC.
+- The legacy `terms-and-conditions.html` path redirects to the canonical SPA Terms view, where the general and car rental/private transport sections are expandable.
+- CI now checks local HTML anchor links in addition to existing syntax, route, responsive overflow, and asset checks.
+- Latest verified commit at time of this handoff: `a8bd69c5f38d187134979d298e6e162e293e1a4f`. Validation: https://github.com/baguskristiansianturi/bali-trans/actions/runs/40179388423. Deployment: https://github.com/baguskristiansianturi/bali-trans/actions/runs/40179388391.
