@@ -1,9 +1,4 @@
-/* Shared transport journey polish: stable cross-page transitions and compact filtered vehicle rows. */
-@view-transition { navigation: auto; }
-::view-transition-old(root) { animation: 150ms ease-out both transport-page-out; }
-::view-transition-new(root) { animation: 190ms ease-in both transport-page-in; }
-@keyframes transport-page-out { to { opacity: .72; } }
-@keyframes transport-page-in { from { opacity: .72; } to { opacity: 1; } }
+/* Shared transport results layout; avoids overriding the SPA router's own transition lifecycle. */
 
 .bt-availability-result .bt-results-list,
 #rentalAvailabilityResult .bt-results-list { margin-top:14px; border-top:1px solid #d7e1ee; }
@@ -26,7 +21,4 @@
  .bt-result-vehicle p { font-size:11px; }
  .bt-result-vehicle .bt-result-meta { align-items:flex-start; flex-direction:column; gap:7px; }
  .bt-result-vehicle button { min-height:34px; }
-}
-@media(prefers-reduced-motion:reduce) {
- ::view-transition-old(root), ::view-transition-new(root) { animation:none; }
 }
