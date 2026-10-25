@@ -69,7 +69,7 @@ function applyAirportLocale(code){
  fleet.querySelectorAll('.bt-fleet-card').forEach((card,i)=>{const type=cars[i].type,cat=card.querySelector('.bt-image-category');if(cat)cat.textContent=lang==='id'?(type==='premium'?'Mobil Premium':type==='van'?'Karoseri':type==='suv'?'SUV':'Mobil Reguler'):(type==='premium'?'Premium Car':type==='van'?'Karoseri':type==='suv'?'SUV':'Regular Car');});
 
  fleet.querySelectorAll('.bt-fleet-card').forEach((card,i)=>{const c=cars[i],currency=card.querySelector('.bt-price-currency'),number=card.querySelector('.bt-price-number'),unit=card.querySelector('.bt-price-unit');if(currency)currency.textContent=lang==='id'?'Rp':'USD';if(number)number.textContent=(lang==='id'?startingPrice[c.type]:Math.round(startingPrice[c.type]/16000)).toLocaleString(lang==='id'?'id-ID':'en-US');if(unit)unit.textContent=lang==='id'?'/ perjalanan':'/ transfer';});
-
+}
 window.changeLocale=applyAirportLocale;
 
 applyAirportLocale(locale);
