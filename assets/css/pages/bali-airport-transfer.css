@@ -126,3 +126,48 @@ body.booking-mode #bookingDetails .field:has(#bookingPrice){display:none!importa
 .bt-inline-akjizx{width: 100% !important}
 .bt-inline-165a0xk{width: 100% !important; margin-top: 8px !important}
 .bt-inline-168z4ve{padding-top: 0 !important}
+
+
+/* Airport transfer fleet: horizontal swipe carousel, never a vertical card list. */
+.bt-fleet-showcase-section{overflow:hidden}
+.bt-fleet-showcase-section .bt-fleet-showcase-heading{margin-bottom:20px}
+.bt-fleet-showcase{
+  display:flex!important;
+  flex-flow:row nowrap!important;
+  align-items:stretch;
+  gap:18px;
+  width:100%;
+  overflow-x:auto!important;
+  overflow-y:hidden!important;
+  padding:4px 2px 18px;
+  scroll-snap-type:x mandatory;
+  scroll-padding-inline:2px;
+  overscroll-behavior-x:contain;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:thin;
+  scrollbar-color:#9aacc8 #e8edf5;
+}
+.bt-fleet-showcase>.bt-fleet-card{
+  display:flex!important;
+  flex:0 0 340px!important;
+  flex-direction:column;
+  min-width:0;
+  width:340px!important;
+  max-width:340px!important;
+  margin:0!important;
+  scroll-snap-align:start;
+  align-self:stretch;
+}
+.bt-fleet-showcase .bt-fleet-card-body{flex:1}
+.bt-fleet-showcase .bt-fleet-image-wrap{flex:0 0 auto}
+.bt-fleet-showcase .bt-fleet-main-image{display:block;width:100%;height:190px;object-fit:cover}
+.bt-fleet-showcase:focus-visible{outline:2px solid #4267a9;outline-offset:3px}
+@media(max-width:600px){
+  .bt-fleet-showcase{gap:12px;padding:3px 2px 15px}
+  .bt-fleet-showcase>.bt-fleet-card{
+    flex-basis:min(84vw,340px)!important;
+    width:min(84vw,340px)!important;
+    max-width:min(84vw,340px)!important;
+  }
+  .bt-fleet-showcase .bt-fleet-main-image{height:170px}
+}
