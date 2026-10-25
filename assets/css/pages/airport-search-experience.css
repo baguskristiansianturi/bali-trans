@@ -447,6 +447,37 @@
   gap:0!important;
   overflow:visible!important;
 }
+/* The page ships static fallback cards before JavaScript upgrades them.
+   Keep that fallback horizontal too; otherwise a delayed/failed script stacks them vertically. */
+#btFleetShowcase.bt-fleet-showcase:not(:has(.bt-fleet-carousel-shell)){
+  display:flex!important;
+  flex-direction:row!important;
+  align-items:stretch!important;
+  gap:14px!important;
+  overflow-x:auto!important;
+  overflow-y:hidden!important;
+  overscroll-behavior-x:contain;
+  scroll-snap-type:x mandatory!important;
+  -webkit-overflow-scrolling:touch;
+}
+#btFleetShowcase.bt-fleet-showcase:not(:has(.bt-fleet-carousel-shell))>.bt-fleet-card{
+  display:flex!important;
+  flex:0 0 calc((100% - 28px)/3)!important;
+  width:auto!important;
+  min-width:0!important;
+  max-width:none!important;
+  scroll-snap-align:start;
+}
+@media(max-width:760px){
+  #btFleetShowcase.bt-fleet-showcase:not(:has(.bt-fleet-carousel-shell))>.bt-fleet-card{
+    flex-basis:86%!important;
+  }
+}
+@media(max-width:380px){
+  #btFleetShowcase.bt-fleet-showcase:not(:has(.bt-fleet-carousel-shell))>.bt-fleet-card{
+    flex-basis:92%!important;
+  }
+}
 #btFleetShowcase .bt-fleet-carousel-shell{
   display:block!important;
   position:relative!important;
