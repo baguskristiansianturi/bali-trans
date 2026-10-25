@@ -122,6 +122,26 @@ try {
   console.log('PASS Nusa region card opens its matching destination detail');
   await checkRoute('cart', '?page=cart', 'Cart');
   await checkRoute('checkout', '?page=checkout', 'Vehicle & optional activities');
+
+  await page.goto('http://127.0.0.1:4173/?page=detail&item=lovina-dolphin-tour', { waitUntil: 'domcontentloaded' });
+  await page.waitForFunction(() => document.querySelector('#appContainer h1')?.textContent.includes('Dolphin Tour'));
+  await page.getByRole('button', { name: 'Book Now' }).first().click();
+  await page.waitForSelector('#dolphinCleanBookingForm');
+  const dolphinDate = await page.evaluate(() => { const d = new Date(); d.setDate(d.getDate() + 2); return [d.getFullYear(), String(d.getMonth()+1).padStart(2,'0'), String(d.getDate()).padStart(2,'0')].join('-'); });
+  await page.evaluate(() => { window.__capturedWhatsApp = []; window.open = (url) => { window.__capturedWhatsApp.push(String(url)); return null; }; });
+  await page.locator('#dolphinBookDate').fill(dolphinDate);
+  await page.locator('#dolphinBookPickup').fill('Kuta family hotel');
+  await page.locator('#dolphinBookAdults').fill('2');
+  await page.locator('#dolphinBookName').fill('Browser Test Guest');
+  await page.locator('#dolphinBookEmail').fill('guest@example.com');
+  await page.locator('#dolphinBookPhone').fill('+628123456789');
+  await page.locator('#dolphinCleanBookingForm button[type="submit"]').click();
+  await page.waitForFunction(() => window.__capturedWhatsApp && window.__capturedWhatsApp.length === 1);
+  const dolphinRequestUrl = new URL(await page.evaluate(() => window.__capturedWhatsApp[0]));
+  const dolphinRequestMessage = dolphinRequestUrl.searchParams.get('text') || '';
+  if (dolphinRequestUrl.hostname !== 'wa.me' || dolphinRequestUrl.pathname !== '/628218187917') throw new Error('Dolphin tour request must use the shared WhatsApp number');
+  for (const detail of ['BOOKING STATUS: Awaiting availability confirmation', dolphinDate, 'Kuta family hotel', 'Browser Test Guest', 'guest@example.com', 'No payment is collected when sending this booking request.']) { if (!dolphinRequestMessage.includes(detail)) throw new Error('Dolphin tour request is missing or misstates: ' + detail); }
+  console.log('PASS Lovina Dolphin Tour request carries guest details, awaits confirmation, and does not collect payment');
   await checkRoute('photo credits', '?page=image-credits', 'Photo credits');
   await checkRoute('unknown page', '?page=unknown-page', 'We couldn’t find that page');
   await checkRoute('unknown discovery item', '?page=discovery&item=place%3Aunknown', 'We couldn’t find that page');
