@@ -242,9 +242,9 @@
                 'Planned date: ' + (data.get('date') || 'Flexible / not decided'),
                 'Trip details: ' + data.get('message')
             ].join('\\n');
-            const contactNumber = window.BALI_TRANS_WHATSAPP_NUMBER || BALI_TRANS_WHATSAPP_NUMBER || '';
+            const contactNumber = window.BALI_TRANS_WHATSAPP_NUMBER || '';
             if (!contactNumber) {
-                showToast('The official WhatsApp number must be configured before enquiries can be sent.');
+                showToast('WhatsApp contact is temporarily unavailable. Please try again shortly.');
                 return;
             }
             window.open('https://wa.me/' + contactNumber.replace(/[^0-9]/g, '') + '?text=' + encodeURIComponent(message), '_blank', 'noopener');
