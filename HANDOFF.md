@@ -13,7 +13,7 @@ Live preview: https://baguskristiansianturi.github.io/bali-trans/
 - Footer routes were corrected: Help Centre, FAQ guide, Contact, About, Terms, Privacy Policy, Partner Enquiries, Account Access, and guest browsing.
 - Account Access is now an honest status page. Account creation, sign-in, password recovery and saved booking history are not implemented because there is no secure account backend.
 - Footer now has five groups at desktop width; CSS has a five-column breakpoint for large screens.
-- Latest verified source validation and GitHub Pages deployment passed on commit `a8bd69c` (25 Oct 2026). CI covers 360px browser smoke checks, shared navigation overlays, SPA/static routes, the private-transport WhatsApp message payload, Contact-to-WhatsApp handoff, and local HTML anchor targets. Manual visual QA on a physical Android phone and desktop browser remains outstanding.
+- Latest verified source validation and GitHub Pages deployment passed on commit `9c78bdf` (25 Oct 2026). CI covers 360px browser smoke checks, shared navigation overlays, SPA/static routes, private-transport/Contact/intercity/port/day-tour/Dolphin Tour WhatsApp handoffs, service-tab behaviour, and local HTML anchor targets. Manual visual QA on a physical Android phone and desktop browser remains outstanding.
 
 ## Recent commits
 
@@ -40,8 +40,8 @@ Live preview: https://baguskristiansianturi.github.io/bali-trans/
 ## Verified work — 25 October 2026
 
 - Removed the unrequested WhatsApp button from the global footer; WhatsApp remains available through intended enquiry forms only.
-- Private transport form and Contact form are covered by browser tests that capture the generated WhatsApp URL and assert the configured number and submitted trip details.
+- Private transport, Contact, intercity transfer, port transfer, private day-tour and Lovina Dolphin Tour flows are covered by browser tests that capture generated WhatsApp URLs and assert the shared number and submitted details. Requests remain subject to team confirmation; no online payment is collected.
 - Contact form's minimum planned date now uses the visitor's local calendar date rather than UTC.
 - The legacy `terms-and-conditions.html` path redirects to the canonical SPA Terms view, where the general and car rental/private transport sections are expandable.
 - CI now checks local HTML anchor links in addition to existing syntax, route, responsive overflow, and asset checks.
-- Latest verified commit at time of this handoff: `a8bd69c5f38d187134979d298e6e162e293e1a4f`. Validation: https://github.com/baguskristiansianturi/bali-trans/actions/runs/40179388423. Deployment: https://github.com/baguskristiansianturi/bali-trans/actions/runs/40179388391.
+- Latest verified functional commit at time of this handoff: `9c78bdf221539012007dbe38c9006e8c2497d980`. Validation: https://github.com/baguskristiansianturi/bali-trans/actions/runs/40179651514. Deployment: https://github.com/baguskristiansianturi/bali-trans/actions/runs/40179651546.
