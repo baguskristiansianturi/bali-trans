@@ -43,7 +43,7 @@
   const mobileExtraHTML = isHomePage
     ? '<div class="bt-mobile-extras">' +
         '<button type="button" data-shell-action="help">Help</button>' +
-        '<button type="button" data-shell-action="register">Create account</button>' +
+        '<button type="button" data-shell-action="register">Log in / Create account</button>' +
         '<button type="button" data-shell-action="wishlist">Wishlist <span id="mobileWishlistCount">(0)</span></button>' +
         '<button type="button" data-shell-action="recent">Recently viewed</button>' +
       '</div>'
@@ -54,9 +54,12 @@
     '<div class="bt-shell"><div class="bt-header-row">' +
       '<a class="bt-brand" href="' + routes.home + '" aria-label="Bali Trans home">' +
         '<span class="bt-brand-mark">B</span><span class="bt-brand-copy"><span class="bt-brand-name">Bali<span> Trans</span></span></span>' +
-      '</a><nav class="bt-main-nav" aria-label="Main navigation">' + linkHTML + '</nav>' +
-      '<div class="bt-actions">' +
-        '<button class="bt-action" type="button" id="headerSearchButton" aria-label="Open search" aria-controls="headerSearchPanel" aria-expanded="false"><svg id="headerSearchIcon" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg></button>' +
+      '</a><div class="bt-actions">' +
+        '<button class="bt-action" type="button" id="headerSearchButton" aria-label="Search" title="Search" aria-controls="headerSearchPanel" aria-expanded="false"><svg id="headerSearchIcon" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg></button>' +
+        '<a class="bt-desktop-link" href="' + routes.help + '" aria-label="Help" title="Help"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M9.6 9a2.5 2.5 0 0 1 4.8.9c0 1.8-2.4 2.1-2.4 3.8M12 17h.01"></path></svg><span>Help</span></a>' +
+        '<a class="bt-desktop-link" href="' + routes.guides + '" aria-label="Blog" title="Blog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5h14v15H5zM8 8h8M8 11h8M8 14h5"></path></svg><span>Blog</span></a>' +
+        '<button class="bt-desktop-link bt-recent-action" type="button" data-shell-action="recent" aria-label="Recently viewed" title="Recently viewed"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Recently viewed</span></button>' +
+        '<div class="bt-account-control"><button class="bt-action" type="button" id="accountMenuButton" aria-label="Account" title="Account" aria-controls="accountMenu" aria-expanded="false"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="3.5"></circle><path d="M5 20c.6-3.3 3-5 7-5s6.4 1.7 7 5"></path></svg></button><div class="bt-account-menu hidden" id="accountMenu"><a href="' + routes.account + '" data-account-action="login">Log in</a><a href="' + routes.account + '&amp;mode=register" data-account-action="register">Create account</a><button type="button" data-account-action="logout" class="hidden">Log out</button></div></div>' +
         '<div class="bt-locale-control" id="localeControl">' +
           '<button class="bt-locale" type="button" id="localeButton" aria-label="Language and currency" aria-controls="localeMenu" aria-expanded="false"><span class="bt-locale-flag" id="localeCurrentFlag" aria-hidden="true">🇮🇩</span><span id="localeCurrentCode" class="bt-locale-current-code">IDR</span></button>' +
           '<div class="bt-locale-menu hidden" id="localeMenu">' + localeHTML + '</div>' +
@@ -114,11 +117,23 @@
     const searchForm = document.getElementById('btSearchForm');
     const mobileButton = document.getElementById('mobileMenuButton');
     const mobilePanel = document.getElementById('mobileMenuPanel');
+    const accountButton = document.getElementById('accountMenuButton');
+    const accountMenu = document.getElementById('accountMenu');
+    function refreshAccountMenu() {
+      let signedIn = false;
+      try { signedIn = !!(localStorage.getItem('baliTransUser') || localStorage.getItem('baliTransSession')); } catch (e) {}
+      accountMenu?.querySelectorAll('[data-account-action="login"],[data-account-action="register"]').forEach(el => el.classList.toggle('hidden', signedIn));
+      const logout = accountMenu?.querySelector('[data-account-action="logout"]');
+      if (logout) logout.classList.toggle('hidden', !signedIn);
+    }
+    refreshAccountMenu();
 
     function closePanels() {
       if (localeMenu) localeMenu.classList.add('hidden');
       if (searchPanel) searchPanel.classList.add('hidden');
       if (mobilePanel) mobilePanel.classList.add('hidden');
+      if (accountMenu) accountMenu.classList.add('hidden');
+      accountButton?.setAttribute('aria-expanded', 'false');
       localeButton?.setAttribute('aria-expanded', 'false');
       searchButton?.setAttribute('aria-expanded', 'false');
       mobileButton?.setAttribute('aria-expanded', 'false');
@@ -163,6 +178,30 @@
         searchButton.setAttribute('aria-label', 'Close search');
         document.getElementById('headerSearchIcon').innerHTML = '<path d="m6 6 12 12M18 6 6 18"></path>';
         searchInput.focus();
+      }
+    });
+    accountButton?.addEventListener('click', function (event) {
+      event.stopPropagation();
+      const opening = accountMenu.classList.contains('hidden');
+      closePanels();
+      if (opening) {
+        refreshAccountMenu();
+        accountMenu.classList.remove('hidden');
+        accountButton.setAttribute('aria-expanded', 'true');
+      }
+    });
+    accountMenu?.addEventListener('click', function(event) {
+      const action = event.target.closest('[data-account-action]')?.dataset.accountAction;
+      if (action === 'logout') {
+        try { localStorage.removeItem('baliTransUser'); localStorage.removeItem('baliTransSession'); } catch(e) {}
+        refreshAccountMenu();
+        closePanels();
+        window.location.href = routes.home;
+      } else if (action === 'register') {
+        event.preventDefault();
+        closePanels();
+        if (isHomePage && typeof window.showRegisterPrompt === 'function') window.showRegisterPrompt();
+        else window.location.href = routes.account + '&mode=register';
       }
     });
     mobileButton?.addEventListener('click', function (event) {
