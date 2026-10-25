@@ -1,6 +1,6 @@
 (function(){'use strict';
 const $=id=>document.getElementById(id),form=$('btAvailabilityForm');if(!form)return;let locale='en';try{locale=localStorage.getItem('baliTransLocale')||new URLSearchParams(location.search).get('locale')||'en';}catch(e){}
-const date=$('btDate'),result=$('btAvailabilityResult'),guide=$('btDateGuide'),fleet=$('btFleetShowcase');
+const date=$('btDate'),result=$('btAvailabilityResult'),fleet=$('btFleetShowcase');
 const cars=[
 {name:'Wuling Confero',type:'regular',capacity:5,price:89000,alt:'Wuling Confero airport transfer vehicle',detail:'Comfortable everyday airport transfer',images:['https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=85'],image:'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=85'},
 {name:'Toyota Avanza',type:'regular',capacity:5,price:89000,alt:'Toyota Avanza airport transfer vehicle',detail:'A practical choice for families and small groups',images:['https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=85','https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=85'],image:'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=900&q=85'},
@@ -21,7 +21,6 @@ date.min=localISO(minDate());date.value=localISO(minDate());
 function direction(){const to=document.querySelector('input[name="btDirection"]:checked').value==='to';$('btDestinationLabel').textContent=to?'Pickup location in Bali':'Drop-off location';$('btDestination').placeholder=to?'Hotel, villa or area to travel from':'Hotel, villa or area in Bali';$('btTerminalField').hidden=to}
 document.querySelectorAll('input[name="btDirection"]').forEach(el=>el.addEventListener('change',()=>{direction();if(typeof applyAirportLocale==='function')applyAirportLocale(locale);}));direction();
 function dateChips(){const start=floorToday(),min=minDate();let out='';for(let i=0;i<8;i++){const d=new Date(start);d.setDate(start.getDate()+i);const blocked=d<min;out+='<span class="bt-date-chip '+(blocked?'is-blocked':'is-bookable')+'" title="'+(blocked?'Booking needs at least 3 days notice':'Eligible for booking request')+'"><b>'+fmtDay(d)+'</b><small>'+fmtMonth(d)+'</small>'+(blocked?'<i aria-label="Not bookable yet">×</i>':'')+'</span>'}return out}
-if(guide) guide.innerHTML=dateChips();
 const categoryLabel=type=>locale==='id'?(type==='premium'?'Mobil Premium':type==='van'?'Karoseri':type==='suv'?'SUV':'Mobil Reguler'):(type==='premium'?'Premium Car':type==='van'?'Karoseri':type==='suv'?'SUV':'Regular Car');
 const startingPrice={regular:89000,premium:175000,suv:225000,van:310000};
 const startingLabel=t=>'From '+money(startingPrice[t]);
