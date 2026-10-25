@@ -35,9 +35,11 @@
 <section data-stage="2" id="guestStage" hidden>
 <div class="form-section-title"><h2>2. Guest & payment</h2><p>Who should we contact about this booking request?</p></div>
 <div class="field-grid">
-<label class="field"><span>Booker full name <b>*</b></span><input name="bookerName" autocomplete="name" placeholder="Your full name" required></label>
-<label class="field"><span>Booker WhatsApp <b>*</b></span><input name="bookerPhone" type="tel" autocomplete="tel" placeholder="+62 812 3456 7890" required></label>
+<label class="field full"><span>Booking for <b>*</b></span><select name="bookingFor" id="bookingFor"><option value="myself" selected>For myself</option><option value="someone-else">For someone else</option></select></label>
+<label class="field"><span>Your full name <b>*</b></span><input name="bookerName" autocomplete="name" placeholder="Your full name" required></label>
+<label class="field"><span>Your WhatsApp <b>*</b></span><input name="bookerPhone" type="tel" autocomplete="tel" placeholder="+62 812 3456 7890" required></label>
 <label class="field"><span>Email address</span><input name="bookerEmail" type="email" autocomplete="email" placeholder="you@example.com"></label>
+<div class="field full" id="otherGuestFields" hidden><div class="field-grid"><label class="field"><span>Traveller full name <b>*</b></span><input name="travellerName" id="travellerName" placeholder="Name of the person travelling"></label><label class="field"><span>Traveller WhatsApp <b>*</b></span><input name="travellerPhone" id="travellerPhone" type="tel" placeholder="Traveller contact number"></label></div></div>
 <label class="field full"><span>Flight number <small>(if applicable)</small></span><input name="flightNumber" id="flightNumber" placeholder="e.g. QZ 550"></label>
 <label class="field full"><span>Additional notes <small>(optional)</small></span><textarea name="notes" rows="3" placeholder="Luggage, child seat, meeting point or other requests"></textarea></label>
 </div>
@@ -49,8 +51,8 @@
 </section>
 </form>
 </section>
-<aside class="booking-aside"><div class="aside-card"><div class="aside-icon">✓</div><h2 id="asideTitle">Your trip, made simple</h2><p id="asideText">Review your trip details, provide your contact information and send your booking request to our team.</p><ul><li>Private airport transfers</li><li>Vehicle options for couples, families and groups</li><li>Booking details reviewed by our team</li></ul><div class="aside-divider"></div><p class="support-label">Booking support</p><strong>Vehicle and fare confirmation via WhatsApp</strong></div><p class="privacy-note">Please do not send card details through WhatsApp.</p></aside>
+
 </div>
 </main>
-<script src="./assets/js/pages/booking-form.js?v=20261025-6"></script>
+<script src="./assets/js/pages/booking-form.js?v=20261025-7"></script>
 </body></html>
