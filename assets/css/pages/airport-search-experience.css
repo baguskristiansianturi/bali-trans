@@ -442,3 +442,11 @@
 .bt-booking-page .bt-fleet-card{height:auto;align-self:start}
 .bt-booking-page .bt-fleet-card-body{flex:0 0 auto}
 .bt-booking-page .bt-fleet-request{margin-top:14px}
+
+
+/* Override legacy fleet safety minimum height; cards should end after their actual content. */
+#btFleetShowcase .bt-fleet-card,
+.bt-booking-page .bt-fleet-card{min-height:0!important;height:auto!important;align-self:start!important}
+#btFleetShowcase .bt-fleet-card-body,
+.bt-booking-page .bt-fleet-card-body{min-height:0!important;flex:0 0 auto!important}
+#btFleetShowcase .bt-fleet-showcase-track{align-items:start!important}
