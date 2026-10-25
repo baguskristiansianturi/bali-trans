@@ -28,29 +28,6 @@ const vehicleLabel=c=>c.name==='HiAce Premio'?'Premium Minivan':c.type==='van'?'
 const startingPrice={regular:89000,premium:175000,suv:225000,van:310000};
 const startingLabel=t=>'From '+money(startingPrice[t]);
 fleet.innerHTML='<div class="bt-fleet-carousel-shell"><button class="bt-fleet-carousel-arrow bt-fleet-prev" type="button" aria-label="Previous vehicles">‹</button><div class="bt-fleet-showcase-track" id="btFleetTrack">'+cars.map((c,i)=>'<article class="bt-fleet-card"><div class="bt-fleet-image-wrap"><img class="bt-fleet-main-image" src="'+c.images[0]+'" alt="'+c.alt+'" loading="lazy"><span class="bt-car-class bt-image-category '+(c.type==='premium'?'premium':c.type==='van'?'minivan':'')+'">'+vehicleLabel(c)+'</span><span class="bt-fleet-index">'+String(i+1).padStart(2,'0')+'</span><div class="bt-image-count">1 / 3</div><div class="bt-image-dots">'+c.images.map((im,j)=>'<button type="button" class="bt-image-dot '+(j===0?'is-active':'')+'" data-gallery="'+i+'" data-image-index="'+j+'" aria-label="View vehicle photo '+(j+1)+'"></button>').join('')+'</div></div><div class="bt-fleet-card-body"><div class="bt-fleet-title-row"><div><h3>'+c.name+'</h3><p>'+c.detail+'</p></div><div class="bt-fleet-price-block"><span class="bt-fleet-from">From</span><strong class="bt-fleet-starting-price"><span class="bt-price-currency">Rp</span> <span class="bt-price-number">'+startingPrice[c.type].toLocaleString('id-ID')+'</span></strong><small class="bt-price-unit">/ car</small></div></div><div class="bt-fleet-capacity"><i class="fa-solid fa-users bt-spec-icon" aria-hidden="true"></i> '+c.capacity+' seats <span class="bt-meta-divider">·</span> <i class="fa-solid fa-suitcase-rolling bt-spec-icon" aria-hidden="true"></i> 4 bags <span class="bt-meta-divider">·</span> <i class="fa-solid fa-snowflake bt-spec-icon" aria-hidden="true"></i> AC</div><div class="bt-card-date-label"><i class="fa-regular fa-calendar bt-spec-icon" aria-hidden="true"></i> '+(locale==='id'?'Ketersediaan':'Availability')+'</div><div class="bt-card-date-chips">'+dateChips()+'</div><div class="bt-date-status-legend"><span><i class="bt-legend-dot is-bookable"></i> '+(locale==='id'?'Bisa dipesan':'Available')+'</span><span><i class="bt-legend-dot is-blocked"></i> '+(locale==='id'?'Belum bisa dipesan':'Not bookable yet')+'</span></div></div></div></article>').join('')+'</div><button class="bt-fleet-carousel-arrow bt-fleet-next" type="button" aria-label="Next vehicles">›</button></div><div class="bt-fleet-carousel-status"><span id="btFleetCarouselCount">01 / '+String(cars.length).padStart(2,'0')+'</span><span class="bt-fleet-carousel-hint">Swipe to explore vehicles</span></div>'; 
-/* Inline layout guard: keep the fleet catalogue horizontal even if unrelated page CSS targets vehicle cards. */
-const fleetTrack=$('btFleetTrack');
-if(fleetTrack){
- fleetTrack.style.setProperty('display','flex','important');
- fleetTrack.style.setProperty('flex-direction','row','important');
- fleetTrack.style.setProperty('flex-wrap','nowrap','important');
- fleetTrack.style.setProperty('overflow-x','auto','important');
- fleetTrack.style.setProperty('overflow-y','hidden','important');
- fleetTrack.style.setProperty('scroll-snap-type','x mandatory','important');
- fleetTrack.style.setProperty('gap','12px','important');
- fleetTrack.style.setProperty('width','100%','important');
- fleetTrack.style.setProperty('min-width','0','important');
- fleetTrack.style.setProperty('-webkit-overflow-scrolling','touch','important');
- fleetTrack.querySelectorAll('.bt-fleet-card').forEach(card=>{
-  card.style.setProperty('display','flex','important');
-  card.style.setProperty('flex','0 0 86%','important');
-  card.style.setProperty('width','86%','important');
-  card.style.setProperty('max-width','86%','important');
-  card.style.setProperty('min-width','0','important');
-  card.style.setProperty('flex-direction','column','important');
-  card.style.setProperty('scroll-snap-align','start','important');
- });
-}
 fleet.classList.add('is-carousel-ready');
 const track=$('btFleetTrack'),count=$('btFleetCarouselCount');function updateFleetCount(){if(!track||!count)return;const card=track.querySelector('.bt-fleet-card');if(!card)return;const idx=Math.round(track.scrollLeft/(card.getBoundingClientRect().width+14));count.textContent=String(Math.min(cars.length,idx+1)).padStart(2,'0')+' / '+String(cars.length).padStart(2,'0')}fleet.querySelector('.bt-fleet-prev').addEventListener('click',()=>track.scrollBy({left:-track.clientWidth*.82,behavior:'smooth'}));fleet.querySelector('.bt-fleet-next').addEventListener('click',()=>track.scrollBy({left:track.clientWidth*.82,behavior:'smooth'}));track.addEventListener('scroll',updateFleetCount,{passive:true});
 /* Separate image swipes from the outer vehicle carousel: horizontal gestures begun on a photo change that card's photo; swipes begun elsewhere move between vehicles. */
