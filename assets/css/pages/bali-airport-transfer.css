@@ -128,9 +128,7 @@ body.booking-mode #bookingDetails .field:has(#bookingPrice){display:none!importa
 .bt-inline-168z4ve{padding-top: 0 !important}
 
 
-/* Fleet carousel cards: manual date schedule with clear blocked-date marks. */
-.bt-fleet-slider-track>.bt-fleet-card{height:540px!important;min-height:540px!important;max-height:540px!important;display:flex;flex-direction:column}
-.bt-fleet-slider-track>.bt-fleet-card>.bt-fleet-card-body{display:flex;flex:1 1 auto;flex-direction:column;min-height:0}
+/* Fleet date schedule styling only. Carousel geometry belongs to airport-fleet-slider.css. */
 .bt-fleet-slider-track .bt-card-date-label{display:flex;align-items:center;gap:7px;margin-top:10px;padding-top:10px;border-top:1px solid #edf1f6;color:#526b88;font-size:11px;font-weight:750}
 .bt-fleet-slider-track .bt-card-date-chips{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:4px;margin-top:7px}
 .bt-fleet-slider-track .bt-card-date-chips .bt-date-chip{position:relative;display:flex;min-width:0;flex-direction:column;align-items:center;gap:2px;padding:6px 1px;border:1px solid #c9d8e9;border-radius:7px;background:#edf4fc;color:#29446e;text-align:center}
@@ -142,4 +140,5 @@ body.booking-mode #bookingDetails .field:has(#bookingPrice){display:none!importa
 .bt-fleet-slider-track .bt-date-status-legend span{display:inline-flex;align-items:center;gap:5px}
 .bt-fleet-slider-track .bt-legend-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#c9d8e9}
 .bt-fleet-slider-track .bt-legend-dot.is-blocked{background:#e0e5ec;outline:1px solid #b45353}
-@media(max-width:600px){.bt-fleet-slider-track>.bt-fleet-card{height:540px!important;min-height:540px!important;max-height:540px!important}.bt-fleet-slider-track .bt-card-date-chips{gap:3px}.bt-fleet-slider-track .bt-card-date-chips .bt-date-chip b{font-size:9px}}
+@media(max-width:600px){.bt-fleet-slider-track .bt-card-date-chips{gap:3px}.bt-fleet-slider-track .bt-card-date-chips .bt-date-chip b{font-size:9px}}
+
