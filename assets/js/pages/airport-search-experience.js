@@ -21,8 +21,8 @@ date.min=localISO(minDate());date.value=localISO(minDate());
 function direction(){const to=document.querySelector('input[name="btDirection"]:checked').value==='to';$('btDestinationLabel').textContent=to?'Pickup location in Bali':'Drop-off location';$('btDestination').placeholder=to?'Hotel, villa or area to travel from':'Hotel, villa or area in Bali';$('btTerminalField').hidden=to}
 document.querySelectorAll('input[name="btDirection"]').forEach(el=>el.addEventListener('change',direction));direction();
 function dateChips(){const start=floorToday(),min=minDate();let out='';for(let i=0;i<8;i++){const d=new Date(start);d.setDate(start.getDate()+i);const blocked=d<min;out+='<span class="bt-date-chip '+(blocked?'is-blocked':'is-bookable')+'" title="'+(blocked?'Booking needs at least 3 days notice':'Eligible for booking request')+'"><b>'+fmtDay(d)+'</b><small>'+fmtMonth(d)+'</small>'+(blocked?'<i aria-label="Not bookable yet">×</i>':'')+'</span>'}return out}
-guide.innerHTML=dateChips();
-const categoryLabel=t=>t==='premium'?'Premium Car':t==='van'?'Minivan / Karoseri':t==='suv'?'SUV':'Regular Car';
+if(guide) guide.innerHTML=dateChips();
+const categoryLabel=t=>t==='premium'?'Premium Car':t==='van'?'Karoseri':t==='suv'?'SUV':'Regular Car';
 const startingPrice={regular:89000,premium:175000,suv:225000,van:310000};
 const startingLabel=t=>'From '+money(startingPrice[t]);
 fleet.innerHTML=cars.map(c=>'<article class="bt-fleet-card"><img src="'+c.image+'" alt="'+c.alt+'" loading="lazy"><div class="bt-fleet-card-body"><span class="bt-car-class '+(c.type==='premium'?'premium':c.type==='van'?'minivan':'')+'">'+categoryLabel(c.type)+'</span><h3>'+c.name+'</h3><p>'+c.detail+'</p><div class="bt-fleet-starting-price">'+startingLabel(c.type)+'</div><div class="bt-fleet-capacity">Up to '+c.capacity+' passengers</div><div class="bt-card-date-label">Booking date guide</div><div class="bt-card-date-chips">'+dateChips()+'</div></div></article>').join('');
