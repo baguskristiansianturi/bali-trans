@@ -457,3 +457,38 @@
 .bt-booking-page .bt-included-list{display:grid;gap:8px;margin:10px 0 2px;padding:0;list-style:none;color:#405a7d;font-size:12px;font-weight:650}
 .bt-booking-page .bt-included-list li{display:flex;align-items:center;gap:8px;line-height:1.35}
 .bt-booking-page .bt-included-list i{display:inline-flex;align-items:center;justify-content:center;width:17px;height:17px;flex:0 0 17px;border-radius:50%;background:#eaf2ff;color:#244b83;font-size:9px}
+
+
+/* FIX: the fleet showcase is a horizontal carousel, not a vertical/grid list. Scoped to the airport fleet content only. */
+#btFleetShowcase:not(:has(.bt-fleet-carousel-shell)){
+  display:flex!important;
+  flex-direction:row!important;
+  flex-wrap:nowrap!important;
+  align-items:stretch!important;
+  gap:16px!important;
+  width:100%!important;
+  max-width:100%!important;
+  overflow-x:auto!important;
+  overflow-y:hidden!important;
+  padding:4px 3px 18px!important;
+  scroll-snap-type:x mandatory!important;
+  scroll-padding-inline:3px;
+  overscroll-behavior-x:contain;
+  -webkit-overflow-scrolling:touch;
+}
+#btFleetShowcase:not(:has(.bt-fleet-carousel-shell))>.bt-fleet-card{
+  display:flex!important;
+  flex:0 0 calc((100% - 32px)/3)!important;
+  flex-direction:column!important;
+  width:auto!important;
+  min-width:0!important;
+  max-width:none!important;
+  margin:0!important;
+  scroll-snap-align:start;
+}
+@media(max-width:760px){
+  #btFleetShowcase:not(:has(.bt-fleet-carousel-shell))>.bt-fleet-card{flex-basis:86%!important}
+}
+@media(max-width:380px){
+  #btFleetShowcase:not(:has(.bt-fleet-carousel-shell))>.bt-fleet-card{flex-basis:92%!important}
+}
