@@ -266,3 +266,10 @@
  .bt-card-date-chips .bt-date-chip b{font-size:12px}
  .bt-card-date-chips .bt-date-chip small{font-size:10px}
 }
+
+
+/* Professional line icons for vehicle specifications. */
+.bt-spec-icon{display:inline-block;color:#597493;font-size:12px;line-height:1;vertical-align:-1px}
+.bt-card-date-label .bt-spec-icon{font-size:13px;color:#526f92}
+.bt-fleet-capacity{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+@media(max-width:760px){.bt-spec-icon{font-size:11px}.bt-card-date-label .bt-spec-icon{font-size:12px}}
