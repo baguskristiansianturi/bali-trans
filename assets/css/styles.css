@@ -105,3 +105,36 @@ body.dolphin-sheet-open { overflow:hidden; }
 @media(min-width:640px){.home-popular-tours .home-popular-tours-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.home-popular-tours .home-tour-visual{aspect-ratio:4/3}.home-popular-tours .home-tour-card-bottom{padding:16px}}
 @media(min-width:1024px){.home-popular-tours .home-popular-tours-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}.home-popular-tours .home-tour-card:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(15,23,42,.12)}}
 @media(max-width:639px){.home-popular-tours .home-popular-tours-grid{grid-template-columns:repeat(1,minmax(0,1fr));gap:16px}.home-popular-tours .home-tour-visual{aspect-ratio:5/4}.home-popular-tours .home-tour-overlay-copy{left:14px;right:14px;bottom:14px}.home-popular-tours .home-tour-overlay-copy strong{font-size:23px}.home-popular-tours .home-tour-overlay-copy>span{font-size:12px;max-width:36ch}.home-popular-tours .home-tour-card-bottom{padding:13px 14px}.home-popular-tours .home-tour-price-line strong{font-size:17px}}
+
+
+/* Homepage: keep the hero image above the section background and below readable content. */
+#appContainer > section:first-child:has(.home-tour-card) { isolation:isolate; }
+#appContainer > section:first-child img[alt="Bali coastline and tropical landscape"] { z-index:0; }
+#appContainer > section:first-child .bg-gradient-to-r { z-index:10; }
+#appContainer > section:first-child .relative.z-20 { z-index:20; }
+
+/* Homepage popular tour cards — image-led editorial cards on mobile and desktop. */
+.home-popular-tours-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:18px}
+.home-tour-card{display:flex;width:100%;min-width:0;flex-direction:column;overflow:hidden;padding:0;border:1px solid #dce4ee;border-radius:22px;background:#fff;text-align:left;color:#172033;box-shadow:0 8px 24px rgba(23,43,77,.07);cursor:pointer;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.home-tour-card:hover{transform:translateY(-3px);border-color:#b8c9e1;box-shadow:0 16px 32px rgba(23,43,77,.13)}
+.home-tour-card:focus-visible{outline:3px solid #5b8bd0;outline-offset:3px}
+.home-tour-visual{position:relative;display:block;isolation:isolate;width:100%;height:245px;overflow:hidden;background:#dce5ef}
+.home-tour-visual>img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .35s ease}
+.home-tour-card:hover .home-tour-visual>img{transform:scale(1.045)}
+.home-tour-image-shade{position:absolute;inset:0;display:block;background:linear-gradient(180deg,rgba(15,23,42,.08) 10%,rgba(15,23,42,.05) 35%,rgba(15,23,42,.86) 100%)}
+.home-tour-badges{position:absolute;top:13px;left:13px;right:13px;display:flex;align-items:center;justify-content:space-between;gap:7px}
+.home-tour-badges>span{display:inline-flex;max-width:65%;align-items:center;padding:6px 9px;border:1px solid rgba(255,255,255,.35);border-radius:999px;background:rgba(15,23,42,.45);color:#fff;font-size:10px;font-weight:800;line-height:1.25;backdrop-filter:blur(8px)}
+.home-tour-overlay-copy{position:absolute;left:17px;right:17px;bottom:17px;display:grid;gap:6px;color:#fff}
+.home-tour-overlay-copy strong{display:block;font-size:20px;font-weight:850;line-height:1.18;letter-spacing:-.025em;text-shadow:0 1px 8px rgba(0,0,0,.2)}
+.home-tour-overlay-copy>span{display:-webkit-box;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:2;font-size:12px;line-height:1.55;color:rgba(255,255,255,.9)}
+.home-tour-tag{position:absolute;right:13px;bottom:13px;z-index:2;padding:6px 9px;border-radius:7px;background:#e2f8f4;color:#116d68;font-size:10px;font-weight:850}
+.home-tour-card-bottom{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:5px 12px;padding:15px 16px 16px}
+.home-tour-price-label{grid-column:1/-1;display:block;color:#64748b;font-size:11px;font-weight:700}
+.home-tour-price-line{display:flex;min-width:0;align-items:baseline;flex-wrap:wrap;gap:5px}
+.home-tour-price-line strong{color:#172033;font-size:clamp(17px,4.8vw,22px);font-weight:900;letter-spacing:-.035em;line-height:1.2}
+.home-tour-price-line del{color:#94a3b8;font-size:11px}
+.home-tour-price-line small{color:#64748b;font-size:11px;white-space:nowrap}
+.home-tour-cta{display:inline-flex;align-items:center;justify-content:flex-end;gap:7px;color:#216e70;font-size:12px;font-weight:850;white-space:nowrap}
+@media(min-width:640px){.home-popular-tours-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.home-tour-visual{height:260px}}
+@media(min-width:1024px){.home-popular-tours-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}.home-tour-visual{height:250px}}
+@media(max-width:380px){.home-tour-visual{height:215px}.home-tour-card-bottom{padding:13px}.home-tour-cta{font-size:11px}.home-tour-overlay-copy strong{font-size:18px}}
