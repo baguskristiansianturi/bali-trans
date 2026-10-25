@@ -176,6 +176,45 @@ try {
   await page.getByRole('link', { name: 'Travel guides' }).last().click();
   await page.waitForURL('**/index.html?page=blog');
   console.log('PASS shared shell, outside-click close and working travel-guide route');
+  await page.goto('http://127.0.0.1:4173/private-transport.html', { waitUntil: 'domcontentloaded' });
+  await page.waitForSelector('.bt-site-header[data-ready="true"]');
+  await page.evaluate(() => { window.__capturedWhatsApp = []; window.open = (url) => { window.__capturedWhatsApp.push(String(url)); return null; }; });
+  await page.locator('#pickupAirport').selectOption({ index: 0 });
+  await page.locator('#destination').fill('Kuta family hotel');
+  const nextDay = await page.evaluate(() => { const d = new Date(); d.setDate(d.getDate() + 2); return [d.getFullYear(), String(d.getMonth()+1).padStart(2,'0'), String(d.getDate()).padStart(2,'0')].join('-'); });
+  await page.locator('#travelDate').fill(nextDay);
+  await page.locator('#travelTime').fill('10:30');
+  await page.locator('#flightNumber').fill('QZ 506');
+  await page.locator('#passengers').selectOption({ label: '3 passengers' });
+  await page.locator('#notes').fill('Please quote a child seat.');
+  await page.locator('#transportForm button[type="submit"]').click();
+  await page.waitForFunction(() => window.__capturedWhatsApp && window.__capturedWhatsApp.length === 1);
+  const privateTransportRequest = await page.evaluate(() => window.__capturedWhatsApp[0]);
+  const privateTransportUrl = new URL(privateTransportRequest);
+  const privateTransportMessage = privateTransportUrl.searchParams.get('text') || '';
+  if (privateTransportUrl.hostname !== 'wa.me' || privateTransportUrl.pathname !== '/628218187917') throw new Error('Private transport must target the configured WhatsApp number');
+  for (const detail of ['Airport transfer', 'Kuta family hotel', nextDay, '10:30', 'QZ 506', '3 passengers', 'Please quote a child seat.']) { if (!privateTransportMessage.includes(detail)) throw new Error('Private transport WhatsApp message is missing: ' + detail); }
+  await page.locator('[data-service="daily"]').click();
+  if (!(await page.locator('#durationWrap').isVisible()) || await page.locator('#flightWrap').isVisible()) throw new Error('Daily car hire must show duration and hide flight-only fields');
+  await page.locator('[data-service="harbour"]').click();
+  if (!(await page.locator('#directionField').isVisible()) || await page.locator('#flightWrap').isVisible()) throw new Error('Harbour transfer must show direction and hide airport flight fields');
+  console.log('PASS private transport WhatsApp enquiry includes trip details; service tabs switch correctly');
+
+  await page.goto('http://127.0.0.1:4173/index.html?page=contact', { waitUntil: 'domcontentloaded' });
+  await page.waitForFunction(() => document.querySelector('#contactEnquiryForm'));
+  await page.evaluate(() => { window.__capturedWhatsApp = []; window.open = (url) => { window.__capturedWhatsApp.push(String(url)); return null; }; });
+  await page.locator('#contactName').fill('Browser Test Guest');
+  await page.locator('#contactEmail').fill('guest@example.com');
+  await page.locator('#contactService').selectOption({ label: 'Private transport' });
+  await page.locator('#contactMessage').fill('Please quote a private car from Kuta to Ubud.');
+  await page.locator('#contactEnquiryForm button[type="submit"]').click();
+  await page.waitForFunction(() => window.__capturedWhatsApp && window.__capturedWhatsApp.length === 1);
+  const contactRequest = await page.evaluate(() => window.__capturedWhatsApp[0]);
+  const contactUrl = new URL(contactRequest);
+  const contactMessage = contactUrl.searchParams.get('text') || '';
+  if (contactUrl.hostname !== 'wa.me' || contactUrl.pathname !== '/628218187917') throw new Error('Contact enquiry must target the configured WhatsApp number');
+  for (const detail of ['Browser Test Guest', 'guest@example.com', 'Private transport', 'Please quote a private car from Kuta to Ubud.']) { if (!contactMessage.includes(detail)) throw new Error('Contact WhatsApp message is missing: ' + detail); }
+  console.log('PASS Contact enquiry opens configured WhatsApp with guest details');
 
   await page.goto('http://127.0.0.1:4173/watersport-tanjung-benoa.html', { waitUntil: 'domcontentloaded' });
   const penyuLink = page.locator('a[href*="watersport-glass-bottom-boat-pulau-penyu.html"]').first();
