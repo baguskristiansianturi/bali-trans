@@ -46,7 +46,7 @@ if(!quote){setStep(1);$('step1Status').textContent='Please check the destination
 const pickup=$('direction').value==='jemput';
 const payment=document.querySelector('input[name="payment"]:checked').value;
 const lines=['Hello Bali Trans, I would like to request an airport transfer booking.','Booking for: '+(bookingFor==='someone'?'Someone else':'Myself'),'Booker name: '+$('name').value,'Booker WhatsApp: '+$('phone').value,bookingFor==='someone'?'Guest name: '+$('guestName').value:'',bookingFor==='someone'?'Guest phone: '+$('guestPhone').value:'','Trip: '+(pickup?'Airport to hotel':'Hotel to airport'),'Terminal: '+$('terminal').value,'Date: '+$('date').value,'Time: '+$('time').value,pickup?'Flight number: '+$('flight').value:'','Address: '+$('address').value,'Passengers: '+$('passengers').value,'Vehicle: '+vehicleNames[chosenVehicle()],'Estimated fare: '+money(quote.total),'Area: '+quote.zone,'Additional stop: '+($('stopover').checked?$('stopoverDetails').value+' (additional charge to be confirmed)':'None'),'Payment preference: '+payment,payment==='Pay at pickup'?'Customer plans to pay on the day of pickup.':'Online payment is under maintenance; please confirm payment arrangements via WhatsApp.',$('notes').value?'Special request: '+$('notes').value:'','Terms & Conditions accepted: Yes'].filter(Boolean);
-window.location.href='https://wa.me/628218187917?text='+encodeURIComponent(lines.join('\n'));
+window.location.href='https://wa.me/'+(window.BALI_TRANS_WHATSAPP_NUMBER||'628218187917')+'?text='+encodeURIComponent(lines.join('\n'));
 });
 sync();syncBookingFor();recalc();
 })();
