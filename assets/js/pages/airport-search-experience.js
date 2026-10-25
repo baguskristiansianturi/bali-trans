@@ -16,7 +16,7 @@ const minDate=()=>{const d=floorToday();d.setDate(d.getDate()+3);return d};
 const fmtDay=d=>d.toLocaleDateString('en-GB',{day:'2-digit'});
 const fmtMonth=d=>d.toLocaleDateString('en-GB',{month:'short'});
 const fmtFull=d=>d.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'});
-const money=n=>locale==='id'?'Rp'+n.toLocaleString('id-ID'):'
+const money=n=>locale==='id'?'Rp'+n.toLocaleString('id-ID'):'USD '+Math.round(n/16000).toLocaleString('en-US');
 date.min=localISO(minDate());date.value=localISO(minDate());
 function direction(){const to=document.querySelector('input[name="btDirection"]:checked').value==='to';$('btDestinationLabel').textContent=to?'Pickup location in Bali':'Drop-off location';$('btDestination').placeholder=to?'Hotel, villa or area to travel from':'Hotel, villa or area in Bali';$('btTerminalField').hidden=to}
 document.querySelectorAll('input[name="btDirection"]').forEach(el=>el.addEventListener('change',()=>{direction();if(typeof applyAirportLocale==='function')applyAirportLocale(locale);}));direction();
