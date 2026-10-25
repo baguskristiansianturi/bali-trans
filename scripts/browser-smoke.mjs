@@ -316,6 +316,13 @@ try {
   }
   const airportMin = await page.locator('#btDate').getAttribute('min');
   if (!airportMin || await page.locator('#btDate').inputValue() < airportMin) throw new Error('Airport search must default to a date at least two days ahead');
+  for (const label of ['All Car', 'Regular Car', 'Premium Car', 'Minivan / Minibus']) if (!(await page.getByRole('button', { name: label, exact: true }).count())) throw new Error('Airport vehicle category missing: ' + label);
+  if (!(await page.locator('#btPassengers option[value="15"]').count())) throw new Error('Airport passenger selector must support groups up to 15');
+  await page.locator('#btPassengers').selectOption('6');
+  if (!(await page.locator('[data-car-class="minivan"].is-active').count())) throw new Error('Six airport passengers must automatically select Minivan / Minibus');
+  if (await page.locator('#btCarCarousel .bt-car-card:visible').count() !== 1 || !(await page.locator('#btCarCarousel [data-car="Toyota HiAce"]:visible').count())) throw new Error('Six airport passengers must see the minivan option only');
+  await page.locator('#btPassengers').selectOption('2');
+  if (!(await page.locator('[data-car-class="all"].is-active').count())) throw new Error('Changing back to fewer than six airport passengers must restore All Car');
   await page.locator('#btDestination').fill('Ubud');
   await page.locator('#btAvailabilityForm button[type="submit"]').click();
   await page.waitForFunction(() => document.querySelector('#btAvailabilityResult')?.textContent.includes('vehicle options shown as available'));
@@ -333,6 +340,13 @@ try {
   }
   const rentalMin = await page.locator('#rentalDate').getAttribute('min');
   if (!rentalMin || await page.locator('#rentalDate').inputValue() < rentalMin) throw new Error('Car rental must default to a date at least two days ahead');
+  for (const label of ['All Car', 'Regular Car', 'Premium Car', 'Minivan / Minibus']) if (!(await page.getByRole('button', { name: label, exact: true }).count())) throw new Error('Rental vehicle category missing: ' + label);
+  if (!(await page.locator('#rentalPassengers option[value="15"]').count())) throw new Error('Rental passenger selector must support groups up to 15');
+  await page.locator('#rentalPassengers').selectOption('6');
+  if (!(await page.locator('[data-rental-class="minivan"].is-active').count())) throw new Error('Six rental passengers must automatically select Minivan / Minibus');
+  if (await page.locator('#btRentalCarousel .bt-car-card:visible').count() !== 1 || !(await page.locator('#btRentalCarousel [data-car="Toyota HiAce"]:visible').count())) throw new Error('Six rental passengers must see the minivan option only');
+  await page.locator('#rentalPassengers').selectOption('2');
+  if (!(await page.locator('[data-rental-class="all"].is-active').count())) throw new Error('Changing back to fewer than six rental passengers must restore All Car');
   await page.locator('#rentalPickup').fill('Seminyak hotel');
   await page.locator('#btRentalForm button[type="submit"]').click();
   await page.waitForFunction(() => document.querySelector('#rentalAvailabilityResult')?.textContent.includes('vehicle options shown as available'));
