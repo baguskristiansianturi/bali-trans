@@ -54,55 +54,9 @@
  #btFleetShowcase:not(:has(.bt-fleet-carousel-shell))>.bt-fleet-card{flex-basis:90%!important;width:90%!important}
 }
 
-/* Mobile fleet cards must scroll horizontally; never stack one card per row. */
-#btFleetShowcase .bt-fleet-showcase-track,
-#btAvailabilityResult .bt-results-card-grid{
-  display:flex!important;
-  flex-direction:row!important;
-  flex-wrap:nowrap!important;
-  align-items:stretch!important;
-  overflow-x:auto!important;
-  overflow-y:hidden!important;
-  scroll-snap-type:x mandatory!important;
-  -webkit-overflow-scrolling:touch!important;
-  min-width:0!important;
-  max-width:100%!important;
-}
-#btFleetShowcase .bt-fleet-showcase-track>.bt-fleet-card{
-  flex:0 0 calc((100% - 32px)/3)!important;
-  width:calc((100% - 32px)/3)!important;
-  max-width:calc((100% - 32px)/3)!important;
-  scroll-snap-align:start!important;
-}
-#btAvailabilityResult .bt-results-card-grid>.bt-fleet-card{
-  flex:0 0 calc((100% - 32px)/3)!important;
-  width:calc((100% - 32px)/3)!important;
-  max-width:calc((100% - 32px)/3)!important;
-  min-width:0!important;
-  scroll-snap-align:start!important;
-}
-@media(max-width:760px){
-  #btFleetShowcase .bt-fleet-showcase-track>.bt-fleet-card,
-  #btAvailabilityResult .bt-results-card-grid>.bt-fleet-card{
-    flex:0 0 86%!important;
-    width:86%!important;
-    max-width:86%!important;
-  }
-}
-@media(max-width:380px){
-  #btFleetShowcase .bt-fleet-showcase-track>.bt-fleet-card,
-  #btAvailabilityResult .bt-results-card-grid>.bt-fleet-card{
-    flex-basis:90%!important;
-    width:90%!important;
-    max-width:90%!important;
-  }
-}
-
-
-/* Final mobile-only enforcement: vehicle cards stay in one horizontal swipe row. */
+/* Catalogue carousel only. Search-result cards are intentionally not styled here. */
 @media (max-width: 760px) {
-  html body #btFleetShowcase .bt-fleet-carousel-shell > .bt-fleet-showcase-track,
-  html body main.bt-booking-page #btAvailabilityResult .bt-results-groups .bt-results-group > .bt-results-card-grid {
+  html body #btFleetShowcase .bt-fleet-carousel-shell > .bt-fleet-showcase-track {
     display: flex !important;
     flex-direction: row !important;
     flex-wrap: nowrap !important;
@@ -117,8 +71,7 @@
     scroll-snap-type: x mandatory !important;
     -webkit-overflow-scrolling: touch !important;
   }
-  html body #btFleetShowcase .bt-fleet-carousel-shell > .bt-fleet-showcase-track > .bt-fleet-card,
-  html body main.bt-booking-page #btAvailabilityResult .bt-results-groups .bt-results-group > .bt-results-card-grid > .bt-fleet-card {
+  html body #btFleetShowcase .bt-fleet-carousel-shell > .bt-fleet-showcase-track > .bt-fleet-card {
     display: flex !important;
     flex: 0 0 86% !important;
     width: 86% !important;
@@ -128,8 +81,7 @@
   }
 }
 @media (max-width: 380px) {
-  html body #btFleetShowcase .bt-fleet-carousel-shell > .bt-fleet-showcase-track > .bt-fleet-card,
-  html body main.bt-booking-page #btAvailabilityResult .bt-results-groups .bt-results-group > .bt-results-card-grid > .bt-fleet-card {
+  html body #btFleetShowcase .bt-fleet-carousel-shell > .bt-fleet-showcase-track > .bt-fleet-card {
     flex-basis: 90% !important;
     width: 90% !important;
     max-width: 90% !important;
