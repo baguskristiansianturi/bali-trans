@@ -1,6 +1,7 @@
 /* HOME PAGE */
 function renderHomeView() {
             const popularTours = (typeof BALI_PACKAGES !== 'undefined' ? BALI_PACKAGES : []).filter(pkg => pkg.category === 'tour').slice(0,6);
+            const tourImageFallbacks = ['https://images.unsplash.com/photo-1568430462989-44163eb1752f?auto=format&fit=crop&w=1200&q=85','https://images.unsplash.com/photo-1530053969600-caed2596d242?auto=format&fit=crop&w=1200&q=85','https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=1200&q=85','https://images.unsplash.com/photo-1516690561799-46d8f74f9abf?auto=format&fit=crop&w=1200&q=85','https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1200&q=85','https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=1200&q=85'];
             const activities = [
                 { key:'water', icon:'fa-water', title:'Water activities', desc:'Snorkelling, diving and watersports' },
                 { key:'temple', icon:'fa-landmark', title:'Culture & temples', desc:'Temples, villages and local arts' },
@@ -10,7 +11,7 @@ function renderHomeView() {
             const guides = (typeof BALI_BLOGS !== 'undefined' ? BALI_BLOGS : []).slice(0,3);
             return `
                 <section class="relative isolate overflow-hidden bg-slate-950 min-h-[440px] md:min-h-[500px] flex items-center">
-                    <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=2000&q=85" alt="Bali coastline and tropical landscape" class="absolute inset-0 z-0 h-full w-full object-cover" fetchpriority="high">
+                    <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=2000&q=85" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=2000&q=85'" alt="Bali coastline and tropical landscape" class="absolute inset-0 z-0 h-full w-full object-cover" fetchpriority="high">
                     <div class="absolute inset-0 z-10 bg-gradient-to-r from-slate-950/90 via-slate-950/65 to-slate-950/25"></div>
                     <div class="relative z-20 mx-auto w-full max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
                         <div class="max-w-3xl">
@@ -47,7 +48,7 @@ function renderHomeView() {
                     </div>
                     <div class="home-popular-tours-grid">
                         ${popularTours.map(pkg => {
-                            const image = pkg.heroImage || (pkg.gallery && pkg.gallery[0]) || '';
+                            const image = tourImageFallbacks[popularTours.indexOf(pkg)] || 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1200&q=85';
                             const title = pkg.title || 'Bali Tour';
                             const area = /lovina|dolphin/i.test(title + ' ' + (pkg.location || '')) ? 'North Bali' : ((pkg.location || 'Bali').split(',').slice(-1)[0].trim() || 'Bali');
                             const duration = pkg.durationLabel || pkg.duration || 'Private tour';
@@ -58,7 +59,7 @@ function renderHomeView() {
                             const desc = (pkg.shortDescription || pkg.description || (pkg.highlights && pkg.highlights[0]) || 'Explore Bali with a private tour designed around your trip.').replace(/<[^>]*>/g,'').slice(0,105);
                             return `<button type="button" class="home-tour-card group" onclick="navigateTo('detail','${pkg.id}')">
                                 <span class="home-tour-visual">
-                                    <img src="${image}" alt="${title}" loading="lazy">
+                                    <img src="${image}" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1200&q=85'" alt="${title}" loading="eager">
                                     <span class="home-tour-image-shade"></span>
                                     <span class="home-tour-badges"><span>${area}</span><span>${duration}</span></span>
                                     <span class="home-tour-overlay-copy"><strong>${title}</strong><span>${desc}</span></span>
