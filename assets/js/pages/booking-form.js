@@ -6,7 +6,7 @@ const localISO=d=>{const x=new Date(d.getTime()-d.getTimezoneOffset()*60000);ret
 const minBookingDate=()=>{const d=new Date();d.setHours(0,0,0,0);d.setDate(d.getDate()+3);return d};
 const earliestDate=localISO(minBookingDate());fields.date.min=earliestDate;
 if(!q.get('date'))fields.date.value=earliestDate;
-function validateBookingDate(showMessage=false){fields.date.setCustomValidity(fields.date.value&&fields.date.value<earliestDate?'Please choose a date at least three days from today.':'');if(fields.date.validity.customError&&showMessage)fields.date.reportValidity();return fields.date.checkValidity()}
+function validateBookingDate(showMessage=false){fields.date.setCustomValidity(fields.date.value&&fields.date.value<earliestDate?'Please choose a date at least three days from today.':'');if(showMessage&&!fields.date.checkValidity())fields.date.reportValidity();return fields.date.checkValidity()}
 fields.date.addEventListener('change',()=>validateBookingDate());
 function setIf(el,val){if(val!==null&&val!==''&&el)el.value=val}
 setIf(fields.vehicle,q.get('vehicle'));setIf(fields.passengers,q.get('passengers'));setIf(fields.date,q.get('date'));setIf(fields.time,q.get('time'));setIf(fields.direction,q.get('direction'));setIf(fields.destination,q.get('destination')||q.get('pickup'));setIf(fields.terminal,q.get('terminal'));if(q.get('mealStop')==='yes')setIf(fields.stop,q.get('mealHours')||'1');
