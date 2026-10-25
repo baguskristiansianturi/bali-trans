@@ -56,12 +56,12 @@
         '<span class="bt-brand-mark">B</span><span class="bt-brand-copy"><span class="bt-brand-name">Bali<span> Trans</span></span></span>' +
       '</a><nav class="bt-main-nav" aria-label="Main navigation">' + linkHTML + '</nav>' +
       '<div class="bt-actions">' +
+        '<button class="bt-action" type="button" id="headerSearchButton" aria-label="Open search" aria-controls="headerSearchPanel" aria-expanded="false"><svg id="headerSearchIcon" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg></button>' +
         '<div class="bt-locale-control" id="localeControl">' +
-          '<button class="bt-locale" type="button" id="localeButton" aria-label="Language and currency" aria-controls="localeMenu" aria-expanded="false"><span id="localeCurrentCode">ID</span><span aria-hidden="true">⌄</span></button>' +
+          '<button class="bt-locale" type="button" id="localeButton" aria-label="Language and currency" aria-controls="localeMenu" aria-expanded="false"><span class="bt-locale-flag" id="localeCurrentFlag" aria-hidden="true">🇮🇩</span><span id="localeCurrentCode" class="bt-locale-current-code">IDR</span></button>' +
           '<div class="bt-locale-menu hidden" id="localeMenu">' + localeHTML + '</div>' +
         '</div>' +
-        '<button class="bt-action" type="button" id="headerSearchButton" aria-label="Open search" aria-controls="headerSearchPanel" aria-expanded="false"><svg id="headerSearchIcon" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg></button>' +
-        '<button class="bt-action bt-mobile-toggle" type="button" id="mobileMenuButton" aria-label="Open menu" aria-controls="mobileMenuPanel" aria-expanded="false"><svg id="mobileMenuIcon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"></path></svg></button>' +
+                '<button class="bt-action bt-mobile-toggle" type="button" id="mobileMenuButton" aria-label="Open menu" aria-controls="mobileMenuPanel" aria-expanded="false"><svg id="mobileMenuIcon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"></path></svg></button>' +
         (hasLiveChatBar ? '' : '<a class="bt-live-chat" href="' + routes.contact + '" aria-label="Live Chat status: offline"><span class="bt-live-dot" aria-hidden="true"></span><span><strong>Live Chat</strong><small>Offline</small></span></a>') +
       '</div>' +
     '</div></div>' +
