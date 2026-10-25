@@ -410,3 +410,10 @@
 
 /* Booking action appears only on vehicle cards returned by an availability search. */
 .bt-booking-page .bt-result-book-button{display:flex;align-items:center;justify-content:center;gap:.55rem;width:100%;margin-top:1rem;padding:.8rem 1rem;border-radius:.65rem;background:#244b83;color:#fff;text-decoration:none;font-weight:700;transition:background .18s ease,transform .18s ease}.bt-booking-page .bt-result-book-button:hover{background:#193965;transform:translateY(-1px)}.bt-booking-page .bt-result-book-button:focus-visible{outline:3px solid #8bb9f0;outline-offset:3px}
+
+/* Simulated availability legend for the airport fleet prototype only. */
+.bt-booking-page .bt-date-status-legend{display:flex;flex-wrap:wrap;gap:10px;margin-top:7px;color:#657892;font-size:10px;line-height:1.4}
+.bt-booking-page .bt-date-status-legend span{display:inline-flex;align-items:center;gap:5px}
+.bt-booking-page .bt-status-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#4d9b78}
+.bt-booking-page .bt-status-dot.is-blocked{background:#c7ced8}
+.bt-booking-page .bt-fleet-showcase-section[hidden]{display:none!important}
