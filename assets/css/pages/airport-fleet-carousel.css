@@ -54,16 +54,46 @@
  #btFleetShowcase:not(:has(.bt-fleet-carousel-shell))>.bt-fleet-card{flex-basis:90%!important;width:90%!important}
 }
 
-
-/* Search-result vehicle cards: horizontal carousel per vehicle category, isolated from the booking form. */
-#btAvailabilityResult .bt-results-groups{display:block!important;min-width:0!important}
-#btAvailabilityResult .bt-results-group{min-width:0!important;max-width:100%!important;overflow:hidden!important}
-#btAvailabilityResult .bt-results-card-grid{display:flex!important;flex-flow:row nowrap!important;align-items:stretch!important;gap:16px!important;min-width:0!important;width:100%!important;margin:12px 0 24px!important;padding:4px 2px 14px!important;overflow-x:auto!important;overflow-y:hidden!important;scroll-snap-type:x mandatory!important;overscroll-behavior-x:contain!important;-webkit-overflow-scrolling:touch!important;scrollbar-width:thin;scrollbar-color:#a8b8cf #edf1f6;grid-template-columns:none!important;grid-auto-flow:unset!important;grid-auto-columns:unset!important}
-#btAvailabilityResult .bt-results-card-grid>.bt-fleet-card{display:flex!important;flex:0 0 calc((100% - 32px)/3)!important;flex-direction:column!important;width:calc((100% - 32px)/3)!important;max-width:calc((100% - 32px)/3)!important;min-width:0!important;height:auto!important;min-height:0!important;margin:0!important;overflow:hidden!important;scroll-snap-align:start!important}
+/* Mobile fleet cards must scroll horizontally; never stack one card per row. */
+#btFleetShowcase .bt-fleet-showcase-track,
+#btAvailabilityResult .bt-results-card-grid{
+  display:flex!important;
+  flex-direction:row!important;
+  flex-wrap:nowrap!important;
+  align-items:stretch!important;
+  overflow-x:auto!important;
+  overflow-y:hidden!important;
+  scroll-snap-type:x mandatory!important;
+  -webkit-overflow-scrolling:touch!important;
+  min-width:0!important;
+  max-width:100%!important;
+}
+#btFleetShowcase .bt-fleet-showcase-track>.bt-fleet-card{
+  flex:0 0 calc((100% - 32px)/3)!important;
+  width:calc((100% - 32px)/3)!important;
+  max-width:calc((100% - 32px)/3)!important;
+  scroll-snap-align:start!important;
+}
+#btAvailabilityResult .bt-results-card-grid>.bt-fleet-card{
+  flex:0 0 calc((100% - 32px)/3)!important;
+  width:calc((100% - 32px)/3)!important;
+  max-width:calc((100% - 32px)/3)!important;
+  min-width:0!important;
+  scroll-snap-align:start!important;
+}
 @media(max-width:760px){
- #btAvailabilityResult .bt-results-card-grid{gap:12px!important;padding:3px 2px 14px!important}
- #btAvailabilityResult .bt-results-card-grid>.bt-fleet-card{flex-basis:86%!important;width:86%!important;max-width:86%!important}
+  #btFleetShowcase .bt-fleet-showcase-track>.bt-fleet-card,
+  #btAvailabilityResult .bt-results-card-grid>.bt-fleet-card{
+    flex:0 0 86%!important;
+    width:86%!important;
+    max-width:86%!important;
+  }
 }
 @media(max-width:380px){
- #btAvailabilityResult .bt-results-card-grid>.bt-fleet-card{flex-basis:90%!important;width:90%!important;max-width:90%!important}
+  #btFleetShowcase .bt-fleet-showcase-track>.bt-fleet-card,
+  #btAvailabilityResult .bt-results-card-grid>.bt-fleet-card{
+    flex-basis:90%!important;
+    width:90%!important;
+    max-width:90%!important;
+  }
 }
