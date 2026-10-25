@@ -435,3 +435,10 @@
 #btFleetShowcase .bt-fleet-card-body h3,#btFleetShowcase .bt-fleet-card-body p,#btFleetShowcase .bt-fleet-capacity,#btFleetShowcase .bt-card-date-label,#btFleetShowcase .bt-card-date-chips,#btFleetShowcase .bt-date-status-legend{display:block!important;visibility:visible!important;opacity:1!important;color:#172b4d!important}
 #btFleetShowcase .bt-fleet-card-body .bt-fleet-title-row{display:flex!important;visibility:visible!important;opacity:1!important;justify-content:space-between!important;gap:8px!important}
 #btFleetShowcase .bt-fleet-card-body .bt-fleet-price-block{display:block!important;visibility:visible!important;opacity:1!important}
+
+
+/* Keep airport fleet cards compact: finish the card shortly after the date chips. */
+.bt-booking-page .bt-fleet-showcase-track{align-items:start}
+.bt-booking-page .bt-fleet-card{height:auto;align-self:start}
+.bt-booking-page .bt-fleet-card-body{flex:0 0 auto}
+.bt-booking-page .bt-fleet-request{margin-top:14px}
