@@ -437,23 +437,76 @@
 #btFleetShowcase .bt-fleet-card-body .bt-fleet-price-block{display:block!important;visibility:visible!important;opacity:1!important}
 
 
-/* Keep airport fleet cards compact: finish the card shortly after the date chips. */
-.bt-booking-page .bt-fleet-showcase-track{align-items:start}
-.bt-booking-page .bt-fleet-card{height:auto;align-self:start}
-.bt-booking-page .bt-fleet-card-body{flex:0 0 auto}
-.bt-booking-page .bt-fleet-request{margin-top:14px}
-
-
-/* Override legacy fleet safety minimum height; cards should end after their actual content. */
-#btFleetShowcase .bt-fleet-card,
-.bt-booking-page .bt-fleet-card{min-height:0!important;height:auto!important;align-self:start!important}
-#btFleetShowcase .bt-fleet-card-body,
-.bt-booking-page .bt-fleet-card-body{min-height:0!important;flex:0 0 auto!important}
-#btFleetShowcase .bt-fleet-showcase-track{align-items:start!important}
-
-
-/* Search-result cards replace the date schedule with the fare inclusions. */
-.bt-booking-page .bt-included-heading{margin-top:13px;padding-top:11px;border-top:1px solid #edf1f6;color:#687990;font-size:10px;font-weight:800;letter-spacing:.035em;text-transform:uppercase}
-.bt-booking-page .bt-included-list{display:grid;gap:8px;margin:10px 0 2px;padding:0;list-style:none;color:#405a7d;font-size:12px;font-weight:650}
-.bt-booking-page .bt-included-list li{display:flex;align-items:center;gap:8px;line-height:1.35}
-.bt-booking-page .bt-included-list i{display:inline-flex;align-items:center;justify-content:center;width:17px;height:17px;flex:0 0 17px;border-radius:50%;background:#eaf2ff;color:#244b83;font-size:9px}
+/* Canonical airport fleet layout: the outer container owns one full-width shell;
+   only the inner track lays cards out horizontally. */
+#btFleetShowcase.bt-fleet-showcase{
+  display:block!important;
+  width:100%!important;
+  min-width:0!important;
+  grid-template-columns:none!important;
+  gap:0!important;
+  overflow:visible!important;
+}
+#btFleetShowcase .bt-fleet-carousel-shell{
+  display:block!important;
+  position:relative!important;
+  width:100%!important;
+  min-width:0!important;
+}
+#btFleetShowcase .bt-fleet-showcase-track{
+  display:grid!important;
+  grid-template-columns:none!important;
+  grid-auto-flow:column!important;
+  grid-auto-columns:calc((100% - 36px)/3)!important;
+  align-items:stretch!important;
+  gap:18px!important;
+  width:100%!important;
+  min-width:0!important;
+  overflow-x:auto!important;
+  overflow-y:hidden!important;
+  overscroll-behavior-x:contain;
+  scroll-snap-type:x mandatory!important;
+  scroll-behavior:smooth;
+  -webkit-overflow-scrolling:touch;
+}
+#btFleetShowcase .bt-fleet-showcase-track>.bt-fleet-card{
+  display:flex!important;
+  flex-direction:column!important;
+  float:none!important;
+  width:auto!important;
+  min-width:0!important;
+  max-width:none!important;
+  height:auto!important;
+  min-height:0!important;
+  max-height:none!important;
+  margin:0!important;
+  align-self:stretch!important;
+  scroll-snap-align:start;
+}
+#btFleetShowcase .bt-fleet-showcase-track>.bt-fleet-card>.bt-fleet-card-body{
+  display:flex!important;
+  flex:1 1 auto!important;
+  flex-direction:column!important;
+  min-height:0!important;
+}
+#btFleetShowcase .bt-fleet-showcase-track .bt-fleet-main-image{
+  display:block!important;
+  width:100%!important;
+  height:174px!important;
+  min-height:174px!important;
+  object-fit:cover!important;
+}
+@media(max-width:760px){
+  #btFleetShowcase .bt-fleet-showcase-track{
+    grid-auto-columns:minmax(86%,1fr)!important;
+    gap:12px!important;
+    padding-bottom:16px!important;
+  }
+  #btFleetShowcase .bt-fleet-showcase-track .bt-fleet-main-image{
+    height:165px!important;
+    min-height:165px!important;
+  }
+}
+@media(max-width:380px){
+  #btFleetShowcase .bt-fleet-showcase-track{grid-auto-columns:92%!important}
+}
