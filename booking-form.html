@@ -8,20 +8,20 @@
 </head>
 <body class="booking-form-page">
 <main class="booking-shell">
-<header class="booking-top"><a class="back-link" id="bookingBack" href="./bali-airport-transfer.html">← <span>Back to vehicles</span></a><a class="wordmark" href="./index.html"><span class="brand-dot"></span>Bali Trans</a><span class="secure-note">Booking preview</span></header>
+<header class="booking-top"><a class="back-link" id="bookingBack" href="./bali-airport-transfer.html">← <span>Back to vehicles</span></a><a class="wordmark" href="./index.html"><span class="brand-dot"></span>Bali Trans</a><span class="secure-note">Secure booking</span></header>
 <div class="booking-progress" aria-label="Booking steps"><span class="step is-current" data-progress="1"><i>1</i> Trip details</span><span class="progress-line"></span><span class="step" data-progress="2"><i>2</i> Guest & payment</span><span class="progress-line"></span><span class="step"><i>3</i> WhatsApp request</span></div>
 <div class="booking-layout">
 <section class="booking-main">
 <div class="page-heading"><h1 id="pageTitle">Review your trip</h1><p id="pageIntro">Adjust the details below and see an estimated fare before continuing.</p></div>
-<section class="summary-card"><div class="summary-heading"><h2>Your trip</h2><span class="preview-tag">UI/UX preview · simulated availability</span></div>
+<section class="summary-card"><div class="summary-heading"><h2>Your trip</h2></div>
 <dl class="trip-summary"><div><dt>Service</dt><dd id="summaryService">Airport transfer</dd></div><div><dt>Estimated total</dt><dd id="summaryFare">Rp 350.000</dd></div></dl>
 </section>
 <form id="guestBookingForm" class="guest-form">
 <section data-stage="1" id="tripStage">
-<div class="form-section-title"><h2>1. Trip details</h2><p>For this preview, all dates and vehicle options are treated as available.</p></div>
+<div class="form-section-title"><h2>1. Trip details</h2><p>Enter your travel details. Our team will confirm the vehicle and final arrangements.</p></div>
 <div class="field-grid">
-<label class="field"><span>Vehicle <b>*</b></span><select name="vehicle" id="vehicle" required><option value="Regular Car">Regular Car · 1–5 guests</option><option value="Premium Car">Premium Car · 1–5 guests</option><option value="Karoseri / HiAce">Karoseri / HiAce · 6 guests</option></select></label>
-<label class="field"><span>Passengers <b>*</b></span><select name="passengers" id="passengers" required><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option></select></label>
+<label class="field"><span>Vehicle <b>*</b></span><select name="vehicle" id="vehicle" required><option value="Regular Car">Regular Car · 1–5 guests</option><option value="Premium Car">Premium Car · 1–5 guests</option><option value="Karoseri / HiAce">Minivan · 6–14 guests</option></select></label>
+<label class="field"><span>Passengers <b>*</b></span><select name="passengers" id="passengers" required><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option></select></label>
 <label class="field"><span>Travel date <b>*</b></span><input type="date" name="date" id="travelDate" required></label>
 <label class="field"><span>Pickup time <b>*</b></span><input type="time" name="time" id="travelTime" value="09:00" required></label>
 <label class="field"><span>Direction <b>*</b></span><select name="direction" id="direction"><option value="from">From airport to Bali destination</option><option value="to">From Bali to airport</option></select></label>
@@ -29,7 +29,7 @@
 <label class="field"><span>Airport terminal</span><select name="terminal" id="terminal"><option>International terminal</option><option>Domestic terminal</option><option>Not applicable</option></select></label>
 <label class="field"><span>Extra stop time</span><select name="stopHours" id="stopHours"><option value="0">No extra stop</option><option value="1">1 hour · +Rp 50.000</option><option value="2">2 hours · +Rp 100.000</option><option value="3">3 hours · +Rp 150.000</option></select></label>
 </div>
-<div class="fare-breakdown" aria-live="polite"><div><span>Estimated transfer fare</span><strong id="baseFare">Rp 350.000</strong></div><div><span>Extra stop</span><strong id="stopFare">Rp 0</strong></div><div class="fare-total"><span>Estimated total</span><strong id="totalFare">Rp 350.000</strong></div><p>Preview estimate only. Final route pricing will be configured later; no payment is taken here.</p></div>
+<div class="fare-breakdown" aria-live="polite"><div><span>Estimated transfer fare</span><strong id="baseFare">Rp 350.000</strong></div><div><span>Extra stop</span><strong id="stopFare">Rp 0</strong></div><div class="fare-total"><span>Estimated total</span><strong id="totalFare">Rp 350.000</strong></div><p>The final fare depends on your route and travel details. Our team will confirm it before your booking is finalised.</p></div>
 <button class="submit-booking" id="continueButton" type="button">Continue to guest details <span>→</span></button>
 </section>
 <section data-stage="2" id="guestStage" hidden>
@@ -44,14 +44,14 @@
 <label class="field full"><span>Additional notes <small>(optional)</small></span><textarea name="notes" rows="3" placeholder="Luggage, child seat, meeting point or other requests"></textarea></label>
 </div>
 <div class="form-section-title payment-title"><h2>Payment preference</h2></div>
-<div class="payment-options"><label class="payment-option"><input type="radio" name="payment" value="Pay on arrival / service day" checked><span class="payment-copy"><strong>Pay on arrival / service day</strong><small>Confirm the payment arrangement with our team.</small></span><span class="radio-mark"></span></label><label class="payment-option"><input type="radio" name="payment" value="Discuss payment via WhatsApp"><span class="payment-copy"><strong>Discuss payment via WhatsApp</strong><small>Ask the team about available payment methods.</small></span><span class="radio-mark"></span></label><div class="maintenance-note"><span aria-hidden="true">ⓘ</span><p>Online payments are in preview/maintenance and cannot be used yet.</p></div></div>
+<div class="payment-options"><label class="payment-option"><input type="radio" name="payment" value="Pay on arrival / service day" checked><span class="payment-copy"><strong>Pay on arrival / service day</strong><small>Confirm the payment arrangement with our team.</small></span><span class="radio-mark"></span></label><label class="payment-option"><input type="radio" name="payment" value="Discuss payment via WhatsApp"><span class="payment-copy"><strong>Discuss payment via WhatsApp</strong><small>Ask the team about available payment methods.</small></span><span class="radio-mark"></span></label><div class="maintenance-note"><span aria-hidden="true">ⓘ</span><p>Online payment is currently unavailable. Please choose one of the options above and arrange payment with our team.</p></div></div>
 <label class="consent"><input type="checkbox" name="terms" required><span>I have reviewed my details and agree to the <a href="#termsText">booking terms</a>. Sending this form is a request only, not a confirmed booking.</span></label>
-<details id="termsText" class="terms-details"><summary>Booking terms (preview)</summary><p>Your request will be sent to Bali Trans via WhatsApp. The team must confirm the vehicle, route, final fare and arrangements. No online payment is collected through this preview form. Please verify all travel details before sending.</p></details>
+<details id="termsText" class="terms-details"><summary>Booking terms</summary><p>Your booking request will be sent to Bali Trans via WhatsApp. The team will confirm the vehicle, route, final fare and payment arrangements. Please check all travel details before sending your request.</p></details>
 <div class="stage-actions"><button class="secondary-action" id="backToTrip" type="button">← Back to trip</button><button class="submit-booking" type="submit">Send request via WhatsApp <span>→</span></button></div>
 </section>
 </form>
 </section>
-<aside class="booking-aside"><div class="aside-card"><div class="aside-icon">✓</div><h2 id="asideTitle">Try the booking flow</h2><p id="asideText">This is a test-ready preview. Availability is simulated so the UI/UX can be reviewed before backend development.</p><ul><li>Change trip details</li><li>See fare estimate update</li><li>Test guest and payment choices</li></ul><div class="aside-divider"></div><p class="support-label">Availability mode</p><strong>Demo: all dates available</strong></div><p class="privacy-note">Do not enter card details or other sensitive payment information.</p></aside>
+<aside class="booking-aside"><div class="aside-card"><div class="aside-icon">✓</div><h2 id="asideTitle">Your trip, made simple</h2><p id="asideText">Review your trip details, provide your contact information and send your booking request to our team.</p><ul><li>Private airport transfers</li><li>Vehicle options for couples, families and groups</li><li>Booking details reviewed by our team</li></ul><div class="aside-divider"></div><p class="support-label">Booking support</p><strong>Vehicle and fare confirmation via WhatsApp</strong></div><p class="privacy-note">Please do not send card details through WhatsApp.</p></aside>
 </div>
 </main>
 <script src="./assets/js/pages/booking-form.js?v=20261025-2"></script>
