@@ -76,3 +76,7 @@ body.checkout-mode .bt-site-footer,
 body.checkout-mode #mobileBottomNavigation{display:none!important}
 body.checkout-mode{padding-bottom:0!important;background:#f7f9fc}
 body.checkout-mode #appContainer{padding-bottom:0!important}
+
+/* Mobile header: only search, flag-based language/currency and hamburger in the action row. */
+@media(max-width:767px){.bt-header-row{gap:8px;min-height:60px}.bt-brand-mark{width:34px;height:34px;border-radius:10px;font-size:18px}.bt-brand-name{font-size:18px}.bt-actions{gap:6px}.bt-live-chat{display:none!important}.bt-action{width:36px;height:36px}.bt-locale{height:36px;min-width:36px;padding:0 7px;display:flex;align-items:center;justify-content:center;gap:0}.bt-locale-control #localeButton .bt-locale-flag{display:inline-block!important;font-size:21px;line-height:1}.bt-locale-current-code{display:none!important}}
+@media(max-width:380px){.bt-header-row{gap:5px}.bt-brand{gap:7px}.bt-brand-name{font-size:16px}.bt-brand-mark{width:31px;height:31px}.bt-actions{gap:4px}}
