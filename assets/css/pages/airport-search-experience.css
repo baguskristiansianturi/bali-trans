@@ -389,3 +389,20 @@
  .bt-booking-page .bt-fleet-card .bt-price-number{font-size:18px}
  .bt-booking-page .bt-airport-copy-grid h3{font-size:18px}
 }
+
+/* Filtered search results reuse the same vehicle cards as the fleet showcase. */
+.bt-booking-page .bt-results-card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:stretch}
+.bt-booking-page .bt-results-card-grid .bt-fleet-card{min-width:0;overflow:hidden;border:1px solid #e1e8f2;border-radius:18px;background:#fff;box-shadow:0 8px 24px rgba(28,51,82,.07)}
+.bt-booking-page .bt-results-card-grid .bt-fleet-image-wrap{height:210px}
+.bt-booking-page .bt-results-card-grid .bt-fleet-card-body{padding:16px}
+.bt-booking-page .bt-results-card-grid .bt-fleet-title-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:start}
+.bt-booking-page .bt-results-card-grid .bt-fleet-title-row h3{font-size:17px;font-weight:850;line-height:1.35}
+.bt-booking-page .bt-results-card-grid .bt-fleet-price-block{min-width:92px}
+.bt-booking-page .bt-results-card-grid .bt-card-date-chips{display:flex;flex-wrap:wrap;gap:7px}
+.bt-booking-page .bt-results-card-grid .bt-date-chip{min-width:34px}
+.bt-booking-page .bt-results-card-grid .bt-image-dots button{cursor:pointer}
+@media(max-width:760px){
+ .bt-booking-page .bt-results-card-grid{grid-template-columns:minmax(0,1fr);gap:14px}
+ .bt-booking-page .bt-results-card-grid .bt-fleet-image-wrap{height:195px}
+ .bt-booking-page .bt-results-card-grid .bt-fleet-card-body{padding:14px}
+}
