@@ -19,3 +19,44 @@
 .bt-availability-result .bt-results-heading p{margin:0;color:#687990;font-size:12px}
 .bt-availability-result .bt-result-vehicle{box-shadow:none}
 @media(max-width:480px){.bt-booking-page .bt-meal-stop{align-items:stretch;flex-direction:column;gap:12px}.bt-meal-duration{min-width:0}.bt-meal-duration select{width:100%}}
+
+/* Airport transfer page: date guide, dedicated fleet display and service story */
+.bt-booking-page .bt-meal-stop{display:none!important}
+#btTerminalField[hidden]{display:none!important}
+.bt-date-guide-section,.bt-fleet-showcase-section,.bt-airport-copy-section{padding:30px 0;background:#f3f6fc}
+.bt-date-guide-heading h2,.bt-fleet-showcase-heading h2,.bt-airport-copy-grid h2{margin:7px 0 8px;font-size:clamp(22px,3vw,30px);line-height:1.2;letter-spacing:-.5px;color:#172b4d}
+.bt-date-guide-heading p,.bt-fleet-showcase-heading>p{margin:0;max-width:650px;font-size:13px;line-height:1.65;color:#687990}
+.bt-date-guide{display:flex;gap:8px;overflow-x:auto;padding:15px 1px 5px;scrollbar-width:none}
+.bt-date-chip{position:relative;display:flex;flex:0 0 58px;flex-direction:column;align-items:center;gap:2px;padding:9px 4px;border:1px solid #d7e1ef;border-radius:10px;background:white;color:#29446e}
+.bt-date-chip b{font-size:15px}.bt-date-chip small{font-size:10px}.bt-date-chip i{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:34px;font-style:normal;font-weight:300;color:#b45353;background:#fff9;border-radius:9px}
+.bt-date-chip.is-blocked{color:#9aa5b5;background:#f1f3f7}.bt-date-chip.is-bookable{border-color:#b9cce6;background:#fff}
+.bt-fleet-showcase-section{padding-top:20px;background:#fff}
+.bt-fleet-showcase-heading{margin-bottom:18px}.bt-fleet-showcase{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.bt-fleet-card{min-width:0;overflow:hidden;border:1px solid #dfe7f1;border-radius:15px;background:#fff;box-shadow:0 5px 18px #172b4d0a}
+.bt-fleet-card>img{display:block;width:100%;height:150px;object-fit:cover;background:#e8eef6}
+.bt-fleet-card-body{padding:13px}.bt-fleet-card h3{margin:8px 0 5px;font-size:16px;color:#172b4d}.bt-fleet-card p{min-height:34px;margin:0;color:#687990;font-size:12px;line-height:1.5}
+.bt-fleet-capacity{margin-top:9px;color:#405a7d;font-size:11px;font-weight:750}
+.bt-card-date-label{margin-top:13px;padding-top:10px;border-top:1px solid #edf1f6;color:#687990;font-size:10px;font-weight:800}
+.bt-card-date-chips{display:flex;gap:4px;overflow-x:auto;padding:7px 0 2px;scrollbar-width:none}
+.bt-card-date-chips .bt-date-chip{flex:0 0 35px;padding:5px 2px;border-radius:6px}.bt-card-date-chips .bt-date-chip b{font-size:10px}.bt-card-date-chips .bt-date-chip small{font-size:8px}.bt-card-date-chips .bt-date-chip i{font-size:20px}
+.bt-results-wrap{padding-bottom:10px}
+.bt-availability-result .bt-results-heading h2{margin:5px 0;font-size:23px;color:#172b4d}
+.bt-availability-note{margin-top:8px!important;padding:9px 11px;border-radius:8px;background:#f7f9fc}
+.bt-results-groups{display:grid;gap:17px;margin-top:18px}.bt-results-group-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:9px}.bt-results-group-heading h3{margin:0;font-size:16px;color:#172b4d}.bt-results-group-heading span{font-size:10px;color:#687990}
+.bt-results-list{display:grid;gap:9px}
+.bt-result-vehicle{display:flex;gap:12px;overflow:hidden;border:1px solid #dfe7f1;border-radius:12px;background:white}
+.bt-result-vehicle>img{width:124px;flex:0 0 124px;min-height:118px;object-fit:cover;background:#e8eef6}
+.bt-result-vehicle-copy{flex:1;min-width:0;padding:11px 12px}
+.bt-result-vehicle-copy h4{margin:6px 0 4px;font-size:15px;color:#172b4d}.bt-result-vehicle-copy p{margin:0;color:#687990;font-size:11px;line-height:1.45}
+.bt-result-meta{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:10px}
+.bt-result-fare{font-size:13px;font-weight:850;color:#294d82}
+.bt-result-meta button,.bt-airport-cta{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:8px;background:#284d82;color:white;padding:9px 12px;font-size:11px;font-weight:850;text-decoration:none}
+.bt-unavailable{margin:0;padding:12px;border:1px dashed #d6dfeb;border-radius:9px;background:#f8faff;color:#687990;font-size:12px}
+.bt-airport-copy-section{background:#f3f6fc;padding:42px 0 54px}
+.bt-airport-copy-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:36px}
+.bt-airport-copy-grid p,.bt-airport-copy-grid li{color:#53657e;font-size:13px;line-height:1.8}
+.bt-airport-copy-grid h3{margin:20px 0 7px;font-size:17px;color:#172b4d}
+.bt-airport-copy-grid ol{padding-left:20px}
+.bt-airport-cta{margin-top:10px;min-height:44px;padding:12px 17px;font-size:12px}
+@media(max-width:760px){.bt-date-guide-section,.bt-fleet-showcase-section{padding:24px 0}.bt-fleet-showcase{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.bt-fleet-card>img{height:112px}.bt-fleet-card-body{padding:10px}.bt-fleet-card h3{font-size:14px}.bt-fleet-card p{font-size:11px;min-height:50px}.bt-card-date-chips .bt-date-chip{flex-basis:31px}.bt-results-wrap{padding-left:0;padding-right:0}.bt-availability-result{padding:12px}.bt-result-vehicle>img{width:94px;flex-basis:94px;min-height:120px}.bt-result-vehicle-copy{padding:9px}.bt-result-meta{align-items:flex-start;flex-direction:column}.bt-result-meta button{width:100%}.bt-airport-copy-section{padding:32px 0 42px}.bt-airport-copy-grid{grid-template-columns:1fr;gap:8px}}
+@media(max-width:380px){.bt-fleet-showcase{grid-template-columns:1fr}.bt-fleet-card>img{height:160px}.bt-fleet-card p{min-height:0}.bt-result-vehicle>img{width:82px;flex-basis:82px}}
