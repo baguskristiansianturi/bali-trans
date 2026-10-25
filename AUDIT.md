@@ -117,3 +117,15 @@ Real sign-up, sign-in, password recovery, saved booking history, and server-side
 - Browser smoke coverage now includes Help Centre, FAQ, Terms, Privacy Policy, Partner Enquiries and Account Access routes.
 - `invoice.html` and `invoice-generator.html` have had inline CSS and executable script bodies extracted into `assets/css/pages/` and `assets/js/pages/`; the validation workflow checks these references.
 - Manual visual QA on a physical Android phone remains outstanding.
+
+
+## Follow-up verification — 25 October 2026
+
+- Kept the global footer free of the unrequested WhatsApp CTA; enquiry access remains within the existing Contact and transport forms.
+- Added Playwright smoke checks for the private-transport form: date/time, passenger count, flight details, notes, service-tab switching, and the generated WhatsApp message are checked against the configured number.
+- Added Playwright coverage for Contact enquiry submission, asserting that guest/service details are included in the WhatsApp handoff.
+- Corrected the Contact form's planned-date minimum to use the visitor's local calendar date instead of UTC.
+- Unified the legacy terms-and-conditions.html URL with the SPA's canonical expandable Terms view, avoiding two competing terms pages.
+- Extended CI to inspect local HTML anchor links and verify their fragments exist on the destination static page (SPA index.html fragments are excluded because its view anchors are rendered dynamically).
+- Validation and deployment both passed for commit a8bd69c5f38d187134979d298e6e162e293e1a4f. Validation run: https://github.com/baguskristiansianturi/bali-trans/actions/runs/40179388423. Deployment run: https://github.com/baguskristiansianturi/bali-trans/actions/runs/40179388391.
+- Automated browser checks run at a 360px viewport; they do not replace a visual inspection on a physical Android phone or desktop browser. No real reservation, inventory, or online payment backend has been added.
