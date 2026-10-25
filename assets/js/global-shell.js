@@ -2,6 +2,9 @@
 (function () {
   'use strict';
 
+  // Single source of truth for the shared site identity. Keep brand changes here first.
+  const siteConfig = Object.freeze({ brandName: 'Bali Trans', shortName: 'Bali' });
+  const brandName = siteConfig.brandName;
   const home = './index.html';
   const routes = {
     home,
@@ -52,8 +55,8 @@
   header.className = 'bt-site-header';
   header.innerHTML =
     '<div class="bt-shell"><div class="bt-header-row">' +
-      '<a class="bt-brand" href="' + routes.home + '" aria-label="Bali Trans home">' +
-        '<span class="bt-brand-mark">B</span><span class="bt-brand-copy"><span class="bt-brand-name">Bali<span> Trans</span></span></span>' +
+      '<a class="bt-brand" href="' + routes.home + '" aria-label="' + brandName + ' home">' +
+        '<span class="bt-brand-mark">' + brandName.charAt(0) + '</span><span class="bt-brand-copy"><span class="bt-brand-name">' + brandName + '</span></span>' +
       '</a><div class="bt-actions">' +
         '<button class="bt-action" type="button" id="headerSearchButton" aria-label="Search" title="Search" aria-controls="headerSearchPanel" aria-expanded="false"><svg id="headerSearchIcon" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg></button>' +
         '<a class="bt-desktop-link bt-help-link" href="' + routes.help + '" aria-label="Help" title="Help"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M9.6 9a2.5 2.5 0 0 1 4.8.9c0 1.8-2.4 2.1-2.4 3.8M12 17h.01"></path></svg><span>Help</span></a>' +
@@ -69,7 +72,7 @@
       '</div>' +
     '</div></div>' +
     '<div class="bt-search-panel hidden" id="headerSearchPanel"><div class="bt-shell">' +
-      '<form id="btSearchForm" role="search"><label class="bt-search-label" for="headerSearchInput">Search Bali tours and services</label>' +
+      '<form id="btSearchForm" role="search"><label class="bt-search-label" for="headerSearchInput">Search ' + brandName + ' tours and services</label>' +
       '<input class="bt-search-input" type="search" id="headerSearchInput" placeholder="Search tours, activities or places..." aria-label="Search tours, activities or places">' +
       '<div class="bt-search-results hidden" id="searchResultsDropdown"></div></form>' +
     '</div></div>' +
@@ -80,7 +83,7 @@
   footer.className = 'bt-site-footer';
   footer.innerHTML =
     '<div class="bt-footer-inner"><div class="bt-footer-grid">' +
-      '<div class="bt-footer-intro"><a class="bt-footer-brand" href="' + routes.home + '" aria-label="Bali Trans home"><span class="bt-brand-mark">B</span><span class="bt-brand-name">Bali<span> Trans</span></span></a>' +
+      '<div class="bt-footer-intro"><a class="bt-footer-brand" href="' + routes.home + '" aria-label="' + brandName + ' home"><span class="bt-brand-mark">' + brandName.charAt(0) + '</span><span class="bt-brand-name">' + brandName + '</span></a>' +
         '<p class="bt-footer-copy">Discover Bali tours, local experiences and private transport. Compare trip details and contact our team to discuss your plans before booking.</p>' +
         '<a class="bt-footer-cta" href="' + routes.contact + '">Talk to our team <span aria-hidden="true">→</span></a>' +
         '<div class="bt-footer-highlights"><div><strong>Explore Bali</strong><span>Tours and places worth discovering.</span></div><div><strong>Private transport</strong><span>Discuss routes, pickup and timing.</span></div></div></div>' +
@@ -88,11 +91,11 @@
         '<section><h2>Discover</h2><ul><li><a href="' + routes.tours + '">All tours &amp; activities</a></li><li><a href="' + routes.destinations + '">South Bali</a></li><li><a href="' + home + '?page=discovery&amp;item=region%3Acentral">Central Bali</a></li><li><a href="' + home + '?page=discovery&amp;item=region%3Anorth">North Bali</a></li><li><a href="' + routes.guides + '">Blog</a></li></ul></section>' +
         '<section><h2>Plan your trip</h2><ul><li><a href="' + routes.tours + '">Tour packages</a></li><li><a href="./transport-service.html">Private transport</a></li><li><a href="./bali-airport-transfer.html">Airport transfer</a></li><li><a href="./bali-port-transfer.html">Port transfer</a></li><li><a href="./bali-private-day-tour.html">Private day tour</a></li></ul></section>' +
         '<section><h2>Help &amp; support</h2><ul><li><a href="' + routes.help + '">Help centre</a></li><li><a href="' + routes.faq + '">FAQs</a></li><li><a href="' + routes.contact + '">Contact our team</a></li></ul></section>' +
-        '<section><h2>About us</h2><ul><li><a href="' + routes.about + '">About Bali Trans</a></li><li><a href="' + routes.terms + '">Terms &amp; conditions</a></li><li><a href="' + routes.privacy + '">Privacy policy</a></li><li><a href="' + routes.partners + '">Partner enquiries</a></li></ul></section>' +
+        '<section><h2>About us</h2><ul><li><a href="' + routes.about + '">About ' + brandName + '</a></li><li><a href="' + routes.terms + '">Terms &amp; conditions</a></li><li><a href="' + routes.privacy + '">Privacy policy</a></li><li><a href="' + routes.partners + '">Partner enquiries</a></li></ul></section>' +
         '<section><h2>Your account</h2><ul><li><a href="' + routes.account + '">Create account</a></li><li><a href="' + routes.tours + '">Continue as guest</a></li><li><a href="' + routes.contact + '">Booking assistance</a></li></ul></section>' +
       '</div></div>' +
       '<div class="bt-footer-note"><span class="bt-footer-note-icon" aria-hidden="true">ⓘ</span><div><strong>Planning something special in Bali?</strong><p>Tell us your destination, dates and group size. Confirm trip details, prices and availability with our team before booking.</p></div></div>' +
-      '<div class="bt-footer-bottom"><p>© 2026 Bali Trans. Tours, experiences and private transport in Bali.</p><p>Trip details, prices and availability should be confirmed with our team before booking.</p></div></div>';
+      '<div class="bt-footer-bottom"><p>© 2026 ' + brandName + '. Tours, experiences and private transport in Bali.</p><p>Trip details, prices and availability should be confirmed with our team before booking.</p></div></div>';
 
   function init() {
     // Rebuild the shared shell from one canonical template instead of retaining stale/duplicated controls.
