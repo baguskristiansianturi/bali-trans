@@ -31,7 +31,7 @@
 .bt-date-chip b{font-size:15px}.bt-date-chip small{font-size:10px}.bt-date-chip i{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:34px;font-style:normal;font-weight:300;color:#b45353;background:#fff9;border-radius:9px}
 .bt-date-chip.is-blocked{color:#9aa5b5;background:#f1f3f7}.bt-date-chip.is-bookable{border-color:#b9cce6;background:#fff}
 .bt-fleet-showcase-section{padding-top:20px;background:#fff}
-.bt-fleet-showcase-heading{margin-bottom:18px}.bt-fleet-showcase{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.bt-fleet-showcase-heading{margin-bottom:18px}.bt-fleet-showcase{display:block;min-width:0}
 .bt-fleet-card{min-width:0;overflow:hidden;border:1px solid #dfe7f1;border-radius:15px;background:#fff;box-shadow:0 5px 18px #172b4d0a}
 .bt-fleet-card>img{display:block;width:100%;height:150px;object-fit:cover;background:#e8eef6}
 .bt-fleet-card-body{padding:13px}.bt-fleet-card h3{margin:8px 0 5px;font-size:16px;color:#172b4d}.bt-fleet-card p{min-height:34px;margin:0;color:#687990;font-size:12px;line-height:1.5}
@@ -58,8 +58,8 @@
 .bt-airport-copy-grid h3{margin:20px 0 7px;font-size:17px;color:#172b4d}
 .bt-airport-copy-grid ol{padding-left:20px}
 .bt-airport-cta{margin-top:10px;min-height:44px;padding:12px 17px;font-size:12px}
-@media(max-width:760px){.bt-date-guide-section,.bt-fleet-showcase-section{padding:24px 0}.bt-fleet-showcase{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.bt-fleet-card>img{height:112px}.bt-fleet-card-body{padding:10px}.bt-fleet-card h3{font-size:14px}.bt-fleet-card p{font-size:11px;min-height:50px}.bt-card-date-chips .bt-date-chip{flex-basis:31px}.bt-results-wrap{padding-left:0;padding-right:0}.bt-availability-result{padding:12px}.bt-result-vehicle>img{width:94px;flex-basis:94px;min-height:120px}.bt-result-vehicle-copy{padding:9px}.bt-result-meta{align-items:flex-start;flex-direction:column}.bt-result-meta button{width:100%}.bt-airport-copy-section{padding:32px 0 42px}.bt-airport-copy-grid{grid-template-columns:1fr;gap:8px}}
-@media(max-width:380px){.bt-fleet-showcase{grid-template-columns:1fr}.bt-fleet-card>img{height:160px}.bt-fleet-card p{min-height:0}.bt-result-vehicle>img{width:82px;flex-basis:82px}}
+@media(max-width:760px){.bt-date-guide-section,.bt-fleet-showcase-section{padding:24px 0}.bt-fleet-card>img{height:112px}.bt-fleet-card-body{padding:10px}.bt-fleet-card h3{font-size:14px}.bt-fleet-card p{font-size:11px;min-height:50px}.bt-card-date-chips .bt-date-chip{flex-basis:31px}.bt-results-wrap{padding-left:0;padding-right:0}.bt-availability-result{padding:12px}.bt-result-vehicle>img{width:94px;flex-basis:94px;min-height:120px}.bt-result-vehicle-copy{padding:9px}.bt-result-meta{align-items:flex-start;flex-direction:column}.bt-result-meta button{width:100%}.bt-airport-copy-section{padding:32px 0 42px}.bt-airport-copy-grid{grid-template-columns:1fr;gap:8px}}
+@media(max-width:380px){.bt-fleet-card>img{height:160px}.bt-fleet-card p{min-height:0}.bt-result-vehicle>img{width:82px;flex-basis:82px}}
 
 /* Starting fare display, SEO FAQ and closing booking CTA */
 .bt-fleet-price-guide{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin-top:17px}
@@ -111,8 +111,8 @@
 .bt-fleet-showcase-section{background:#f7f9fc;padding:30px 0 34px}
 .bt-fleet-showcase-heading{max-width:760px}
 .bt-fleet-showcase-heading>p{font-size:13px;line-height:1.7}
-.bt-fleet-carousel-shell{position:relative}
-.bt-fleet-showcase-track::-webkit-scrollbar{display:none}
+
+
 .bt-fleet-card{scroll-snap-align:start;border:1px solid #e0e7f0;border-radius:17px;box-shadow:0 7px 24px rgba(23,43,77,.055);transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
 .bt-fleet-card:hover{transform:translateY(-3px);border-color:#c4d3e7;box-shadow:0 14px 30px rgba(23,43,77,.1)}
 .bt-fleet-image-wrap{position:relative;overflow:hidden;background:#e7edf5}
@@ -137,12 +137,12 @@
 .bt-fleet-request{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;margin-top:13px;padding:11px 12px;border:1px solid #294d82;border-radius:10px;background:#294d82;color:#fff;font-size:11px;font-weight:800;cursor:pointer;transition:background .18s ease,border-color .18s ease,transform .18s ease}
 .bt-fleet-request:hover,.bt-fleet-request:focus-visible{background:#1e3d6b;border-color:#1e3d6b;outline:3px solid #294d8222;outline-offset:2px}
 .bt-fleet-request:active{transform:scale(.99)}
-.bt-fleet-carousel-arrow{position:absolute;z-index:2;top:75px;display:grid;place-items:center;width:38px;height:38px;border:1px solid #d8e2ef;border-radius:50%;background:#ffffffed;color:#294d82;font-size:25px;line-height:1;box-shadow:0 5px 14px #172b4d16;cursor:pointer;transition:background .18s ease,color .18s ease}
-.bt-fleet-carousel-arrow:hover,.bt-fleet-carousel-arrow:focus-visible{background:#294d82;color:white;outline:2px solid #294d8226;outline-offset:2px}
-.bt-fleet-prev{left:-15px}.bt-fleet-next{right:-15px}
-.bt-fleet-carousel-status{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:0;padding:0 2px;color:#64758d;font-size:10px}
-#btFleetCarouselCount{color:#294d82;font-weight:850;font-variant-numeric:tabular-nums;letter-spacing:.7px}
-.bt-fleet-carousel-hint{font-size:10px}
+
+
+
+
+
+
 @media(max-width:760px){
  .bt-fleet-showcase-section{padding:24px 0 28px}
   .bt-fleet-card> .bt-fleet-image-wrap img{height:165px}
@@ -150,13 +150,11 @@
  .bt-fleet-card h3{font-size:16px}
  .bt-fleet-card p{min-height:0;font-size:12px}
  .bt-fleet-card .bt-fleet-starting-price{font-size:22px}
- .bt-fleet-carousel-arrow{top:65px;width:34px;height:34px;font-size:22px}
- .bt-fleet-prev{left:-9px}.bt-fleet-next{right:-9px}
 }
 @media(max-width:380px){
   .bt-fleet-card> .bt-fleet-image-wrap img{height:150px}
 }
-@media(prefers-reduced-motion:reduce){.bt-fleet-showcase-track,.bt-fleet-card,.bt-fleet-card img,.bt-fleet-carousel-arrow,.bt-fleet-request{scroll-behavior:auto;transition:none!important}}
+@media(prefers-reduced-motion:reduce){.bt-fleet-card,.bt-fleet-card img,.bt-fleet-request{transition:none!important}}
 
 
 /* Approved fleet-card visual direction; carousel layout is owned by airport-fleet-carousel.css. */
