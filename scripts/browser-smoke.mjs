@@ -311,28 +311,26 @@ try {
 
   await page.goto('http://127.0.0.1:4173/bali-airport-transfer.html', { waitUntil: 'domcontentloaded' });
   await page.waitForSelector('.bt-site-header[data-ready="true"]');
-  if (await page.locator('.bt-service-tab').count() !== 4 || await page.locator('.bt-car-card').count() !== 10) {
-    throw new Error('Airport search must show four service tabs and ten vehicle cards');
-  }
+  if (await page.locator('.bt-service-tab, .bt-car-carousel, .bt-fleet-section').count()) throw new Error('Airport transfer page must stay focused without service carousel or fleet carousel');
   const airportMin = await page.locator('#btDate').getAttribute('min');
   if (!airportMin || await page.locator('#btDate').inputValue() < airportMin) throw new Error('Airport search must default to a date at least two days ahead');
-  for (const label of ['All Car', 'Regular Car', 'Premium Car', 'Karoseri']) if (!(await page.getByRole('button', { name: label, exact: true }).count())) throw new Error('Airport vehicle category missing: ' + label);
-  if (!(await page.locator('#btPassengers option[value="15"]').count())) throw new Error('Airport passenger selector must support groups up to 15');
-  await page.locator('#btPassengers').selectOption('6');
-  if (!(await page.locator('[data-car-class="minivan"].is-active').count())) throw new Error('Six airport passengers must automatically select Karoseri');
-  if (await page.locator('#btCarCarousel .bt-car-card:visible').count() !== 1 || !(await page.locator('#btCarCarousel [data-car="Toyota HiAce"]:visible').count())) throw new Error('Six airport passengers must see the minivan option only');
-  await page.locator('#btPassengers').selectOption('2');
-  if (!(await page.locator('[data-car-class="all"].is-active').count())) throw new Error('Changing back to fewer than six airport passengers must restore All Car');
+  if (!(await page.locator('input[name="btDirection"][value="from"]').count()) || !(await page.locator('input[name="btDirection"][value="to"]').count())) throw new Error('Airport transfer must offer both directions');
+  await page.locator('input[name="btDirection"][value="to"]').check();
+  if (!(await page.locator('#btTerminalField').isHidden())) throw new Error('Airport terminal field should hide for trips to the airport');
+  await page.locator('input[name="btDirection"][value="from"]').check();
   await page.locator('#btDestination').fill('Ubud');
+  await page.locator('#btMealStop').check();
+  await page.locator('#btMealHours').selectOption('2');
   await page.locator('#btAvailabilityForm button[type="submit"]').click();
-  await page.waitForFunction(() => document.querySelector('#btAvailabilityResult')?.textContent.includes('Vehicles for your journey'));
+  await page.waitForFunction(() => document.querySelector('#btAvailabilityResult')?.textContent.includes('Choose your vehicle'));
   const airportBookButton = page.locator('#btAvailabilityResult [data-book-car]').first();
   if (!(await airportBookButton.isVisible())) throw new Error('Airport search must show a per-vehicle booking CTA');
   await airportBookButton.click();
   await page.waitForURL('**/booking-form.html?**');
   if (await page.locator('.bt-site-header, .bt-site-footer, .booking-footer').count()) throw new Error('Booking form must not show the global navbar or footer');
   if (!(await page.locator('#summaryVehicle').textContent()).includes('Toyota Avanza') || !(await page.locator('#summaryLocation').textContent()).includes('Ubud') || !(await page.locator('#summaryDate').textContent()).length) throw new Error('Airport booking form must preserve selected vehicle, destination and date');
-  console.log('PASS airport vehicle CTA opens clean booking form with trip details preserved');
+  if (!(await page.locator('#summaryMeal').textContent()).includes('2 hour(s)') || !(await page.locator('#summaryMeal').textContent()).includes('Rp100.000')) throw new Error('Airport booking form must preserve meal stop duration and fee');
+  console.log('PASS focused airport transfer search, meal stop pricing and clean booking form');
 
   await page.goto('http://127.0.0.1:4173/car-rental.html', { waitUntil: 'domcontentloaded' });
   await page.waitForSelector('.bt-site-header[data-ready="true"]');
