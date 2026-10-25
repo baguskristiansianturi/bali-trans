@@ -319,7 +319,7 @@ try {
   const fleetNames = ['Wuling Confero', 'Toyota Avanza', 'R3', 'Toyota Innova Reborn', 'Toyota Innova Zenix', 'Toyota HiAce Commuter', 'Toyota HiAce Premio'];
   const fleetText = await page.locator('#btFleetShowcase').innerText();
   for (const name of fleetNames) if (!fleetText.includes(name)) throw new Error('Airport fleet showcase missing: ' + name);
-  if (await page.locator('#btFleetShowcase .bt-card-date-chip').count() < 7) throw new Error('Each airport vehicle card must include a compact date guide');
+  if (await page.locator('#btFleetShowcase .bt-card-date-chips .bt-date-chip').count() < 7) throw new Error('Each airport vehicle card must include a compact date guide');
   await page.locator('input[name="btDirection"][value="to"]').check();
   if (!(await page.locator('#btTerminalField').isHidden())) throw new Error('Airport terminal field should hide for trips to the airport');
   await page.locator('input[name="btDirection"][value="from"]').check();
