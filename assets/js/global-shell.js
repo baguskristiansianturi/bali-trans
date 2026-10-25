@@ -163,7 +163,7 @@
         event.stopPropagation();
         const code = button.dataset.locale;
         closePanels();
-        if (isHomePage && typeof window.changeLocale === 'function') {
+        if (typeof window.changeLocale === 'function') {
           window.changeLocale(code);
         } else {
           const target = new URL(home, window.location.href);
