@@ -139,6 +139,9 @@ jobs:
           html_inventory = {}
           for html_file in html_files:
               source = html_file.read_text(encoding="utf-8")
+              inventory = LinkInventory()
+              inventory.feed(source)
+              html_inventory[html_file] = inventory
               if re.search(r"<style\b", source, re.I):
                   inline_styles.append(str(html_file))
               if not re.search(r'<meta\b[^>]*name=["\']robots["\'][^>]*content=["\'][^"\']*noindex', source, re.I):
@@ -224,6 +227,7 @@ jobs:
               problems.append("Preview robots.txt must not advertise a sitemap before launch.")
           if missing_sitemap: problems.append("Public HTML pages missing from sitemap:\n" + "\n".join(missing_sitemap))
           if missing_html: problems.append("Missing HTML assets:\n" + "\n".join(missing_html))
+          if local_link_errors: problems.append("Broken local HTML anchor links:\n" + "\n".join(local_link_errors))
           if missing_css: problems.append("Missing CSS URLs/imports:\n" + "\n".join(missing_css))
           if inline_styles: problems.append("Inline style blocks remain:\n" + "\n".join(inline_styles))
           if inline_style_attrs: problems.append("Inline style attributes remain in HTML:\n" + "\n".join(inline_style_attrs))
