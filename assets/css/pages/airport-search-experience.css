@@ -406,3 +406,7 @@
  .bt-booking-page .bt-results-card-grid .bt-fleet-image-wrap{height:195px}
  .bt-booking-page .bt-results-card-grid .bt-fleet-card-body{padding:14px}
 }
+
+
+/* Booking action appears only on vehicle cards returned by an availability search. */
+.bt-booking-page .bt-result-book-button{display:flex;align-items:center;justify-content:center;gap:.55rem;width:100%;margin-top:1rem;padding:.8rem 1rem;border-radius:.65rem;background:#244b83;color:#fff;text-decoration:none;font-weight:700;transition:background .18s ease,transform .18s ease}.bt-booking-page .bt-result-book-button:hover{background:#193965;transform:translateY(-1px)}.bt-booking-page .bt-result-book-button:focus-visible{outline:3px solid #8bb9f0;outline-offset:3px}
