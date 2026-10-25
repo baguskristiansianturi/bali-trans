@@ -10,9 +10,9 @@ function renderHomeView() {
             const guides = (typeof BALI_BLOGS !== 'undefined' ? BALI_BLOGS : []).slice(0,3);
             return `
                 <section class="relative isolate overflow-hidden bg-slate-950 min-h-[440px] md:min-h-[500px] flex items-center">
-                    <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=2000&q=85" alt="Bali coastline and tropical landscape" class="absolute inset-0 -z-20 h-full w-full object-cover" fetchpriority="high">
-                    <div class="absolute inset-0 -z-10 bg-gradient-to-r from-slate-950/90 via-slate-950/65 to-slate-950/25"></div>
-                    <div class="mx-auto w-full max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+                    <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=2000&q=85" alt="Bali coastline and tropical landscape" class="absolute inset-0 z-0 h-full w-full object-cover" fetchpriority="high">
+                    <div class="absolute inset-0 z-10 bg-gradient-to-r from-slate-950/90 via-slate-950/65 to-slate-950/25"></div>
+                    <div class="relative z-20 mx-auto w-full max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
                         <div class="max-w-3xl">
                             <span class="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3 py-1.5 text-xs font-bold text-teal-200 backdrop-blur"><i class="fas fa-compass"></i> DISCOVER BALI</span>
                             <h1 class="mt-5 max-w-2xl text-4xl font-black leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">Find your way around <span class="text-teal-300">Bali</span></h1>
