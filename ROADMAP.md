@@ -1,6 +1,6 @@
 # Bali Trans — Roadmap
 
-Updated: 2026-10-24
+Updated: 2026-10-25
 Rule: preserve the approved homepage and existing approved page designs. Avoid broad redesigns while fixing specific functionality.
 
 ## P0 — Current release integrity
@@ -13,7 +13,10 @@ Rule: preserve the approved homepage and existing approved page designs. Avoid b
 - [x] Improve large-desktop footer layout for five navigation groups.
 - [x] Confirm source validation workflow passes (run 755 on commit `9fb63cd`).
 - [x] Confirm GitHub Pages deployment succeeds for the same commit.
-- [ ] Check footer/header links on live mobile and desktop pages.
+- [x] Extend CI to audit local HTML anchor targets and run 360px mobile-browser checks for SPA routes and standalone pages.
+- [x] Add automated browser coverage for private-transport WhatsApp enquiry contents, service-tab behaviour, and Contact-to-WhatsApp handoff.
+- [x] Route the legacy `terms-and-conditions.html` URL to the single canonical expandable Terms view.
+- [ ] Manually inspect the deployed pages on a physical Android phone and desktop browser (still requires human visual review).
 - [x] Update audit with final workflow and browser results.
 
 ## P1 — Open pull requests
@@ -26,7 +29,7 @@ Rule: preserve the approved homepage and existing approved page designs. Avoid b
 ## P2 — Production capability gaps
 
 - [ ] Decide and implement secure account registration/sign-in/password recovery, using a real backend or authentication provider.
-- [ ] Replace placeholder WhatsApp number and verify official contact details.
+- [ ] Confirm that the configured WhatsApp number (`628218187917`) is the final official business contact before launch.
 - [ ] Replace or substantiate all unverified reviews, counts, guarantees, payment and availability claims.
 - [ ] Implement real booking submission, inventory/availability, payment processing and server-side validation if launch scope requires them.
 - [ ] Verify privacy/legal copy against the actual data-processing and booking setup.
