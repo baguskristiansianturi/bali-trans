@@ -492,3 +492,15 @@
 @media(max-width:380px){
   #btFleetShowcase:not(:has(.bt-fleet-carousel-shell))>.bt-fleet-card{flex-basis:92%!important}
 }
+
+
+/* Verified fleet-only carousel override: keep search-result cards stacked. */
+#btFleetShowcase .bt-fleet-carousel-shell{position:relative;display:block;min-width:0;width:100%}
+#btFleetShowcase .bt-fleet-showcase-track{display:grid!important;grid-auto-flow:column!important;grid-auto-columns:calc((100% - 36px)/3)!important;grid-template-columns:none!important;gap:18px!important;overflow-x:auto!important;overflow-y:hidden!important;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding:4px 3px 18px!important}
+#btFleetShowcase .bt-fleet-showcase-track::-webkit-scrollbar{display:none}
+#btFleetShowcase .bt-fleet-showcase-track>.bt-fleet-card{display:flex!important;flex-direction:column!important;min-width:0!important;width:auto!important;height:auto!important;align-self:start!important;scroll-snap-align:start!important}
+#btFleetShowcase .bt-fleet-carousel-arrow{position:absolute;z-index:2;top:42%;display:flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid #d8e2f0;border-radius:50%;background:#fff;color:#284d82;box-shadow:0 4px 16px #172b4d1a;cursor:pointer}
+#btFleetShowcase .bt-fleet-prev{left:-13px}
+#btFleetShowcase .bt-fleet-next{right:-13px}
+@media(max-width:760px){#btFleetShowcase .bt-fleet-showcase-track{grid-auto-columns:86%!important;gap:12px!important;padding:3px 2px 16px!important}#btFleetShowcase .bt-fleet-carousel-arrow{width:34px;height:34px;top:38%}#btFleetShowcase .bt-fleet-prev{left:-7px}#btFleetShowcase .bt-fleet-next{right:-7px}}
+@media(max-width:380px){#btFleetShowcase .bt-fleet-showcase-track{grid-auto-columns:92%!important}}
