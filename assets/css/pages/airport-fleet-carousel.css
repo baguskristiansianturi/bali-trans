@@ -54,9 +54,24 @@
  #btFleetShowcase:not(.is-carousel-ready)>.bt-fleet-card{flex-basis:90%!important;width:90%!important}
 }
 
-/* Catalogue carousel only. Search-result cards are intentionally not styled here. */
-@media (max-width: 760px) {
-  html body #btFleetShowcase .bt-fleet-carousel-shell > .bt-fleet-showcase-track {
+/* Hard fallback: catalogue carousel only; independent of search-result card styles. */
+@media screen and (max-width: 760px) {
+  body #btFleetShowcase {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow: visible !important;
+  }
+  body #btFleetShowcase .bt-fleet-carousel-shell {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow: visible !important;
+  }
+  body #btFleetShowcase .bt-fleet-carousel-shell .bt-fleet-showcase-track,
+  body #btFleetShowcase > .bt-fleet-showcase-track {
     display: flex !important;
     flex-direction: row !important;
     flex-wrap: nowrap !important;
@@ -66,22 +81,30 @@
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
+    margin: 0 !important;
     overflow-x: auto !important;
     overflow-y: hidden !important;
     scroll-snap-type: x mandatory !important;
+    scroll-behavior: smooth !important;
+    overscroll-behavior-x: contain !important;
     -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
   }
-  html body #btFleetShowcase .bt-fleet-carousel-shell > .bt-fleet-showcase-track > .bt-fleet-card {
+  body #btFleetShowcase .bt-fleet-carousel-shell .bt-fleet-showcase-track > .bt-fleet-card,
+  body #btFleetShowcase > .bt-fleet-card {
     display: flex !important;
     flex: 0 0 86% !important;
+    flex-direction: column !important;
     width: 86% !important;
     max-width: 86% !important;
     min-width: 0 !important;
+    margin: 0 !important;
     scroll-snap-align: start !important;
   }
 }
-@media (max-width: 380px) {
-  html body #btFleetShowcase .bt-fleet-carousel-shell > .bt-fleet-showcase-track > .bt-fleet-card {
+@media screen and (max-width: 380px) {
+  body #btFleetShowcase .bt-fleet-carousel-shell .bt-fleet-showcase-track > .bt-fleet-card,
+  body #btFleetShowcase > .bt-fleet-card {
     flex-basis: 90% !important;
     width: 90% !important;
     max-width: 90% !important;
