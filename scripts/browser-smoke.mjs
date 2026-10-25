@@ -309,8 +309,42 @@ try {
   if (airportWidth.width > airportWidth.viewport + 2) throw new Error('Airport checkout has horizontal overflow: ' + JSON.stringify(airportWidth));
   console.log('PASS airport checkout clean layout and self/guest validation');
 
+  await page.goto('http://127.0.0.1:4173/bali-airport-transfer.html', { waitUntil: 'domcontentloaded' });
+  await page.waitForSelector('.bt-site-header[data-ready="true"]');
+  if (await page.locator('.bt-service-tab').count() !== 4 || await page.locator('.bt-car-card').count() !== 10) {
+    throw new Error('Airport search must show four service tabs and ten vehicle cards');
+  }
+  const airportMin = await page.locator('#btDate').getAttribute('min');
+  if (!airportMin || await page.locator('#btDate').inputValue() < airportMin) throw new Error('Airport search must default to a date at least two days ahead');
+  await page.locator('#btDestination').fill('Ubud');
+  await page.locator('#btAvailabilityForm button[type="submit"]').click();
+  await page.waitForFunction(() => document.querySelector('#btAvailabilityResult')?.textContent.includes('vehicle options shown as available'));
+  if (!(await page.locator('#btRequestVehicle').isVisible())) throw new Error('Airport search must offer a WhatsApp request after showing simulated availability');
+  await page.evaluate(() => { window.__capturedWhatsApp = ''; window.open = url => { window.__capturedWhatsApp = url; }; });
+  await page.locator('#btRequestVehicle').click();
+  const airportWhatsApp = await page.evaluate(() => window.__capturedWhatsApp);
+  if (!airportWhatsApp.includes('wa.me/628218187917') || !decodeURIComponent(airportWhatsApp).includes('Ubud')) throw new Error('Airport search WhatsApp request must include the selected trip details');
+  console.log('PASS airport search shows ten vehicles, enforces two-day minimum, and opens WhatsApp with trip details');
+
+  await page.goto('http://127.0.0.1:4173/car-rental.html', { waitUntil: 'domcontentloaded' });
+  await page.waitForSelector('.bt-site-header[data-ready="true"]');
+  if (await page.locator('.bt-service-tab').count() !== 4 || await page.locator('.bt-car-card').count() !== 10) {
+    throw new Error('Car rental page must show four service tabs and ten vehicle cards');
+  }
+  const rentalMin = await page.locator('#rentalDate').getAttribute('min');
+  if (!rentalMin || await page.locator('#rentalDate').inputValue() < rentalMin) throw new Error('Car rental must default to a date at least two days ahead');
+  await page.locator('#rentalPickup').fill('Seminyak hotel');
+  await page.locator('#btRentalForm button[type="submit"]').click();
+  await page.waitForFunction(() => document.querySelector('#rentalAvailabilityResult')?.textContent.includes('vehicle options shown as available'));
+  if (!(await page.locator('#rentalWhatsApp').isVisible())) throw new Error('Car rental search must offer a WhatsApp request after showing simulated availability');
+  await page.evaluate(() => { window.__capturedWhatsApp = ''; window.open = url => { window.__capturedWhatsApp = url; }; });
+  await page.locator('#rentalWhatsApp').click();
+  const rentalWhatsApp = await page.evaluate(() => window.__capturedWhatsApp);
+  if (!rentalWhatsApp.includes('wa.me/628218187917') || !decodeURIComponent(rentalWhatsApp).includes('Seminyak hotel')) throw new Error('Car rental WhatsApp request must include pickup details');
+  console.log('PASS car rental search shows ten vehicles, enforces two-day minimum, and opens WhatsApp with rental details');
+
   const standalonePages = [
-    'bali-adventure-activities.html', 'bali-airport-transfer.html',
+    'car-rental.html', 'bali-adventure-activities.html', 'bali-airport-transfer.html',
     'bali-intercity-transfer.html', 'bali-port-transfer.html',
     'bali-private-day-tour.html', 'private-transport.html',
     'terms-and-conditions.html', 'transport-service.html',
