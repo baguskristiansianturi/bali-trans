@@ -14,7 +14,7 @@ Rule: preserve the approved homepage and existing approved page designs. Avoid b
 - [x] Confirm source validation workflow passes (run 755 on commit `9fb63cd`).
 - [x] Confirm GitHub Pages deployment succeeds for the same commit.
 - [x] Extend CI to audit local HTML anchor targets and run 360px mobile-browser checks for SPA routes and standalone pages.
-- [x] Add automated browser coverage for private-transport WhatsApp enquiry contents, service-tab behaviour, and Contact-to-WhatsApp handoff.
+- [x] Add automated browser coverage for private transport, Contact, intercity transfer, port transfer, private day-tour, and Lovina Dolphin Tour WhatsApp handoffs; confirm requests carry entered details and remain requests pending team confirmation.
 - [x] Route the legacy `terms-and-conditions.html` URL to the single canonical expandable Terms view.
 - [ ] Manually inspect the deployed pages on a physical Android phone and desktop browser (still requires human visual review).
 - [x] Update audit with final workflow and browser results.
