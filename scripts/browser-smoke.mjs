@@ -315,7 +315,7 @@ try {
   const airportMin = await page.locator('#btDate').getAttribute('min');
   if (!airportMin || await page.locator('#btDate').inputValue() < airportMin) throw new Error('Airport search must default to a date at least three days ahead');
   if (!(await page.locator('input[name="btDirection"][value="from"]').count()) || !(await page.locator('input[name="btDirection"][value="to"]').count())) throw new Error('Airport transfer must offer both directions');
-  if (!(await page.locator('#btDateGuide .bt-date-chip.is-blocked').count()) || !(await page.locator('#btDateGuide .bt-date-chip.is-bookable').count())) throw new Error('Airport booking-date guide must show both crossed-out and bookable dates');
+  if (await page.locator('#btDateGuide, #btDateNote, .bt-date-guide').count()) throw new Error('Airport search filter must not display schedule dates; availability dates belong on vehicle cards only');
   const fleetNames = ['Wuling Confero', 'Toyota Avanza', 'R3', 'Toyota Innova Reborn', 'Toyota Innova Zenix', 'Toyota HiAce Commuter', 'Toyota HiAce Premio'];
   const fleetText = await page.locator('#btFleetShowcase').innerText();
   for (const name of fleetNames) if (!fleetText.includes(name)) throw new Error('Airport fleet showcase missing: ' + name);
