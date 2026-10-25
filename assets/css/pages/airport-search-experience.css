@@ -60,3 +60,48 @@
 .bt-airport-cta{margin-top:10px;min-height:44px;padding:12px 17px;font-size:12px}
 @media(max-width:760px){.bt-date-guide-section,.bt-fleet-showcase-section{padding:24px 0}.bt-fleet-showcase{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.bt-fleet-card>img{height:112px}.bt-fleet-card-body{padding:10px}.bt-fleet-card h3{font-size:14px}.bt-fleet-card p{font-size:11px;min-height:50px}.bt-card-date-chips .bt-date-chip{flex-basis:31px}.bt-results-wrap{padding-left:0;padding-right:0}.bt-availability-result{padding:12px}.bt-result-vehicle>img{width:94px;flex-basis:94px;min-height:120px}.bt-result-vehicle-copy{padding:9px}.bt-result-meta{align-items:flex-start;flex-direction:column}.bt-result-meta button{width:100%}.bt-airport-copy-section{padding:32px 0 42px}.bt-airport-copy-grid{grid-template-columns:1fr;gap:8px}}
 @media(max-width:380px){.bt-fleet-showcase{grid-template-columns:1fr}.bt-fleet-card>img{height:160px}.bt-fleet-card p{min-height:0}.bt-result-vehicle>img{width:82px;flex-basis:82px}}
+
+/* Starting fare display, SEO FAQ and closing booking CTA */
+.bt-fleet-price-guide{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin-top:17px}
+.bt-fleet-price-guide>div{display:flex;flex-direction:column;gap:5px;padding:12px;border:1px solid #dce5f1;border-radius:11px;background:#f7f9fd}
+.bt-fleet-price-guide span{color:#64758d;font-size:11px;font-weight:700}
+.bt-fleet-price-guide strong{color:#244879;font-size:14px;letter-spacing:-.2px}
+.bt-fleet-starting-price{margin-top:10px;color:#244879;font-size:15px;font-weight:850;letter-spacing:-.25px}
+.bt-fleet-capacity{margin-top:5px}
+.bt-airport-faq-section{padding:42px 0;background:#fff}
+.bt-airport-faq-heading{max-width:700px;margin-bottom:19px}
+.bt-airport-faq-heading h2{margin:7px 0;font-size:clamp(23px,3vw,31px);line-height:1.2;letter-spacing:-.5px;color:#172b4d}
+.bt-airport-faq-heading>p{margin:0;color:#687990;font-size:13px;line-height:1.7}
+.bt-airport-faq-list{display:grid;gap:9px;max-width:900px}
+.bt-airport-faq-list details{border:1px solid #dfe7f1;border-radius:12px;background:#fff}
+.bt-airport-faq-list summary{position:relative;cursor:pointer;list-style:none;padding:15px 44px 15px 16px;color:#203b63;font-size:13px;font-weight:800}
+.bt-airport-faq-list summary::-webkit-details-marker{display:none}
+.bt-airport-faq-list summary:after{content:'+';position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:21px;font-weight:400;color:#5477a5}
+.bt-airport-faq-list details[open] summary:after{content:'−'}
+.bt-airport-faq-list details p{margin:0;padding:0 16px 16px;color:#63748b;font-size:12px;line-height:1.8}
+.bt-airport-final-cta{padding:8px 0 48px;background:#fff}
+.bt-airport-cta-card{position:relative;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(260px,.9fr);gap:20px;overflow:hidden;padding:clamp(22px,4vw,42px);border-radius:22px;background:linear-gradient(125deg,#122b50 0%,#244c7d 58%,#37649a 100%);box-shadow:0 18px 40px #18375d22}
+.bt-airport-cta-copy{position:relative;z-index:2}
+.bt-airport-cta-card .bt-kicker{color:#c6d9f3}
+.bt-airport-cta-card h2{max-width:510px;margin:9px 0 12px;color:white;font-size:clamp(24px,3.3vw,36px);line-height:1.12;letter-spacing:-.7px}
+.bt-airport-cta-card p{max-width:520px;margin:0;color:#e1eaf6;font-size:13px;line-height:1.8}
+.bt-airport-cta-card ul{display:grid;gap:8px;margin:17px 0 21px;padding:0;list-style:none}
+.bt-airport-cta-card li{display:flex;align-items:center;gap:9px;color:#f2f6fc;font-size:12px}
+.bt-airport-cta-card li span{display:inline-flex;align-items:center;justify-content:center;width:19px;height:19px;border-radius:50%;background:#d8e8fb;color:#18395f;font-size:11px;font-weight:900}
+.bt-airport-cta-large{min-height:46px;padding:13px 17px;background:#fff;color:#1d416e;font-size:12px}
+.bt-airport-cta-large:hover{background:#eaf2fc}
+.bt-airport-cta-art{position:relative;display:flex;align-items:center;justify-content:center;min-height:280px}
+.bt-cta-orbit{position:absolute;width:270px;height:270px;border:1px solid #ffffff24;border-radius:50%;box-shadow:0 0 0 32px #ffffff08,0 0 0 65px #ffffff05}
+.bt-cta-ticket{position:relative;z-index:1;width:min(100%,275px);padding:20px;border:1px solid #ffffff70;border-radius:17px;background:linear-gradient(145deg,#fff,#eaf1fa);box-shadow:0 22px 48px #081a333b;transform:rotate(3deg)}
+.bt-cta-ticket>span{color:#68809e;font-size:10px;font-weight:900;letter-spacing:1.8px}
+.bt-cta-ticket>strong{display:block;margin:15px 0;color:#18365e;font-size:29px;line-height:1.02;letter-spacing:-1px}
+.bt-cta-ticket>small{color:#617894;font-size:8px;font-weight:800;letter-spacing:1px}
+.bt-cta-route{display:flex;align-items:center;gap:8px;margin:22px 0 12px}
+.bt-cta-route i{width:9px;height:9px;border:2px solid #426ca0;border-radius:50%}
+.bt-cta-route i:last-child{background:#426ca0}
+.bt-cta-route span{height:1px;flex:1;background:repeating-linear-gradient(90deg,#8aa4c3 0 5px,transparent 5px 9px)}
+.bt-cta-ticket-bottom{display:flex;justify-content:space-between;padding-top:11px;border-top:1px dashed #c8d5e5;color:#637894;font-size:8px;font-weight:900;letter-spacing:1px}
+.bt-cta-floating{position:absolute;z-index:2;padding:9px 12px;border:1px solid #ffffff3d;border-radius:9px;background:#ffffffed;color:#23456f;font-size:10px;font-weight:850;box-shadow:0 8px 24px #0c25442a}
+.bt-cta-floating-one{top:28px;right:0}.bt-cta-floating-two{bottom:23px;left:0}
+@media(max-width:760px){.bt-fleet-price-guide{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.bt-fleet-price-guide>div{padding:10px}.bt-fleet-price-guide strong{font-size:13px}.bt-airport-faq-section{padding:32px 0}.bt-airport-final-cta{padding-bottom:35px}.bt-airport-cta-card{grid-template-columns:1fr;gap:5px;padding:23px 18px}.bt-airport-cta-art{min-height:235px;margin-top:8px}.bt-cta-ticket{max-width:245px}.bt-cta-floating-one{right:1px;top:8px}.bt-cta-floating-two{left:0;bottom:4px}}
+@media(max-width:380px){.bt-fleet-price-guide strong{font-size:12px}.bt-airport-faq-list summary{font-size:12px}.bt-airport-cta-card{border-radius:16px}}
