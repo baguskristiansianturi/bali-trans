@@ -30,8 +30,8 @@
 #btFleetShowcase .bt-fleet-carousel-arrow:disabled{opacity:.35;cursor:default}
 #btFleetShowcase .bt-fleet-carousel-status{display:flex;justify-content:space-between;gap:12px;margin-top:4px;color:#687990;font-size:11px}
 #btFleetShowcase .bt-fleet-carousel-hint{margin-left:auto;text-align:right}
-#btFleetShowcase:not(:has(.bt-fleet-carousel-shell)){display:flex!important;flex-flow:row nowrap!important;gap:16px;overflow-x:auto!important;overflow-y:hidden!important;padding:4px 2px 14px!important;scroll-snap-type:x mandatory!important;-webkit-overflow-scrolling:touch}
-#btFleetShowcase:not(:has(.bt-fleet-carousel-shell))>.bt-fleet-card{flex:0 0 calc((100% - 32px)/3)!important;width:calc((100% - 32px)/3)!important;min-width:0!important;height:auto!important;min-height:0!important;max-height:none!important;scroll-snap-align:start}
+#btFleetShowcase:not(.is-carousel-ready){display:flex!important;flex-flow:row nowrap!important;gap:16px;overflow-x:auto!important;overflow-y:hidden!important;padding:4px 2px 14px!important;scroll-snap-type:x mandatory!important;-webkit-overflow-scrolling:touch}
+#btFleetShowcase:not(.is-carousel-ready)>.bt-fleet-card{flex:0 0 calc((100% - 32px)/3)!important;width:calc((100% - 32px)/3)!important;min-width:0!important;height:auto!important;min-height:0!important;max-height:none!important;scroll-snap-align:start}
 @media(max-width:760px){
  #btFleetShowcase .bt-fleet-carousel-shell{display:block!important}
  #btFleetShowcase .bt-fleet-carousel-arrow{display:none!important}
@@ -42,7 +42,7 @@
  #btFleetShowcase .bt-fleet-title-row h3{font-size:15px!important}
  #btFleetShowcase .bt-fleet-starting-price{font-size:14px!important}
  #btFleetShowcase .bt-fleet-capacity{font-size:10px!important}
- #btFleetShowcase:not(:has(.bt-fleet-carousel-shell))>.bt-fleet-card{flex-basis:86%!important;width:86%!important}
+ #btFleetShowcase:not(.is-carousel-ready)>.bt-fleet-card{flex-basis:86%!important;width:86%!important}
 }
 @media(max-width:380px){
  #btFleetShowcase .bt-fleet-showcase-track>.bt-fleet-card{flex-basis:90%!important;width:90%!important;max-width:90%!important}
@@ -51,7 +51,7 @@
  #btFleetShowcase .bt-fleet-title-row{gap:6px!important}
  #btFleetShowcase .bt-fleet-title-row h3{font-size:14px!important}
  #btFleetShowcase .bt-fleet-starting-price{font-size:13px!important}
- #btFleetShowcase:not(:has(.bt-fleet-carousel-shell))>.bt-fleet-card{flex-basis:90%!important;width:90%!important}
+ #btFleetShowcase:not(.is-carousel-ready)>.bt-fleet-card{flex-basis:90%!important;width:90%!important}
 }
 
 /* Catalogue carousel only. Search-result cards are intentionally not styled here. */
