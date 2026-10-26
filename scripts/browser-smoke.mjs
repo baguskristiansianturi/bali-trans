@@ -320,6 +320,40 @@ try {
   const fleetText = await page.locator('#btFleetShowcase').innerText();
   for (const name of fleetNames) if (!fleetText.includes(name)) throw new Error('Airport fleet showcase missing: ' + name);
   if (await page.locator('#btFleetShowcase .bt-card-date-chips .bt-date-chip').count() < 7) throw new Error('Each airport vehicle card must include a compact date guide');
+  // Deep regression check: the catalogue itself must be a horizontal carousel,
+  // distinct from the photo gallery inside each card.
+  const savedViewport = page.viewportSize() || { width: 1280, height: 900 };
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.waitForTimeout(100);
+  const fleetLayout = await page.locator('#btFleetShowcase #btFleetSliderTrack').evaluate(track => {
+    const cards = [...track.querySelectorAll(':scope > .bt-fleet-card')];
+    const first = cards[0]?.getBoundingClientRect();
+    const second = cards[1]?.getBoundingClientRect();
+    const style = getComputedStyle(track);
+    return {
+      display: style.display,
+      flexWrap: style.flexWrap,
+      cardCount: cards.length,
+      scrollWidth: track.scrollWidth,
+      clientWidth: track.clientWidth,
+      firstTop: first?.top,
+      secondTop: second?.top,
+      firstLeft: first?.left,
+      secondLeft: second?.left
+    };
+  });
+  if (fleetLayout.display !== 'flex' || fleetLayout.flexWrap !== 'nowrap' || fleetLayout.cardCount !== 7 ||
+      fleetLayout.scrollWidth <= fleetLayout.clientWidth ||
+      Math.abs(fleetLayout.firstTop - fleetLayout.secondTop) > 2 ||
+      fleetLayout.secondLeft <= fleetLayout.firstLeft) {
+    throw new Error('Airport fleet must be a horizontally scrolling single-row carousel on mobile: ' + JSON.stringify(fleetLayout));
+  }
+  await page.locator('#btFleetShowcase #btFleetSliderTrack').evaluate(track => { track.scrollLeft = track.clientWidth * 0.75; });
+  await page.waitForTimeout(50);
+  if (await page.locator('#btFleetShowcase #btFleetSliderTrack').evaluate(track => track.scrollLeft) <= 0) {
+    throw new Error('Airport fleet carousel must respond to horizontal scrolling');
+  }
+  await page.setViewportSize(savedViewport);
   await page.locator('input[name="btDirection"][value="to"]').check();
   if (!(await page.locator('#btTerminalField').isHidden())) throw new Error('Airport terminal field should hide for trips to the airport');
   await page.locator('input[name="btDirection"][value="from"]').check();
