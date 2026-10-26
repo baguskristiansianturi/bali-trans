@@ -444,3 +444,16 @@
  .bt-booking-page .bt-field input,.bt-booking-page .bt-field select{padding:7px;font-size:13px}
  .bt-booking-page .bt-field>span,.bt-booking-page .bt-direction-field legend{font-size:10px}
 }
+
+
+/* Keep the service name visible while the flip changes only the route direction. */
+.bt-booking-page .bt-route-labels .bt-route-service{font-size:13px;font-weight:800;color:#1c3559;line-height:1.25;white-space:normal}
+.bt-booking-page .bt-route-labels #btRouteDirection{display:block;padding-top:7px;border-top:1px solid #dce4ef;color:#526782;font-size:12px;font-weight:650;line-height:1.3;white-space:normal;overflow-wrap:anywhere}
+@media(max-width:760px){
+ .bt-booking-page .bt-route-labels .bt-route-service{font-size:12px}
+ .bt-booking-page .bt-route-labels #btRouteDirection{font-size:11px}
+}
+@media(max-width:390px){
+ .bt-booking-page .bt-route-labels .bt-route-service{font-size:11px}
+ .bt-booking-page .bt-route-labels #btRouteDirection{font-size:10px}
+}
