@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,follow"><meta name="theme-color" content="#f4f7fb">
 <title>Complete your booking | Bali Trans</title>
-<link rel="stylesheet" href="./assets/css/pages/booking-form.css?v=20261026-3">
+<link rel="stylesheet" href="./assets/css/pages/booking-form.css?v=20261026-4">
 </head>
 <body class="booking-form-page">
 <main class="booking-shell">
@@ -40,12 +40,12 @@
 <label class="field"><span>Booker WhatsApp <b>*</b></span><input name="bookerPhone" type="tel" autocomplete="tel" placeholder="+62 812 3456 7890" required></label>
 <label class="field"><span>Email address</span><input name="bookerEmail" type="email" autocomplete="email" placeholder="you@example.com"></label>
 <div class="field full" id="otherGuestFields" hidden><div class="field-grid"><label class="field"><span>Traveller full name <b>*</b></span><input name="travellerName" id="travellerName" placeholder="Name of the person travelling"></label><label class="field"><span>Traveller WhatsApp <b>*</b></span><input name="travellerPhone" id="travellerPhone" type="tel" placeholder="Traveller contact number"></label></div></div>
-<label class="field full"><span>Flight number <small>(if applicable)</small></span><input name="flightNumber" id="flightNumber" placeholder="e.g. QZ 550"></label>
+<label class="field full"><span>Flight number <b>*</b></span><input name="flightNumber" id="flightNumber" placeholder="e.g. QZ 550" autocomplete="off" required></label>
 <label class="field full"><span>Additional notes <small>(optional)</small></span><textarea name="notes" rows="3" placeholder="Luggage, child seat, meeting point or other requests"></textarea></label>
 </div>
 <div class="form-section-title payment-title"><h2>Payment preference</h2></div>
 <div class="payment-options"><label class="payment-option"><input type="radio" name="payment" value="Pay on arrival / service day" checked><span class="payment-copy"><strong>Pay on arrival / service day</strong><small>Confirm the payment arrangement with our team.</small></span><span class="radio-mark"></span></label><label class="payment-option"><input type="radio" name="payment" value="Discuss payment via WhatsApp"><span class="payment-copy"><strong>Discuss payment via WhatsApp</strong><small>Ask the team about available payment methods.</small></span><span class="radio-mark"></span></label><div class="maintenance-note"><span aria-hidden="true">ⓘ</span><p>Online payment is currently unavailable. Please choose one of the options above and arrange payment with our team.</p></div></div>
-<label class="consent"><input type="checkbox" name="terms" required><span>I have reviewed my details and agree to the <a href="#termsText">booking terms</a>. Sending this form is a request only, not a confirmed booking.</span></label>
+<label class="consent"><input type="checkbox" name="terms" required><span>I have reviewed my details and agree to the <a href="./terms-and-conditions.html" target="_blank" rel="noopener">Terms &amp; Conditions</a>. Sending this form is a request only, not a confirmed booking.</span></label>
 <details id="termsText" class="terms-details"><summary>Booking terms</summary><p>Your booking request will be sent to Bali Trans via WhatsApp. The team will confirm the vehicle, route, final fare and payment arrangements. Please check all travel details before sending your request.</p></details>
 <div class="stage-actions"><button class="secondary-action" id="backToTrip" type="button">← Back to trip</button><button class="submit-booking" type="submit">Send request via WhatsApp <span>→</span></button></div>
 </section>
@@ -54,5 +54,5 @@
 
 </div>
 </main>
-<script src="./assets/js/pages/booking-form.js?v=20261026-3"></script>
+<script src="./assets/js/pages/booking-form.js?v=20261026-4"></script>
 </body></html>
