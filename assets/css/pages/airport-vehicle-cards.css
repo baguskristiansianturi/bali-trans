@@ -35,11 +35,11 @@
 .bt-booking-page .bt-date-status-legend span{display:inline-flex;align-items:center;gap:5px}.bt-booking-page .bt-legend-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#c9d8e9}.bt-booking-page .bt-legend-dot.is-blocked{background:#e0e5ec;outline:1px solid #b45353}
 
 /* Outer catalogue carousel */
-#btFleetShowcase{display:block;width:100%;min-width:0}
+#btFleetShowcase{display:block;width:100%;max-width:100%;min-width:0;overflow:visible}
 #btFleetShowcase .bt-fleet-slider-shell{display:grid;grid-template-columns:36px minmax(0,1fr) 36px;align-items:center;gap:10px;width:100%;min-width:0}
-#btFleetShowcase #btFleetSliderTrack{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 48px)/4);align-items:stretch;gap:16px;width:100%;min-width:0;margin:0;padding:4px 3px 16px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-padding-inline:3px;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+#btFleetShowcase #btFleetSliderTrack{box-sizing:border-box;display:grid;grid-template-rows:auto;grid-auto-flow:column;grid-auto-columns:calc((100% - 48px)/4);align-items:stretch;gap:16px;width:100%;max-width:100%;min-width:0;margin:0;padding:4px 3px 16px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-padding-inline:3px;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none;touch-action:pan-x pan-y}
 #btFleetShowcase #btFleetSliderTrack::-webkit-scrollbar{display:none}
-#btFleetShowcase #btFleetSliderTrack>.bt-fleet-card{width:auto;min-width:0;scroll-snap-align:start}
+#btFleetShowcase #btFleetSliderTrack>.bt-fleet-card{display:flex;flex-direction:column;width:auto;min-width:0;max-width:none;height:auto;margin:0;scroll-snap-align:start}
 #btFleetShowcase .bt-fleet-slider-arrow{display:grid;place-items:center;width:36px;height:40px;border:1px solid #d8e2ef;border-radius:50%;background:#fff;color:#294d82;font-size:24px;line-height:1;cursor:pointer}
 #btFleetShowcase .bt-fleet-slider-status{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:2px;padding:0 3px;color:#64758d;font-size:11px}
 
