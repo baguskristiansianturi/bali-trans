@@ -418,3 +418,90 @@ body.booking-mode #bookingDetails .field:has(#bookingPrice){display:none!importa
   width: 100%;
   max-width: none;
 }
+
+
+/* Airport page spacing system: consistent section rhythm, card gutters, and compact CTA. */
+.bt-booking-page > .bt-airport-copy-section,
+.bt-booking-page > .bt-fleet-showcase-section,
+.bt-booking-page > .bt-airport-faq-section {
+  padding-block: clamp(44px, 4.8vw, 60px) !important;
+}
+.bt-booking-page > .bt-airport-trust-section {
+  padding-block: clamp(40px, 4.4vw, 56px) !important;
+}
+.bt-booking-page > .bt-airport-final-cta {
+  padding-block: clamp(28px, 3.2vw, 40px) !important;
+}
+.bt-booking-page .bt-airport-copy-section > .wrap,
+.bt-booking-page .bt-fleet-showcase-section > .wrap,
+.bt-booking-page .bt-airport-faq-section > .wrap,
+.bt-booking-page .bt-airport-trust-section > .wrap,
+.bt-booking-page .bt-airport-final-cta > .wrap {
+  width: min(1100px, calc(100% - 40px));
+  margin-inline: auto;
+}
+.bt-booking-page .bt-airport-faq-heading,
+.bt-booking-page .bt-fleet-showcase-heading {
+  margin-bottom: 26px !important;
+}
+.bt-booking-page .bt-airport-copy-section .bt-airport-copy-grid {
+  gap: clamp(22px, 3vw, 36px) !important;
+}
+.bt-booking-page .bt-airport-copy-section ol {
+  gap: 14px !important;
+  margin-top: 20px;
+}
+.bt-booking-page .bt-airport-copy-section ol li {
+  padding: 18px 16px 18px 54px;
+}
+.bt-booking-page .bt-airport-faq-list {
+  display: grid;
+  gap: 12px;
+}
+.bt-booking-page .bt-airport-faq-list details + details {
+  margin-top: 0 !important;
+}
+.bt-booking-page .bt-airport-cta-card {
+  padding: clamp(24px, 3vw, 34px) !important;
+}
+.bt-booking-page .bt-airport-cta-copy h2 {
+  margin-bottom: 10px;
+}
+.bt-booking-page .bt-airport-cta-copy p {
+  margin: 0 0 18px;
+}
+@media (max-width: 600px) {
+  .bt-booking-page > .bt-airport-copy-section,
+  .bt-booking-page > .bt-fleet-showcase-section,
+  .bt-booking-page > .bt-airport-faq-section,
+  .bt-booking-page > .bt-airport-trust-section {
+    padding-block: 38px !important;
+  }
+  .bt-booking-page > .bt-airport-final-cta {
+    padding-block: 24px !important;
+  }
+  .bt-booking-page .bt-airport-copy-section > .wrap,
+  .bt-booking-page .bt-fleet-showcase-section > .wrap,
+  .bt-booking-page .bt-airport-faq-section > .wrap,
+  .bt-booking-page .bt-airport-trust-section > .wrap,
+  .bt-booking-page .bt-airport-final-cta > .wrap {
+    width: calc(100% - 32px);
+  }
+  .bt-booking-page .bt-airport-faq-heading,
+  .bt-booking-page .bt-fleet-showcase-heading {
+    margin-bottom: 22px !important;
+  }
+  .bt-booking-page .bt-airport-copy-section .bt-airport-copy-grid {
+    gap: 16px !important;
+  }
+  .bt-booking-page .bt-airport-copy-section ol {
+    gap: 12px !important;
+  }
+  .bt-booking-page .bt-airport-copy-section ol li {
+    padding: 16px 14px 16px 50px;
+  }
+  .bt-booking-page .bt-airport-cta-card {
+    padding: 22px 18px !important;
+    border-radius: 18px;
+  }
+}
