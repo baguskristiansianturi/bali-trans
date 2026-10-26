@@ -354,3 +354,42 @@ body.booking-mode #bookingDetails .field:has(#bookingPrice){display:none!importa
     transform: none;
   }
 }
+
+
+/* Airport hero: balanced copy and a temporary visual preview for desktop. */
+.bt-booking-page .bt-airport-hero-layout{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(360px,.98fr);gap:clamp(28px,4vw,58px);align-items:center;padding-top:58px;padding-bottom:76px}
+.bt-booking-page .bt-airport-hero-layout .heroInner{max-width:none;min-width:0;padding:0}
+.bt-booking-page .bt-airport-hero-layout .heroInner h1{max-width:620px;font-size:clamp(36px,4.2vw,52px);line-height:1.08;letter-spacing:-1.3px}
+.bt-booking-page .bt-airport-hero-layout .heroInner p{max-width:570px;font-size:16px;line-height:1.7;margin:0 0 22px}
+.bt-booking-page .bt-airport-hero-visual{position:relative;min-width:0;overflow:hidden;padding:20px;border:1px solid rgba(255,255,255,.35);border-radius:22px;background:linear-gradient(145deg,rgba(255,255,255,.97),rgba(233,241,252,.94));color:#172b4d;box-shadow:0 24px 60px rgba(9,24,49,.22)}
+.bt-booking-page .bt-hero-visual-top{display:flex;align-items:center;gap:11px;position:relative;z-index:1}
+.bt-booking-page .bt-hero-plane{display:grid;place-items:center;flex:0 0 44px;width:44px;height:44px;border-radius:13px;background:#e1ebfa;color:#315b96;font-size:18px}
+.bt-booking-page .bt-hero-visual-top strong,.bt-booking-page .bt-hero-visual-top small{display:block}
+.bt-booking-page .bt-hero-visual-top strong{font-size:15px;line-height:1.3}
+.bt-booking-page .bt-hero-visual-top small{margin-top:3px;color:#64748b;font-size:10px;line-height:1.4}
+.bt-booking-page .bt-hero-live{margin-left:auto;display:inline-flex;align-items:center;gap:6px;padding:7px 9px;border-radius:999px;background:#edf4ff;color:#315b96;font-size:10px;font-weight:800;white-space:nowrap}
+.bt-booking-page .bt-hero-live i{width:6px;height:6px;border-radius:50%;background:#3b82a0}
+.bt-booking-page .bt-hero-route-line{display:flex;align-items:center;margin:20px 8px 8px}
+.bt-booking-page .bt-hero-route-dot{width:10px;height:10px;border:3px solid #4267a9;border-radius:50%;background:#fff}
+.bt-booking-page .bt-hero-route-dash{height:1px;flex:1;border-top:2px dashed #a7bbd9}
+.bt-booking-page .bt-hero-route-pin{display:grid;place-items:center;width:28px;height:28px;border-radius:9px;background:#4267a9;color:#fff;font-size:12px}
+.bt-booking-page .bt-hero-route-labels{display:flex;justify-content:space-between;gap:12px;padding:0 7px 16px}
+.bt-booking-page .bt-hero-route-labels span:last-child{text-align:right}
+.bt-booking-page .bt-hero-route-labels small,.bt-booking-page .bt-hero-route-labels strong{display:block}
+.bt-booking-page .bt-hero-route-labels small{font-size:9px;letter-spacing:1px;font-weight:800;color:#7a8ba5}
+.bt-booking-page .bt-hero-route-labels strong{margin-top:4px;font-size:12px;line-height:1.35}
+.bt-booking-page .bt-hero-car-scene{position:relative;height:150px;overflow:hidden;border-radius:15px;background:linear-gradient(180deg,#dce9fa 0%,#edf3fb 67%,#d2deef 67%,#d2deef 100%)}
+.bt-booking-page .bt-hero-sun{position:absolute;right:18%;top:17px;width:42px;height:42px;border-radius:50%;background:#fff8e8;box-shadow:0 0 0 10px rgba(255,255,255,.2)}
+.bt-booking-page .bt-hero-palm{position:absolute;right:10%;top:24px;font-size:64px;line-height:1;color:#7b9bbd;transform:rotate(-15deg);opacity:.9}
+.bt-booking-page .bt-hero-car{position:absolute;left:15%;bottom:27px;width:64%;height:51px;border-radius:23px 34px 12px 12px;background:linear-gradient(180deg,#ffffff 0%,#f5f7fb 45%,#b9c9df 46%,#dce5f1 100%);border:1px solid #8fa6c5;box-shadow:0 12px 15px rgba(35,61,96,.16)}
+.bt-booking-page .bt-hero-car:before{content:"";position:absolute;left:18%;top:-24px;width:49%;height:28px;border:1px solid #8fa6c5;border-bottom:0;border-radius:18px 22px 0 0;background:#e9f1fb;transform:skewX(-10deg)}
+.bt-booking-page .bt-car-window{position:absolute;left:23%;top:-17px;width:19%;height:17px;border-radius:8px 4px 0 0;background:#7394bb;z-index:1}
+.bt-booking-page .bt-car-window-two{left:46%;width:20%}
+.bt-booking-page .bt-car-wheel{position:absolute;bottom:-9px;width:22px;height:22px;border:5px solid #435b7c;border-radius:50%;background:#dce5f1}
+.bt-booking-page .bt-car-wheel-one{left:15%}.bt-booking-page .bt-car-wheel-two{right:14%}
+.bt-booking-page .bt-hero-scene-label{position:absolute;left:12px;bottom:9px;color:#496487;font-size:8px;font-weight:900;letter-spacing:1.2px}
+.bt-booking-page .bt-hero-visual-foot{display:flex;justify-content:space-between;gap:10px;padding-top:14px;color:#526784;font-size:10px;font-weight:700}
+.bt-booking-page .bt-hero-visual-foot span{display:flex;align-items:center;gap:6px}
+.bt-booking-page .bt-hero-visual-foot i{color:#4267a9}
+@media(max-width:900px){.bt-booking-page .bt-airport-hero-layout{grid-template-columns:minmax(0,1fr) minmax(290px,.9fr);gap:22px}.bt-booking-page .bt-airport-hero-visual{padding:15px}.bt-booking-page .bt-hero-live{font-size:9px}}
+@media(max-width:700px){.bt-booking-page .bt-airport-hero-layout{display:block;padding-top:44px;padding-bottom:60px}.bt-booking-page .bt-airport-hero-layout .heroInner{padding:0}.bt-booking-page .bt-airport-hero-layout .heroInner h1{font-size:clamp(32px,8.5vw,40px);line-height:1.08;letter-spacing:-.8px}.bt-booking-page .bt-airport-hero-layout .heroInner p{font-size:15px;margin-bottom:20px}.bt-booking-page .bt-airport-hero-visual{display:none}}
