@@ -125,9 +125,29 @@
   cursor:pointer;
 }
 .bt-booking-page .bt-search-button:hover{background:#17365f}
+.bt-booking-page .bt-search-button:focus-visible,
+.bt-booking-page .bt-service-tab:focus-visible,
+.bt-booking-page .bt-select-car:focus-visible,
+.bt-booking-page .bt-carousel-controls button:focus-visible,
+.bt-booking-page .bt-class-tabs button:focus-visible{
+  outline:3px solid #83aef5;
+  outline-offset:3px;
+}
 .bt-booking-page .bt-fleet-section{background:#f3f6fc}
 .bt-booking-page .bt-fleet-heading h2,
 .bt-booking-page .bt-booking-page h2{color:#172b4d}
+.bt-booking-page .bt-fleet-heading p,
+.bt-booking-page .bt-fleet-disclaimer{color:#52647d}
+.bt-booking-page .bt-car-card{
+  background:#fff;
+  border-color:#d6e0ed;
+  box-shadow:0 5px 16px rgba(23,43,77,.07);
+}
+.bt-booking-page .bt-car-info h3{color:#172b4d}
+.bt-booking-page .bt-car-info p{color:#52647d}
+.bt-booking-page .bt-car-bottom strong{color:#29446e}
+.bt-booking-page .bt-select-car{color:#244a80;border-color:#aebfd7;background:#fff}
+.bt-booking-page .bt-car-card.is-selected{border-color:#4267a9}
 .bt-booking-page .bt-availability-result{
   background:#edf4ff;
   border-color:#b7cbe8;
@@ -163,6 +183,15 @@
   .bt-booking-page .bt-search-button{min-height:48px;line-height:1.3;padding:10px 12px}
   .bt-booking-page .bt-fleet-section{padding-top:25px}
   .bt-booking-page .bt-fleet-heading{align-items:flex-start}
+  .bt-booking-page .bt-class-tabs{max-width:100%;width:100%;display:flex;flex-wrap:nowrap;gap:8px;overflow-x:auto;overflow-y:hidden;padding:3px 2px 9px;margin-top:12px;border:0;border-radius:0;background:transparent;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .bt-booking-page .bt-class-tabs::-webkit-scrollbar{display:none}
+  .bt-booking-page .bt-class-tabs button{flex:0 0 auto;white-space:nowrap;scroll-snap-align:start;border:1px solid #cbd8e8;border-radius:999px;background:transparent;color:#405673;padding:10px 14px;min-height:40px;font-size:12px;font-weight:750}
+  .bt-booking-page .bt-class-tabs button.is-active{background:#244a80;border-color:#244a80;color:#fff;box-shadow:0 3px 9px rgba(23,54,95,.18)}
+  .bt-booking-page .bt-car-carousel{grid-auto-columns:minmax(76%,1fr);gap:10px}
+  .bt-booking-page .bt-car-card img{height:145px}
+  .bt-booking-page .bt-car-info{padding:12px}
+  .bt-booking-page .bt-car-bottom{flex-wrap:wrap}
+  .bt-booking-page .bt-car-bottom strong{min-width:0;overflow-wrap:anywhere}
   .bt-booking-page .bt-booking-hero+.bt-fleet-section{margin-top:0}
 }
 @media(max-width:380px){
@@ -172,6 +201,8 @@
   .bt-booking-page .bt-service-tab{flex-basis:104px;padding:8px}
   .bt-booking-page .bt-form-grid{gap:9px}
   .bt-booking-page .bt-search-panel{padding:14px 11px}
+  .bt-booking-page .bt-car-carousel{grid-auto-columns:minmax(84%,1fr)}
+  .bt-booking-page .bt-car-card img{height:138px}
 }
 @media(prefers-reduced-motion:reduce){
   .bt-booking-page *{scroll-behavior:auto!important;transition:none!important}
@@ -184,13 +215,20 @@
 .bt-booking-page .section h2{margin:0 0 10px;line-height:1.25;letter-spacing:-.35px}
 .bt-booking-page .bt-fleet-heading p,
 .bt-booking-page .section p{margin-top:8px;line-height:1.75}
+.bt-booking-page .bt-class-tabs{display:flex;flex-wrap:wrap;gap:6px;padding:5px;background:#e7edf7;border:1px solid #d3deed;border-radius:12px}
+.bt-booking-page .bt-class-tabs button{min-height:38px;padding:9px 12px;color:#344b6b;background:transparent;border:1px solid transparent;border-radius:8px;font-size:12px;font-weight:800;line-height:1.2;white-space:nowrap}
+.bt-booking-page .bt-class-tabs button.is-active{background:#244a80;color:#fff;border-color:#244a80;box-shadow:0 2px 6px rgba(23,43,77,.18)}
 .bt-booking-page .bt-car-class{background:#eaf1fc;color:#244a80;font-weight:800}
 .bt-booking-page .bt-car-class.premium{background:#e8edf5;color:#243b5a}
 .bt-booking-page .bt-car-class.minivan{background:#dceafb;color:#183b68}
+.bt-booking-page .bt-car-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:14px}
+.bt-booking-page .bt-select-car{min-height:38px;padding:8px 12px;border:1px solid #9fb4d2;border-radius:9px;background:#fff;color:#244a80;font-weight:800;line-height:1.2}
+.bt-booking-page .bt-select-car:hover{background:#edf4ff}
 .bt-booking-page .bt-availability-result{padding:16px 18px;margin:14px 0 4px;border:1px solid #b8cbe6;border-radius:13px;background:#edf4ff;color:#263f64;line-height:1.7;overflow-wrap:anywhere}
 .bt-booking-page .bt-availability-result strong{display:block;margin:0 0 7px;color:#172b4d;font-size:15px;line-height:1.4}
 .bt-booking-page .bt-availability-result p{margin:0;color:#344b68;line-height:1.7}
 .bt-booking-page .bt-result-action{margin-top:14px}
+.bt-booking-page .bt-fleet-disclaimer{margin:12px 0 0;font-size:12px;line-height:1.7}
 .bt-booking-page .section{padding-block:clamp(30px,5vw,54px)}
 .bt-booking-page .section .wrap{display:flow-root}
 .bt-booking-page .section .pill{display:inline-flex;margin:0 0 14px;background:#eaf1fc;color:#244a80;border:1px solid #d1deef}
@@ -213,14 +251,62 @@
 .bt-booking-page .bt-location-tag{background:#eaf1fc;color:#244a80}
 .bt-booking-page .bt-search-panel .bt-kicker{color:#4267a9}
 .bt-booking-page .bt-fleet-section .bt-kicker{color:#4267a9}
+.bt-booking-page .bt-car-info h3{margin:8px 0 6px;line-height:1.35;overflow-wrap:anywhere}
+.bt-booking-page .bt-car-info p{margin:0;line-height:1.55}
+.bt-booking-page .bt-car-card[hidden]{display:none!important}
 @media(max-width:760px){
  .bt-booking-page .bt-fleet-heading{display:flex;flex-direction:column;gap:14px;margin-bottom:16px}
+ .bt-booking-page .bt-class-tabs{width:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));overflow:visible}
+ .bt-booking-page .bt-class-tabs button{white-space:normal;padding:9px 7px;min-width:0}
  .bt-booking-page .section{padding-block:30px}
  .bt-booking-page .section .cards{gap:12px;margin-top:18px}
  .bt-booking-page .bt-availability-result{padding:14px}
  .bt-booking-page .bt-form-grid{row-gap:13px}
 }
 @media(max-width:380px){
+ .bt-booking-page .bt-class-tabs button{font-size:11px}
+ .bt-booking-page .bt-car-bottom{align-items:flex-start}
+ .bt-booking-page .bt-select-car{padding:8px 9px}
+}
+
+
+/* Vehicle category selector is a horizontal carousel of pills, not a row of cards. */
+.bt-booking-page .bt-class-tabs{
+  display:flex;
+  flex-wrap:nowrap;
+  gap:8px;
+  max-width:100%;
+  overflow-x:auto;
+  overflow-y:hidden;
+  padding:4px 2px 9px;
+  border:0;
+  border-radius:0;
+  background:transparent;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.bt-booking-page .bt-class-tabs::-webkit-scrollbar{display:none}
+.bt-booking-page .bt-class-tabs button{
+  flex:0 0 auto;
+  min-height:40px;
+  padding:10px 14px;
+  border:1px solid #cbd8e8;
+  border-radius:999px;
+  background:transparent;
+  color:#405673;
+  font-size:12px;
+  font-weight:750;
+  white-space:nowrap;
+  scroll-snap-align:start;
+}
+.bt-booking-page .bt-class-tabs button.is-active{
+  background:#244a80;
+  border-color:#244a80;
+  color:#fff;
+  box-shadow:0 3px 9px rgba(23,54,95,.18);
 }
 @media(max-width:380px){
+  .bt-booking-page .bt-class-tabs{gap:6px}
+  .bt-booking-page .bt-class-tabs button{padding:9px 12px;font-size:11px}
 }
