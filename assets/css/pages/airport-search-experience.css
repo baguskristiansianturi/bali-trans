@@ -27,8 +27,6 @@
 .bt-fleet-showcase-heading{margin-bottom:18px}
 .bt-results-wrap{padding-bottom:10px}
 .bt-availability-note{margin-top:8px!important;padding:9px 11px;border-radius:8px;background:#f7f9fc}
-.bt-result-vehicle-copy{flex:1;min-width:0;padding:11px 12px}
-.bt-result-vehicle-copy h4{margin:6px 0 4px;font-size:15px;color:#172b4d}.bt-result-vehicle-copy p{margin:0;color:#687990;font-size:11px;line-height:1.45}
 .bt-unavailable{margin:0;padding:12px;border:1px dashed #d6dfeb;border-radius:9px;background:#f8faff;color:#687990;font-size:12px}
 .bt-airport-copy-section{background:#f3f6fc;padding:42px 0 54px}
 .bt-airport-copy-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:36px}
@@ -36,7 +34,7 @@
 .bt-airport-copy-grid h3{margin:20px 0 7px;font-size:17px;color:#172b4d}
 .bt-airport-copy-grid ol{padding-left:20px}
 .bt-airport-cta{margin-top:10px;min-height:44px;padding:12px 17px;font-size:12px}
-@media(max-width:760px){.bt-date-guide-section,.bt-fleet-showcase-section{padding:24px 0}.bt-results-wrap{padding-left:0;padding-right:0}.bt-result-vehicle-copy{padding:9px}.bt-airport-copy-section{padding:32px 0 42px}.bt-airport-copy-grid{grid-template-columns:1fr;gap:8px}}
+@media(max-width:760px){.bt-date-guide-section,.bt-fleet-showcase-section{padding:24px 0}.bt-results-wrap{padding-left:0;padding-right:0}.bt-airport-copy-section{padding:32px 0 42px}.bt-airport-copy-grid{grid-template-columns:1fr;gap:8px}}
 
 /* Starting fare display, SEO FAQ and closing booking CTA */
 .bt-fleet-price-guide{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin-top:17px}
@@ -135,9 +133,7 @@
 
 .bt-booking-page .bt-results-wrap{padding-bottom:18px}
 .bt-booking-page .bt-availability-note{margin-top:12px!important;padding:11px 13px}
-.bt-booking-page .bt-result-vehicle-copy h4{font-size:16px;font-weight:850;line-height:1.4}
-.bt-booking-page .bt-result-vehicle-copy p{font-size:12px;line-height:1.65}
-.bt-booking-page .bt-airport-copy-section{padding:var(--airport-section-gap) 0;background:#fff}
+.bt-booking-page .bt-booking-page .bt-booking-page .bt-airport-copy-section{padding:var(--airport-section-gap) 0;background:#fff}
 .bt-booking-page .bt-airport-copy-grid{grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:clamp(24px,4vw,52px);align-items:start}
 .bt-booking-page .bt-airport-copy-grid>div:first-child{position:relative}
 .bt-booking-page .bt-airport-copy-grid h2{max-width:420px}
