@@ -393,3 +393,28 @@ body.booking-mode #bookingDetails .field:has(#bookingPrice){display:none!importa
 .bt-booking-page .bt-hero-visual-foot i{color:#4267a9}
 @media(max-width:900px){.bt-booking-page .bt-airport-hero-layout{grid-template-columns:minmax(0,1fr) minmax(290px,.9fr);gap:22px}.bt-booking-page .bt-airport-hero-visual{padding:15px}.bt-booking-page .bt-hero-live{font-size:9px}}
 @media(max-width:700px){.bt-booking-page .bt-airport-hero-layout{display:block;padding-top:44px;padding-bottom:60px}.bt-booking-page .bt-airport-hero-layout .heroInner{padding:0}.bt-booking-page .bt-airport-hero-layout .heroInner h1{font-size:clamp(32px,8.5vw,40px);line-height:1.08;letter-spacing:-.8px}.bt-booking-page .bt-airport-hero-layout .heroInner p{font-size:15px;margin-bottom:20px}.bt-booking-page .bt-airport-hero-visual{display:none}}
+
+
+/* Consistent left alignment for airport transfer section headings and subheadings. */
+.bt-booking-page .bt-airport-copy-section .bt-airport-faq-heading,
+.bt-booking-page .bt-airport-copy-section .bt-airport-faq-heading h2,
+.bt-booking-page .bt-airport-copy-section .bt-airport-faq-heading h3,
+.bt-booking-page .bt-airport-copy-section .bt-airport-faq-heading p,
+.bt-booking-page .bt-fleet-showcase-section .bt-fleet-showcase-heading,
+.bt-booking-page .bt-fleet-showcase-section .bt-fleet-showcase-heading h2,
+.bt-booking-page .bt-fleet-showcase-section .bt-fleet-showcase-heading h3,
+.bt-booking-page .bt-fleet-showcase-section .bt-fleet-showcase-heading p,
+.bt-booking-page .bt-airport-faq-section .bt-airport-faq-heading,
+.bt-booking-page .bt-airport-faq-section .bt-airport-faq-heading h2,
+.bt-booking-page .bt-airport-faq-section .bt-airport-faq-heading h3,
+.bt-booking-page .bt-airport-faq-section .bt-airport-faq-heading p {
+  text-align: left !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+.bt-booking-page .bt-airport-copy-section .bt-airport-faq-heading,
+.bt-booking-page .bt-fleet-showcase-section .bt-fleet-showcase-heading,
+.bt-booking-page .bt-airport-faq-section .bt-airport-faq-heading {
+  width: 100%;
+  max-width: none;
+}
