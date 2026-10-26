@@ -68,3 +68,24 @@
  .bt-booking-page #btAvailabilityResult .bt-result-vehicle .bt-fleet-starting-price{font-size:16px}
  .bt-booking-page #btAvailabilityResult .bt-result-vehicle .bt-included-list{grid-template-columns:minmax(0,1fr)}
 }
+
+
+/* Mobile search results are a vertical list: exactly one vehicle card per row.
+   This applies only to search results, never to the fleet showcase or its photo galleries. */
+@media(max-width:760px){
+ .bt-booking-page #btAvailabilityResult .bt-results-list.bt-results-card-grid{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr)!important;
+  grid-auto-flow:row!important;
+  grid-auto-columns:auto!important;
+  align-items:stretch!important;
+  width:100%!important;
+  min-width:0!important;
+ }
+ .bt-booking-page #btAvailabilityResult .bt-results-list.bt-results-card-grid>.bt-result-vehicle{
+  grid-column:1/-1!important;
+  width:100%!important;
+  min-width:0!important;
+  max-width:100%!important;
+ }
+}
