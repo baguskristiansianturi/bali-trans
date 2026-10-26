@@ -89,3 +89,96 @@
   max-width:100%!important;
  }
 }
+
+
+/* Search cards reuse the fleet card design, but render as a normal list (never a carousel).
+   One full-width vehicle per row at every breakpoint; photo gallery controls remain independent. */
+.bt-booking-page #btAvailabilityResult .bt-results-list.bt-results-card-grid{
+ display:grid!important;
+ grid-template-columns:minmax(0,1fr)!important;
+ grid-auto-flow:row!important;
+ grid-auto-columns:auto!important;
+ gap:16px!important;
+ width:100%!important;
+ max-width:100%!important;
+ min-width:0!important;
+}
+.bt-booking-page #btAvailabilityResult .bt-results-list.bt-results-card-grid>.bt-result-vehicle{
+ display:grid!important;
+ grid-template-columns:minmax(180px,32%) minmax(0,1fr)!important;
+ grid-template-rows:1fr!important;
+ align-items:stretch!important;
+ width:100%!important;
+ max-width:100%!important;
+ min-width:0!important;
+ height:auto!important;
+ min-height:0!important;
+ margin:0!important;
+}
+.bt-booking-page #btAvailabilityResult .bt-result-vehicle .bt-fleet-image-wrap{
+ height:100%!important;
+ min-height:220px!important;
+}
+.bt-booking-page #btAvailabilityResult .bt-result-vehicle .bt-fleet-card-body{
+ min-width:0!important;
+ padding:18px!important;
+}
+.bt-booking-page #btAvailabilityResult .bt-result-vehicle .bt-fleet-title-row{
+ flex-wrap:wrap!important;
+ gap:12px!important;
+}
+.bt-booking-page #btAvailabilityResult .bt-result-vehicle .bt-fleet-price-block{
+ max-width:100%!important;
+ padding-left:0!important;
+ text-align:left!important;
+}
+.bt-booking-page #btAvailabilityResult .bt-result-vehicle .bt-included-list{
+ grid-template-columns:repeat(3,minmax(0,1fr))!important;
+}
+.bt-booking-page #btAvailabilityResult .bt-result-vehicle .bt-result-book-button{
+ display:flex!important;
+ align-items:center!important;
+ justify-content:center!important;
+ width:100%!important;
+ min-height:48px!important;
+ margin-top:14px!important;
+ white-space:normal!important;
+}
+@media(max-width:600px){
+ .bt-booking-page #btAvailabilityResult .bt-results-list.bt-results-card-grid>.bt-result-vehicle{
+  grid-template-columns:minmax(0,1fr)!important;
+  grid-template-rows:auto 1fr!important;
+ }
+ .bt-booking-page #btAvailabilityResult .bt-result-vehicle .bt-fleet-image-wrap{
+  height:clamp(180px,56vw,250px)!important;
+  min-height:0!important;
+ }
+ .bt-booking-page #btAvailabilityResult .bt-result-vehicle .bt-fleet-card-body{
+  padding:14px!important;
+ }
+ .bt-booking-page #btAvailabilityResult .bt-result-vehicle .bt-fleet-title-row{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) auto!important;
+  align-items:start!important;
+  gap:10px!important;
+ }
+ .bt-booking-page #btAvailabilityResult .bt-result-vehicle .bt-fleet-price-block{
+  max-width:45%!important;
+  text-align:right!important;
+ }
+ .bt-booking-page #btAvailabilityResult .bt-result-vehicle .bt-included-list{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+ }
+}
+@media(max-width:360px){
+ .bt-booking-page #btAvailabilityResult .bt-result-vehicle .bt-fleet-title-row{
+  grid-template-columns:minmax(0,1fr)!important;
+ }
+ .bt-booking-page #btAvailabilityResult .bt-result-vehicle .bt-fleet-price-block{
+  max-width:100%!important;
+  text-align:left!important;
+ }
+ .bt-booking-page #btAvailabilityResult .bt-result-vehicle .bt-included-list{
+  grid-template-columns:minmax(0,1fr)!important;
+ }
+}
