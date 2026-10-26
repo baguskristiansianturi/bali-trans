@@ -464,3 +464,29 @@
 .bt-booking-page .bt-route-labels #btRouteDirection{display:block;width:100%;padding:0;border:0;color:#233f67;font-size:13px;font-weight:800;line-height:1.25;white-space:normal;overflow-wrap:anywhere}
 @media(max-width:760px){.bt-booking-page .bt-route-labels{min-height:56px}.bt-booking-page .bt-route-labels #btRouteDirection{font-size:12px}}
 @media(max-width:390px){.bt-booking-page .bt-route-labels #btRouteDirection{font-size:11px}}
+
+
+/* Compact airport controls: direction icon sits outside the label border. */
+.bt-booking-page .bt-route-control-row{display:flex;align-items:center;gap:7px;min-width:0}
+.bt-booking-page .bt-route-flipper{flex:1;min-width:0!important;width:auto!important;height:42px!important;min-height:42px!important;box-sizing:border-box;display:flex!important;flex-direction:row!important;align-items:center;justify-content:flex-start;padding:6px 10px!important;border:1px solid #d5dfec!important;border-radius:9px!important;background:#f7f9fd!important}
+.bt-booking-page .bt-route-labels{display:flex!important;flex:1;min-width:0;min-height:0!important;justify-content:flex-start!important}
+.bt-booking-page .bt-route-labels #btRouteDirection{display:block;width:100%;padding:0!important;border:0!important;text-align:left!important;color:#233f67;font-size:12px;font-weight:750;line-height:1.2;white-space:normal;overflow-wrap:anywhere}
+.bt-booking-page .bt-direction-flip{position:static!important;flex:0 0 27px;width:27px!important;height:27px!important;min-width:27px;padding:0!important;transform:none!important;display:flex;align-items:center;justify-content:center;border:1px solid #cfdaea;border-radius:8px;background:#fff;color:#294f83;font-size:19px;line-height:1;cursor:pointer}
+.bt-booking-page .bt-terminal-field{min-width:0}
+.bt-booking-page .bt-terminal-switch{height:42px;box-sizing:border-box;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:6px 7px 6px 10px;border:1px solid #d5dfec;border-radius:9px;background:#f7f9fd;color:#233f67;font-size:12px;font-weight:700}
+.bt-booking-page .bt-terminal-switch button{flex:0 0 27px;width:27px;height:27px;padding:0;border:1px solid #cfdaea;border-radius:7px;background:#fff;color:#294f83;font-size:17px;line-height:1;cursor:pointer}
+.bt-booking-page #btTerminal{position:absolute!important;width:1px!important;height:1px!important;opacity:0!important;pointer-events:none!important}
+.bt-booking-page .bt-direction-field legend,.bt-booking-page .bt-field>span{ text-align:left!important }
+.bt-booking-page section h2,.bt-booking-page section h3,.bt-booking-page .bt-form-heading h2,.bt-booking-page .bt-form-heading h3{ text-align:left!important;margin-left:0!important;margin-right:auto!important }
+@media(max-width:760px){
+ .bt-booking-page .bt-route-control-row{gap:5px}
+ .bt-booking-page .bt-route-flipper,.bt-booking-page .bt-terminal-switch{height:40px!important;min-height:40px!important;padding:5px 7px!important}
+ .bt-booking-page .bt-route-labels #btRouteDirection,.bt-booking-page .bt-terminal-switch{font-size:11px}
+ .bt-booking-page .bt-direction-flip,.bt-booking-page .bt-terminal-switch button{flex-basis:25px;width:25px!important;height:25px!important;min-width:25px;font-size:16px}
+}
+@media(max-width:390px){
+ .bt-booking-page .bt-route-control-row{gap:4px}
+ .bt-booking-page .bt-route-flipper,.bt-booking-page .bt-terminal-switch{height:38px!important;min-height:38px!important;padding:4px 6px!important}
+ .bt-booking-page .bt-route-labels #btRouteDirection,.bt-booking-page .bt-terminal-switch{font-size:10px}
+ .bt-booking-page .bt-direction-flip,.bt-booking-page .bt-terminal-switch button{flex-basis:23px;width:23px!important;height:23px!important;min-width:23px;font-size:15px}
+}
