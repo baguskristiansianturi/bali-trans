@@ -20,3 +20,6 @@
 .booking-layout{display:block;max-width:820px;margin:0 auto;padding-bottom:32px}
 .booking-aside,.wordmark,.secure-note{display:none!important}
 @media(max-width:760px){.booking-top{height:54px}.booking-layout{padding-bottom:20px}}
+
+/* The nested traveller grid must stay hidden for "For myself"; display:grid otherwise overrides the browser's hidden styling. */
+#otherGuestFields[hidden]{display:none!important}
