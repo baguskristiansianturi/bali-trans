@@ -1,0 +1,66 @@
+/* Single source of truth for airport fleet cards.
+   Catalogue: horizontal carousel. Search: vertical list. Inner image gallery is separate. */
+.bt-booking-page .bt-fleet-card,.bt-booking-page .bt-result-vehicle{box-sizing:border-box;min-width:0;overflow:hidden;border:1px solid #dce6f2;border-radius:16px;background:#fff;box-shadow:0 6px 22px rgba(23,43,77,.06)}
+.bt-booking-page .bt-fleet-card,.bt-booking-page .bt-result-vehicle{display:flex;flex-direction:column}
+.bt-booking-page .bt-fleet-image-wrap{position:relative;flex:0 0 auto;width:100%;height:190px;min-width:0;margin:0;overflow:hidden;background:#e8eef6;touch-action:pan-y}
+.bt-booking-page .bt-fleet-main-image{display:block;width:100%;height:100%;object-fit:cover}
+.bt-booking-page .bt-fleet-card-body{box-sizing:border-box;display:flex;flex:1 1 auto;flex-direction:column;min-width:0;padding:15px}
+.bt-booking-page .bt-fleet-title-row{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;min-width:0}
+.bt-booking-page .bt-fleet-title-row>div:first-child{flex:1 1 auto;min-width:0}
+.bt-booking-page .bt-fleet-title-row h3{margin:1px 0 5px;color:#172b4d;font-size:16px;font-weight:850;line-height:1.35;overflow-wrap:anywhere}
+.bt-booking-page .bt-fleet-title-row p{margin:0;color:#687d98;font-size:12px;line-height:1.5}
+.bt-booking-page .bt-fleet-price-block{flex:0 0 auto;min-width:0;text-align:right}
+.bt-booking-page .bt-fleet-from{display:block;color:#657994;font-size:10px}
+.bt-booking-page .bt-fleet-starting-price{display:block;color:#ed7627;font-size:20px;font-weight:850;line-height:1.25;overflow-wrap:anywhere}
+.bt-booking-page .bt-price-currency{color:#49627f;font-size:11px;font-weight:600}
+.bt-booking-page .bt-price-number{color:#ed7627;font-size:inherit;font-weight:850}
+.bt-booking-page .bt-price-unit{color:#718198;font-size:10px}
+.bt-booking-page .bt-fleet-capacity{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:12px;color:#526681;font-size:11px;line-height:1.5}
+.bt-booking-page .bt-spec-icon{color:#526f98}.bt-booking-page .bt-meta-divider{color:#a6b2c3}
+.bt-booking-page .bt-car-class{display:inline-flex;align-items:center;padding:5px 8px;border:1px solid #dbe5f2;border-radius:6px;background:#f1f5fb;color:#385984;font-size:10px;font-weight:800;letter-spacing:.25px}
+.bt-booking-page .bt-car-class.premium{border-color:#e5defc;background:#f2efff;color:#6550a0}.bt-booking-page .bt-car-class.minivan{border-color:#dce7ef;background:#eef4f8;color:#456276}
+.bt-booking-page .bt-image-category{position:absolute;z-index:2;top:10px;left:10px}
+.bt-booking-page .bt-fleet-index{position:absolute;top:10px;right:10px;padding:5px 7px;border-radius:6px;background:#172b4dbb;color:#fff;font-size:10px}
+.bt-booking-page .bt-image-count{position:absolute;right:10px;bottom:10px;padding:5px 8px;border-radius:6px;background:#172b4dbb;color:#fff;font-size:10px}
+.bt-booking-page .bt-image-dots{position:absolute;left:10px;bottom:13px;display:flex;align-items:center;gap:5px}
+.bt-booking-page .bt-image-dot{width:7px;height:7px;padding:0;border:1px solid #fff;border-radius:50%;background:#ffffff8c}
+.bt-booking-page .bt-image-dot.is-active{background:#fff;transform:scale(1.2)}
+.bt-booking-page .bt-card-date-label{display:flex;align-items:center;gap:7px;margin-top:12px;padding-top:10px;border-top:1px solid #edf1f6;color:#526b88;font-size:11px;font-weight:750}
+.bt-booking-page .bt-card-date-chips{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px;margin-top:7px}
+.bt-booking-page .bt-date-chip{position:relative;display:flex;min-width:0;flex-direction:column;align-items:center;gap:2px;padding:6px 1px;border:1px solid #c9d8e9;border-radius:7px;background:#edf4fc;color:#29446e;text-align:center}
+.bt-booking-page .bt-date-chip b{font-size:10px}.bt-booking-page .bt-date-chip small{font-size:8px}
+.bt-booking-page .bt-date-chip.is-blocked{border-color:#e0e5ec;background:#f4f6f9;color:#aebdcd}
+.bt-booking-page .bt-date-chip i{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;border-radius:6px;background:#ffffffb8;color:#b45353;font-size:22px;font-style:normal}
+.bt-booking-page .bt-date-status-legend{display:flex;flex-wrap:wrap;gap:9px;margin-top:auto;padding-top:9px;color:#657892;font-size:10px;line-height:1.4}
+.bt-booking-page .bt-date-status-legend span{display:inline-flex;align-items:center;gap:5px}.bt-booking-page .bt-legend-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#c9d8e9}.bt-booking-page .bt-legend-dot.is-blocked{background:#e0e5ec;outline:1px solid #b45353}
+
+/* Outer catalogue carousel */
+#btFleetShowcase{display:block;width:100%;min-width:0}
+#btFleetShowcase .bt-fleet-slider-shell{display:grid;grid-template-columns:36px minmax(0,1fr) 36px;align-items:center;gap:10px;width:100%;min-width:0}
+#btFleetShowcase #btFleetSliderTrack{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 48px)/4);align-items:stretch;gap:16px;width:100%;min-width:0;margin:0;padding:4px 3px 16px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-padding-inline:3px;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+#btFleetShowcase #btFleetSliderTrack::-webkit-scrollbar{display:none}
+#btFleetShowcase #btFleetSliderTrack>.bt-fleet-card{width:auto;min-width:0;scroll-snap-align:start}
+#btFleetShowcase .bt-fleet-slider-arrow{display:grid;place-items:center;width:36px;height:40px;border:1px solid #d8e2ef;border-radius:50%;background:#fff;color:#294d82;font-size:24px;line-height:1;cursor:pointer}
+#btFleetShowcase .bt-fleet-slider-status{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:2px;padding:0 3px;color:#64758d;font-size:11px}
+
+/* Search results are one full-width row per vehicle, never a carousel */
+#btAvailabilityResult .bt-results-groups{display:grid;gap:22px;margin-top:16px}
+#btAvailabilityResult .bt-results-group{min-width:0}
+#btAvailabilityResult .bt-results-group-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+#btAvailabilityResult .bt-results-group-heading h3{margin:0;color:#172b4d;font-size:16px;font-weight:850}
+#btAvailabilityResult .bt-results-group-heading span{color:#718198;font-size:11px}
+#btAvailabilityResult .bt-results-list{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;min-width:0;margin-top:10px}
+#btAvailabilityResult .bt-result-vehicle{width:100%;min-width:0}
+#btAvailabilityResult .bt-result-vehicle .bt-fleet-image-wrap{height:210px}
+#btAvailabilityResult .bt-result-vehicle .bt-fleet-card-body{padding:16px}
+#btAvailabilityResult .bt-result-vehicle .bt-included-heading{margin-top:14px;color:#526681;font-size:11px;font-weight:800}
+#btAvailabilityResult .bt-result-vehicle .bt-included-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:8px 0 14px;padding:0;list-style:none}
+#btAvailabilityResult .bt-result-vehicle .bt-included-list li{display:flex;align-items:flex-start;gap:6px;min-width:0;color:#526681;font-size:11px;line-height:1.45}
+#btAvailabilityResult .bt-result-vehicle .bt-included-list i{flex:0 0 auto;margin-top:3px;color:#3d7c68}
+#btAvailabilityResult .bt-result-vehicle .bt-result-book-button{display:flex;align-items:center;justify-content:center;width:100%;min-height:46px;margin-top:12px;padding:11px 14px;border:1px solid #294d82;border-radius:9px;background:#294d82;color:#fff;font-size:13px;font-weight:850;text-align:center;text-decoration:none}
+#btAvailabilityResult .bt-result-vehicle .bt-result-book-button:hover{background:#1d3c6b}
+#btAvailabilityResult .bt-result-vehicle .bt-result-book-button:focus-visible{outline:2px solid #82a9d7;outline-offset:3px}
+@media(max-width:1024px){#btFleetShowcase #btFleetSliderTrack{grid-auto-columns:calc((100% - 24px)/3);gap:12px}}
+@media(max-width:760px){#btFleetShowcase .bt-fleet-slider-shell{display:block}#btFleetShowcase .bt-fleet-slider-arrow{display:none}#btFleetShowcase #btFleetSliderTrack{grid-auto-columns:86%;gap:12px;padding:3px 2px 15px;scroll-padding-inline:2px}#btFleetShowcase .bt-fleet-image-wrap{height:185px}#btAvailabilityResult .bt-result-vehicle .bt-fleet-image-wrap{height:clamp(180px,56vw,240px)}#btAvailabilityResult .bt-result-vehicle .bt-fleet-card-body{padding:14px}#btAvailabilityResult .bt-result-vehicle .bt-fleet-title-row{gap:8px}#btAvailabilityResult .bt-result-vehicle .bt-fleet-price-block{max-width:45%}#btAvailabilityResult .bt-result-vehicle .bt-included-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:380px){#btFleetShowcase #btFleetSliderTrack{grid-auto-columns:90%}#btFleetShowcase .bt-fleet-image-wrap{height:165px}#btAvailabilityResult .bt-result-vehicle .bt-fleet-card-body{padding:12px}#btAvailabilityResult .bt-result-vehicle .bt-fleet-title-row{flex-direction:column}#btAvailabilityResult .bt-result-vehicle .bt-fleet-price-block{max-width:100%;text-align:left}#btAvailabilityResult .bt-result-vehicle .bt-included-list{grid-template-columns:minmax(0,1fr)}}
+@media(prefers-reduced-motion:reduce){#btFleetShowcase #btFleetSliderTrack{scroll-behavior:auto}}
