@@ -100,9 +100,9 @@ function applyAirportLocale(code){
  const set=(s,v)=>{const el=document.querySelector(s);if(el)el.textContent=v;};
  set('.bt-booking-hero .eyebrow',d.eyebrow);set('.bt-booking-hero h1',d.hero);set('.bt-booking-hero p',d.heroText);
  set('.bt-form-heading .bt-kicker',d.formKicker);set('.bt-form-heading h2',d.formTitle);set('.bt-fleet-showcase-heading .bt-kicker',d.fleetKicker);set('.bt-fleet-showcase-heading h2',d.fleetTitle);set('.bt-fleet-showcase-heading>p',d.fleetText);
- set('.bt-airport-copy-grid>div:first-child .bt-kicker',d.copyKicker);set('.bt-airport-copy-grid h2',d.copyTitle);
- const ps=document.querySelectorAll('.bt-airport-copy-grid>div:nth-child(2)>p');if(ps[0])ps[0].textContent=d.copyP1;if(ps[1])ps[1].textContent=d.copyP2;if(ps[2])ps[2].textContent=d.toAirport;
- set('.bt-airport-copy-grid h3',d.how);document.querySelectorAll('.bt-airport-copy-grid ol li').forEach((el,i)=>{if(d.steps[i])el.textContent=d.steps[i];});set('.bt-airport-copy-grid .bt-airport-cta',d.arrange);
+ set('.bt-airport-copy-section:not(.bt-airport-trust-section) .bt-airport-arrival-intro .bt-kicker',d.copyKicker);set('.bt-airport-copy-section:not(.bt-airport-trust-section) .bt-airport-arrival-intro h2',d.copyTitle);
+ const ps=document.querySelectorAll('.bt-airport-copy-section:not(.bt-airport-trust-section) .bt-airport-copy-grid>div:nth-child(2)>p');if(ps[0])ps[0].textContent=d.copyP1;if(ps[1])ps[1].textContent=d.copyP2;if(ps[2])ps[2].textContent=d.toAirport;
+ set('.bt-airport-copy-section:not(.bt-airport-trust-section) .bt-airport-copy-grid h3',d.how);document.querySelectorAll('.bt-airport-copy-section:not(.bt-airport-trust-section) .bt-airport-copy-grid ol li').forEach((el,i)=>{if(d.steps[i])el.textContent=d.steps[i];});set('.bt-airport-copy-section:not(.bt-airport-trust-section) .bt-airport-copy-grid .bt-airport-cta',d.arrange);
  set('.bt-airport-faq-heading .bt-kicker',d.faqKicker);set('.bt-airport-faq-heading h2',d.faqTitle);set('.bt-airport-faq-heading>p',d.faqIntro);
  document.querySelectorAll('.bt-airport-faq-list details').forEach((el,i)=>{if(d.faqs[i]){el.querySelector('summary').textContent=d.faqs[i][0];el.querySelector('p').textContent=d.faqs[i][1];}});
  set('.bt-airport-cta-copy .bt-kicker',d.finalKicker);set('.bt-airport-cta-copy h2',d.finalTitle);set('.bt-airport-cta-copy>p',d.finalText);document.querySelectorAll('.bt-airport-cta-card li').forEach((el,i)=>{const mark=el.querySelector('span');el.textContent=d.benefits[i]||'';if(mark)el.prepend(mark);});set('.bt-airport-cta-large',d.finalButton);
