@@ -362,6 +362,11 @@ try {
   await page.waitForFunction(() => document.querySelector('#btAvailabilityResult')?.textContent.includes('Vehicle options for your journey'));
   if (!(await page.locator('#btAvailabilityResult .bt-results-group').count())) throw new Error('Airport search must group results by regular, premium and van category');
   if (!(await page.locator('#btAvailabilityResult [data-book-car]').first().isVisible())) throw new Error('Airport search must show a per-vehicle booking CTA');
+  const searchTrack = page.locator('#btAvailabilityResult .bt-results-list').first();
+  const searchLayout = await searchTrack.evaluate(el => ({display:getComputedStyle(el).display,wrap:getComputedStyle(el).flexWrap,overflow:getComputedStyle(el).overflowX,scrollWidth:el.scrollWidth,clientWidth:el.clientWidth,cards:el.querySelectorAll('.bt-result-vehicle').length}));
+  if (searchLayout.display !== 'flex' || searchLayout.wrap !== 'nowrap' || searchLayout.overflow === 'visible' || searchLayout.cards < 2 || searchLayout.scrollWidth <= searchLayout.clientWidth) throw new Error('Airport search results must form a responsive horizontal carousel');
+  if (!(await page.locator('#btAvailabilityResult .bt-result-trip-date').first().isVisible())) throw new Error('Each airport search result card must show the selected trip date and time full-width');
+  if (await page.locator('#btAvailabilityResult .bt-date-status-legend').count()) throw new Error('Airport vehicle cards must not show the small bookable/not-bookable legend');
   await page.locator('#btAvailabilityResult [data-book-car]').first().click();
   await page.waitForURL('**/booking-form.html?**');
   if (await page.locator('.bt-site-header, .bt-site-footer, .booking-footer').count()) throw new Error('Booking form must not show the global navbar or footer');
