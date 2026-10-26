@@ -388,3 +388,21 @@
  .bt-booking-page .bt-radio{font-size:9px;padding-inline:2px}
  .bt-booking-page .bt-field input,.bt-booking-page .bt-field select{font-size:13px}
 }
+
+
+/* Single route control with a compact flip icon (airport ↕ Bali area). */
+.bt-booking-page .bt-direction-field{min-width:0}
+.bt-booking-page .bt-route-flipper{position:relative;min-height:70px;display:flex;flex-direction:column;justify-content:center;gap:5px;padding:9px 43px 9px 10px;border:1px solid #d8e2f0;border-radius:10px;background:#f8faff}
+.bt-booking-page .bt-route-labels{display:flex;flex-direction:column;gap:2px;min-width:0}
+.bt-booking-page .bt-route-labels span{overflow:hidden;color:#233f67;font-size:12px;font-weight:800;line-height:1.25;text-overflow:ellipsis;white-space:nowrap}
+.bt-booking-page .bt-direction-state{color:#687990;font-size:10px;line-height:1.3}
+.bt-booking-page .bt-direction-flip{position:absolute;top:50%;right:8px;transform:translateY(-50%);display:flex;align-items:center;justify-content:center;width:28px;height:28px;padding:0;border:1px solid #cfdaea;border-radius:8px;background:white;color:#294f83;font-size:19px;font-weight:700;line-height:1;cursor:pointer;touch-action:manipulation}
+.bt-booking-page .bt-direction-flip:hover{background:#eaf1fb}
+.bt-booking-page .bt-direction-flip:focus-visible{outline:2px solid #85a9dc;outline-offset:2px}
+.bt-booking-page .bt-direction-radio-state{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+@media(max-width:760px){
+ .bt-booking-page .bt-route-flipper{min-height:70px;padding:8px 35px 8px 8px}
+ .bt-booking-page .bt-route-labels span{font-size:11px}
+ .bt-booking-page .bt-direction-flip{right:5px;width:25px;height:25px;font-size:17px}
+ .bt-booking-page .bt-direction-state{font-size:9px}
+}
