@@ -192,3 +192,104 @@
 .bt-booking-page .bt-status-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#4d9b78}
 .bt-booking-page .bt-status-dot.is-blocked{background:#c7ced8}
 .bt-booking-page .bt-fleet-showcase-section[hidden]{display:none!important}
+
+
+/* Airport transfer copy sections: subtle trust cards and scannable steps.
+   Scoped to this page so shared cards and other routes remain unchanged. */
+.bt-booking-page .bt-airport-trust-section{
+  padding:clamp(30px,4.5vw,48px) 0;
+  background:#fff;
+  border-top:1px solid #e8edf5;
+  border-bottom:1px solid #e8edf5;
+}
+.bt-booking-page .bt-airport-trust-section .bt-airport-faq-heading{
+  max-width:760px;
+  margin:0 0 22px;
+}
+.bt-booking-page .bt-airport-trust-section .bt-airport-faq-heading h2{
+  margin:7px 0 9px;
+  color:#172b4d;
+  font-size:clamp(24px,3vw,32px);
+  font-weight:850;
+  line-height:1.2;
+  letter-spacing:-.5px;
+}
+.bt-booking-page .bt-airport-trust-section .bt-airport-faq-heading>p{
+  margin:0;
+  color:#526681;
+  font-size:15px;
+  line-height:1.75;
+}
+.bt-booking-page .bt-airport-trust-section .bt-airport-copy-grid{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
+}
+.bt-booking-page .bt-airport-trust-section .bt-airport-copy-grid>div{
+  min-width:0;
+  padding:20px 18px;
+  border:1px solid #dfe7f2;
+  border-radius:15px;
+  background:linear-gradient(155deg,#fff 0%,#f8faff 100%);
+  box-shadow:0 5px 18px rgba(23,43,77,.045);
+}
+.bt-booking-page .bt-airport-trust-section .bt-airport-copy-grid h3{
+  display:flex;
+  align-items:flex-start;
+  gap:9px;
+  margin:0 0 10px;
+  color:#203b63;
+  font-size:16px;
+  font-weight:850;
+  line-height:1.45;
+  letter-spacing:-.15px;
+}
+.bt-booking-page .bt-airport-trust-section .bt-airport-copy-grid p{
+  margin:0;
+  color:#53657e;
+  font-size:13px;
+  line-height:1.75;
+}
+.bt-booking-page .bt-airport-copy-grid ol{
+  list-style:none;
+  counter-reset:airport-step;
+  padding:0;
+}
+.bt-booking-page .bt-airport-copy-grid ol li{
+  position:relative;
+  counter-increment:airport-step;
+  padding:11px 12px 11px 43px;
+  border:1px solid #e0e7f1;
+  border-radius:11px;
+  background:#fff;
+}
+.bt-booking-page .bt-airport-copy-grid ol li::before{
+  content:counter(airport-step);
+  position:absolute;
+  left:12px;
+  top:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:22px;
+  height:22px;
+  border:1px solid #cbd9ec;
+  border-radius:50%;
+  background:#edf3fb;
+  color:#294d82;
+  font-size:11px;
+  font-weight:900;
+  line-height:1;
+}
+@media(max-width:760px){
+  .bt-booking-page .bt-airport-trust-section{padding:30px 0 34px}
+  .bt-booking-page .bt-airport-trust-section .bt-airport-faq-heading{margin-bottom:17px}
+  .bt-booking-page .bt-airport-trust-section .bt-airport-faq-heading h2{font-size:25px;line-height:1.22}
+  .bt-booking-page .bt-airport-trust-section .bt-airport-faq-heading>p{font-size:14px}
+  .bt-booking-page .bt-airport-trust-section .bt-airport-copy-grid{grid-template-columns:minmax(0,1fr);gap:10px}
+  .bt-booking-page .bt-airport-trust-section .bt-airport-copy-grid>div{padding:16px;border-radius:13px}
+  .bt-booking-page .bt-airport-trust-section .bt-airport-copy-grid h3{font-size:15px;margin-bottom:7px}
+  .bt-booking-page .bt-airport-trust-section .bt-airport-copy-grid p{font-size:13px;line-height:1.7}
+  .bt-booking-page .bt-airport-copy-grid ol{gap:8px}
+  .bt-booking-page .bt-airport-copy-grid ol li{padding:10px 10px 10px 40px}
+  .bt-booking-page .bt-airport-copy-grid ol li::before{left:10px;top:11px}
+}
