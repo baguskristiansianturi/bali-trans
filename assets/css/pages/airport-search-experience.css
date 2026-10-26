@@ -293,3 +293,50 @@
   .bt-booking-page .bt-airport-copy-grid ol li{padding:10px 10px 10px 40px}
   .bt-booking-page .bt-airport-copy-grid ol li::before{left:10px;top:11px}
 }
+
+
+/* Compact airport filter: keep it inside the hero, not a tall booking form. */
+.bt-booking-page .bt-search-panel{
+  padding:14px 16px;
+  border-radius:14px;
+  box-shadow:0 12px 30px rgba(7,22,45,.18);
+}
+.bt-booking-page .bt-form-heading{margin-bottom:10px;align-items:center}
+.bt-booking-page .bt-form-heading h2{font-size:18px;line-height:1.2;margin-top:3px}
+.bt-booking-page .bt-form-heading .bt-kicker{font-size:9px;letter-spacing:1px}
+.bt-booking-page .bt-location-tag{padding:5px 8px;font-size:10px}
+.bt-booking-page .bt-form-grid{
+  grid-template-columns:minmax(145px,1.15fr) minmax(115px,.85fr) minmax(190px,1.55fr) minmax(130px,1fr) minmax(105px,.8fr) minmax(115px,.85fr);
+  gap:9px;
+  align-items:end;
+}
+.bt-booking-page .bt-direction-field{grid-column:auto;display:grid;grid-template-columns:1fr 1fr;gap:5px;align-content:end}
+.bt-booking-page .bt-direction-field legend{grid-column:1/-1;margin-bottom:3px;font-size:10px}
+.bt-booking-page .bt-radio{min-height:38px;justify-content:center;padding:6px 7px;gap:5px;font-size:11px;white-space:nowrap}
+.bt-booking-page .bt-radio input{margin:0;flex:0 0 auto}
+.bt-booking-page .bt-field>span{margin-bottom:4px;font-size:10px;line-height:1.25}
+.bt-booking-page .bt-field input,.bt-booking-page .bt-field select{min-height:38px;padding:7px 9px;border-radius:8px;font-size:13px}
+.bt-booking-page .bt-search-button{width:auto;min-width:100%;min-height:38px;margin-top:10px;padding:8px 12px;border-radius:9px;font-size:12px;white-space:nowrap}
+@media(min-width:761px){
+ .bt-booking-page .bt-search-panel{display:grid;grid-template-columns:1fr;}
+ .bt-booking-page .bt-search-button{justify-self:end;min-width:150px;grid-column:1/-1;margin-top:10px}
+}
+@media(max-width:760px){
+ .bt-booking-page .bt-search-panel{padding:12px;border-radius:13px}
+ .bt-booking-page .bt-form-heading{margin-bottom:10px}
+ .bt-booking-page .bt-form-heading h2{font-size:17px}
+ .bt-booking-page .bt-form-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px 8px}
+ .bt-booking-page .bt-direction-field{grid-column:1/-1;grid-template-columns:1fr 1fr;}
+ .bt-booking-page .bt-destination-field{grid-column:1/-1}
+ .bt-booking-page .bt-direction-field legend{font-size:10px}
+ .bt-booking-page .bt-radio{min-height:34px;font-size:11px}
+ .bt-booking-page .bt-field>span{font-size:10px}
+ .bt-booking-page .bt-field input,.bt-booking-page .bt-field select{min-height:40px;padding:8px;font-size:14px}
+ .bt-booking-page .bt-search-button{grid-column:1/-1;width:100%;min-height:42px;margin-top:1px;font-size:13px}
+}
+@media(max-width:380px){
+ .bt-booking-page .bt-search-panel{padding:10px}
+ .bt-booking-page .bt-form-grid{gap:8px 7px}
+ .bt-booking-page .bt-form-heading h2{font-size:16px}
+ .bt-booking-page .bt-radio{padding:6px 4px;font-size:10px}
+}
