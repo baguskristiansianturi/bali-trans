@@ -126,19 +126,3 @@ body.booking-mode #bookingDetails .field:has(#bookingPrice){display:none!importa
 .bt-inline-akjizx{width: 100% !important}
 .bt-inline-165a0xk{width: 100% !important; margin-top: 8px !important}
 .bt-inline-168z4ve{padding-top: 0 !important}
-
-
-/* Fleet date schedule styling only. Carousel geometry belongs to airport-fleet-slider.css. */
-.bt-fleet-slider-track .bt-card-date-label{display:flex;align-items:center;gap:7px;margin-top:10px;padding-top:10px;border-top:1px solid #edf1f6;color:#526b88;font-size:11px;font-weight:750}
-.bt-fleet-slider-track .bt-card-date-chips{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:4px;margin-top:7px}
-.bt-fleet-slider-track .bt-card-date-chips .bt-date-chip{position:relative;display:flex;min-width:0;flex-direction:column;align-items:center;gap:2px;padding:6px 1px;border:1px solid #c9d8e9;border-radius:7px;background:#edf4fc;color:#29446e;text-align:center}
-.bt-fleet-slider-track .bt-card-date-chips .bt-date-chip b{font-size:10px}
-.bt-fleet-slider-track .bt-card-date-chips .bt-date-chip small{font-size:8px}
-.bt-fleet-slider-track .bt-card-date-chips .bt-date-chip.is-blocked{border-color:#e0e5ec;background:#f4f6f9;color:#aebdcd}
-.bt-fleet-slider-track .bt-card-date-chips .bt-date-chip i{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;border-radius:6px;background:#ffffffb8;color:#b45353;font-size:24px;font-style:normal;font-weight:500}
-.bt-fleet-slider-track .bt-date-status-legend{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;padding-top:8px;color:#657892;font-size:10px;line-height:1.4}
-.bt-fleet-slider-track .bt-date-status-legend span{display:inline-flex;align-items:center;gap:5px}
-.bt-fleet-slider-track .bt-legend-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#c9d8e9}
-.bt-fleet-slider-track .bt-legend-dot.is-blocked{background:#e0e5ec;outline:1px solid #b45353}
-@media(max-width:600px){.bt-fleet-slider-track .bt-card-date-chips{gap:3px}.bt-fleet-slider-track .bt-card-date-chips .bt-date-chip b{font-size:9px}}
-
