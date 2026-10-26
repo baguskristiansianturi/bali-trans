@@ -39,18 +39,22 @@
 .bt-booking-page .bt-date-chip b{font-size:10px}.bt-booking-page .bt-date-chip small{font-size:8px}
 .bt-booking-page .bt-date-chip.is-blocked{border-color:#e0e5ec;background:#f4f6f9;color:#aebdcd}
 .bt-booking-page .bt-date-chip i{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;border-radius:6px;background:#ffffffb8;color:#b45353;font-size:22px;font-style:normal}
-.bt-booking-page .bt-date-status-legend{display:flex;flex-wrap:wrap;gap:9px;margin-top:auto;padding-top:9px;color:#657892;font-size:10px;line-height:1.4}
-.bt-booking-page .bt-date-status-legend span{display:inline-flex;align-items:center;gap:5px}.bt-booking-page .bt-legend-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#c9d8e9}.bt-booking-page .bt-legend-dot.is-blocked{background:#e0e5ec;outline:1px solid #b45353}
-/* Search results stay vertical and responsive; they are not the catalogue carousel. */
+
+/* Search results use the same simple horizontal card carousel as the fleet catalogue. */
 #btAvailabilityResult .bt-results-groups{display:grid;gap:22px;margin-top:16px}
 #btAvailabilityResult .bt-results-group{min-width:0}
 #btAvailabilityResult .bt-results-group-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
 #btAvailabilityResult .bt-results-group-heading h3{margin:0;color:#172b4d;font-size:16px;font-weight:850}
 #btAvailabilityResult .bt-results-group-heading span{color:#718198;font-size:11px}
-#btAvailabilityResult .bt-results-list{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;min-width:0;margin-top:10px}
-#btAvailabilityResult .bt-result-vehicle{width:100%;min-width:0}
+#btAvailabilityResult .bt-results-list{box-sizing:border-box;display:flex;flex-flow:row nowrap;align-items:stretch;gap:14px;min-width:0;width:100%;margin-top:10px;padding:3px 2px 14px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-padding-inline:2px;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none;touch-action:pan-x pan-y}
+#btAvailabilityResult .bt-results-list::-webkit-scrollbar{display:none}
+#btAvailabilityResult .bt-result-vehicle{flex:0 0 min(100%,560px);width:min(100%,560px);min-width:0;scroll-snap-align:start}
 #btAvailabilityResult .bt-result-vehicle .bt-fleet-image-wrap{height:210px}
 #btAvailabilityResult .bt-result-vehicle .bt-fleet-card-body{padding:16px}
+#btAvailabilityResult .bt-result-vehicle .bt-result-trip-date{display:flex;align-items:center;gap:10px;width:100%;box-sizing:border-box;margin-top:13px;padding:12px;border:1px solid #dce6f2;border-radius:10px;background:#f4f7fc;color:#294d82}
+#btAvailabilityResult .bt-result-vehicle .bt-result-trip-date span{display:flex;flex-direction:column;gap:3px;min-width:0}
+#btAvailabilityResult .bt-result-vehicle .bt-result-trip-date small{font-size:10px;color:#687d98}
+#btAvailabilityResult .bt-result-vehicle .bt-result-trip-date strong{font-size:13px;line-height:1.4;overflow-wrap:anywhere;color:#172b4d}
 #btAvailabilityResult .bt-result-vehicle .bt-included-heading{margin-top:14px;color:#526681;font-size:11px;font-weight:800}
 #btAvailabilityResult .bt-result-vehicle .bt-included-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:8px 0 14px;padding:0;list-style:none}
 #btAvailabilityResult .bt-result-vehicle .bt-included-list li{display:flex;align-items:flex-start;gap:6px;min-width:0;color:#526681;font-size:11px;line-height:1.45}
@@ -59,6 +63,6 @@
 #btAvailabilityResult .bt-result-vehicle .bt-result-book-button:hover{background:#1d3c6b}
 #btAvailabilityResult .bt-result-vehicle .bt-result-book-button:focus-visible{outline:2px solid #82a9d7;outline-offset:3px}
 @media(max-width:1024px){#btFleetShowcase #btFleetSliderTrack>.bt-fleet-card{flex-basis:calc((100% - 24px)/3);width:calc((100% - 24px)/3)}#btFleetShowcase #btFleetSliderTrack{gap:12px}}
-@media(max-width:760px){#btFleetShowcase .bt-fleet-slider-shell{display:block}#btFleetShowcase .bt-fleet-slider-arrow{display:none}#btFleetShowcase #btFleetSliderTrack{gap:12px;padding:3px 2px 15px;scroll-padding-inline:2px}#btFleetShowcase #btFleetSliderTrack>.bt-fleet-card{flex-basis:86%;width:86%}#btFleetShowcase .bt-fleet-image-wrap{height:185px}#btAvailabilityResult .bt-result-vehicle .bt-fleet-image-wrap{height:clamp(180px,56vw,240px)}#btAvailabilityResult .bt-result-vehicle .bt-fleet-card-body{padding:14px}#btAvailabilityResult .bt-result-vehicle .bt-fleet-title-row{gap:8px}#btAvailabilityResult .bt-result-vehicle .bt-fleet-price-block{max-width:45%}#btAvailabilityResult .bt-result-vehicle .bt-included-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:380px){#btFleetShowcase #btFleetSliderTrack>.bt-fleet-card{flex-basis:90%;width:90%}#btFleetShowcase .bt-fleet-image-wrap{height:165px}#btAvailabilityResult .bt-result-vehicle .bt-fleet-card-body{padding:12px}#btAvailabilityResult .bt-result-vehicle .bt-fleet-title-row{flex-direction:column}#btAvailabilityResult .bt-result-vehicle .bt-fleet-price-block{max-width:100%;text-align:left}#btAvailabilityResult .bt-result-vehicle .bt-included-list{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:760px){#btFleetShowcase .bt-fleet-slider-shell{display:block}#btFleetShowcase .bt-fleet-slider-arrow{display:none}#btFleetShowcase #btFleetSliderTrack{gap:12px;padding:3px 2px 15px;scroll-padding-inline:2px}#btFleetShowcase #btFleetSliderTrack>.bt-fleet-card{flex-basis:86%;width:86%}#btFleetShowcase .bt-fleet-image-wrap{height:185px}#btAvailabilityResult .bt-result-vehicle{flex-basis:86%;width:86%;max-width:440px}#btAvailabilityResult .bt-result-vehicle .bt-fleet-image-wrap{height:clamp(180px,56vw,240px)}#btAvailabilityResult .bt-result-vehicle .bt-fleet-card-body{padding:14px}#btAvailabilityResult .bt-result-vehicle .bt-fleet-title-row{gap:8px}#btAvailabilityResult .bt-result-vehicle .bt-fleet-price-block{max-width:45%}#btAvailabilityResult .bt-result-vehicle .bt-included-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:380px){#btAvailabilityResult .bt-result-vehicle{flex-basis:92%;width:92%}#btFleetShowcase #btFleetSliderTrack>.bt-fleet-card{flex-basis:90%;width:90%}#btFleetShowcase .bt-fleet-image-wrap{height:165px}#btAvailabilityResult .bt-result-vehicle .bt-fleet-card-body{padding:12px}#btAvailabilityResult .bt-result-vehicle .bt-fleet-title-row{flex-direction:column}#btAvailabilityResult .bt-result-vehicle .bt-fleet-price-block{max-width:100%;text-align:left}#btAvailabilityResult .bt-result-vehicle .bt-included-list{grid-template-columns:minmax(0,1fr)}}
 @media(prefers-reduced-motion:reduce){#btFleetShowcase #btFleetSliderTrack{scroll-behavior:auto}}
