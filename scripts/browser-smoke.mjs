@@ -350,7 +350,7 @@ try {
   if (!(await page.locator('[data-rental-class="all"].is-active').count())) throw new Error('Changing back to fewer than six rental passengers must restore All Car');
   await page.locator('#rentalPickup').fill('Seminyak hotel');
   await page.locator('#btRentalForm button[type="submit"]').click();
-  await page.waitForFunction(() => document.querySelector('#rentalAvailabilityResult')?.textContent.includes('vehicle options shown as available'));
+  await page.waitForFunction(() => document.querySelector('#rentalAvailabilityResult')?.textContent.includes('vehicles available'));
   const rentalBookButton = page.locator('#rentalAvailabilityResult [data-book-rental]').first();
   if (!(await rentalBookButton.isVisible())) throw new Error('Car rental search must show a per-vehicle booking CTA');
   await rentalBookButton.click();
