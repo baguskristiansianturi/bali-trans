@@ -65,6 +65,7 @@ A change is not complete until source validation passes, deployment succeeds, th
 - [ ] Approve the reusable tour/service detail template, including semantic H1/H2/H3 hierarchy and section order, before polishing final copy or scaling pages.
 - [ ] Approve one article/destination detail template before creating destination articles in quantity.
 - [ ] Approve the search-results layout, including mobile filters, result cards, empty states, and responsive behaviour.
-- [ ] Refactor the Dolphin Tour booking form to reuse the approved Airport Transfer booking form in `booking-form.html` and its dedicated CSS/JS; preserve the same typography, colours, spacing, controls, and visual hierarchy, changing only service-specific fields and behaviour.
+- [x] Refactor the Dolphin Tour booking form to reuse the approved Airport Transfer booking form in `booking-form.html` and its dedicated CSS/JS; preserve the same typography, colours, spacing, controls, and visual hierarchy, changing only service-specific fields and behaviour.
+- [ ] Complete the full validation workflow; the shared-form-specific browser checks pass, but the workflow currently fails later on the known Airport Transfer direction-radio interaction in a separate page.
 - [ ] Keep Dolphin Tour itinerary concise (time + stop + brief activity cue); use destination cards for short place descriptions. Wire specific article links only after those target pages exist.
 - [ ] Once each template is approved, record it and reuse it for related pages. Do not create new visual systems or write batches of article content before their templates are approved.
