@@ -381,3 +381,73 @@
   #appContainer .dolphin-booking-form>div:first-child>label{grid-column:1/-1}
   #appContainer .dolphin-booking-form>div:nth-child(2)>div{grid-template-columns:minmax(0,1fr)}
 }
+
+
+/* Dolphin package cards: restrained secondary action and explicit package inclusions. */
+.dolphin-landing-page .dolphin-package-actions .dolphin-whatsapp-cta{
+  min-height:40px;
+  padding:8px 10px;
+  border:1px solid #d9e1eb!important;
+  border-radius:8px;
+  background:#fff!important;
+  color:#344b68!important;
+  box-shadow:none!important;
+  font-size:12px;
+  font-weight:650;
+}
+.dolphin-landing-page .dolphin-package-actions .dolphin-whatsapp-cta:hover{
+  border-color:#aabbd1!important;
+  background:#f8fafc!important;
+}
+.dolphin-landing-page .dolphin-package-actions .dolphin-package-book{
+  min-height:40px;
+  padding:8px 10px;
+}
+.dolphin-landing-page .dolphin-inclusion-list{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:grid;
+  gap:10px;
+}
+.dolphin-landing-page .dolphin-inclusion-list li{
+  position:relative;
+  padding-left:25px;
+  line-height:1.45;
+}
+.dolphin-landing-page .dolphin-inclusion-list li:before{
+  position:absolute;
+  left:0;
+  top:0;
+  width:17px;
+  height:17px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  font-size:11px;
+  font-weight:800;
+}
+.dolphin-landing-page .dolphin-inclusion-list li.is-included:before{
+  content:"✓";
+  background:#e8f3ec;
+  color:#24734d;
+}
+.dolphin-landing-page .dolphin-inclusion-list li.is-excluded:before{
+  content:"×";
+  background:#fcebec;
+  color:#b42318;
+}
+@media(max-width:600px){
+ .dolphin-landing-page .dolphin-package-actions > button{
+   min-height:40px;
+   padding:7px 6px;
+   font-size:11px;
+   gap:5px;
+ }
+ .dolphin-landing-page .dolphin-package-actions .dolphin-whatsapp-cta{
+   min-height:40px;
+   padding:7px 6px;
+   font-size:11px;
+ }
+}
