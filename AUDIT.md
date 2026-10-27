@@ -129,3 +129,12 @@ Real sign-up, sign-in, password recovery, saved booking history, and server-side
 - Extended CI to inspect local HTML anchor links and verify their fragments exist on the destination static page (SPA index.html fragments are excluded because its view anchors are rendered dynamically).
 - Validation and deployment both passed for commit a8bd69c5f38d187134979d298e6e162e293e1a4f. Validation run: https://github.com/baguskristiansianturi/bali-trans/actions/runs/40179388423. Deployment run: https://github.com/baguskristiansianturi/bali-trans/actions/runs/40179388391.
 - Automated browser checks run at a 360px viewport; they do not replace a visual inspection on a physical Android phone or desktop browser. No real reservation, inventory, or online payment backend has been added.
+
+## 27 October 2026 — Dolphin Tour landing page update
+
+- Replaced the older Dolphin detail renderer with a promotional landing-page layout while retaining the existing SPA route and shared shell.
+- Added scoped layout rules for desktop and mobile, including a paired itinerary/destination panel, mobile horizontal destination and recommendation carousels, package selection, vehicle upgrade choices, optional add-ons, and price summary.
+- The current pricing values are prototype examples only: Regular route price Avanza Rp700,000, Innova Rp900,000, HiAce Rp1,300,000; All-Inclusive starting estimate Rp750,000/person. Business must validate all prices and the inclusions before ads or bookings rely on them.
+- Selected tour package, vehicle and add-ons are carried into the existing Dolphin booking request flow. The current static prototype still depends on client-side calculations and WhatsApp confirmation; it is not inventory-backed or a payment system.
+- Destination cards currently link to the Blog list until individual destination article routes exist. Related-tour cards are illustrative and route to the catalog; connect them to real package data before release.
+- JavaScript syntax parsing succeeded for the changed detail and checkout scripts. This does not replace the repository CI workflow, deployment check, or visual review on a physical Android device and desktop browser.
