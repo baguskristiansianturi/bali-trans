@@ -28,8 +28,8 @@
             if (d.addons && d.addons.tanahLot) estimate += (Number(d.adults)||0)*(d.guestType === 'international' ? 70000 : 30000)+(Number(d.children)||0)*(d.guestType === 'international' ? 35000 : 15000)+300000;
             if (d.addons && d.addons.swim) estimate += guests*150000;
             if (d.addons && d.addons.extraStop) estimate += 50000;
-            if (d.vehicle === 'reborn') estimate += 300000;
-            if (d.vehicle === 'zenix' || (d.vehicle === 'hiace' && guests < 6)) estimate += 500000;
+            if (d.packageType !== 'regular' && d.vehicle === 'reborn') estimate += 300000;
+            if (d.packageType !== 'regular' && (d.vehicle === 'zenix' || (d.vehicle === 'hiace' && guests < 6))) estimate += 500000;
             d.estimatedTotal = estimate;
         }
 
@@ -42,6 +42,7 @@
             const baseAdult = guestType === 'international' ? 950000 : 750000;
             const childRate = guestType === 'international' ? 700000 : 500000;
             const discount = guests >= 11 ? .075 : guests >= 7 ? .05 : guests >= 3 ? .025 : 0;
+            const vehicle = document.getElementById('dolphinBookVehicle')?.value || d.vehicle || 'standard';
             let total = d.packageType === 'regular' ? ({standard:700000,reborn:900000,zenix:1000000,hiace:1300000}[vehicle] || 700000) : (adults * baseAdult + children * childRate) * (1 - discount);
             const money = n => 'Rp' + Math.round(Number(n || 0)).toLocaleString('id-ID');
             const snorkel = document.getElementById('dolphinAddonSnorkel')?.checked;
@@ -51,9 +52,8 @@
             if (tanahLot) total += adults * (guestType === 'international' ? 70000 : 30000) + children * (guestType === 'international' ? 35000 : 15000) + 300000;
             if (d.addons && d.addons.swim) total += guests*150000;
             if (d.addons && d.addons.extraStop) total += 50000;
-            const vehicle = document.getElementById('dolphinBookVehicle')?.value || 'standard';
-            if (vehicle === 'reborn') total += 300000;
-            if (vehicle === 'zenix' || vehicle === 'hiace') total += 500000;
+            if (d.packageType !== 'regular' && vehicle === 'reborn') total += 300000;
+            if (d.packageType !== 'regular' && (vehicle === 'zenix' || vehicle === 'hiace')) total += 500000;
             const output = document.getElementById('dolphinLiveEstimate');
             if (output) output.textContent = money(total);
             const hint = document.getElementById('dolphinVehicleHint');
