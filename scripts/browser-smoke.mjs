@@ -126,22 +126,24 @@ try {
   await page.goto('http://127.0.0.1:4173/?page=detail&item=lovina-dolphin-tour', { waitUntil: 'domcontentloaded' });
   await page.waitForFunction(() => document.querySelector('#appContainer h1')?.textContent.includes('Dolphin Tour'));
   await page.getByRole('button', { name: 'Book Now' }).first().click();
-  await page.waitForSelector('#dolphinCleanBookingForm');
-  const dolphinDate = await page.evaluate(() => { const d = new Date(); d.setDate(d.getDate() + 2); return [d.getFullYear(), String(d.getMonth()+1).padStart(2,'0'), String(d.getDate()).padStart(2,'0')].join('-'); });
-  await page.evaluate(() => { window.__capturedWhatsApp = []; window.open = (url) => { window.__capturedWhatsApp.push(String(url)); return null; }; });
-  await page.locator('#dolphinBookDate').fill(dolphinDate);
-  await page.locator('#dolphinBookPickup').fill('Kuta family hotel');
-  await page.locator('#dolphinBookAdults').fill('2');
-  await page.locator('#dolphinBookName').fill('Browser Test Guest');
-  await page.locator('#dolphinBookEmail').fill('guest@example.com');
-  await page.locator('#dolphinBookPhone').fill('+628123456789');
-  await page.locator('#dolphinCleanBookingForm button[type="submit"]').click();
-  await page.waitForFunction(() => window.__capturedWhatsApp && window.__capturedWhatsApp.length === 1);
-  const dolphinRequestUrl = new URL(await page.evaluate(() => window.__capturedWhatsApp[0]));
+  await page.waitForURL(/booking-form\\.html\\?/);
+  await page.waitForSelector('#guestBookingForm');
+  const dolphinDate = await page.evaluate(() => { const d = new Date(); d.setDate(d.getDate() + 4); return [d.getFullYear(), String(d.getMonth()+1).padStart(2,'0'), String(d.getDate()).padStart(2,'0')].join('-'); });
+  await page.locator('#travelDate').fill(dolphinDate);
+  await page.locator('#destination').fill('Kuta family hotel');
+  await page.locator('#adults').selectOption('2');
+  await page.locator('[name="bookerName"]').fill('Browser Test Guest');
+  await page.locator('[name="bookerEmail"]').fill('guest@example.com');
+  await page.locator('[name="bookerPhone"]').fill('+628123456789');
+  await page.locator('[name="terms"]').check();
+  await page.getByRole('button', { name: /Continue to guest details/ }).click();
+  await page.getByRole('button', { name: /Send request via WhatsApp/ }).click();
+  await page.waitForURL(/https:\\/\\/wa\\.me\\/628218187917/);
+  const dolphinRequestUrl = new URL(page.url());
   const dolphinRequestMessage = dolphinRequestUrl.searchParams.get('text') || '';
   if (dolphinRequestUrl.hostname !== 'wa.me' || dolphinRequestUrl.pathname !== '/628218187917') throw new Error('Dolphin tour request must use the shared WhatsApp number');
-  for (const detail of ['BOOKING STATUS: Awaiting availability confirmation', dolphinDate, 'Kuta family hotel', 'Browser Test Guest', 'guest@example.com', 'No payment is collected when sending this booking request.']) { if (!dolphinRequestMessage.includes(detail)) throw new Error('Dolphin tour request is missing or misstates: ' + detail); }
-  console.log('PASS Lovina Dolphin Tour request carries guest details, awaits confirmation, and does not collect payment');
+  for (const detail of ['BALI TRANS | BOOKING REQUEST', 'Bali Dolphin Tour', 'All-Inclusive Tour', dolphinDate, 'Kuta family hotel', 'Browser Test Guest', 'guest@example.com', 'This is a booking request, not a confirmed reservation.']) { if (!dolphinRequestMessage.includes(detail)) throw new Error('Dolphin tour request is missing or misstates: ' + detail); }
+  console.log('PASS Dolphin Tour uses the shared booking-form template and carries tour, guest and pickup details to WhatsApp');
   await checkRoute('photo credits', '?page=image-credits', 'Photo credits');
   await checkRoute('unknown page', '?page=unknown-page', 'We couldn’t find that page');
   await checkRoute('unknown discovery item', '?page=discovery&item=place%3Aunknown', 'We couldn’t find that page');
