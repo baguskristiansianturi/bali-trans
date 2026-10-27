@@ -32,7 +32,8 @@ The Airport Transfer form is the visual reference. Reuse its progress indicator,
 - Visual design: `assets/css/pages/booking-form.css`
 - Behaviour and service adapters: `assets/js/pages/booking-form.js`
 - Default service when no `service` query parameter is supplied: `airport-transfer`
-- Supported service modes: `airport-transfer`, `car-rental`, `full-day-tour`
+- Supported service modes: `airport-transfer`, `car-rental`, `full-day-tour`.
+- The Dolphin Tour price adapter is activated by `tourId=lovina-dolphin-tour`; other full-day tours use a supplied estimate or display a quote-pending state instead of inheriting Dolphin pricing.
 - Optional query context can prefill the selected service, tour/package, vehicle, date/time, guest count, extras and estimated fare.
 - Service adapters may hide irrelevant fields and adjust labels, validation, summary and WhatsApp payload. They must not create a second visual design.
 - The tour flow must preserve the selected package, vehicle and extras when handing off from the tour page. A request remains a request until the team confirms it.
