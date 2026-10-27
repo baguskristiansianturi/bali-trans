@@ -122,6 +122,7 @@
             var target = new URL('./booking-form.html', window.location.href);
             target.searchParams.set('service', 'full-day-tour');
             target.searchParams.set('tourName', 'Bali Dolphin Tour');
+            target.searchParams.set('tourId', 'lovina-dolphin-tour');
             target.searchParams.set('package', packageType);
             target.searchParams.set('packageLabel', packageType === 'inclusive' ? 'All-Inclusive Tour' : 'Regular Private Tour');
             target.searchParams.set('vehicle', vehicle);
