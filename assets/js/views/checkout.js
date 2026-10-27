@@ -24,6 +24,12 @@
             const childRate = d.guestType === 'international' ? 700000 : 500000;
             const discount = guests >= 11 ? .075 : guests >= 7 ? .05 : guests >= 3 ? .025 : 0;
             let estimate = d.packageType === 'regular' ? ({standard:700000,reborn:900000,zenix:1000000,hiace:1300000}[d.vehicle] || 700000) : ((Number(d.adults)||0)*adultRate+(Number(d.children)||0)*childRate)*(1-discount);
+            if (d.selectionLocked) {
+                if (d.packageType !== 'regular') estimate += d.vehicle === 'reborn' ? 200000 : d.vehicle === 'zenix' || d.vehicle === 'hiace' ? 600000 : 0;
+                (d.selectedAddons || []).forEach(function(a){ estimate += Number(a.priceIDR || 0) * (a.priceMode === 'person' ? guests : 1); });
+                d.estimatedTotal = estimate;
+                return;
+            }
             if (d.addons && d.addons.snorkel) estimate += guests*250000;
             if (d.addons && d.addons.tanahLot) estimate += (Number(d.adults)||0)*(d.guestType === 'international' ? 70000 : 30000)+(Number(d.children)||0)*(d.guestType === 'international' ? 35000 : 15000)+300000;
             if (d.addons && d.addons.swim) estimate += guests*150000;
@@ -44,6 +50,14 @@
             const discount = guests >= 11 ? .075 : guests >= 7 ? .05 : guests >= 3 ? .025 : 0;
             const vehicle = document.getElementById('dolphinBookVehicle')?.value || d.vehicle || 'standard';
             let total = d.packageType === 'regular' ? ({standard:700000,reborn:900000,zenix:1000000,hiace:1300000}[vehicle] || 700000) : (adults * baseAdult + children * childRate) * (1 - discount);
+            if (d.selectionLocked) {
+                if (d.packageType !== 'regular') total += vehicle === 'reborn' ? 200000 : vehicle === 'zenix' || vehicle === 'hiace' ? 600000 : 0;
+                (d.selectedAddons || []).forEach(function(a){ total += Number(a.priceIDR || 0) * (a.priceMode === 'person' ? guests : 1); });
+                const lockedOutput = document.getElementById('dolphinLiveEstimate');
+                if (lockedOutput) lockedOutput.textContent = 'Rp' + Math.round(total).toLocaleString('id-ID');
+                d.estimatedTotal = total;
+                return;
+            }
             const money = n => 'Rp' + Math.round(Number(n || 0)).toLocaleString('id-ID');
             const snorkel = document.getElementById('dolphinAddonSnorkel')?.checked;
             const tanahLot = document.getElementById('dolphinAddonTanahLot')?.checked;
@@ -151,8 +165,9 @@
                 'Guest type  : ' + (d.guestType === 'international' ? 'International' : 'Local / domestic'),
                 'Guests      : ' + guests + ' (' + adults + ' adults, ' + children + ' children)',
                 'Child ages  : ' + (children ? (d.childAges || 'To be confirmed') : 'N/A'),
-                'Vehicle     : ' + ({standard:'Standard vehicle',reborn:'Innova Reborn',zenix:'Innova Zenix',hiace:'Toyota HiAce'}[vehicle] || vehicle),
-                'Add-ons     : ' + [snorkel?'Snorkelling':'',tanahLot?'Tanah Lot stop':'',swing?'Swing (price to confirm)':''].filter(Boolean).join(', ') .replace(/^$/, 'None'),
+                'Package     : ' + (d.packageType === 'regular' ? 'Regular Private Tour (route-based vehicle price)' : 'All-Inclusive Tour'),
+                'Vehicle     : ' + (d.vehicleName || ({standard:'Toyota Avanza',reborn:'Toyota Innova',zenix:'Innova Zenix',hiace:'Toyota HiAce'}[vehicle] || vehicle)),
+                'Add-ons     : ' + (d.selectionLocked ? (d.selectedAddons || []).map(function(a){return a.name;}).join(', ') || 'None' : [snorkel?'Snorkelling':'',tanahLot?'Tanah Lot stop':'',swing?'Swing (price to confirm)':''].filter(Boolean).join(', ') || 'None'),
                 '',
                 'PRICE BREAKDOWN (ESTIMATE)',
                 rule,
