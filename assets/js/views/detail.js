@@ -94,7 +94,7 @@
             var guests = Math.max(1, Number((document.getElementById('dolphinTourGuests') || {}).value || 1));
             var vehiclePrices = { avanza: 700000, innova: 900000, hiace: 1300000 };
             var vehicleNames = { avanza: 'Toyota Avanza', innova: 'Toyota Innova', hiace: 'Toyota HiAce' };
-            var total = packageType === 'regular' ? (vehiclePrices[vehicle] || 700000) : guests * 750000;
+            var total = packageType === 'regular' ? (vehiclePrices[vehicle] || 700000) : guests * 750000 + (vehicle === 'innova' ? 200000 : vehicle === 'hiace' ? 600000 : 0);
             document.querySelectorAll('[data-dolphin-addon]:checked').forEach(function(el) {
                 total += Number(el.getAttribute('data-price') || 0) * (el.getAttribute('data-mode') === 'person' ? guests : 1);
             });
