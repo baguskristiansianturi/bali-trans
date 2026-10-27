@@ -48,12 +48,10 @@ function configureTourVehicle(){
   const guests=adults+children,previous=fields.vehicle.value;
   fields.vehicle.innerHTML='';
   const addVehicle=(value,label)=>{const option=document.createElement('option');option.value=value;option.textContent=label;fields.vehicle.appendChild(option);};
-  if(guests>=7){addVehicle('Minivan','Minivan');fields.vehicle.value='Karoseri / HiAce';}
+  if(guests>=7){addVehicle('Minivan','Minivan');fields.vehicle.value='Minivan';}
   else{
     addVehicle('Regular Car','Regular Car');
     addVehicle('Premium Car','Premium Car');
-    
-    
     fields.vehicle.value=previous==='Premium Car'?'Premium Car':'Regular Car';
   }
 }
