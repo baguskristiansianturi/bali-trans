@@ -13,19 +13,21 @@
             };
             Object.keys(fields).forEach(key => {
                 const el = document.getElementById(fields[key]);
-                if (el) d[key] = key === 'adults' || key === 'children' ? Math.max(0, Number(el.value) || 0) : el.value.trim();
+                if (el && !(d.selectionLocked && key === 'vehicle')) d[key] = key === 'adults' || key === 'children' ? Math.max(0, Number(el.value) || 0) : el.value.trim();
             });
             const swing = document.getElementById('dolphinAddonSwing');
             const snorkel = document.getElementById('dolphinAddonSnorkel');
             const tanahLot = document.getElementById('dolphinAddonTanahLot');
-            if (swing || snorkel || tanahLot) d.addons = { swing: !!(swing && swing.checked), snorkel: !!(snorkel && snorkel.checked), tanahLot: !!(tanahLot && tanahLot.checked) };
+            if ((swing || snorkel || tanahLot) && !d.selectionLocked) d.addons = { swing: !!(swing && swing.checked), snorkel: !!(snorkel && snorkel.checked), tanahLot: !!(tanahLot && tanahLot.checked) };
             const guests = (Number(d.adults)||0)+(Number(d.children)||0);
             const adultRate = d.guestType === 'international' ? 950000 : 750000;
             const childRate = d.guestType === 'international' ? 700000 : 500000;
             const discount = guests >= 11 ? .075 : guests >= 7 ? .05 : guests >= 3 ? .025 : 0;
-            let estimate = ((Number(d.adults)||0)*adultRate+(Number(d.children)||0)*childRate)*(1-discount);
+            let estimate = d.packageType === 'regular' ? ({standard:700000,reborn:900000,zenix:1000000,hiace:1300000}[d.vehicle] || 700000) : ((Number(d.adults)||0)*adultRate+(Number(d.children)||0)*childRate)*(1-discount);
             if (d.addons && d.addons.snorkel) estimate += guests*250000;
             if (d.addons && d.addons.tanahLot) estimate += (Number(d.adults)||0)*(d.guestType === 'international' ? 70000 : 30000)+(Number(d.children)||0)*(d.guestType === 'international' ? 35000 : 15000)+300000;
+            if (d.addons && d.addons.swim) estimate += guests*150000;
+            if (d.addons && d.addons.extraStop) estimate += 50000;
             if (d.vehicle === 'reborn') estimate += 300000;
             if (d.vehicle === 'zenix' || (d.vehicle === 'hiace' && guests < 6)) estimate += 500000;
             d.estimatedTotal = estimate;
@@ -40,13 +42,15 @@
             const baseAdult = guestType === 'international' ? 950000 : 750000;
             const childRate = guestType === 'international' ? 700000 : 500000;
             const discount = guests >= 11 ? .075 : guests >= 7 ? .05 : guests >= 3 ? .025 : 0;
-            let total = (adults * baseAdult + children * childRate) * (1 - discount);
+            let total = d.packageType === 'regular' ? ({standard:700000,reborn:900000,zenix:1000000,hiace:1300000}[vehicle] || 700000) : (adults * baseAdult + children * childRate) * (1 - discount);
             const money = n => 'Rp' + Math.round(Number(n || 0)).toLocaleString('id-ID');
             const snorkel = document.getElementById('dolphinAddonSnorkel')?.checked;
             const tanahLot = document.getElementById('dolphinAddonTanahLot')?.checked;
             const swing = document.getElementById('dolphinAddonSwing')?.checked;
             if (snorkel) total += guests * 250000;
             if (tanahLot) total += adults * (guestType === 'international' ? 70000 : 30000) + children * (guestType === 'international' ? 35000 : 15000) + 300000;
+            if (d.addons && d.addons.swim) total += guests*150000;
+            if (d.addons && d.addons.extraStop) total += 50000;
             const vehicle = document.getElementById('dolphinBookVehicle')?.value || 'standard';
             if (vehicle === 'reborn') total += 300000;
             if (vehicle === 'zenix' || vehicle === 'hiace') total += 500000;
@@ -66,7 +70,7 @@
             const selected = (a,b) => a===b ? ' selected' : '';
             return '<div class="min-h-screen bg-white px-4 py-6 sm:py-10"><div class="mx-auto max-w-2xl">' +
                 '<button type="button" onclick="navigateTo(\'detail\',\'lovina-dolphin-tour\')" class="mb-5 text-sm font-semibold text-slate-600 hover:text-[#172B4D]">← Back to tour</button>' +
-                '<div class="mb-6 border-b border-slate-200 pb-5"><p class="text-xs font-bold uppercase tracking-widest text-slate-500">Bali Trans</p><h1 class="mt-2 text-2xl font-bold text-slate-900">Booking request</h1><p class="mt-1 text-sm text-slate-600">Bali Dolphin Tour</p></div>' +
+                '<div class="mb-6 border-b border-slate-200 pb-5"><p class="text-xs font-bold uppercase tracking-widest text-slate-500">Bali Trans</p><h1 class="mt-2 text-2xl font-bold text-slate-900">Booking request</h1><p class="mt-1 text-sm text-slate-600">Bali Dolphin Tour · '+(d.packageType==='regular'?'Regular Private Tour':'All-Inclusive Tour')+'</p>'+(d.selectionLocked?'<div class="mt-3 rounded-xl border border-sky-200 bg-sky-50 p-3 text-sm text-sky-900"><strong>Selected on the tour page</strong><p class="mt-1">Package, vehicle and add-ons are locked from your previous selection. Use “Back to tour” if you want to change them.</p></div>':'')+'</div>' +
                 '<form id="dolphinCleanBookingForm" class="space-y-5" onsubmit="event.preventDefault();captureDolphinBookingFields();window.dolphinBookingDraft.paymentMethod=&quot;tour-day&quot;;sendDolphinBookingToWhatsApp();">' +
                 '<div class="grid gap-4 sm:grid-cols-2">' +
                 '<label class="'+label+'">Tour date *<input id="dolphinBookDate" type="date" min="'+today+'" value="'+(d.date||'')+'" class="'+input+'" required></label>' +
@@ -75,16 +79,16 @@
                 '<label class="'+label+'">Adults (12+) *<input id="dolphinBookAdults" type="number" min="1" max="30" value="'+(d.adults||1)+'" class="'+input+'" required></label>' +
                 '<label class="'+label+'">Children (under 12)<input id="dolphinBookChildren" type="number" min="0" max="30" value="'+(d.children||0)+'" class="'+input+'"></label>' +
                 '<label class="'+label+'">Children’s ages<input id="dolphinBookChildAges" type="text" value="'+(d.childAges||'')+'" placeholder="e.g. 5 and 9" class="'+input+'"></label>' +
-                '<label class="'+label+'">Vehicle<select id="dolphinBookVehicle" class="'+input+'"><option value="standard"'+selected(d.vehicle||'standard','standard')+'>Standard vehicle</option><option value="reborn"'+selected(d.vehicle,'reborn')+'>Innova Reborn (+Rp300.000)</option><option value="zenix"'+selected(d.vehicle,'zenix')+'>Innova Zenix (+Rp500.000)</option><option value="hiace"'+selected(d.vehicle,'hiace')+'>Toyota HiAce (+Rp500.000)</option></select></label>' +
+                '<label class="'+label+'">Vehicle<select id="dolphinBookVehicle" '+(d.selectionLocked?'disabled ':'')+'class="'+input+'"><option value="standard"'+selected(d.vehicle||'standard','standard')+'>Standard vehicle</option><option value="reborn"'+selected(d.vehicle,'reborn')+'>Innova Reborn (+Rp300.000)</option><option value="zenix"'+selected(d.vehicle,'zenix')+'>Innova Zenix (+Rp500.000)</option><option value="hiace"'+selected(d.vehicle,'hiace')+'>Toyota HiAce (+Rp500.000)</option></select></label>' +
                 '<label class="'+label+'">Full name *<input id="dolphinBookName" autocomplete="name" value="'+(d.name||'')+'" placeholder="Lead traveller" class="'+input+'" required></label>' +
                 '<label class="'+label+'">Email *<input id="dolphinBookEmail" type="email" autocomplete="email" value="'+(d.email||'')+'" placeholder="you@example.com" class="'+input+'" required></label>' +
                 '<label class="'+label+'">WhatsApp number *<input id="dolphinBookPhone" type="tel" autocomplete="tel" value="'+(d.phone||'')+'" placeholder="Include country code" class="'+input+'" required></label>' +
                 '<label class="'+label+' sm:col-span-2">Special requests<textarea id="dolphinBookNotes" rows="2" placeholder="Optional" class="'+input+'">'+(d.notes||'')+'</textarea></label>' +
                 '</div>' +
                 '<div class="border-t border-slate-200 pt-4"><p class="text-sm font-semibold text-slate-800">Optional extras</p><div class="mt-3 grid gap-3 sm:grid-cols-2">' +
-                '<label class="flex items-center gap-2 text-sm text-slate-700"><input id="dolphinAddonSnorkel" type="checkbox" class="accent-[#172B4D]" '+(d.addons&&d.addons.snorkel?'checked':'')+'> Snorkelling (+Rp250.000/person)</label>' +
-                '<label class="flex items-center gap-2 text-sm text-slate-700"><input id="dolphinAddonTanahLot" type="checkbox" class="accent-[#172B4D]" '+(d.addons&&d.addons.tanahLot?'checked':'')+'> Tanah Lot sunset stop</label>' +
-                '<label class="flex items-center gap-2 text-sm text-slate-700"><input id="dolphinAddonSwing" type="checkbox" class="accent-[#172B4D]" '+(d.addons&&d.addons.swing?'checked':'')+'> Bali swing (price to confirm)</label>' +
+                '<label class="flex items-center gap-2 text-sm text-slate-700"><input id="dolphinAddonSnorkel" type="checkbox" '+(d.selectionLocked?'disabled ':'')+'class="accent-[#172B4D]" '+(d.addons&&d.addons.snorkel?'checked':'')+'> Snorkelling (+Rp250.000/person)</label>' +
+                '<label class="flex items-center gap-2 text-sm text-slate-700"><input id="dolphinAddonTanahLot" type="checkbox" '+(d.selectionLocked?'disabled ':'')+'class="accent-[#172B4D]" '+(d.addons&&d.addons.tanahLot?'checked':'')+'> Tanah Lot sunset stop</label>' +
+                '<label class="flex items-center gap-2 text-sm text-slate-700"><input id="dolphinAddonSwing" type="checkbox" '+(d.selectionLocked?'disabled ':'')+'class="accent-[#172B4D]" '+(d.addons&&d.addons.swing?'checked':'')+'> Bali swing (price to confirm)</label>' +
                 '</div></div>' +
                 '<div class="rounded-lg bg-slate-50 p-3 text-sm text-slate-600"><strong class="text-slate-800">Payment:</strong> Pay on the day of the tour. No payment is required now. Booking is subject to availability confirmation.</div>' +
                 '<button type="submit" class="w-full rounded-lg bg-[#172B4D] px-5 py-3.5 text-sm font-bold text-white hover:bg-[#243e68]">Send booking request via WhatsApp</button>' +
