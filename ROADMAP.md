@@ -54,3 +54,14 @@ A change is not complete until source validation passes, deployment succeeds, th
 - [x] Browser smoke tests passed the Dolphin Tour page and booking request handoff.
 - [ ] Resolve the unrelated Airport Transfer checkout radio-click failure in its own scoped task; do not change Airport Transfer as part of Dolphin Tour work.
 - [ ] Manually inspect the live Dolphin Tour page on Android and desktop.
+
+
+## Template-first design system — 27 October 2026
+
+- [ ] Use `TEMPLATE-PLAYBOOK.md` as the working standard for all new template work.
+- [ ] Approve the reusable tour/service detail template, including semantic H1/H2/H3 hierarchy and section order, before polishing final copy or scaling pages.
+- [ ] Approve one article/destination detail template before creating destination articles in quantity.
+- [ ] Approve the search-results layout, including mobile filters, result cards, empty states, and responsive behaviour.
+- [ ] Refactor the Dolphin Tour booking form to reuse the approved Airport Transfer booking form in `booking-form.html` and its dedicated CSS/JS; preserve the same typography, colours, spacing, controls, and visual hierarchy, changing only service-specific fields and behaviour.
+- [ ] Keep Dolphin Tour itinerary concise (time + stop + brief activity cue); use destination cards for short place descriptions. Wire specific article links only after those target pages exist.
+- [ ] Once each template is approved, record it and reuse it for related pages. Do not create new visual systems or write batches of article content before their templates are approved.
