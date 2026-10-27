@@ -2,6 +2,10 @@
 
 Updated: 27 October 2026
 
+## Canonical registry
+
+Use [`TEMPLATE-REGISTRY.md`](./TEMPLATE-REGISTRY.md) as the source-of-truth index for canonical template files, shared components, and approval status. Before implementing a page, identify its family in the registry; after implementation, update the registry and handoff with verified status. Shared components must be edited at their single source rather than copied into individual pages.
+
 ## Purpose
 
 Bali Trans is being designed as a reusable website system. The immediate goal is not to publish every article, destination page, or finished service. The goal is to approve clear, attractive, responsive templates that can later be populated with final content and connected to real destinations and functions.
