@@ -105,6 +105,8 @@
             if (price) price.textContent = CURRENCY_RATES.IDR.format(total);
             if (mode) mode.textContent = packageType === 'regular' ? 'Total per private vehicle · route-based price' : 'Estimated total for ' + guests + ' guest' + (guests > 1 ? 's' : '');
             if (vehicleLabel) vehicleLabel.textContent = vehicleNames[vehicle] || vehicleNames.avanza;
+            var guestSummary = document.getElementById('dolphinLandingGuestsSummary');
+            if (guestSummary) guestSummary.textContent = guests + ' guest' + (guests > 1 ? 's' : '');
             if (packageLabel) packageLabel.textContent = packageType === 'regular' ? 'Regular Private Tour' : 'All-Inclusive Tour';
         }
         function startDolphinLandingBooking() {
@@ -119,8 +121,8 @@
             var vehicleNames = { avanza: 'Toyota Avanza', innova: 'Toyota Innova', hiace: 'Toyota HiAce' };
             window.dolphinBookingDraft = Object.assign({}, window.dolphinBookingDraft || {}, {
                 tourName: 'Bali Dolphin Tour', tourId: 'lovina-dolphin-tour', packageType: packageType,
-                vehicle: vehicle, vehicleName: vehicleNames[vehicle], adults: guests, children: 0,
-                addons: addons, estimatedTotal: Number(((document.getElementById('dolphinLandingTotal') || {}).textContent || '').replace(/[^\d]/g, '')) || 0,
+                vehicle: vehicle === 'avanza' ? 'standard' : vehicle === 'innova' ? 'reborn' : 'hiace', vehicleName: vehicleNames[vehicle], adults: guests, children: 0,
+                addons: { swing: false, snorkel: addons.some(function(a){return a.id==='snorkelling';}), tanahLot: addons.some(function(a){return a.id==='tanahlot';}), extraStop: addons.some(function(a){return a.id==='extrastop';}), swim: addons.some(function(a){return a.id==='swim';}) }, selectedAddons: addons, estimatedTotal: Number(((document.getElementById('dolphinLandingTotal') || {}).textContent || '').replace(/[^\d]/g, '')) || 0,
                 selectionLocked: true
             });
             navigateTo('checkout', 'dolphin-tour');
