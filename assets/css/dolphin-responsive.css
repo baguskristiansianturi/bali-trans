@@ -86,3 +86,123 @@
  .dolphin-landing-page .dolphin-itinerary-layout{grid-template-columns:minmax(0,1fr)}
  .dolphin-landing-page .dolphin-destinations-scroll{max-height:none}
 }
+
+/* Final polish: contrast, breathing room, and predictable text rhythm. */
+.dolphin-landing-page .dolphin-section-intro,
+.dolphin-landing-page .dolphin-package-card,
+.dolphin-landing-page .dolphin-configurator,
+.dolphin-landing-page .dolphin-live-summary,
+.dolphin-landing-page .dolphin-timeline,
+.dolphin-landing-page .dolphin-destinations-panel,
+.dolphin-landing-page .dolphin-info-panel,
+.dolphin-landing-page .dolphin-faq-grid details{min-width:0}
+.dolphin-landing-page .dolphin-section-intro{padding:clamp(22px,3vw,34px);border-radius:15px}
+.dolphin-landing-page .dolphin-section-intro .dolphin-eyebrow,
+.dolphin-landing-page .dolphin-configurator .dolphin-eyebrow,
+.dolphin-landing-page .dolphin-live-summary .dolphin-eyebrow,
+.dolphin-landing-page .dolphin-info-panel .dolphin-eyebrow{display:block;margin:0 0 12px;line-height:1.5}
+.dolphin-landing-page .dolphin-section-intro h2,
+.dolphin-landing-page .dolphin-section-heading h2,
+.dolphin-landing-page .dolphin-configurator h2,
+.dolphin-landing-page .dolphin-info-panel h2{margin:0 0 13px}
+.dolphin-landing-page .dolphin-section-intro p,
+.dolphin-landing-page .dolphin-section-heading p{margin-top:0}
+.dolphin-landing-page .dolphin-package-principle{margin-top:22px;gap:14px}
+.dolphin-landing-page .dolphin-package-card-body{padding:clamp(18px,2vw,25px)}
+.dolphin-landing-page .dolphin-package-tag{margin-bottom:13px;line-height:1.4}
+.dolphin-landing-page .dolphin-package-card h3{margin-bottom:11px}
+.dolphin-landing-page .dolphin-package-card p{margin-bottom:15px}
+.dolphin-landing-page .dolphin-package-price{padding:12px 0 15px;margin-bottom:15px}
+.dolphin-landing-page .dolphin-package-card ul{gap:11px;margin-bottom:18px}
+.dolphin-landing-page .dolphin-package-select{padding:13px;line-height:1.45}
+.dolphin-landing-page .dolphin-configurator{padding:clamp(20px,3vw,32px);gap:clamp(18px,2.5vw,28px)}
+.dolphin-landing-page .dolphin-choice-grid{gap:12px;margin:22px 0}
+.dolphin-landing-page .dolphin-addon-heading{margin-top:27px}
+.dolphin-landing-page .dolphin-addon-heading h3{margin-bottom:8px}
+.dolphin-landing-page .dolphin-addon-grid{gap:12px;margin-top:16px}
+.dolphin-landing-page .dolphin-addon-card{padding:14px;gap:5px}
+.dolphin-landing-page .dolphin-addon-card input{margin-bottom:10px}
+.dolphin-landing-page .dolphin-addon-icon{margin-bottom:9px}
+.dolphin-landing-page .dolphin-live-summary{padding:24px}
+.dolphin-landing-page .dolphin-live-summary h3{margin:0 0 18px;line-height:1.35}
+.dolphin-landing-page .dolphin-summary-row{padding:13px 0}
+.dolphin-landing-page .dolphin-summary-total{padding:18px;margin-top:18px;gap:7px}
+.dolphin-landing-page .dolphin-live-summary>p{margin:16px 0 20px}
+.dolphin-landing-page .dolphin-primary-cta{padding:14px 20px;line-height:1.35}
+.dolphin-landing-page .dolphin-section-heading{margin-bottom:22px}
+.dolphin-landing-page .dolphin-landing-section{margin-top:clamp(28px,4vw,44px)}
+.dolphin-landing-page .dolphin-itinerary-layout{gap:22px}
+.dolphin-landing-page .dolphin-timeline,
+.dolphin-landing-page .dolphin-destinations-panel{padding:22px}
+.dolphin-landing-page .dolphin-timeline-item{padding:16px 0;gap:12px}
+.dolphin-landing-page .dolphin-timeline-copy h3{margin:2px 0 7px}
+.dolphin-landing-page .dolphin-timeline-copy p{margin:0}
+.dolphin-landing-page .dolphin-itinerary-note{padding:14px;margin-top:18px}
+.dolphin-landing-page .dolphin-destinations-heading{margin-bottom:16px}
+.dolphin-landing-page .dolphin-destinations-scroll{gap:12px}
+.dolphin-landing-page .dolphin-destination{padding:10px;gap:13px}
+.dolphin-landing-page .dolphin-destination span{padding:5px 3px}
+.dolphin-landing-page .dolphin-info-panel{padding:clamp(20px,3vw,30px)}
+.dolphin-landing-page .dolphin-info-row{padding:15px 0;gap:14px}
+.dolphin-landing-page .dolphin-info-row strong{margin-bottom:5px}
+.dolphin-landing-page .dolphin-info-panel>p{margin:0 0 15px}
+.dolphin-landing-page .dolphin-faq-grid{gap:14px}
+.dolphin-landing-page .dolphin-faq-grid details{padding:20px}
+.dolphin-landing-page .dolphin-faq-grid summary{line-height:1.5;padding-right:4px}
+.dolphin-landing-page .dolphin-faq-grid p{margin-top:13px}
+.dolphin-landing-page .dolphin-related-section{margin-top:clamp(32px,4vw,48px)}
+.dolphin-landing-page .dolphin-recommendation-row{gap:16px}
+.dolphin-landing-page .dolphin-recommendation-body{padding:18px;gap:10px}
+.dolphin-landing-page .dolphin-recommendation-body small{line-height:1.45}
+.dolphin-landing-page .dolphin-long-trip-heading{margin-top:36px}
+.dolphin-landing-page .dolphin-final-cta{padding-top:clamp(30px,4vw,48px);padding-bottom:clamp(30px,4vw,48px);gap:28px}
+.dolphin-landing-page .dolphin-final-cta .dolphin-eyebrow{display:block;margin-bottom:12px;line-height:1.5}
+.dolphin-landing-page .dolphin-final-cta h2{margin-bottom:14px}
+.dolphin-landing-page .dolphin-final-cta p{margin-bottom:0;max-width:58ch}
+
+/* The intro panel is intentionally pale blue; enforce readable ink rather than inherited theme colors. */
+.dolphin-landing-page .dolphin-section-intro h2,
+.dolphin-landing-page .dolphin-section-heading h2,
+.dolphin-landing-page .dolphin-configurator h2,
+.dolphin-landing-page .dolphin-info-panel h2{color:#104777}
+.dolphin-landing-page .dolphin-section-intro p,
+.dolphin-landing-page .dolphin-section-heading p,
+.dolphin-landing-page .dolphin-configurator>div>p,
+.dolphin-landing-page .dolphin-info-panel>p{color:#49677e}
+.dolphin-landing-page .dolphin-section-intro .dolphin-eyebrow,
+.dolphin-landing-page .dolphin-section-heading .dolphin-eyebrow,
+.dolphin-landing-page .dolphin-configurator .dolphin-eyebrow,
+.dolphin-landing-page .dolphin-live-summary .dolphin-eyebrow,
+.dolphin-landing-page .dolphin-info-panel .dolphin-eyebrow{color:#17648c}
+.dolphin-landing-page .dolphin-final-cta .dolphin-eyebrow{color:#d9f5ff}
+.dolphin-landing-page .dolphin-final-cta p{color:#f5fbff}
+@media(max-width:600px){
+ .dolphin-landing-page .dolphin-section-intro{padding:23px 19px}
+ .dolphin-landing-page .dolphin-section-intro .dolphin-eyebrow,
+ .dolphin-landing-page .dolphin-configurator .dolphin-eyebrow,
+ .dolphin-landing-page .dolphin-live-summary .dolphin-eyebrow,
+ .dolphin-landing-page .dolphin-info-panel .dolphin-eyebrow{margin-bottom:11px}
+ .dolphin-landing-page .dolphin-package-principle{margin-top:20px;gap:13px}
+ .dolphin-landing-page .dolphin-configurator{padding:22px 16px;gap:23px}
+ .dolphin-landing-page .dolphin-choice-grid{margin:18px 0 22px;gap:12px}
+ .dolphin-landing-page .dolphin-addon-heading{margin-top:24px}
+ .dolphin-landing-page .dolphin-addon-grid{gap:11px;margin-top:14px}
+ .dolphin-landing-page .dolphin-addon-card{padding:13px}
+ .dolphin-landing-page .dolphin-live-summary{padding:21px 18px}
+ .dolphin-landing-page .dolphin-live-summary h3{margin-bottom:16px}
+ .dolphin-landing-page .dolphin-summary-total{padding:16px;margin-top:16px}
+ .dolphin-landing-page .dolphin-section-heading{margin-bottom:18px}
+ .dolphin-landing-page .dolphin-landing-section{margin-top:32px}
+ .dolphin-landing-page .dolphin-timeline,.dolphin-landing-page .dolphin-destinations-panel{padding:18px 15px}
+ .dolphin-landing-page .dolphin-timeline-item{padding:15px 0;gap:8px}
+ .dolphin-landing-page .dolphin-destination{padding:9px;gap:10px}
+ .dolphin-landing-page .dolphin-info-panel{padding:22px 19px}
+ .dolphin-landing-page .dolphin-info-row{padding:14px 0}
+ .dolphin-landing-page .dolphin-faq-grid details{padding:18px}
+ .dolphin-landing-page .dolphin-recommendation-body{padding:18px}
+ .dolphin-landing-page .dolphin-related-section{margin-top:34px}
+ .dolphin-landing-page .dolphin-long-trip-heading{margin-top:30px}
+ .dolphin-landing-page .dolphin-final-cta{padding:30px 20px;gap:20px}
+ .dolphin-landing-page .dolphin-final-cta .dolphin-eyebrow{margin-bottom:12px}
+ .dolphin-landing-page .dolphin-final-cta h2{margin-bottom:12px}
+}
