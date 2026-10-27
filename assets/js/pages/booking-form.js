@@ -48,13 +48,13 @@ function configureTourVehicle(){
   const guests=adults+children,previous=fields.vehicle.value;
   fields.vehicle.innerHTML='';
   const addVehicle=(value,label)=>{const option=document.createElement('option');option.value=value;option.textContent=label;fields.vehicle.appendChild(option);};
-  if(guests>=7){addVehicle('Karoseri / HiAce','Minivan — HiAce Commuter / HiAce Premio · 7–14 guests');fields.vehicle.value='Karoseri / HiAce';}
+  if(guests>=7){addVehicle('Minivan','Minivan');fields.vehicle.value='Karoseri / HiAce';}
   else{
-    addVehicle('Regular Car','Regular — Avanza, Xenia, R3 or similar · included by default');
-    addVehicle('Premium Car — Innova Reborn','Premium upgrade — Innova Reborn');
-    addVehicle('Premium Car — Innova Zenix','Premium upgrade — Innova Zenix');
-    addVehicle('Premium Car — Other','Premium upgrade — other equivalent premium vehicle');
-    fields.vehicle.value=(previous==='Premium Car — Innova Reborn'||previous==='Premium Car — Innova Zenix'||previous==='Premium Car — Other')?previous:'Regular Car';
+    addVehicle('Regular Car','Regular Car');
+    addVehicle('Premium Car','Premium Car');
+    
+    
+    fields.vehicle.value=previous==='Premium Car'?'Premium Car':'Regular Car';
   }
 }
 if(dolphinTour){configureTourVehicle();}else if(tour){
