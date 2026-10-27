@@ -23,3 +23,6 @@
 
 /* The nested traveller grid must stay hidden for "For myself"; display:grid otherwise overrides the browser's hidden styling. */
 #otherGuestFields[hidden]{display:none!important}
+
+/* Service adapters rely on native hidden states even when component display rules exist. */
+.booking-form-page [hidden]{display:none!important}
