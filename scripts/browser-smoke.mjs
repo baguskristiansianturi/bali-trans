@@ -126,7 +126,7 @@ try {
   await page.goto('http://127.0.0.1:4173/?page=detail&item=lovina-dolphin-tour', { waitUntil: 'domcontentloaded' });
   await page.waitForFunction(() => document.querySelector('#appContainer h1')?.textContent.includes('Dolphin Tour'));
   await page.getByRole('button', { name: 'Book Now' }).first().click();
-  await page.waitForURL(/booking-form\\.html\\?/);
+  await page.waitForURL(url => url.pathname.endsWith('/booking-form.html'));
   await page.waitForSelector('#guestBookingForm');
   const dolphinDate = await page.evaluate(() => { const d = new Date(); d.setDate(d.getDate() + 4); return [d.getFullYear(), String(d.getMonth()+1).padStart(2,'0'), String(d.getDate()).padStart(2,'0')].join('-'); });
   await page.locator('#travelDate').fill(dolphinDate);
@@ -138,7 +138,7 @@ try {
   await page.locator('[name="terms"]').check();
   await page.getByRole('button', { name: /Continue to guest details/ }).click();
   await page.getByRole('button', { name: /Send request via WhatsApp/ }).click();
-  await page.waitForURL(/https:\\/\\/wa\\.me\\/628218187917/);
+  await page.waitForURL(url => url.hostname === 'wa.me' && url.pathname === '/628218187917');
   const dolphinRequestUrl = new URL(page.url());
   const dolphinRequestMessage = dolphinRequestUrl.searchParams.get('text') || '';
   if (dolphinRequestUrl.hostname !== 'wa.me' || dolphinRequestUrl.pathname !== '/628218187917') throw new Error('Dolphin tour request must use the shared WhatsApp number');
