@@ -38,3 +38,16 @@ Rule: preserve the approved homepage and existing approved page designs. Avoid b
 ## Release criteria
 
 A change is not complete until source validation passes, deployment succeeds, the correct live URL reflects the change, and affected flows are tested. A successful commit alone is not deployment verification.
+
+
+## 27 October 2026 — Dolphin Tour landing page refresh
+
+- [x] Replace the existing Dolphin Tour detail layout with a landing-page hierarchy aligned to the approved mockup.
+- [x] Add Regular vs All-Inclusive package choices, route-specific Avanza base and illustrative vehicle upgrades, optional add-ons, and live price summary.
+- [x] Pair itinerary timeline with a destination panel that scrolls on desktop and becomes a horizontal scroller on mobile.
+- [x] Add separate recommendation sections for Full Day Tours and Long Trips before the closing CTA/footer.
+- [x] Keep CSS scoped to the Dolphin landing page; preserve global shell and mobile bottom navigation.
+- [x] Pass selected package, vehicle, and add-ons into the existing booking flow as locked selections.
+- [ ] Replace temporary recommendation content with actual available products and route each destination card to its specific published blog article.
+- [ ] Confirm real vehicle upgrade prices and package inclusion/price rules before public advertising.
+- [ ] Confirm GitHub Actions validation and GitHub Pages deployment, then inspect the live page on Android and desktop.
