@@ -206,3 +206,50 @@
  .dolphin-landing-page .dolphin-final-cta .dolphin-eyebrow{margin-bottom:12px}
  .dolphin-landing-page .dolphin-final-cta h2{margin-bottom:12px}
 }
+
+
+/* Dolphin package cards: keep both booking actions aligned side by side. */
+.dolphin-landing-page .dolphin-package-actions{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  align-items:stretch;
+  gap:10px;
+  margin-top:18px;
+}
+.dolphin-landing-page .dolphin-package-actions > button{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  width:100%;
+  min-width:0;
+  min-height:48px;
+  margin:0;
+  padding:12px 10px;
+  text-align:center;
+  white-space:normal;
+  line-height:1.35;
+  font-size:13px;
+  overflow-wrap:anywhere;
+}
+.dolphin-landing-page .dolphin-package-actions .dolphin-package-book{
+  border-radius:8px;
+}
+.dolphin-landing-page .dolphin-package-actions .dolphin-whatsapp-cta{
+  border-radius:8px;
+}
+@media(max-width:600px){
+  .dolphin-landing-page .dolphin-package-actions{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:8px;
+  }
+  .dolphin-landing-page .dolphin-package-actions > button{
+    min-height:52px;
+    padding:10px 7px;
+    font-size:12px;
+    gap:5px;
+  }
+  .dolphin-landing-page .dolphin-package-actions > button i{
+    flex:0 0 auto;
+  }
+}
