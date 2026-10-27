@@ -137,6 +137,7 @@ try {
   await page.locator('[name="bookerPhone"]').fill('+628123456789');
   await page.locator('[name="terms"]').check();
   await page.getByRole('button', { name: /Continue to guest details/ }).click();
+  await page.route('https://wa.me/**', route => route.fulfill({ status: 200, contentType: 'text/html', body: '<title>WhatsApp request captured</title>' }));
   await page.getByRole('button', { name: /Send request via WhatsApp/ }).click();
   await page.waitForURL(url => url.hostname === 'wa.me' && url.pathname === '/628218187917');
   const dolphinRequestUrl = new URL(page.url());
