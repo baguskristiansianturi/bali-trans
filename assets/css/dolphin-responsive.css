@@ -1,0 +1,88 @@
+/* Bali Dolphin Tour responsive refinement. Scoped to the tour landing page only. */
+.dolphin-landing-page{width:100%;max-width:none;overflow-x:clip}
+.dolphin-landing-page .dolphin-hero{width:calc(100% + 2 * clamp(16px,3vw,36px));margin-left:calc(-1 * clamp(16px,3vw,36px));margin-right:calc(-1 * clamp(16px,3vw,36px))}
+.dolphin-landing-page .dolphin-benefit strong{font-size:14px;line-height:1.35}
+.dolphin-landing-page .dolphin-benefit p,.dolphin-landing-page .dolphin-package-card p,.dolphin-landing-page .dolphin-package-card li{font-size:14px;line-height:1.6}
+.dolphin-landing-page .dolphin-section-intro p,.dolphin-landing-page .dolphin-section-heading p,.dolphin-landing-page .dolphin-configurator>div>p{font-size:15px;line-height:1.65}
+.dolphin-landing-page .dolphin-vehicle-choice strong,.dolphin-landing-page .dolphin-addon-card strong,.dolphin-landing-page .dolphin-info-row strong{font-size:14px;line-height:1.45}
+.dolphin-landing-page .dolphin-vehicle-choice small,.dolphin-landing-page .dolphin-vehicle-choice em,.dolphin-landing-page .dolphin-addon-card small,.dolphin-landing-page .dolphin-addon-card em,.dolphin-landing-page .dolphin-info-row small{font-size:12px;line-height:1.55}
+.dolphin-landing-page .dolphin-summary-row{font-size:13px;line-height:1.5}
+.dolphin-landing-page .dolphin-summary-total small,.dolphin-landing-page .dolphin-summary-total span,.dolphin-landing-page .dolphin-live-summary>p{font-size:12px;line-height:1.55}
+.dolphin-landing-page .dolphin-timeline-time{font-size:12px}
+.dolphin-landing-page .dolphin-timeline-copy h3{font-size:15px;line-height:1.4}
+.dolphin-landing-page .dolphin-timeline-copy p,.dolphin-landing-page .dolphin-faq-grid p{font-size:13px;line-height:1.6}
+.dolphin-landing-page .dolphin-destination strong{font-size:14px}
+.dolphin-landing-page .dolphin-destination small,.dolphin-landing-page .dolphin-destination em{font-size:12px;line-height:1.5}
+.dolphin-landing-page .dolphin-info-panel>p,.dolphin-landing-page .dolphin-faq-grid summary{font-size:14px;line-height:1.6}
+.dolphin-landing-page .dolphin-recommendation-body span,.dolphin-landing-page .dolphin-recommendation-body em,.dolphin-landing-page .dolphin-final-cta p{font-size:13px;line-height:1.6}
+.dolphin-landing-page .dolphin-benefit>span,.dolphin-landing-page .dolphin-info-row>i{border-radius:8px;background:#edf4f8;color:#315f80}
+.dolphin-landing-page .dolphin-addon-icon{height:48px;background:#f0f5f8;color:#315f80;border-radius:7px;font-size:20px}
+.dolphin-landing-page .dolphin-package-principle i,.dolphin-landing-page .dolphin-itinerary-note i{color:#315f80}
+@media(max-width:600px){
+ .dolphin-landing-page{padding-left:12px;padding-right:12px}
+ .dolphin-landing-page .dolphin-hero{width:calc(100% + 24px);margin-left:-12px;margin-right:-12px;min-height:490px;padding:24px 20px 28px;align-items:flex-end;background-image:linear-gradient(180deg,rgba(8,35,58,.08),rgba(8,35,58,.24) 28%,rgba(8,35,58,.86) 100%),var(--dolphin-hero-image);background-position:center;background-size:cover}
+ .dolphin-landing-page .dolphin-hero-content{width:100%;max-width:none}
+ .dolphin-landing-page .dolphin-breadcrumb{font-size:12px;margin-bottom:20px;color:rgba(255,255,255,.92)}
+ .dolphin-landing-page .dolphin-eyebrow{font-size:11px;color:#bdefff}
+ .dolphin-landing-page .dolphin-hero h1{font-size:clamp(34px,9vw,42px);line-height:1.04;color:#fff;margin-bottom:10px}
+ .dolphin-landing-page .dolphin-hero h2{font-size:21px;line-height:1.25;color:#d2f4ff}
+ .dolphin-landing-page .dolphin-hero p{font-size:15px;line-height:1.65;color:rgba(255,255,255,.95)}
+ .dolphin-landing-page .dolphin-hero-facts{gap:10px 16px}
+ .dolphin-landing-page .dolphin-hero-facts span{font-size:12px;color:#fff}
+ .dolphin-landing-page .dolphin-primary-cta{font-size:15px;min-height:50px}
+ .dolphin-landing-page .dolphin-benefits{margin:14px 0 0;padding:14px 12px;gap:14px 10px}
+ .dolphin-landing-page .dolphin-benefit{padding:2px;gap:9px}
+ .dolphin-landing-page .dolphin-benefit>span{width:32px;height:32px;flex-basis:32px;font-size:14px}
+ .dolphin-landing-page .dolphin-benefit strong{font-size:13px;margin:0 0 4px}
+ .dolphin-landing-page .dolphin-benefit p{font-size:12px;line-height:1.5}
+ .dolphin-landing-page .dolphin-landing-section,.dolphin-landing-page .dolphin-configurator,.dolphin-landing-page .dolphin-related-section{margin-top:26px}
+ .dolphin-landing-page .dolphin-section-intro{padding:20px 17px}
+ .dolphin-landing-page .dolphin-section-intro h2,.dolphin-landing-page .dolphin-section-heading h2,.dolphin-landing-page .dolphin-configurator h2{font-size:clamp(25px,6.5vw,30px);line-height:1.18}
+ .dolphin-landing-page .dolphin-package-card>img{height:180px}
+ .dolphin-landing-page .dolphin-package-card-body{padding:18px}
+ .dolphin-landing-page .dolphin-package-card h3{font-size:21px}
+ .dolphin-landing-page .dolphin-package-price{font-size:13px}
+ .dolphin-landing-page .dolphin-package-price strong{font-size:27px}
+ .dolphin-landing-page .dolphin-package-price small{font-size:12px}
+ .dolphin-landing-page .dolphin-package-principle{grid-template-columns:1fr;gap:10px}
+ .dolphin-landing-page .dolphin-package-principle span{font-size:13px}
+ .dolphin-landing-page .dolphin-configurator{padding:17px 14px;gap:20px}
+ .dolphin-landing-page .dolphin-choice-grid{grid-template-columns:minmax(0,1fr);gap:10px}
+ .dolphin-landing-page .dolphin-vehicle-choice{gap:12px;padding:12px}
+ .dolphin-landing-page .dolphin-vehicle-choice img{width:82px;height:66px;flex:0 0 82px}
+ .dolphin-landing-page .dolphin-addon-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .dolphin-landing-page .dolphin-addon-card{padding:12px}
+ .dolphin-landing-page .dolphin-addon-icon{height:44px;margin-bottom:8px}
+ .dolphin-landing-page .dolphin-guest-count{font-size:14px;flex-wrap:wrap}
+ .dolphin-landing-page .dolphin-live-summary{padding:17px}
+ .dolphin-landing-page .dolphin-summary-total strong{font-size:28px}
+ .dolphin-landing-page .dolphin-itinerary-layout{grid-template-columns:minmax(0,1fr);gap:14px}
+ .dolphin-landing-page .dolphin-timeline,.dolphin-landing-page .dolphin-destinations-panel{padding:15px}
+ .dolphin-landing-page .dolphin-timeline-item{grid-template-columns:28px 52px minmax(0,1fr);gap:8px;padding:13px 0}
+ .dolphin-landing-page .dolphin-timeline-copy h3{font-size:14px}
+ .dolphin-landing-page .dolphin-timeline-copy p{font-size:13px}
+ .dolphin-landing-page .dolphin-destinations-scroll{display:flex;flex-direction:column;overflow:visible;max-height:none;min-height:0}
+ .dolphin-landing-page .dolphin-destination{flex:initial;width:100%;grid-template-columns:minmax(96px,34%) minmax(0,1fr);gap:12px;padding:9px;min-height:110px}
+ .dolphin-landing-page .dolphin-destination img{height:100%;min-height:96px;max-height:125px}
+ .dolphin-landing-page .dolphin-details-grid,.dolphin-landing-page .dolphin-faq-grid{grid-template-columns:minmax(0,1fr);gap:12px}
+ .dolphin-landing-page .dolphin-info-panel{padding:18px}
+ .dolphin-landing-page .dolphin-info-panel h2{font-size:22px}
+ .dolphin-landing-page .dolphin-faq-grid details{padding:16px}
+ .dolphin-landing-page .dolphin-recommendation-row{margin-right:-12px;padding-right:12px;gap:12px}
+ .dolphin-landing-page .dolphin-recommendation-card{flex-basis:86%}
+ .dolphin-landing-page .dolphin-recommendation-card img{height:170px}
+ .dolphin-landing-page .dolphin-recommendation-body{padding:16px}
+ .dolphin-landing-page .dolphin-recommendation-body strong{font-size:17px}
+ .dolphin-landing-page .dolphin-final-cta{margin-left:-12px;margin-right:-12px;padding:26px 20px;gap:16px}
+ .dolphin-landing-page .dolphin-final-cta h2{font-size:27px}
+}
+@media(min-width:601px) and (max-width:1023px){
+ .dolphin-landing-page{padding-left:20px;padding-right:20px}
+ .dolphin-landing-page .dolphin-hero{width:calc(100% + 40px);margin-left:-20px;margin-right:-20px;min-height:430px;padding:30px 28px;background-image:linear-gradient(90deg,rgba(8,35,58,.06),rgba(8,35,58,.72)),var(--dolphin-hero-image)}
+ .dolphin-landing-page .dolphin-hero-content{max-width:540px}
+ .dolphin-landing-page .dolphin-hero h1{font-size:44px;color:#fff}
+ .dolphin-landing-page .dolphin-hero h2{color:#d2f4ff}
+ .dolphin-landing-page .dolphin-hero p,.dolphin-landing-page .dolphin-hero-facts span{color:#fff}
+ .dolphin-landing-page .dolphin-itinerary-layout{grid-template-columns:minmax(0,1fr)}
+ .dolphin-landing-page .dolphin-destinations-scroll{max-height:none}
+}
