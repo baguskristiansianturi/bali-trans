@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,follow"><meta name="theme-color" content="#f4f7fb">
 <title>Complete your booking | Bali Trans</title>
-<link rel="stylesheet" href="./assets/css/pages/booking-form.css?v=20261026-4">
+<link rel="stylesheet" href="./assets/css/pages/booking-form.css?v=20261027-global-1">
 </head>
 <body class="booking-form-page">
 <main class="booking-shell">
@@ -14,20 +14,22 @@
 <section class="booking-main">
 <div class="page-heading"><h1 id="pageTitle">Review your trip</h1><p id="pageIntro">Adjust the details below and see an estimated fare before continuing.</p></div>
 <section class="summary-card"><div class="summary-heading"><h2>Your trip</h2></div>
-<dl class="trip-summary"><div><dt>Service</dt><dd id="summaryService">Airport transfer</dd></div><div><dt>Vehicle</dt><dd id="summaryVehicle">Regular Car</dd></div><div><dt>Pickup / destination</dt><dd id="summaryLocation">Not set</dd></div><div><dt>Travel date</dt><dd id="summaryDate">Not set</dd></div><div><dt>Duration</dt><dd id="summaryDuration">Not applicable</dd></div><div><dt>Estimated total</dt><dd id="summaryFare">Rp 350.000</dd></div></dl>
+<dl class="trip-summary"><div><dt>Service</dt><dd id="summaryService">Airport transfer</dd></div><div id="summaryPackageRow" hidden><dt>Package</dt><dd id="summaryPackage">Not set</dd></div><div id="summaryAddonsRow" hidden><dt>Options</dt><dd id="summaryAddons">None selected</dd></div><div><dt>Vehicle</dt><dd id="summaryVehicle">Regular Car</dd></div><div><dt>Pickup / destination</dt><dd id="summaryLocation">Not set</dd></div><div><dt>Travel date</dt><dd id="summaryDate">Not set</dd></div><div><dt>Duration</dt><dd id="summaryDuration">Not applicable</dd></div><div><dt>Estimated total</dt><dd id="summaryFare">Rp 350.000</dd></div></dl>
 </section>
 <form id="guestBookingForm" class="guest-form">
 <section data-stage="1" id="tripStage">
 <div class="form-section-title"><h2>1. Trip details</h2><p>Enter your travel details. Our team will confirm the vehicle and final arrangements.</p></div>
 <div class="field-grid">
 <label class="field"><span>Vehicle <b>*</b></span><select name="vehicle" id="vehicle" required><option value="Regular Car">Regular Car · 1–5 guests</option><option value="Premium Car">Premium Car · 1–5 guests</option><option value="Karoseri / HiAce">Minivan · 6–14 guests</option></select></label>
-<label class="field"><span>Passengers <b>*</b></span><select name="passengers" id="passengers" required><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option></select></label>
-<label class="field"><span>Travel date <b>*</b></span><input type="date" name="date" id="travelDate" required></label>
+<label class="field" id="passengersField"><span>Passengers <b>*</b></span><select name="passengers" id="passengers" required><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option></select></label>
+<label class="field" id="adultsField" hidden><span>Adults <b>*</b></span><select name="adults" id="adults"><option value="1">1 adult</option><option value="2">2 adults</option><option value="3">3 adults</option><option value="4">4 adults</option><option value="5">5 adults</option><option value="6">6 adults</option><option value="7">7 adults</option><option value="8">8 adults</option><option value="9">9 adults</option><option value="10">10 adults</option><option value="11">11 adults</option><option value="12">12 adults</option><option value="13">13 adults</option><option value="14">14 adults</option></select></label>
+<label class="field" id="childrenField" hidden><span>Children</span><select name="children" id="children"><option value="0">No children</option><option value="1">1 child</option><option value="2">2 children</option><option value="3">3 children</option><option value="4">4 children</option><option value="5">5 children</option><option value="6">6 children</option><option value="7">7 children</option><option value="8">8 children</option></select></label>
+<label class="field" id="travelDateField"><span>Travel date <b>*</b></span><input type="date" name="date" id="travelDate" required></label>
 <label class="field"><span>Pickup time <b>*</b></span><input type="time" name="time" id="travelTime" value="09:00" required></label>
-<label class="field"><span>Direction <b>*</b></span><select name="direction" id="direction"><option value="from">From airport to Bali destination</option><option value="to">From Bali to airport</option></select></label>
+<label class="field" id="directionField"><span>Direction <b>*</b></span><select name="direction" id="direction"><option value="from">From airport to Bali destination</option><option value="to">From Bali to airport</option></select></label>
 <label class="field"><span id="locationLabel">Destination / hotel <b>*</b></span><input name="destination" id="destination" placeholder="Hotel, villa or area in Bali" required></label>
-<label class="field"><span>Airport terminal</span><select name="terminal" id="terminal"><option>International terminal</option><option>Domestic terminal</option><option>Not applicable</option></select></label>
-<label class="field"><span>Extra stop time</span><select name="stopHours" id="stopHours"><option value="0">No extra stop</option><option value="1">1 hour · +Rp 50.000</option><option value="2">2 hours · +Rp 100.000</option><option value="3">3 hours · +Rp 150.000</option></select></label>
+<label class="field" id="terminalField"><span>Airport terminal</span><select name="terminal" id="terminal"><option>International terminal</option><option>Domestic terminal</option><option>Not applicable</option></select></label>
+<label class="field" id="stopField"><span>Extra stop time</span><select name="stopHours" id="stopHours"><option value="0">No extra stop</option><option value="1">1 hour · +Rp 50.000</option><option value="2">2 hours · +Rp 100.000</option><option value="3">3 hours · +Rp 150.000</option></select></label>
 </div>
 <div class="fare-breakdown" aria-live="polite"><div><span>Estimated transfer fare</span><strong id="baseFare">Rp 350.000</strong></div><div><span>Extra stop</span><strong id="stopFare">Rp 0</strong></div><div class="fare-total"><span>Estimated total</span><strong id="totalFare">Rp 350.000</strong></div><p>The final fare depends on your route and travel details. Our team will confirm it before your booking is finalised.</p></div>
 <button class="submit-booking" id="continueButton" type="button">Continue to guest details <span>→</span></button>
@@ -40,7 +42,7 @@
 <label class="field"><span>Booker WhatsApp <b>*</b></span><input name="bookerPhone" type="tel" autocomplete="tel" placeholder="+62 812 3456 7890" required></label>
 <label class="field"><span>Email address</span><input name="bookerEmail" type="email" autocomplete="email" placeholder="you@example.com"></label>
 <div class="field full" id="otherGuestFields" hidden><div class="field-grid"><label class="field"><span>Traveller full name <b>*</b></span><input name="travellerName" id="travellerName" placeholder="Name of the person travelling"></label><label class="field"><span>Traveller WhatsApp <b>*</b></span><input name="travellerPhone" id="travellerPhone" type="tel" placeholder="Traveller contact number"></label></div></div>
-<label class="field full"><span>Flight number <b>*</b></span><input name="flightNumber" id="flightNumber" placeholder="e.g. QZ 550" autocomplete="off" required></label>
+<label class="field full" id="flightField"><span>Flight number <b>*</b></span><input name="flightNumber" id="flightNumber" placeholder="e.g. QZ 550" autocomplete="off" required></label>
 <label class="field full"><span>Additional notes <small>(optional)</small></span><textarea name="notes" rows="3" placeholder="Luggage, child seat, meeting point or other requests"></textarea></label>
 </div>
 <div class="form-section-title payment-title"><h2>Payment preference</h2></div>
@@ -54,5 +56,5 @@
 
 </div>
 </main>
-<script src="./assets/js/pages/booking-form.js?v=20261026-4"></script>
+<script src="./assets/js/pages/booking-form.js?v=20261027-global-1"></script>
 </body></html>
