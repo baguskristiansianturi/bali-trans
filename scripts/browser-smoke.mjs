@@ -138,11 +138,11 @@ try {
   await page.locator('#travelDate').fill(dolphinDate);
   await page.locator('#destination').fill('Kuta family hotel');
   await page.locator('#adults').selectOption('2');
+  await page.getByRole('button', { name: /Continue to guest details/ }).click();
   await page.locator('[name="bookerName"]').fill('Browser Test Guest');
   await page.locator('[name="bookerEmail"]').fill('guest@example.com');
   await page.locator('[name="bookerPhone"]').fill('+628123456789');
   await page.locator('[name="terms"]').check();
-  await page.getByRole('button', { name: /Continue to guest details/ }).click();
   await page.route('https://wa.me/**', route => route.fulfill({ status: 200, contentType: 'text/html', body: '<title>WhatsApp request captured</title>' }));
   await page.getByRole('button', { name: /Send request via WhatsApp/ }).click();
   await page.waitForURL(url => url.hostname === 'wa.me' && url.pathname === '/628218187917');
