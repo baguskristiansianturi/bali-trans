@@ -45,3 +45,13 @@ Live preview: https://baguskristiansianturi.github.io/bali-trans/
 - The legacy `terms-and-conditions.html` path redirects to the canonical SPA Terms view, where the general and car rental/private transport sections are expandable.
 - CI now checks local HTML anchor links in addition to existing syntax, route, responsive overflow, and asset checks.
 - Latest verified functional commit at time of this handoff: `9c78bdf221539012007dbe38c9006e8c2497d980`. Validation: https://github.com/baguskristiansianturi/bali-trans/actions/runs/40179651514. Deployment: https://github.com/baguskristiansianturi/bali-trans/actions/runs/40179651546.
+
+
+## Private Tour Bali page update — 27 October 2026
+
+- Redesigned only `bali-private-day-tour.html` and its dedicated stylesheet `assets/css/pages/bali-private-day-tour.css` to match the approved Private Tour Bali mockup.
+- Added vehicle categories and fleet names, service inclusions, Regular Full-Day Tour vs Long Trip explanation, driver/service benefits, booking steps, enquiry form, terms notice and FAQs.
+- Preserved the existing shared header/footer injection via `assets/js/global-shell.js` and restored the original four-item mobile bottom navigation (Explore, Activities, Guides, Cart). No homepage or global-shell changes were made.
+- Added the preferred vehicle category to the WhatsApp enquiry payload in `assets/js/pages/bali-private-day-tour-form.js`.
+- Source-level checks confirmed the page has one main element, references the page stylesheet/form script, includes all listed vehicle models, retains the mobile cart badge, and closes its document structure.
+- **Pending release verification:** wait for GitHub Actions source validation and GitHub Pages deployment; then check the live page on Android/mobile and desktop. Do not treat this source update as visually verified until the deployed URL is inspected.
