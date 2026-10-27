@@ -130,7 +130,7 @@ try {
 
   await page.goto('http://127.0.0.1:4173/?page=detail&item=lovina-dolphin-tour', { waitUntil: 'domcontentloaded' });
   await page.waitForFunction(() => document.querySelector('#appContainer h1')?.textContent.includes('Dolphin Tour'));
-  await page.getByRole('button', { name: 'Book Now' }).first().click();
+  await page.getByRole('button', { name: /Book this package/ }).first().click();
   await page.waitForURL(url => url.pathname.endsWith('/booking-form.html'));
   await page.waitForSelector('#guestBookingForm');
   if ((await page.locator('#summaryService').textContent()).trim() !== 'Bali Dolphin Tour' || await page.locator('#adultsField').evaluate(el => el.hidden) || !(await page.locator('#flightField').evaluate(el => el.hidden)) || !(await page.locator('#terminalField').evaluate(el => el.hidden))) throw new Error('Tour service adapter must show guest fields and hide airport-only fields');
