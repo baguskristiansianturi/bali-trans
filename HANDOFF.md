@@ -55,3 +55,14 @@ Live preview: https://baguskristiansianturi.github.io/bali-trans/
 - Added the preferred vehicle category to the WhatsApp enquiry payload in `assets/js/pages/bali-private-day-tour-form.js`.
 - Source-level checks confirmed the page has one main element, references the page stylesheet/form script, includes all listed vehicle models, retains the mobile cart badge, and closes its document structure.
 - **Pending release verification:** wait for GitHub Actions source validation and GitHub Pages deployment; then check the live page on Android/mobile and desktop. Do not treat this source update as visually verified until the deployed URL is inspected.
+
+
+## Bali Dolphin Tour landing page refresh — 27 October 2026
+
+- Reworked only the Dolphin Tour renderer in `assets/js/views/detail.js` and isolated styling appended to `assets/css/styles.css`; refreshed asset cache keys in `index.html` without changing homepage visuals, shared navigation, footer, or mobile bottom navigation.
+- New hierarchy: promotional hero, benefits, Regular vs All-Inclusive cards, route-based vehicle selection, optional add-ons, live estimate, itinerary timeline with a paired scrollable destination panel, trip information, FAQ, Full Day Tour recommendations, separate Long Trips recommendations, and closing CTA before the shared footer.
+- Regular Tour uses an illustrative route-specific base: Avanza Rp700,000, Innova Rp900,000, HiAce Rp1,300,000. These are prototype examples for the Lovina route, not verified final tariffs. All-Inclusive uses an illustrative Rp750,000/person starting estimate plus vehicle upgrade/add-ons; final business pricing still needs confirmation.
+- Tour-page selections are passed into the existing Dolphin booking flow as a locked package/vehicle/add-on draft. Booking requests remain subject to confirmation and WhatsApp handoff; no real payment or inventory is implemented.
+- Destination cards currently open the Blog list because destination-specific article routes for all stops are not yet present in `BALI_BLOGS`. Replace these with the exact article routes once the destination articles are published.
+- The recommendation cards are structural examples; they route to the tour catalog and should later be driven by real package metadata/categories. Ensure the catalog has the corresponding products before treating them as live offerings.
+- Source-level JavaScript parsing succeeded for `detail.js` and `checkout.js` after changes. GitHub Actions validation, deployment, and live visual QA are still pending; verify the Dolphin Tour route on Android and desktop before considering complete.
