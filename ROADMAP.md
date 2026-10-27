@@ -58,6 +58,9 @@ A change is not complete until source validation passes, deployment succeeds, th
 
 ## Template-first design system — 27 October 2026
 
+- [x] Create `TEMPLATE-REGISTRY.md` as the canonical index for page-family templates and shared components.
+- [x] Extend the canonical `booking-form.html` / CSS / JS form so tour booking can reuse the Airport Transfer design with service-specific fields and payload.
+- [ ] Validate the shared Airport Transfer and Dolphin Tour booking flows, including mobile layout and WhatsApp payload, before calling the shared-form refactor verified.
 - [ ] Use `TEMPLATE-PLAYBOOK.md` as the working standard for all new template work.
 - [ ] Approve the reusable tour/service detail template, including semantic H1/H2/H3 hierarchy and section order, before polishing final copy or scaling pages.
 - [ ] Approve one article/destination detail template before creating destination articles in quantity.
