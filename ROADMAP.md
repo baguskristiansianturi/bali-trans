@@ -50,4 +50,7 @@ A change is not complete until source validation passes, deployment succeeds, th
 - [x] Pass selected package, vehicle, and add-ons into the existing booking flow as locked selections.
 - [ ] Replace temporary recommendation content with actual available products and route each destination card to its specific published blog article.
 - [ ] Confirm real vehicle upgrade prices and package inclusion/price rules before public advertising.
-- [ ] Confirm GitHub Actions validation and GitHub Pages deployment, then inspect the live page on Android and desktop.
+- [x] GitHub Pages deployment succeeded on `5cc160c48cb5a2a380d0dcc03845e68300f29080`.
+- [x] Browser smoke tests passed the Dolphin Tour page and booking request handoff.
+- [ ] Resolve the unrelated Airport Transfer checkout radio-click failure in its own scoped task; do not change Airport Transfer as part of Dolphin Tour work.
+- [ ] Manually inspect the live Dolphin Tour page on Android and desktop.
