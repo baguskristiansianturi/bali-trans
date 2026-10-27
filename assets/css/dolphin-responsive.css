@@ -290,3 +290,94 @@
     align-items:center;
   }
 }
+
+
+/* Shared booking-form visual system: align Dolphin checkout with Airport Transfer checkout.
+   Scope is limited to the Dolphin booking route; fields and booking logic remain service-specific. */
+#appContainer .dolphin-booking-page{
+  background:#f5f7fa!important;
+  color:#172b4d;
+  min-height:100vh;
+  padding:clamp(16px,4vw,34px) clamp(11px,3vw,22px) 36px!important;
+}
+#appContainer .dolphin-booking-shell{width:min(100%,780px);margin:0 auto}
+#appContainer .dolphin-booking-shell>button:first-child{
+  display:inline-flex;align-items:center;min-height:38px;margin:0 0 18px!important;
+  padding:9px 11px;border:1px solid #dfe5ec;border-radius:9px;background:#fff;
+  color:#475467;font-size:13px;font-weight:650;text-decoration:none;
+}
+#appContainer .dolphin-booking-shell>div:first-of-type{
+  margin-bottom:14px!important;padding:0 0 18px!important;border-color:#dfe5ec!important;
+}
+#appContainer .dolphin-booking-shell>div:first-of-type>p:first-child{
+  color:#667085!important;font-size:12px!important;font-weight:800;letter-spacing:.09em;
+}
+#appContainer .dolphin-booking-shell h1{
+  color:#172b4d!important;font-size:clamp(24px,4vw,30px)!important;
+  line-height:1.2!important;letter-spacing:-.5px;font-weight:800!important;
+}
+#appContainer .dolphin-booking-shell>div:first-of-type>p:last-of-type{
+  color:#52627a!important;font-size:14px!important;line-height:1.6;
+}
+#appContainer .dolphin-booking-shell .dolphin-booking-form{
+  display:block;background:rgba(255,255,255,.94);border:1px solid #e3e8ef;
+  border-radius:17px;padding:clamp(16px,4vw,28px);
+  box-shadow:0 12px 32px rgba(23,43,77,.06);color:#172b4d;
+}
+#appContainer .dolphin-booking-form>div:first-child{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;
+}
+#appContainer .dolphin-booking-form label{
+  display:flex;flex-direction:column;gap:6px;min-width:0;
+  color:#344054!important;font-size:13px!important;font-weight:650!important;line-height:1.4;
+}
+#appContainer .dolphin-booking-form input:not([type=checkbox]),
+#appContainer .dolphin-booking-form select,
+#appContainer .dolphin-booking-form textarea{
+  width:100%;min-width:0;min-height:44px;margin-top:0!important;
+  padding:10px 12px!important;border:1px solid #cfd7e2!important;border-radius:9px!important;
+  background:#fff!important;color:#172b4d!important;font:inherit!important;font-size:15px!important;
+  box-shadow:none;outline:none;
+}
+#appContainer .dolphin-booking-form textarea{min-height:78px;resize:vertical}
+#appContainer .dolphin-booking-form input:focus,
+#appContainer .dolphin-booking-form select:focus,
+#appContainer .dolphin-booking-form textarea:focus{
+  border-color:#4267a9!important;box-shadow:0 0 0 3px rgba(66,103,169,.13)!important;
+}
+#appContainer .dolphin-booking-form input[type=checkbox]{
+  width:17px;height:17px;min-height:17px;flex:0 0 17px;margin:0;accent-color:#4267a9;
+}
+#appContainer .dolphin-booking-form>div:nth-child(2){
+  margin-top:22px!important;padding-top:18px!important;border-color:#dfe5ec!important;
+}
+#appContainer .dolphin-booking-form>div:nth-child(2)>p{
+  color:#172b4d!important;font-size:14px!important;font-weight:750!important;
+}
+#appContainer .dolphin-booking-form>div:nth-child(2)>div{
+  gap:9px!important;
+}
+#appContainer .dolphin-booking-form>div:nth-child(2)>div>label{
+  display:flex;flex-direction:row;align-items:flex-start;gap:10px;
+  padding:12px;border:1px solid #dfe5ec;border-radius:11px;background:#fff;
+  font-size:13px!important;font-weight:550!important;line-height:1.5;
+}
+#appContainer .dolphin-booking-form>div:nth-child(3){
+  margin-top:18px!important;padding:13px!important;border:1px solid #dfe5ec;
+  border-radius:11px;background:#f7f9fc;color:#475467!important;
+  font-size:13px!important;line-height:1.6;
+}
+#appContainer .dolphin-booking-form>button[type=submit]{
+  display:block;width:100%;min-height:46px;margin-top:18px!important;padding:12px 18px!important;
+  border:0;border-radius:10px;background:#4267a9!important;color:#fff!important;
+  font-size:14px!important;font-weight:750!important;line-height:1.4;
+}
+#appContainer .dolphin-booking-form>button[type=submit]:hover{background:#31558f!important}
+@media(max-width:540px){
+  #appContainer .dolphin-booking-page{padding:16px 11px 24px!important}
+  #appContainer .dolphin-booking-shell>div:first-of-type{padding-bottom:15px!important}
+  #appContainer .dolphin-booking-form{padding:15px!important;border-radius:14px!important}
+  #appContainer .dolphin-booking-form>div:first-child{grid-template-columns:minmax(0,1fr);gap:13px}
+  #appContainer .dolphin-booking-form>div:first-child>label{grid-column:1/-1}
+  #appContainer .dolphin-booking-form>div:nth-child(2)>div{grid-template-columns:minmax(0,1fr)}
+}
