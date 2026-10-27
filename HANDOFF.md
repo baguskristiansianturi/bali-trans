@@ -70,6 +70,10 @@ Live preview: https://baguskristiansianturi.github.io/bali-trans/
 
 ## Reusable template direction — 27 October 2026
 
+- Canonical template/component index: `TEMPLATE-REGISTRY.md`. Check it before creating a page or component; update it when template status or source-of-truth files change.
+- Shared booking form source is `booking-form.html` + `assets/css/pages/booking-form.css` + `assets/js/pages/booking-form.js`. Airport Transfer remains the visual reference; service adapters must customize fields, summary, validation and WhatsApp payload without inventing a new form design.
+- The Dolphin Tour Book Now action has been redirected to the shared booking form using `service=full-day-tour`, passing package, vehicle, guest count, extras and return URL. Source changes are committed; live deployment and end-to-end/browser QA are still pending.
+
 - The project is in template/UI-UX design stage. The business offer is known; current work defines how it is presented and sold through clear section order, visual hierarchy, responsive behaviour, and a reusable information architecture. Do not treat the prototype as launched or assume sample prices/copy are approved commercial facts.
 - Build semantic SEO structure into every approved template from the start: one clear H1, H2s for main sections, and H3s for relevant subsections/cards. Heading levels follow content hierarchy, not visual styling. Later copy/keyword refinement should fit the approved layout rather than trigger a redesign.
 - Approve reusable templates before producing content at scale: (1) tour/service detail, (2) article/destination detail, (3) search results, and (4) booking form. Do not write a large batch of destination articles before the single-article detail template is approved.
