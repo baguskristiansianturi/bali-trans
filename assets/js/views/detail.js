@@ -111,14 +111,26 @@
         }
         function startDolphinLandingBooking(packageType) {
             packageType = packageType === 'inclusive' ? 'inclusive' : 'regular';
-            window.dolphinBookingDraft = Object.assign({}, window.dolphinBookingDraft || {}, {
-                tourName: 'Bali Dolphin Tour', tourId: 'lovina-dolphin-tour', packageType: packageType,
-                vehicle: 'standard', vehicleName: 'Toyota Avanza', adults: 1, children: 0,
-                addons: { swing: false, snorkel: false, tanahLot: false, extraStop: false, swim: false },
-                selectedAddons: [], estimatedTotal: packageType === 'regular' ? 700000 : 750000,
-                packageLocked: true, selectionLocked: false
+            var vehicle = (document.querySelector('input[name="dolphinTourVehicle"]:checked') || {}).value || 'avanza';
+            var guests = Math.max(1, Number((document.getElementById('dolphinTourGuests') || {}).value || 1));
+            var vehicleNames = { avanza: 'Toyota Avanza', innova: 'Toyota Innova', hiace: 'Toyota HiAce' };
+            var extras = Array.prototype.slice.call(document.querySelectorAll('[data-dolphin-addon]:checked')).map(function(el) {
+                return { name: el.getAttribute('data-label') || el.value, price: Number(el.getAttribute('data-price') || 0), mode: el.getAttribute('data-mode') || 'vehicle' };
             });
-            navigateTo('checkout', 'dolphin-tour');
+            var totalText = (document.getElementById('dolphinLandingTotal') || {}).textContent || '';
+            var fare = Number(totalText.replace(/[^0-9]/g, '')) || 0;
+            var target = new URL('./booking-form.html', window.location.href);
+            target.searchParams.set('service', 'full-day-tour');
+            target.searchParams.set('tourName', 'Bali Dolphin Tour');
+            target.searchParams.set('package', packageType);
+            target.searchParams.set('packageLabel', packageType === 'inclusive' ? 'All-Inclusive Tour' : 'Regular Private Tour');
+            target.searchParams.set('vehicle', vehicle);
+            target.searchParams.set('vehicleName', vehicleNames[vehicle] || vehicleNames.avanza);
+            target.searchParams.set('guests', String(guests));
+            target.searchParams.set('fare', String(fare));
+            target.searchParams.set('addons', JSON.stringify(extras));
+            target.searchParams.set('back', window.location.href);
+            window.location.href = target.toString();
         }
         function requestDolphinCustom(packageType) {
             var label = packageType === 'inclusive' ? 'All-Inclusive Tour' : 'Regular Private Tour';
