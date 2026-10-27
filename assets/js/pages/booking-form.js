@@ -68,7 +68,7 @@ function guestCount(){return tour?Math.max(1,Number(fields.adults.value||1)+Numb
 function syncTripSummary(){const selectedOption=fields.vehicle.options[fields.vehicle.selectedIndex];const vehicleName=dolphinTour?(selectedOption?selectedOption.textContent:fields.vehicle.value):((fromAvailability||rental||tour)&&selectedVehicleName?selectedVehicleName:fields.vehicle.value);$('summaryVehicle').textContent=vehicleName;$('summaryLocation').textContent=fields.destination.value.trim()||'Not set';const dateText=fields.date.value?(fields.date.value+(dolphinTour?'':(fields.time.value?' · '+fields.time.value:''))):'Not set';$('summaryDate').textContent=dateText;if(tour)$('summaryDuration').textContent=q.get('duration')||'Full day';}
 [fields.vehicle,fields.destination,fields.date,fields.time,fields.adults,fields.children,fields.passengers].forEach(el=>el.addEventListener('input',syncTripSummary));
 syncTripSummary();
-const money=n=>'Rp '+Math.round(n).toLocaleString('id-ID'),moneyOrQuote=n=>n===null||n===undefined?'To be confirmed':money(n);
+const money=n=>'Rp '+Math.round(n).toLocaleString('id-ID'),moneyOrQuote=n=>n===null||n===undefined||n===0?'—':money(n);
 function calc(){
  if(tour){
    const guests=guestCount();
@@ -79,8 +79,8 @@ function calc(){
    const stopLabel=$('stopFare').previousElementSibling;if(stopLabel)stopLabel.textContent='Selected extras';
    const note=$('totalFare').closest('.fare-breakdown').querySelector('p');
    if(base===null){
-     $('baseFare').textContent='To be confirmed';$('stopFare').textContent=money(extras);$('totalFare').textContent='To be confirmed';$('summaryFare').textContent='To be confirmed';
-     if(note)note.textContent='Share your trip details and our team will confirm the package price and final arrangements.';
+     $('baseFare').textContent='—';$('stopFare').textContent=extras>0?money(extras):'—';$('totalFare').textContent='—';$('summaryFare').textContent='—';
+     if(note)note.textContent='';
      return {base:null,stop:extras,total:null};
    }
    const total=base+extras;
@@ -103,7 +103,7 @@ $('backToTrip').addEventListener('click',()=>stage(1));
 form.addEventListener('submit',e=>{e.preventDefault();if(!validateBookingDate(true)||!updateDateAvailability()||!form.reportValidity())return;const d=new FormData(form),fare=calc();const selectedVehicle=fields.vehicle.options[fields.vehicle.selectedIndex];d.set('vehicle',dolphinTour?fields.vehicle.value:(selectedVehicleName||fields.vehicle.value));const dateText=dolphinTour?fields.date.value:fields.date.value+' at '+fields.time.value;const lines=['BALI TRANS | BOOKING REQUEST','━━━━━━━━━━━━━━━━━━━━','','TRIP DETAILS','Service: '+serviceLabel];
 if(tour){lines.push('Tour: '+tourName,'Package: '+(q.get('packageLabel')||(packageType==='inclusive'?'All-Inclusive Tour':'Regular Private Tour')),'Adults: '+fields.adults.value,'Children: '+fields.children.value,'Guests: '+guestCount(),'Pickup area / accommodation: '+fields.destination.value,'Vehicle: '+fields.vehicle.value);if(addonItems.length)lines.push('Selected extras: '+addonItems.map(a=>(a.name||a.label)+' ('+money(Number(a.price||0))+')').join(', '));}
 else{lines.push('Vehicle: '+(selectedVehicleName?selectedVehicleName+' ('+fields.vehicle.value+')':fields.vehicle.value),'Passengers: '+fields.passengers.value,'Direction: '+(rental?'Rental':fields.direction.value==='from'?'Airport to destination':'Destination to airport'),'Pickup / destination: '+fields.destination.value,'Airport terminal: '+(fields.terminal.value||'Not applicable'));}
-lines.push(dolphinTour?'Travel date: '+dateText+' (pickup follows the published itinerary)':'Date & time: '+dateText,'','━━━━━━━━━━━━━━━━━━━━','','FARE ESTIMATE',(tour?'Package / tour estimate: ':'Transfer fare: ')+moneyOrQuote(fare.base),(tour?'Selected extras: ':'Extra stop: ')+moneyOrQuote(fare.stop),'ESTIMATED TOTAL: '+moneyOrQuote(fare.total),'Final fare: Pending confirmation','','━━━━━━━━━━━━━━━━━━━━','','CONTACT DETAILS','Booking for: '+d.get('bookingFor'),'Booker: '+d.get('bookerName'),'WhatsApp: '+d.get('bookerPhone'),'Email: '+(d.get('bookerEmail')||'Not provided'));
+lines.push(dolphinTour?'Travel date: '+dateText+' (pickup follows the published itinerary)':'Date & time: '+dateText,'','━━━━━━━━━━━━━━━━━━━━','','FARE ESTIMATE',(tour?'Package / tour estimate: ':'Transfer fare: ')+moneyOrQuote(fare.base),(tour?'Selected extras: ':'Extra stop: ')+moneyOrQuote(fare.stop),'ESTIMATED TOTAL: '+moneyOrQuote(fare.total),'Final fare: —','','━━━━━━━━━━━━━━━━━━━━','','CONTACT DETAILS','Booking for: '+d.get('bookingFor'),'Booker: '+d.get('bookerName'),'WhatsApp: '+d.get('bookerPhone'),'Email: '+(d.get('bookerEmail')||'Not provided'));
 if(d.get('bookingFor')==='someone-else')lines.push('','TRAVELLER DETAILS','Traveller: '+d.get('travellerName'),'Traveller WhatsApp: '+d.get('travellerPhone'));else lines.push('','TRAVELLER DETAILS','Traveller: Same as booker','Traveller WhatsApp: Same as booker WhatsApp');
 if(d.get('flightNumber'))lines.push('Flight number: '+d.get('flightNumber'));if(d.get('notes'))lines.push('Additional notes: '+d.get('notes'));lines.push('','━━━━━━━━━━━━━━━━━━━━','','PAYMENT','Preference: '+d.get('payment'),'','Please confirm availability, final fare and arrangements. This is a booking request, not a confirmed reservation.');location.href='https://wa.me/'+(window.BALI_TRANS_WHATSAPP_NUMBER||'628218187917')+'?text='+encodeURIComponent(lines.join('\n'));});
 calc();
