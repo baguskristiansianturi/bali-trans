@@ -1,6 +1,6 @@
 (function(){'use strict';
 const q=new URLSearchParams(location.search),$=id=>document.getElementById(id),form=$('guestBookingForm');
-const service=q.get('service')||'airport-transfer',rental=service==='car-rental',tour=service==='full-day-tour'||service==='dolphin-tour';
+const service=q.get('service')||'airport-transfer',rental=service==='car-rental',tour=service==='full-day-tour'||service==='dolphin-tour',dolphinTour=service==='full-day-tour'&&q.get('tourId')==='lovina-dolphin-tour';
 const tourName=q.get('tourName')||(service==='dolphin-tour'?'Bali Dolphin Tour':service==='full-day-tour'?'Private Full Day Tour':'');
 const fromAvailability=q.get('locked')==='1',selectedFare=Number(q.get('fare')),selectedVehicleName=q.get('vehicleName')||(rental?q.get('vehicle')||'':'');
 let addonItems=[];try{addonItems=JSON.parse(q.get('addons')||'[]');if(!Array.isArray(addonItems))addonItems=[];}catch(_){addonItems=[];}
@@ -50,19 +50,29 @@ function guestCount(){return tour?Math.max(1,Number(fields.adults.value||1)+Numb
 function syncTripSummary(){const vehicleName=(fromAvailability||rental||tour)&&selectedVehicleName?selectedVehicleName:fields.vehicle.value;$('summaryVehicle').textContent=vehicleName;$('summaryLocation').textContent=fields.destination.value.trim()||'Not set';const dateText=fields.date.value?(fields.date.value+(fields.time.value?' · '+fields.time.value:'')):'Not set';$('summaryDate').textContent=dateText;if(tour)$('summaryDuration').textContent=q.get('duration')||'Full day';}
 [fields.vehicle,fields.destination,fields.date,fields.time,fields.adults,fields.children,fields.passengers].forEach(el=>el.addEventListener('input',syncTripSummary));
 syncTripSummary();
-const money=n=>'Rp '+Math.round(n).toLocaleString('id-ID');
+const money=n=>'Rp '+Math.round(n).toLocaleString('id-ID'),moneyOrQuote=n=>n===null||n===undefined?'To be confirmed':money(n);
 function calc(){
  if(tour){
    const guests=guestCount(),adults=Math.max(1,Number(fields.adults.value||1)),children=Math.max(0,Number(fields.children.value||0));
    const vehicle=q.get('vehicle')||'avanza';
-   const discount=guests>=11?.075:guests>=7?.05:guests>=3?.025:0;
-   let base=packageType==='inclusive'?(adults*(guestType==='international'?950000:750000)+children*(guestType==='international'?700000:500000))*(1-discount):({avanza:700000,standard:700000,innova:900000,reborn:900000,zenix:1000000,hiace:1300000}[vehicle]||selectedFare||700000);
-   if(packageType==='inclusive'&&vehicle!=='avanza'&&vehicle!=='standard')base+=({innova:200000,reborn:200000,zenix:600000,hiace:600000}[vehicle]||0);
-   const extras=addonItems.reduce((sum,a)=>sum+Number(a.price||0)*(a.mode==='person'?guests:1),0),total=base+extras;
-   $('baseFare').textContent=money(base);$('stopFare').textContent=money(extras);$('totalFare').textContent=money(total);$('summaryFare').textContent=money(total);
+   let base=null;
+   if(dolphinTour){
+     const discount=guests>=11?.075:guests>=7?.05:guests>=3?.025:0;
+     base=packageType==='inclusive'?(adults*(guestType==='international'?950000:750000)+children*(guestType==='international'?700000:500000))*(1-discount):({avanza:700000,standard:700000,innova:900000,reborn:900000,zenix:1000000,hiace:1300000}[vehicle]||700000);
+     if(packageType==='inclusive'&&vehicle!=='avanza'&&vehicle!=='standard')base+=({innova:200000,reborn:200000,zenix:600000,hiace:600000}[vehicle]||0);
+   }else if(Number.isFinite(selectedFare)&&selectedFare>0){base=selectedFare;}
+   const extras=addonItems.reduce((sum,a)=>sum+Number(a.price||0)*(a.mode==='person'?guests:1),0);
    const fareLabel=$('baseFare').previousElementSibling;if(fareLabel)fareLabel.textContent=packageType==='inclusive'?'Package estimate':'Tour estimate';
    const stopLabel=$('stopFare').previousElementSibling;if(stopLabel)stopLabel.textContent='Selected extras';
-   const note=$('totalFare').closest('.fare-breakdown').querySelector('p');if(note)note.textContent='Illustrative estimate based on the selected package and extras. The team will confirm the final arrangements.';
+   const note=$('totalFare').closest('.fare-breakdown').querySelector('p');
+   if(base===null){
+     $('baseFare').textContent='To be confirmed';$('stopFare').textContent=money(extras);$('totalFare').textContent='To be confirmed';$('summaryFare').textContent='To be confirmed';
+     if(note)note.textContent='Share your trip details and our team will confirm the package price and final arrangements.';
+     return {base:null,stop:extras,total:null};
+   }
+   const total=base+extras;
+   $('baseFare').textContent=money(base);$('stopFare').textContent=money(extras);$('totalFare').textContent=money(total);$('summaryFare').textContent=money(total);
+   if(note)note.textContent='Illustrative estimate based on the selected package and extras. The team will confirm the final arrangements.';
    return {base,stop:extras,total};
  }
  const v=fields.vehicle.value,base=fromAvailability&&Number.isFinite(selectedFare)&&selectedFare>0?selectedFare:(v.includes('Premium')?500000:v.includes('HiAce')?650000:350000),stop=Number(fields.stop.value||0)*50000;
@@ -80,7 +90,7 @@ $('backToTrip').addEventListener('click',()=>stage(1));
 form.addEventListener('submit',e=>{e.preventDefault();if(!validateBookingDate(true)||!updateDateAvailability()||!form.reportValidity())return;const d=new FormData(form),fare=calc();d.set('vehicle',selectedVehicleName||fields.vehicle.value);const dateText=fields.date.value+' at '+fields.time.value;const lines=['BALI TRANS | BOOKING REQUEST','━━━━━━━━━━━━━━━━━━━━','','TRIP DETAILS','Service: '+serviceLabel];
 if(tour){lines.push('Tour: '+tourName,'Package: '+(q.get('packageLabel')||(packageType==='inclusive'?'All-Inclusive Tour':'Regular Private Tour')),'Adults: '+fields.adults.value,'Children: '+fields.children.value,'Guests: '+guestCount(),'Pickup area / accommodation: '+fields.destination.value,'Vehicle: '+(selectedVehicleName||fields.vehicle.value));if(addonItems.length)lines.push('Selected extras: '+addonItems.map(a=>(a.name||a.label)+' ('+money(Number(a.price||0))+')').join(', '));}
 else{lines.push('Vehicle: '+(selectedVehicleName?selectedVehicleName+' ('+fields.vehicle.value+')':fields.vehicle.value),'Passengers: '+fields.passengers.value,'Direction: '+(rental?'Rental':fields.direction.value==='from'?'Airport to destination':'Destination to airport'),'Pickup / destination: '+fields.destination.value,'Airport terminal: '+(fields.terminal.value||'Not applicable'));}
-lines.push('Date & time: '+dateText,'','━━━━━━━━━━━━━━━━━━━━','','FARE ESTIMATE',(tour?'Package / tour estimate: ':'Transfer fare: ')+money(fare.base),(tour?'Selected extras: ':'Extra stop: ')+money(fare.stop),'ESTIMATED TOTAL: '+money(fare.total),'Final fare: Pending confirmation','','━━━━━━━━━━━━━━━━━━━━','','CONTACT DETAILS','Booking for: '+d.get('bookingFor'),'Booker: '+d.get('bookerName'),'WhatsApp: '+d.get('bookerPhone'),'Email: '+(d.get('bookerEmail')||'Not provided'));
+lines.push('Date & time: '+dateText,'','━━━━━━━━━━━━━━━━━━━━','','FARE ESTIMATE',(tour?'Package / tour estimate: ':'Transfer fare: ')+moneyOrQuote(fare.base),(tour?'Selected extras: ':'Extra stop: ')+moneyOrQuote(fare.stop),'ESTIMATED TOTAL: '+moneyOrQuote(fare.total),'Final fare: Pending confirmation','','━━━━━━━━━━━━━━━━━━━━','','CONTACT DETAILS','Booking for: '+d.get('bookingFor'),'Booker: '+d.get('bookerName'),'WhatsApp: '+d.get('bookerPhone'),'Email: '+(d.get('bookerEmail')||'Not provided'));
 if(d.get('bookingFor')==='someone-else')lines.push('','TRAVELLER DETAILS','Traveller: '+d.get('travellerName'),'Traveller WhatsApp: '+d.get('travellerPhone'));else lines.push('','TRAVELLER DETAILS','Traveller: Same as booker','Traveller WhatsApp: Same as booker WhatsApp');
 if(d.get('flightNumber'))lines.push('Flight number: '+d.get('flightNumber'));if(d.get('notes'))lines.push('Additional notes: '+d.get('notes'));lines.push('','━━━━━━━━━━━━━━━━━━━━','','PAYMENT','Preference: '+d.get('payment'),'','Please confirm availability, final fare and arrangements. This is a booking request, not a confirmed reservation.');location.href='https://wa.me/'+(window.BALI_TRANS_WHATSAPP_NUMBER||'628218187917')+'?text='+encodeURIComponent(lines.join('\n'));});
 calc();
