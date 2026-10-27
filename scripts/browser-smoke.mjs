@@ -123,6 +123,11 @@ try {
   await checkRoute('cart', '?page=cart', 'Cart');
   await checkRoute('checkout', '?page=checkout', 'Vehicle & optional activities');
 
+  await page.goto('http://127.0.0.1:4173/booking-form.html', { waitUntil: 'domcontentloaded' });
+  await page.waitForSelector('#guestBookingForm');
+  if (await page.locator('#summaryService').textContent() !== 'Airport transfer' || !(await page.locator('#flightField').isVisible()) || await page.locator('#adultsField').isVisible()) throw new Error('Default shared booking form must preserve Airport Transfer fields');
+  console.log('PASS shared booking form defaults to the Airport Transfer field configuration');
+
   await page.goto('http://127.0.0.1:4173/?page=detail&item=lovina-dolphin-tour', { waitUntil: 'domcontentloaded' });
   await page.waitForFunction(() => document.querySelector('#appContainer h1')?.textContent.includes('Dolphin Tour'));
   await page.getByRole('button', { name: 'Book Now' }).first().click();
