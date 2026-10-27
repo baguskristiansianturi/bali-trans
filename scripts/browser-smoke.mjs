@@ -133,6 +133,7 @@ try {
   await page.getByRole('button', { name: 'Book Now' }).first().click();
   await page.waitForURL(url => url.pathname.endsWith('/booking-form.html'));
   await page.waitForSelector('#guestBookingForm');
+  if ((await page.locator('#summaryService').textContent()).trim() !== 'Bali Dolphin Tour' || await page.locator('#adultsField').evaluate(el => el.hidden) || !(await page.locator('#flightField').evaluate(el => el.hidden)) || !(await page.locator('#terminalField').evaluate(el => el.hidden))) throw new Error('Tour service adapter must show guest fields and hide airport-only fields');
   const dolphinDate = await page.evaluate(() => { const d = new Date(); d.setDate(d.getDate() + 4); return [d.getFullYear(), String(d.getMonth()+1).padStart(2,'0'), String(d.getDate()).padStart(2,'0')].join('-'); });
   await page.locator('#travelDate').fill(dolphinDate);
   await page.locator('#destination').fill('Kuta family hotel');
