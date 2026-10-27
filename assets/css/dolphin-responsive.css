@@ -208,20 +208,25 @@
 }
 
 
-/* Dolphin package cards: keep both booking actions aligned side by side. */
+/* Dolphin package cards: keep both actions on one centered row at every width. */
 .dolphin-landing-page .dolphin-package-actions{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
+  display:flex;
+  flex-flow:row nowrap;
   align-items:stretch;
+  justify-content:center;
   gap:10px;
+  width:100%;
+  min-width:0;
   margin-top:18px;
 }
 .dolphin-landing-page .dolphin-package-actions > button{
   display:flex;
+  flex:0 1 170px;
   align-items:center;
   justify-content:center;
   gap:7px;
-  width:100%;
+  width:auto;
+  max-width:calc(50% - 5px);
   min-width:0;
   min-height:48px;
   margin:0;
@@ -232,26 +237,20 @@
   font-size:13px;
   overflow-wrap:anywhere;
 }
-.dolphin-landing-page .dolphin-package-actions .dolphin-package-book{
-  border-radius:8px;
-}
+.dolphin-landing-page .dolphin-package-actions .dolphin-package-book,
 .dolphin-landing-page .dolphin-package-actions .dolphin-whatsapp-cta{
   border-radius:8px;
 }
 @media(max-width:600px){
-  .dolphin-landing-page .dolphin-package-actions{
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:8px;
-  }
+  .dolphin-landing-page .dolphin-package-actions{gap:8px}
   .dolphin-landing-page .dolphin-package-actions > button{
-    min-height:52px;
-    padding:10px 7px;
+    flex-basis:145px;
+    min-height:48px;
+    padding:9px 7px;
     font-size:12px;
     gap:5px;
   }
-  .dolphin-landing-page .dolphin-package-actions > button i{
-    flex:0 0 auto;
-  }
+  .dolphin-landing-page .dolphin-package-actions > button i{flex:0 0 auto}
 }
 
 
