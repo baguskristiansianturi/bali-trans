@@ -131,13 +131,22 @@
 <section class="btpt-final-cta"><div class="btpt-wrap btpt-final-inner"><div><span class="btpt-eyebrow">READY TO EXPLORE BALI?</span><h2>Travel comfortably.<br>Explore confidently.<br>Experience Bali your way.</h2><p>Choose a vehicle and plan a journey that fits your group and itinerary.</p><a class="btpt-button btpt-button-light" href="#request" data-slow-scroll>Book Your Private Tour <i class="fas fa-arrow-right"></i></a></div></div></section>
 </main>
 
-<div class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 z-50 py-1.5 px-6 flex justify-between items-center shadow-lg" aria-label="Mobile navigation">
- <a href="./index.html" class="flex flex-col items-center gap-1 text-slate-600"><i class="fas fa-compass text-lg"></i><span class="text-[10px] font-bold">Explore</span></a>
- <a href="./index.html?page=packages" class="flex flex-col items-center gap-1 text-slate-600"><i class="fas fa-th-large text-lg"></i><span class="text-[10px] font-bold">Activities</span></a>
- <a href="./index.html?page=blog" class="flex flex-col items-center gap-1 text-slate-600"><i class="fas fa-book-open text-lg"></i><span class="text-[10px] font-bold">Guides</span></a>
- <a href="./index.html?page=contact" class="flex flex-col items-center gap-1 text-slate-600"><i class="fas fa-headset text-lg"></i><span class="text-[10px] font-bold">Contact</span></a>
-</div>
-<script src="./assets/js/pages/bali-private-day-tour-form.js?v=20261027-1"></script>
+<div class="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 z-50 py-1.5 px-6 flex justify-between items-center shadow-lg">
+        <button onclick="navigateTo('home')" class="flex flex-col items-center gap-1 text-slate-600 hover:text-bali-orange focus:text-bali-orange">
+            <i class="fas fa-compass text-lg"></i><span class="text-[10px] font-bold">Explore</span>
+        </button>
+        <button onclick="navigateTo('packages')" class="flex flex-col items-center gap-1 text-slate-600 hover:text-bali-orange focus:text-bali-orange">
+            <i class="fas fa-th-large text-lg"></i><span class="text-[10px] font-bold">Activities</span>
+        </button>
+        <button onclick="navigateTo('blog')" class="flex flex-col items-center gap-1 text-slate-600 hover:text-bali-orange focus:text-bali-orange">
+            <i class="fas fa-book-open text-lg"></i><span class="text-[10px] font-bold">Guides</span>
+        </button>
+        <button onclick="navigateTo('cart')" class="relative flex flex-col items-center gap-1 text-slate-600 hover:text-bali-orange focus:text-bali-orange">
+            <i class="fas fa-shopping-bag text-lg"></i>
+            <span id="mobileCartBadge" class="absolute -top-1 right-2 bg-bali-orange text-white text-[9px] font-extrabold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+            <span class="text-[10px] font-bold">Cart</span>
+        </button>
+    </div><script src="./assets/js/pages/bali-private-day-tour-form.js?v=20261027-1"></script>
 <script src="./assets/js/pages/booking-notice-scroll.js"></script>
 <script src="./assets/js/global-shell.js" defer></script>
 </body></html>
