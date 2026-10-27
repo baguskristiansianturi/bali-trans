@@ -253,3 +253,40 @@
     flex:0 0 auto;
   }
 }
+
+
+/* Mobile fix: MAKE IT YOURS icon points must wrap cleanly without overlap. */
+.dolphin-landing-page .dolphin-configurator-promo-points{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:12px;
+  align-items:start;
+}
+.dolphin-landing-page .dolphin-configurator-promo-points > span{
+  display:flex;
+  align-items:flex-start;
+  gap:9px;
+  min-width:0;
+  line-height:1.45;
+  overflow-wrap:anywhere;
+}
+.dolphin-landing-page .dolphin-configurator-promo-points > span i{
+  flex:0 0 34px;
+  width:34px;
+  height:34px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:9px;
+  background:#edf4f8;
+  color:#315f80;
+}
+@media(max-width:600px){
+  .dolphin-landing-page .dolphin-configurator-promo-points{
+    grid-template-columns:minmax(0,1fr);
+    gap:12px;
+  }
+  .dolphin-landing-page .dolphin-configurator-promo-points > span{
+    align-items:center;
+  }
+}
