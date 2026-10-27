@@ -84,7 +84,7 @@
             const selected = (a,b) => a===b ? ' selected' : '';
             return '<div class="min-h-screen bg-white px-4 py-6 sm:py-10"><div class="mx-auto max-w-2xl">' +
                 '<button type="button" onclick="navigateTo(\'detail\',\'lovina-dolphin-tour\')" class="mb-5 text-sm font-semibold text-slate-600 hover:text-[#172B4D]">← Back to tour</button>' +
-                '<div class="mb-6 border-b border-slate-200 pb-5"><p class="text-xs font-bold uppercase tracking-widest text-slate-500">Bali Trans</p><h1 class="mt-2 text-2xl font-bold text-slate-900">Booking request</h1><p class="mt-1 text-sm text-slate-600">Bali Dolphin Tour · '+(d.packageType==='regular'?'Regular Private Tour':'All-Inclusive Tour')+'</p>'+(d.selectionLocked?'<div class="mt-3 rounded-xl border border-sky-200 bg-sky-50 p-3 text-sm text-sky-900"><strong>Selected on the tour page</strong><p class="mt-1">Package, vehicle and add-ons are locked from your previous selection. Use “Back to tour” if you want to change them.</p></div>':'')+'</div>' +
+                '<div class="mb-6 border-b border-slate-200 pb-5"><p class="text-xs font-bold uppercase tracking-widest text-slate-500">Bali Trans</p><h1 class="mt-2 text-2xl font-bold text-slate-900">Booking request</h1><p class="mt-1 text-sm text-slate-600">Bali Dolphin Tour · '+(d.packageType==='regular'?'Regular Private Tour':'All-Inclusive Tour')+'</p>'+(d.selectionLocked?'<div class="mt-3 rounded-xl border border-sky-200 bg-sky-50 p-3 text-sm text-sky-900"><strong>Selected on the tour page</strong><p class="mt-1">Package: '+(d.packageType==='regular'?'Regular Private Tour':'All-Inclusive Tour')+' · Vehicle: '+(d.vehicleName||'Toyota Avanza')+'</p><p class="mt-1">Add-ons: '+((d.selectedAddons||[]).map(function(a){return a.name;}).join(', ')||'None')+'</p><p class="mt-1">Package, vehicle and add-ons are locked. Use “Back to tour” if you want to change them.</p></div>':'')+'</div>' +
                 '<form id="dolphinCleanBookingForm" class="space-y-5" onsubmit="event.preventDefault();captureDolphinBookingFields();window.dolphinBookingDraft.paymentMethod=&quot;tour-day&quot;;sendDolphinBookingToWhatsApp();">' +
                 '<div class="grid gap-4 sm:grid-cols-2">' +
                 '<label class="'+label+'">Tour date *<input id="dolphinBookDate" type="date" min="'+today+'" value="'+(d.date||'')+'" class="'+input+'" required></label>' +
@@ -146,7 +146,7 @@
             const addonSnorkel = snorkel ? guests * 250000 : 0;
             const addonTanahLot = tanahLot ? adults * (d.guestType === 'international' ? 70000 : 30000) + children * (d.guestType === 'international' ? 35000 : 15000) + 300000 : 0;
             const vehicle = d.vehicle || 'standard';
-            const vehicleExtra = vehicle === 'reborn' ? 300000 : (vehicle === 'zenix' || vehicle === 'hiace') ? 500000 : 0;
+            const vehicleExtra = d.packageType === 'regular' ? 0 : vehicle === 'reborn' ? 200000 : (vehicle === 'zenix' || vehicle === 'hiace') ? 600000 : 0;
             const total = Number(d.estimatedTotal) || Math.max(0, baseSubtotal - groupDiscount + addonSnorkel + addonTanahLot + vehicleExtra);
             const ref = d.reference || (d.reference = 'BT-DOL-' + Date.now().toString(36).toUpperCase().slice(-6));
             const rule = '────────────────────────────────';
@@ -171,10 +171,10 @@
                 '',
                 'PRICE BREAKDOWN (ESTIMATE)',
                 rule,
-                'Adult fare  : ' + money(adultRate) + ' × ' + adults + ' = ' + money(adultSubtotal),
-                'Child fare  : ' + money(childRate) + ' × ' + children + ' = ' + money(childSubtotal),
-                'Subtotal    : ' + money(baseSubtotal),
-                'Group discount (' + (discountRate * 100).toLocaleString('en-US') + '%): −' + money(groupDiscount),
+                d.packageType === 'regular' ? 'Pricing model: route-based private vehicle rate' : 'Adult fare  : ' + money(adultRate) + ' × ' + adults + ' = ' + money(adultSubtotal),
+                d.packageType === 'regular' ? '' : 'Child fare  : ' + money(childRate) + ' × ' + children + ' = ' + money(childSubtotal),
+                d.packageType === 'regular' ? '' : 'Subtotal    : ' + money(baseSubtotal),
+                d.packageType === 'regular' ? '' : 'Group discount (' + (discountRate * 100).toLocaleString('en-US') + '%): −' + money(groupDiscount),
                 snorkel ? 'Snorkelling : ' + money(addonSnorkel) : '',
                 tanahLot ? 'Tanah Lot add-on: ' + money(addonTanahLot) : '',
                 vehicleExtra ? 'Vehicle upgrade: ' + money(vehicleExtra) : '',
