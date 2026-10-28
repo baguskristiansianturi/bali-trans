@@ -337,6 +337,8 @@ window.BALI_TRANSLATIONS = {"Explore Bali":"Jelajahi Bali","Discover Bali tours,
   }
   window.BaliTransLocale = { translate: translate, apply: apply, getLanguage: getLanguage, setLanguage: setLanguage };
   document.addEventListener('DOMContentLoaded', function () {
+    // The SPA has its own stateful locale controller; avoid running two translators there.
+    if (typeof window.changeLocale === 'function') return;
     const language = getLanguage();
     document.documentElement.lang = language;
     apply(document, language);
