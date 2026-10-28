@@ -603,6 +603,11 @@ window.BALI_TRANSLATIONS = {"Explore Bali":"Jelajahi Bali","Discover Bali tours,
       const selected = button.getAttribute('data-locale') === language;
       button.setAttribute('aria-pressed', String(selected));
     });
+    const checkIds = { id: 'localeCheckId', en: 'localeCheckEn' };
+    Object.keys(checkIds).forEach(function (code) {
+      const check = document.getElementById(checkIds[code]);
+      if (check) check.classList.toggle('hidden', code !== language);
+    });
   }
   window.BaliTransLocale = { translate: translate, apply: apply, getLanguage: getLanguage, setLanguage: setLanguage };
   document.addEventListener('DOMContentLoaded', function () {
