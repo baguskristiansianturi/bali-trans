@@ -24,3 +24,7 @@
 ## Change safety
 
 Before adding a file, check for an existing equivalent and read `TEMPLATE-REGISTRY.md`. Before moving or deleting a file, search HTML script/style references, JS imports/calls, CSS imports, router route keys, sitemap entries, workflow assumptions, and internal links. Keep asset names stable unless the migration updates every caller in the same change.
+
+## Legacy code
+
+- `js/legacy/app.js` is an archived predecessor of the active SPA modules. `index.html` does not load it. Do not add features there or delete it until all possible callers are verified.
