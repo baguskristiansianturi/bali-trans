@@ -1,7 +1,7 @@
 # Bali Trans — Repository Map
 
 Last reviewed: 2026-10-28  
-Baseline: `main` at `259229f09219e9d076a77a59ff22c7862cf5d2e9`
+Baseline: architecture refactor on `main`, 2026-10-28
 
 This is a navigation index, not a claim that every file has been fully dependency-traced. Verify references before changing or moving code.
 
@@ -30,6 +30,7 @@ The SPA itself also renders homepage, discovery, catalog, package detail, Dolphi
 | File/path | Owns | Change caution |
 |---|---|---|
 | `assets/js/data.js` | SPA package/article/locale/currency datasets | Shared data affects multiple views |
+| `assets/js/legacy/app.js` | Archived monolithic predecessor; not loaded by `index.html` | Reference only; do not add features or delete before caller verification |
 | `assets/js/state.js` | Shared in-memory UI state | Can affect navigation/cart/wishlist flows |
 | `assets/js/navigation.js` | Query routing, route metadata and page SEO metadata | Route-wide impact; test direct links/back navigation |
 | `assets/js/interactions.js` | Shared search, cart, wishlist and UI event handlers | High blast radius; avoid page-specific styling/logic here |
@@ -85,8 +86,8 @@ Treat these as high-risk shared files and regression-test more than the target p
 ## 7. Known architectural debt
 
 - Several standalone HTML entry points remain at repository root to preserve current public paths.
-- `assets/js/app.js` is a legacy large script and must not be removed until its remaining callers and role are verified.
-- `assets/js/interactions.js` and `assets/js/data.js` are sizeable shared modules.
+- The former 309 KB `assets/js/app.js` has been moved to `assets/js/legacy/app.js`; retain it until all possible callers are verified.
+- `assets/js/interactions.js` and `assets/js/data.js` remain sizeable shared modules and should be decomposed only with regression coverage.
 - Styles are split across shared entry files, page-specific CSS and some feature-level watersport styles; cascade ownership should be checked before moving rules.
 - No package/build pipeline is assumed; the site is served statically and depends on external CDN assets.
 - The architecture map should be updated when a page, template, shared module or source of truth changes.
