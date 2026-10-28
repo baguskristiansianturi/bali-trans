@@ -486,8 +486,8 @@
         function replaceLocalePhrase(source, from, to) {
             if (!from || from === to) return source;
             let escaped = '';
-            const special = '^$.*+?()[]{}|\\\\';
-            for (const character of from) escaped += special.indexOf(character) >= 0 ? '\\\\' + character : character;
+            const special = '^$.*+?()[]{}|\\';
+            for (const character of from) escaped += special.indexOf(character) >= 0 ? '\\' + character : character;
             const pattern = new RegExp('(^|[^A-Za-z0-9])' + escaped + '(?=$|[^A-Za-z0-9])', 'g');
             return source.replace(pattern, function(match, prefix) { return prefix + to; });
         }
@@ -506,6 +506,7 @@
             }
             return out;
         }
+
         // Locale dropdown and page-copy translation helpers.
         function toggleLocaleMenu(event) {
             if (event) event.stopPropagation();
