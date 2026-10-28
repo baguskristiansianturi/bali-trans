@@ -492,21 +492,25 @@
             return source.replace(pattern, function(match, prefix) { return prefix + to; });
         }
         function translateCopy(value) {
-            if (!value || currentLanguage === 'en') return value;
+            if (!value) return value;
             let out = value;
+            let map;
             if (currentLanguage === 'id') {
-                Object.keys(BALI_TRANSLATIONS).sort((a,b) => b.length-a.length).forEach(key => {
-                    out = replaceLocalePhrase(out, key, BALI_TRANSLATIONS[key]);
+                map = BALI_TRANSLATIONS;
+            } else if (currentLanguage === 'en') {
+                map = {};
+                Object.keys(BALI_TRANSLATIONS).forEach(key => {
+                    const translated = BALI_TRANSLATIONS[key];
+                    if (!map[translated]) map[translated] = key;
                 });
             } else {
-                const map = EXTRA_LOCALE_COPY[currentLanguage] || {};
-                Object.keys(map).sort((a,b) => b.length-a.length).forEach(key => {
-                    out = replaceLocalePhrase(out, key, map[key]);
-                });
+                map = EXTRA_LOCALE_COPY[currentLanguage] || {};
             }
+            Object.keys(map).sort((a,b) => b.length-a.length).forEach(key => {
+                out = replaceLocalePhrase(out, key, map[key]);
+            });
             return out;
         }
-
         // Locale dropdown and page-copy translation helpers.
         function toggleLocaleMenu(event) {
             if (event) event.stopPropagation();
