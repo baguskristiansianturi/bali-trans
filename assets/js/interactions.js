@@ -485,11 +485,11 @@
         };
         function replaceLocalePhrase(source, from, to) {
             if (!from || from === to) return source;
-            const escaped = from.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&');
-            const startsWithWord = /^[A-Za-z0-9]/.test(from);
-            const endsWithWord = /[A-Za-z0-9]$/.test(from);
-            const pattern = (startsWithWord ? '\\\\b' : '') + escaped + (endsWithWord ? '\\\\b' : '');
-            return source.replace(new RegExp(pattern, 'g'), to);
+            let escaped = '';
+            const special = '^$.*+?()[]{}|\\\\';
+            for (const character of from) escaped += special.indexOf(character) >= 0 ? '\\\\' + character : character;
+            const pattern = new RegExp('(^|[^A-Za-z0-9])' + escaped + '(?=$|[^A-Za-z0-9])', 'g');
+            return source.replace(pattern, function(match, prefix) { return prefix + to; });
         }
         function translateCopy(value) {
             if (!value || currentLanguage === 'en') return value;
