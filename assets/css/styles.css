@@ -450,3 +450,32 @@ body.dolphin-sheet-open { overflow:hidden; }
     max-height: none;
   }
 }
+
+
+/* Places to visit: mobile cards reclaim the removed wrapper's space without touching other sections */
+@media (max-width: 600px) {
+  .dolphin-landing-page .dolphin-destinations-panel {
+    width: auto;
+    margin-left: -16px;
+    margin-right: -16px;
+    min-width: 0;
+  }
+  .dolphin-landing-page .dolphin-destinations-heading {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .dolphin-landing-page .dolphin-destinations-scroll {
+    width: 100%;
+    min-width: 0;
+    padding: 0 16px 8px;
+    gap: 10px;
+    scroll-padding-left: 16px;
+    scroll-padding-right: 16px;
+  }
+  .dolphin-landing-page .dolphin-destination {
+    flex: 0 0 calc(100% - 32px);
+    width: calc(100% - 32px);
+    min-width: 0;
+    grid-template-columns: minmax(0, 38%) minmax(0, 1fr);
+  }
+}
