@@ -51,6 +51,8 @@ Start here before changing code:
 └── .github/workflows/          # Validation and GitHub Pages deployment
 ```
 
+The archived `assets/js/legacy/app.js` is the inactive predecessor of the current SPA modules; `index.html` does not load it. Keep it for reference and do not add new features there.
+
 The project has two delivery patterns: a query-routed client-rendered SPA in `index.html`, plus standalone HTML pages whose current root URLs must remain compatible. Therefore, standalone pages are not being bulk-moved into a new folder until links, relative assets, form actions, canonical URLs and tests can be migrated safely in one verified change. Organizing source ownership first is safer than moving files for appearance alone.
 
 For page-specific work, edit the page's own HTML/CSS/JS where possible. Shared files such as `assets/js/global-shell.js`, `assets/js/navigation.js`, `assets/js/interactions.js`, `assets/js/data.js` and `assets/css/styles.css` have a larger blast radius and require regression checks. The homepage renderer `assets/js/views/home.js` is protected unless homepage changes are explicitly requested.
