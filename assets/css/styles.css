@@ -192,3 +192,5 @@ body.dolphin-sheet-open { overflow:hidden; }
 .dolphin-custom-option p{color:#617f97;font-size:11px;line-height:1.65;margin:0}
 .dolphin-custom-option .dolphin-whatsapp-cta{margin-top:12px;max-width:100%;white-space:normal}
 @media(max-width:760px){.dolphin-custom-options{grid-template-columns:minmax(0,1fr);gap:9px}.dolphin-custom-option{padding:13px}.dolphin-custom-option p{font-size:12px}}
+
+.dolphin-configurator-promo{grid-template-columns:minmax(0,1fr)}
