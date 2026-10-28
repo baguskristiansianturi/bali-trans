@@ -12,26 +12,48 @@ This repository is being prepared as a **structural and UX prototype** for the B
 - Keep footer sections, contact paths, and policy links consistent.
 - Clearly label any booking/payment UI as a prototype until a real backend and payment/booking process exist.
 
-## Code structure
+## Repository architecture
 
-- `index.html` — page shell and semantic markup.
-- `assets/css/styles.css` — custom CSS.
-- `assets/js/tailwind.config.js` — Tailwind theme configuration (loaded before the CDN runtime).
-- `assets/js/data.js` — prototype package and article data.
-- `assets/js/state.js` — shared application state.
-- `assets/js/navigation.js` — route switching.
-- `assets/js/views/home.js` — homepage rendering.
-- `assets/js/views/catalog.js` — package catalog and cards.
-- `assets/js/views/tour-detail.js` — dedicated tour-detail template and tour-specific interactions (currently the approved Dolphin Tour layout).
-- `assets/js/views/detail.js` — standard package/activity detail rendering; routes tour-template packages through the dedicated renderer.
-- `assets/js/views/articles.js` — article list and detail rendering.
-- `assets/js/views/checkout.js` — cart and checkout rendering.
-- `assets/js/interactions.js` — search, cart, wishlist, checkout, and UI actions.
-- `.github/workflows/validate-prototype.yml` — JavaScript syntax, route/content references, Playwright smoke tests, HTML/CSS asset checks, externalized CSS/JS checks, and sitemap coverage.
-- `assets/css/pages/` — page-specific stylesheets extracted from standalone HTML pages.
-- `assets/js/pages/` — page-specific/shared scripts extracted from standalone HTML pages.
+Start here before changing code:
 
-Tailwind, fonts, icons, QR rendering, and remote images still use external runtime dependencies. Splitting the files improves maintainability, but production asset-size optimization is a separate task.
+1. [Architecture rules](./ARCHITECTURE.md) — module boundaries, protected areas, safe change workflow.
+2. [Repository map](./docs/architecture/REPOSITORY_MAP.md) — page families, source ownership and high-risk shared files.
+3. [Asset ownership rules](./assets/README.md) — CSS/JavaScript responsibilities.
+4. [Template registry](./TEMPLATE-REGISTRY.md) — existing templates and reusable components.
+5. [Template playbook](./TEMPLATE-PLAYBOOK.md) — standards for new or updated templates.
+6. [Handoff](./HANDOFF.md), [roadmap](./ROADMAP.md), and [audit](./AUDIT.md) — current state, pending work and known risks.
+
+### Main source layout
+
+```text
+/
+├── index.html                 # SPA entry point; protect approved homepage
+├── *.html                     # Existing standalone URLs; keep paths compatible
+├── assets/
+│   ├── css/
+│   │   ├── base.css
+│   │   ├── navigation.css
+│   │   ├── footer.css
+│   │   ├── global-shell.css
+│   │   ├── styles.css         # SPA stylesheet entry
+│   │   └── pages/              # Page-scoped CSS
+│   └── js/
+│       ├── data.js             # SPA runtime data
+│       ├── state.js            # Shared SPA state
+│       ├── navigation.js       # SPA routes and metadata
+│       ├── interactions.js     # Shared SPA interactions
+│       ├── global-shell.js     # Shared standalone shell
+│       ├── views/              # SPA views by feature
+│       └── pages/              # Standalone page controllers/forms
+├── content/                    # Destination master data, audits and editorial content
+├── scripts/                    # Browser smoke tests and validation helpers
+├── docs/architecture/          # Architecture and dependency maps
+└── .github/workflows/          # Validation and GitHub Pages deployment
+```
+
+The project has two delivery patterns: a query-routed client-rendered SPA in `index.html`, plus standalone HTML pages whose current root URLs must remain compatible. Therefore, standalone pages are not being bulk-moved into a new folder until links, relative assets, form actions, canonical URLs and tests can be migrated safely in one verified change. Organizing source ownership first is safer than moving files for appearance alone.
+
+For page-specific work, edit the page's own HTML/CSS/JS where possible. Shared files such as `assets/js/global-shell.js`, `assets/js/navigation.js`, `assets/js/interactions.js`, `assets/js/data.js` and `assets/css/styles.css` have a larger blast radius and require regression checks. The homepage renderer `assets/js/views/home.js` is protected unless homepage changes are explicitly requested.
 
 ## Not production-ready
 
