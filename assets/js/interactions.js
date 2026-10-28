@@ -485,10 +485,10 @@
         };
         function replaceLocalePhrase(source, from, to) {
             if (!from || from === to) return source;
-            const escaped = from.replace(/[.*+?^${}()|[\]\\]/g, '\\        function translateCopy(value){if(!value)return value;let out=value;if(currentLanguage==='id'){Object.keys(BALI_TRANSLATIONS).sort((a,b)=>b.length-a.length).forEach(k=>out=out.split(k).join(BALI_TRANSLATIONS[k]));}else if(currentLanguage==='en'){const rev={};Object.keys(BALI_TRANSLATIONS).forEach(k=>{if(!rev[BALI_TRANSLATIONS[k]])rev[BALI_TRANSLATIONS[k]]=k;});Object.keys(rev).sort((a,b)=>b.length-a.length).forEach(k=>out=out.split(k).join(rev[k]));}else{const map=EXTRA_LOCALE_COPY[currentLanguage]||{};Object.keys(map).sort((a,b)=>b.length-a.length).forEach(k=>out=out.split(k).join(map[k]));}return out;}');
+            const escaped = from.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&');
             const startsWithWord = /^[A-Za-z0-9]/.test(from);
             const endsWithWord = /[A-Za-z0-9]$/.test(from);
-            const pattern = (startsWithWord ? '\\b' : '') + escaped + (endsWithWord ? '\\b' : '');
+            const pattern = (startsWithWord ? '\\\\b' : '') + escaped + (endsWithWord ? '\\\\b' : '');
             return source.replace(new RegExp(pattern, 'g'), to);
         }
         function translateCopy(value) {
