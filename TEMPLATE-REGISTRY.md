@@ -19,7 +19,7 @@ This file is the canonical index of reusable layouts and shared components. When
 |---|---|---|---|
 | Site-wide header, navigation, footer | `assets/js/global-shell.js` | `assets/css/global-shell.css`, `assets/css/styles.css` | Shared source exists; preserve it and change it centrally |
 | Airport transfer / service booking form | `booking-form.html` | `assets/css/pages/booking-form.css`, `assets/js/pages/booking-form.js` | Canonical booking-form design; service adapter being expanded |
-| Tour detail — Bali Dolphin Tour | SPA renderer in `assets/js/views/detail.js` | `assets/css/styles.css` | Existing implemented template; do not replace with article layout |
+| Tour detail — Bali Dolphin Tour | SPA renderer in `assets/js/views/detail.js` | `assets/css/styles.css`; SEO metadata/schema in `assets/js/navigation.js` | Template SEO layer implemented (heading/alt/meta/JSON-LD); production indexing remains blocked by site-wide noindex and client-rendered SPA architecture |
 | Private day-tour service page | `bali-private-day-tour.html` | `assets/css/pages/bali-private-day-tour.css`, `assets/js/pages/bali-private-day-tour-form.js` | Separate service-detail layout; keep scoped |
 | Article / destination detail | To be selected and approved | Dedicated article template assets to be recorded here | Not yet approved as canonical |
 | Search results | Existing search implementation to be audited before selection | Reuse existing result/filter components where appropriate | Canonical layout pending review |
