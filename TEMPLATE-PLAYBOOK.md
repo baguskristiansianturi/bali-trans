@@ -48,10 +48,13 @@ Each family should have a stable section map and heading hierarchy so later page
 
 ## SEO and accessibility
 
-- Semantic heading order should describe the information architecture, not styling.
-- Use descriptive page titles, meta descriptions, image alt text, meaningful link text, labels, and accessible control states.
-- Keep one primary H1 per page template. Do not force every keyword into every heading.
-- Plan internal-link destinations in the template map, but only activate links when their target routes/content exist.
+- Keep one descriptive H1 per detail page. Use H2 for major content sections and H3 for nested itinerary items, package cards and FAQ-related subsections; never select heading tags only for visual size.
+- Generate a unique title and meta description from each package's content data. Keep the description specific and useful in search snippets; do not stuff keywords or copy the same description across packages.
+- Generate canonical URL, Open Graph title/description/URL/image, and Twitter card metadata for each published detail route.
+- Add valid JSON-LD for the tour entity and breadcrumb hierarchy. Structured data must match visible page content; do not invent ratings, reviews, availability, or fixed offers.
+- Give content images concise, contextual alt text that describes the image. Use empty alt text only for decorative images or thumbnails whose adjacent text already provides the same information. CSS background images do not provide an alt attribute, so ensure the main subject is also represented by an accessible content image where appropriate.
+- Use meaningful breadcrumb labels, internal links with real destinations, and accessible names for controls.
+- A good template does not make a prototype indexable by itself. Before launch, remove the intentional site-wide noindex, establish the final canonical domain and sitemap, and ensure important package URLs can be crawled and rendered reliably. Client-rendered metadata is a useful interim layer, not a substitute for crawlable production URLs or server/pre-rendered HTML.
 - Mobile-first readability and usability are required; desktop and mobile should share the same design system.
 
 ## Change-control rules
