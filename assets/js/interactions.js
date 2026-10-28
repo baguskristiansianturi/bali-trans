@@ -273,6 +273,595 @@
             Object.keys(map).sort((a,b) => b.length-a.length).forEach(key => {
                 out = replaceLocalePhrase(out, key, map[key]);
             });
+            if (currentLanguage === 'en') {
+                out = out.replace(/Rp\\s*([0-9][0-9.,]*)/g, function(match, raw) {
+                    const amount = Number(raw.replace(/[.,]/g, ''));
+                    return Number.isFinite(amount) ? '
+        }
+        // Locale dropdown and page-copy translation helpers.
+        function toggleLocaleMenu(event) {
+            if (event) event.stopPropagation();
+            const menu = document.getElementById('localeMenu');
+            const button = document.getElementById('localeButton');
+            if (!menu) return;
+            const opening = menu.classList.contains('hidden');
+            closeHeaderSearch();
+            closeMobileMenu();
+            menu.classList.toggle('hidden', !opening);
+            if (button) button.setAttribute('aria-expanded', String(opening));
+        }
+        function closeLocaleMenu() {
+            const menu = document.getElementById('localeMenu');
+            const button = document.getElementById('localeButton');
+            if (menu) menu.classList.add('hidden');
+            if (button) button.setAttribute('aria-expanded', 'false');
+        }
+        function syncLocaleSelector() {
+            const setting = LOCALE_SETTINGS[currentLanguage] || LOCALE_SETTINGS.id;
+            const flag = document.getElementById('localeCurrentFlag');
+            const code = document.getElementById('localeCurrentCode');
+            if (flag) flag.textContent = setting.flag;
+            if (code) code.textContent = setting.code;
+            const ids = {id:'localeCheckId',en:'localeCheckEn'};
+            Object.entries(ids).forEach(([lang,id]) => {
+                const el = document.getElementById(id);
+                if (el) el.classList.toggle('hidden', lang !== currentLanguage);
+            });
+            if (document.documentElement) {
+                document.documentElement.lang = setting.lang;
+                document.documentElement.dir = setting.dir;
+            }
+        }
+        function applyLanguageCopy(root) {
+            const scope = root || document;
+            if (!scope || !scope.querySelectorAll) return;
+            const walker = document.createTreeWalker(scope, NodeFilter.SHOW_TEXT, {
+                acceptNode(node) {
+                    if (!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+                    const parent = node.parentElement;
+                    if (!parent || /^(SCRIPT|STYLE|NOSCRIPT|TEXTAREA|INPUT)$/i.test(parent.tagName)) return NodeFilter.FILTER_REJECT;
+                    if (parent.closest('[data-no-translate]')) return NodeFilter.FILTER_REJECT;
+                    return NodeFilter.FILTER_ACCEPT;
+                }
+            });
+            const nodes = [];
+            while (walker.nextNode()) nodes.push(walker.currentNode);
+            nodes.forEach(node => {
+                if (!originalTextNodes.has(node)) originalTextNodes.set(node, node.nodeValue);
+                node.nodeValue = translateCopy(originalTextNodes.get(node));
+            });
+            const attributeSelector = '[placeholder],[aria-label],[title],[alt],meta[name="description"][content],input[type="button"][value],input[type="submit"][value],input[type="reset"][value]';
+            const attributeElements = [];
+            if (scope.nodeType === Node.ELEMENT_NODE && scope.matches && scope.matches(attributeSelector)) attributeElements.push(scope);
+            if (scope.querySelectorAll) attributeElements.push(...scope.querySelectorAll(attributeSelector));
+            attributeElements.forEach(el => {
+                const names = ['placeholder','aria-label','title','alt'];
+                if (el.tagName === 'META') names.push('content');
+                if (el.tagName === 'INPUT' && /^(button|submit|reset)$/i.test(el.type)) names.push('value');
+                if (!originalAttributes.has(el)) {
+                    const original = {};
+                    names.forEach(name => { original[name] = el.getAttribute(name); });
+                    originalAttributes.set(el, original);
+                }
+                const attrs = originalAttributes.get(el);
+                names.forEach(name => {
+                    if (attrs[name] !== null && attrs[name] !== undefined) el.setAttribute(name, translateCopy(attrs[name]));
+                });
+            });
+        }
+        function changeLocale(language) {
+            if (!LOCALE_SETTINGS[language]) return;
+            currentLanguage = language;
+            currentCurrency = LOCALE_SETTINGS[language].currency;
+            try {
+                localStorage.setItem('baliTransLanguage', language);
+                localStorage.setItem('baliTransCurrency', currentCurrency);
+            } catch (e) {}
+            syncLocaleSelector();
+            closeLocaleMenu();
+            if (typeof updateLiveChatStatus === 'function') updateLiveChatStatus();
+
+            // Re-render the active route so displayed prices use the selected currency.
+            // Keep the same route and scroll position; never send the visitor back home.
+            const scrollY = window.scrollY || window.pageYOffset || 0;
+            const activeView = currentViewName;
+            const activeParams = currentViewParams;
+            const savedQty = currentDetailQty;
+            const savedDate = document.getElementById('bookingDateInput')?.value || '';
+            const savedOption = document.querySelector('input[name="packageOption"]:checked')?.value || '';
+            const savedVehicle = document.querySelector('input[name="detailVehicle"]:checked')?.value || '';
+            const savedAddons = Array.from(document.querySelectorAll('input[name="detailAddon"]:checked')).map(input => input.value);
+            if (activeView === 'checkout') {
+                applyLanguageCopy(document);
+                if (typeof updateCheckoutPricing === 'function') updateCheckoutPricing();
+            } else {
+                navigateTo(activeView, activeParams, { history: false, preserveScroll: true, scrollY });
+                if (activeView === 'detail') {
+                    currentDetailQty = savedQty || 1;
+                    const dateInput = document.getElementById('bookingDateInput');
+                    if (dateInput) dateInput.value = savedDate;
+                    const optionInput = savedOption ? document.querySelector('input[name="packageOption"][value="' + savedOption + '"]') : null;
+                    if (optionInput) optionInput.checked = true;
+                    if (savedVehicle) {
+                        const vehicleInput = document.querySelector('input[name="detailVehicle"][value="' + savedVehicle + '"]');
+                        if (vehicleInput && !vehicleInput.disabled) vehicleInput.checked = true;
+                    }
+                    savedAddons.forEach(id => {
+                        const addonInput = document.querySelector('input[name="detailAddon"][value="' + id + '"]');
+                        if (addonInput) addonInput.checked = true;
+                    });
+                    updatePackageOptionDetails();
+                    selectLovinaGallery(lovinaGalleryIndex);
+                }
+                window.scrollTo({ top: scrollY, left: 0, behavior: 'auto' });
+            }
+            // Re-translate the entire document after changing language, not just the
+            // re-rendered SPA view. This includes the shared announcement bar, desktop
+            // navbar, mobile navigation, search controls, and footer outside appContainer.
+            applyLanguageCopy(document);
+            syncLocaleSelector();
+        }
+        if (!window.__baliTransLocaleObserver) {
+            window.__baliTransLocaleObserver = new MutationObserver(records => {
+                if (window.__baliTransTranslating) return;
+                window.__baliTransTranslating = true;
+                records.forEach(record => {
+                    record.addedNodes && record.addedNodes.forEach(node => {
+                        if (node.nodeType === Node.ELEMENT_NODE) applyLanguageCopy(node);
+                        else if (node.nodeType === Node.TEXT_NODE && node.parentElement && !/^(SCRIPT|STYLE)$/i.test(node.parentElement.tagName)) {
+                            if (!originalTextNodes.has(node)) originalTextNodes.set(node, node.nodeValue);
+                            node.nodeValue = translateCopy(originalTextNodes.get(node));
+                        }
+                    });
+                });
+                window.__baliTransTranslating = false;
+            });
+            document.addEventListener('DOMContentLoaded', () => {
+                syncLocaleSelector();
+                applyLanguageCopy(document);
+                window.__baliTransLocaleObserver.observe(document.body, {childList:true,subtree:true});
+            }, {once:true});
+        }
+
+        // Presence display: offline by default until a real admin-presence service is connected.
+        window.BALI_TRANS_ADMIN_ONLINE = window.BALI_TRANS_ADMIN_ONLINE === true;
+        function updateLiveChatStatus() {
+            const online = window.BALI_TRANS_ADMIN_ONLINE === true;
+            const dot = document.getElementById('topLiveChatDot');
+            const state = document.getElementById('topLiveChatState');
+            const label = document.getElementById('topLiveChatLabel');
+            const badge = document.getElementById('topLiveChatStatus');
+            if (dot) dot.className = 'h-2 w-2 rounded-full ' + (online ? 'bg-emerald-400' : 'bg-slate-300');
+            if (state) state.textContent = online ? 'Online' : 'Offline';
+            if (label) label.textContent = currentLanguage === 'id' ? 'Live Chat' : 'Live Chat';
+            if (badge) badge.setAttribute('aria-label', 'Live Chat ' + (online ? 'Online' : 'Offline'));
+        }
+        function changeLanguage(language) { changeLocale(language); }
+        document.addEventListener('DOMContentLoaded',function(){syncLocaleSelector();updateLiveChatStatus();});
+
+        let recentlyViewedState = [];
+        try { recentlyViewedState = JSON.parse(localStorage.getItem('baliTransRecentlyViewed') || '[]'); } catch(e) { recentlyViewedState = []; }
+
+        function toggleMobileMenu(event) {
+            if (event) event.stopPropagation();
+            const panel = document.getElementById('mobileMenuPanel');
+            const button = document.getElementById('mobileMenuButton');
+            const icon = document.getElementById('mobileMenuIcon');
+            if (!panel) return;
+            const opening = panel.classList.contains('hidden');
+            closeHeaderSearch();
+            closeLocaleMenu();
+            panel.classList.toggle('hidden', !opening);
+            if (button) button.setAttribute('aria-expanded', String(opening));
+            if (icon) icon.className = opening ? 'fas fa-xmark text-lg' : 'fas fa-bars text-lg';
+            const mobileCount = document.getElementById('mobileWishlistCount');
+            if (mobileCount && typeof wishlistState !== 'undefined') mobileCount.textContent = '(' + wishlistState.length + ')';
+        }
+        function closeMobileMenu() {
+            const panel = document.getElementById('mobileMenuPanel');
+            const button = document.getElementById('mobileMenuButton');
+            const icon = document.getElementById('mobileMenuIcon');
+            if (panel) panel.classList.add('hidden');
+            if (button) button.setAttribute('aria-expanded', 'false');
+            if (icon) icon.className = 'fas fa-bars text-lg';
+        }
+        function toggleHeaderSearch(event) {
+            if (event) event.stopPropagation();
+            const panel = document.getElementById('headerSearchPanel');
+            const button = document.getElementById('headerSearchButton');
+            const icon = document.getElementById('headerSearchIcon');
+            if (!panel) return;
+            const opening = panel.classList.contains('hidden');
+            closeMobileMenu();
+            closeLocaleMenu();
+            panel.classList.toggle('hidden', !opening);
+            if (button) button.setAttribute('aria-expanded', String(opening));
+            if (icon) icon.className = opening ? 'fas fa-xmark text-lg' : 'fas fa-search text-lg';
+            if (opening) setTimeout(() => document.getElementById('headerSearchInput')?.focus(), 30);
+            else {
+                const dropdown = document.getElementById('searchResultsDropdown');
+                if (dropdown) dropdown.classList.add('hidden');
+            }
+        }
+        function closeHeaderSearch() {
+            const panel = document.getElementById('headerSearchPanel');
+            const button = document.getElementById('headerSearchButton');
+            const icon = document.getElementById('headerSearchIcon');
+            if (panel) panel.classList.add('hidden');
+            if (button) button.setAttribute('aria-expanded', 'false');
+            if (icon) icon.className = 'fas fa-search text-lg';
+            const dropdown = document.getElementById('searchResultsDropdown');
+            if (dropdown) dropdown.classList.add('hidden');
+        }
+        document.addEventListener('click', function(event) {
+            const menuPanel = document.getElementById('mobileMenuPanel');
+            const menuButton = document.getElementById('mobileMenuButton');
+            const searchPanel = document.getElementById('headerSearchPanel');
+            const searchButton = document.getElementById('headerSearchButton');
+            const localeControl = document.getElementById('localeControl');
+            if (menuPanel && !menuPanel.contains(event.target) && !menuButton?.contains(event.target)) closeMobileMenu();
+            if (searchPanel && !searchPanel.contains(event.target) && !searchButton?.contains(event.target)) closeHeaderSearch();
+            if (localeControl && !localeControl.contains(event.target)) closeLocaleMenu();
+        });
+        function showFooterComingSoon(sectionName) {
+            showToast('Bali Trans sedang menjalani upgrade menyeluruh. ' + sectionName + ' akan hadir segera. Untuk bantuan sekarang, silakan hubungi tim kami.');
+        }
+
+        function showRegisterPrompt() {
+            navigateTo('account');
+        }
+        function showHelpMenu() {
+            navigateTo('help');
+        }
+        function showRecentlyViewed() {
+            let modal = document.getElementById('recentlyViewedModal');
+            if (!modal) {
+                modal = document.createElement('div');
+                modal.id = 'recentlyViewedModal';
+                modal.className = 'fixed inset-0 z-[80] bg-slate-950/50 p-4 flex items-center justify-center';
+                modal.innerHTML = '<div class="bg-white w-full max-w-lg max-h-[80vh] overflow-y-auto rounded-2xl p-5 shadow-2xl"><div class="flex items-center justify-between mb-4"><h3 class="text-lg font-extrabold text-slate-900">Baru saja dilihat</h3><button onclick="document.getElementById(\'recentlyViewedModal\').remove()" class="w-9 h-9 rounded-full bg-slate-100 text-slate-700" aria-label="Tutup"><i class="fas fa-xmark"></i></button></div><div id="recentlyViewedItems"></div></div>';
+                modal.addEventListener('click', e => { if (e.target === modal) modal.remove(); });
+                document.body.appendChild(modal);
+            }
+            const list = document.getElementById('recentlyViewedItems');
+            const items = recentlyViewedState.map(id => (typeof BALI_PACKAGES !== 'undefined' ? BALI_PACKAGES.find(pkg => pkg.id === id) : null)).filter(Boolean);
+            list.innerHTML = items.length ? items.map(pkg => '<button class="w-full flex items-center gap-3 text-left p-3 mb-2 rounded-xl border border-slate-100 hover:bg-slate-50" onclick="navigateTo(\'detail\', \'' + pkg.id + '\');document.getElementById(\'recentlyViewedModal\').remove()"><img src="' + pkg.heroImage + '" alt="" loading="lazy" class="w-16 h-16 object-cover rounded-lg"><span><strong class="block text-sm text-slate-900">' + pkg.title + '</strong><small class="text-slate-500">' + (pkg.location || 'Bali') + '</small></span></button>').join('') : '<p class="text-sm text-slate-500 text-center py-8">Aktivitas yang baru dilihat akan muncul di sini.</p>';
+        }
+        function trackRecentlyViewed(pkg) {
+            if (!pkg || !pkg.id) return;
+            recentlyViewedState = [pkg.id, ...recentlyViewedState.filter(id => id !== pkg.id)].slice(0, 8);
+            try { localStorage.setItem('baliTransRecentlyViewed', JSON.stringify(recentlyViewedState)); } catch(e) {}
+        }
+
+        function toggleWishlistModal() {
+            const modal = document.getElementById('wishlistModal');
+            const list = document.getElementById('wishlistItemsList');
+
+            if (modal.classList.contains('hidden')) {
+                modal.classList.remove('hidden');
+                if (wishlistState.length === 0) {
+                    list.innerHTML = `<p class="text-xs text-slate-400 text-center py-6">Your wishlist is currently empty.</p>`;
+                } else {
+                    list.innerHTML = wishlistState.map(pkg => `
+                        <div class="flex items-center justify-between p-3 rounded-2xl bg-slate-50 border border-slate-100">
+                            <div class="flex items-center gap-3">
+                                <img src="${pkg.heroImage}" alt="" loading="lazy" class="w-12 h-12 object-cover rounded-xl">
+                                <div>
+                                    <h5 class="text-xs font-bold text-slate-900 line-clamp-1">${pkg.title}</h5>
+                                    <span class="text-[10px] text-slate-400">${pkg.location}</span>
+                                </div>
+                            </div>
+                            <button onclick="navigateTo('detail', '${pkg.id}'); toggleWishlistModal();" class="text-xs font-bold text-bali-orange hover:underline">View</button>
+                        </div>
+                    `).join('');
+                }
+            } else {
+                modal.classList.add('hidden');
+            }
+        }
+
+        function selectPaymentMethod(method) {
+            selectedPaymentMethod = method;
+            document.querySelectorAll('input[name="paymentMethod"]').forEach(input => {
+                const label = input.closest('label');
+                if (!label) return;
+                label.classList.toggle('border-orange-500', input.checked);
+                label.classList.toggle('bg-orange-50/50', input.checked);
+                label.classList.toggle('border-slate-200', !input.checked);
+            });
+        }
+
+        function updateCheckoutPricing() {
+            const item = cartState[0];
+            if (!item) return;
+            const guests = item.guestCount || 1;
+            const vehicleInput = document.querySelector('input[name="checkoutVehicle"]:checked');
+            const vehicle = vehicleInput ? {
+                id: vehicleInput.value,
+                name: vehicleInput.dataset.vehicleName || vehicleInput.value,
+                surcharge: Number(vehicleInput.dataset.surcharge || 0)
+            } : {id: guests >= 6 ? 'hiace' : 'avanza', name: guests >= 6 ? 'Toyota HiAce' : 'Toyota Avanza', surcharge: guests >= 6 ? 500000 : 0};
+            if (guests >= 6 && vehicle.id !== 'hiace') {
+                const hiace = document.querySelector('input[name="checkoutVehicle"][value="hiace"]');
+                if (hiace) hiace.checked = true;
+                vehicle.id = 'hiace'; vehicle.name = 'Toyota HiAce'; vehicle.surcharge = 500000;
+            }
+            const addons = Array.from(document.querySelectorAll('input[name="checkoutAddon"]:checked')).map(input => ({
+                id: input.value,
+                name: input.dataset.label || input.value,
+                priceIDR: Number(input.dataset.price || 0),
+                priceMode: input.dataset.mode || 'person'
+            }));
+            const addonsTotal = addons.reduce((sum, addon) => sum + (addon.priceMode === 'person' ? addon.priceIDR * guests : addon.priceIDR), 0);
+            const baseTotal = (item.basePricePerPersonIDR || 462500) * guests;
+            const total = baseTotal + vehicle.surcharge + addonsTotal;
+            item.vehicleId = vehicle.id;
+            item.vehicleName = vehicle.name;
+            item.vehicleSurchargeIDR = vehicle.surcharge;
+            item.addons = addons;
+            item.unitPriceIDR = total;
+            const curr = CURRENCY_RATES[currentCurrency];
+            const totalEl = document.getElementById('checkoutTotalPrice');
+            if (totalEl) totalEl.innerText = curr.format(total);
+            const extrasEl = document.getElementById('checkoutExtrasTotal');
+            if (extrasEl) extrasEl.innerText = curr.format(vehicle.surcharge + addonsTotal);
+            updateBadges();
+        }
+
+        const BALI_TRANS_WHATSAPP_NUMBER = '628218187917';
+
+        function sendCheckoutToWhatsApp() {
+            if (!BALI_TRANS_WHATSAPP_NUMBER) {
+                showToast('Nomor WhatsApp Bali Trans belum diatur. Kirim nomornya agar tombol ini bisa diaktifkan.');
+                return;
+            }
+            const item = cartState[0] || {};
+            const curr = CURRENCY_RATES[currentCurrency];
+            const addons = (item.addons || []).map(addon => {
+                const price = addon.priceMode === 'person' ? addon.priceIDR * (item.guestCount || 1) : addon.priceIDR;
+                return '- ' + addon.name + ': ' + curr.format(price);
+            });
+            const total = item.unitPriceIDR * (item.quantity || 1);
+            const message = [
+                'Halo Bali Trans, saya ingin menanyakan pemesanan:',
+                '',
+                'Paket: ' + (item.title || 'Lovina Dolphin Tour'),
+                'Link halaman paket: https://baguskristiansianturi.github.io/bali-trans/?tour=lovina-dolphin-tour',
+                'Tanggal: ' + (item.date || 'Belum dipilih'),
+                'Jumlah tamu: ' + (item.guestCount || 1) + ' orang',
+                'Kendaraan: ' + (item.vehicleName || 'Toyota Avanza'),
+                'Nama: ' + (checkoutGuestDetails.name || '-'),
+                'Email: ' + (checkoutGuestDetails.email || '-'),
+                'WhatsApp pemesan: ' + (checkoutGuestDetails.phone || '-'),
+                'Lokasi penjemputan: ' + (checkoutGuestDetails.hotel || '-'),
+                'Tambahan:',
+                ...(addons.length ? addons : ['- Tidak ada']),
+                '',
+                'Perkiraan total: ' + curr.format(total),
+                '',
+                'Mohon konfirmasi ketersediaan dan rincian pesanan. Terima kasih.'
+            ].join('\n');
+            window.open('https://wa.me/' + BALI_TRANS_WHATSAPP_NUMBER.replace(/\D/g, '') + '?text=' + encodeURIComponent(message), '_blank', 'noopener');
+        }
+
+        function advanceCheckoutStep(step) {
+            if (currentCheckoutStep === 1 && step === 2) {
+                const name = document.getElementById('guestName')?.value.trim() || '';
+                const email = document.getElementById('guestEmail')?.value.trim() || '';
+                const phone = document.getElementById('guestPhone')?.value.trim() || '';
+                const hotel = document.getElementById('guestHotel')?.value.trim() || '';
+                if (!name || !email || !phone || !hotel) {
+                    showToast('Lengkapi nama, email, WhatsApp, dan lokasi penjemputan terlebih dahulu.');
+                    return;
+                }
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    showToast('Periksa kembali alamat email Anda.');
+                    return;
+                }
+                checkoutGuestDetails = {name, email, phone, hotel};
+            }
+            currentCheckoutStep = step;
+            const container = document.getElementById('checkoutStepContainer');
+            const grandTotal = cartState.reduce((sum, item) => sum + (item.unitPriceIDR * item.quantity), 0);
+            if (container) container.innerHTML = renderCheckoutStepContent(step, grandTotal);
+        }
+
+        function handleGlobalSearch(query) {
+            const dropdown = document.getElementById('searchResultsDropdown');
+            if (!dropdown) return;
+            const term = String(query || '').trim().toLocaleLowerCase();
+            if (!term) {
+                dropdown.classList.add('hidden');
+                dropdown.innerHTML = '';
+                return;
+            }
+            const escapeHtml = value => String(value || '').replace(/[&<>"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch]));
+            const destinations = [
+                {title:'North Bali',location:'Lovina · Singaraja · Buleleng',key:'region:north',terms:'north bali bali utara buleleng singaraja'},
+                {title:'Private Driver in Bali',location:'Private transport · Flexible itinerary',key:'service:private-driver',terms:'private driver private transport sopir pribadi driver charter'},
+                {title:'Full Day Tours in Bali',location:'Day trips · Itinerary planning',key:'duration:full-day',terms:'full day full-day day tour one day seharian tur sehari'},
+                {title:'Long Trips Around Bali',location:'Long-distance · North Bali and beyond',key:'duration:long-trip',terms:'long trip long-trip longer journey perjalanan jauh trip panjang'},
+                {title:'Lovina Beach & Dolphin Watching',location:'North Bali · Beach, wildlife',key:'place:lovina',terms:'lovina dolphin lumba-lumba north bali buleleng'},
+                {title:'Banjar Hot Springs',location:'North Bali · Hot springs',key:'place:banjar-hot-springs',terms:'banjar hot springs air panas'},
+                {title:'Brahmavihara-Arama Monastery',location:'North Bali · Culture',key:'place:brahmavihara-arama',terms:'brahmavihara monastery buddhist temple'},
+                {title:'Gitgit Waterfall',location:'North Bali · Nature',key:'place:gitgit-waterfall',terms:'gitgit waterfall air terjun'},
+                {title:'Munduk Waterfalls & Highlands',location:'North Bali · Highlands',key:'place:munduk',terms:'munduk waterfall highlands trekking'},
+                {title:'Wanagiri Twin Lakes Viewpoint',location:'North Bali · Viewpoint',key:'place:wanagiri',terms:'wanagiri twin lakes buyan tamblingan'},
+                {title:'Menjangan Island & West Bali National Park',location:'Northwest Bali · Snorkelling, diving',key:'place:menjangan',terms:'menjangan national park snorkelling diving'},
+                {title:'Gedong Kirtya Library',location:'Singaraja · Culture & heritage',key:'place:gedong-kirtya',terms:'gedong kirtya singaraja library manuscript'},
+                {title:'South Bali',location:'Uluwatu · Jimbaran · Nusa Dua',key:'region:south',terms:'south bali uluwatu jimbaran nusa dua canggu sanur'},
+                {title:'Central Bali',location:'Ubud · Kintamani · Bedugul',key:'region:central',terms:'central bali ubud kintamani bedugul'},
+                {title:'East Bali',location:'Amed · Tulamben · Karangasem',key:'region:east',terms:'east bali amed tulamben karangasem sidemen tirta gangga besakih'},
+                {title:'West Bali',location:'Medewi · Jembrana · Gilimanuk',key:'region:west',terms:'west bali medewi jembrana gilimanuk'},
+                {title:'Nusa Islands',location:'Penida · Lembongan · Ceningan',key:'region:nusa',terms:'nusa islands penida lembongan ceningan'},
+                {title:'Uluwatu Temple & Coastal Cliffs',location:'South Bali · Temple, coast',key:'place:uluwatu',terms:'uluwatu temple cliffs'},
+                {title:'Jimbaran Coast',location:'South Bali · Beach, seafood',key:'place:jimbaran',terms:'jimbaran coast seafood bay'},
+                {title:'Nusa Dua Beaches',location:'South Bali · Beach, water activities',key:'place:nusa-dua',terms:'nusa dua beaches watersports'},
+                {title:'Denpasar City Sights',location:'South Bali · City, culture',key:'place:denpasar',terms:'denpasar city'},
+                {title:'Ubud & Surrounding Villages',location:'Central Bali · Culture, nature',key:'place:ubud',terms:'ubud villages art'},
+                {title:'River Rafting',location:'Central Bali · Outdoor activity',key:'place:rafting',terms:'rafting river adventure'},
+                {title:'Rice Terraces & Nature Stops',location:'Central Bali · Nature',key:'place:rice-terraces',terms:'rice terraces nature'},
+                {title:'Amed & Jemeluk Bay',location:'East Bali · Snorkelling, diving',key:'place:amed',terms:'amed jemeluk bay'},
+                {title:'Tulamben & USAT Liberty Wreck',location:'East Bali · Diving',key:'place:tulamben',terms:'tulamben usat liberty wreck'},
+                {title:'Tirta Gangga Water Palace',location:'East Bali · Heritage',key:'place:tirta-gangga',terms:'tirta gangga water palace'},
+                {title:'Taman Ujung',location:'East Bali · Heritage, gardens',key:'place:taman-ujung',terms:'taman ujung palace'},
+                {title:'Lempuyang Temple',location:'East Bali · Temple',key:'place:lempuyang',terms:'lempuyang temple'},
+                {title:'Besakih Temple',location:'East Bali · Temple, culture',key:'place:besakih',terms:'besakih temple'},
+                {title:'Candidasa & Padangbai',location:'East Bali · Coast, boat connections',key:'place:candidasa-padangbai',terms:'candidasa padangbai harbour'},
+                {title:'Sidemen Valley',location:'East Bali · Countryside',key:'place:sidemen',terms:'sidemen valley'},
+                {title:'Medewi Surf Coast',location:'West Bali · Surf',key:'place:medewi',terms:'medewi surf'},
+                {title:'Rambut Siwi Temple',location:'West Bali · Temple',key:'place:rambut-siwi',terms:'rambut siwi temple'},
+                {title:'Bunut Bolong Tree Tunnel',location:'West Bali · Nature, culture',key:'place:bunut-bolong',terms:'bunut bolong tree tunnel'},
+                {title:'Perancak Fishing Village',location:'West Bali · Coastal village',key:'place:perancak',terms:'perancak fishing village'},
+                {title:'Gilimanuk Bay',location:'West Bali · Coast, ferry gateway',key:'place:gilimanuk',terms:'gilimanuk bay ferry'},
+                {title:'West Bali National Park',location:'West Bali · Nature, wildlife',key:'place:west-bali-national-park',terms:'west bali national park'},
+                {title:'Kelingking Beach',location:'Nusa Penida · Cliff-top views',articleId:'nusa-penida-kelingking-beach',terms:'kelingking beach nusa penida t-rex cliff'},
+                {title:'Crystal Bay',location:'Nusa Penida · Coast, marine activities',articleId:'nusa-penida-crystal-bay',terms:'crystal bay nusa penida snorkelling diving sunset'},
+                {title:'Diamond Beach',location:'Nusa Penida · East coast',articleId:'nusa-penida-diamond-beach',terms:'diamond beach nusa penida stairs cliff safety'},
+                {title:'Atuh Beach',location:'Nusa Penida · East coast',articleId:'nusa-penida-atuh-beach',terms:'atuh beach nusa penida cliffs east coast'},
+                
+                {title:'Nusa Lembongan & Mangrove Forest',location:'Nusa Lembongan · Island, nature',key:'place:nusa-lembongan',terms:'nusa lembongan mangrove'},
+                {title:'Nusa Ceningan & Yellow Bridge',location:'Nusa Ceningan · Island',key:'place:nusa-ceningan',terms:'nusa ceningan yellow bridge'},
+                {title:'Nusa Islands Snorkelling & Diving',location:'Nusa Islands · Marine activities',key:'place:island-snorkelling-diving',terms:'nusa snorkelling diving'}
+            ];
+            const packageMatches = BALI_PACKAGES.filter(p => [p.title,p.location,p.categoryName,p.category,...(p.highlights||[])].filter(Boolean).join(' ').toLocaleLowerCase().includes(term)).slice(0,5);
+            const destinationMatches = destinations.filter(d => (d.title+' '+d.location+' '+d.terms).toLocaleLowerCase().includes(term)).sort((a,b) => Number(String(b.key || '').startsWith('place:')) - Number(String(a.key || '').startsWith('place:'))).slice(0,5);
+            const results = [
+                ...packageMatches.map(p => ({title:p.title,location:p.location,image:p.heroImage,action:`navigateTo('detail','${String(p.id).replace(/[^a-zA-Z0-9_-]/g,'')}'); closeHeaderSearch();`})),
+                ...destinationMatches.map(d => ({title:d.title,location:d.location,image:'',action:d.articleId ? `navigateTo('blog-read','${d.articleId}'); closeHeaderSearch();` : `navigateTo('discovery','${d.key}'); closeHeaderSearch();`}))
+            ].slice(0,8);
+            dropdown.classList.remove('hidden');
+            if (results.length) {
+                dropdown.innerHTML = results.map(item => `<button type="button" onclick="${item.action}" class="w-full text-left p-2.5 hover:bg-slate-50 rounded-xl cursor-pointer flex items-center gap-3">${item.image ? `<img src="${escapeHtml(item.image)}" alt="" loading="lazy" class="w-10 h-10 object-cover rounded-lg">` : '<span class="w-10 h-10 shrink-0 rounded-lg bg-teal-50 text-teal-700 flex items-center justify-center"><i class="fas fa-map-marker-alt"></i></span>'}<span class="min-w-0"><span class="block text-xs font-extrabold text-slate-900 line-clamp-1">${escapeHtml(item.title)}</span><span class="block text-[10px] text-slate-500">${escapeHtml(item.location)}</span></span></button>`).join('');
+            } else {
+                dropdown.innerHTML = `<div class="p-3 text-xs text-slate-500 text-center">No destinations or experiences found for “${escapeHtml(term)}”</div>`;
+            }
+        }
+
+        function executeHeroSearch() {
+            const input = document.getElementById('heroSearchInput');
+            const query = String(input?.value || '').trim();
+            filterByCategory('all');
+            window.packageCatalogQuery = query;
+            if (!query) { navigateTo('packages'); return; }
+            const q = query.toLocaleLowerCase();
+            const destinations = [
+                {terms:['lovina','dolphin','lumba-lumba','north bali','buleleng'],key:'place:lovina'},
+                {terms:['banjar hot spring','air panas banjar'],key:'place:banjar-hot-springs'},
+                {terms:['brahmavihara','monastery'],key:'place:brahmavihara-arama'},
+                {terms:['gitgit','waterfall'],key:'place:gitgit-waterfall'},
+                {terms:['munduk','highlands'],key:'place:munduk'},
+                {terms:['wanagiri','twin lakes','buyan','tamblingan'],key:'place:wanagiri'},
+                {terms:['menjangan','west bali national park'],key:'place:menjangan'},
+                {terms:['gedong kirtya','singaraja'],key:'place:gedong-kirtya'},
+                {terms:['south bali','uluwatu','jimbaran','nusa dua','canggu','sanur'],key:'region:south'},
+                {terms:['central bali','ubud','kintamani','bedugul'],key:'region:central'},
+                {terms:['east bali','amed','tulamben','karangasem','sidemen','tirta gangga','besakih'],key:'region:east'},
+                {terms:['west bali','medewi','jembrana','gilimanuk'],key:'region:west'},
+                {terms:['nusa penida','lembongan','ceningan','island'],key:'region:nusa'},
+                {terms:['uluwatu'],key:'place:uluwatu'},{terms:['jimbaran'],key:'place:jimbaran'},{terms:['nusa dua'],key:'place:nusa-dua'},{terms:['denpasar'],key:'place:denpasar'},
+                {terms:['ubud'],key:'place:ubud'},{terms:['rafting','white water'],key:'place:rafting'},{terms:['rice terrace','rice terraces'],key:'place:rice-terraces'},
+                {terms:['amed','jemeluk'],key:'place:amed'},{terms:['tulamben','usat liberty'],key:'place:tulamben'},{terms:['tirta gangga'],key:'place:tirta-gangga'},{terms:['taman ujung'],key:'place:taman-ujung'},{terms:['lempuyang'],key:'place:lempuyang'},{terms:['besakih'],key:'place:besakih'},{terms:['candidasa','padangbai'],key:'place:candidasa-padangbai'},{terms:['sidemen'],key:'place:sidemen'},
+                {terms:['medewi'],key:'place:medewi'},{terms:['rambut siwi'],key:'place:rambut-siwi'},{terms:['bunut bolong'],key:'place:bunut-bolong'},{terms:['perancak'],key:'place:perancak'},{terms:['gilimanuk'],key:'place:gilimanuk'},{terms:['west bali national park'],key:'place:west-bali-national-park'},
+                {terms:['kelingking beach','kelingking'],articleId:'nusa-penida-kelingking-beach'},{terms:['crystal bay'],articleId:'nusa-penida-crystal-bay'},{terms:['diamond beach'],articleId:'nusa-penida-diamond-beach'},{terms:['atuh beach'],articleId:'nusa-penida-atuh-beach'},{terms:['nusa lembongan','mangrove'],key:'place:nusa-lembongan'},{terms:['nusa ceningan','yellow bridge'],key:'place:nusa-ceningan'}
+            ];
+            const match = destinations.filter(item => item.terms.some(term => q.includes(term))).sort((a,b) => Number(String(b.key || '').startsWith('place:')) - Number(String(a.key || '').startsWith('place:')))[0];
+            if (match) { if (match.articleId) navigateTo('blog-read', match.articleId); else navigateTo('discovery', match.key); return; }
+            navigateTo('packages');
+            setTimeout(() => {
+                const target = document.getElementById('packageSearchInput');
+                if (target) { target.value = query; filterPackageCatalog(query); }
+            }, 0);
+        }
+
+        function quickFilterSearch(cat) {
+            if (cat === 'driver') {
+                window.location.href = './transport-service.html';
+                return;
+            }
+            const routes = { water: 'region:nusa', temple: 'region:east', atv: 'region:central' };
+            const route = routes[cat];
+            if (route) {
+                window.packageCatalogQuery = '';
+                filterByCategory('all');
+                navigateTo('discovery', route);
+                return;
+            }
+            filterByCategory(cat);
+            window.packageCatalogQuery = '';
+            navigateTo('packages');
+        }
+
+        function updateBadges() {
+            const cartCount = cartState.reduce((sum, i) => sum + i.quantity, 0);
+            const cartTotal = cartState.reduce((sum, i) => sum + (i.unitPriceIDR * i.quantity), 0);
+            const curr = CURRENCY_RATES[currentCurrency];
+
+            const cartCountBadge = document.getElementById('cartCountBadge');
+            const mobileCartBadge = document.getElementById('mobileCartBadge');
+            const cartHeaderSubtotal = document.getElementById('cartHeaderSubtotal');
+            const wishlistCountBadge = document.getElementById('wishlistCountBadge');
+            if (cartCountBadge) cartCountBadge.innerText = cartCount;
+            if (mobileCartBadge) mobileCartBadge.innerText = cartCount;
+            if (cartHeaderSubtotal) cartHeaderSubtotal.innerText = curr.format(cartTotal);
+            if (wishlistCountBadge) wishlistCountBadge.innerText = wishlistState.length;
+        }
+
+        function showToast(msg) {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = 'bg-slate-900 text-white text-xs font-bold px-4 py-3 rounded-2xl shadow-xl flex items-center gap-2 pointer-events-auto transition-all transform translate-y-2 opacity-0';
+            toast.innerHTML = `<i class="fas fa-info-circle text-bali-orange"></i> ${msg}`;
+            
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.classList.remove('translate-y-2', 'opacity-0');
+            }, 10);
+
+            setTimeout(() => {
+                toast.classList.add('opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        function initHomeInteractivity() {
+            // Keep the announcement useful and honest; do not display a fabricated sale countdown.
+            const timerElem = document.getElementById('countdownTimer');
+            if (timerElem) timerElem.textContent = 'Plan your Bali trip';
+        }
+
+        /* INITIAL APP LAUNCH
+           Render as soon as the HTML is parsed. window.onload waits for every
+           image/font/external resource, making the header and footer appear
+           before the main view on slower mobile connections. */
+        function readRouteFromUrl() {
+            const query = new URLSearchParams(window.location.search);
+            if (query.get('preview') === 'dolphin-tour') return { view: 'detail', params: 'dolphin-tour-preview' };
+            const requestedTour = query.get('tour');
+            if (requestedTour === 'lovina-dolphin-tour') return { view: 'detail', params: requestedTour };
+            const view = query.get('page') || 'home';
+            const supportedViews = ['home','about','contact','help','help-topic','terms','privacy','partners','service-info','account','packages','discovery','detail','blog','blog-read','cart','checkout','image-credits','not-found'];
+            return {
+                view: supportedViews.includes(view) ? view : 'not-found',
+                params: query.get('item') || (view === 'discovery' ? 'region:south' : null)
+            };
+        }
+        function startBaliTransApp() {
+            const route = readRouteFromUrl();
+            navigateTo(route.view, route.params, { replace: true });
+        }
+        window.addEventListener('popstate', () => {
+            const route = readRouteFromUrl();
+            navigateTo(route.view, route.params, { history: false });
+        });
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', startBaliTransApp, { once: true });
+        } else {
+            startBaliTransApp();
+        }
+ + (amount * 0.000063).toFixed(2) : match;
+                });
+            }
             return out;
         }
         // Locale dropdown and page-copy translation helpers.
