@@ -194,3 +194,98 @@ body.dolphin-sheet-open { overflow:hidden; }
 @media(max-width:760px){.dolphin-custom-options{grid-template-columns:minmax(0,1fr);gap:9px}.dolphin-custom-option{padding:13px}.dolphin-custom-option p{font-size:12px}}
 
 .dolphin-configurator-promo{grid-template-columns:minmax(0,1fr)}
+
+
+/* Bali Dolphin Tour: consistent section rhythm and readable spacing */
+.dolphin-landing-page > .dolphin-landing-section,
+.dolphin-landing-page > .dolphin-configurator,
+.dolphin-landing-page > .dolphin-related-section {
+  margin-top: 40px;
+}
+.dolphin-landing-page .dolphin-section-heading {
+  margin: 0 0 22px;
+}
+.dolphin-landing-page .dolphin-section-intro {
+  padding: 28px;
+}
+.dolphin-landing-page .dolphin-package-section {
+  column-gap: 18px;
+  row-gap: 18px;
+}
+.dolphin-landing-page .dolphin-package-card-body {
+  padding: 22px;
+}
+.dolphin-landing-page .dolphin-package-card h3 {
+  margin-bottom: 10px;
+}
+.dolphin-landing-page .dolphin-package-card p {
+  margin-bottom: 16px;
+}
+.dolphin-landing-page .dolphin-package-price {
+  padding: 12px 0 16px;
+  margin-bottom: 16px;
+}
+.dolphin-landing-page .dolphin-package-card ul {
+  gap: 11px;
+  margin-bottom: 20px;
+}
+.dolphin-landing-page .dolphin-itinerary-layout {
+  gap: 22px;
+}
+.dolphin-landing-page .dolphin-details-grid,
+.dolphin-landing-page .dolphin-faq-grid {
+  gap: 18px;
+}
+.dolphin-landing-page .dolphin-info-panel {
+  padding: 24px;
+}
+.dolphin-landing-page .dolphin-info-row {
+  padding: 14px 0;
+}
+.dolphin-landing-page .dolphin-custom-options {
+  gap: 16px;
+  margin-top: 22px;
+}
+@media (max-width: 900px) {
+  .dolphin-landing-page > .dolphin-landing-section,
+  .dolphin-landing-page > .dolphin-configurator,
+  .dolphin-landing-page > .dolphin-related-section {
+    margin-top: 32px;
+  }
+  .dolphin-landing-page .dolphin-section-intro {
+    padding: 24px;
+  }
+}
+@media (max-width: 600px) {
+  .dolphin-landing-page > .dolphin-landing-section,
+  .dolphin-landing-page > .dolphin-configurator,
+  .dolphin-landing-page > .dolphin-related-section {
+    margin-top: 30px;
+  }
+  .dolphin-landing-page .dolphin-section-heading {
+    margin-bottom: 18px;
+  }
+  .dolphin-landing-page .dolphin-section-intro {
+    padding: 20px;
+  }
+  .dolphin-landing-page .dolphin-package-section {
+    gap: 16px;
+  }
+  .dolphin-landing-page .dolphin-package-card-body {
+    padding: 18px;
+  }
+  .dolphin-landing-page .dolphin-itinerary-layout {
+    gap: 16px;
+  }
+  .dolphin-landing-page .dolphin-details-grid,
+  .dolphin-landing-page .dolphin-faq-grid {
+    gap: 14px;
+  }
+  .dolphin-landing-page .dolphin-info-panel {
+    padding: 19px;
+  }
+  .dolphin-landing-page .dolphin-custom-options {
+    gap: 12px;
+    margin-top: 18px;
+  }
+}
