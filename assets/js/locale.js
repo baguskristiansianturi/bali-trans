@@ -270,7 +270,7 @@ window.BALI_TRANSLATIONS = {"Explore Bali":"Jelajahi Bali","Discover Bali tours,
       result = replacePhrase(result, key, map[key]);
     });
     if (language === 'en') {
-      result = result.replace(/Rp\\s*([0-9][0-9.,]*)/g, function (match, raw) {
+      result = result.replace(/Rp\s*([0-9][0-9.,]*)/g, function (match, raw) {
         const amount = Number(raw.replace(/[.,]/g, ''));
         return Number.isFinite(amount) ? '
   }
