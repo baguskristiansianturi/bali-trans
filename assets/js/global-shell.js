@@ -165,10 +165,15 @@
         closePanels();
         if (typeof window.changeLocale === 'function') {
           window.changeLocale(code);
+        } else if (window.BaliTransLocale && typeof window.BaliTransLocale.setLanguage === 'function') {
+          window.BaliTransLocale.setLanguage(code);
+          if (typeof window.syncLocaleSelector === 'function') window.syncLocaleSelector();
         } else {
-          const target = new URL(home, window.location.href);
-          target.searchParams.set('locale', code);
-          window.location.href = target.href;
+          try {
+            localStorage.setItem('baliTransLanguage', code === 'id' ? 'id' : 'en');
+            localStorage.setItem('baliTransCurrency', code === 'id' ? 'IDR' : 'USD');
+          } catch (error) {}
+          window.location.reload();
         }
       });
     });
