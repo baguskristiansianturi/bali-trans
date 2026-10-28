@@ -483,7 +483,29 @@
           ar:{"Beranda":"الرئيسية","Tur & Layanan":"الجولات والخدمات","Tentang Kami":"من نحن","Kontak":"اتصل بنا","Pesan sekarang":"احجز الآن","Lihat detail":"عرض التفاصيل","Lihat semua":"عرض الكل","Pelajari lebih lanjut":"اعرف المزيد","Baca selengkapnya":"اقرأ المزيد","Mulai dari":"ابتداءً من","per orang":"للشخص","Tur populer":"الجولات الشائعة","Destinasi pilihan":"أفضل الوجهات","Butuh bantuan?":"هل تحتاج إلى مساعدة؟","Kirim pesan":"إرسال الرسالة","Explore Bali":"اكتشف بالي","Home":"الرئيسية","Tours & Services":"الجولات والخدمات","About Us":"من نحن","Contact":"اتصل بنا","Book now":"احجز الآن","Book Now":"احجز الآن","View details":"عرض التفاصيل","View all":"عرض الكل","Learn more":"اعرف المزيد","Read more":"اقرأ المزيد","From":"ابتداءً من","per person":"للشخص","Popular tours":"الجولات الشائعة","Top destinations":"أفضل الوجهات","Need help?":"هل تحتاج إلى مساعدة؟","Send message":"إرسال الرسالة","Offline":"غير متصل","Live chat":"دردشة مباشرة","Continue on WhatsApp":"المتابعة عبر واتساب"},
           hi:{"Beranda":"होम","Tur & Layanan":"टूर और सेवाएँ","Tentang Kami":"हमारे बारे में","Kontak":"संपर्क करें","Pesan sekarang":"अभी बुक करें","Lihat detail":"विवरण देखें","Lihat semua":"सभी देखें","Pelajari lebih lanjut":"और जानें","Baca selengkapnya":"और पढ़ें","Mulai dari":"शुरुआती कीमत","per orang":"प्रति व्यक्ति","Tur populer":"लोकप्रिय टूर","Destinasi pilihan":"शीर्ष गंतव्य","Butuh bantuan?":"मदद चाहिए?","Kirim pesan":"संदेश भेजें","Explore Bali":"बाली घूमें","Home":"होम","Tours & Services":"टूर और सेवाएँ","About Us":"हमारे बारे में","Contact":"संपर्क करें","Book now":"अभी बुक करें","Book Now":"अभी बुक करें","View details":"विवरण देखें","View all":"सभी देखें","Learn more":"और जानें","Read more":"और पढ़ें","From":"शुरुआती कीमत","per person":"प्रति व्यक्ति","Popular tours":"लोकप्रिय टूर","Top destinations":"शीर्ष गंतव्य","Need help?":"मदद चाहिए?","Send message":"संदेश भेजें","Offline":"ऑफ़लाइन","Live chat":"लाइव चैट","Continue on WhatsApp":"WhatsApp पर जारी रखें"}
         };
-        function translateCopy(value){if(!value)return value;let out=value;if(currentLanguage==='id'){Object.keys(BALI_TRANSLATIONS).sort((a,b)=>b.length-a.length).forEach(k=>out=out.split(k).join(BALI_TRANSLATIONS[k]));}else if(currentLanguage==='en'){const rev={};Object.keys(BALI_TRANSLATIONS).forEach(k=>{if(!rev[BALI_TRANSLATIONS[k]])rev[BALI_TRANSLATIONS[k]]=k;});Object.keys(rev).sort((a,b)=>b.length-a.length).forEach(k=>out=out.split(k).join(rev[k]));}else{const map=EXTRA_LOCALE_COPY[currentLanguage]||{};Object.keys(map).sort((a,b)=>b.length-a.length).forEach(k=>out=out.split(k).join(map[k]));}return out;}
+        function replaceLocalePhrase(source, from, to) {
+            if (!from || from === to) return source;
+            const escaped = from.replace(/[.*+?^${}()|[\]\\]/g, '\\        function translateCopy(value){if(!value)return value;let out=value;if(currentLanguage==='id'){Object.keys(BALI_TRANSLATIONS).sort((a,b)=>b.length-a.length).forEach(k=>out=out.split(k).join(BALI_TRANSLATIONS[k]));}else if(currentLanguage==='en'){const rev={};Object.keys(BALI_TRANSLATIONS).forEach(k=>{if(!rev[BALI_TRANSLATIONS[k]])rev[BALI_TRANSLATIONS[k]]=k;});Object.keys(rev).sort((a,b)=>b.length-a.length).forEach(k=>out=out.split(k).join(rev[k]));}else{const map=EXTRA_LOCALE_COPY[currentLanguage]||{};Object.keys(map).sort((a,b)=>b.length-a.length).forEach(k=>out=out.split(k).join(map[k]));}return out;}');
+            const startsWithWord = /^[A-Za-z0-9]/.test(from);
+            const endsWithWord = /[A-Za-z0-9]$/.test(from);
+            const pattern = (startsWithWord ? '\\b' : '') + escaped + (endsWithWord ? '\\b' : '');
+            return source.replace(new RegExp(pattern, 'g'), to);
+        }
+        function translateCopy(value) {
+            if (!value || currentLanguage === 'en') return value;
+            let out = value;
+            if (currentLanguage === 'id') {
+                Object.keys(BALI_TRANSLATIONS).sort((a,b) => b.length-a.length).forEach(key => {
+                    out = replaceLocalePhrase(out, key, BALI_TRANSLATIONS[key]);
+                });
+            } else {
+                const map = EXTRA_LOCALE_COPY[currentLanguage] || {};
+                Object.keys(map).sort((a,b) => b.length-a.length).forEach(key => {
+                    out = replaceLocalePhrase(out, key, map[key]);
+                });
+            }
+            return out;
+        }
         // Locale dropdown and page-copy translation helpers.
         function toggleLocaleMenu(event) {
             if (event) event.stopPropagation();
@@ -525,7 +547,7 @@
                 acceptNode(node) {
                     if (!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
                     const parent = node.parentElement;
-                    if (!parent || /^(SCRIPT|STYLE|NOSCRIPT|TEXTAREA|INPUT|OPTION)$/i.test(parent.tagName)) return NodeFilter.FILTER_REJECT;
+                    if (!parent || /^(SCRIPT|STYLE|NOSCRIPT|TEXTAREA|INPUT)$/i.test(parent.tagName)) return NodeFilter.FILTER_REJECT;
                     if (parent.closest('[data-no-translate]')) return NodeFilter.FILTER_REJECT;
                     return NodeFilter.FILTER_ACCEPT;
                 }
@@ -536,11 +558,23 @@
                 if (!originalTextNodes.has(node)) originalTextNodes.set(node, node.nodeValue);
                 node.nodeValue = translateCopy(originalTextNodes.get(node));
             });
-            scope.querySelectorAll('input[placeholder],textarea[placeholder],button[aria-label],input[aria-label]').forEach(el => {
-                if (!originalAttributes.has(el)) originalAttributes.set(el, {placeholder:el.getAttribute('placeholder'),aria:el.getAttribute('aria-label')});
+            const attributeSelector = '[placeholder],[aria-label],[title],[alt],meta[name="description"][content],input[type="button"][value],input[type="submit"][value],input[type="reset"][value]';
+            const attributeElements = [];
+            if (scope.nodeType === Node.ELEMENT_NODE && scope.matches && scope.matches(attributeSelector)) attributeElements.push(scope);
+            if (scope.querySelectorAll) attributeElements.push(...scope.querySelectorAll(attributeSelector));
+            attributeElements.forEach(el => {
+                const names = ['placeholder','aria-label','title','alt'];
+                if (el.tagName === 'META') names.push('content');
+                if (el.tagName === 'INPUT' && /^(button|submit|reset)$/i.test(el.type)) names.push('value');
+                if (!originalAttributes.has(el)) {
+                    const original = {};
+                    names.forEach(name => { original[name] = el.getAttribute(name); });
+                    originalAttributes.set(el, original);
+                }
                 const attrs = originalAttributes.get(el);
-                if (attrs.placeholder !== null) el.setAttribute('placeholder', translateCopy(attrs.placeholder));
-                if (attrs.aria !== null) el.setAttribute('aria-label', translateCopy(attrs.aria));
+                names.forEach(name => {
+                    if (attrs[name] !== null && attrs[name] !== undefined) el.setAttribute(name, translateCopy(attrs[name]));
+                });
             });
         }
         function changeLocale(language) {
