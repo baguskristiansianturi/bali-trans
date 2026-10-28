@@ -274,7 +274,7 @@
                 out = replaceLocalePhrase(out, key, map[key]);
             });
             if (currentLanguage === 'en') {
-                out = out.replace(/Rp\\s*([0-9][0-9.,]*)/g, function(match, raw) {
+                out = out.replace(/Rp\s*([0-9][0-9.,]*)/g, function(match, raw) {
                     const amount = Number(raw.replace(/[.,]/g, ''));
                     return Number.isFinite(amount) ? '
         }
