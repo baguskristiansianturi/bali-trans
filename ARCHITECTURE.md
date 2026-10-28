@@ -50,6 +50,7 @@ The current public URL structure is deliberately preserved during this first arc
 │       ├── global-shell.js        # Shared header/footer injection
 │       ├── views/                 # SPA view renderers by feature
 │       ├── pages/                 # Standalone page controllers/forms
+│       ├── legacy/                # Archived inactive predecessor code
 │       └── tailwind.config.js      # Tailwind CDN configuration
 ├── content/                       # Editorial/master destination data and audits
 ├── scripts/                       # Automated validation/smoke tests
