@@ -69,3 +69,14 @@ A change is not complete until source validation passes, deployment succeeds, th
 - [ ] Complete the full validation workflow; the shared-form-specific browser checks pass, but the workflow currently fails later on the known Airport Transfer direction-radio interaction in a separate page.
 - [ ] Keep Dolphin Tour itinerary concise (time + stop + brief activity cue); use destination cards for short place descriptions. Wire specific article links only after those target pages exist.
 - [ ] Once each template is approved, record it and reuse it for related pages. Do not create new visual systems or write batches of article content before their templates are approved.
+
+
+## Repository modularization — 28 October 2026
+
+- [x] Add architecture rules and a repository map for page families, shared modules, source ownership, and high-risk files.
+- [x] Add asset ownership guidance and consistent VS Code / EditorConfig defaults.
+- [x] Archive the inactive monolithic predecessor under `assets/js/legacy/` while retaining it for reference.
+- [x] Preserve public standalone HTML paths; defer moving the HTML entry points until URL and relative-reference compatibility can be tested safely.
+- [ ] Fix the existing Airport Transfer checkout direction-radio browser smoke failure and obtain a fully green validation run.
+- [ ] Decompose large active modules (`interactions.js`, `data.js`) only after dependency boundaries have regression coverage.
+- [ ] Complete manual Android and desktop visual QA after automated validation and deployment pass.
