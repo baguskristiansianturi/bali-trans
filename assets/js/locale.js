@@ -609,8 +609,7 @@ window.BALI_TRANSLATIONS = {"Explore Bali":"Jelajahi Bali","Discover Bali tours,
     // The SPA has its own stateful locale controller; avoid running two translators there.
     if (typeof window.changeLocale === 'function') return;
     const language = getLanguage();
-    document.documentElement.lang = language;
-    apply(document, language);
+    setLanguage(language);
     if (!window.__baliTransStandaloneLocaleObserver) {
       window.__baliTransStandaloneLocaleObserver = new MutationObserver(function (records) {
         const activeLanguage = getLanguage();
