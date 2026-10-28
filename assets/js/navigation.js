@@ -241,7 +241,7 @@
 
             // Detail-page SEO metadata is generated from the active package so the template can be reused.
             const seoNodes = document.querySelectorAll('[data-bali-trans-seo="detail"]');
-            if (viewName !== 'detail' || !currentDetailPackage || currentDetailPackage.id === 'dolphin-tour-preview') {
+            if (viewName !== 'detail' || !currentDetailPackage || currentDetailPackage.id === 'dolphin-tour-preview' || !document.querySelector('.dolphin-landing-page')) {
                 seoNodes.forEach(function(node) { node.remove(); });
                 return;
             }
