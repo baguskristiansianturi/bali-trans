@@ -183,3 +183,12 @@ body.dolphin-sheet-open { overflow:hidden; }
  .dolphin-description-media{min-height:0;height:auto;border-radius:13px;aspect-ratio:4/3}
  .dolphin-description-media img{width:100%;height:100%;min-height:0;max-height:none;aspect-ratio:4/3;object-fit:cover;border-radius:13px}
 }
+
+
+/* Bali Dolphin Tour custom-request cards: scoped to the detail template. */
+.dolphin-custom-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}
+.dolphin-custom-option{min-width:0;border:1px solid #dcecf6;border-radius:12px;background:#fff;padding:15px}
+.dolphin-custom-option>strong{display:block;color:#174d79;font-size:13px;line-height:1.4;font-weight:900;margin-bottom:7px}
+.dolphin-custom-option p{color:#617f97;font-size:11px;line-height:1.65;margin:0}
+.dolphin-custom-option .dolphin-whatsapp-cta{margin-top:12px;max-width:100%;white-space:normal}
+@media(max-width:760px){.dolphin-custom-options{grid-template-columns:minmax(0,1fr);gap:9px}.dolphin-custom-option{padding:13px}.dolphin-custom-option p{font-size:12px}}
