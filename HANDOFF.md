@@ -81,3 +81,12 @@ Live preview: https://baguskristiansianturi.github.io/bali-trans/
 - Reuse existing approved code before making new UI. The Airport Transfer booking form chosen as the visual reference is `booking-form.html` + `assets/css/pages/booking-form.css` + `assets/js/pages/booking-form.js`. Adapt that markup and styling for Dolphin Tour; do not recreate its visual system from scratch. Change only service-specific fields, validation, summary, and submission data. Keep existing reference form and other pages intact.
 - Dolphin Tour itinerary is a concise schedule: approximate time, stop name, and a brief activity cue. Destination cards carry the short place description. Destination-specific detail links are future wiring work and must not point to nonexistent pages or a generic blog list.
 - Full working principles and change-control rules: `TEMPLATE-PLAYBOOK.md`.
+
+
+## Repository modularization — 28 October 2026
+
+- Added `ARCHITECTURE.md`, `docs/architecture/REPOSITORY_MAP.md`, and `assets/README.md` as guides for module ownership, page families, and safe scoped changes.
+- Added `.editorconfig` and `.vscode/` workspace defaults for consistent local editing in VS Code.
+- Moved the former 309 KB `assets/js/app.js` to `assets/js/legacy/app.js` as an archive. `index.html` loads the active modular files and does not load the archived predecessor.
+- Preserved public root-level HTML paths. Moving those documents without a tested compatibility strategy could break links and relative assets, so standalone HTML files remain entry points while page CSS/controllers live under `assets/css/pages/` and `assets/js/pages/`.
+- Current validation is not fully green: JavaScript syntax and route/data checks pass, but Playwright fails on the existing Airport Transfer direction radio (`bt-form-grid` intercepts the click). The full suite must be rerun after that scoped failure is fixed.
