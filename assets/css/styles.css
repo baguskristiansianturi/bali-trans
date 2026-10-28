@@ -375,3 +375,78 @@ body.dolphin-sheet-open { overflow:hidden; }
     max-height: none;
   }
 }
+
+
+/* Places to visit: let the individual destination cards use the full panel width */
+.dolphin-landing-page .dolphin-destinations-panel {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+  overflow: visible;
+}
+.dolphin-landing-page .dolphin-destinations-heading {
+  margin-bottom: 14px;
+}
+.dolphin-landing-page .dolphin-destinations-scroll {
+  gap: 10px;
+  min-height: 0;
+}
+.dolphin-landing-page .dolphin-destination {
+  grid-template-columns: minmax(0, 40%) minmax(0, 1fr);
+  gap: 12px;
+  padding: 9px;
+  border: 1px solid #e2eef6;
+  border-radius: 12px;
+  background: #fff;
+  min-height: 0;
+  transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+}
+.dolphin-landing-page .dolphin-destination:hover,
+.dolphin-landing-page .dolphin-destination:focus-within {
+  border-color: #a8d9ee;
+  box-shadow: 0 4px 14px rgba(21, 79, 124, .08);
+}
+.dolphin-landing-page .dolphin-destination:active {
+  transform: scale(.99);
+}
+.dolphin-landing-page .dolphin-destination > img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  min-height: 0;
+  max-height: none;
+  object-fit: cover;
+  align-self: start;
+}
+.dolphin-landing-page .dolphin-destination-copy {
+  align-self: stretch;
+}
+.dolphin-landing-page .dolphin-destination-link {
+  width: fit-content;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.dolphin-landing-page .dolphin-destination-link:focus-visible {
+  outline: 2px solid #0788b9;
+  outline-offset: 3px;
+}
+@media (max-width: 600px) {
+  .dolphin-landing-page .dolphin-destinations-panel {
+    padding: 0;
+  }
+  .dolphin-landing-page .dolphin-destination {
+    flex: 0 0 88%;
+    grid-template-columns: minmax(0, 38%) minmax(0, 1fr);
+    gap: 10px;
+    padding: 8px;
+    min-height: 0;
+  }
+  .dolphin-landing-page .dolphin-destination > img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    min-height: 0;
+    max-height: none;
+  }
+}
