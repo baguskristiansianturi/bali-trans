@@ -316,3 +316,62 @@ body.dolphin-sheet-open { overflow:hidden; }
     height: auto;
   }
 }
+
+
+/* Places to visit: consistent image frames and reusable detail-link treatment */
+.dolphin-landing-page .dolphin-destination {
+  grid-template-columns: minmax(0, 40%) minmax(0, 1fr);
+  align-items: start;
+  min-height: 0;
+}
+.dolphin-landing-page .dolphin-destination > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  min-height: 0;
+  max-height: none;
+  object-fit: cover;
+  object-position: center;
+  align-self: start;
+}
+.dolphin-landing-page .dolphin-destination-copy {
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.dolphin-landing-page .dolphin-destination-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  padding: 0;
+  color: #0788b9;
+  font-size: 10px;
+  line-height: 1.4;
+  font-weight: 800;
+  text-decoration: none;
+}
+.dolphin-landing-page .dolphin-destination-link i {
+  font-size: 9px;
+  transition: transform .18s ease;
+}
+.dolphin-landing-page .dolphin-destination-link:hover i {
+  transform: translateX(3px);
+}
+@media (max-width: 600px) {
+  .dolphin-landing-page .dolphin-destination {
+    grid-template-columns: minmax(0, 38%) minmax(0, 1fr);
+    align-items: start;
+    min-height: 0;
+  }
+  .dolphin-landing-page .dolphin-destination > img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    min-height: 0;
+    max-height: none;
+  }
+}
