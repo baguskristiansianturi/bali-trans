@@ -238,4 +238,94 @@
                 document.head.appendChild(description);
             }
             description.setAttribute('content', selected[1]);
+
+            // Detail-page SEO metadata is generated from the active package so the template can be reused.
+            const seoNodes = document.querySelectorAll('[data-bali-trans-seo="detail"]');
+            if (viewName !== 'detail' || !currentDetailPackage || currentDetailPackage.id === 'dolphin-tour-preview') {
+                seoNodes.forEach(function(node) { node.remove(); });
+                return;
+            }
+
+            const pkg = currentDetailPackage;
+            const isDolphin = pkg.id === 'lovina-dolphin-tour';
+            const seoTitle = isDolphin
+                ? 'Bali Dolphin Tour in Lovina | Private North Bali Tour | Bali Trans'
+                : (pkg.title + ' | Bali Trans');
+            const seoDescription = isDolphin
+                ? 'Join a private Bali Dolphin Tour from Lovina at sunrise, then visit Wanagiri, Handara Gate and Ulun Danu Beratan in North Bali. Compare package options.'
+                : (pkg.shortDescription || pkg.description || (pkg.highlights && pkg.highlights[0]) || ('Explore ' + pkg.title + ' in ' + (pkg.location || 'Bali') + ' with Bali Trans. Review the itinerary, inclusions and available options.'));
+            document.title = seoTitle;
+            description.setAttribute('content', seoDescription);
+
+            const canonical = new URL(window.location.href);
+            canonical.hash = '';
+            Array.from(canonical.searchParams.keys()).forEach(function(key) {
+                if (key !== 'page' && key !== 'item') canonical.searchParams.delete(key);
+            });
+            const canonicalUrl = canonical.href;
+            const imageUrl = pkg.heroImage || (pkg.gallery && pkg.gallery[0]) || '';
+            function setDetailMeta(key, value, content) {
+                let node = document.querySelector('meta[' + key + '="' + value + '"][data-bali-trans-seo="detail"]');
+                if (!node) {
+                    node = document.createElement('meta');
+                    node.setAttribute(key, value);
+                    node.setAttribute('data-bali-trans-seo', 'detail');
+                    document.head.appendChild(node);
+                }
+                node.setAttribute('content', content || '');
+            }
+            setDetailMeta('property', 'og:type', 'website');
+            setDetailMeta('property', 'og:title', seoTitle);
+            setDetailMeta('property', 'og:description', seoDescription);
+            setDetailMeta('property', 'og:url', canonicalUrl);
+            if (imageUrl) setDetailMeta('property', 'og:image', imageUrl);
+            setDetailMeta('name', 'twitter:card', imageUrl ? 'summary_large_image' : 'summary');
+            setDetailMeta('name', 'twitter:title', seoTitle);
+            setDetailMeta('name', 'twitter:description', seoDescription);
+            if (imageUrl) setDetailMeta('name', 'twitter:image', imageUrl);
+
+            let canonicalLink = document.querySelector('link[rel="canonical"][data-bali-trans-seo="detail"]');
+            if (!canonicalLink) {
+                canonicalLink = document.createElement('link');
+                canonicalLink.setAttribute('rel', 'canonical');
+                canonicalLink.setAttribute('data-bali-trans-seo', 'detail');
+                document.head.appendChild(canonicalLink);
+            }
+            canonicalLink.setAttribute('href', canonicalUrl);
+
+            const itemList = (pkg.itinerary || []).map(function(stop, index) {
+                return { '@type': 'ListItem', position: index + 1, name: stop.title || stop.name || ('Stop ' + (index + 1)) };
+            });
+            const structuredData = {
+                '@context': 'https://schema.org',
+                '@graph': [
+                    {
+                        '@type': 'TouristTrip',
+                        '@id': canonicalUrl + '#tour',
+                        name: pkg.title,
+                        description: seoDescription,
+                        url: canonicalUrl,
+                        image: (pkg.gallery && pkg.gallery.length ? pkg.gallery : [imageUrl]).filter(Boolean),
+                        itinerary: itemList.length ? { '@type': 'ItemList', itemListElement: itemList } : undefined,
+                        mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl }
+                    },
+                    {
+                        '@type': 'BreadcrumbList',
+                        itemListElement: [
+                            { '@type': 'ListItem', position: 1, name: 'Home', item: window.location.origin + window.location.pathname },
+                            { '@type': 'ListItem', position: 2, name: 'Tours', item: window.location.origin + window.location.pathname + '?page=packages' },
+                            { '@type': 'ListItem', position: 3, name: pkg.title, item: canonicalUrl }
+                        ]
+                    }
+                ]
+            };
+            let jsonLd = document.getElementById('bali-trans-detail-jsonld');
+            if (!jsonLd) {
+                jsonLd = document.createElement('script');
+                jsonLd.id = 'bali-trans-detail-jsonld';
+                jsonLd.type = 'application/ld+json';
+                jsonLd.setAttribute('data-bali-trans-seo', 'detail');
+                document.head.appendChild(jsonLd);
+            }
+            jsonLd.textContent = JSON.stringify(structuredData);
         }
