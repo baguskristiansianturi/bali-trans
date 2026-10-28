@@ -289,3 +289,30 @@ body.dolphin-sheet-open { overflow:hidden; }
     margin-top: 18px;
   }
 }
+
+
+/* Standardized cover-image system for Bali Dolphin Tour cards */
+.dolphin-landing-page .dolphin-package-card > img,
+.dolphin-landing-page .dolphin-recommendation-card > img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  object-fit: cover;
+  object-position: center;
+  flex: 0 0 auto;
+  background: #eef5f9;
+}
+.dolphin-landing-page .dolphin-package-card,
+.dolphin-landing-page .dolphin-recommendation-card {
+  min-width: 0;
+}
+@media (max-width: 600px) {
+  .dolphin-landing-page .dolphin-package-card > img,
+  .dolphin-landing-page .dolphin-recommendation-card > img {
+    aspect-ratio: 16 / 9;
+    height: auto;
+  }
+}
