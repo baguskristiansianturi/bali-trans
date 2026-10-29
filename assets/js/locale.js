@@ -538,7 +538,10 @@ window.BALI_TRANSLATIONS = {"Explore Bali":"Jelajahi Bali","Discover Bali tours,
     if (language === 'en') {
       result = result.replace(/Rp\s*([0-9][0-9.,]*)/g, function (match, raw) {
         const amount = Number(raw.replace(/[.,]/g, ''));
-        return Number.isFinite(amount) ? '
+        return Number.isFinite(amount) ? String.fromCharCode(36) + (amount * 0.000063).toFixed(2) : match;
+      });
+    }
+    return result;
   }
   const textCache = new WeakMap();
   const attributeCache = new WeakMap();
