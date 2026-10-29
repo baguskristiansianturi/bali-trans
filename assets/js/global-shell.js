@@ -44,14 +44,17 @@
       '<span id="' + option.check + '" class="bt-locale-check hidden" aria-hidden="true">✓</span>' +
     '</button>'
   ).join('');
-  const mobileExtraHTML = isHomePage
-    ? '<div class="bt-mobile-extras">' +
+  const mobileExtraHTML =
+    '<section class="bt-mobile-account" id="mobileAccountPanel" aria-label="Your account">' +
+      '<a class="bt-mobile-account-primary" id="mobileLoginButton" href="' + routes.account + '">Log in</a>' +
+      '<button class="bt-mobile-account-primary hidden" id="mobileLogoutButton" type="button">Log out</button>' +
+      '<p class="bt-mobile-register-note" id="mobileRegisterNote">Don\'t have an account? <a href="' + routes.account + '&amp;mode=register">Register</a></p>' +
+    '</section>' +
+    (isHomePage ? '<div class="bt-mobile-extras">' +
         '<button type="button" data-shell-action="help">Help</button>' +
-        '<button type="button" data-shell-action="register">Log in / Create account</button>' +
         '<button type="button" data-shell-action="wishlist">Wishlist <span id="mobileWishlistCount">(0)</span></button>' +
         '<button type="button" data-shell-action="recent">Recently viewed</button>' +
-      '</div>'
-    : '';
+      '</div>' : '');
   const header = document.createElement('header');
   header.className = 'bt-site-header';
   header.innerHTML =
@@ -129,6 +132,12 @@
       accountMenu?.querySelectorAll('[data-account-action="login"],[data-account-action="register"]').forEach(el => el.classList.toggle('hidden', signedIn));
       const logout = accountMenu?.querySelector('[data-account-action="logout"]');
       if (logout) logout.classList.toggle('hidden', !signedIn);
+      const mobileLogin = document.getElementById('mobileLoginButton');
+      const mobileLogout = document.getElementById('mobileLogoutButton');
+      const mobileRegister = document.getElementById('mobileRegisterNote');
+      if (mobileLogin) mobileLogin.classList.toggle('hidden', signedIn);
+      if (mobileLogout) mobileLogout.classList.toggle('hidden', !signedIn);
+      if (mobileRegister) mobileRegister.classList.toggle('hidden', signedIn);
     }
     refreshAccountMenu();
 
@@ -199,20 +208,23 @@
         accountButton.setAttribute('aria-expanded', 'true');
       }
     });
+    function logOutAccount() {
+      try { localStorage.removeItem('baliTransUser'); localStorage.removeItem('baliTransSession'); } catch(e) {}
+      refreshAccountMenu();
+      closePanels();
+      window.location.href = routes.home;
+    }
     accountMenu?.addEventListener('click', function(event) {
       const action = event.target.closest('[data-account-action]')?.dataset.accountAction;
-      if (action === 'logout') {
-        try { localStorage.removeItem('baliTransUser'); localStorage.removeItem('baliTransSession'); } catch(e) {}
-        refreshAccountMenu();
-        closePanels();
-        window.location.href = routes.home;
-      } else if (action === 'register') {
+      if (action === 'logout') logOutAccount();
+      else if (action === 'register') {
         event.preventDefault();
         closePanels();
         if (isHomePage && typeof window.showRegisterPrompt === 'function') window.showRegisterPrompt();
         else window.location.href = routes.account + '&mode=register';
       }
     });
+    document.getElementById('mobileLogoutButton')?.addEventListener('click', logOutAccount);
     mobileButton?.addEventListener('click', function (event) {
       event.stopPropagation();
       const opening = mobilePanel.classList.contains('hidden');
