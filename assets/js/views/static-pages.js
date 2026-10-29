@@ -225,9 +225,78 @@
             `;
         }
 
-        /* Account creation is not simulated without a secure account backend. */
         function renderAccountView() {
-            return '<main class="min-h-screen bg-slate-50"><section class="bg-slate-900 text-white"><div class="mx-auto max-w-4xl px-4 py-12 sm:py-16"><p class="text-xs font-extrabold uppercase tracking-[.18em] text-teal-300">Bali Trans · Your account</p><h1 class="mt-3 text-3xl font-black tracking-tight sm:text-5xl">Account access</h1><p class="mt-4 max-w-2xl text-sm leading-7 text-slate-300 sm:text-base">We are preparing account features for a later release. You can still browse trips and send an enquiry without creating an account.</p></div></section><section class="mx-auto max-w-4xl px-4 py-10 sm:py-14"><div class="rounded-2xl border border-slate-200 bg-white p-5 sm:p-8"><div class="flex items-start gap-4"><span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-slate-100 text-slate-700"><i class="fas fa-user-lock text-xl" aria-hidden="true"></i></span><div><h2 class="text-lg font-extrabold text-slate-900">Registration is not active in this preview</h2><p class="mt-2 text-sm leading-7 text-slate-600">Secure sign-up, sign-in, password recovery and saved booking history require a connected account service. That service is not configured yet, so this page will not ask for a password or pretend to create an account.</p></div></div><div class="mt-6 rounded-xl border border-amber-200 bg-amber-50 p-4"><p class="text-sm leading-6 text-amber-900"><strong>No information has been submitted or stored.</strong> You can continue as a guest and contact the team if you need help with a trip.</p></div><div class="mt-6 flex flex-col gap-3 sm:flex-row"><button type="button" onclick="navigateTo(\'packages\')" class="inline-flex items-center justify-center gap-2 rounded-xl bg-[#172B4D] px-5 py-3 text-sm font-bold text-white hover:bg-[#243e68]">Continue as guest <i class="fas fa-arrow-right" aria-hidden="true"></i></button><button type="button" onclick="navigateTo(\'contact\')" class="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-5 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50">Contact the team</button></div></div></section></main>';
+            var mode = String(currentViewParams || new URLSearchParams(window.location.search).get('mode') || 'login').toLowerCase();
+            var signedIn = false, user = {};
+            try {
+                user = JSON.parse(localStorage.getItem('baliTransUser') || '{}');
+                signedIn = !!(localStorage.getItem('baliTransSession') && user && (user.name || user.email));
+            } catch (e) { user = {}; }
+            if (mode === 'dashboard' || signedIn) return renderGuestDashboard(user);
+            var register = mode === 'register';
+            var title = register ? 'Create your account' : 'Welcome back';
+            var intro = register ? 'Save your favourite trips and keep your travel details together.' : 'Sign in to keep your Bali plans organised in one place.';
+            return '<main class="bt-account-page"><section class="bt-account-hero"><div class="bt-account-hero-inner"><p class="bt-account-kicker">BALI TRANS · YOUR ACCOUNT</p><h1>' + title + '</h1><p>' + intro + '</p><div class="bt-account-trust"><span><i class="fas fa-heart"></i> Saved favourites</span><span><i class="fas fa-suitcase-rolling"></i> Trip overview</span><span><i class="fas fa-star"></i> Your reviews</span></div></div></section>' +
+                '<section class="bt-account-main"><div class="bt-account-auth-card"><div class="bt-account-tabs"><button type="button" class="' + (!register ? 'is-active' : '') + '" onclick="navigateTo(\\'account\\',\\'login\\')">Log in</button><button type="button" class="' + (register ? 'is-active' : '') + '" onclick="navigateTo(\\'account\\',\\'register\\')">Create account</button></div>' +
+                '<div class="bt-account-form-wrap"><h2>' + (register ? 'Join Bali Trans' : 'Log in to Bali Trans') + '</h2><p class="bt-account-form-intro">' + (register ? 'A few details to get started.' : 'Enter your account details to continue.') + '</p>' +
+                '<form class="bt-account-form" onsubmit="submitAccountAccess(event,\\'' + (register ? 'register' : 'login') + '\\')">' +
+                (register ? '<label>Full name<input name="name" autocomplete="name" placeholder="Your full name" required></label>' : '') +
+                '<label>Email address<input type="email" name="email" autocomplete="email" placeholder="you@example.com" required></label>' +
+                (register ? '<label>WhatsApp number <span class="bt-account-optional">Optional</span><input type="tel" name="phone" autocomplete="tel" placeholder="+62..."></label>' : '') +
+                '<label>Password<input type="password" name="password" autocomplete="' + (register ? 'new-password' : 'current-password') + '" minlength="8" placeholder="' + (register ? 'At least 8 characters' : 'Enter your password') + '" required></label>' +
+                (!register ? '<div class="bt-account-form-row"><label class="bt-account-check"><input type="checkbox" name="remember"> Keep me signed in</label><button type="button" class="bt-account-text-button" onclick="showAccountNotice(\\'Password recovery will be available when secure account services are connected. Please contact our team for help.\\')">Forgot password?</button></div>' : '<label class="bt-account-check bt-account-terms"><input type="checkbox" name="terms" required> I agree to the <a href="?page=terms" onclick="event.preventDefault();navigateTo(\\'terms\\')">Terms</a> and <a href="?page=privacy" onclick="event.preventDefault();navigateTo(\\'privacy\\')">Privacy Policy</a>.</label>') +
+                '<div class="bt-account-notice" id="accountAccessNotice" role="status" aria-live="polite" hidden></div>' +
+                '<button class="bt-account-submit" type="submit">' + (register ? 'Create account' : 'Log in') + ' <i class="fas fa-arrow-right"></i></button></form>' +
+                '<p class="bt-account-switch">' + (register ? 'Already have an account? <button type="button" onclick="navigateTo(\\'account\\',\\'login\\')">Log in</button>' : 'New to Bali Trans? <button type="button" onclick="navigateTo(\\'account\\',\\'register\\')">Create an account</button>') + '</p>' +
+                '<div class="bt-account-divider"><span>or</span></div><button class="bt-account-guest-button" type="button" onclick="navigateTo(\\'account\\',\\'dashboard\\')">Continue as guest</button>' +
+                '<p class="bt-account-security"><i class="fas fa-lock"></i> Your password will not be stored in this website preview.</p></div></div>' +
+                '<aside class="bt-account-side"><div class="bt-account-side-icon"><i class="fas fa-compass"></i></div><h2>Your Bali plans, all in one place.</h2><p>Keep track of favourite tours, recently viewed experiences, booking enquiries and reviews.</p><div class="bt-account-side-list"><span><i class="fas fa-check-circle"></i> Save tours to your wishlist</span><span><i class="fas fa-check-circle"></i> Review your trip activity</span><span><i class="fas fa-check-circle"></i> Find help with a booking</span></div></aside></section></main>';
+        }
+
+        function submitAccountAccess(event, action) {
+            event.preventDefault();
+            var form = event.currentTarget;
+            var notice = document.getElementById('accountAccessNotice');
+            if (!form || !form.reportValidity() || !notice) return;
+            notice.hidden = false;
+            notice.className = 'bt-account-notice';
+            notice.textContent = action === 'register'
+                ? 'The registration page is ready, but secure account creation is not connected yet. Your details have not been sent or saved. Please continue as a guest for now.'
+                : 'Secure sign-in is not connected yet. Your password has not been sent or saved. You can continue as a guest or contact our team.';
+        }
+
+        function showAccountNotice(message) {
+            var notice = document.getElementById('accountAccessNotice');
+            if (!notice) return;
+            notice.hidden = false;
+            notice.className = 'bt-account-notice';
+            notice.textContent = message;
+        }
+
+        function renderGuestDashboard(user) {
+            var wishlist = Array.isArray(wishlistState) ? wishlistState : [];
+            var recent = [];
+            try {
+                var recentIds = JSON.parse(localStorage.getItem('baliTransRecentlyViewed') || '[]');
+                recent = recentIds.map(function(id) { return BALI_PACKAGES.find(function(pkg) { return pkg.id === id; }); }).filter(Boolean);
+            } catch (e) { recent = []; }
+            var savedReviews = [];
+            try { savedReviews = JSON.parse(localStorage.getItem('baliTransReviews') || '[]'); if (!Array.isArray(savedReviews)) savedReviews = []; } catch (e) { savedReviews = []; }
+            function emptyCard(icon, title, copy, action, label) {
+                return '<div class="bt-dashboard-empty"><span><i class="fas ' + icon + '"></i></span><h3>' + title + '</h3><p>' + copy + '</p><button type="button" onclick="' + action + '">' + label + ' <i class="fas fa-arrow-right"></i></button></div>';
+            }
+            var wishlistHtml = wishlist.length ? '<div class="bt-dashboard-item-list">' + wishlist.map(function(pkg) { return '<article class="bt-dashboard-item"><img src="' + (pkg.heroImage || '') + '" alt=""><div><h3>' + pkg.title + '</h3><p>' + (pkg.location || 'Bali, Indonesia') + '</p><button type="button" onclick="navigateTo(\\'detail\\',\\'' + pkg.id + '\\')">View trip</button></div></article>'; }).join('') + '</div>' : emptyCard('fa-heart', 'Your wishlist is empty', 'Save tours and experiences here while planning your trip.', "navigateTo('packages')", 'Explore tours');
+            var recentHtml = recent.length ? '<div class="bt-dashboard-item-list">' + recent.slice(0, 3).map(function(pkg) { return '<article class="bt-dashboard-item"><img src="' + (pkg.heroImage || '') + '" alt=""><div><h3>' + pkg.title + '</h3><p>' + (pkg.location || 'Bali, Indonesia') + '</p><button type="button" onclick="navigateTo(\\'detail\\',\\'' + pkg.id + '\\')">Continue exploring</button></div></article>'; }).join('') + '</div>' : emptyCard('fa-clock', 'Nothing viewed recently', 'Tours you open will appear here for easy access.', "navigateTo('packages')", 'Browse experiences');
+            var reviewsHtml = savedReviews.length ? '<div class="bt-dashboard-empty"><span><i class="fas fa-star"></i></span><h3>Your reviews</h3><p>You have ' + savedReviews.length + ' saved review item(s).</p><button type="button" onclick="navigateTo(\\'contact\\')">Manage reviews</button></div>' : emptyCard('fa-star', 'Your reviews will appear here', 'After your trip, you can share feedback about your experience.', "navigateTo('contact')", 'Contact our team');
+            return '<main class="bt-account-page bt-dashboard-page"><section class="bt-account-hero"><div class="bt-account-hero-inner"><p class="bt-account-kicker">BALI TRANS · GUEST AREA</p><h1>Your travel dashboard</h1><p>Keep your Bali trip ideas and enquiries together.</p><div class="bt-dashboard-hero-actions"><button type="button" onclick="navigateTo(\\'packages\\')">Explore tours <i class="fas fa-arrow-right"></i></button><button type="button" class="bt-dashboard-logout" onclick="navigateTo(\\'account\\',\\'login\\')">Account access</button></div></div></section>' +
+                '<section class="bt-dashboard-main"><aside class="bt-dashboard-sidebar"><div class="bt-dashboard-profile"><span class="bt-dashboard-avatar"><i class="fas fa-user"></i></span><div><strong>' + (user && user.name ? user.name : 'Guest traveller') + '</strong><small>' + (user && user.email ? user.email : 'Browsing as a guest') + '</small></div></div><nav aria-label="Dashboard navigation"><a href="#dashboard-bookings"><i class="fas fa-suitcase"></i> My bookings</a><a href="#dashboard-wishlist"><i class="fas fa-heart"></i> Wishlist <span>' + wishlist.length + '</span></a><a href="#dashboard-reviews"><i class="fas fa-star"></i> My reviews</a><a href="#dashboard-recent"><i class="fas fa-clock"></i> Recently viewed</a><button type="button" onclick="navigateTo(\\'contact\\')"><i class="fas fa-headset"></i> Help & support</button></nav></aside>' +
+                '<div class="bt-dashboard-content"><div class="bt-dashboard-welcome"><div><p class="bt-account-kicker">YOUR BALI TRANS</p><h2>Welcome, ' + (user && user.name ? user.name.split(' ')[0] : 'traveller') + '</h2><p>Your saved items and recent activity are collected here on this device.</p></div><span class="bt-dashboard-guest-tag">Guest access</span></div>' +
+                '<div class="bt-dashboard-stats"><a href="#dashboard-bookings"><span><i class="fas fa-suitcase"></i></span><strong>—</strong><small>Bookings</small></a><a href="#dashboard-wishlist"><span><i class="fas fa-heart"></i></span><strong>' + wishlist.length + '</strong><small>Wishlist</small></a><a href="#dashboard-reviews"><span><i class="fas fa-star"></i></span><strong>' + savedReviews.length + '</strong><small>Reviews</small></a></div>' +
+                '<section class="bt-dashboard-section" id="dashboard-bookings"><div class="bt-dashboard-section-head"><div><h2>My bookings</h2><p>Booking requests and confirmed trip details.</p></div></div>' + emptyCard('fa-suitcase-rolling', 'No bookings to show yet', 'Booking history will appear here when connected to the booking service. For existing enquiries, contact our team.', "navigateTo('contact')", 'Ask about a booking') + '</section>' +
+                '<section class="bt-dashboard-section" id="dashboard-wishlist"><div class="bt-dashboard-section-head"><div><h2>My wishlist</h2><p>Tours and experiences you want to remember.</p></div><button type="button" onclick="navigateTo(\\'packages\\')">Explore more</button></div>' + wishlistHtml + '</section>' +
+                '<section class="bt-dashboard-section" id="dashboard-reviews"><div class="bt-dashboard-section-head"><div><h2>My reviews</h2><p>Your feedback and travel memories.</p></div></div>' + reviewsHtml + '</section>' +
+                '<section class="bt-dashboard-section" id="dashboard-recent"><div class="bt-dashboard-section-head"><div><h2>Recently viewed</h2><p>Pick up where you left off.</p></div></div>' + recentHtml + '</section>' +
+                '<section class="bt-dashboard-support"><span><i class="fas fa-headset"></i></span><div><h2>Need help with a trip?</h2><p>Send our team your service, travel date and booking details so we can help.</p></div><button type="button" onclick="navigateTo(\\'contact\\')">Contact support</button></section></div></section></main>';
         }
         function submitContactEnquiry(event) {
             event.preventDefault();
