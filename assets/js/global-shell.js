@@ -225,6 +225,13 @@
       }
     });
     document.getElementById('mobileLogoutButton')?.addEventListener('click', logOutAccount);
+    document.querySelector('#mobileRegisterNote a')?.addEventListener('click', function(event) {
+      if (!isHomePage) return;
+      event.preventDefault();
+      closePanels();
+      if (typeof window.showRegisterPrompt === 'function') window.showRegisterPrompt();
+      else window.navigateTo?.('account', null);
+    });
     mobileButton?.addEventListener('click', function (event) {
       event.stopPropagation();
       const opening = mobilePanel.classList.contains('hidden');
