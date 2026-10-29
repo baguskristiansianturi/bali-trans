@@ -130,27 +130,27 @@
         }
         function requestDolphinCustom(packageType) {
             var label = packageType === 'inclusive' ? 'All-Inclusive Tour' : packageType === 'custom' ? 'Custom Tour Arrangement' : 'Regular Private Tour';
-            var message = 'Hello Bali Trans, I would like to discuss a custom arrangement for the Bali Dolphin Tour.\\n\\n' +
-                'REQUEST TOPIC: ' + label + '\\n' +
+            var message = 'Hello Bali Trans, I would like to discuss a custom arrangement for the Bali Dolphin Tour.\n\n' +
+                'REQUEST TOPIC: ' + label + '\n' +
                 'Preferred travel date: [Please fill in]\n' +
                 'Pickup area / hotel: [Please fill in]\n' +
                 'Number of guests: [Adults and children]\n' +
                 'Children’s ages (if any): [Please fill in]\n' +
                 'Preferred vehicle: [Regular car / Premium car / Minivan / Please advise]\n';
             if (packageType === 'inclusive') {
-                message += 'Package preference: All-Inclusive — private dolphin boat, listed attraction tickets and meals arranged.\\n' +
-                    'Meal preferences or dietary requirements: [Please fill in / None]\\n' +
-                    'Optional activities or special arrangements: [Please fill in / None]\\n';
+                message += 'Package preference: All-Inclusive — private dolphin boat, listed attraction tickets and meals arranged.\n' +
+                    'Meal preferences or dietary requirements: [Please fill in / None]\n' +
+                    'Optional activities or special arrangements: [Please fill in / None]\n';
             } else if (packageType === 'regular') {
-                message += 'Package preference: Regular Private Tour — private vehicle and driver; boat fee, attraction tickets and meals paid separately.\\n' +
-                    'Optional activities / extra stops: [Please fill in / None]\\n' +
-                    'Special requests: [Please fill in / None]\\n';
+                message += 'Package preference: Regular Private Tour — private vehicle and driver; boat fee, attraction tickets and meals paid separately.\n' +
+                    'Optional activities / extra stops: [Please fill in / None]\n' +
+                    'Special requests: [Please fill in / None]\n';
             } else {
-                message += 'What would you like us to customise? [Vehicle / route / extra stops / activities / family needs / other]\\n' +
-                    'Budget or preferred arrangement: [Please fill in, if any]\\n' +
-                    'Other notes: [Please fill in / None]\\n';
+                message += 'What would you like us to customise? [Vehicle / route / extra stops / activities / family needs / other]\n' +
+                    'Budget or preferred arrangement: [Please fill in, if any]\n' +
+                    'Other notes: [Please fill in / None]\n';
             }
-            message += '\\nPlease advise availability, the best arrangement and the final price. Thank you.';
+            message += '\nPlease advise availability, the best arrangement and the final price. Thank you.';
             var number = window.BALI_TRANS_WHATSAPP_NUMBER || '628218187917';
             window.open('https://wa.me/' + number.replace(/[^0-9]/g, '') + '?text=' + encodeURIComponent(message), '_blank', 'noopener,noreferrer');
         }
