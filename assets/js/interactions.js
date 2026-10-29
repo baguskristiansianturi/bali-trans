@@ -270,7 +270,10 @@
             if (currentLanguage === 'en') {
                 out = out.replace(/Rp\s*([0-9][0-9.,]*)/g, function(match, raw) {
                     const amount = Number(raw.replace(/[.,]/g, ''));
-                    return Number.isFinite(amount) ? '
+                    return Number.isFinite(amount) ? String.fromCharCode(36) + (amount * 0.000063).toFixed(2) : match;
+                });
+            }
+            return out;
         }
         // Locale dropdown and page-copy translation helpers.
         function toggleLocaleMenu(event) {
