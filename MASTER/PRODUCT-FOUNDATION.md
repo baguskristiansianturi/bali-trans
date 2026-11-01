@@ -1,157 +1,150 @@
-# Product Foundation — Bali Trans / BDM Trans
+# Fondasi Produk — Bali Trans / BDM Trans
 
-> **Purpose of this document:** Preserve the business context and strategic reasoning that should guide future service definitions, page planning, user journeys, content, design and copywriting. This is a living document and may be expanded or revised as the team learns.
+> **Tujuan dokumen:** Menyimpan konteks bisnis dan dasar pemikiran strategis yang menjadi arahan untuk definisi layanan, perencanaan halaman, alur pengguna, konten, desain, dan penulisan materi. Dokumen ini terus berkembang dan dapat diperbarui seiring bertambahnya informasi.
 
-| Field | Record |
+| Keterangan | Catatan |
 |---|---|
-| Document ID | PF-001 |
-| Status | INITIAL BASELINE — incrementally agreed; some discovery remains open |
-| First recorded | 2026-11-01 |
-| Last updated | 2026-11-01 |
-| Related records | [Service Master](./SERVICE-MASTER.md), [Future Ideas](./FUTURE-IDEAS.md), [Work Register](./WORK-REGISTER.md) |
+| ID Dokumen | PF-001 |
+| Status | DASAR AWAL — dikembangkan bertahap; sebagian pembahasan masih terbuka |
+| Pertama dicatat | 2026-11-01 |
+| Terakhir diperbarui | 2026-11-01 |
+| Dokumen terkait | [Master Layanan](./SERVICE-MASTER.md), [Daftar Ide Masa Depan](./FUTURE-IDEAS.md), [Daftar Pekerjaan](./WORK-REGISTER.md) |
 
 ---
 
-## 1. Market Positioning
+## 1. Posisi Pasar
 
-### Premium Muslim-Friendly Travel Service
+### Layanan Wisata Premium yang Ramah bagi Wisatawan Muslim
 
-BDM Trans aims to serve the **middle-to-upper and high-class travel market** through a combination of:
+BDM Trans diarahkan untuk melayani **pasar menengah atas hingga kelas atas** melalui perpaduan:
 
-1. **Muslim-friendly travel support** — Muslim drivers who understand practical Muslim travel needs.
-2. **Premium personal service** — attentive, proactive assistance that makes the journey easier and more memorable.
+1. **Dukungan perjalanan ramah Muslim** — pengemudi Muslim yang memahami kebutuhan praktis wisatawan Muslim.
+2. **Layanan personal premium** — bantuan yang penuh perhatian dan proaktif agar perjalanan lebih mudah dan berkesan.
 
-The service is open to travellers of every religion, nationality and background. Muslim-friendly is a service specialism and value proposition, not a restriction on who may book.
+Layanan terbuka bagi wisatawan dari semua agama, kewarganegaraan, dan latar belakang. Keramahan terhadap wisatawan Muslim merupakan keahlian dan nilai tambah layanan, bukan pembatas bagi siapa yang boleh memesan.
 
-**Positioning principle:** compete through service quality and the overall travel experience, not by trying to become the cheapest transport provider.
+**Prinsip posisi pasar:** bersaing melalui mutu pelayanan dan pengalaman perjalanan secara keseluruhan, bukan berusaha menjadi penyedia transportasi termurah.
 
-> The positioning is a strategic direction. Operational standards, service capacity and commercial pricing still need to be validated before public claims are made.
+> Posisi ini merupakan arah strategis. Standar operasional, kapasitas layanan, dan harga komersial tetap perlu ditetapkan serta divalidasi sebelum dijadikan klaim publik.
 
-## 2. Target Markets
+## 2. Pasar Sasaran
 
-### 2.1 Geographic markets
+### 2.1 Wilayah pasar
 
-The intended market is global: international visitors and domestic travellers.
+Pasar yang dituju bersifat global, mencakup wisatawan internasional dan wisatawan domestik.
 
-Priority market examples identified in the discussion:
+Contoh pasar prioritas yang telah dibahas:
+- Singapura.
+- Malaysia.
+- Brunei Darussalam.
+- Negara-negara Arab, termasuk Arab Saudi dan negara lain di kawasan tersebut.
+- Inggris, dengan perhatian khusus kepada wisatawan Muslim.
+- Indonesia dan pasar domestik lainnya.
+- Pasar internasional lain tetap terbuka.
 
-- Singapore
-- Malaysia
-- Brunei Darussalam
-- Arab countries, including Saudi Arabia and other markets in the region
-- United Kingdom, with particular attention to Muslim travellers
-- Indonesia and other domestic markets
-- Other international markets remain welcome
+Daftar ini merupakan indikasi pasar prioritas, bukan daftar negara yang eksklusif ataupun peringkat ukuran pasar yang telah dibuktikan.
 
-These are priority-market indications, not an exclusive country list or a verified market-size ranking.
+### 2.2 Profil pelanggan
 
-### 2.2 Customer profiles
+Kelompok pelanggan utama:
+1. Keluarga, terutama keluarga yang bepergian bersama anak.
+2. Pasangan.
+3. Rombongan privat dan kelompok wisata berukuran kecil.
 
-Primary customer groups:
+Informasi layanan dan website perlu menjawab kebutuhan praktis kelompok-kelompok tersebut. Jangan menganggap semua wisatawan memiliki rencana perjalanan, kecepatan, atau kebutuhan bantuan yang sama.
 
-1. Families, especially families travelling with children.
-2. Couples.
-3. Private groups and small travel parties.
+## 3. Nilai Perjalanan Ramah Muslim
 
-The website and service information should address the practical needs of these groups, not assume every traveller has the same itinerary, pace or support requirements.
+Sebagian wisatawan Muslim mungkin memiliki pertanyaan praktis ketika berwisata di Bali, misalnya mencari makanan halal, mengatur waktu salat, dan menemukan masjid atau fasilitas ibadah selama perjalanan.
 
-## 3. Muslim-Friendly Travel Value
+BDM Trans ingin mengurangi beban perencanaan tersebut melalui pengemudi yang dapat membantu dengan pengetahuan lokal dan rekomendasi praktis yang relevan.
 
-For some Muslim visitors, travelling in Bali may raise practical questions about finding halal food, planning prayer times and locating mosques or prayer facilities during a day out.
+Nilai layanan yang direncanakan:
+- Merekomendasikan pilihan tempat makan yang sesuai kebutuhan halal di sepanjang rute.
+- Membantu pelanggan merencanakan waktu istirahat untuk salat.
+- Mengetahui dan merekomendasikan masjid atau fasilitas ibadah jika tersedia.
+- Mempertimbangkan kebutuhan tersebut ketika menyusun rute dan waktu perjalanan.
 
-BDM Trans intends to reduce that planning burden through drivers who can help guests with relevant local knowledge and practical recommendations.
+Komunikasikan hal ini secara positif dan penuh hormat. Materi website tidak boleh menyiratkan bahwa Bali, masyarakat Hindu, atau pelaku usaha non-Muslim pada dasarnya tidak ramah. Jelaskan kemudahan tambahan yang diberikan BDM Trans tanpa merendahkan agama atau komunitas mana pun.
 
-Expected service value includes:
+Dukungan ramah Muslim harus disampaikan sebagai fitur layanan yang inklusif. Jangan menyiratkan adanya sertifikasi, jaminan status halal, atau kewenangan keagamaan kecuali klaim tersebut telah diperiksa dan dibuktikan secara terpisah.
 
-- Recommending suitable halal dining options along the route.
-- Helping guests plan convenient prayer breaks.
-- Knowing and recommending mosques or prayer facilities where available.
-- Considering these needs when arranging the day's route and timing.
+## 4. Nilai Layanan Personal Premium
 
-This should be communicated positively and respectfully. Website copy must not imply that Bali, Hindu communities or non-Muslim businesses are inherently unwelcoming. Describe the additional convenience and reassurance BDM Trans provides, without disparaging any religion or community.
+BDM Trans ingin membedakan layanan pengemudinya dari layanan transportasi biasa yang hanya mengantar pelanggan dari satu titik ke titik lain.
 
-Muslim-friendly support should be represented as an inclusive service feature. It must not imply certification, guaranteed halal status, or religious authority unless those claims are separately verified.
+Budaya layanan yang dituju adalah penuh perhatian dan proaktif. Bergantung pada jenis layanan dan pilihan pelanggan, pengemudi diharapkan:
+- Mendampingi pelanggan menuju area objek wisata atau titik kunjungan jika sesuai, bukan selalu meninggalkan pelanggan untuk mencari jalan sendiri.
+- Memberikan bantuan praktis dan informasi lokal.
+- Membantu mengambil foto dan mengabadikan kenangan perjalanan jika diperlukan.
+- Memahami rencana perjalanan yang disepakati dan membantu kelancaran pelaksanaannya.
+- Menampilkan sikap profesional, termasuk mengenakan seragam perusahaan.
 
-## 4. Premium Personal Service Value
+Pengemudi merupakan bagian dari pengalaman wisata pelanggan, bukan hanya orang yang mengoperasikan kendaraan.
 
-BDM Trans intends to differentiate its drivers from a basic point-to-point transport arrangement.
+Hal-hal tersebut merupakan standar layanan yang dituju. Perusahaan harus menetapkan batas tanggung jawab, pelatihan, jam kerja, keselamatan, aturan akses objek wisata, dan kompensasi yang adil dalam prosedur operasional sebelum menjanjikan seluruhnya sebagai fasilitas yang selalu tersedia.
 
-The intended service culture is attentive and proactive. Depending on the service and guest preference, drivers are expected to:
+## 5. Prinsip Penetapan Harga
 
-- Accompany guests towards the relevant attraction or visit spot, rather than routinely leaving them to navigate alone.
-- Offer practical assistance and local information.
-- Help guests take photos and preserve travel memories when appropriate.
-- Understand the agreed itinerary and assist with its flow.
-- Present themselves professionally, including wearing company uniform.
+BDM Trans tidak bermaksud bersaing terutama melalui harga paling murah.
 
-The driver is part of the guest experience, not only the person operating the vehicle.
+Harga yang lebih tinggi daripada penawaran kendaraan dan pengemudi biasa dapat dibenarkan apabila benar-benar didukung oleh mutu layanan yang lebih tinggi, prosedur operasional yang lebih baik, kemampuan pengemudi, kompensasi pengemudi yang adil, serta waktu yang digunakan untuk membantu pelanggan.
 
-These are intended service standards. The company must define boundaries, training, working hours, safety, attraction access rules and fair compensation in operational SOPs before promising every item as universally included.
+Contoh yang pernah dibahas adalah penawaran pasar sekitar Rp500.000 dibandingkan kemungkinan penawaran BDM Trans sekitar Rp800.000 untuk kategori kendaraan yang sebanding. **Contoh ini hanya ilustrasi posisi pasar, bukan tarif yang telah disetujui atau harga untuk dipublikasikan.**
 
-## 5. Pricing Philosophy
+Harga harus didukung oleh:
+- cakupan dan fasilitas layanan yang jelas;
+- biaya operasional dan kompensasi pengemudi yang realistis;
+- pelatihan dan standar pelayanan;
+- pelaksanaan layanan dan pengendalian mutu yang konsisten.
 
-BDM Trans does not intend to compete primarily on the lowest price.
+Tujuannya bukan meyakinkan setiap wisatawan yang hanya mencari harga terendah untuk memesan. Tujuannya adalah menjelaskan nilai layanan kepada pelanggan yang mengutamakan kenyamanan, kepercayaan, dan perhatian selama perjalanan.
 
-A higher price than a comparable basic vehicle-and-driver offer may be justified by a genuinely higher level of service, stricter operating procedures, driver capability, fair driver compensation and the time spent assisting guests.
+## 6. Tujuan Website Selain Mendapatkan Pesanan
 
-An example discussed was a market offer around IDR 500,000 compared with a possible BDM Trans offer around IDR 800,000 for a comparable vehicle category. **This is an illustrative positioning example only, not an approved tariff or published price.**
+Website harus tetap berguna bagi pengunjung yang belum langsung memesan layanan BDM Trans.
 
-Pricing must be supported by:
-- a clear service scope and inclusions;
-- realistic operating costs and driver compensation;
-- training and service standards;
-- consistent delivery and quality control.
+Website diharapkan menjadi sumber informasi perencanaan perjalanan yang dapat dipercaya melalui materi seperti:
+- contoh rencana perjalanan dan susunan jadwal;
+- rekomendasi destinasi dan objek wisata;
+- panduan rute dan perencanaan perjalanan;
+- informasi praktis wisata ramah Muslim;
+- ide paket wisata dan inspirasi perjalanan.
 
-The goal is not to persuade every price-sensitive visitor to book. The goal is to make the value understandable to customers who prioritise comfort, trust and attentive service.
+Pengunjung dapat menggunakan informasi tersebut untuk merencanakan perjalanan sendiri atau membandingkan penyedia layanan. Hal ini tetap bernilai: informasi yang berguna dapat membangun pengenalan dan kepercayaan, sehingga wisatawan mungkin kembali kepada BDM Trans ketika anggaran atau kebutuhannya berubah.
 
-## 6. Website Purpose Beyond Direct Conversion
+Dengan demikian, website memiliki dua fungsi yang saling melengkapi:
 
-The website should be useful even to visitors who do not book BDM Trans immediately.
+1. **Fungsi komersial:** menjelaskan layanan dengan baik dan membantu pengunjung yang sesuai untuk bertanya atau memesan.
+2. **Fungsi sumber informasi wisata:** menyediakan informasi perencanaan yang bermanfaat dan membangun kepercayaan jangka panjang.
 
-It should become a trustworthy travel-planning resource through useful material such as:
+## 7. Prinsip Komunikasi
 
-- sample itineraries and suggested schedules;
-- destination and attraction recommendations;
-- route and trip-planning guidance;
-- practical Muslim-friendly travel information;
-- tour package ideas and travel inspiration.
+Semua teks website, artikel, halaman layanan, dan materi promosi ke depan harus:
+- menjelaskan nilai premium melalui manfaat layanan yang nyata, bukan pujian berlebihan tanpa bukti;
+- menjelaskan dukungan ramah Muslim secara praktis, ramah, dan inklusif;
+- menghindari bahasa yang memberi stereotip, mengkritik, atau memecah belah agama;
+- menjelaskan bantuan nyata yang diberikan pengemudi kepada pelanggan;
+- membedakan fasilitas yang sudah dipastikan termasuk dalam layanan dengan bantuan tambahan atau pengaturan khusus;
+- menghindari jaminan, sertifikasi, ulasan, statistik, dan klaim harga yang belum didukung bukti;
+- tetap menyambut wisatawan internasional maupun domestik dari berbagai latar belakang.
 
-Visitors may use these resources to plan their own trip or compare providers. This is still a meaningful contribution: useful information can build familiarity and trust, and travellers may return to BDM Trans when their budget or needs change.
+## 8. Pembahasan yang Masih Terbuka
 
-The website therefore has two complementary roles:
+Hal-hal berikut belum diputuskan sepenuhnya dan tidak boleh diasumsikan:
+- Tujuan utama website dan ukuran keberhasilan bisnis yang terukur belum ditetapkan secara lengkap.
+- Profil pelanggan terperinci, bukti kesediaan membayar, dan prioritas pasar masih perlu divalidasi.
+- Standar layanan premium dan tanggung jawab pengemudi perlu dirumuskan secara operasional.
+- Informasi ramah Muslim, rekomendasi halal, dan batas bantuan terkait ibadah perlu diperiksa.
+- Tarif akhir, harga setiap kategori kendaraan, dan fasilitas layanan belum ditetapkan melalui dokumen ini.
+- Penamaan merek dan peralihan publik dari Bali Trans ke BDM Trans harus mengikuti keputusan peluncuran yang disepakati secara terpisah.
 
-1. **Commercial role:** explain services clearly and help suitable visitors enquire or book.
-2. **Travel-resource role:** provide useful, thoughtful planning information that builds long-term trust.
+## 9. Riwayat Perubahan
 
-## 7. Communication Principles
-
-All future website copy, articles, service pages and campaigns should:
-
-- communicate premium value through specific service benefits, not unsupported superlatives;
-- explain Muslim-friendly support in a welcoming, practical and inclusive way;
-- avoid language that stereotypes, criticises or creates religious division;
-- describe what the driver actually does for the guest;
-- distinguish confirmed inclusions from optional assistance or arrangements;
-- avoid unsupported guarantees, certifications, reviews, statistics and pricing claims;
-- remain welcoming to international and domestic travellers of all backgrounds.
-
-## 8. Open Discovery
-
-The following matters remain open and must not be silently assumed:
-
-- The fundamental purpose and measurable success objectives of the website have not yet been fully defined.
-- Detailed customer personas, willingness-to-pay evidence and market prioritisation need validation.
-- Exact premium service standards and driver responsibilities need operational definition.
-- Muslim-friendly information, halal recommendations and prayer-support boundaries need verification.
-- Final tariffs, vehicle-category pricing and service inclusions are not established by this document.
-- Brand naming and public transition from Bali Trans to BDM Trans must follow a separately agreed launch decision.
-
-## 9. Change History
-
-| Date | Change | Status |
+| Tanggal | Perubahan | Status |
 |---|---|---|
-| 2026-11-01 | Initial target-market, positioning, service-value and website-role notes recorded from discussion | Initial baseline; incremental agreement |
+| 2026-11-01 | Mencatat arah pasar, posisi layanan, nilai pelayanan, dan fungsi website dari hasil diskusi | Dasar awal; persetujuan dan pengembangan dilakukan bertahap |
 
 ---
 
-**Working rule:** Use this document as strategic context when drafting pages and content. Do not turn an intended value into a guaranteed operational promise until the relevant service standard has been defined and verified.
+**Aturan penggunaan:** Gunakan dokumen ini sebagai konteks strategis ketika menyusun halaman dan konten. Jangan mengubah nilai layanan yang direncanakan menjadi janji operasional yang dijamin sebelum standar layanan terkait dirumuskan dan diperiksa.
