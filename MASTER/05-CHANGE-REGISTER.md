@@ -40,3 +40,15 @@ For every master update, record:
 - Status: initial baseline recorded from the discussion; the website's fundamental purpose and several operational/commercial details remain open for further discovery and validation.
 - Scope: documentation only. No HTML, CSS, JavaScript, runtime data, routes, design, deployment configuration or live website behaviour changed.
 - Verification: new and updated Markdown files fetched from GitHub after writing; repository documentation links and status notes reviewed.
+
+### 2026-11-01 — Master knowledge architecture and document inventory
+
+- Added [Master Catalog](./MASTER-CATALOG.md) as the central index of existing and planned knowledge records.
+- Added domain indexes under `00-FOUNDATION/`, `01-DATA/`, `02-RULES/`, `03-GUIDELINES/`, `04-EXPERIENCE/`, `05-WEBSITE/` and `06-GOVERNANCE/`.
+- Added [Fleet Master](./01-DATA/FLEET-MASTER.md) to capture the initial vehicle information supplied in discussion, while keeping model naming, Xpander classification, seat-count convention and luggage details explicitly unresolved.
+- Updated the Master README, Work Register and Start Here checkpoint so missing documents remain visible and can be raised in future sessions.
+- Established the intended separation between factual data, operating/customer rules, editorial guidelines, customer experience, technical architecture and governance/source verification.
+- Pricing documentation is identified but marked WAITING FOR DATA until the user's pricing calculator and validated rates are ready.
+- Status: documentation inventory created; most listed records are placeholders or NOT STARTED and are not approved policies or complete specifications.
+- Scope: documentation only. No website source code, runtime data, routes, design, assets or deployment configuration changed.
+- Verification: each newly created file and the four updated index/protocol files are fetched from GitHub after writing; commit history is checked.
