@@ -34,6 +34,8 @@ Setiap destinasi merupakan satu entri tersendiri dan sekurang-kurangnya memiliki
 2. **Kategori utama** — jenis dasar tempat, misalnya Beach, Temple, Waterfall, Lake, Village, atau Rice Terrace.
 3. **Wilayah** — kawasan geografis luas, misalnya Bali Selatan, Bali Timur, Bali Utara, Bali Barat, atau Bali Tengah. Destinasi kepulauan dapat menggunakan nama kawasan kepulauannya, misalnya Nusa Penida atau Nusa Lembongan.
 4. **Label karakteristik tambahan** — satu atau lebih sifat/tema yang relevan, misalnya Nature, Culture, Viewpoint, Highland, Rice Field, atau Spiritual. Label tambahan tidak wajib dan perlu dibahas berdasarkan data destinasi.
+5. **Jenis record** — tandai apakah entri merupakan satu tempat (`place`), kelompok kawasan (`area_group`), atau gabungan tempat dan aktivitas (`combined_place_activity`). Kelompok kawasan/gabungan tidak boleh otomatis dianggap sebagai satu tempat final untuk halaman detail.
+6. **Status klasifikasi** — bedakan klasifikasi sementara dari klasifikasi yang sudah ditinjau. Status fakta, status konten, dan status halaman tetap merupakan hal yang berbeda.
 5. **Catatan lokasi** — kabupaten/kota, desa, alamat, akses, atau koordinat dapat disimpan sebagai informasi pendukung, bukan sebagai kategori utama.
 
 ### 2.2 Kategori berbeda dari wilayah
@@ -79,10 +81,11 @@ Kategori di bawah merupakan pengelompokan awal dari jenis tempat yang tercantum 
 | Forest | Hutan atau kawasan pepohonan |
 | Cliff | Tebing |
 | Hill / Viewpoint | Bukit atau titik pandang |
+| Mountain | Gunung atau kawasan pegunungan |
 | Lake | Danau |
 | Garden / Park | Kebun, taman, atau kawasan rekreasi hijau |
 | Market | Pasar |
-| Museum | Museum |
+| Museum / Library | Museum atau perpustakaan koleksi/warisan pengetahuan |
 | Vihara | Tempat ibadah Buddha |
 | Monument | Monumen |
 | Palace / Water Palace | Istana atau taman air bersejarah |
@@ -95,6 +98,22 @@ Kategori di bawah merupakan pengelompokan awal dari jenis tempat yang tercantum 
 | Other / Review | Tempat yang jenis utamanya belum jelas dan perlu ditinjau |
 
 Jika satu tempat memiliki lebih dari satu karakteristik, kategori utama dipilih berdasarkan identitas utamanya; karakteristik lain dapat menjadi label tambahan. Hindari membuat kategori yang terlalu kecil tanpa kebutuhan nyata.
+
+### 3.1 Pemisahan kategori destinasi, aktivitas, dan label artikel
+
+- **Kategori destinasi** menjawab jenis tempat secara fisik, misalnya Beach, Temple, Waterfall, Lake, Mountain, atau Village. Setiap record destinasi hanya memiliki satu `primary_category_id`.
+- **Karakteristik destinasi** adalah label tambahan seperti Nature, Culture, Viewpoint, Highland, Rice Field, dan Spiritual. Sifat ini tidak menggantikan kategori utama.
+- **Kategori aktivitas/tema** seperti Surfing, Snorkelling & Diving, Cycling, Food & Drink, atau Boat & Island Trips adalah hubungan aktivitas/tema. Data tersebut bukan kategori utama tempat.
+- Untuk kompatibilitas dengan renderer yang sudah ada, field `destinations[].categories` pada `content/bali-master-data.json` tetap dipertahankan sebagai hubungan kategori aktivitas/tema. Kategori utama tempat disimpan terpisah di `primary_category_id`; jangan membaca `categories` sebagai jenis tempat.
+- **Label editorial artikel** seperti Travel Information dan Tips adalah klasifikasi konten blog, bukan kategori destinasi atau region. Guide/Panduan tidak boleh menjadi label default.
+- `region_id` menyimpan kelompok geografis editorial; `admin_area_id` tetap menyimpan kabupaten/kota administratif. Untuk kepulauan, Nusa Penida, Nusa Lembongan, dan Nusa Ceningan dicatat sebagai island region terpisah di bawah kelompok induk Kepulauan Nusa agar tidak dipaksakan ke empat arah Bali.
+- Curated collections seperti Latest, Popular, dan Hidden Gems diisi secara manual berdasarkan keputusan editorial. Jangan menganggap semua destinasi populer atau tersembunyi tanpa penilaian.
+
+### 3.2 Status pengelompokan saat ini
+
+`content/bali-master-data.json` mulai menyimpan `destination_categories`, `primary_category_id`, `characteristic_tags`, `record_kind`, `classification_status`, dan `classification_note`. Klasifikasi yang belum pasti diberi status `NEEDS_EDITORIAL_REVIEW`; jangan menghapus catatan review hanya untuk membuat katalog tampak lengkap. Entri `area_group` dan `combined_place_activity` harus ditinjau/dipecah sebelum dianggap sebagai satu halaman Place Detail.
+
+Daftar koleksi Latest, Popular, dan Hidden Gems sudah disiapkan sebagai definisi kurasi, tetapi keanggotaan tetap kosong sampai dipilih secara editorial. Data tersebut tidak boleh diisi otomatis atau berdasarkan dugaan.
 
 ## 4. Inventaris Destinasi dari Bali Golden Tour
 
