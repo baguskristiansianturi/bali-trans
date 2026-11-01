@@ -78,6 +78,17 @@ Sebelum melakukan edit, pastikan secara internal:
 
 Tidak perlu mengirim rencana panjang kepada Mas Bagus setiap kali. Ajukan pertanyaan hanya jika ada ambiguitas yang benar-benar menghalangi pekerjaan. Setelah lingkup jelas, kerjakan secara langsung dan terbatas.
 
+## 10. SOP khusus produksi artikel dan konten SEO
+
+Sebelum membuat, menulis, mengubah data, atau melakukan coding untuk artikel BDM Trans:
+
+1. Wajib membaca `MASTER/03-GUIDELINES/ARTICLE-PRODUCTION-SOP.md`.
+2. Wajib membaca DNA Informasi di `MASTER/PRODUCT-FOUNDATION.md` serta Master Destinasi, Master Aktivitas & Pengalaman, atau Data Master lain yang relevan.
+3. Wajib menyelesaikan tahapan riset, sumber, Article Brief, outline, naskah, metadata, dan Image Manifest sesuai SOP sebelum coding.
+4. Coding harus menggunakan template dan arsitektur artikel yang benar-benar berlaku di repository; jangan membuat layout baru sebagai konsekuensi otomatis dari permintaan SEO.
+5. Perubahan artikel tetap tunduk pada aturan lingkup, diff, pengujian, commit, deployment, dan verifikasi dalam dokumen ini.
+6. Jika SOP artikel masih berstatus USULAN, gunakan sebagai kerangka kerja sementara dengan status tersebut; jangan menganggap semua aturan sebagai keputusan final sebelum Mas Bagus menyetujuinya.
+
 ## 9. Prinsip keputusan
 
 **Instruksi eksplisit Mas Bagus mengalahkan inisiatif asisten.** “Terlihat lebih baik”, “sekalian dirapikan”, atau “mungkin diperlukan” bukan alasan yang sah untuk mengubah hal lain. Jika tidak diminta, jangan ubah.
