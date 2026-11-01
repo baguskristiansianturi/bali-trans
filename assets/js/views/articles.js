@@ -152,11 +152,40 @@ function getArticlePublicUrl(blog) {
         function renderBlogDetailView(blog) {
             const escapeHtml = value => String(value || '').replace(/[&<>"]/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[character]));
             const rawContent = String(blog.content || '');
+            const renderSupportingImage = image => {
+                const alt = escapeHtml(image.alt || image.caption || image.fileName || blog.title);
+                const label = escapeHtml(image.fallbackLabel || image.fileName || blog.title);
+                const caption = escapeHtml(image.caption || '');
+                const credit = image.credit && image.creditUrl
+                    ? '<span class="article-image-credit">Foto: <a href="' + escapeHtml(image.creditUrl) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(image.credit) + '</a> · ' + escapeHtml(image.license || 'Lisensi sesuai sumber') + '</span>'
+                    : '';
+                const width = Math.max(1, Number(image.width) || 1200);
+                const height = Math.max(1, Number(image.height) || 800);
+                return '<figure class="article-inline-figure"><div class="article-image-frame"><img src="' + escapeHtml(image.src) + '" alt="' + alt + '" loading="lazy" decoding="async" width="' + width + '" height="' + height + '" onerror="this.parentElement.classList.add(\'is-failed\')"><div class="article-image-fallback" role="img" aria-label="' + alt + '"><strong>' + label + '</strong><span>' + alt + '</span><small>Gambar tidak dapat ditampilkan</small></div></div><figcaption>' + caption + credit + '</figcaption></figure>';
+            };
+            const insertSupportingImages = (content, images) => {
+                if (!Array.isArray(images) || !images.length) return content;
+                let output = content;
+                images.forEach(image => {
+                    const heading = String(image.afterHeading || '').trim();
+                    if (!heading || !image.src) return;
+                    const marker = '>' + heading + '</h2>';
+                    const headingEnd = output.toLowerCase().indexOf(marker.toLowerCase());
+                    if (headingEnd < 0) return;
+                    const paragraphStart = output.indexOf('<p', headingEnd + marker.length);
+                    if (paragraphStart < 0) return;
+                    const paragraphEnd = output.indexOf('</p>', paragraphStart);
+                    if (paragraphEnd < 0) return;
+                    const insertAt = paragraphEnd + 4;
+                    output = output.slice(0, insertAt) + renderSupportingImage(image) + output.slice(insertAt);
+                });
+                return output;
+            };
             const headings = [...rawContent.matchAll(/<h2\b[^>]*>([\s\S]*?)<\/h2>/gi)].map(match => ({
                 text: match[1].replace(/<[^>]*>/g, '').replace(/&amp;/g, '&').trim()
             }));
             const headingIds = new Map();
-            const articleContent = rawContent.replace(/<h2\b([^>]*)>([\s\S]*?)<\/h2>/gi, (match, attrs, inner) => {
+            let articleContent = rawContent.replace(/<h2\b([^>]*)>([\s\S]*?)<\/h2>/gi, (match, attrs, inner) => {
                 const label = inner.replace(/<[^>]*>/g, '').replace(/&amp;/g, '&').trim();
                 const base = label.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'bagian-artikel';
                 const count = (headingIds.get(base) || 0) + 1;
@@ -164,12 +193,15 @@ function getArticlePublicUrl(blog) {
                 const id = count > 1 ? base + '-' + count : base;
                 return '<h2 id="' + id + '">' + inner + '</h2>';
             });
+            articleContent = insertSupportingImages(articleContent, blog.supportingImages);
             const toc = [...articleContent.matchAll(/<h2\b[^>]*id="([^"]+)"[^>]*>([\s\S]*?)<\/h2>/gi)].map(match => ({
                 id: match[1], text: match[2].replace(/<[^>]*>/g, '').trim()
             }));
             const tocMarkup = toc.length >= 5 ? '<nav class="article-toc" aria-label="Daftar isi"><p class="article-toc-title">Dalam artikel ini</p><ol>' + toc.map(item => '<li><a href="#' + escapeHtml(item.id) + '"><i class="fas fa-arrow-down article-toc__arrow" aria-hidden="true"></i><span>' + escapeHtml(item.text) + '</span></a></li>').join('') + '</ol></nav>' : '';
             const mobileToc = toc.length >= 5 ? '<details class="article-toc-mobile"><summary>Daftar isi artikel <span aria-hidden="true">＋</span></summary><ol>' + toc.map(item => '<li><a href="#' + escapeHtml(item.id) + '"><i class="fas fa-arrow-down article-toc__arrow" aria-hidden="true"></i><span>' + escapeHtml(item.text) + '</span></a></li>').join('') + '</ol></details>' : '';
-            const featured = '<figure class="article-featured"><img src="' + escapeHtml(blog.image) + '" alt="' + escapeHtml(blog.imageAlt || blog.title) + '" loading="' + escapeHtml(blog.imageLoading || 'lazy') + '" fetchpriority="' + (blog.imageLoading === 'eager' ? 'high' : 'auto') + '" width="1200" height="675"><figcaption>' + escapeHtml(blog.imageAlt || blog.title) + '</figcaption></figure>';
+            const featuredAlt = escapeHtml(blog.imageAlt || blog.title);
+            const featuredLabel = escapeHtml(blog.imageFallbackLabel || blog.destinationDisplayName || blog.title);
+            const featured = '<figure class="article-featured"><div class="article-image-frame"><img src="' + escapeHtml(blog.image) + '" alt="' + featuredAlt + '" loading="' + escapeHtml(blog.imageLoading || 'lazy') + '" fetchpriority="' + (blog.imageLoading === 'eager' ? 'high' : 'auto') + '" width="1200" height="675" onerror="this.parentElement.classList.add(\'is-failed\')"><div class="article-image-fallback" role="img" aria-label="' + featuredAlt + '"><strong>' + featuredLabel + '</strong><span>' + featuredAlt + '</span><small>Gambar tidak dapat ditampilkan</small></div></div></figure>';
             return `
                 <article lang="${blog.lang || 'id'}" class="article-detail-page">
                     <div class="article-detail-shell">
