@@ -480,126 +480,20 @@ body.dolphin-sheet-open { overflow:hidden; }
   }
 }
 
-
-/* Dolphin Tour: destination-first flow with consistent card frames and fixed excerpts. */
-.dolphin-landing-page .dolphin-places-section .dolphin-destinations-panel {
-  display: block;
-  min-width: 0;
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-  overflow: visible;
-}
-.dolphin-landing-page .dolphin-places-section .dolphin-destinations-scroll {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-  min-width: 0;
-  min-height: 0;
-  max-height: none;
-  overflow: visible;
-}
-.dolphin-landing-page .dolphin-places-section .dolphin-destination {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  min-height: 0;
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  gap: 0;
-  overflow: hidden;
-  border: 1px solid #e2eef6;
-  border-radius: 13px;
-  background: #fff;
-  text-decoration: none;
-}
-.dolphin-landing-page .dolphin-places-section .dolphin-destination > img {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
-  min-height: 0;
-  max-height: none;
-  flex: 0 0 auto;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 0;
-}
-.dolphin-landing-page .dolphin-places-section .dolphin-destination-copy {
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: column;
-  align-items: flex-start;
-  min-width: 0;
-  height: auto;
-  padding: 13px 14px 14px;
-}
-.dolphin-landing-page .dolphin-places-section .dolphin-destination-copy strong {
-  display: block;
-  min-height: 2.8em;
-  font-size: 13px;
-  line-height: 1.4;
-  font-weight: 900;
-  color: #174d79;
-}
-.dolphin-landing-page .dolphin-places-section .dolphin-destination-copy small {
-  display: -webkit-box;
-  min-height: 5.2em;
-  max-height: 5.2em;
-  margin-top: 7px;
-  overflow: hidden;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  font-size: 11px;
-  line-height: 1.55;
-  color: #71889b;
-}
-.dolphin-landing-page .dolphin-places-section .dolphin-destination-link {
-  margin-top: 10px;
-  padding-top: 0;
-  font-size: 10px;
-  font-weight: 900;
-}
+/* Dolphin Tour: preserve the original destination-card design while keeping excerpts tidy. */
 .dolphin-landing-page .dolphin-itinerary-section .dolphin-itinerary-layout {
   display: block;
 }
 .dolphin-landing-page .dolphin-itinerary-section .dolphin-timeline {
   width: 100%;
 }
-@media (max-width: 900px) {
-  .dolphin-landing-page .dolphin-places-section .dolphin-destinations-scroll {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 13px;
-  }
+.dolphin-landing-page .dolphin-places-section .dolphin-destination > img {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
 }
-@media (max-width: 600px) {
-  .dolphin-landing-page .dolphin-places-section .dolphin-destinations-scroll {
-    display: flex;
-    width: auto;
-    margin-right: -16px;
-    padding: 0 16px 9px 0;
-    overflow-x: auto;
-    overflow-y: hidden;
-    gap: 12px;
-    scroll-snap-type: x mandatory;
-    scroll-padding-left: 0;
-    scrollbar-width: thin;
-  }
-  .dolphin-landing-page .dolphin-places-section .dolphin-destination {
-    flex: 0 0 82%;
-    width: 82%;
-    max-width: 340px;
-    scroll-snap-align: start;
-  }
-  .dolphin-landing-page .dolphin-places-section .dolphin-destination > img {
-    aspect-ratio: 16 / 9;
-  }
-  .dolphin-landing-page .dolphin-places-section .dolphin-destination-copy {
-    padding: 12px 13px 13px;
-  }
-  .dolphin-landing-page .dolphin-itinerary-section .dolphin-timeline {
-    padding: 14px;
-  }
+.dolphin-landing-page .dolphin-places-section .dolphin-destination-copy small {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
 }
