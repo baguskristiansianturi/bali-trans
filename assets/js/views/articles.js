@@ -13,12 +13,54 @@ function getArticlePublicUrl(blog) {
         }
 
         function renderRelatedBlogGuides(blog) {
+            const escapeHtml = value => String(value || '').replace(/[&<>"']/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character]));
             const relatedIds = Array.isArray(blog.related) ? blog.related : [];
-            const related = relatedIds.map(id => BALI_BLOGS.find(item => item.id === id)).filter(Boolean);
-            if (!related.length) return '';
-            const escapeHtml = value => String(value || '').replace(/[&<>"]/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[character]));
-            return '<section class="mt-10" aria-labelledby="related-guides-title"><h2 id="related-guides-title" class="text-xl font-extrabold text-slate-900 mb-4">Lanjutkan menjelajahi Bali</h2><div class="grid grid-cols-1 sm:grid-cols-2 gap-3">' + related.map(item => '<a href="' + getArticlePublicUrl(item) + '" class="group rounded-2xl border border-slate-200 bg-white p-4 hover:border-teal-300 hover:bg-teal-50/30 transition"><span class="block text-[10px] font-extrabold uppercase tracking-wider text-teal-700 mb-2">' + escapeHtml(item.location || item.category) + '</span><span class="block font-bold text-slate-900 leading-snug group-hover:text-teal-800">' + escapeHtml(item.title) + '</span><span class="mt-2 block text-xs text-slate-500">' + escapeHtml(item.readTime) + ' · Baca artikel <span aria-hidden="true">→</span></span></a>').join('') + '</div></section>';
+            const preferred = relatedIds.map(id => BALI_BLOGS.find(item => item.id === id)).filter(item => item && item.id !== blog.id && item.publicationStatus === 'PUBLISHED');
+            const related = [...preferred, ...(Array.isArray(BALI_BLOGS) ? BALI_BLOGS.filter(item => item && item.id !== blog.id && item.publicationStatus === 'PUBLISHED' && !preferred.some(entry => entry.id === item.id)) : [])].slice(0, 3);
+            const cards = related.map(item => '<a class="article-recommended-card" href="' + getArticlePublicUrl(item) + '"><span class="article-recommended-card__eyebrow">' + escapeHtml(item.category || 'Travel Information') + '</span><strong>' + escapeHtml(item.title) + '</strong><span class="article-recommended-card__meta">' + escapeHtml(item.readTime || '') + ' · Baca artikel <span aria-hidden="true">→</span></span></a>').join('');
+            return '<section class="article-recommended" aria-labelledby="related-guides-title"><div class="article-recommended__heading"><span>KEEP READING</span><h2 id="related-guides-title">Artikel lainnya untuk dijelajahi</h2><p>Temukan cerita dan informasi lain untuk melengkapi rencana perjalananmu di Bali.</p></div>' + (cards ? '<div class="article-recommended__grid">' + cards + '</div>' : '<div class="article-recommended__empty">Artikel lainnya sedang disiapkan. Kunjungi halaman Blog untuk melihat pembaruan berikutnya.</div>') + '</section>';
         }
+
+        function renderArticleFaq(blog) {
+            const items = Array.isArray(blog.faq) ? blog.faq : [];
+            if (!items.length) return '';
+            const escapeHtml = value => String(value || '').replace(/[&<>"']/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character]));
+            return '<section class="article-faq" aria-labelledby="article-faq-title"><div class="article-faq__heading"><span>GOOD TO KNOW</span><h2 id="article-faq-title">Pertanyaan yang sering ditanyakan</h2><p>Jawaban singkat untuk membantu merencanakan kunjungan ke Pantai Kuta.</p></div><div class="article-faq__list">' + items.map((item, index) => {
+                const answerId = 'article-faq-answer-' + index;
+                return '<div class="article-faq__item"><h3><button type="button" class="article-faq__trigger" aria-expanded="false" aria-controls="' + answerId + '" onclick="toggleArticleFaq(this)"><span>' + escapeHtml(item.question) + '</span><i class="fas fa-plus" aria-hidden="true"></i></button></h3><div class="article-faq__answer" id="' + answerId + '" hidden><p>' + escapeHtml(item.answer) + '</p></div></div>';
+            }).join('') + '</div></section>';
+        }
+
+        function renderArticleConclusion(blog) {
+            if (!blog.conclusion) return '';
+            const escapeHtml = value => String(value || '').replace(/[&<>"]/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[character]));
+            return '<section class="article-conclusion" aria-labelledby="article-conclusion-title"><h2 id="article-conclusion-title">Kesimpulan</h2><p>' + escapeHtml(blog.conclusion) + '</p></section>';
+        }
+
+        function renderArticleTopicTags(blog) {
+            const tags = Array.isArray(blog.topicTags) ? blog.topicTags : [];
+            if (!tags.length) return '';
+            const escapeHtml = value => String(value || '').replace(/[&<>"']/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character]));
+            return '<nav class="article-topic-tags" aria-label="Topik terkait"><span>Jelajahi topik</span>' + tags.map(tag => '<span class="article-topic-tag">' + escapeHtml(tag) + '</span>').join('') + '</nav>';
+        }
+
+        window.toggleArticleFaq = function (button) {
+            if (!button) return;
+            const item = button.closest('.article-faq__item');
+            const section = button.closest('.article-faq');
+            if (!item || !section) return;
+            const wasOpen = button.getAttribute('aria-expanded') === 'true';
+            section.querySelectorAll('.article-faq__trigger').forEach(trigger => {
+                trigger.setAttribute('aria-expanded', 'false');
+                const panel = document.getElementById(trigger.getAttribute('aria-controls'));
+                if (panel) panel.hidden = true;
+            });
+            if (!wasOpen) {
+                button.setAttribute('aria-expanded', 'true');
+                const answer = document.getElementById(button.getAttribute('aria-controls'));
+                if (answer) answer.hidden = false;
+            }
+        };
 
         function renderArticleShare(blog) {
             const url = getArticlePublicUrl(blog);
@@ -234,14 +276,15 @@ function getArticlePublicUrl(blog) {
                             ${tocMarkup}
                             <div class="article-reading">
                                 ${articleContent}
-                                <p class="article-ending">Semoga informasi ini membantu merencanakan kunjungan yang lebih nyaman. Nikmati Pantai Kuta sesuai ritme perjalananmu dan selalu perhatikan kondisi pantai saat berada di sana.</p>
                             </div>
                         </div>
+                        ${renderArticleFaq(blog)}
+                        ${renderArticleConclusion(blog)}
+                        ${renderArticleTopicTags(blog)}
                         ${renderArticleShare(blog)}
-                        ${renderRelatedDestinations(blog)}
-                        <section class="article-topic-tags" aria-label="Topik artikel"><span>Topik</span><a href="#" onclick="navigateTo('blog');return false">Pantai Bali</a><a href="#" onclick="navigateTo('blog');return false">Wisata Bali</a><a href="#" onclick="navigateTo('blog');return false">Bali Selatan</a></section>
-                        ${renderArticleSources(blog.sources)}
                         ${renderRelatedBlogGuides(blog)}
+                        ${renderRelatedDestinations(blog)}
+                        ${renderArticleSources(blog.sources)}
                         <div class="article-back-link"><button type="button" onclick="navigateTo('blog')"><i class="fas fa-arrow-left" aria-hidden="true"></i> Kembali ke semua artikel</button></div>
                     </div>
                 </article>
