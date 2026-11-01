@@ -17,7 +17,7 @@ function getArticlePublicUrl(blog) {
             const related = relatedIds.map(id => BALI_BLOGS.find(item => item.id === id)).filter(Boolean);
             if (!related.length) return '';
             const escapeHtml = value => String(value || '').replace(/[&<>"]/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[character]));
-            return '<section class="mt-10" aria-labelledby="related-guides-title"><h2 id="related-guides-title" class="text-xl font-extrabold text-slate-900 mb-4">Lanjutkan menjelajahi Bali</h2><div class="grid grid-cols-1 sm:grid-cols-2 gap-3">' + related.map(item => '<a href="?page=blog-read&amp;item=' + encodeURIComponent(item.id) + '" class="group rounded-2xl border border-slate-200 bg-white p-4 hover:border-teal-300 hover:bg-teal-50/30 transition"><span class="block text-[10px] font-extrabold uppercase tracking-wider text-teal-700 mb-2">' + escapeHtml(item.location || item.category) + '</span><span class="block font-bold text-slate-900 leading-snug group-hover:text-teal-800">' + escapeHtml(item.title) + '</span><span class="mt-2 block text-xs text-slate-500">' + escapeHtml(item.readTime) + ' · Baca artikel <span aria-hidden="true">→</span></span></a>').join('') + '</div></section>';
+            return '<section class="mt-10" aria-labelledby="related-guides-title"><h2 id="related-guides-title" class="text-xl font-extrabold text-slate-900 mb-4">Lanjutkan menjelajahi Bali</h2><div class="grid grid-cols-1 sm:grid-cols-2 gap-3">' + related.map(item => '<a href="' + getArticlePublicUrl(item) + '" class="group rounded-2xl border border-slate-200 bg-white p-4 hover:border-teal-300 hover:bg-teal-50/30 transition"><span class="block text-[10px] font-extrabold uppercase tracking-wider text-teal-700 mb-2">' + escapeHtml(item.location || item.category) + '</span><span class="block font-bold text-slate-900 leading-snug group-hover:text-teal-800">' + escapeHtml(item.title) + '</span><span class="mt-2 block text-xs text-slate-500">' + escapeHtml(item.readTime) + ' · Baca artikel <span aria-hidden="true">→</span></span></a>').join('') + '</div></section>';
         }
 
         function renderArticleShare(blog) {
@@ -48,7 +48,7 @@ function getArticlePublicUrl(blog) {
                 const category = item.destinationCategoryLabel || item.destinationCategory || 'Bali destination';
                 const region = item.region || item.location || 'Bali';
                 const title = item.destinationDisplayName || item.destinationName || item.title;
-                return '<a class="article-destination-card" href="?page=blog-read&amp;item=' + encodeURIComponent(item.id) + '">' +
+                return '<a class="article-destination-card" href="' + getArticlePublicUrl(item) + '">' +
                     '<div class="article-destination-card__image"><img src="' + escapeText(item.image) + '" alt="' + escapeText(item.imageAlt || title) + '" loading="lazy" width="640" height="420"></div>' +
                     '<div class="article-destination-card__copy"><div class="article-destination-card__labels"><span>' + escapeText(category) + '</span><span>' + escapeText(region) + '</span></div>' +
                     '<h3>' + escapeText(title) + '</h3><p>' + escapeText(item.snippet || '') + '</p><span class="article-destination-card__link">Explore destination <span aria-hidden="true">→</span></span></div></a>';
