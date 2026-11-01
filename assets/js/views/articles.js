@@ -73,12 +73,16 @@ function renderRelatedBlogGuides(blog) {
                 <article lang="${blog.lang || 'id'}" class="article-detail-page">
                     <div class="article-detail-shell">
                         <nav class="article-breadcrumb" aria-label="Breadcrumb">
-                            <a href="#" onclick="navigateTo('home');return false">Beranda</a><span aria-hidden="true">/</span>
-                            <a href="#" onclick="navigateTo('blog');return false">Travel Guides</a><span aria-hidden="true">/</span>
-                            <span aria-current="page">${escapeHtml(blog.title)}</span>
+                            <a href="#" onclick="navigateTo('home');return false">Home</a><span aria-hidden="true">/</span>
+                            <span>Destinasi</span><span aria-hidden="true">/</span>
+                            <span>Beach</span><span aria-hidden="true">/</span>
+                            <span aria-current="page">${escapeHtml(blog.canonicalName || blog.title)}</span>
                         </nav>
                         <header class="article-header">
-                            <div class="article-eyebrow"><span>${escapeHtml(blog.category || 'Panduan Wisata')}</span><span class="article-location">${escapeHtml(blog.location || blog.region || '')}</span></div>
+                            <div class="article-eyebrow">
+                                <div class="article-taxonomy-labels">${(blog.labels || [blog.category, blog.subcategory]).filter(Boolean).map(label => '<span>' + escapeHtml(label) + '</span>').join('')}</div>
+                                <span class="article-location"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> ${escapeHtml(blog.location || blog.region || '')}</span>
+                            </div>
                             <h1>${escapeHtml(blog.title)}</h1>
                             <p class="article-dek">${escapeHtml(blog.snippet || '')}</p>
                             <div class="article-byline">
