@@ -368,6 +368,30 @@ Untuk setiap gambar, siapkan *Image Manifest*:
 
 Gunakan caption bila membantu menjelaskan nama tempat, konteks, atau detail yang tidak jelas dari gambar. Cantumkan kredit atau atribusi sesuai lisensi dan izin. Jangan menyamakan caption dengan alt text: caption dibaca semua pengunjung, sedangkan alt menyediakan padanan teks untuk gambar.
 
+### 9.5 Struktur gambar wajib pada halaman artikel
+
+Setiap artikel editorial yang memiliki ilustrasi fotografi wajib mengikuti susunan berikut:
+
+1. **Satu gambar utama (featured image)** ditempatkan setelah header artikel dan sebelum isi artikel. Gambar utama tidak diberi caption atau paragraf penjelasan di bawahnya.
+2. **Minimal dua gambar pendukung** ditempatkan di bagian tengah isi artikel, pada bagian yang secara kontekstual dijelaskan oleh foto. Artikel wisata dapat memakai lebih banyak gambar sesuai kebutuhan dan ketersediaan aset yang relevan; tidak ada batas maksimum tetap.
+3. Setiap gambar pendukung wajib memiliki caption yang menjelaskan konteks visual atau detail yang membantu pembaca. Caption bukan pengulangan judul artikel dan bukan salinan alt text.
+4. Jangan menumpuk gambar tanpa hubungan dengan isi. Tempatkan gambar setelah paragraf atau bagian yang relevan, bukan sekadar untuk memenuhi jumlah.
+5. Jika artikel belum memiliki satu gambar utama dan sekurang-kurangnya dua gambar pendukung yang layak, tandai aset yang belum ada sebagai MENUNGGU ASET dan jangan menyatakan artikel siap terbit.
+
+### 9.6 Nama file, alt text, caption, dan fallback gambar
+
+- Gunakan nama file yang deskriptif, spesifik pada subjek/adegan, huruf kecil, dan dipisahkan tanda hubung, misalnya `pantai-kuta-bali-suasana-sore.webp`. Hindari nama kamera seperti `IMG_1234.jpg`.
+- Nama file/URL gambar, alt text, dan caption memiliki fungsi berbeda. Nama file membantu identifikasi aset; alt text memberi padanan teks untuk gambar; caption memberi konteks yang terlihat bagi pembaca. Jangan menyalin satu frasa ke semua kolom.
+- Gunakan variasi kata yang alami berdasarkan adegan sebenarnya. Jangan mengulang kata kunci utama pada setiap nama file, alt, dan caption jika tidak diperlukan. Jangan melakukan keyword stuffing.
+- **Gambar utama:** wajib memiliki alt text yang akurat, tetapi tidak menampilkan caption.
+- **Gambar pendukung:** wajib memiliki alt text unik yang menggambarkan isi foto dan caption yang relevan dengan paragraf di sekitarnya.
+- Atribut `title` gambar bersifat opsional dan tidak wajib diisi atau disamakan dengan alt.
+- Setiap frame gambar harus menyediakan fallback yang tetap terlihat ketika file gagal dimuat. Fallback menampilkan nama/label gambar yang mudah dipahami dan deskripsi singkat yang sesuai dengan alt text, di dalam area frame yang sama. Jangan mengandalkan ikon gambar rusak atau perilaku bawaan browser saja.
+- Implementasi fallback tidak menggantikan atribut `alt`. Gambar tetap harus memakai elemen HTML `<img>` dengan `alt` yang benar; fallback visual adalah lapisan tambahan untuk pengunjung.
+- Fallback harus mempertahankan rasio dan ruang frame agar kegagalan gambar tidak merusak tata letak.
+- Catat URL sumber, pemilik/fotografer, lisensi, dan atribusi sesuai persyaratan lisensi. Jangan menggunakan gambar hanya karena bisa diakses publik.
+- Gambar utama dan pendukung harus dapat dimuat crawler sebagai elemen gambar HTML, bukan hanya CSS background.
+
 ## 10. Gerbang 7 — Data Terstruktur dan Semantik
 
 - Gunakan struktur semantik HTML yang benar.
@@ -448,6 +472,11 @@ Artikel hanya boleh berstatus SIAP TERBIT jika seluruh pemeriksaan wajib berikut
 - [ ] Gambar dekoratif menggunakan alt kosong bila tepat.
 - [ ] Dimensi, rasio, format, ukuran file, dan nama file diperiksa.
 - [ ] Gambar memiliki sumber dan izin penggunaan yang jelas.
+- [ ] Tepat satu gambar utama tampil setelah header, tanpa caption.
+- [ ] Minimal dua gambar pendukung tampil di tengah isi artikel; jumlah dapat ditambah sesuai kebutuhan artikel wisata.
+- [ ] Setiap gambar pendukung memiliki caption kontekstual; alt text tetap terpisah dan tidak disalin dari caption.
+- [ ] Nama file/URL gambar deskriptif, alami, dan tidak mengalami keyword stuffing.
+- [ ] Semua frame memiliki fallback teks di dalam frame ketika gambar gagal dimuat.
 - [ ] Gambar utama dan gambar isi berada di bagian yang relevan.
 
 ### D. Teknis dan publikasi
@@ -545,4 +574,5 @@ SOP ini tidak menyetujui layout, desain, template visual baru, perubahan URL, at
 | Tanggal | Versi | Perubahan | Status |
 |---|---|---|---|
 | 2026-11-01 | 0.1 | Draf alur produksi artikel, riset, orisinalitas, SEO, gambar, tautan, coding, publikasi, dan pemantauan organik berdasarkan riset Google Search Central dan Yoast | USULAN — MENUNGGU TINJAUAN |
+| 2026-11-01 | 0.2 | Menambahkan standar satu gambar utama tanpa caption, minimal dua gambar pendukung bercaption, penamaan file deskriptif, alt text alami, dan fallback frame saat gambar gagal dimuat | USULAN — ATURAN MEDIA DIKONFIRMASI MAS BAGUS |
 
