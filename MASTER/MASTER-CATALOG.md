@@ -39,6 +39,7 @@
 | [Master Layanan](./SERVICE-MASTER.md) | SUDAH ADA — dasar awal | Kategori dan jenis layanan saat ini |
 | [Master Destinasi Bali](./01-DATA/DESTINATION-MASTER.md) | INVENTARIS DIPERLUAS — perlu audit | Nama, identitas, kategori, wilayah, dan alias destinasi Bali |
 | [Master Aktivitas & Pengalaman](./01-DATA/ACTIVITY-EXPERIENCE-MASTER.md) | KERANGKA AWAL — perlu audit | Aktivitas yang dapat dilakukan wisatawan, gambaran pengalaman, lokasi, wilayah, alias, dan data perencanaan |
+| [SOP Produksi Artikel & SEO Organik](./03-GUIDELINES/ARTICLE-PRODUCTION-SOP.md) | USULAN — DRAF v0.1 | Prosedur riset, penulisan, SEO, media, coding, pemeriksaan, publikasi, dan pemantauan artikel |
 | [Daftar Ide Masa Depan](./FUTURE-IDEAS.md) | SUDAH ADA | Konsep yang belum menjadi layanan aktif |
 | [Daftar Pekerjaan](./WORK-REGISTER.md) | SUDAH ADA — aktif | Pekerjaan pembahasan dan dokumentasi yang belum selesai |
 | [Mulai dari Sini](./START-HERE.md) | SUDAH ADA | Prosedur memulai sesi proyek |
