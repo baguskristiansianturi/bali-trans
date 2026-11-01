@@ -1,8 +1,8 @@
 /* Article detail reading experience — scoped to article pages only. */
 :root {
   --bt-font-family: 'Inter', sans-serif;
-  --bt-type-body: 1.125rem;
-  --bt-type-body-mobile: 1.0625rem;
+  --bt-type-body: 1rem;
+  --bt-type-body-mobile: 1rem;
   --bt-type-lead: 1.1875rem;
   --bt-type-h1: clamp(2rem, 4vw, 2.75rem);
   --bt-type-h2: clamp(1.5rem, 2.5vw, 1.875rem);
@@ -33,9 +33,9 @@
 .article-featured figcaption { margin-top:9px; color:#94a3b8; font-size:12px; line-height:1.5; text-align:center; }
 .article-layout { display:grid; grid-template-columns:220px minmax(0,720px); justify-content:center; align-items:start; gap:clamp(28px,5vw,64px); }
 .article-toc { position:sticky; top:110px; padding:17px 16px; border:1px solid #e8edf3; border-radius:14px; background:#fbfcfe; }
-.article-toc-title { margin:0 0 12px; color:#334155; font-size:13px; font-weight:750; }
+.article-toc-title { margin:0 0 12px; color:#334155; font-size:14px; font-weight:750; }
 .article-toc ol,.article-toc-mobile ol { margin:0; padding-left:18px; color:#94a3b8; }
-.article-toc li,.article-toc-mobile li { padding:4px 0; font-size:12px; line-height:1.45; }
+.article-toc li,.article-toc-mobile li { padding:4px 0; font-size:13px; line-height:1.45; }
 .article-toc a,.article-toc-mobile a { color:#64748b; text-decoration:none; }
 .article-toc a:hover,.article-toc-mobile a:hover { color:#244a75; }
 .article-toc-mobile { display:none; }
@@ -74,7 +74,7 @@
  .article-layout { display:block; }
  .article-toc { display:none; }
  .article-toc-mobile { display:block; margin:0 0 24px; padding:13px 15px; border:1px solid #e2e8f0; border-radius:12px; background:#f8fafc; }
- .article-toc-mobile summary { display:flex; justify-content:space-between; align-items:center; color:#334155; font-size:13px; font-weight:700; cursor:pointer; list-style:none; }
+ .article-toc-mobile summary { display:flex; justify-content:space-between; align-items:center; color:#334155; font-size:14px; font-weight:700; cursor:pointer; list-style:none; }
  .article-toc-mobile summary::-webkit-details-marker { display:none; }
  .article-toc-mobile[open] summary { margin-bottom:10px; }
  .article-toc-mobile ol { padding-left:20px; }
