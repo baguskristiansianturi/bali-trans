@@ -1,23 +1,23 @@
-# 01 — Business & Service Data
+# 01 — Data Bisnis & Layanan
 
-**Status:** ACTIVE DISCOVERY — data is being collected incrementally.
+**Status:** PEMBAHASAN AKTIF — data dikumpulkan dan dilengkapi secara bertahap.
 
-This domain stores factual reference data used by service pages, articles, itineraries, recommendations, pricing logic and future application data.
+Kelompok ini menyimpan data faktual yang digunakan untuk halaman layanan, artikel, rencana perjalanan, rekomendasi, perhitungan harga, dan data aplikasi di masa depan.
 
-| Planned record | Status | Required coverage |
+| Dokumen yang direncanakan | Status | Cakupan yang dibutuhkan |
 |---|---|---|
-| [Service Master](../SERVICE-MASTER.md) | EXISTS — initial baseline | Service families and service types |
-| Fleet Master | DISCUSSION — initial facts captured | Vehicle make/model, class, seats, luggage, facilities, suitability, verification |
-| Service Detail Records | NOT STARTED | Individual service scope, process, duration, requirements |
-| Operating Area & Route Master | NOT STARTED | Pick-up zones, destinations, routes, distance and restrictions |
-| Service Inclusions & Exclusions | NOT STARTED | Included, optional, excluded and conditional items by service |
-| Destination Master | NOT STARTED | Location, access, attractions, timings, fees, facilities, source and verification |
-| Activity & Experience Master | NOT STARTED | Activity details, operators, duration, eligibility, safety and fees |
-| Accommodation/Area Reference | FUTURE / DISCUSSION | Relevant areas and accommodation reference information, if needed |
-| Pricing & Calculator Master | WAITING FOR DATA | Approved formulas, variables, surcharges, rounding and examples after calculator validation |
-| Payment Method Reference | NOT STARTED | Supported methods, currencies, processing and restrictions |
-| Media & Asset Register | NOT STARTED | Image/video ownership, source, license, usage rights and attribution |
+| [Master Layanan](../SERVICE-MASTER.md) | SUDAH ADA — dasar awal | Kelompok dan jenis layanan |
+| [Master Armada](./FLEET-MASTER.md) | PEMBAHASAN — data awal tercatat | Merek/model kendaraan, kelas, kursi, bagasi, fasilitas, kesesuaian, pemeriksaan |
+| Rincian Setiap Layanan | BELUM DIMULAI | Cakupan, proses, durasi, persyaratan tiap layanan |
+| Master Wilayah Operasional & Rute | BELUM DIMULAI | Area penjemputan, destinasi, rute, jarak, batas layanan |
+| Fasilitas yang Termasuk & Tidak Termasuk | BELUM DIMULAI | Fasilitas termasuk, pilihan tambahan, pengecualian, syarat tiap layanan |
+| Master Destinasi | BELUM DIMULAI | Lokasi, akses, daya tarik, jam, biaya, fasilitas, sumber, pemeriksaan |
+| Master Aktivitas & Pengalaman | BELUM DIMULAI | Rincian aktivitas, operator, durasi, persyaratan, keselamatan, biaya |
+| Referensi Akomodasi/Wilayah | MASA DEPAN / PEMBAHASAN | Informasi area dan akomodasi jika diperlukan |
+| Master Harga & Kalkulator | MENUNGGU DATA | Rumus yang disetujui, variabel, biaya tambahan, pembulatan, contoh setelah kalkulator divalidasi |
+| Referensi Metode Pembayaran | BELUM DIMULAI | Metode yang didukung, mata uang, proses, batasan |
+| Daftar Media & Aset | BELUM DIMULAI | Kepemilikan foto/video, sumber, lisensi, hak penggunaan, atribusi |
 
-**Pricing boundary:** do not create or publish tariff values from illustrative examples. The pricing master waits for the user's calculator logic and validated rates.
+**Batas harga:** jangan membuat atau mempublikasikan tarif dari contoh ilustrasi. Dokumen harga menunggu logika kalkulator dan tarif yang sudah divalidasi oleh Mas Bagus.
 
-**Data quality:** distinguish user-provided operational data, externally verified facts, estimates and recommendations.
+**Mutu data:** bedakan data operasional dari pengguna, fakta yang telah diperiksa dari sumber luar, perkiraan, dan rekomendasi.
