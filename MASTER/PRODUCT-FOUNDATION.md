@@ -167,7 +167,8 @@ Hal-hal berikut belum diputuskan sepenuhnya dan tidak boleh diasumsikan:
 
 | Tanggal | Perubahan | Status |
 |---|---|---|
-| 2026-11-01 | Mencatat arah pasar, posisi layanan, nilai pelayanan, dan fungsi website dari hasil diskusi | Dasar awal; persetujuan dan pengembangan dilakukan bertahap |\n| 2026-11-01 | Menambahkan arah strategis BDM Trans sebagai jendela Bali dan prinsip informasi yang akurat, nyaman, visual, kaya data, serta berguna untuk perencanaan wisatawan | Arah strategis dicatat dari penjelasan Mas Bagus |
+| 2026-11-01 | Mencatat arah pasar, posisi layanan, nilai pelayanan, dan fungsi website dari hasil diskusi | Dasar awal; persetujuan dan pengembangan dilakukan bertahap |
+| 2026-11-01 | Menambahkan arah strategis BDM Trans sebagai jendela Bali dan prinsip informasi yang akurat, nyaman, visual, kaya data, serta berguna untuk perencanaan wisatawan | Arah strategis dicatat dari penjelasan Mas Bagus |
 
 ---
 
