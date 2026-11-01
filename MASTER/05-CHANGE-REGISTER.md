@@ -114,4 +114,4 @@ Untuk setiap pembaruan Master, catat:
 - Mencatat cooking class, surfing lesson/school, dan pengalaman budaya/pembelajaran sebagai contoh aktivitas yang perlu diperiksa; contoh tersebut belum menjadi inventaris terverifikasi.
 - Memperbarui indeks Data, Katalog Master, Daftar Pekerjaan, dan protokol Mulai dari Sini agar strategi menjadi acuan kerja berikutnya.
 - Batas cakupan: dokumentasi Master saja. Tidak ada pencarian operator, SOP pelaksanaan penyedia, penetapan paket/tarif jual, atau perubahan website, desain, data runtime, maupun konfigurasi deployment.
-- Pemeriksaan: berkas yang diperbarui akan dibaca kembali dari GitHub dan commit terakhir diverifikasi.
+- Pemeriksaan: seluruh berkas yang diperbarui telah dibaca kembali dari GitHub; format Markdown dan keberadaan tautan utama diperiksa. Commit dokumentasi terakhir diverifikasi.
