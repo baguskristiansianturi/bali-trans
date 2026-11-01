@@ -1,132 +1,132 @@
-# Work Register — Bali Trans / BDM Trans
+# Daftar Pekerjaan — Bali Trans / BDM Trans
 
-> A living checklist of unfinished discovery, documentation and implementation-planning work. This register is intentionally not a rigid, sequential roadmap: topics may be revisited or explored in parallel, while unfinished items remain visible.
+> Daftar hidup untuk pembahasan, dokumentasi, dan perencanaan penerapan yang belum selesai. Daftar ini bukan peta jalan yang kaku dan berurutan: topik dapat dibuka kembali atau dibahas paralel, sementara pekerjaan yang belum selesai tetap terlihat.
 
-| Field | Record |
+| Keterangan | Catatan |
 |---|---|
-| Document ID | WR-001 |
-| Status | ACTIVE REGISTER |
-| First recorded | 2026-11-01 |
-| Last updated | 2026-11-01 |
+| ID Dokumen | WR-001 |
+| Status | DAFTAR AKTIF |
+| Pertama dicatat | 2026-11-01 |
+| Terakhir diperbarui | 2026-11-01 |
 
 ---
 
-## 1. Working Rules
+## 1. Aturan Pengelolaan Daftar
 
-- Add an item when a real follow-up action or unresolved task has been identified.
-- Keep ideas that are not yet approved in the Future Ideas Register, not as active work.
-- Use checkboxes and status notes to preserve unfinished work when the discussion moves to another topic.
-- Link each item to the Master document it affects.
-- Close an item only when the work is actually completed and verified.
-- A documentation task does not authorize website implementation.
-- GitHub Issues or Pull Requests may be used for work that needs assignment, review or code changes; this file remains the project-level overview.
+- Tambahkan pekerjaan ketika ditemukan tindak lanjut nyata atau pertanyaan yang belum terjawab.
+- Simpan gagasan yang belum disetujui di Daftar Ide Masa Depan, bukan sebagai pekerjaan aktif.
+- Gunakan kotak centang dan catatan status agar pekerjaan yang belum selesai tetap terlihat ketika topik pembahasan berubah.
+- Hubungkan setiap pekerjaan dengan dokumen Master yang terkait.
+- Tandai selesai hanya setelah pekerjaan benar-benar diselesaikan dan diperiksa.
+- Pekerjaan dokumentasi tidak otomatis memberi izin untuk mengubah website.
+- GitHub Issues atau Pull Requests dapat digunakan untuk pekerjaan yang memerlukan penugasan, peninjauan, atau perubahan kode. Berkas ini tetap menjadi ringkasan pekerjaan tingkat proyek.
 
-## 2. Product Discovery & Master Documentation
+## 2. Pembahasan Produk & Dokumentasi Master
 
-- [ ] Define the website's fundamental purpose and measurable business objectives. See [Product Foundation](./PRODUCT-FOUNDATION.md).
-- [ ] Validate priority geographic markets and customer segments.
-- [ ] Define detailed Muslim-friendly support standards and operational boundaries.
-- [ ] Define premium driver service standards, training, responsibilities and fair-compensation assumptions.
-- [ ] Validate pricing philosophy and commercial evidence; do not treat illustrative examples as tariffs.
-- [ ] Expand the Service Master with operating areas, inclusions, vehicle rules and booking requirements for each service.
-- [ ] Identify and define the next service categories, if any.
-- [ ] Continue Page Master discovery after the relevant service and product requirements are sufficiently understood.
+- [ ] Menentukan tujuan utama website dan sasaran bisnis yang dapat diukur. Lihat [Fondasi Produk](./PRODUCT-FOUNDATION.md).
+- [ ] Memvalidasi wilayah pasar prioritas dan kelompok pelanggan.
+- [ ] Merumuskan standar dukungan ramah Muslim dan batas operasionalnya.
+- [ ] Merumuskan standar layanan premium pengemudi, pelatihan, tanggung jawab, dan dasar kompensasi yang adil.
+- [ ] Memvalidasi prinsip harga dan bukti komersial; jangan menganggap contoh ilustrasi sebagai tarif.
+- [ ] Melengkapi Master Layanan dengan wilayah operasional, fasilitas, aturan kendaraan, dan persyaratan pemesanan tiap layanan.
+- [ ] Mengidentifikasi dan merumuskan kategori layanan berikutnya jika ada.
+- [ ] Melanjutkan pembahasan Master Halaman setelah kebutuhan produk dan layanan terkait cukup dipahami.
 
-## 3. Validation & Follow-up
+## 3. Validasi & Tindak Lanjut
 
-- [ ] Review whether the website's travel-resource role should have separate content objectives and success measures.
-- [ ] Define how public-facing Muslim-friendly claims and halal recommendations will be verified.
-- [ ] Confirm brand naming and timing for any public transition from Bali Trans to BDM Trans.
+- [ ] Menilai apakah fungsi website sebagai sumber informasi wisata perlu memiliki sasaran konten dan ukuran keberhasilan tersendiri.
+- [ ] Menentukan cara memverifikasi klaim ramah Muslim dan rekomendasi halal yang ditampilkan kepada publik.
+- [ ] Mengonfirmasi penamaan merek dan waktu peralihan publik dari Bali Trans ke BDM Trans.
 
-## 4. Parked Ideas
+## 4. Ide yang Ditunda
 
-Ideas not approved for implementation are kept out of the active checklist. See [Future Ideas](./FUTURE-IDEAS.md).
+Gagasan yang belum disetujui untuk diterapkan tidak dimasukkan ke daftar pekerjaan aktif. Lihat [Daftar Ide Masa Depan](./FUTURE-IDEAS.md).
 
-## 5. Change History
+## 5. Riwayat Perubahan
 
-| Date | Change | Status |
+| Tanggal | Perubahan | Status |
 |---|---|---|
-| 2026-11-01 | Created initial incremental work checklist from the first Master discussion | ACTIVE |
+| 2026-11-01 | Membuat daftar awal pembahasan dan tindak lanjut bertahap dari diskusi Master pertama | AKTIF |
 
 ---
 
-**Reminder:** An unfinished item remains visible even when the team changes topic. Do not interpret an unchecked box as a commitment to work on it immediately.
+**Pengingat:** Pekerjaan yang belum selesai tetap terlihat meskipun topik pembahasan berubah. Kotak yang belum dicentang bukan berarti pekerjaan tersebut harus langsung dikerjakan.
 
-## 6. Master Catalog & Missing Documents
+## 6. Katalog Master & Dokumen yang Belum Dibuat
 
-The [Master Catalog](./MASTER-CATALOG.md) is the authoritative inventory of both existing records and documentation needs that have been identified but not yet written. Check the relevant domain index before creating a new document to avoid duplicates.
+[Katalog Master](./MASTER-CATALOG.md) merupakan daftar acuan dokumen yang sudah ada maupun kebutuhan dokumentasi yang telah ditemukan tetapi belum ditulis. Periksa indeks kelompok terkait sebelum membuat dokumen baru agar tidak terjadi duplikasi.
 
-### Foundation & Brand
-- [ ] Company Profile & Brand Master — identity, brand story, values, voice and naming.
-- [ ] Business Objectives & KPIs — define the website's primary purpose and measurable outcomes.
-- [ ] Customer & Market Research — validate personas, market priorities and willingness to pay.
-- [ ] Brand Transition Plan — decide Bali Trans / BDM Trans transition requirements and timing.
+### Fondasi & Merek
+- [ ] Profil Perusahaan & Master Merek — identitas, cerita merek, nilai, karakter komunikasi, dan penamaan.
+- [ ] Sasaran Bisnis & Indikator Keberhasilan — tujuan utama website dan hasil yang dapat diukur.
+- [ ] Riset Pelanggan & Pasar — validasi profil pelanggan, prioritas pasar, dan kesediaan membayar.
+- [ ] Rencana Peralihan Merek — kebutuhan dan waktu peralihan Bali Trans/BDM Trans.
 
-### Business & Service Data
-- [ ] Fleet Master — resolve open questions and verify exact models, seat counts, luggage capacity and availability. See [Fleet Master](./01-DATA/FLEET-MASTER.md).
-- [ ] Service Detail Records — define scope and requirements for each service type.
-- [ ] Operating Area & Route Master.
-- [ ] Service Inclusions & Exclusions.
-- [ ] Destination Master — locations, access, facilities, fees, hours and sources.
-- [ ] Activity & Experience Master.
-- [ ] Pricing & Calculator Master — **WAITING FOR DATA**; populate only after the user's calculator logic and rates are ready.
-- [ ] Payment Method Reference.
-- [ ] Media & Asset Register — ownership, licenses and usage rights.
+### Data Bisnis & Layanan
+- [ ] Master Armada — selesaikan pertanyaan terbuka dan periksa model, jumlah kursi, bagasi, serta ketersediaan. Lihat [Master Armada](./01-DATA/FLEET-MASTER.md).
+- [ ] Rincian Setiap Layanan — cakupan dan persyaratan setiap jenis layanan.
+- [ ] Master Wilayah Operasional & Rute.
+- [ ] Fasilitas yang Termasuk & Tidak Termasuk.
+- [ ] Master Destinasi — lokasi, akses, fasilitas, biaya, jam operasional, dan sumber.
+- [ ] Master Aktivitas & Pengalaman.
+- [ ] Master Harga & Kalkulator — **MENUNGGU DATA**; isi setelah logika kalkulator dan tarif dari Mas Bagus tersedia.
+- [ ] Referensi Metode Pembayaran.
+- [ ] Daftar Media & Aset — kepemilikan, lisensi, dan hak penggunaan.
 
-### Rules & Policies
-- [ ] Operational Rules — service hours, waiting, delays, stops and overtime.
-- [ ] Driver Standards & SOP — responsibilities, training, conduct, work limits and compensation.
-- [ ] Safety & Emergency Standards.
-- [ ] Booking Rules.
-- [ ] Payment & Deposit Rules.
-- [ ] Cancellation & Refund Policy.
-- [ ] Waiting, Delay & Flight Monitoring Rules.
-- [ ] Customer Terms & Conditions.
-- [ ] Privacy & Data Handling Rules.
-- [ ] Muslim-Friendly Service Boundaries.
+### Aturan & Kebijakan
+- [ ] Aturan Operasional — jam layanan, waktu tunggu, keterlambatan, pemberhentian, dan tambahan waktu.
+- [ ] Standar Pengemudi & Prosedur Kerja — tanggung jawab, pelatihan, perilaku, batas kerja, dan kompensasi.
+- [ ] Standar Keselamatan & Keadaan Darurat.
+- [ ] Aturan Pemesanan.
+- [ ] Aturan Pembayaran & Uang Muka.
+- [ ] Kebijakan Pembatalan & Pengembalian Dana.
+- [ ] Aturan Waktu Tunggu, Keterlambatan & Pemantauan Penerbangan.
+- [ ] Syarat & Ketentuan Pelanggan.
+- [ ] Aturan Privasi & Pengelolaan Data.
+- [ ] Batas Layanan Ramah Muslim.
 
-### Content & Editorial
-- [ ] Content Strategy.
-- [ ] Editorial & Writing Guidelines.
-- [ ] Article & Destination Guide Template.
-- [ ] Travel Trends Research Standard.
-- [ ] SEO & Search Intent Guidelines.
-- [ ] Content Fact-Checking & Publication Checklist.
-- [ ] Multilingual Content Rules.
-- [ ] Muslim-Friendly Editorial Guidelines.
-- [ ] Social Media & Campaign Guidelines.
+### Konten & Editorial
+- [ ] Strategi Konten.
+- [ ] Panduan Editorial & Penulisan.
+- [ ] Pola Artikel & Panduan Destinasi.
+- [ ] Standar Riset Tren Wisata.
+- [ ] Panduan SEO & Tujuan Pencarian.
+- [ ] Daftar Periksa Fakta & Publikasi Konten.
+- [ ] Aturan Konten Multibahasa.
+- [ ] Panduan Editorial Ramah Muslim.
+- [ ] Panduan Media Sosial & Kampanye.
 
-### Customer Experience
-- [ ] Customer Personas & Needs.
-- [ ] Customer Journey Map.
-- [ ] Enquiry & Sales Conversation Flow.
-- [ ] Booking Journey.
-- [ ] Customer Support Standards.
-- [ ] Service Recovery & Incident Handling.
-- [ ] Feedback, Reviews & Reputation.
-- [ ] Accessibility & Special Requests.
+### Pengalaman Pelanggan
+- [ ] Profil & Kebutuhan Pelanggan.
+- [ ] Peta Perjalanan Pelanggan.
+- [ ] Alur Pertanyaan & Penjualan.
+- [ ] Alur Pemesanan.
+- [ ] Standar Bantuan Pelanggan.
+- [ ] Pemulihan Layanan & Penanganan Insiden.
+- [ ] Masukan, Ulasan & Reputasi.
+- [ ] Aksesibilitas & Permintaan Khusus.
 
-### Website & Technology
-- [ ] Page & Route Architecture.
-- [ ] Content Architecture and content types.
-- [ ] User Flow & Interaction Architecture.
-- [ ] Component & Template Contracts.
-- [ ] Design System audit and approved specification.
-- [ ] Data Model & Content Schema.
-- [ ] Pricing Engine Technical Specification — waiting for approved pricing logic.
-- [ ] Localization & Currency Architecture.
-- [ ] Integrations & External Services.
-- [ ] Security, Privacy & Permissions.
-- [ ] Testing & Quality Assurance.
+### Website & Teknologi
+- [ ] Arsitektur Halaman & Alamat Halaman.
+- [ ] Arsitektur Konten dan jenis konten.
+- [ ] Arsitektur Alur Pengguna & Interaksi.
+- [ ] Kontrak Komponen & Pola Halaman.
+- [ ] Pemeriksaan Sistem Desain dan spesifikasi yang disetujui.
+- [ ] Model Data & Skema Konten.
+- [ ] Spesifikasi Teknis Mesin Harga — menunggu logika harga yang disetujui.
+- [ ] Arsitektur Bahasa & Mata Uang.
+- [ ] Integrasi & Layanan Eksternal.
+- [ ] Keamanan, Privasi & Hak Akses.
+- [ ] Pengujian & Jaminan Mutu.
 
-### Governance & Sources
-- [ ] Master Data Source Policy.
-- [ ] Fact Verification & Review Policy.
-- [ ] Content Claim & Publication Approval.
-- [ ] Data Freshness Register.
-- [ ] Privacy & Sensitive Information Classification.
-- [ ] Document Ownership & Change Control.
-- [ ] Legal & Regulatory Reference Register.
-- [ ] Incident / Correction Log.
+### Tata Kelola & Sumber Informasi
+- [ ] Kebijakan Sumber Data Master.
+- [ ] Kebijakan Pemeriksaan & Peninjauan Fakta.
+- [ ] Persetujuan Klaim Konten & Publikasi.
+- [ ] Daftar Kesegaran Data.
+- [ ] Klasifikasi Privasi & Informasi Sensitif.
+- [ ] Kepemilikan Dokumen & Pengendalian Perubahan.
+- [ ] Daftar Referensi Hukum & Peraturan.
+- [ ] Catatan Insiden & Koreksi.
 
-**Reminder:** this checklist is a discovery inventory, not a demand to complete every item in order. Add, split, defer or remove entries as the project becomes clearer. When Mas Bagus raises a new documentation need, register it even if its contents are not yet available.
+**Pengingat:** daftar ini merupakan inventaris kebutuhan pembahasan, bukan kewajiban untuk menyelesaikan semuanya secara berurutan. Tambahkan, pecah, tunda, atau hapus butir sesuai perkembangan proyek. Ketika Mas Bagus menyampaikan kebutuhan dokumentasi baru, catat kebutuhannya meskipun isi dokumennya belum tersedia.
