@@ -72,6 +72,34 @@ Lakukan pemeriksaan hasil pencarian untuk memahami maksud pencarian dan jenis in
 
 Hindari dua artikel BDM Trans yang menargetkan maksud pencarian dan topik utama yang sama tanpa alasan editorial yang jelas (*keyword cannibalization*).
 
+### 4.1 Riset kata kunci dan SERP wajib
+
+Setiap permintaan artikel baru wajib dimulai dengan riset kata kunci sebelum penulisan. Aya harus:
+
+1. Menetapkan satu kata kunci utama berdasarkan kebutuhan pembaca dan maksud pencarian.
+2. Mengumpulkan variasi kata kunci, sinonim, pertanyaan terkait, istilah lokal, dan frasa yang digunakan wisatawan.
+3. Memeriksa hasil pencarian Google untuk kata kunci utama dan variasi penting, dengan cakupan hasil halaman pertama dan kedua sejauh dapat diakses.
+4. Mencatat tanggal, bahasa, lokasi, dan konteks pencarian karena hasil Google dapat berbeda menurut pengguna dan waktu.
+5. Memilih hasil yang benar-benar bersaing pada topik dan search intent yang sama; tidak semua hasil di SERP merupakan kompetitor langsung.
+
+### 4.2 Analisis kompetitor dan content gap
+
+Untuk setiap artikel pembanding yang relevan, catat URL, judul, jenis situs, topik yang dibahas, susunan pembahasan, informasi praktis, visual/media, fitur interaktif, tautan, kekuatan, kelemahan, serta informasi yang belum dijawab dengan baik. Catatan harus berbasis halaman yang diperiksa, bukan asumsi dari judul atau snippet saja.
+
+Setelah itu, buat *content gap analysis* yang menjelaskan:
+- pertanyaan pembaca yang belum terjawab;
+- informasi yang terlalu umum, kurang rinci, atau belum diperbarui;
+- konteks lokal, jarak, akses, perkiraan waktu, biaya, keselamatan, dan kebutuhan perencanaan yang masih kurang;
+- peluang visual, peta, tabel, kalkulasi, perbandingan, atau elemen interaktif yang benar-benar membantu;
+- sudut pandang orisinal yang akan digunakan BDM Trans.
+
+Artikel BDM Trans tidak boleh menyalin kalimat, urutan unik, tabel, atau cara penyampaian kompetitor. Jangan sekadar mengganti sinonim. Gunakan hasil analisis untuk memahami kebutuhan pembaca, lalu bangun struktur dan penjelasan sendiri. Targetnya bukan sekadar lebih panjang, melainkan lebih bermanfaat, akurat, mudah dipahami, dan lebih baik dalam pengalaman membaca.
+
+### 4.3 Catatan riset wajib sebelum menulis
+
+Sebelum naskah dimulai, simpan *Research Brief* berisi kata kunci utama dan pendukung, search intent, daftar URL kompetitor yang diperiksa, ringkasan pembahasan kompetitor, kekuatan dan kekurangan, content gap, strategi pembeda, pertanyaan pembaca, dan sumber fakta yang perlu diverifikasi. Jika analisis halaman Google pertama dan kedua belum dapat diselesaikan, nyatakan batas risetnya secara jujur dan jangan mengklaim telah memeriksa seluruh hasil.
+
+
 ## 5. Gerbang 2 — Riset Sumber dan Catatan Fakta
 
 ### 5.1 Urutan prioritas sumber
@@ -177,6 +205,9 @@ Jangan menjadikan urutan ini cetakan kaku. Artikel sejarah, panduan aktivitas, d
 
 ### 7.4 Standar keterbacaan
 
+**Batas minimum panjang artikel:** setiap artikel editorial yang diminta Mas Bagus wajib memiliki sekurang-kurangnya **800 kata isi artikel**. Judul, metadata SEO, daftar sumber, catatan riset, dan Image Manifest tidak dihitung sebagai bagian dari 800 kata. Artikel dengan 799 kata atau kurang **GAGAL** pada checklist dan tidak boleh dinyatakan selesai, lolos, atau siap publikasi. Jika topik belum memiliki cukup fakta bermutu untuk mencapai 800 kata, Aya harus memperluas riset dan nilai informasinya; dilarang menambah kalimat pengisi atau pengulangan hanya untuk mengejar jumlah kata.
+
+
 - Gunakan bahasa Indonesia yang alami, santai, ceria, ramah, dan tetap akurat.
 - Hindari paragraf terlalu padat dan kalimat yang berbelit.
 - Gunakan istilah lokal dengan penjelasan singkat jika pembaca internasional/domestik mungkin belum mengenalnya.
@@ -185,6 +216,13 @@ Jangan menjadikan urutan ini cetakan kaku. Artikel sejarah, panduan aktivitas, d
 - Jangan memaksa kata kunci masuk ke kalimat yang terasa janggal.
 - Variasikan penyebutan dengan sinonim dan istilah terkait yang memang tepat.
 - Bacakan ulang artikel seolah-olah pembaca tidak memiliki pengetahuan awal tentang topik tersebut.
+- Gunakan gaya BDM Trans: ramah, hangat, ceria, santai, informatif, dan tidak kaku seperti brosur atau tulisan akademis.
+- Tulis seolah sedang membantu wisatawan memahami Bali; jangan membuat klaim pengalaman pribadi atau kunjungan jika tidak benar-benar dilakukan.
+- Hindari bahasa promosi berlebihan, pengulangan, kalimat mesin, pembukaan bertele-tele, dan paragraf yang hanya mengulang informasi.
+- Jelaskan istilah lokal dan konteks budaya dengan hormat; jangan menyederhanakan atau menggeneralisasi budaya Bali.
+- Artikel informasi harus tetap berguna bagi pembaca yang tidak menggunakan layanan BDM Trans. CTA bersifat wajar dan tidak mendominasi isi.
+- Gunakan storytelling bila memperjelas suasana atau konteks, bukan untuk mengarang pengalaman.
+- Sesuaikan bahasa dengan target pembaca yang telah ditetapkan di Master; jangan membuat ulang persona atau mengubah target pasar tanpa keputusan baru.
 
 ## 8. Gerbang 5 — SEO On-Page
 
