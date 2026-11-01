@@ -360,12 +360,14 @@ Bagian ini adalah daftar gabungan kerja kategori **Beach**: entri dari tabel Bal
 | Pabean Beach | Beach | Bali Timur | Gianyar |
 | Ketewel Beach | Beach | Bali Timur | Gianyar |
 | Kusamba Beach | Beach | Bali Timur | Klungkung daratan |
+| Timrah Beach | Beach | Bali Timur | Nama tercantum pada dokumen perencanaan daerah; perlu pemeriksaan titik lokasi |
 | Watu Klotok Beach | Beach | Bali Timur | Klungkung daratan |
 | Goa Lawah Beach | Beach | Bali Timur | Klungkung daratan; nama destinasi perlu dibedakan dari Pura Goa Lawah |
 | Jumpai Beach | Beach | Bali Timur | Klungkung daratan |
 | Monggalan Beach | Beach | Bali Timur | Klungkung daratan |
 | Batu Tumpeng Beach | Beach | Bali Timur | Klungkung daratan |
 | Yeh Malet Beach | Beach | Bali Timur | Perlu pemeriksaan posisi tepat dan ejaan |
+| Belatung Beach | Beach | Bali Timur | Kawasan Manggis, Karangasem; perlu validasi nama baku dan akses |
 | Candidasa Beach | Beach | Bali Timur | — |
 | Virgin Beach | Beach | Bali Timur | Alias: Pantai Perasi, Pasir Putih Beach, White Sand Beach; satu entri destinasi, bukan beberapa pantai |
 | Jasri Beach | Beach | Bali Timur | Karangasem |
@@ -538,6 +540,8 @@ Sumber utama yang digunakan untuk perluasan kategori pantai:
 4. [Dinas Pariwisata Provinsi Bali — daftar daya tarik wisata Jembrana](https://disparda.baliprov.go.id/jembrana).
 5. [Pemerintah Kabupaten Jembrana — Profil Kabupaten Jembrana](https://satudata.jembranakab.go.id/upload/20260121Profil2021.pdf).
 6. [Pemerintah Kabupaten Klungkung — Perda 2024](https://jdih.klungkungkab.go.id/storage/produk-hukum/peraturan-perundang-undangan/2024/perda/2024perda5105003.pdf).
+14. [Pemerintah Provinsi Bali — Peraturan Daerah tentang Rencana Tata Ruang Wilayah (daftar daya tarik wisata)](https://jdih.baliprov.go.id/uploads/produk-hukum/peraturan/2015/perda/2015pd0051010.pdf).
+15. [Katalog Wisata Tangguh Bencana Provinsi Bali — data objek wisata Klungkung](https://api2.kemenparekraf.go.id/storage/app/uploads/public/632/96f/a1f/63296fa1f1114224146917.pdf).
 7. [Pemerintah Kabupaten Klungkung — RKPD 2021](https://klungkungkab.go.id/bankdata/file/RKPD_2021_Final.pdf).
 8. [Bali.com — Beaches and Coastlines halaman 1](https://bali.com/places/category/beaches-coastlines/), [halaman 2](https://bali.com/places/category/beaches-coastlines/page/2/), dan [halaman 3](https://bali.com/places/category/beaches-coastlines/page/3/).
 9. [Visit Bali — daftar pantai berdasarkan wilayah](https://visitbali.com/beaches).
