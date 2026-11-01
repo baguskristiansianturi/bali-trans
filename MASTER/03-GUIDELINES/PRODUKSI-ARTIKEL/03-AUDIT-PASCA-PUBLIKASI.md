@@ -1,7 +1,7 @@
 # SOP Audit — Audit Setelah Publikasi Artikel
 
 > **Status:** DRAF — gerbang audit dan persetujuan akhir  
-> **Versi:** 0.1  
+> **Versi:** 0.2  
 > **Berlaku untuk:** artikel yang sudah berhasil diterbitkan dan dapat dibuka melalui GitHub Pages.
 
 ## 1. Gerbang masuk
@@ -105,3 +105,11 @@ Ruang lingkup target perlu menyatukan:
 Deployment berhasil, lolos tes otomatis, terindeks mesin pencari, dan disetujui secara visual adalah status yang berbeda. Jangan menyamakan satu status dengan status lainnya. Jangan mengklaim orisinalitas mutlak atau menjanjikan ranking.
 
 Lihat [Rencana Restrukturisasi Empat SOP](./00-RENCANA-RESTRUKTURISASI.md) dan [Product & Experience Master](../../PRODUCT-EXPERIENCE-MASTER.md).
+
+
+## Riwayat versi
+
+| Versi | Tanggal | Perubahan | Status |
+|---|---|---|---|
+| 0.1 | 2026-11-01 | Draft awal audit pascapublikasi | DRAF |
+| 0.2 | 2026-11-01 | Memperluas arah SOP menjadi audit, publikasi, dan evaluasi berbasis data pada struktur target empat tahap | ARAH DISETUJUI — DETAIL PERLU DIKEMBANGKAN |
