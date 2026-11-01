@@ -49,41 +49,60 @@ function renderRelatedBlogGuides(blog) {
 
         /* VIEW 5: BLOG READ DETAIL */
         function renderBlogDetailView(blog) {
-            const blogIndex = BALI_BLOGS.findIndex(item => item.id === blog.id);
-            const previousBlog = blogIndex > 0 ? BALI_BLOGS[blogIndex - 1] : null;
-            const nextBlog = blogIndex >= 0 && blogIndex < BALI_BLOGS.length - 1 ? BALI_BLOGS[blogIndex + 1] : null;
-            const articleNavigation = (item, label, direction) => item ? `
-                <button type="button" onclick="navigateTo('blog-read', '${item.id}')" class="group w-full min-w-0 text-left rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 hover:border-teal-300 hover:bg-teal-50/40 transition">
-                    <span class="block text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-2">${label}</span>
-                    <span class="flex items-start gap-2 text-sm font-extrabold leading-snug text-slate-800 group-hover:text-bali-orange">${direction === 'previous' ? '<i class="fas fa-arrow-left mt-1 shrink-0"></i>' : ''}<span class="min-w-0">${item.title}</span>${direction === 'next' ? '<i class="fas fa-arrow-right mt-1 shrink-0"></i>' : ''}</span>
-                </button>` : '<div class="hidden sm:block"></div>';
+            const escapeHtml = value => String(value || '').replace(/[&<>"]/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[character]));
+            const rawContent = String(blog.content || '');
+            const headings = [...rawContent.matchAll(/<h2\\b[^>]*>([\\s\\S]*?)<\\/h2>/gi)].map(match => ({
+                text: match[1].replace(/<[^>]*>/g, '').replace(/&amp;/g, '&').trim()
+            }));
+            const headingIds = new Map();
+            const articleContent = rawContent.replace(/<h2\\b([^>]*)>([\\s\\S]*?)<\\/h2>/gi, (match, attrs, inner) => {
+                const label = inner.replace(/<[^>]*>/g, '').replace(/&amp;/g, '&').trim();
+                const base = label.toLowerCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'bagian-artikel';
+                const count = (headingIds.get(base) || 0) + 1;
+                headingIds.set(base, count);
+                const id = count > 1 ? base + '-' + count : base;
+                return '<h2 id="' + id + '">' + inner + '</h2>';
+            });
+            const toc = [...articleContent.matchAll(/<h2\\b[^>]*id="([^"]+)"[^>]*>([\\s\\S]*?)<\\/h2>/gi)].map(match => ({
+                id: match[1], text: match[2].replace(/<[^>]*>/g, '').trim()
+            }));
+            const tocMarkup = toc.length >= 5 ? '<nav class="article-toc" aria-label="Daftar isi"><p class="article-toc-title">Dalam panduan ini</p><ol>' + toc.map(item => '<li><a href="#' + escapeHtml(item.id) + '">' + escapeHtml(item.text) + '</a></li>').join('') + '</ol></nav>' : '';
+            const mobileToc = toc.length >= 5 ? '<details class="article-toc-mobile"><summary>Daftar isi artikel <span aria-hidden="true">＋</span></summary><ol>' + toc.map(item => '<li><a href="#' + escapeHtml(item.id) + '">' + escapeHtml(item.text) + '</a></li>').join('') + '</ol></details>' : '';
+            const featured = '<figure class="article-featured"><img src="' + escapeHtml(blog.image) + '" alt="' + escapeHtml(blog.imageAlt || blog.title) + '" loading="' + escapeHtml(blog.imageLoading || 'lazy') + '" fetchpriority="' + (blog.imageLoading === 'eager' ? 'high' : 'auto') + '" width="1200" height="675"><figcaption>' + escapeHtml(blog.imageAlt || blog.title) + '</figcaption></figure>';
             return `
-                <article lang="${blog.lang || 'en'}" class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
-                    <button type="button" onclick="navigateTo('blog')" class="text-xs font-bold text-slate-500 hover:text-slate-900 mb-6 flex items-center gap-2">
-                        <i class="fas fa-arrow-left"></i> Back to Travel Guides
-                    </button>
-                    <div class="flex flex-wrap items-center gap-2"><span class="inline-flex bg-orange-100 text-bali-orange text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">${blog.region || blog.category}</span>${blog.location ? `<span class="text-xs font-bold text-slate-500">${blog.location}</span>` : ""}</div>
-                    <h1 class="text-3xl sm:text-4xl font-black text-slate-900 mt-3 mb-4 leading-tight">${blog.title}</h1>
-                    <p class="text-base sm:text-lg leading-relaxed text-slate-600 mb-5">${blog.snippet || ''}</p>
-                    <div class="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs text-slate-500 mb-6 pb-6 border-b border-slate-200">
-                        <time datetime="${blog.dateISO || ''}">Published ${blog.date}</time>
-                        <span aria-hidden="true">•</span>
-                        <span>${blog.readTime}</span>
-                    </div>
-                    <img src="${blog.image}" alt="${(blog.imageAlt || blog.title).replace(/&/g, '&amp;').replace(/"/g, '&quot;')}" class="w-full h-56 sm:h-80 md:h-[380px] object-cover rounded-3xl mb-8 shadow-md" loading="${blog.imageLoading || 'lazy'}" fetchpriority="${blog.imageLoading === 'eager' ? 'high' : 'auto'}" width="1200" height="640">
-                    <div class="prose max-w-none text-slate-700 text-sm sm:text-base leading-relaxed space-y-4">
-                        ${blog.content}
-                    </div>
-                    ${renderRelatedBlogGuides(blog)}
-                    ${renderArticleSources(blog.sources)}
-                    <nav aria-label="Article navigation" class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-10 pt-7 border-t border-slate-200">
-                        ${articleNavigation(previousBlog, 'Previous article', 'previous')}
-                        ${articleNavigation(nextBlog, 'Next article', 'next')}
-                    </nav>
-                    <div class="mt-6 text-center">
-                        <button type="button" onclick="navigateTo('blog')" class="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50">
-                            View all travel guides <i class="fas fa-arrow-right"></i>
-                        </button>
+                <article lang="${blog.lang || 'id'}" class="article-detail-page">
+                    <div class="article-detail-shell">
+                        <nav class="article-breadcrumb" aria-label="Breadcrumb">
+                            <a href="#" onclick="navigateTo('home');return false">Beranda</a><span aria-hidden="true">/</span>
+                            <a href="#" onclick="navigateTo('blog');return false">Travel Guides</a><span aria-hidden="true">/</span>
+                            <span aria-current="page">${escapeHtml(blog.title)}</span>
+                        </nav>
+                        <header class="article-header">
+                            <div class="article-eyebrow"><span>${escapeHtml(blog.category || 'Panduan Wisata')}</span><span class="article-location">${escapeHtml(blog.location || blog.region || '')}</span></div>
+                            <h1>${escapeHtml(blog.title)}</h1>
+                            <p class="article-dek">${escapeHtml(blog.snippet || '')}</p>
+                            <div class="article-byline">
+                                <span class="article-author-mark" aria-hidden="true">BT</span>
+                                <span class="article-author"><strong>${escapeHtml(blog.author || 'Bali Trans Editorial Team')}</strong><small>Tim editorial Bali Trans</small></span>
+                                <span class="article-meta-divider" aria-hidden="true"></span>
+                                <time datetime="${escapeHtml(blog.dateISO || '')}">${escapeHtml(blog.date || '')}</time>
+                                <span class="article-meta-divider" aria-hidden="true"></span>
+                                <span>${escapeHtml(blog.readTime || '')}</span>
+                            </div>
+                        </header>
+                        ${featured}
+                        ${mobileToc}
+                        <div class="article-layout">
+                            ${tocMarkup}
+                            <div class="article-reading">
+                                ${articleContent}
+                                <p class="article-ending">Semoga panduan ini membantu merencanakan kunjungan yang lebih nyaman. Nikmati Pantai Kuta sesuai ritme perjalananmu dan selalu perhatikan kondisi pantai saat berada di sana.</p>
+                            </div>
+                        </div>
+                        <section class="article-topic-tags" aria-label="Topik artikel"><span>Topik</span><a href="#" onclick="navigateTo('blog');return false">Pantai Bali</a><a href="#" onclick="navigateTo('blog');return false">Wisata Bali</a><a href="#" onclick="navigateTo('blog');return false">Bali Selatan</a></section>
+                        ${renderArticleSources(blog.sources)}
+                        ${renderRelatedBlogGuides(blog)}
+                        <div class="article-back-link"><button type="button" onclick="navigateTo('blog')"><i class="fas fa-arrow-left" aria-hidden="true"></i> Kembali ke semua panduan</button></div>
                     </div>
                 </article>
             `;
