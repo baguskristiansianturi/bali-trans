@@ -8,6 +8,7 @@ Kelompok ini menyimpan data faktual yang digunakan untuk halaman layanan, artike
 |---|---|---|
 | [Master Layanan](../SERVICE-MASTER.md) | SUDAH ADA — dasar awal | Kelompok dan jenis layanan |
 | [Master Armada](./FLEET-MASTER.md) | PEMBAHASAN — data awal tercatat | Merek/model kendaraan, kelas, kursi, bagasi, fasilitas, kesesuaian, pemeriksaan |
+| [Master Destinasi Bali](./DESTINATION-MASTER.md) | INVENTARIS AWAL — perlu peninjauan | Nama destinasi dari sumber acuan, kategori baku, wilayah luas, label karakteristik, penanda kurasi, catatan koreksi dan sumber |
 | Rincian Setiap Layanan | BELUM DIMULAI | Cakupan, proses, durasi, persyaratan tiap layanan |
 | Master Wilayah Operasional & Rute | BELUM DIMULAI | Area penjemputan, destinasi, rute, jarak, batas layanan |
 | Fasilitas yang Termasuk & Tidak Termasuk | BELUM DIMULAI | Fasilitas termasuk, pilihan tambahan, pengecualian, syarat tiap layanan |
