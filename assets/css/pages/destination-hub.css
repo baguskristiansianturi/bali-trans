@@ -18,7 +18,7 @@
 .destination-hub__description{max-width:720px;margin:13px 0 0;color:#607386;font-size:15px;line-height:1.75}
 .destination-hub__island-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:17px}
 .destination-hub__island-tags span{border:1px solid #dce6ed;border-radius:999px;background:#f6f9fb;padding:6px 11px;color:#587187;font-size:11px;font-weight:700}
-.destination-hub__filter-wrap{position:sticky;top:0;z-index:30;border-top:1px solid #e8eef2;border-bottom:1px solid #e2eaf0;background:rgba(255,255,255,.97);box-shadow:0 5px 16px rgba(22,49,72,.045);backdrop-filter:blur(12px)}
+.destination-hub__filter-wrap{position:sticky;top:78px;z-index:30;border-top:1px solid #e8eef2;border-bottom:1px solid #e2eaf0;background:rgba(255,255,255,.97);box-shadow:0 5px 16px rgba(22,49,72,.045);backdrop-filter:blur(12px)}
 .destination-hub__filters{display:flex;gap:8px;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;padding-top:11px;padding-bottom:11px}
 .destination-hub__filters::-webkit-scrollbar{display:none}
 .destination-hub__filter{flex:0 0 auto;display:inline-flex;align-items:center;gap:8px;min-height:40px;border:1px solid #dce5ec;border-radius:999px;background:#fff;padding:0 13px;color:#536a7e;font:inherit;font-size:12px;font-weight:700;white-space:nowrap;cursor:pointer;transition:background .18s,border-color .18s,color .18s}
@@ -70,7 +70,7 @@
  .destination-hub__heading h1{font-size:30px}
  .destination-hub__description{margin-top:10px;font-size:13px;line-height:1.7}
  .destination-hub__island-tags{margin-top:13px}
- .destination-hub__filter-wrap{top:0}
+ .destination-hub__filter-wrap{top:60px}
  .destination-hub__filters{width:100%;padding:9px 16px;gap:7px}
  .destination-hub__filter{min-height:39px;padding:0 11px;font-size:11px}
  .destination-hub__main{padding-top:26px;padding-bottom:48px}
