@@ -81,3 +81,14 @@ Untuk setiap pembaruan Master, catat:
 - Memperbarui Daftar Pekerjaan untuk melanjutkan audit nama, alias, dan wilayah.
 - Cakupan: dokumentasi Master saja. Tidak ada perubahan kode website, tampilan, fitur, data runtime, atau konfigurasi penerapan.
 - Commit dokumen destinasi: `fcf7a17c83b9371549f2b89b2636dadf799b697e`.
+
+
+### 2026-11-01 — Perluasan Inventaris Waterfall, Mountain, dan Lake
+
+- Memperluas [Master Destinasi Bali](./01-DATA/DESTINATION-MASTER.md) dengan inventaris kategori Waterfall, Mountain, dan Lake.
+- Waterfall dikelompokkan menurut wilayah wisata luas dan mencatat hubungan kompleks/alias yang perlu diperiksa.
+- Mountain diperluas menggunakan data statistik gunung menurut kabupaten/kota serta daftar puncak yang ditemukan pada sumber destinasi/pendakian. Status jalur dan kelayakan aktivitas tidak dianggap otomatis.
+- Lake mencatat empat danau utama yang disebut dalam sumber pemerintah: Batur, Beratan, Buyan, dan Tamblingan. Waduk, embung, dan kolam alami dibedakan.
+- Nama yang belum pasti ditandai perlu validasi; inventaris bukan pernyataan bahwa seluruh tempat dapat dikunjungi atau dijual sebagai aktivitas.
+- Memperbarui Katalog Master dan Daftar Pekerjaan.
+- Cakupan: dokumentasi Master saja. Tidak ada perubahan kode website, tampilan, fitur, data runtime, atau konfigurasi penerapan.
