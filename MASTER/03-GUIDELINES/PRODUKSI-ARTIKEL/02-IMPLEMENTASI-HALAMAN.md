@@ -241,3 +241,21 @@ Setiap kali Mas Bagus mengarahkan perubahan:
 |---|---|---|---|
 | 0.1 | 2026-11-01 | Snapshot awal struktur artikel Pantai Kuta, urutan section, interaksi, taxonomy, dan klasifikasi komponen | BASELINE SEMENTARA |
 | 0.2 | 2026-11-01 | Analisis lebih rinci token/ukuran visual, FAQ, layout responsif, kepemilikan CSS, modularisasi global/shared/custom, dan aturan pencegahan collision | BASELINE SEMENTARA — MENUNGGU TINJAUAN MAS BAGUS |
+
+## 11. Arah Pengembangan SOP — Acuan Master Produk dan Rencana Implementasi
+
+**Arah yang disepakati pada 2026-11-01:** dalam struktur target empat tahap, dokumen ini menjadi **SOP 03 — Implementasi Halaman**.
+
+Sebelum coding, tahap implementasi perlu menambahkan *Implementation Plan* yang mencatat:
+- brief dan naskah yang sudah disetujui;
+- jenis halaman dan pola yang sesuai;
+- bagian global, shared, page-specific, serta pengecualian;
+- file data, renderer, CSS, navigasi, metadata, dan aset yang diperkirakan terdampak;
+- hubungan dengan Business/Plan Master;
+- standar visual, bahasa antarmuka, layout, komponen, motion, responsive, aksesibilitas dari Product & Experience Master setelah standar tersebut disetujui;
+- Technical Master dan aturan kepemilikan modul;
+- risiko regresi, rencana pengujian, dan titik pemulihan.
+
+Jangan mengisi detail visual dengan tebakan. Jika Product & Experience Master belum menetapkan standar tertentu, tandai sebagai belum ditetapkan dan minta arahan bila keputusan itu memengaruhi hasil.
+
+Lihat [Rencana Restrukturisasi Empat SOP](./00-RENCANA-RESTRUKTURISASI.md), [Business/Plan Master](../../BUSINESS-PLAN-MASTER.md), dan [Product & Experience Master](../../PRODUCT-EXPERIENCE-MASTER.md).
