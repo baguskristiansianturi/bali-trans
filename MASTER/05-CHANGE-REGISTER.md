@@ -1,54 +1,60 @@
-# 05 — Master Change Register
+# 05 — Daftar Perubahan Master
 
-This register records changes to the Master Blueprint itself and links them to the implementation commit they describe.
+Daftar ini mencatat perubahan pada Cetak Biru Master dan menghubungkannya dengan commit penerapan jika perubahan kode juga dilakukan.
 
-It is not a backlog and must not contain experimental code or unapproved implementation tasks.
+Daftar ini bukan tempat menyimpan pekerjaan tertunda dan tidak boleh berisi kode percobaan atau tugas penerapan yang belum disetujui.
 
-## Entry format
+## Format Catatan Perubahan
 
-For every master update, record:
-- Date.
-- Component or page module.
-- Master document changed.
-- Previous status/version.
-- New status/version.
-- Reason and explicit owner instruction.
-- Implementation commit (if code changed).
-- Verification performed.
-- Deployment status when the website implementation changed.
+Untuk setiap pembaruan Master, catat:
+- Tanggal.
+- Komponen atau kelompok halaman yang terdampak.
+- Dokumen Master yang diubah.
+- Status/versi sebelumnya.
+- Status/versi terbaru.
+- Alasan dan instruksi yang menjadi dasar perubahan.
+- Commit penerapan jika kode ikut berubah.
+- Pemeriksaan yang dilakukan.
+- Status penerapan website jika kode website berubah.
 
-## Initial entry
+## Catatan Awal
 
-### 2026-11-01 — Initial Master Blueprint inventory
+### 2026-11-01 — Inventaris Awal Cetak Biru Master
 
-- Created the `MASTER/` documentation folder.
-- Recorded the existing SPA and standalone-page delivery patterns.
-- Mapped shared header, footer, mobile bottom navigation, search, locale, account, breadcrumb/hero and shared booking form at an initial level.
-- Recorded page families and technical source ownership from the current repository structure and existing architecture documentation.
-- Recorded known exceptions and unresolved mapping gaps.
-- No HTML, CSS, JavaScript, data, assets, routes or runtime behaviour changed.
-- Baseline implementation snapshot: `a8d4282293d98923ecf160f52d95fe6168dd905d`.
-- Verification: repository tree and referenced source/documentation inspected; no live UI change was part of this documentation-only update.
+- Membuat folder dokumentasi `MASTER/`.
+- Mencatat pola penerapan SPA dan halaman mandiri yang sudah ada.
+- Memetakan header, footer, navigasi bawah perangkat seluler, pencarian, bahasa dan mata uang, akun, breadcrumb/hero, serta formulir pemesanan bersama pada tingkat awal.
+- Mencatat kelompok halaman dan kepemilikan sumber teknis berdasarkan struktur repository dan dokumentasi arsitektur yang tersedia.
+- Mencatat pengecualian yang diketahui dan bagian pemetaan yang masih belum jelas.
+- Tidak ada perubahan HTML, CSS, JavaScript, data, aset, alamat halaman, perilaku aplikasi, atau konfigurasi penerapan.
+- Versi dasar penerapan: `a8d4282293d98923ecf160f52d95fe6168dd905d`.
+- Pemeriksaan: struktur repository dan sumber/dokumentasi yang dirujuk telah diperiksa; pembaruan ini tidak mencakup perubahan tampilan website secara langsung.
 
-### 2026-11-01 — Initial Product Foundation and Service Master records
+### 2026-11-01 — Catatan Awal Fondasi Produk dan Master Layanan
 
-- Added [`PRODUCT-FOUNDATION.md`](./PRODUCT-FOUNDATION.md) with the discussed premium Muslim-friendly positioning, inclusive global target market, customer groups, Muslim-friendly support value, premium driver experience, pricing philosophy and website-as-travel-resource role.
-- Added [`SERVICE-MASTER.md`](./SERVICE-MASTER.md) with the current Private Transport category and four service types: Airport Transfer, Port Transfer, Intercity Transfer and Private Bali Tour.
-- Added [`FUTURE-IDEAS.md`](./FUTURE-IDEAS.md), recording Bali–Java Transfer strictly as a FUTURE IDEA, not an active service, page or implementation task.
-- Added [`WORK-REGISTER.md`](./WORK-REGISTER.md) to track unfinished discovery incrementally across topics.
-- Updated the Master index and session checkpoint to point to the new records.
-- Status: initial baseline recorded from the discussion; the website's fundamental purpose and several operational/commercial details remain open for further discovery and validation.
-- Scope: documentation only. No HTML, CSS, JavaScript, runtime data, routes, design, deployment configuration or live website behaviour changed.
-- Verification: new and updated Markdown files fetched from GitHub after writing; repository documentation links and status notes reviewed.
+- Menambahkan [Fondasi Produk](./PRODUCT-FOUNDATION.md) yang mencatat posisi premium ramah Muslim, pasar global yang inklusif, kelompok pelanggan, nilai dukungan ramah Muslim, pengalaman pengemudi premium, prinsip harga, dan fungsi website sebagai sumber informasi wisata.
+- Menambahkan [Master Layanan](./SERVICE-MASTER.md) yang mencatat kategori Transportasi Privat dengan empat jenis layanan saat ini: Antar-Jemput Bandara, Antar-Jemput Pelabuhan, Transfer Antarkota, dan Wisata Privat Bali.
+- Menambahkan [Daftar Ide Masa Depan](./FUTURE-IDEAS.md), yang mencatat Transfer Bali–Jawa sebagai IDE MASA DEPAN, bukan layanan aktif, halaman, atau tugas penerapan.
+- Menambahkan [Daftar Pekerjaan](./WORK-REGISTER.md) untuk melacak pembahasan dan pekerjaan dokumentasi yang belum selesai secara bertahap.
+- Memperbarui indeks Master dan titik pemeriksaan sesi agar mengarah ke dokumen baru.
+- Status: dasar awal dari hasil diskusi telah dicatat; tujuan utama website dan sejumlah detail operasional/komersial masih perlu dibahas dan divalidasi.
+- Cakupan: dokumentasi saja. Tidak ada perubahan HTML, CSS, JavaScript, data runtime, alamat halaman, desain, konfigurasi penerapan, atau perilaku website.
+- Pemeriksaan: berkas Markdown yang baru dibuat dan diperbarui telah dibaca kembali dari GitHub; tautan dokumentasi dan catatan status diperiksa.
 
-### 2026-11-01 — Master knowledge architecture and document inventory
+### 2026-11-01 — Struktur Pengetahuan Master dan Daftar Dokumen
 
-- Added [Master Catalog](./MASTER-CATALOG.md) as the central index of existing and planned knowledge records.
-- Added domain indexes under `00-FOUNDATION/`, `01-DATA/`, `02-RULES/`, `03-GUIDELINES/`, `04-EXPERIENCE/`, `05-WEBSITE/` and `06-GOVERNANCE/`.
-- Added [Fleet Master](./01-DATA/FLEET-MASTER.md) to capture the initial vehicle information supplied in discussion, while keeping model naming, Xpander classification, seat-count convention and luggage details explicitly unresolved.
-- Updated the Master README, Work Register and Start Here checkpoint so missing documents remain visible and can be raised in future sessions.
-- Established the intended separation between factual data, operating/customer rules, editorial guidelines, customer experience, technical architecture and governance/source verification.
-- Pricing documentation is identified but marked WAITING FOR DATA until the user's pricing calculator and validated rates are ready.
-- Status: documentation inventory created; most listed records are placeholders or NOT STARTED and are not approved policies or complete specifications.
-- Scope: documentation only. No website source code, runtime data, routes, design, assets or deployment configuration changed.
-- Verification: each newly created file and the four updated index/protocol files are fetched from GitHub after writing; commit history is checked.
+- Menambahkan [Katalog Master](./MASTER-CATALOG.md) sebagai indeks pusat dokumen yang sudah ada dan yang direncanakan.
+- Menambahkan indeks kelompok di `00-FOUNDATION/`, `01-DATA/`, `02-RULES/`, `03-GUIDELINES/`, `04-EXPERIENCE/`, `05-WEBSITE/`, dan `06-GOVERNANCE/`.
+- Menambahkan [Master Armada](./01-DATA/FLEET-MASTER.md) untuk mencatat informasi awal kendaraan dari diskusi, sambil menandai pertanyaan tentang model, kategori Xpander, cara menghitung kursi, dan bagasi sebagai hal yang belum terjawab.
+- Memperbarui README Master, Daftar Pekerjaan, dan Mulai dari Sini agar dokumen yang belum dibuat tetap terlihat.
+- Menetapkan pemisahan kelompok data faktual, aturan operasional/pelanggan, panduan editorial, pengalaman pelanggan, arsitektur teknis, dan tata kelola/verifikasi sumber.
+- Dokumentasi harga telah diidentifikasi tetapi berstatus MENUNGGU DATA sampai kalkulator dan tarif tervalidasi dari Mas Bagus tersedia.
+- Status: inventaris dokumentasi dibuat; sebagian besar dokumen dalam daftar masih berupa indeks atau belum dimulai, bukan kebijakan dan spesifikasi yang telah lengkap atau disetujui.
+- Cakupan: dokumentasi saja. Tidak ada perubahan kode website, data runtime, alamat halaman, desain, aset, atau konfigurasi penerapan.
+
+### 2026-11-01 — Penggunaan Bahasa Indonesia pada Dokumentasi Master
+
+- Mengubah dokumen inti, indeks kelompok, dan panduan kerja Master ke bahasa Indonesia agar mudah dipelajari Mas Bagus.
+- Nama berkas, folder, kode, dan istilah teknis tertentu tetap dipertahankan dalam bahasa Inggris jika diperlukan untuk menjaga kesesuaian dengan struktur repository.
+- Menetapkan bahasa Indonesia sebagai bahasa utama seluruh isi dokumentasi Master berikutnya.
+- Cakupan: dokumentasi saja; tidak ada perubahan pada website atau proses penerapannya.
