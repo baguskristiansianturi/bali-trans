@@ -212,3 +212,15 @@ Mas Bagus telah menyetujui arah pengembangan empat tahap:
 Pemetaan dan status transisi ada di `MASTER/03-GUIDELINES/PRODUKSI-ARTIKEL/00-RENCANA-RESTRUKTURISASI.md`. Tiga file SOP yang sudah ada tetap menjadi referensi sampai pemindahan isi dan penomoran final diselesaikan.
 
 **Status kerja sementara:** produksi artikel dan perubahan halaman dihentikan. Fokus hanya pada diskusi, pembenahan dokumentasi Master, dan SOP. Dokumen Master yang menjadi acuan bisnis adalah [Business/Plan Master](MASTER/BUSINESS-PLAN-MASTER.md); standar pengalaman digital akan dikembangkan pada [Product & Experience Master](MASTER/PRODUCT-EXPERIENCE-MASTER.md). Tidak ada izin perubahan website runtime dalam tahap ini.
+
+## 13. Arah restrukturisasi SOP produksi artikel — 2026-11-01
+
+Mas Bagus telah menyetujui arah pengembangan empat tahap:
+1. **Perencanaan & Brief Artikel** — alasan bisnis/editorial, target pembaca, tujuan, ruang lingkup, dan hubungan dengan Master.
+2. **Riset & Penulisan Naskah** — keyword, SERP, kompetitor, content gap, fakta, sumber, outline, dan naskah.
+3. **Implementasi Halaman** — implementation plan, acuan Business/Plan Master, Product & Experience Master, Technical Master, penerapan terbatas, dan pengujian.
+4. **Audit, Publikasi & Evaluasi** — UI/UX, konten, originalitas, fakta, SEO, aksesibilitas, performa, regresi, deployment, persetujuan, dan evaluasi berbasis data.
+
+Pemetaan dan status transisi ada di `MASTER/03-GUIDELINES/PRODUKSI-ARTIKEL/00-RENCANA-RESTRUKTURISASI.md`. Tiga file SOP yang sudah ada tetap menjadi referensi sampai pemindahan isi dan penomoran final diselesaikan.
+
+**Status kerja sementara:** produksi artikel dan perubahan halaman dihentikan. Fokus hanya pada diskusi, pembenahan dokumentasi Master, dan SOP. Dokumen Master yang menjadi acuan bisnis adalah [Business/Plan Master](MASTER/BUSINESS-PLAN-MASTER.md); standar pengalaman digital akan dikembangkan pada [Product & Experience Master](MASTER/PRODUCT-EXPERIENCE-MASTER.md). Tidak ada izin perubahan website runtime dalam tahap ini.
