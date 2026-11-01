@@ -8,7 +8,7 @@
 | Status | DASAR AWAL — dikembangkan bertahap; sebagian pembahasan masih terbuka |
 | Pertama dicatat | 2026-11-01 |
 | Terakhir diperbarui | 2026-11-01 |
-| Dokumen terkait | [Master Layanan](./SERVICE-MASTER.md), [Daftar Ide Masa Depan](./FUTURE-IDEAS.md), [Daftar Pekerjaan](./WORK-REGISTER.md) |
+| Dokumen terkait | [Master Layanan](./SERVICE-MASTER.md), [Master Destinasi Bali](./01-DATA/DESTINATION-MASTER.md), [Master Aktivitas & Pengalaman](./01-DATA/ACTIVITY-EXPERIENCE-MASTER.md), [Daftar Ide Masa Depan](./FUTURE-IDEAS.md), [Daftar Pekerjaan](./WORK-REGISTER.md) |
 
 ---
 
@@ -142,7 +142,7 @@ Pengetahuan tentang Bali perlu saling terhubung. Sebagai contoh, informasi sebua
 
 **Batas penting:** strategi ini menetapkan arah dan mutu informasi, bukan rancangan tampilan website, struktur halaman, desain visual, atau spesifikasi teknis aplikasi. Hal-hal tersebut dibahas kemudian setelah kebutuhan bisnis, produk, data, dan konten dipahami.
 
-## 7. Prinsip Komunikasi
+## 8. Prinsip Komunikasi
 
 Semua teks website, artikel, halaman layanan, dan materi promosi ke depan harus:
 - menjelaskan nilai premium melalui manfaat layanan yang nyata, bukan pujian berlebihan tanpa bukti;
@@ -153,7 +153,7 @@ Semua teks website, artikel, halaman layanan, dan materi promosi ke depan harus:
 - menghindari jaminan, sertifikasi, ulasan, statistik, dan klaim harga yang belum didukung bukti;
 - tetap menyambut wisatawan internasional maupun domestik dari berbagai latar belakang.
 
-## 8. Pembahasan yang Masih Terbuka
+## 9. Pembahasan yang Masih Terbuka
 
 Hal-hal berikut belum diputuskan sepenuhnya dan tidak boleh diasumsikan:
 - Tujuan utama website dan ukuran keberhasilan bisnis yang terukur belum ditetapkan secara lengkap.
@@ -163,7 +163,7 @@ Hal-hal berikut belum diputuskan sepenuhnya dan tidak boleh diasumsikan:
 - Tarif akhir, harga setiap kategori kendaraan, dan fasilitas layanan belum ditetapkan melalui dokumen ini.
 - Penamaan merek dan peralihan publik dari Bali Trans ke BDM Trans harus mengikuti keputusan peluncuran yang disepakati secara terpisah.
 
-## 9. Riwayat Perubahan
+## 10. Riwayat Perubahan
 
 | Tanggal | Perubahan | Status |
 |---|---|---|
