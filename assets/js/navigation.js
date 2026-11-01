@@ -92,6 +92,10 @@
                 case 'packages':
                     container.innerHTML = renderPackagesCatalogView();
                     break;
+                case 'destinations':
+                    container.innerHTML = renderDestinationHubView();
+                    initDestinationHub();
+                    break;
                 case 'discovery':
                     container.innerHTML = renderDiscoveryView(params || 'region:south');
                     break;
@@ -158,7 +162,8 @@
                 partners: ['Local Partners | Bali Trans', 'Information for local service providers interested in working with Bali Trans.'],
                 'service-info': ['Bali Travel Services | Bali Trans', 'Review service details and what to confirm before booking.'],
                 packages: ['Bali Tours & Activities | Bali Trans', 'Browse Bali tour packages, activities and private transport options. Check trip details before contacting the team.'],
-                discovery: ['Explore Bali Destinations | Bali Trans', 'Discover destinations and travel experiences across Bali with Bali Trans.'],
+                destinations: ['Bali Destinations | Bali Trans', 'Explore Bali beaches, temples, waterfalls, lakes and other destinations across the island.'],
+                discovery: ['Explore Bali Regions | Bali Trans', 'Discover destinations and travel experiences across Bali with Bali Trans.'],
                 detail: [currentDetailPackage ? currentDetailPackage.title + ' | Bali Trans' : 'Bali Tour Details | Bali Trans', currentDetailPackage ? 'Review the itinerary, highlights and important details for ' + currentDetailPackage.title + ' in Bali.' : defaultDescription],
                 blog: ['Bali Travel Guides & Tips | Bali Trans', 'Read Bali travel guides, destination tips, food recommendations and practical advice for planning your trip.'],
                 'blog-read': null,
