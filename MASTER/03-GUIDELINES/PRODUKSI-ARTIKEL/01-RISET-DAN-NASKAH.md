@@ -663,3 +663,12 @@ SOP ini tidak menyetujui layout, desain, template visual baru, perubahan URL, at
 | 2026-11-01 | 0.6 | Menetapkan alur tiga SOP dengan persetujuan naskah sebelum coding, standar format editorial (bold, italic, kurung, note panel), serta tautan sumber menuju halaman bukti spesifik | REVISI BERDASARKAN ARAHAN MAS BAGUS |
 | 2026-11-01 | 0.7 | Memisahkan SOP Riset dari penerapan halaman dan audit; memindahkan seluruh SOP ke folder PRODUKSI-ARTIKEL dengan nama tahap yang konsisten | REVISI STRUKTUR DOKUMENTASI — MENUNGGU TINJAUAN |
 
+## 11. Arah Pengembangan SOP — Pemisahan Perencanaan
+
+**Arah yang disepakati pada 2026-11-01:** alur produksi artikel akan dikembangkan menjadi empat SOP. Tahap perencanaan dan brief akan dipisahkan dari riset dan penulisan agar tujuan bisnis/editorial ditetapkan sebelum riset mendalam.
+
+Dalam struktur target, dokumen ini menjadi **SOP 02 — Riset & Penulisan Naskah**. Sebelum tahap ini dijalankan, SOP 01 — Perencanaan & Brief Artikel harus menghasilkan brief yang disetujui.
+
+Riset dan naskah harus mengacu pada Business/Plan Master, Master Produk/Layanan, Master Destinasi/Aktivitas, serta data yang relevan. Jangan mengubah asumsi bisnis menjadi fakta atau janji publik. Rincian pemindahan isi dan penomoran file akan dilakukan setelah restrukturisasi diselaraskan; untuk sementara isi SOP yang ada tetap dipertahankan.
+
+Lihat [Rencana Restrukturisasi Empat SOP](./00-RENCANA-RESTRUKTURISASI.md) dan [Business/Plan Master](../../BUSINESS-PLAN-MASTER.md).
