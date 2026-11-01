@@ -37,6 +37,7 @@
 |---|---|---|
 | [Fondasi Produk](./PRODUCT-FOUNDATION.md) | SUDAH ADA — pembahasan masih terbuka | Posisi strategis dan fungsi website |
 | [Master Layanan](./SERVICE-MASTER.md) | SUDAH ADA — dasar awal | Kategori dan jenis layanan saat ini |
+| [Master Destinasi Bali](./01-DATA/DESTINATION-MASTER.md) | INVENTARIS AWAL — perlu peninjauan | Aturan fungsi data destinasi dan inventaris dari Bali Golden Tour |
 | [Daftar Ide Masa Depan](./FUTURE-IDEAS.md) | SUDAH ADA | Konsep yang belum menjadi layanan aktif |
 | [Daftar Pekerjaan](./WORK-REGISTER.md) | SUDAH ADA — aktif | Pekerjaan pembahasan dan dokumentasi yang belum selesai |
 | [Mulai dari Sini](./START-HERE.md) | SUDAH ADA | Prosedur memulai sesi proyek |
