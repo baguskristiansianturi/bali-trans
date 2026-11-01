@@ -115,3 +115,18 @@ Untuk setiap pembaruan Master, catat:
 - Memperbarui indeks Data, Katalog Master, Daftar Pekerjaan, dan protokol Mulai dari Sini agar strategi menjadi acuan kerja berikutnya.
 - Batas cakupan: dokumentasi Master saja. Tidak ada pencarian operator, SOP pelaksanaan penyedia, penetapan paket/tarif jual, atau perubahan website, desain, data runtime, maupun konfigurasi deployment.
 - Pemeriksaan: seluruh berkas yang diperbarui telah dibaca kembali dari GitHub; format Markdown dan keberadaan tautan utama diperiksa. Commit dokumentasi terakhir diverifikasi.
+
+
+### 2026-11-01 — Draf SOP Produksi Artikel & SEO Organik
+
+- Membaca protokol Master, Fondasi Produk, indeks Panduan Konten & Editorial, Tata Kelola Sumber, serta SOP perubahan repository, Roadmap, Arsitektur, dan Handoff.
+- Meneliti pedoman resmi Google Search Central mengenai people-first content, SEO starter, kebijakan spam, AI search, title links, snippets/meta descriptions, gambar, tautan, canonicalization, structured data, sitemap, dan page experience.
+- Meneliti panduan Yoast mengenai SEO analysis, readability, keyphrase placement/density, internal linking, image SEO, alt text, dan title attribute.
+- Membuat [SOP Produksi Artikel & SEO Organik](./03-GUIDELINES/ARTICLE-PRODUCTION-SOP.md) versi 0.1 yang mencakup gerbang membaca Master, search intent, riset sumber, orisinalitas, kerangka heading, metadata, tautan, spesifikasi gambar dan Image Manifest, structured data, coding, checklist publikasi, serta pemantauan organik.
+- Mencatat status sebagai USULAN — DRAF UNTUK DITINJAU. Angka dimensi dan ukuran file gambar merupakan standar produksi internal yang diusulkan, bukan persyaratan ranking Google.
+- Menambahkan kewajiban merujuk SOP artikel sebelum membuat atau menerapkan artikel pada SOP perubahan repository.
+- Memperbarui indeks Panduan Konten, Katalog Master, README Master, dan Daftar Pekerjaan.
+- Catatan riset penting: tidak ada jaminan “100% original” yang dapat dikeluarkan alat pemeriksa; target internal adalah tidak menyalin, memberi nilai tambah, menyimpan atribusi, dan melakukan pemeriksaan manual. Skor Yoast adalah alat bantu, bukan jaminan ranking. Tautan WhatsApp adalah CTA, bukan sumber referensi.
+- Catatan pembaruan Google yang relevan: panduan AI Search menegaskan SEO fundamental tetap berlaku; tidak perlu trik AEO/GEO khusus atau file AI khusus. Google menghapus FAQ rich result mulai 7 Mei 2026.
+- Cakupan: dokumentasi SOP dan indeks saja. Tidak ada perubahan layout, template visual, artikel publik, kode website, data runtime, URL publik, aset, atau konfigurasi deployment.
+- Status: menunggu tinjauan Mas Bagus sebelum draf ini dinaikkan menjadi SOP final.
