@@ -127,6 +127,12 @@ Urutan ini adalah panduan, bukan tahapan kaku. Topik boleh dibuka kembali atau d
 - Informasi harga tetap berstatus MENUNGGU DATA sampai logika kalkulator dan tarif yang telah divalidasi diberikan oleh Mas Bagus.
 - Isi dokumen Master menggunakan bahasa Indonesia agar mudah dipelajari. Nama berkas, nama folder, kode, nama variabel, dan istilah teknis tertentu boleh tetap berbahasa Inggris jika diperlukan; berikan penjelasan bahasa Indonesia untuk istilah yang penting.
 
+### Pedoman Strategis Konten dan Pengetahuan Bali
+
+Sebelum melakukan riset destinasi, aktivitas, artikel, panduan, atau materi informasi, baca bagian **DNA Informasi: BDM Trans sebagai Jendela Bali** di [Fondasi Produk](./PRODUCT-FOUNDATION.md). Gunakan [Master Destinasi Bali](./01-DATA/DESTINATION-MASTER.md) dan [Master Aktivitas & Pengalaman](./01-DATA/ACTIVITY-EXPERIENCE-MASTER.md) sebagai sumber data terkait.
+
+Arah dasarnya: BDM Trans membantu wisatawan mengenal dan merencanakan Bali melalui informasi yang akurat, nyaman dibaca, didukung visual relevan dan data praktis. Jangan membuat konten hanya demi SEO; manfaat bagi pembaca adalah dasar nilai organik jangka panjang. Perkiraan harga, jarak, atau waktu harus diberi label dan konteks yang sesuai. Master ini adalah pedoman pengetahuan dan strategi, bukan izin untuk mengubah desain atau implementasi website.
+
 ## 7. Perlindungan Website yang Sudah Ada
 
 **Batas saat ini: PEMBAHASAN DAN DOKUMENTASI SAJA.**
