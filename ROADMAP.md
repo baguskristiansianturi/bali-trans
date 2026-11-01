@@ -93,3 +93,15 @@ A change is not complete until source validation passes, deployment succeeds, th
 - [ ] Audit current SPA routes, data sources and blog renderer before designing or implementing destination page templates.
 - [ ] Approve Destination Hub, Category Catalog and Place Detail templates separately from the Editorial Article template before scaling content or implementation.
 - [ ] Implement destination catalogs using one destination record reused across category, region, collection and search views; do not duplicate destination identity data.
+
+
+## Destination and article grouping data — 1 November 2026
+
+- [x] Add a distinct primary destination category to each current destination record without repurposing existing activity/theme category links.
+- [x] Add characteristic tags separately from primary destination categories.
+- [x] Mark area-level and compound place/activity records for editorial review rather than treating them as final single-place entries.
+- [x] Preserve the five Bali cardinal regions and add separate Nusa Penida, Nusa Lembongan and Nusa Ceningan island-region identities under the existing Nusa Islands parent, preserving existing routes.
+- [x] Define Latest, Popular and Hidden Gems as manual curated collections; leave memberships empty until editorial selection.
+- [x] Classify the Kuta article as Travel Information and Tips; keep its blog breadcrumb separate from the destination hierarchy.
+- [ ] Review all `NEEDS_EDITORIAL_REVIEW` destination records against the Master inventory before building destination catalogs.
+- [ ] Approve final category names, region assignments and collection memberships before layout/design work.
