@@ -1,20 +1,20 @@
-# 02 — Rules & Policies
+# 02 — Aturan & Kebijakan
 
-**Status:** NOT STARTED / DISCUSSION — rule documents are identified but not yet fully defined.
+**Status:** BELUM DIMULAI / PEMBAHASAN — dokumen aturan sudah diidentifikasi, tetapi belum dirumuskan sepenuhnya.
 
-Rules are kept separate from descriptive Master Data. Each rule must state its scope, exceptions, responsible party, effective date and validation status.
+Aturan dipisahkan dari Data Master yang bersifat deskriptif. Setiap aturan perlu menjelaskan cakupan, pengecualian, pihak yang bertanggung jawab, tanggal berlaku, dan status pemeriksaan.
 
-| Planned record | Status | Required coverage |
+| Dokumen yang direncanakan | Status | Cakupan yang dibutuhkan |
 |---|---|---|
-| Operational Rules | NOT STARTED | Driver duties, waiting, overtime, stops, delays, service hours |
-| Driver Standards & SOP | DISCUSSION | Conduct, uniform, communication, assistance, training, work limits and compensation |
-| Safety & Emergency Standards | NOT STARTED | Vehicle checks, passenger safety, incidents, emergencies, child safety |
-| Booking Rules | NOT STARTED | Request, confirmation, amendments, customer details and cut-off |
-| Payment & Deposit Rules | NOT STARTED | Payment timing, accepted methods, currency, deposits and receipts |
-| Cancellation & Refund Policy | NOT STARTED | Customer cancellation, provider cancellation, refunds and exceptions |
-| Waiting, Delay & Flight Monitoring Rules | NOT STARTED | Grace periods, flight delays, no-show and waiting charges |
-| Customer Terms & Conditions | NOT STARTED | Customer obligations, provider obligations, limitations and dispute handling |
-| Privacy & Data Handling Rules | NOT STARTED | Personal data collected, purpose, retention, access and deletion |
-| Muslim-Friendly Service Boundaries | DISCUSSION | Prayer assistance, food recommendations, verification and respectful language |
+| Aturan Operasional | BELUM DIMULAI | Tugas pengemudi, waktu tunggu, tambahan waktu, pemberhentian, keterlambatan, jam layanan |
+| Standar Pengemudi & Prosedur Kerja | PEMBAHASAN | Sikap, seragam, komunikasi, bantuan, pelatihan, batas kerja, kompensasi |
+| Standar Keselamatan & Keadaan Darurat | BELUM DIMULAI | Pemeriksaan kendaraan, keselamatan penumpang, insiden, keadaan darurat, keselamatan anak |
+| Aturan Pemesanan | BELUM DIMULAI | Permintaan, konfirmasi, perubahan, data pelanggan, batas waktu pemesanan |
+| Aturan Pembayaran & Uang Muka | BELUM DIMULAI | Waktu pembayaran, metode, mata uang, uang muka, bukti pembayaran |
+| Kebijakan Pembatalan & Pengembalian Dana | BELUM DIMULAI | Pembatalan pelanggan/penyedia, pengembalian dana, pengecualian |
+| Aturan Waktu Tunggu, Keterlambatan & Pemantauan Penerbangan | BELUM DIMULAI | Masa toleransi, keterlambatan pesawat, pelanggan tidak hadir, biaya tunggu |
+| Syarat & Ketentuan Pelanggan | BELUM DIMULAI | Kewajiban pelanggan dan penyedia, batas tanggung jawab, penyelesaian sengketa |
+| Aturan Privasi & Pengelolaan Data | BELUM DIMULAI | Data pribadi yang dikumpulkan, tujuan, penyimpanan, akses, penghapusan |
+| Batas Layanan Ramah Muslim | PEMBAHASAN | Bantuan ibadah, rekomendasi makanan, pemeriksaan informasi, bahasa yang menghormati |
 
-**Important:** do not turn an informal practice or an unverified legal interpretation into a binding customer term. Legal and regulatory matters require current verification.
+**Penting:** jangan mengubah kebiasaan informal atau tafsiran hukum yang belum diperiksa menjadi ketentuan pelanggan yang mengikat. Hal hukum dan peraturan harus diperiksa menggunakan sumber terkini.
