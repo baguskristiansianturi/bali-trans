@@ -24,7 +24,7 @@ function renderRelatedBlogGuides(blog) {
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                         ${BALI_BLOGS.map(blog => `
                             <div class="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
-                                <img src="${blog.image}" alt="${(blog.imageAlt || blog.title).replace(/&/g, '&amp;').replace(/"/g, '&quot;')}" class="w-full h-48 object-cover" loading="${blog.imageLoading || 'lazy'}" fetchpriority="${blog.imageLoading === 'eager' ? 'high' : 'auto'}" width="1200" height="640">
+                                <img src="${blog.image}" alt="${(blog.imageAlt || blog.title).replace(/&/g, '&amp;').replace(/"/g, '&quot;')}" class="w-full h-48 object-cover" loading="lazy" width="800" height="600">
                                 <div class="p-6 flex-1 flex flex-col justify-between">
                                     <div>
                                         <div class="flex items-center gap-2 text-[10px] font-bold text-slate-400 mb-2">
@@ -70,7 +70,7 @@ function renderRelatedBlogGuides(blog) {
                         <span aria-hidden="true">•</span>
                         <span>${blog.readTime}</span>
                     </div>
-                    <img src="${blog.image}" alt="${(blog.imageAlt || blog.title).replace(/&/g, '&amp;').replace(/"/g, '&quot;')}" class="w-full h-56 sm:h-80 md:h-[380px] object-cover rounded-3xl mb-8 shadow-md" loading="lazy">
+                    <img src="${blog.image}" alt="${(blog.imageAlt || blog.title).replace(/&/g, '&amp;').replace(/"/g, '&quot;')}" class="w-full h-56 sm:h-80 md:h-[380px] object-cover rounded-3xl mb-8 shadow-md" loading="${blog.imageLoading || 'lazy'}" fetchpriority="${blog.imageLoading === 'eager' ? 'high' : 'auto'}" width="1200" height="640">
                     <div class="prose max-w-none text-slate-700 text-sm sm:text-base leading-relaxed space-y-4">
                         ${blog.content}
                     </div>
