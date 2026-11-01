@@ -386,6 +386,10 @@ Sesudah coding:
 
 ## 12. Gerbang 9 — Pemeriksaan Sebelum Publikasi
 
+**Gerbang panjang wajib:** hitung kata pada isi artikel saja; judul, metadata, daftar sumber, catatan riset, dan Image Manifest tidak dihitung. Minimal 800 kata. Jika isi artikel 799 kata atau kurang, checklist otomatis **GAGAL** dan artikel tidak boleh dinyatakan selesai atau dipublikasikan.
+
+
+
 Artikel hanya boleh berstatus SIAP TERBIT jika seluruh pemeriksaan wajib berikut lulus.
 
 ### A. Isi dan akurasi
