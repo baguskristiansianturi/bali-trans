@@ -92,3 +92,13 @@ Untuk setiap pembaruan Master, catat:
 - Nama yang belum pasti ditandai perlu validasi; inventaris bukan pernyataan bahwa seluruh tempat dapat dikunjungi atau dijual sebagai aktivitas.
 - Memperbarui Katalog Master dan Daftar Pekerjaan.
 - Cakupan: dokumentasi Master saja. Tidak ada perubahan kode website, tampilan, fitur, data runtime, atau konfigurasi penerapan.
+
+
+### 2026-11-01 — Perluasan Kategori Destinasi Lainnya
+
+- Memperluas [Master Destinasi Bali](./01-DATA/DESTINATION-MASTER.md) dengan inventaris kerja Temple, Rice Terrace, Village, Forest, National Park, Mangrove, Cliff, Hill / Viewpoint, Gate / Landmark, Garden / Park, Hot Spring, Museum, Market, serta Farm / Plantation.
+- Menambahkan kelompok wilayah dan catatan alias/relasi kawasan untuk membantu menghindari entri ganda.
+- Menegaskan batas cakupan: inventaris pura bukan daftar seluruh tempat suci di Bali; desa, persawahan, hutan, dan kawasan alam luas tidak otomatis merupakan titik kunjungan komersial.
+- Nama generik, lokasi meragukan, serta fasilitas yang status operasionalnya belum dipastikan ditandai untuk validasi.
+- Memperbarui Katalog Master dan Daftar Pekerjaan.
+- Cakupan: dokumentasi Master saja. Tidak ada perubahan website, tampilan, fitur, atau konfigurasi deployment.
