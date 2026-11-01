@@ -6,6 +6,93 @@ function renderRelatedBlogGuides(blog) {
             return '<section class="mt-10" aria-labelledby="related-guides-title"><h2 id="related-guides-title" class="text-xl font-extrabold text-slate-900 mb-4">Lanjutkan menjelajahi Bali</h2><div class="grid grid-cols-1 sm:grid-cols-2 gap-3">' + related.map(item => '<a href="?page=blog-read&amp;item=' + encodeURIComponent(item.id) + '" class="group rounded-2xl border border-slate-200 bg-white p-4 hover:border-teal-300 hover:bg-teal-50/30 transition"><span class="block text-[10px] font-extrabold uppercase tracking-wider text-teal-700 mb-2">' + escapeHtml(item.location || item.category) + '</span><span class="block font-bold text-slate-900 leading-snug group-hover:text-teal-800">' + escapeHtml(item.title) + '</span><span class="mt-2 block text-xs text-slate-500">' + escapeHtml(item.readTime) + ' · Baca artikel <span aria-hidden="true">→</span></span></a>').join('') + '</div></section>';
         }
 
+        function renderArticleShare(blog) {
+            const url = window.location.href;
+            const encodedUrl = encodeURIComponent(url);
+            const encodedTitle = encodeURIComponent(blog.title || 'Bali Trans article');
+            const message = encodeURIComponent((blog.title || 'Bali Trans article') + ' — ' + url);
+            return '<section class="article-share" aria-labelledby="article-share-title">' +
+                '<div class="article-share__intro"><h2 id="article-share-title">Share this article</h2><p>Found this article helpful? Share it with someone planning a trip to Bali.</p></div>' +
+                '<div class="article-share__actions">' +
+                '<button type="button" class="article-share__native" onclick="shareCurrentArticle()" aria-label="Share this article"><i class="fas fa-share-alt" aria-hidden="true"></i><span>Share</span></button>' +
+                '<a href="https://wa.me/?text=' + message + '" target="_blank" rel="noopener noreferrer" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i><span>WhatsApp</span></a>' +
+                '<a href="https://twitter.com/intent/tweet?text=' + encodedTitle + '&url=' + encodedUrl + '" target="_blank" rel="noopener noreferrer" aria-label="Share on X"><i class="fab fa-x-twitter" aria-hidden="true"></i><span>X</span></a>' +
+                '<a href="https://www.facebook.com/sharer/sharer.php?u=' + encodedUrl + '" target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i><span>Facebook</span></a>' +
+                '<a href="https://www.linkedin.com/sharing/share-offsite/?url=' + encodedUrl + '" target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i><span>LinkedIn</span></a>' +
+                '<button type="button" onclick="copyCurrentArticleLink(this)" aria-label="Copy article link"><i class="fas fa-link" aria-hidden="true"></i><span>Copy link</span></button>' +
+                '</div></section>';
+        }
+
+        function renderRelatedDestinations(blog) {
+            const entries = (Array.isArray(BALI_BLOGS) ? BALI_BLOGS : []).filter(item =>
+                item && item.publicationStatus === 'PUBLISHED' && item.relatedDestinationId && item.id !== blog.id
+            );
+            const escapeText = value => String(value || '').replace(/[&<>"']/g, character => ({
+                '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+            }[character]));
+            const cards = entries.slice(0, 4).map(item => {
+                const category = item.destinationCategoryLabel || item.destinationCategory || 'Bali destination';
+                const region = item.region || item.location || 'Bali';
+                const title = item.destinationDisplayName || item.destinationName || item.title;
+                return '<a class="article-destination-card" href="?page=blog-read&amp;item=' + encodeURIComponent(item.id) + '">' +
+                    '<div class="article-destination-card__image"><img src="' + escapeText(item.image) + '" alt="' + escapeText(item.imageAlt || title) + '" loading="lazy" width="640" height="420"></div>' +
+                    '<div class="article-destination-card__copy"><div class="article-destination-card__labels"><span>' + escapeText(category) + '</span><span>' + escapeText(region) + '</span></div>' +
+                    '<h3>' + escapeText(title) + '</h3><p>' + escapeText(item.snippet || '') + '</p><span class="article-destination-card__link">Explore destination <span aria-hidden="true">→</span></span></div></a>';
+            }).join('');
+            return '<section class="article-related-destinations" aria-labelledby="article-related-destinations-title">' +
+                '<div class="article-related-destinations__heading"><div><p>KEEP EXPLORING</p><h2 id="article-related-destinations-title">Explore more destinations</h2><span>Discover more places and stories from around Bali.</span></div>' +
+                '<a href="?page=destinations">All destinations <span aria-hidden="true">→</span></a></div>' +
+                (cards ? '<div class="article-destination-grid">' + cards + '</div>' :
+                    '<div class="article-destination-empty"><p>More destination stories are on the way. Browse the destination collection to see what is being prepared.</p><a href="?page=destinations">Browse destinations <span aria-hidden="true">→</span></a></div>') +
+                '</section>';
+        }
+
+        window.shareCurrentArticle = function () {
+            const title = document.querySelector('.article-detail-page h1')?.textContent || document.title;
+            const url = window.location.href;
+            if (navigator.share) {
+                navigator.share({ title, url }).catch(() => {});
+                return;
+            }
+            window.copyCurrentArticleLink();
+        };
+
+        window.copyCurrentArticleLink = function (button) {
+            const finish = () => {
+                if (button) {
+                    const label = button.querySelector('span');
+                    if (label) label.textContent = 'Copied';
+                    button.classList.add('is-copied');
+                    window.setTimeout(() => {
+                        if (label) label.textContent = 'Copy link';
+                        button.classList.remove('is-copied');
+                    }, 1800);
+                }
+            };
+            const url = window.location.href;
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(url).then(finish).catch(() => {
+                    const field = document.createElement('textarea');
+                    field.value = url;
+                    field.style.position = 'fixed';
+                    field.style.opacity = '0';
+                    document.body.appendChild(field);
+                    field.select();
+                    try { document.execCommand('copy'); finish(); } catch (error) {}
+                    field.remove();
+                });
+                return;
+            }
+            const field = document.createElement('textarea');
+            field.value = url;
+            field.style.position = 'fixed';
+            field.style.opacity = '0';
+            document.body.appendChild(field);
+            field.select();
+            try { document.execCommand('copy'); finish(); } catch (error) {}
+            field.remove();
+        };
+
         function renderArticleSources(sources) {
             if (!Array.isArray(sources) || !sources.length) return '';
             const escapeText = value => String(value || '').replace(/[&<>"]/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[character]));
@@ -104,6 +191,8 @@ function renderRelatedBlogGuides(blog) {
                                 <p class="article-ending">Semoga informasi ini membantu merencanakan kunjungan yang lebih nyaman. Nikmati Pantai Kuta sesuai ritme perjalananmu dan selalu perhatikan kondisi pantai saat berada di sana.</p>
                             </div>
                         </div>
+                        ${renderArticleShare(blog)}
+                        ${renderRelatedDestinations(blog)}
                         <section class="article-topic-tags" aria-label="Topik artikel"><span>Topik</span><a href="#" onclick="navigateTo('blog');return false">Pantai Bali</a><a href="#" onclick="navigateTo('blog');return false">Wisata Bali</a><a href="#" onclick="navigateTo('blog');return false">Bali Selatan</a></section>
                         ${renderArticleSources(blog.sources)}
                         ${renderRelatedBlogGuides(blog)}
