@@ -1,14 +1,22 @@
 # Bali Trans — Master Blueprint
 
-Status: INITIAL INVENTORY  
-Last mapped: 2026-11-01  
-Repository: `baguskristiansianturi/bali-trans`  
-Default branch: `main`  
+Status: INITIAL INVENTORY  \
+Last mapped: 2026-11-01  \
+Repository: `baguskristiansianturi/bali-trans`  \
+Default branch: `main`  \
 Implementation snapshot used for this inventory: `a8d4282293d98923ecf160f52d95fe6168dd905d`
+
+## Start every work session here
+
+**Required first read:** [`START-HERE.md`](./START-HERE.md).
+
+This is the team's session-start protocol and working agreement. When a new chat begins with a request to work on Bali Trans, read it before continuing. It explains the collaboration method, approval checkpoints, documentation sequence, website-protection boundary and current discovery checkpoint.
+
+Current working boundary: **Master discussion and documentation only. The existing website must not be changed unless separately and explicitly authorized.**
 
 ## Purpose
 
-This folder is the human-readable master map of the Bali Trans website. It is intended to be understandable in GitHub and in VS Code, including by a project owner who does not need to know the technical implementation details.
+This folder is the human-readable master map of the Bali Trans website. It is intended to be understandable in GitHub and in VS Code, including by a project team member who does not need to know the technical implementation details.
 
 It records:
 - what components and page modules currently exist;
@@ -17,6 +25,8 @@ It records:
 - which pages use it and which pages are exceptions;
 - the current implementation and approval status;
 - known gaps or discrepancies that must be resolved before treating a component as a final standard.
+
+The initial inventory below documents the existing implementation. The business-first product discovery and approved product decisions are developed incrementally under the working protocol in `START-HERE.md`.
 
 ## This is not source code
 
@@ -42,8 +52,8 @@ Implementation status:
 - **NOT ESTABLISHED** — no shared implementation or approved rule has been identified yet.
 
 Approval status is separate:
-- **APPROVED** — explicitly approved by Mas Bagus.
-- **LOCKED** — approved and protected from changes without explicit owner authorization.
+- **APPROVED** — explicitly approved by the team after discussion.
+- **LOCKED** — approved and protected from changes without explicit authorization.
 - **PENDING** — not yet approved as a reusable standard.
 - **NOT RECORDED** — repository evidence does not establish approval.
 
@@ -68,8 +78,8 @@ If a detail has not been verified, write **NOT VERIFIED**. Do not fill gaps with
 
 ## Change and protection rules
 
-- Mas Bagus is the owner of product and design decisions.
-- The assistant may inspect, document and recommend; it may not silently change an approved/locked standard.
+- Product and design decisions are made collaboratively and require explicit agreement before being recorded as approved.
+- The assistant may inspect, document and recommend; it may not silently change an approved standard.
 - A request to change a component must identify the component and scope.
 - Changes outside the requested component/page are prohibited unless explicitly approved.
 - If implementation and master disagree, record the discrepancy and stop before silently choosing one.
@@ -94,13 +104,14 @@ Do not copy entire SOPs or roadmaps into this folder. Link to their source docum
 
 ## Reading order
 
-1. `00-SYSTEM-MAP.md`
-2. `01-GLOBAL-COMPONENTS.md`
-3. `02-PAGE-MODULES.md`
-4. `03-TECHNICAL-MODULES.md`
-5. `04-STATUS-REGISTER.md`
-6. The relevant detailed record under `GLOBAL/` or `SHARED/`
+1. `START-HERE.md` — required session protocol and current discovery checkpoint.
+2. `00-SYSTEM-MAP.md`
+3. `01-GLOBAL-COMPONENTS.md`
+4. `02-PAGE-MODULES.md`
+5. `03-TECHNICAL-MODULES.md`
+6. `04-STATUS-REGISTER.md`
+7. The relevant detailed record under `GLOBAL/` or `SHARED/`
 
 ## Initial scope
 
-This first version documents existing repository structures only. It does not refactor code, redesign pages, approve unfinished templates, create new page functionality, or implement planned features.
+The initial component inventory documents existing repository structures only. It does not refactor code, redesign pages, approve unfinished templates, create new page functionality, or implement planned features.
