@@ -12,7 +12,7 @@ function renderRelatedBlogGuides(blog) {
             const encodedTitle = encodeURIComponent(blog.title || 'Bali Trans article');
             const message = encodeURIComponent((blog.title || 'Bali Trans article') + ' — ' + url);
             return '<section class="article-share" aria-labelledby="article-share-title">' +
-                '<div class="article-share__intro"><h2 id="article-share-title">Share this article</h2><p>Found this article helpful? Share it with someone planning a trip to Bali.</p></div>' +
+                '<div class="article-share__intro"><h2 id="article-share-title">Share this article</h2></div>' +
                 '<div class="article-share__actions">' +
                 '<button type="button" class="article-share__native" onclick="shareCurrentArticle()" aria-label="Share this article"><i class="fas fa-share-alt" aria-hidden="true"></i><span>Share</span></button>' +
                 '<a href="https://wa.me/?text=' + message + '" target="_blank" rel="noopener noreferrer" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i><span>WhatsApp</span></a>' +
