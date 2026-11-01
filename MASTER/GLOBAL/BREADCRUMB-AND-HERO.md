@@ -1,35 +1,35 @@
-# GLB-007 / GLB-008 — Breadcrumb and Hero Mapping
+# GLB-007 / GLB-008 — Pemetaan Breadcrumb dan Hero
 
-Implementation status: PAGE-SPECIFIC / NOT A SINGLE GLOBAL COMPONENT  
-Approval status: NOT RECORDED IN THIS MASTER  
-Relevant sources:
+**Status penerapan:** KHUSUS HALAMAN / BELUM MENJADI SATU KOMPONEN GLOBAL  
+**Status persetujuan:** BELUM DICATAT DI MASTER INI  
+**Sumber terkait:**
 - `assets/js/views/detail.js`
 - `assets/js/views/home.js`
 - `assets/js/views/discovery.js`
 - `assets/js/views/articles.js`
-- Standalone page HTML and page-specific CSS
+- HTML halaman mandiri dan CSS khusus halaman
 
-## A. Breadcrumb
+## A. Breadcrumb / Penunjuk Lokasi Halaman
 
-A visual breadcrumb is present in the Dolphin Tour detail renderer in `assets/js/views/detail.js` (class `.dolphin-breadcrumb`).
+Breadcrumb visual tersedia pada pembentuk tampilan detail Dolphin Tour di `assets/js/views/detail.js` (kelas `.dolphin-breadcrumb`).
 
-Route metadata in `assets/js/navigation.js` also creates structured-data breadcrumb information. Structured-data breadcrumbs are not the same thing as a visible breadcrumb component.
+Metadata rute di `assets/js/navigation.js` juga membuat informasi breadcrumb untuk data terstruktur. Breadcrumb data terstruktur tidak sama dengan komponen breadcrumb yang terlihat oleh pengunjung.
 
-Current conclusion:
-- A universal visual breadcrumb component has not been established in the current master inventory.
-- Do not add breadcrumbs to every page by assumption.
-- Page usage and exceptions must be mapped before a shared breadcrumb standard is declared.
+Kesimpulan saat ini:
+- Komponen visual breadcrumb universal belum ditetapkan dalam inventaris Master saat ini.
+- Jangan menambahkan breadcrumb ke semua halaman berdasarkan asumsi.
+- Penggunaan per halaman dan pengecualiannya harus dipetakan sebelum menetapkan standar breadcrumb bersama.
 
-## B. Hero
+## B. Hero / Bagian Pembuka Halaman
 
-Hero sections are implemented in multiple page-specific contexts, including the SPA homepage, Dolphin Tour detail and standalone service pages.
+Bagian hero diterapkan pada beberapa konteks khusus halaman, termasuk halaman utama SPA, detail Dolphin Tour, dan halaman layanan mandiri.
 
-Current conclusion:
-- There is no verified single universal hero component for all page families.
-- Different page families may require different hero structures.
-- Do not force one hero layout onto unrelated pages.
-- The exact section order, labels, CTA and responsive behaviour must be recorded per approved page template.
+Kesimpulan saat ini:
+- Belum ada satu komponen hero universal yang telah diverifikasi untuk semua kelompok halaman.
+- Kelompok halaman yang berbeda mungkin memerlukan susunan hero yang berbeda.
+- Jangan memaksakan satu tata letak hero ke halaman yang tidak berkaitan.
+- Urutan bagian, label, tombol ajakan, dan perilaku responsif yang tepat harus dicatat per pola halaman yang disetujui.
 
-## Next mapping requirement
+## Kebutuhan Pemetaan Berikutnya
 
-When a page template is inspected and approved, record its hero/breadcrumb contract under that page family and link it here. This file is a map of current implementation, not a new design instruction.
+Ketika pola halaman diperiksa dan disetujui, catat aturan hero/breadcrumb pada dokumen kelompok halaman tersebut dan hubungkan dari dokumen ini. Berkas ini merupakan peta penerapan saat ini, bukan instruksi desain baru.
