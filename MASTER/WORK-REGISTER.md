@@ -149,3 +149,14 @@ Gagasan yang belum disetujui untuk diterapkan tidak dimasukkan ke daftar pekerja
 - [ ] Audit konsistensi antar Business/Plan Master, Product & Experience Master, Technical Master, dan SOP sebelum pekerjaan website dilanjutkan.
 
 **Batas:** seluruh butir di atas adalah pekerjaan diskusi/dokumentasi. Tidak ada perubahan website runtime yang diizinkan pada fase ini.
+
+## 7. Pembahasan baru — Business/Plan Master, Experience Master, dan SOP
+
+- [ ] Lanjutkan sesi sharing untuk mengembangkan [Business/Plan Master](./BUSINESS-PLAN-MASTER.md): tujuan bisnis, segmen pelanggan, proposisi nilai, pendapatan, biaya, unit economics, operasional, pemasaran, customer journey, KPI, risiko, dan rencana pertumbuhan. Pisahkan fakta, observasi, asumsi, ide, usulan, keputusan, serta pertanyaan terbuka.
+- [ ] Kumpulkan dan rapikan hasil sharing ke dokumen Master yang tepat; jangan menganggap semua percakapan sebagai keputusan final.
+- [ ] Kembangkan [Product & Experience Master](./PRODUCT-EXPERIENCE-MASTER.md): identitas visual, bahasa, layout, komponen, card, ikon, motion, responsive behavior, aksesibilitas, dan performa. Tetapkan detail hanya setelah pembahasan dan persetujuan.
+- [ ] Selesaikan restrukturisasi SOP artikel menjadi empat tahap sesuai [Rencana Restrukturisasi](./03-GUIDELINES/PRODUKSI-ARTIKEL/00-RENCANA-RESTRUKTURISASI.md).
+- [ ] Tambahkan SOP lintas proyek untuk Change Management & Documentation Governance: usulan perubahan, analisis dampak, approval, versi, rollback, dan sinkronisasi Master/SOP. Tentukan apakah menjadi SOP mandiri atau bagian SOP repository setelah diskusi.
+- [ ] Audit konsistensi antar Business/Plan Master, Product & Experience Master, Technical Master, dan SOP sebelum pekerjaan website dilanjutkan.
+
+**Batas:** seluruh butir di atas adalah pekerjaan diskusi/dokumentasi. Tidak ada perubahan website runtime yang diizinkan pada fase ini.
