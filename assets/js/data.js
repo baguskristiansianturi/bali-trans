@@ -91,7 +91,8 @@
                 image: 'https://upload.wikimedia.org/wikipedia/commons/0/00/Sunset_in_Kuta.jpg',
                 imageAlt: 'Matahari terbenam di Pantai Kuta, Bali, dengan siluet pengunjung di tepi laut',
                 imageLoading: 'eager',
-                snippet: 'Kenali lokasi, aktivitas, surfing, sunset, akses, fasilitas, perkiraan anggaran, dan tips praktis sebelum mengunjungi Pantai Kuta.',sources: [
+                snippet: 'Kenali lokasi, aktivitas, surfing, sunset, akses, fasilitas, perkiraan anggaran, dan tips praktis sebelum mengunjungi Pantai Kuta.',
+                sources: [
                     { title: 'Indonesia.travel — Pantai Kuta Bali', url: 'https://www.indonesia.travel/id/id/destination/bali-nusa-tenggara/bali/pantai-kuta' },
                     { title: 'Dinas Pariwisata Kabupaten Badung — Pantai Kuta', url: 'https://sita.badungkab.go.id/destinasi/pantai-kuta-pantai-berpasir-putih-dengan-matahari-terbenam-yang-memukau' },
                     { title: 'Wikimedia Commons — Sunset in Kuta.jpg (public domain)', url: 'https://commons.wikimedia.org/wiki/File:Sunset_in_Kuta.jpg' }
