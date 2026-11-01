@@ -176,7 +176,7 @@
             ];
             var timelineHtml = itinerary.map(function(x,i){return '<article class="dolphin-timeline-item"><span class="dolphin-timeline-number">'+(i+1)+'</span><div class="dolphin-timeline-time">'+x.time+'</div><div class="dolphin-timeline-copy"><h3>'+x.title+'</h3><p>'+x.desc+'</p></div></article>';}).join('');
             var destinationsHtml = itinerary.filter(function(x){return x.blog;}).map(function(x){
-                var excerpt = (x.shortDesc || 'A stop on this North Bali journey.').trim().split(/\\s+/).slice(0,18).join(' ') + '…';
+                var excerpt = (x.shortDesc || 'A stop on this North Bali journey.').trim().split(/\s+/).slice(0,18).join(' ') + '…';
                 return '<article class="dolphin-destination"><img src="'+x.image+'" alt="'+x.title+': '+(x.shortDesc||'a stop on this North Bali journey')+'" loading="lazy"><span class="dolphin-destination-copy"><strong>'+x.title+'</strong><small>'+excerpt+'</small><a class="dolphin-destination-link" href="javascript:void(0)" aria-label="Read more about '+x.title+'">Read more <i class="fas fa-arrow-right" aria-hidden="true"></i></a></span></article>';
             }).join('');
             var addons = [
