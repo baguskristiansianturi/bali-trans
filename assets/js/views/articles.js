@@ -51,19 +51,19 @@ function renderRelatedBlogGuides(blog) {
         function renderBlogDetailView(blog) {
             const escapeHtml = value => String(value || '').replace(/[&<>"]/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[character]));
             const rawContent = String(blog.content || '');
-            const headings = [...rawContent.matchAll(/<h2\\b[^>]*>([\\s\\S]*?)<\\/h2>/gi)].map(match => ({
+            const headings = [...rawContent.matchAll(/<h2\b[^>]*>([\s\S]*?)<\/h2>/gi)].map(match => ({
                 text: match[1].replace(/<[^>]*>/g, '').replace(/&amp;/g, '&').trim()
             }));
             const headingIds = new Map();
-            const articleContent = rawContent.replace(/<h2\\b([^>]*)>([\\s\\S]*?)<\\/h2>/gi, (match, attrs, inner) => {
+            const articleContent = rawContent.replace(/<h2\b([^>]*)>([\s\S]*?)<\/h2>/gi, (match, attrs, inner) => {
                 const label = inner.replace(/<[^>]*>/g, '').replace(/&amp;/g, '&').trim();
-                const base = label.toLowerCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'bagian-artikel';
+                const base = label.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'bagian-artikel';
                 const count = (headingIds.get(base) || 0) + 1;
                 headingIds.set(base, count);
                 const id = count > 1 ? base + '-' + count : base;
                 return '<h2 id="' + id + '">' + inner + '</h2>';
             });
-            const toc = [...articleContent.matchAll(/<h2\\b[^>]*id="([^"]+)"[^>]*>([\\s\\S]*?)<\\/h2>/gi)].map(match => ({
+            const toc = [...articleContent.matchAll(/<h2\b[^>]*id="([^"]+)"[^>]*>([\s\S]*?)<\/h2>/gi)].map(match => ({
                 id: match[1], text: match[2].replace(/<[^>]*>/g, '').trim()
             }));
             const tocMarkup = toc.length >= 5 ? '<nav class="article-toc" aria-label="Daftar isi"><p class="article-toc-title">Dalam panduan ini</p><ol>' + toc.map(item => '<li><a href="#' + escapeHtml(item.id) + '">' + escapeHtml(item.text) + '</a></li>').join('') + '</ol></nav>' : '';
