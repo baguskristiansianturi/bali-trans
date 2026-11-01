@@ -67,9 +67,10 @@ Gagasan yang belum disetujui untuk diterapkan tidak dimasukkan ke daftar pekerja
 - [ ] Rincian Setiap Layanan — cakupan dan persyaratan setiap jenis layanan.
 - [ ] Master Wilayah Operasional & Rute.
 - [ ] Fasilitas yang Termasuk & Tidak Termasuk.
-- [x] Membuat inventaris awal destinasi dari sitemap Bali Golden Tour dan aturan fungsi data destinasi. Lihat [Master Destinasi Bali](./01-DATA/DESTINATION-MASTER.md). Status inventaris masih perlu peninjauan bersama.
-- [ ] Meninjau dan menyepakati kategori utama, wilayah luas, serta penempatan destinasi yang masih meragukan pada Master Destinasi Bali.
-- [ ] Melengkapi data destinasi satu per satu (lokasi rinci, akses, fasilitas, biaya, jam operasional, dan sumber) setelah kategori dan wilayah ditinjau.
+- [x] Membuat inventaris awal destinasi dari Bali Golden Tour dan memperluas kategori Beach menggunakan sumber pemerintah serta direktori destinasi. Lihat [Master Destinasi Bali](./01-DATA/DESTINATION-MASTER.md). Inventaris pantai masih perlu audit nama, alias, dan wilayah.
+- [ ] Melanjutkan audit inventaris Beach: memeriksa nama/alias yang tumpang tindih, memastikan identitas pantai yang belum pasti, dan meninjau penempatan wilayah pada Master Destinasi Bali.
+- [ ] Meninjau serta menyepakati aturan wilayah wisata luas dan status data destinasi pada Master Destinasi Bali.
+- [ ] Melengkapi data pendukung destinasi (lokasi rinci, akses, fasilitas, biaya, jam operasional, dan sumber) setelah inventaris nama dan pengelompokan disepakati.
 - [ ] Master Aktivitas & Pengalaman.
 - [ ] Master Harga & Kalkulator — **MENUNGGU DATA**; isi setelah logika kalkulator dan tarif dari Mas Bagus tersedia.
 - [ ] Referensi Metode Pembayaran.
