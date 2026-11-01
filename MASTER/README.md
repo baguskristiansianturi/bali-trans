@@ -1,121 +1,121 @@
-# Bali Trans — Master Blueprint
+# Cetak Biru Master — Bali Trans / BDM Trans
 
-Status: INITIAL INVENTORY + INCREMENTAL PRODUCT FOUNDATION  \
-Last mapped: 2026-11-01  \
-Repository: `baguskristiansianturi/bali-trans`  \
-Default branch: `main`  \
-Implementation snapshot used for initial technical inventory: `a8d4282293d98923ecf160f52d95fe6168dd905d`
+**Status:** INVENTARIS AWAL + FONDASI PRODUK BERTAHAP  
+**Pemetaan terakhir:** 2026-11-01  
+**Repository:** `baguskristiansianturi/bali-trans`  
+**Cabang utama:** `main`  
+**Versi penerapan yang digunakan untuk inventaris teknis awal:** `a8d4282293d98923ecf160f52d95fe6168dd905d`
 
-## Start every work session here
+## Mulai Setiap Sesi Kerja dari Sini
 
-**Required first read:** [`START-HERE.md`](./START-HERE.md).
+**Dokumen yang wajib dibaca pertama kali:** [Mulai dari Sini](./START-HERE.md).
 
-This is the team's session-start protocol and working agreement. Read it before continuing project work. It explains the collaboration method, approval checkpoints, documentation sequence, website-protection boundary and current discovery checkpoint.
+Dokumen tersebut merupakan protokol memulai sesi dan kesepakatan cara kerja tim. Baca sebelum melanjutkan pekerjaan proyek. Isinya menjelaskan cara kolaborasi, tahap persetujuan, urutan dokumentasi, batas perlindungan website, dan posisi pembahasan terakhir.
 
-Current working boundary: **Master discussion and documentation only. The existing website must not be changed unless separately and explicitly authorized.**
+Batas kerja saat ini: **pembahasan dan dokumentasi Master saja. Website yang sudah ada tidak boleh diubah kecuali ada izin terpisah dan jelas.**
 
-## Product and service discovery records
+## Dokumen Pembahasan Produk dan Layanan
 
-These records are the business-first source of context for future page, content, journey, design and implementation decisions. They are intentionally developed incrementally.
+Dokumen berikut menjadi sumber konteks bisnis untuk keputusan halaman, konten, alur pengguna, desain, dan penerapan di masa depan. Semuanya dikembangkan secara bertahap.
 
-| Document | Responsibility |
+| Dokumen | Kegunaan |
 |---|---|
-| [Master Catalog](./MASTER-CATALOG.md) | Central index of existing, planned and not-yet-created knowledge documents |\n| [Product Foundation](./PRODUCT-FOUNDATION.md) | Market positioning, target customers, value proposition, website role and open discovery |
-| [Service Master](./SERVICE-MASTER.md) | Current service categories and their service types |
-| [Future Ideas](./FUTURE-IDEAS.md) | Unapproved or early concepts kept separate from active services |
-| [Work Register](./WORK-REGISTER.md) | Active unfinished discovery and documentation tasks |
-| [Master Change Register](./05-CHANGE-REGISTER.md) | Dated history of meaningful Master changes |
+| [Katalog Master](./MASTER-CATALOG.md) | Indeks pusat dokumen yang sudah ada, direncanakan, atau belum dibuat |
+| [Fondasi Produk](./PRODUCT-FOUNDATION.md) | Posisi pasar, pelanggan sasaran, nilai layanan, fungsi website, dan pembahasan terbuka |
+| [Master Layanan](./SERVICE-MASTER.md) | Kategori layanan dan jenis layanan saat ini |
+| [Daftar Ide Masa Depan](./FUTURE-IDEAS.md) | Konsep yang belum disetujui dan dipisahkan dari layanan aktif |
+| [Daftar Pekerjaan](./WORK-REGISTER.md) | Pembahasan dan dokumentasi yang belum selesai |
+| [Daftar Perubahan Master](./05-CHANGE-REGISTER.md) | Riwayat perubahan penting pada dokumen Master |
 
-**Important:** A future idea is not an active service or implementation task. An unchecked Work Register item remains open even when the team changes topic. The [Master Catalog](./MASTER-CATALOG.md) and its domain indexes also track documents that have been identified but not yet created. Their absence must never be mistaken for forgotten work.
+**Penting:** ide masa depan bukan layanan aktif atau tugas penerapan. Pekerjaan yang belum dicentang tetap terbuka meskipun tim berpindah topik. [Katalog Master](./MASTER-CATALOG.md) dan indeks kelompoknya juga mencatat dokumen yang kebutuhannya sudah ditemukan tetapi belum dibuat. Dokumen yang belum ada tidak boleh dianggap sebagai pekerjaan yang terlupakan.
 
-## Technical blueprint
+## Cetak Biru Teknis
 
-This folder is also the human-readable map of the existing Bali Trans website. It records:
-- what components and page modules currently exist;
-- what each component is responsible for;
-- where its real implementation lives;
-- which pages use it and which pages are exceptions;
-- the current implementation and approval status;
-- known gaps or discrepancies that must be resolved before treating a component as a final standard.
+Folder ini juga menjadi peta yang dapat dibaca manusia untuk website Bali Trans yang sudah ada. Isinya mencatat:
+- komponen dan modul halaman yang sudah tersedia;
+- tanggung jawab setiap komponen;
+- lokasi kode penerapan sebenarnya;
+- halaman yang menggunakan komponen dan halaman yang memiliki pengecualian;
+- status penerapan dan persetujuan saat ini;
+- kekurangan atau perbedaan yang perlu diselesaikan sebelum komponen dianggap sebagai standar final.
 
-The initial technical inventory documents the existing implementation. It is separate from the business-first product discovery records above.
+Inventaris teknis awal mendokumentasikan penerapan yang sudah ada. Bagian ini terpisah dari dokumen pembahasan produk yang berangkat dari kebutuhan bisnis.
 
-## This is not source code
+## Ini Bukan Kode Sumber
 
-Files in `MASTER/` are documentation only. They must not contain executable HTML, CSS, JavaScript, temporary scripts, or experimental code. The website continues to run from the existing implementation files.
+Berkas di dalam `MASTER/` hanya berisi dokumentasi. Jangan memasukkan HTML, CSS, JavaScript yang dapat dijalankan, skrip sementara, atau kode percobaan ke dalamnya. Website tetap berjalan dari berkas penerapan yang sudah ada.
 
-The Master describes the implementation and approved decisions; it does not replace them.
+Master menjelaskan penerapan dan keputusan yang disetujui; Master tidak menggantikan kode penerapan.
 
-## Two connected layers
+## Dua Lapisan yang Saling Terhubung
 
-1. **MASTER BLUEPRINT** — this folder: business decisions, service definitions, system maps, component contracts, page relationships, status and change notes.
-2. **IMPLEMENTATION** — the existing HTML, CSS, JavaScript, data and assets that actually run the website.
+1. **CETAK BIRU MASTER** — folder ini: keputusan bisnis, definisi layanan, peta sistem, aturan komponen, hubungan halaman, status, dan catatan perubahan.
+2. **PENERAPAN WEBSITE** — HTML, CSS, JavaScript, data, dan aset yang benar-benar menjalankan website.
 
-A component is not considered synchronized merely because its documentation exists. When an approved implementation change is made, the corresponding Master record must be updated in the same scoped change set.
+Sebuah komponen belum dianggap selaras hanya karena dokumentasinya tersedia. Ketika perubahan penerapan disetujui, catatan Master yang terkait harus diperbarui dalam rangkaian perubahan yang sama.
 
-## Status vocabulary
+## Kosakata Status
 
-Decision status:
-- **DISCUSSION** — being explored; not a decision.
-- **PROPOSED** — a candidate recommendation awaiting discussion or approval.
-- **AGREED** — explicitly accepted by the team for the current Master version.
-- **VALIDATION REQUIRED** — agreed provisionally but needs real-world or usability testing.
-- **REVISED** — replaced by a later decision; retain its history.
-- **REJECTED** — considered and not adopted.
-- **FUTURE IDEA** — an early concept that is not an active service or work commitment.
+### Status Keputusan
+- **PEMBAHASAN** — sedang dijajaki; belum menjadi keputusan.
+- **USULAN** — rekomendasi yang menunggu pembahasan atau persetujuan.
+- **DISETUJUI** — diterima secara jelas untuk versi Master saat ini.
+- **PERLU VALIDASI** — disetujui sementara, tetapi masih perlu pemeriksaan atau pengujian.
+- **DIREVISI** — digantikan keputusan baru; riwayat sebelumnya tetap disimpan.
+- **DITOLAK** — telah dipertimbangkan dan tidak digunakan.
+- **IDE MASA DEPAN** — konsep awal yang belum menjadi layanan aktif atau komitmen kerja.
 
-Implementation status:
-- **IMPLEMENTED** — the referenced implementation exists in the repository.
-- **PARTIAL** — some parts exist, but the full component contract or behaviour is not established.
-- **PRESENT — VERIFY USAGE** — files exist, but active callers and actual runtime use have not been fully confirmed.
-- **EXCEPTION** — intentionally different behaviour on a specific page or page family.
-- **ARCHIVED** — retained for historical/reference purposes and not treated as active implementation.
-- **NOT ESTABLISHED** — no shared implementation or approved rule has been identified yet.
+### Status Penerapan
+- **SUDAH DITERAPKAN** — penerapan yang dirujuk tersedia di repository.
+- **SEBAGIAN** — sebagian bagian tersedia, tetapi aturan atau perilaku komponen belum lengkap.
+- **TERSEDIA — PERLU PERIKSA PENGGUNAAN** — berkas tersedia, tetapi pemanggil aktif dan penggunaan saat berjalan belum dipastikan.
+- **PENGECUALIAN** — perilaku pada halaman atau kelompok halaman tertentu memang sengaja berbeda.
+- **DIARSIPKAN** — disimpan untuk sejarah/referensi dan tidak dianggap sebagai penerapan aktif.
+- **BELUM DITETAPKAN** — belum ditemukan penerapan bersama atau aturan yang disetujui.
 
-Never infer approval from the fact that code exists or a page is deployed.
+Jangan menyimpulkan suatu hal telah disetujui hanya karena kodenya tersedia atau halamannya sudah tayang.
 
-## Change and protection rules
+## Aturan Perubahan dan Perlindungan
 
-- Product and design decisions require explicit agreement before being recorded as approved.
-- Add information incrementally; do not force the team through a rigid waterfall.
-- Put each decision in the document that owns that subject.
-- Keep unresolved ideas clearly marked and separate from current services.
-- Record meaningful changes, their reason, date and approval status.
-- If implementation and Master disagree, record the discrepancy and discuss it.
-- Do not change website implementation during Master discovery without separate explicit authorization.
+- Keputusan produk dan desain memerlukan persetujuan yang jelas sebelum dicatat sebagai keputusan final.
+- Tambahkan informasi secara bertahap; jangan memaksa tim mengikuti tahapan kaku.
+- Simpan setiap keputusan pada dokumen yang membahas topik tersebut.
+- Tandai gagasan yang belum selesai dan pisahkan dari layanan aktif.
+- Catat perubahan penting, alasan, tanggal, dan status persetujuannya.
+- Jika penerapan berbeda dari Master, catat perbedaannya dan bahas.
+- Jangan mengubah penerapan website selama pembahasan Master tanpa izin terpisah dan jelas.
 
-## Relationship to existing project documentation
+## Hubungan dengan Dokumentasi Proyek Lain
 
-This folder complements, not replaces:
-- `ARCHITECTURE.md` — technical architecture boundaries.
-- `SOP.md` — repository change procedure.
-- `ROADMAP.md` — implementation/release roadmap.
-- `HANDOFF.md` — current working handoff and verified release state.
-- `TEMPLATE-REGISTRY.md` — canonical page templates and shared components.
-- `TEMPLATE-PLAYBOOK.md` — how templates are designed and reused.
-- `docs/architecture/REPOSITORY_MAP.md` — file and dependency navigation.
-- `AUDIT.md` — historical audit findings.
-- `content/ROUTE_MASTER_MAPPING.md` — route mapping.
-- `content/bali-master-data.json` — destination master data.
+Folder ini melengkapi, bukan menggantikan:
+- `ARCHITECTURE.md` — batas arsitektur teknis.
+- `SOP.md` — prosedur perubahan repository.
+- `ROADMAP.md` — peta jalan penerapan dan rilis.
+- `HANDOFF.md` — serah terima kerja dan status rilis yang telah diperiksa.
+- `TEMPLATE-REGISTRY.md` — daftar pola halaman dan komponen bersama.
+- `TEMPLATE-PLAYBOOK.md` — cara merancang dan menggunakan kembali pola halaman.
+- `docs/architecture/REPOSITORY_MAP.md` — peta berkas dan ketergantungan.
+- `AUDIT.md` — temuan audit terdahulu.
+- `content/ROUTE_MASTER_MAPPING.md` — pemetaan alamat halaman.
+- `content/bali-master-data.json` — data induk destinasi.
 
-The Work Register is the cross-topic checklist for unfinished discovery and documentation. It complements the implementation roadmap; it does not replace it.
+Daftar Pekerjaan menjadi daftar lintas topik untuk pembahasan dan dokumentasi yang belum selesai. Dokumen ini melengkapi peta jalan penerapan; bukan penggantinya.
 
-## Reading order
+## Urutan Membaca
 
-1. `START-HERE.md` — session protocol and current checkpoint.
-2. `PRODUCT-FOUNDATION.md` — relevant business and customer context.
-3. `SERVICE-MASTER.md` — current service structure.
-4. `FUTURE-IDEAS.md` — parked concepts, when relevant.
-5. `WORK-REGISTER.md` — unfinished work and next actions.
-6. `00-SYSTEM-MAP.md`
-7. `01-GLOBAL-COMPONENTS.md`
-8. `02-PAGE-MODULES.md`
-9. `03-TECHNICAL-MODULES.md`
-10. `04-STATUS-REGISTER.md`
-11. Relevant detailed records under `GLOBAL/` or `SHARED/`.
+1. `START-HERE.md` — protokol sesi dan posisi pembahasan.
+2. `MASTER-CATALOG.md` — indeks dokumen dan kebutuhan dokumentasi.
+3. `PRODUCT-FOUNDATION.md` — konteks bisnis dan pelanggan yang relevan.
+4. `SERVICE-MASTER.md` — susunan layanan saat ini.
+5. `FUTURE-IDEAS.md` — konsep yang ditunda, jika relevan.
+6. `WORK-REGISTER.md` — pekerjaan yang belum selesai dan tindak lanjut.
+7. `00-SYSTEM-MAP.md`
+8. `01-GLOBAL-COMPONENTS.md`
+9. `02-PAGE-MODULES.md`
+10. `03-TECHNICAL-MODULES.md`
+11. `04-STATUS-REGISTER.md`
+12. Dokumen terperinci yang relevan di dalam `GLOBAL/` atau `SHARED/`.
 
---- 
+---
 
-## Master knowledge architecture
-
-The business knowledge base is organized into domain folders indexed by [Master Catalog](./MASTER-CATALOG.md): Foundation & Brand, Business & Service Data, Rules & Policies, Content & Editorial Guidelines, Customer Experience, Website & Technology, and Governance & Sources. Each domain index lists planned records and their current status, including documents that are not yet started. Existing root-level records are retained and linked; they are not duplicated or moved merely to make the folder tree look uniform.
+**Catatan:** Nama berkas dan istilah teknis tertentu dipertahankan dalam bahasa Inggris agar sesuai dengan struktur kode. Penjelasan dan isi dokumentasi Master menggunakan bahasa Indonesia.
