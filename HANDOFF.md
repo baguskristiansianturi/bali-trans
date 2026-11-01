@@ -110,3 +110,13 @@ Live preview: https://baguskristiansianturi.github.io/bali-trans/
 - Added manual curated collection definitions for Latest, Popular and Hidden Gems; memberships remain empty pending editorial selection.
 - Classified the Kuta blog article as Travel Information with Tips, linked its data to destination ID `kuta-beach`, and corrected its blog breadcrumb hierarchy. No visual layout or route migration was made.
 - The Destination Master remains the source for place analysis and validation notes; current taxonomy classifications are provisional and do not mean all destination facts are verified.
+
+
+## Destination Hub first implementation — 1 November 2026
+
+- Added a dedicated SPA route `?page=destinations` and a separate Destination Hub renderer at `assets/js/views/destination-hub.js`, with page-scoped responsive styling in `assets/css/pages/destination-hub.css`.
+- The page presents a landscape hero, breadcrumb, title/description, #BaliIsland and #Indonesia labels, a horizontally scrollable sticky category rail below the global sticky navbar, responsive destination cards, a designed zero-result state for every empty category, long-form Bali editorial copy, and the existing shared footer.
+- Category names and destination identity come from `content/bali-master-data.json`; only articles explicitly marked `publicationStatus: 'PUBLISHED'` and linked by `relatedDestinationId` to a Master record of `record_kind: 'place'` become public cards. The current published destination article is Pantai Kuta; other categories remain visible with zero counts and empty states.
+- Counts are derived from published article-to-Master relations. Latest uses Master record `master_added_at` / `master_updated_at` metadata and falls back to Master array order for legacy records; it does not sort by article upload date.
+- Cards link to the published editorial article route, not to the legacy region discovery view. Destination Hub and Editorial Article remain distinct page families.
+- Added the Destination Hub publication/count/Latest checklist to `SOP.md` and updated `TEMPLATE-REGISTRY.md`. Physical Android visual QA and final visual approval remain pending.
