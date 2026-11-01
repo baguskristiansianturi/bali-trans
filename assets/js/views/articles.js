@@ -24,7 +24,7 @@ function renderRelatedBlogGuides(blog) {
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                         ${BALI_BLOGS.map(blog => `
                             <div class="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
-                                <img src="${blog.image}" alt="${(blog.imageAlt || blog.title).replace(/&/g, '&amp;').replace(/"/g, '&quot;')}" class="w-full h-48 object-cover" loading="lazy">
+                                <img src="${blog.image}" alt="${(blog.imageAlt || blog.title).replace(/&/g, '&amp;').replace(/"/g, '&quot;')}" class="w-full h-48 object-cover" loading="${blog.imageLoading || 'lazy'}" fetchpriority="${blog.imageLoading === 'eager' ? 'high' : 'auto'}" width="1200" height="640">
                                 <div class="p-6 flex-1 flex flex-col justify-between">
                                     <div>
                                         <div class="flex items-center gap-2 text-[10px] font-bold text-slate-400 mb-2">
@@ -58,7 +58,7 @@ function renderRelatedBlogGuides(blog) {
                     <span class="flex items-start gap-2 text-sm font-extrabold leading-snug text-slate-800 group-hover:text-bali-orange">${direction === 'previous' ? '<i class="fas fa-arrow-left mt-1 shrink-0"></i>' : ''}<span class="min-w-0">${item.title}</span>${direction === 'next' ? '<i class="fas fa-arrow-right mt-1 shrink-0"></i>' : ''}</span>
                 </button>` : '<div class="hidden sm:block"></div>';
             return `
-                <article class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+                <article lang="${blog.lang || 'en'}" class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
                     <button type="button" onclick="navigateTo('blog')" class="text-xs font-bold text-slate-500 hover:text-slate-900 mb-6 flex items-center gap-2">
                         <i class="fas fa-arrow-left"></i> Back to Travel Guides
                     </button>
