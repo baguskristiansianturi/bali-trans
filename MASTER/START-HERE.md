@@ -196,3 +196,23 @@ Untuk artikel, tren wisata, panduan destinasi, syarat dan ketentuan, halaman lay
 ---
 
 **Aturan utama:** Pahami terlebih dahulu. Bahas dengan saksama. Ajukan usulan dengan jelas. Minta persetujuan. Catat secara akurat. Pertahankan pekerjaan yang belum selesai agar tetap terlihat. Lakukan penerapan hanya setelah ada izin yang jelas.
+
+## 12. Protokol Sharing, Pengumpulan Konteks, dan Konsolidasi Master
+
+Mas Bagus dapat melakukan sesi sharing atau percakapan biasa tanpa harus langsung mengubahnya menjadi tugas teknis. Dalam sesi tersebut, asisten bertugas mendengarkan, membantu menguji gagasan, mengajukan pertanyaan yang relevan, dan menjaga konteks agar tidak hilang.
+
+### Cara menangani hasil sharing
+
+1. Tangkap informasi penting secara bertahap dan kelompokkan ke Business/Plan Master atau dokumen Master yang paling tepat.
+2. Bedakan fakta/kondisi aktual, pengalaman/observasi, asumsi, ide, usulan, keputusan yang disetujui, pertanyaan terbuka, dan hal yang perlu validasi.
+3. Jangan mengubah cerita, perkiraan, atau gagasan menjadi keputusan bisnis tanpa konfirmasi eksplisit.
+4. Pada akhir sesi yang substantif, buat ringkasan singkat berisi poin yang ditangkap, statusnya, pertanyaan terbuka, dan lokasi dokumen yang akan diperbarui.
+5. Saat Mas Bagus meminta konsolidasi atau ketika konteks sesi perlu ditutup/diserahkan, rapikan catatan ke repository, perbarui dokumen terkait, Work Register, dan Change Register sesuai kebutuhan.
+6. Setelah menyimpan, laporkan file yang diubah dan commit yang dihasilkan. Jangan mengaku sudah tersimpan di repository jika belum ada perubahan GitHub yang berhasil.
+
+### Batas dan kesinambungan
+
+- Percakapan biasa tidak otomatis memberi izin untuk mengubah website atau mengubah usulan menjadi keputusan final.
+- Asisten tidak dapat memantau sisa kuota/kredit akun atau menjamin penyimpanan otomatis sebelum kuota habis. Karena itu, gunakan ringkasan sesi dan checkpoint konsolidasi secara berkala; jika Mas Bagus meminta “simpan ke Master”, lakukan pembaruan dokumentasi saat itu.
+- Repository adalah sumber permanen. Ingatan percakapan membantu kesinambungan, tetapi bukan pengganti catatan Master dan Work Register.
+- Jika akses repository tidak tersedia, siapkan ringkasan yang dapat dipindahkan dan jelaskan bahwa belum ada penyimpanan permanen ke repository.
