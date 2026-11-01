@@ -37,7 +37,7 @@
 |---|---|---|
 | [Fondasi Produk](./PRODUCT-FOUNDATION.md) | SUDAH ADA — pembahasan masih terbuka | Posisi strategis dan fungsi website |
 | [Master Layanan](./SERVICE-MASTER.md) | SUDAH ADA — dasar awal | Kategori dan jenis layanan saat ini |
-| [Master Destinasi Bali](./01-DATA/DESTINATION-MASTER.md) | INVENTARIS DIPERLUAS — perlu audit | Aturan fungsi data destinasi dan inventaris Beach, Waterfall, Mountain, dan Lake dari sumber yang dapat ditelusuri |
+| [Master Destinasi Bali](./01-DATA/DESTINATION-MASTER.md) | INVENTARIS DIPERLUAS — perlu audit | Aturan fungsi data destinasi dan inventaris berbagai kategori destinasi Bali dari sumber yang dapat ditelusuri, termasuk Beach, Waterfall, Mountain, Lake, Temple, Rice Terrace, Village, Forest, Viewpoint, Museum, Market, dan lainnya |
 | [Daftar Ide Masa Depan](./FUTURE-IDEAS.md) | SUDAH ADA | Konsep yang belum menjadi layanan aktif |
 | [Daftar Pekerjaan](./WORK-REGISTER.md) | SUDAH ADA — aktif | Pekerjaan pembahasan dan dokumentasi yang belum selesai |
 | [Mulai dari Sini](./START-HERE.md) | SUDAH ADA | Prosedur memulai sesi proyek |
