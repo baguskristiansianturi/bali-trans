@@ -91,6 +91,34 @@ try {
   await page.locator('#mobileMenuButton').click();
   if (await page.locator('#mobileMenuPanel').isVisible()) throw new Error('Mobile navigation did not close when toggled');
   console.log('PASS homepage uses the shared shell with functional locale, search and mobile overlays');
+  await checkRoute('destination hub', '?page=destinations', 'Explore Bali’s Destinations');
+  await page.waitForSelector('.destination-hub__filter[data-destination-filter="all"]');
+  await page.waitForFunction(() => document.querySelector('.destination-hub__card'));
+  const destinationHubChecks = await page.evaluate(() => ({
+    allCount: document.querySelector('[data-destination-filter="all"] small')?.textContent,
+    beachCount: document.querySelector('[data-destination-filter="beach"] small')?.textContent,
+    cardHref: document.querySelector('.destination-hub__card')?.getAttribute('href'),
+    stickyPosition: getComputedStyle(document.querySelector('.destination-hub__filter-wrap')).position,
+    stickyTop: getComputedStyle(document.querySelector('.destination-hub__filter-wrap')).top
+  }));
+  if (destinationHubChecks.allCount !== '1' || destinationHubChecks.beachCount !== '1') {
+    throw new Error('Destination Hub published counts are incorrect: ' + JSON.stringify(destinationHubChecks));
+  }
+  if (destinationHubChecks.cardHref !== '?page=blog-read&item=pantai-kuta-bali') {
+    throw new Error('Destination card must link to its published article: ' + JSON.stringify(destinationHubChecks));
+  }
+  if (destinationHubChecks.stickyPosition !== 'sticky' || destinationHubChecks.stickyTop !== '60px') {
+    throw new Error('Mobile category rail is not sticky below the mobile navbar: ' + JSON.stringify(destinationHubChecks));
+  }
+  await page.locator('[data-destination-filter="temple"]').click();
+  if (!(await page.getByText('No published destinations yet').isVisible())) {
+    throw new Error('Empty destination category must display its empty state');
+  }
+  await page.locator('[data-destination-filter="latest"]').click();
+  if (await page.locator('.destination-hub__card').count() !== 1) {
+    throw new Error('Latest must show the published destination from Master data');
+  }
+  console.log('PASS Destination Hub category counts, sticky mobile rail, Latest ordering, article link and empty state');
   await checkRoute('about', '?page=about', 'A simpler way');
   await checkRoute('contact', '?page=contact', 'Let’s talk');
   await checkRoute('help centre', '?page=help', 'How can we help?');
