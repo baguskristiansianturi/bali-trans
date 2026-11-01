@@ -150,23 +150,22 @@ Asisten harus memeriksa semua hal berikut:
 
 Jika satu jawaban belum dapat dipastikan, periksa repository/master data lebih dahulu. Jangan menebak lalu menunggu Mas Bagus menemukan kesalahannya.
 
-## 11. SOP khusus produksi artikel dan konten SEO — tiga tahap wajib
+## 11. SOP khusus produksi artikel dan konten SEO
 
-Produksi artikel wajib mengikuti tiga SOP terpisah di `MASTER/03-GUIDELINES/`:
+Semua pekerjaan artikel wajib menggunakan folder `MASTER/03-GUIDELINES/PRODUKSI-ARTIKEL/` dan mulai dari indeks `README.md`.
 
-1. **SOP 1 — Riset, Perencanaan, dan Naskah:** `ARTICLE-PRODUCTION-SOP.md`. Baca SOP dan master destinasi/aktivitas yang relevan terlebih dahulu; tetapkan lokasi, region, kategori, label, dan relasi; lakukan riset kata kunci, analisis kompetitor Google halaman pertama dan kedua sejauh dapat diakses, verifikasi sumber, lalu susun naskah lengkap.
-2. **SOP 2 — Penerapan Halaman dan Publikasi:** `ARTICLE-PAGE-IMPLEMENTATION-SOP.md`. Hanya boleh dimulai setelah naskah mendapat persetujuan eksplisit Mas Bagus.
-3. **SOP 3 — Audit Setelah Publikasi:** `ARTICLE-POST-PUBLISH-AUDIT-SOP.md`. Dilakukan setelah deployment berhasil dan URL GitHub Pages dapat dibuka.
+1. **SOP Riset** — `01-RISET-DAN-NASKAH.md`: baca Master destinasi/aktivitas, tetapkan taxonomy, riset keyword, analisis kompetitor Google halaman 1–2, verifikasi fakta/sumber, dan susun naskah. Kirim naskah kepada Mas Bagus.
+2. **SOP Implementasi** — `02-IMPLEMENTASI-HALAMAN.md`: hanya dimulai setelah naskah disetujui eksplisit. Terapkan naskah pada pola halaman yang sesuai dan dokumentasikan baseline aktual. Pantai Kuta adalah snapshot awal untuk artikel, bukan desain universal bagi semua halaman.
+3. **SOP Audit** — `03-AUDIT-PASCA-PUBLIKASI.md`: setelah deploy, periksa UI/UX, originalitas, fakta, SEO, performa, dan teknis; selesaikan checklist serta approval akhir.
 
-**Gerbang persetujuan wajib:** setelah SOP 1, kirim naskah kepada Mas Bagus. Jangan mengubah data artikel, coding, atau menerapkan halaman sebelum naskah disetujui. Setelah SOP 2, kirim URL live dan commit hash; SOP 3 mengaudit UI, UX, originalitas, fakta, SEO, dan teknis. Artikel baru dinyatakan selesai setelah checklist SOP 3 disetujui.
+SOP bersifat **living documents**: setiap perubahan yang diminta dan disetujui Mas Bagus harus diimplementasikan, diuji, lalu dicatat pada SOP yang relevan dengan kenaikan versi, tanggal, file/komponen terdampak, commit, dan status persetujuan. Jangan menganggap usulan/mockup sebagai implementasi final. Jangan melanjutkan ke tahap berikutnya tanpa gerbang persetujuan.
 
-Standar konten wajib yang tetap berlaku:
-- Minimal 800 kata isi artikel, tidak termasuk judul, metadata, sumber editorial, dan catatan riset. Jangan menambah kalimat pengisi demi mengejar jumlah kata.
-- Satu gambar utama tanpa caption dan minimal dua gambar pendukung bercaption; gunakan nama file deskriptif, alt text alami, kredit yang sesuai, dan fallback frame jika gambar gagal.
-- FAQ memakai accordion bersama: seluruh jawaban tertutup saat awal, satu panel terbuka, kartu mandiri ber-border lembut, jawaban satu tingkat lebih kecil dari body, panel jawaban berlatar lembut, transisi halus, dan kesimpulan tetap berukuran body.
-- Gaya isi menggunakan bold, italic, tanda kurung, kutipan, daftar, tabel, dan note panel secara selektif sesuai konteks. Note memakai border tipis, latar abu-abu lembut/transparan, padding proporsional, dan teks satu tingkat lebih kecil dari body; jangan berlebihan.
-- Tautan sumber harus menuju halaman artikel/laporan/dokumen/publikasi spesifik yang benar-benar mendukung klaim. Jangan menautkan homepage atau profil lembaga jika halaman bukti langsung tersedia. Tempatkan tautan pada anchor text kontekstual di paragraf; jangan tampilkan daftar sumber di akhir artikel.
-- Perubahan website tetap tunduk pada aturan lingkup, diff, pengujian, commit, deployment, dan verifikasi dalam SOP repository ini.
+Standar editorial tetap berlaku:
+- Minimal 800 kata isi artikel, tanpa judul, metadata, sumber editorial, dan catatan riset; dilarang menambah kalimat pengisi.
+- Satu gambar utama tanpa caption dan minimal dua gambar pendukung bercaption, dengan alt alami, kredit/lisensi, nama file deskriptif, dan fallback.
+- Bold, italic, tanda kurung, kutipan, daftar, tabel, dan note panel digunakan sesuai konteks. Note memakai border halus, latar lembut, padding proporsional, dan teks satu tingkat lebih kecil dari body.
+- Tautan sumber menuju halaman publikasi/bukti spesifik yang mendukung klaim, bukan homepage/profil umum; anchor text kontekstual di paragraf dan tanpa daftar sumber di akhir.
+- Perubahan website mengikuti lingkup, diff, pengujian, commit, deployment, dan verifikasi dalam SOP repository.
 
 ## 12. SOP Destination Hub, kategori, dan sinkronisasi publikasi
 
