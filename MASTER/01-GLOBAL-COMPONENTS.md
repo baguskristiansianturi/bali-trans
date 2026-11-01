@@ -1,29 +1,29 @@
-# 01 — Global Components Index
+# 01 — Indeks Komponen Global
 
-Status: INITIAL INVENTORY  
-Detailed records are in `MASTER/GLOBAL/`.
+**Status:** INVENTARIS AWAL  
+Catatan terperinci tersedia di folder MASTER/GLOBAL/.
 
-| ID | Component | Current source | Implementation | Approval |
+| ID | Komponen | Sumber saat ini | Status penerapan | Persetujuan |
 |---|---|---|---|---|
-| GLB-001 | Navbar / shared header | `assets/js/global-shell.js`, `assets/css/global-shell.css` | IMPLEMENTED | NOT RECORDED |
-| GLB-002 | Footer | `assets/js/global-shell.js`, `assets/css/global-shell.css` | IMPLEMENTED | NOT RECORDED |
-| GLB-003 | Mobile bottom navigation | `index.html` and SPA handlers | IMPLEMENTED for SPA | NOT RECORDED |
-| GLB-004 | Header search | `assets/js/global-shell.js`, `assets/js/interactions.js` | IMPLEMENTED | NOT RECORDED |
-| GLB-005 | Language/currency selector | `assets/js/global-shell.js`, `assets/js/locale.js` | IMPLEMENTED, scope to verify | NOT RECORDED |
-| GLB-006 | Account controls | `assets/js/global-shell.js`, account route | UI IMPLEMENTED; auth unavailable | NOT RECORDED |
-| GLB-007 | Breadcrumb | Dolphin detail renderer and SEO metadata | PARTIAL / PAGE-SPECIFIC | NOT RECORDED |
-| GLB-008 | Hero | Multiple page-specific renderers | IMPLEMENTED in several page families; not one shared component | NOT RECORDED |
-| GLB-009 | Live chat indicator/link | `assets/js/global-shell.js`, `assets/css/global-shell.css` | IMPLEMENTED as contact link/status display | NOT RECORDED |
-| GLB-010 | Toast / modal UI | `index.html`, SPA interactions/views | PRESENT; component boundaries need mapping | NOT RECORDED |
+| GLB-001 | Navbar/header bersama | global-shell.js, global-shell.css | SUDAH DITERAPKAN | BELUM DICATAT |
+| GLB-002 | Footer | global-shell.js, global-shell.css | SUDAH DITERAPKAN | BELUM DICATAT |
+| GLB-003 | Navigasi bawah seluler | index.html dan pengendali SPA | DITERAPKAN UNTUK SPA | BELUM DICATAT |
+| GLB-004 | Pencarian header | global-shell.js, interactions.js | SUDAH DITERAPKAN | BELUM DICATAT |
+| GLB-005 | Pemilih bahasa/mata uang | global-shell.js, locale.js | SUDAH DITERAPKAN; CAKUPAN PERLU DIPERIKSA | BELUM DICATAT |
+| GLB-006 | Kontrol akun | global-shell.js dan rute akun | ANTARMUKA TERSEDIA; AUTENTIKASI BELUM ADA | BELUM DICATAT |
+| GLB-007 | Breadcrumb/penunjuk lokasi halaman | Pembentuk detail Dolphin dan metadata SEO | SEBAGIAN / KHUSUS HALAMAN | BELUM DICATAT |
+| GLB-008 | Hero/bagian pembuka halaman | Beberapa pembentuk tampilan khusus halaman | DITERAPKAN DI BEBERAPA KELOMPOK; BELUM MENJADI KOMPONEN BERSAMA | BELUM DICATAT |
+| GLB-009 | Indikator/tautan obrolan langsung | global-shell.js dan global-shell.css | DITERAPKAN SEBAGAI TAUTAN KONTAK/STATUS | BELUM DICATAT |
+| GLB-010 | Notifikasi singkat/jendela modal | index.html dan interaksi/tampilan SPA | TERSEDIA; BATAS KOMPONEN PERLU DIPETAKAN | BELUM DICATAT |
 
-## Shared-component rule
+## Aturan Komponen Bersama
 
-A component is global only when it is genuinely shared by multiple pages or page families. Similar-looking sections are not automatically the same component.
+Komponen disebut global hanya jika benar-benar digunakan bersama oleh beberapa halaman atau kelompok halaman. Bagian yang tampilannya mirip belum tentu merupakan komponen yang sama.
 
-Do not promote a page-specific hero, breadcrumb, card, form or carousel to global status without confirming its callers and common contract.
+Jangan menetapkan hero, breadcrumb, kartu, formulir, atau carousel khusus halaman sebagai komponen global sebelum memastikan halaman pengguna dan aturan bersama komponen tersebut.
 
-## Device rules
+## Aturan Perangkat
 
-Responsive details are documented only where confirmed by current source. A CSS breakpoint is evidence of a styling rule, not proof that the experience has passed visual QA on a real device.
+Rincian responsif hanya dicatat jika telah dikonfirmasi dari kode saat ini. Titik perubahan ukuran layar di CSS merupakan bukti adanya aturan gaya, bukan bukti bahwa tampilan sudah lulus pemeriksaan visual pada perangkat nyata.
 
-Physical Android and desktop visual verification remains a separate release check according to the existing project handoff and roadmap.
+Pemeriksaan visual langsung pada Android dan desktop tetap menjadi pemeriksaan rilis tersendiri sesuai catatan serah terima dan peta jalan proyek.
