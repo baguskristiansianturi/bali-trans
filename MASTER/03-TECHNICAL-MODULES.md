@@ -1,86 +1,87 @@
-# 03 — Technical Modules and Source Ownership
+# 03 — Modul Teknis dan Kepemilikan Sumber Kode
 
-Status: INITIAL INVENTORY  
-Detailed architecture: `ARCHITECTURE.md` and `docs/architecture/REPOSITORY_MAP.md`
+**Status:** INVENTARIS AWAL  
+Arsitektur terperinci: ARCHITECTURE.md dan docs/architecture/REPOSITORY_MAP.md
 
-## 1. SPA entry and shared runtime
+## 1. Pintu Masuk SPA dan Sistem Bersama
 
-| File | Responsibility recorded in repository map | Impact |
+| Berkas | Tanggung jawab menurut peta repository | Dampak |
 |---|---|---|
-| `index.html` | SPA entry, asset loading, mobile bottom nav and shared UI containers | Very high |
-| `assets/js/data.js` | SPA packages, article, locale/currency datasets | High |
-| `assets/js/state.js` | Shared in-memory UI state | High |
-| `assets/js/navigation.js` | Query routing, route metadata and SEO metadata | High |
-| `assets/js/interactions.js` | Shared search, cart, wishlist and UI event handlers | Very high |
-| `assets/js/global-shell.js` | Shared header/footer injection and global navigation actions | Very high |
-| `assets/js/locale.js` | Locale-related logic | Cross-view |
-| `assets/js/boot-recovery.js` | Startup recovery helper | Verify callers/behaviour before changing |
-| `assets/js/tailwind.config.js` | Tailwind CDN configuration | Shared styling |
-| `assets/js/views/home.js` | Homepage renderer | Homepage-only renderer; protected |
-| `assets/js/views/discovery.js` | Discovery/destination renderer | Feature-scoped |
-| `assets/js/views/catalog.js` | Catalog renderer | Feature-scoped |
-| `assets/js/views/detail.js` | Package/tour detail renderer | Feature-scoped; Dolphin-specific path exists |
-| `assets/js/views/articles.js` | Blog/article renderer | Feature-scoped |
-| `assets/js/views/cart.js` | Cart renderer | Cart flow |
-| `assets/js/views/checkout.js` | Checkout renderer | Checkout flow |
-| `assets/js/views/static-pages.js` | Static SPA page renderers | Multiple informational routes |
+| index.html | Pintu masuk SPA, pemuatan aset, navigasi bawah seluler, wadah antarmuka bersama | Sangat tinggi |
+| assets/js/data.js | Data paket, artikel, bahasa, dan mata uang SPA | Tinggi |
+| assets/js/state.js | Status antarmuka bersama di memori | Tinggi |
+| assets/js/navigation.js | Rute parameter, metadata rute, metadata SEO | Tinggi |
+| assets/js/interactions.js | Pencarian bersama, keranjang, daftar keinginan, pengendali peristiwa antarmuka | Sangat tinggi |
+| assets/js/global-shell.js | Penyisipan header/footer bersama dan tindakan navigasi global | Sangat tinggi |
+| assets/js/locale.js | Logika bahasa/wilayah | Lintas tampilan |
+| assets/js/boot-recovery.js | Bantuan pemulihan saat awal aplikasi | Periksa pemanggil/perilaku sebelum mengubah |
+| assets/js/tailwind.config.js | Konfigurasi Tailwind CDN | Gaya bersama |
+| assets/js/views/home.js | Pembentuk tampilan halaman utama | Khusus halaman utama; dilindungi |
+| assets/js/views/discovery.js | Pembentuk tampilan penjelajahan/destinasi | Cakupan fitur |
+| assets/js/views/catalog.js | Pembentuk tampilan katalog | Cakupan fitur |
+| assets/js/views/detail.js | Pembentuk tampilan detail paket/wisata | Cakupan fitur; tersedia jalur khusus Dolphin |
+| assets/js/views/articles.js | Pembentuk tampilan blog/artikel | Cakupan fitur |
+| assets/js/views/cart.js | Pembentuk tampilan keranjang | Alur keranjang |
+| assets/js/views/checkout.js | Pembentuk tampilan checkout | Alur checkout |
+| assets/js/views/static-pages.js | Pembentuk halaman statis SPA | Beberapa rute informasi |
 
-## 2. Standalone page controllers
+## 2. Pengendali Halaman Mandiri
 
-Page-specific scripts are grouped under `assets/js/pages/`. Existing files include controllers/adapters for:
-- Airport search, fare calculation and airport checkout.
-- Intercity and port transfer forms.
-- Private day-tour form.
-- Shared booking form and booking notice scroll.
-- Car-rental search.
-- Invoice and invoice generator.
-- Private transport form.
-- Review carousel.
-- Legacy service SPA compatibility.
-- Watersports catalogue filters, checkout and detail/pricing interactions.
+Skrip khusus halaman dikelompokkan di assets/js/pages/. Berkas yang sudah ada mencakup pengendali/penyesuai untuk:
+- Pencarian bandara, perhitungan tarif, dan checkout bandara.
+- Formulir transfer antarkota dan pelabuhan.
+- Formulir wisata privat harian.
+- Formulir pemesanan bersama dan gulir ke pemberitahuan pemesanan.
+- Pencarian sewa mobil.
+- Invoice dan pembuat invoice.
+- Formulir transportasi privat.
+- Carousel ulasan.
+- Kecocokan layanan SPA versi lama.
+- Filter katalog olahraga air, checkout, serta interaksi detail/perhitungan harga.
 
-Do not assume a file is unused from its name. Check HTML script references, imports, workflow tests and runtime callers before removing or moving it.
+Jangan menganggap sebuah berkas tidak digunakan hanya berdasarkan namanya. Periksa referensi skrip HTML, impor, pengujian alur kerja, dan pemanggil saat aplikasi berjalan sebelum menghapus atau memindahkannya.
 
-## 3. CSS ownership
+## 3. Kepemilikan CSS
 
-### Shared / application styles
-- `assets/css/base.css`
-- `assets/css/styles.css`
-- `assets/css/site.css`
-- `assets/css/navigation.css`
-- `assets/css/footer.css`
-- `assets/css/global-shell.css`
-- `assets/css/dolphin-responsive.css`
-- Watersports feature-level stylesheets.
+### Gaya Bersama / Aplikasi
+- assets/css/base.css
+- assets/css/styles.css
+- assets/css/site.css
+- assets/css/navigation.css
+- assets/css/footer.css
+- assets/css/global-shell.css
+- assets/css/dolphin-responsive.css
+- Lembar gaya tingkat fitur olahraga air.
 
-### Page-specific styles
-- `assets/css/pages/` contains dedicated styles for account, airport search/cards/transfer, transfer checkout, intercity, port, private day tour, booking form, invoice, private transport, terms, transport service and individual watersports pages.
+### Gaya Khusus Halaman
 
-The precise ownership of every overlapping selector has not been exhaustively traced in this initial master. Use the page's actual HTML links and CSS imports before changing styles.
+assets/css/pages/ berisi gaya khusus akun, pencarian/kartu/transfer bandara, checkout transfer, antarkota, pelabuhan, wisata privat harian, formulir pemesanan, invoice, transportasi privat, ketentuan, layanan transportasi, dan halaman olahraga air individual.
 
-## 4. Data and editorial sources
+Kepemilikan tepat setiap selector yang saling tumpang tindih belum ditelusuri sepenuhnya dalam inventaris awal ini. Periksa tautan HTML halaman dan impor CSS sebenarnya sebelum mengubah gaya.
 
-- `assets/js/data.js`: SPA runtime datasets.
-- `content/bali-master-data.json`: destination master records and editorial metadata.
-- `content/ROUTE_MASTER_MAPPING.md`: route mapping.
-- `content/PAGE_AND_ARTICLE_AUDIT.md`: existing page/article audit.
-- `TEMPLATE-REGISTRY.md`: reusable template index.
+## 4. Sumber Data dan Editorial
 
-These sources have distinct roles. Do not assume the JSON destination master automatically replaces SPA runtime data.
+- assets/js/data.js: kumpulan data runtime SPA.
+- content/bali-master-data.json: data induk destinasi dan metadata editorial.
+- content/ROUTE_MASTER_MAPPING.md: pemetaan rute.
+- content/PAGE_AND_ARTICLE_AUDIT.md: audit halaman dan artikel yang tersedia.
+- TEMPLATE-REGISTRY.md: indeks pola halaman yang dapat digunakan kembali.
 
-## 5. Validation and release modules
+Sumber-sumber tersebut memiliki fungsi berbeda. Jangan menganggap data induk destinasi JSON otomatis menggantikan data runtime SPA.
 
-- `.github/workflows/validate-prototype.yml`: source and browser validation workflow.
-- `.github/workflows/deploy-pages.yml`: GitHub Pages deployment workflow.
-- `scripts/browser-smoke.mjs`: browser smoke tests.
-- `AUDIT.md`, `HANDOFF.md` and `ROADMAP.md`: audit, current handoff and planned work.
+## 5. Modul Validasi dan Rilis
 
-## 6. Archived code
+- .github/workflows/validate-prototype.yml: alur kerja validasi sumber dan browser.
+- .github/workflows/deploy-pages.yml: alur kerja penerapan GitHub Pages.
+- scripts/browser-smoke.mjs: pengujian singkat browser.
+- AUDIT.md, HANDOFF.md, dan ROADMAP.md: audit, serah terima terkini, dan pekerjaan yang direncanakan.
 
-- `assets/js/legacy/app.js` is documented as the archived monolithic predecessor and is not loaded by `index.html`.
-- It remains for historical/reference purposes.
-- Do not delete it until all possible callers and compatibility requirements have been checked.
+## 6. Kode yang Diarsipkan
 
-## 7. Change boundary
+- assets/js/legacy/app.js dicatat sebagai pendahulu monolitik yang telah diarsipkan dan tidak dimuat oleh index.html.
+- Berkas tersebut tetap disimpan untuk sejarah/referensi.
+- Jangan menghapusnya sebelum semua kemungkinan pemanggil dan kebutuhan kompatibilitas diperiksa.
 
-A technical module can be shared even when its filename looks page-specific, and a similarly named file may serve a different purpose. Trace actual references before editing. Never move, rename or delete a file solely to make the folder tree look cleaner.
+## 7. Batas Perubahan
+
+Modul teknis dapat digunakan bersama meskipun nama berkasnya terlihat khusus halaman. Berkas dengan nama mirip juga dapat memiliki fungsi berbeda. Telusuri referensi sebenarnya sebelum mengubahnya. Jangan memindahkan, mengganti nama, atau menghapus berkas hanya demi membuat susunan folder terlihat lebih rapi.
