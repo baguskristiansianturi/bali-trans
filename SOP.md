@@ -161,7 +161,7 @@ Sebelum membuat, menulis, mengubah data, atau melakukan coding untuk artikel BDM
 5. Terapkan standar media terbaru di SOP artikel: satu gambar utama tanpa caption, minimal dua gambar pendukung bercaption di tengah artikel, nama file deskriptif, alt text alami, dan fallback teks di dalam frame jika gambar gagal dimuat.
 6. Semua halaman yang menggunakan FAQ wajib memakai pola accordion bersama di SOP artikel: setiap pertanyaan berupa kartu mandiri ber-border lembut; seluruh jawaban tertutup saat awal; hanya satu jawaban terbuka; pertanyaan mengikuti ukuran teks body; jawaban satu tingkat lebih kecil; panel jawaban berlatar transparan lembut dengan transisi halus; dan memilih pertanyaan lain otomatis menutup jawaban sebelumnya. Kesimpulan tetap memakai ukuran teks body.
 7. Perubahan artikel tetap tunduk pada aturan lingkup, diff, pengujian, commit, deployment, dan verifikasi dalam dokumen ini.
-8. Standar gambar versi 0.2 dan standar FAQ versi 0.4 telah dikonfirmasi Mas Bagus dan wajib diterapkan pada artikel berikutnya serta halaman lain yang menggunakan FAQ.
+8. Standar gambar versi 0.2, FAQ versi 0.4, dan tautan sumber kontekstual versi 0.5 menjadi acuan Mas Bagus dan wajib diterapkan pada artikel berikutnya serta halaman lain yang menggunakan FAQ.
 
 
 ## 12. SOP Destination Hub, kategori, dan sinkronisasi publikasi

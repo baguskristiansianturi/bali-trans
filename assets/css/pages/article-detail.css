@@ -46,19 +46,15 @@
 .article-reading ul,.article-reading ol { margin:0 0 1.35em; padding-left:1.5em; }
 .article-reading li { margin:.55em 0; padding-left:.2em; line-height:1.7; }
 .article-reading strong { color:#26384f; font-weight:700; }
-.article-reading a { color:#245b8d; text-decoration:underline; text-underline-offset:3px; }
+.article-reading a,.article-reading a:visited { color:#1769aa; font-weight:inherit; text-decoration:underline; text-decoration-color:rgba(23,105,170,.42); text-decoration-thickness:1px; text-underline-offset:3px; transition:color .18s ease,text-decoration-color .18s ease; }
+.article-reading a:hover,.article-reading a:focus-visible { color:#0d4778; text-decoration-color:currentColor; }
+.article-reading a:focus-visible { outline:2px solid rgba(23,105,170,.35); outline-offset:3px; border-radius:2px; }
 .article-reading blockquote { margin:1.5em 0; padding:1em 1.2em; border-left:3px solid #8ba7c5; background:#f6f9fc; color:#475569; }
 .article-ending { margin-top:2em !important; padding-top:1.3em; border-top:1px solid #e8edf3; font-weight:500; }
 .article-topic-tags { display:flex; flex-wrap:wrap; align-items:center; gap:8px; max-width:720px; margin:28px auto 0; padding-top:20px; border-top:1px solid #e8edf3; }
 .article-topic-tags>span { margin-right:3px; color:#64748b; font-size:12px; font-weight:700; }
 .article-topic-tags a,.article-topic-tag { padding:6px 10px; border:1px solid #e2e8f0; border-radius:999px; color:#52647a; background:#fff; font-size:12px; text-decoration:none; }
 .article-detail-page .article-sources { max-width:720px; margin:28px auto 0; }
-.article-detail-page section[aria-labelledby="article-sources-title"] { max-width:720px; margin:28px auto 0; padding:20px; border:1px solid #e8edf3; border-radius:14px; background:#f8fafc; }
-.article-detail-page #article-sources-title { margin:0 0 12px; color:#26384f; font-size:16px; font-weight:750; }
-.article-detail-page section[aria-labelledby="article-sources-title"] ul { margin:0; padding-left:20px; }
-.article-detail-page section[aria-labelledby="article-sources-title"] li { margin:7px 0; font-size:13px; line-height:1.55; }
-.article-detail-page section[aria-labelledby="article-sources-title"] a { color:#245b8d; text-decoration:none; }
-.article-detail-page section[aria-labelledby="article-sources-title"] a:hover { text-decoration:underline; }
 .article-detail-page section[aria-labelledby="related-guides-title"] { max-width:720px; margin:28px auto 0; }
 .article-detail-page #related-guides-title { color:#26384f; font-size:19px; font-weight:750; }
 .article-back-link { max-width:720px; margin:28px auto 0; }

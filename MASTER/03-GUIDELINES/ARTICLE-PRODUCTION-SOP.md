@@ -134,7 +134,9 @@ Jangan mengutip cuplikan hasil pencarian sebagai satu-satunya bukti jika halaman
 ### 5.3 Kutipan dan atribusi
 
 - Tulis dengan kalimat sendiri setelah memahami sumber.
-- Cantumkan tautan referensi pada bagian yang relevan atau dalam daftar sumber artikel.
+- Tautkan sumber langsung pada frasa atau fakta yang didukungnya di dalam paragraf. Gunakan anchor text yang alami dan deskriptif (misalnya nama tempat atau instansi), bukan URL mentah, label “klik di sini”, atau daftar “Sources & further reading” di akhir artikel.
+- Tautan harus terlihat berbeda secara konsisten melalui warna aksen yang kontras dengan teks dan latar; jangan mengandalkan bold. Gunakan bobot font yang sama dengan kalimat di sekitarnya, serta state hover dan focus yang jelas.
+- Daftar sumber boleh tetap disimpan dalam metadata/catatan editorial untuk verifikasi, tetapi tidak dirender sebagai blok daftar sumber di bawah artikel. Kredit foto tetap ditampilkan dekat gambar yang bersangkutan.
 - Kutipan langsung harus singkat, diberi tanda kutip, dan diatribusikan.
 - Jangan mengubah tulisan pihak lain dengan sekadar mengganti sinonim.
 - Atribusi tidak mengubah konten salinan menjadi karya orisinal.
@@ -610,4 +612,5 @@ SOP ini tidak menyetujui layout, desain, template visual baru, perubahan URL, at
 | 2026-11-01 | 0.2 | Menambahkan standar satu gambar utama tanpa caption, minimal dua gambar pendukung bercaption, penamaan file deskriptif, alt text alami, dan fallback frame saat gambar gagal dimuat | DIKONFIRMASI MAS BAGUS |
 | 2026-11-01 | 0.3 | Menetapkan pola FAQ accordion satu panel terbuka untuk semua halaman, serta urutan akhir artikel FAQ → Kesimpulan → Tag → Share → Rekomendasi | DIKONFIRMASI MAS BAGUS — UJI COBA PADA ARTIKEL PANTAI KUTA |
 | 2026-11-01 | 0.4 | Memperhalus kartu FAQ, menyelaraskan tipografi pertanyaan/jawaban/kesimpulan, mengaktifkan tautan topik, dan merekomendasikan hanya artikel relevan | REVISI BERDASARKAN TINJAUAN MAS BAGUS |
+| 2026-11-01 | 0.5 | Menghapus daftar sumber dari tampilan akhir artikel; memindahkan rujukan fakta ke tautan kontekstual di dalam paragraf dan menetapkan warna tautan konsisten tanpa bold | REVISI BERDASARKAN TINJAUAN MAS BAGUS |
 

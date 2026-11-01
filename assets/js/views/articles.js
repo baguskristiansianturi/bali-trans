@@ -203,11 +203,6 @@ function getArticlePublicUrl(blog) {
             field.remove();
         };
 
-        function renderArticleSources(sources) {
-            if (!Array.isArray(sources) || !sources.length) return '';
-            const escapeText = value => String(value || '').replace(/[&<>"]/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[character]));
-            return '<section aria-labelledby="article-sources-title" class="mt-8 rounded-2xl border border-slate-200 bg-slate-50 p-5 sm:p-6"><h2 id="article-sources-title" class="text-lg font-extrabold text-slate-900 mb-3">Sources & further reading</h2><ul class="list-disc pl-5 space-y-2 text-sm text-slate-700">' + sources.map(source => '<li><a href="' + escapeText(source.url) + '" target="_blank" rel="noopener noreferrer" class="font-semibold text-teal-700 underline underline-offset-2">' + escapeText(source.title) + '</a></li>').join('') + '</ul><p class="text-xs text-slate-500 leading-5 mt-4">Requirements, access, transport and local conditions may change. Check the latest official guidance before travelling.</p></section>';
-        }
 /* VIEW 4: BLOG & GUIDES PAGE */
         function renderBlogListView() {
             return `
@@ -338,7 +333,6 @@ function getArticlePublicUrl(blog) {
                         ${renderArticleShare(blog)}
                         ${renderRelatedBlogGuides(blog)}
                         ${renderRelatedDestinations(blog)}
-                        ${renderArticleSources(blog.sources)}
                         <div class="article-back-link"><button type="button" onclick="navigateTo('blog')"><i class="fas fa-arrow-left" aria-hidden="true"></i> Kembali ke semua artikel</button></div>
                     </div>
                 </article>
