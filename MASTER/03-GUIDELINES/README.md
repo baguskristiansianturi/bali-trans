@@ -29,3 +29,7 @@ Semua pekerjaan artikel wajib dimulai dari indeks folder [PRODUKSI-ARTIKEL](./PR
 | Panduan Media Sosial & Kampanye | BELUM DIMULAI | Format platform, karakter merek, klaim, pemeriksaan kampanye |
 
 **Prinsip publikasi:** bedakan panduan yang berlaku umum dari informasi yang cepat berubah. Tren harus didukung bukti bertanggal dan sumber tepercaya. Jangan mengarang statistik atau menyajikan dugaan seolah fakta.
+
+## Arah pengembangan SOP produksi artikel
+
+Mas Bagus menyetujui arah restrukturisasi menjadi empat tahap: Perencanaan & Brief, Riset & Penulisan, Implementasi, serta Audit, Publikasi & Evaluasi. Pemetaan rinci dan status transisi ada di [Rencana Restrukturisasi](./PRODUKSI-ARTIKEL/00-RENCANA-RESTRUKTURISASI.md). Tiga file SOP saat ini tetap dipertahankan sampai pemindahan isi dan penomoran final diselesaikan.
