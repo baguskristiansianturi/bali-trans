@@ -1,37 +1,37 @@
-# GLB-004 / GLB-005 — Header Search and Locale Controls
+# GLB-004 / GLB-005 — Pencarian Header dan Kontrol Bahasa/Wilayah
 
-Implementation status: UI and shared handlers exist  
-Approval status: NOT RECORDED IN THIS MASTER  
-Sources:
+**Status penerapan:** Antarmuka dan pengendali bersama tersedia  
+**Status persetujuan:** BELUM DICATAT DI MASTER INI  
+**Sumber:**
 - `assets/js/global-shell.js`
 - `assets/js/interactions.js`
 - `assets/js/locale.js`
 - `assets/js/data.js`
 - `assets/css/global-shell.css`
 
-## A. Header search
+## A. Pencarian Header
 
-Current elements:
-- Search trigger: `#headerSearchButton`
-- Search panel: `#headerSearchPanel`
-- Search form: `#btSearchForm`
-- Search input: `#headerSearchInput`
-- Results container: `#searchResultsDropdown`
+Elemen saat ini:
+- Pemicu pencarian: `#headerSearchButton`
+- Panel pencarian: `#headerSearchPanel`
+- Formulir pencarian: `#btSearchForm`
+- Kolom masukan pencarian: `#headerSearchInput`
+- Wadah hasil: `#searchResultsDropdown`
 
-The header search is a shared-shell control. The homepage also has a separate hero search field; do not treat the two controls as the same component without checking their handlers and result behaviour.
+Pencarian header merupakan kontrol kerangka bersama. Halaman utama juga memiliki kolom pencarian hero yang terpisah; jangan menganggap kedua kontrol tersebut komponen yang sama sebelum memeriksa pengendali dan perilaku hasilnya.
 
-Before changing search, trace the event handlers and data source in `assets/js/interactions.js` and `assets/js/data.js`.
+Sebelum mengubah pencarian, telusuri pengendali peristiwa dan sumber data di `assets/js/interactions.js` serta `assets/js/data.js`.
 
-## B. Language and currency
+## B. Bahasa dan Mata Uang
 
-Current global-shell locale options:
-- Bahasa Indonesia — IDR
-- English — USD ($)
+Pilihan bahasa/wilayah global saat ini:
+- Bahasa Indonesia — IDR.
+- English — USD ($).
 
-The control is generated from the `localeOptions` array in `global-shell.js`. Locale and formatting logic also exists in `assets/js/locale.js` and shared data.
+Kontrol dibuat dari daftar `localeOptions` di `global-shell.js`. Logika bahasa dan pemformatan juga tersedia di `assets/js/locale.js` serta data bersama.
 
-Do not assume additional languages, currencies, automatic exchange rates or live FX conversion are implemented. The repository audit records that exchange rates are hard-coded and must not be represented as live rates.
+Jangan menganggap bahasa tambahan, mata uang tambahan, kurs otomatis, atau konversi valuta asing langsung sudah diterapkan. Audit repository mencatat bahwa kurs masih ditulis tetap dan tidak boleh digambarkan sebagai kurs langsung terkini.
 
-## Change impact
+## Dampak Perubahan
 
-Search can affect route discovery and result selection. Locale can affect text, formatting and prices across views. Changes require testing both header and homepage search where relevant, plus locale display and representative pages in both languages.
+Pencarian dapat memengaruhi penemuan rute dan pemilihan hasil. Bahasa/wilayah dapat memengaruhi teks, format, dan harga di berbagai tampilan. Perubahan perlu diuji pada pencarian header dan pencarian halaman utama jika relevan, serta tampilan bahasa dan halaman contoh dalam kedua bahasa.
