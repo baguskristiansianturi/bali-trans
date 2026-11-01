@@ -32,3 +32,9 @@ SOP bukan dokumen statis. Setelah perubahan desain/struktur disetujui:
 Target alur berikutnya adalah empat tahap: **01 Perencanaan & Brief → 02 Riset & Penulisan → 03 Implementasi → 04 Audit, Publikasi & Evaluasi**. Rincian dan pemetaan isi disimpan di [Rencana Restrukturisasi](./00-RENCANA-RESTRUKTURISASI.md).
 
 Tiga SOP yang saat ini ada tetap dipertahankan sebagai baseline sampai penomoran dan pemindahan isinya diselaraskan. Jangan menganggap restrukturisasi file final sudah selesai. Pekerjaan produksi artikel sedang dihentikan sementara atas arahan Mas Bagus; fokus saat ini pembenahan dokumentasi Master dan SOP.
+
+## Arah restrukturisasi yang disepakati
+
+Target alur berikutnya adalah empat tahap: **01 Perencanaan & Brief → 02 Riset & Penulisan → 03 Implementasi → 04 Audit, Publikasi & Evaluasi**. Rincian dan status transisi ada di [Rencana Restrukturisasi](./00-RENCANA-RESTRUKTURISASI.md).
+
+Tiga SOP yang saat ini ada tetap dipertahankan sebagai baseline sampai penomoran dan pemindahan isinya diselaraskan. Jangan menganggap restrukturisasi file final sudah selesai. Pekerjaan produksi artikel sedang dihentikan sementara atas arahan Mas Bagus; fokus saat ini pembenahan dokumentasi Master dan SOP.
