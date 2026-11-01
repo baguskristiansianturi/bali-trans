@@ -75,7 +75,9 @@ function renderRelatedBlogGuides(blog) {
                         <nav class="article-breadcrumb" aria-label="Breadcrumb">
                             <a href="#" onclick="navigateTo('home');return false">Home</a><span aria-hidden="true">/</span>
                             <a href="#" onclick="navigateTo('blog');return false">Blog</a><span aria-hidden="true">/</span>
-                            <span aria-current="page">${escapeHtml(blog.title)}</span>
+                            <span>Destinations</span><span aria-hidden="true">/</span>
+                            <span>${escapeHtml(blog.destinationCategoryLabel || 'Beaches')}</span><span aria-hidden="true">/</span>
+                            <span aria-current="page">${escapeHtml(blog.destinationDisplayName || 'Pantai Kuta')}</span>
                         </nav>
                         <header class="article-header">
                             <div class="article-eyebrow">
