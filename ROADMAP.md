@@ -105,3 +105,17 @@ A change is not complete until source validation passes, deployment succeeds, th
 - [x] Classify the Kuta article as Travel Information and Tips; keep its blog breadcrumb separate from the destination hierarchy.
 - [ ] Review all `NEEDS_EDITORIAL_REVIEW` destination records against the Master inventory before building destination catalogs.
 - [ ] Approve final category names, region assignments and collection memberships before layout/design work.
+
+
+## Destination Hub implementation — 1 November 2026
+
+- [x] Add a dedicated Destination Hub route without repurposing the legacy region discovery route.
+- [x] Build the requested hero, breadcrumb, page heading, Bali/Indonesia labels, sticky horizontal category rail, responsive cards, long-form editorial section and shared footer integration.
+- [x] Keep every primary category visible even when empty and provide a polished zero-result state.
+- [x] Derive category totals from published destination articles linked to place records in the Master; do not expose the raw candidate inventory as published counts.
+- [x] Define Latest by Master destination addition order/date rather than article upload date.
+- [x] Make destination cards open the corresponding published article route.
+- [x] Add the post-publication synchronization checklist to SOP and update the template registry/handoff.
+- [ ] Review the Destination Hub design with Mas Bagus and complete visual QA on physical Android and desktop.
+- [ ] Complete source validation, browser checks, GitHub Pages deployment and live URL verification for this implementation.
+- [ ] Add `master_added_at` to new Master destination records and maintain it as part of the content publication workflow.
