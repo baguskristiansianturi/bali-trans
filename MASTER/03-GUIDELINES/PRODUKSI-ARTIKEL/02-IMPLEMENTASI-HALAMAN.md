@@ -1,7 +1,7 @@
 # SOP Implementasi — Penerapan Halaman dan Publikasi Artikel
 
 > **Status:** BASELINE SEMENTARA — SNAPSHOT IMPLEMENTASI PANTAI KUTA  
-> **Versi:** 0.2  
+> **Versi:** 0.3  
 > **Tanggal baseline:** 2026-11-01  
 > **Commit acuan implementasi artikel:** `c6532a1ca02bcebe97363104c97ce45f890dc549` (record artikel, renderer, CSS dan tautan sumber kontekstual). **Commit acuan shell global:** `a8d4282293d98923ecf160f52d95fe6168dd905d`.  
 > **Pemilik keputusan:** Mas Bagus  
@@ -259,3 +259,8 @@ Sebelum coding, tahap implementasi perlu menambahkan *Implementation Plan* yang 
 Jangan mengisi detail visual dengan tebakan. Jika Product & Experience Master belum menetapkan standar tertentu, tandai sebagai belum ditetapkan dan minta arahan bila keputusan itu memengaruhi hasil.
 
 Lihat [Rencana Restrukturisasi Empat SOP](./00-RENCANA-RESTRUKTURISASI.md), [Business/Plan Master](../../BUSINESS-PLAN-MASTER.md), dan [Product & Experience Master](../../PRODUCT-EXPERIENCE-MASTER.md).
+
+
+### Catatan versi 0.3
+
+Menambahkan acuan Business/Plan Master, Product & Experience Master, dan kebutuhan Implementation Plan sebelum coding sebagai arah pengembangan SOP.
