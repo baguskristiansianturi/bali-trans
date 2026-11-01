@@ -1,28 +1,28 @@
-# 06 — Governance & Sources
+# 06 — Tata Kelola & Sumber Informasi
 
-**Status:** NOT STARTED — governance topics identified; this index establishes the intended controls.
+**Status:** BELUM DIMULAI — topik tata kelola telah diidentifikasi; indeks ini menetapkan kontrol yang perlu disusun.
 
-This domain protects the reliability, provenance, freshness and appropriate use of information.
+Kelompok ini menjaga keandalan, asal-usul, kebaruan, dan penggunaan informasi secara tepat.
 
-| Planned record | Status | Required coverage |
+| Dokumen yang direncanakan | Status | Cakupan yang dibutuhkan |
 |---|---|---|
-| Master Data Source Policy | NOT STARTED | Source types, provenance, authority and conflict resolution |
-| Fact Verification & Review Policy | NOT STARTED | Evidence, reviewer, validation date and re-check frequency |
-| Content Claim & Publication Approval | NOT STARTED | Public claims, evidence, approval and restricted information |
-| Data Freshness Register | NOT STARTED | Volatile fields, last checked, next review and owner |
-| Privacy & Sensitive Information Classification | NOT STARTED | Public, internal, confidential and personal data |
-| Document Ownership & Change Control | PARTIAL — basic rules in Start Here | Owners, approvals, versioning and change history |
-| Legal & Regulatory Reference Register | NOT STARTED | Applicable rules, authoritative source, jurisdiction and review date |
-| Incident / Correction Log | NOT STARTED | Published error, correction, impact and prevention |
+| Kebijakan Sumber Data Master | BELUM DIMULAI | Jenis sumber, asal informasi, tingkat kewenangan, penyelesaian konflik |
+| Kebijakan Pemeriksaan & Peninjauan Fakta | BELUM DIMULAI | Bukti, pemeriksa, tanggal validasi, frekuensi pemeriksaan ulang |
+| Persetujuan Klaim Konten & Publikasi | BELUM DIMULAI | Klaim publik, bukti pendukung, persetujuan, informasi terbatas |
+| Daftar Kesegaran Data | BELUM DIMULAI | Informasi yang mudah berubah, pemeriksaan terakhir, jadwal berikutnya, penanggung jawab |
+| Klasifikasi Privasi & Informasi Sensitif | BELUM DIMULAI | Informasi publik, internal, rahasia, dan data pribadi |
+| Kepemilikan Dokumen & Pengendalian Perubahan | SEBAGIAN TERSEDIA — aturan dasar ada di Mulai dari Sini | Penanggung jawab, persetujuan, versi, riwayat perubahan |
+| Daftar Referensi Hukum & Peraturan | BELUM DIMULAI | Aturan yang berlaku, sumber resmi, wilayah hukum, tanggal pemeriksaan |
+| Catatan Insiden & Koreksi | BELUM DIMULAI | Kesalahan publikasi, koreksi, dampak, pencegahan |
 
-## Minimum provenance fields
+## Informasi Asal-usul Data Minimum
 
-Where relevant, records should identify:
-- Source or origin of the information.
-- Whether it is user-provided, internally observed or externally researched.
-- Date received or checked.
-- Confidence/status and any limitations.
-- Responsible reviewer.
-- Next review date for information likely to change.
+Jika relevan, setiap catatan perlu menyebutkan:
+- Sumber atau asal informasi.
+- Apakah informasi diberikan pengguna, diamati secara internal, atau diteliti dari sumber eksternal.
+- Tanggal diterima atau diperiksa.
+- Status keyakinan dan keterbatasan informasi.
+- Penanggung jawab pemeriksaan.
+- Tanggal pemeriksaan berikutnya untuk informasi yang mudah berubah.
 
-Never fabricate a source, verification date or approval.
+Jangan pernah mengarang sumber, tanggal verifikasi, atau persetujuan.
