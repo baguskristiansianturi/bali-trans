@@ -84,7 +84,7 @@ Sebelum membuat, menulis, mengubah data, atau melakukan coding untuk artikel BDM
 
 1. Wajib membaca `MASTER/03-GUIDELINES/ARTICLE-PRODUCTION-SOP.md`.
 2. Wajib membaca DNA Informasi di `MASTER/PRODUCT-FOUNDATION.md` serta Master Destinasi, Master Aktivitas & Pengalaman, atau Data Master lain yang relevan.
-3. Wajib menyelesaikan tahapan riset, sumber, Article Brief, outline, naskah, metadata, dan Image Manifest sesuai SOP sebelum coding.
+3. Wajib melakukan riset kata kunci dan analisis kompetitor pada hasil Google halaman pertama dan kedua sejauh dapat diakses; catat strategi, kekuatan, kelemahan, dan content gap sebelum menulis. Ikuti gaya editorial BDM Trans dan gunakan target pembaca dari Master. Naskah wajib minimal 800 kata isi artikel; kurang dari 800 kata otomatis gagal checklist dan tidak boleh dinyatakan selesai/publikasi. Wajib menyelesaikan sumber, Article Brief, outline, naskah, metadata, dan Image Manifest sesuai SOP sebelum coding.
 4. Coding harus menggunakan template dan arsitektur artikel yang benar-benar berlaku di repository; jangan membuat layout baru sebagai konsekuensi otomatis dari permintaan SEO.
 5. Perubahan artikel tetap tunduk pada aturan lingkup, diff, pengujian, commit, deployment, dan verifikasi dalam dokumen ini.
 6. Jika SOP artikel masih berstatus USULAN, gunakan sebagai kerangka kerja sementara dengan status tersebut; jangan menganggap semua aturan sebagai keputusan final sebelum Mas Bagus menyetujuinya.
