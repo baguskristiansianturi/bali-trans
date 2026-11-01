@@ -20,7 +20,7 @@ Arsitektur terperinci: ARCHITECTURE.md dan docs/architecture/REPOSITORY_MAP.md
 | assets/js/views/discovery.js | Pembentuk tampilan penjelajahan/destinasi | Cakupan fitur |
 | assets/js/views/catalog.js | Pembentuk tampilan katalog | Cakupan fitur |
 | assets/js/views/detail.js | Pembentuk tampilan detail paket/wisata | Cakupan fitur; tersedia jalur khusus Dolphin |
-| assets/js/views/articles.js | Pembentuk tampilan blog/artikel | Cakupan fitur |
+| assets/js/views/articles.js | Pembentuk tampilan blog/artikel, termasuk breadcrumb/header/featured image/TOC/FAQ/share/related sections | Cakupan fitur artikel; baseline didokumentasikan pada SOP Implementasi |
 | assets/js/views/cart.js | Pembentuk tampilan keranjang | Alur keranjang |
 | assets/js/views/checkout.js | Pembentuk tampilan checkout | Alur checkout |
 | assets/js/views/static-pages.js | Pembentuk halaman statis SPA | Beberapa rute informasi |
@@ -54,6 +54,8 @@ Jangan menganggap sebuah berkas tidak digunakan hanya berdasarkan namanya. Perik
 - Lembar gaya tingkat fitur olahraga air.
 
 ### Gaya Khusus Halaman
+
+`assets/css/pages/article-detail.css` adalah stylesheet khusus artikel dengan namespace `.article-*`. Walaupun dimuat melalui `index.html` SPA, selector dan tanggung jawabnya harus tetap terbatas pada modul artikel. Jangan memindahkan style artikel ke CSS global.
 
 assets/css/pages/ berisi gaya khusus akun, pencarian/kartu/transfer bandara, checkout transfer, antarkota, pelabuhan, wisata privat harian, formulir pemesanan, invoice, transportasi privat, ketentuan, layanan transportasi, dan halaman olahraga air individual.
 
