@@ -102,6 +102,35 @@
                 image: 'https://upload.wikimedia.org/wikipedia/commons/0/00/Sunset_in_Kuta.jpg',
                 imageAlt: 'Matahari terbenam di Pantai Kuta, Bali, dengan siluet pengunjung di tepi laut',
                 imageLoading: 'eager',
+                imageFallbackLabel: 'Pantai Kuta — suasana matahari terbenam',
+                supportingImages: [
+                    {
+                        fileName: 'pantai-kuta-bali-suasana-sore.jpg',
+                        src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Kuta_Beach_during_afternoon_.jpg',
+                        alt: 'Hamparan pasir dan garis pantai Pantai Kuta pada sore hari',
+                        caption: 'Hamparan pasir dan garis pantai Kuta terlihat dari area tepi pantai pada sore hari.',
+                        fallbackLabel: 'Pantai Kuta — suasana sore',
+                        afterHeading: 'Apa yang membuat Pantai Kuta menarik?',
+                        credit: 'Filewalker16 / Wikimedia Commons',
+                        creditUrl: 'https://commons.wikimedia.org/wiki/File:Kuta_Beach_during_afternoon_.jpg',
+                        license: 'CC BY-SA 4.0',
+                        width: 3120,
+                        height: 3120
+                    },
+                    {
+                        fileName: 'pantai-kuta-bali-pemandangan-pantai.jpg',
+                        src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Kuta_Beach.jpg',
+                        alt: 'Pemandangan Pantai Kuta Bali pada siang hari dengan garis pantai dan laut',
+                        caption: 'Pemandangan Pantai Kuta pada siang hari, memperlihatkan garis pantai dan area laut yang terbuka.',
+                        fallbackLabel: 'Pantai Kuta — pemandangan garis pantai',
+                        afterHeading: 'Aktivitas yang bisa dilakukan di Pantai Kuta',
+                        credit: 'ivanatman / Wikimedia Commons',
+                        creditUrl: 'https://commons.wikimedia.org/wiki/File:Kuta_Beach.jpg',
+                        license: 'CC BY 2.0',
+                        width: 1024,
+                        height: 730
+                    }
+                ],
                 snippet: 'Kenali lokasi, aktivitas, surfing, sunset, akses, fasilitas, perkiraan anggaran, dan tips praktis sebelum mengunjungi Pantai Kuta.',
                 sources: [
                     { title: 'Indonesia.travel — Pantai Kuta Bali', url: 'https://www.indonesia.travel/id/id/destination/bali-nusa-tenggara/bali/pantai-kuta' },
