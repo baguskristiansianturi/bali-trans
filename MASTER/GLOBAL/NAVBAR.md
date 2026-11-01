@@ -1,92 +1,92 @@
-# GLB-001 — Navbar / Shared Header Master
+# GLB-001 — Master Navbar / Header Bersama
 
-Implementation status: IMPLEMENTED  
-Approval status: NOT RECORDED IN THIS MASTER  
-Canonical markup/logic: `assets/js/global-shell.js`  
-Canonical shared styling: `assets/css/global-shell.css`  
-Related styling/behaviour: `assets/css/navigation.css`, `assets/js/interactions.js`  
-Snapshot: `a8d4282293d98923ecf160f52d95fe6168dd905d`
+**Status penerapan:** SUDAH DITERAPKAN  
+**Status persetujuan:** BELUM DICATAT DI MASTER INI  
+**Sumber markup/logika utama:** `assets/js/global-shell.js`  
+**Sumber gaya bersama utama:** `assets/css/global-shell.css`  
+**Gaya/perilaku terkait:** `assets/css/navigation.css`, `assets/js/interactions.js`  
+**Versi yang diperiksa:** `a8d4282293d98923ecf160f52d95fe6168dd905d`
 
-## Purpose
+## Tujuan
 
-Provide the shared site identity, navigation entry points and utility controls for pages that use the global shell.
+Menyediakan identitas website, pintu masuk navigasi, dan kontrol alat bantu bersama untuk halaman yang menggunakan kerangka global.
 
-## Current brand mark
+## Penanda Merek Saat Ini
 
-- Brand text configured in `global-shell.js`: **Bali Trans**.
-- The current mark is generated from the first character of the brand name (a letter “B”) inside a styled element.
-- This record does not identify a separate approved logo image asset. Do not replace the mark or invent a new logo without an explicit request.
+- Teks merek yang diatur di `global-shell.js`: **Bali Trans**.
+- Penanda saat ini dibuat dari huruf pertama nama merek (huruf “B”) di dalam elemen yang diberi gaya.
+- Catatan ini belum mengidentifikasi aset gambar logo terpisah yang telah disetujui. Jangan mengganti penanda atau membuat logo baru tanpa permintaan yang jelas.
 
-## Current header elements
+## Elemen Header Saat Ini
 
-| Element | Current implementation | Notes |
+| Elemen | Penerapan saat ini | Catatan |
 |---|---|---|
-| Brand/logo link | `.bt-brand` | Links to home; current mark is generated letter B plus brand text |
-| Search button | `#headerSearchButton` | Opens the header search panel |
-| Help | `.bt-help-link` | Desktop utility link |
-| Blog | `.bt-blog-link` | Desktop utility link to Blog route |
-| Recently viewed | `.bt-recent-action` | Desktop utility action |
-| Account | `#accountMenuButton` | Opens account menu |
-| Language/currency | `#localeButton` | Opens locale menu |
-| Hamburger | `#mobileMenuButton` | Opens mobile menu panel |
-| Live chat | `.bt-live-chat` | Contact link with offline status; omitted when a top live-chat state element is present |
+| Tautan merek/logo | `.bt-brand` | Mengarah ke halaman utama; penanda berupa huruf B dan teks merek |
+| Tombol pencarian | `#headerSearchButton` | Membuka panel pencarian header |
+| Bantuan | `.bt-help-link` | Tautan alat bantu desktop |
+| Blog | `.bt-blog-link` | Tautan desktop menuju halaman Blog |
+| Baru dilihat | `.bt-recent-action` | Aksi alat bantu desktop |
+| Akun | `#accountMenuButton` | Membuka menu akun |
+| Bahasa/mata uang | `#localeButton` | Membuka menu bahasa/wilayah |
+| Menu hamburger | `#mobileMenuButton` | Membuka panel menu perangkat seluler |
+| Obrolan langsung | `.bt-live-chat` | Tautan kontak dengan status luring; tidak ditampilkan jika elemen status obrolan langsung utama tersedia |
 
-## Mobile menu contents
+## Isi Menu Perangkat Seluler
 
-The menu links are generated from the shared link list:
-- Home
-- Destinations
-- Tours
-- Transport service
-- Travel guides
-- About
-- Contact
+Tautan menu dibuat dari daftar tautan bersama:
+- Beranda
+- Destinasi
+- Wisata
+- Layanan transportasi
+- Panduan wisata
+- Tentang
+- Kontak
 
-The mobile account area includes:
-- Log in button/link;
-- Log out button when applicable;
-- registration hint and Register link.
+Area akun pada menu perangkat seluler mencakup:
+- Tombol/tautan masuk;
+- Tombol keluar jika sesuai;
+- Petunjuk pendaftaran dan tautan Daftar.
 
-On the SPA homepage only, extra menu actions are added:
-- Help
-- Wishlist with count
-- Recently viewed
+Khusus halaman utama SPA, terdapat tindakan menu tambahan:
+- Bantuan
+- Daftar keinginan dengan jumlah item
+- Baru dilihat
 
-## Desktop/mobile observations
+## Catatan Desktop dan Perangkat Seluler
 
-- Header uses `.bt-site-header` and is sticky at the top with z-index 1000 in `global-shell.css`.
-- Header row minimum height is 68px by default and 78px from 768px viewport width.
-- Mobile hamburger is hidden from 768px upward.
-- CSS contains a `.bt-main-nav` desktop-navigation rule, but the current header HTML generated in `global-shell.js` does not include a `.bt-main-nav` element. Record this as a mapping discrepancy; do not assume the CSS rule is an active desktop menu.
-- Mobile menu uses a two-column link grid in the current shared stylesheet.
-- At widths up to 380px, header actions and live-chat label receive compact styling.
+- Header menggunakan `.bt-site-header` dan dibuat tetap menempel di bagian atas dengan z-index 1000 di `global-shell.css`.
+- Tinggi minimum baris header secara bawaan 68px dan menjadi 78px mulai lebar tampilan 768px.
+- Tombol hamburger disembunyikan mulai lebar 768px.
+- CSS memiliki aturan navigasi desktop `.bt-main-nav`, tetapi HTML header yang dibuat oleh `global-shell.js` saat ini tidak menyertakan elemen `.bt-main-nav`. Catat sebagai ketidaksesuaian pemetaan; jangan menganggap aturan CSS tersebut merupakan menu desktop yang aktif.
+- Menu perangkat seluler menggunakan kisi tautan dua kolom pada stylesheet bersama saat ini.
+- Pada lebar hingga 380px, tindakan header dan label obrolan langsung menggunakan gaya yang lebih ringkas.
 
-## Behaviour and dependencies
+## Perilaku dan Ketergantungan
 
-- Shared route destinations are configured in the `routes` object in `global-shell.js`.
-- Menu link labels and destinations are generated from the `links` array in the same file.
-- Search, account, locale and mobile-menu interactions are wired through shared application behaviour; inspect `assets/js/interactions.js` before changing them.
-- The shared shell is injected by `global-shell.js`; do not duplicate header markup into individual pages.
-- Header styling is shared; do not override it from unrelated page CSS.
+- Tujuan rute bersama diatur dalam objek `routes` pada `global-shell.js`.
+- Label dan tujuan tautan menu dibuat dari daftar `links` di berkas yang sama.
+- Interaksi pencarian, akun, bahasa/wilayah, dan menu seluler dihubungkan melalui perilaku aplikasi bersama; periksa `assets/js/interactions.js` sebelum mengubahnya.
+- Kerangka bersama disisipkan oleh `global-shell.js`; jangan menggandakan markup header di halaman masing-masing.
+- Gaya header digunakan bersama; jangan menimpanya dari CSS halaman yang tidak terkait.
 
-## Exceptions
+## Pengecualian
 
-- Checkout pages intentionally omit the shared shell or hide it in checkout mode. See `MASTER/00-SYSTEM-MAP.md` and `ARCHITECTURE.md`.
-- The SPA homepage also has a separate mobile bottom navigation; this is not part of the navbar itself.
+- Halaman checkout sengaja tidak menggunakan kerangka bersama atau menyembunyikannya pada mode checkout. Lihat `MASTER/00-SYSTEM-MAP.md` dan `ARCHITECTURE.md`.
+- Halaman utama SPA juga memiliki navigasi bawah perangkat seluler terpisah; bagian tersebut bukan bagian dari navbar.
 
-## Change impact
+## Dampak Perubahan
 
-High impact. A change can affect SPA routes and standalone pages that load the shared shell. Before modifying:
-1. Read `SOP.md`, `ARCHITECTURE.md` and this master.
-2. Identify all pages loading the shared shell.
-3. Confirm the requested scope with Mas Bagus.
-4. Regression-test desktop and mobile navigation, search, account and locale controls.
-5. Test checkout exceptions and the SPA mobile bottom navigation.
-6. Update this master and the repository registry/handoff as required.
+Dampak tinggi. Perubahan dapat memengaruhi rute SPA dan halaman mandiri yang memuat kerangka bersama. Sebelum mengubah:
+1. Baca `SOP.md`, `ARCHITECTURE.md`, dan Master ini.
+2. Identifikasi semua halaman yang memuat kerangka bersama.
+3. Pastikan ruang lingkup permintaan dengan Mas Bagus.
+4. Uji ulang navigasi desktop/seluler, pencarian, akun, dan kontrol bahasa.
+5. Uji pengecualian checkout dan navigasi bawah SPA.
+6. Perbarui Master ini serta daftar repository/serah terima jika diperlukan.
 
-## Known gaps — documentation only
+## Kekurangan yang Diketahui — Dokumentasi Saja
 
-- The exact approved logo asset/specification is not recorded here.
-- The expected desktop primary-navigation layout needs explicit confirmation against the live page.
-- The final approved icon set, touch-target dimensions and detailed tablet behaviour are not yet recorded as locked standards.
-- Real-device visual verification must not be claimed from source inspection alone.
+- Aset/spesifikasi logo yang benar-benar disetujui belum dicatat di sini.
+- Susunan navigasi utama desktop yang diharapkan perlu dikonfirmasi terhadap halaman yang tayang.
+- Kumpulan ikon final yang disetujui, ukuran area sentuh, dan perilaku tablet terperinci belum dicatat sebagai standar tetap.
+- Pemeriksaan visual pada perangkat nyata tidak boleh diklaim hanya berdasarkan pemeriksaan kode.
