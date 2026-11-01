@@ -130,3 +130,15 @@ Untuk setiap pembaruan Master, catat:
 - Catatan pembaruan Google yang relevan: panduan AI Search menegaskan SEO fundamental tetap berlaku; tidak perlu trik AEO/GEO khusus atau file AI khusus. Google menghapus FAQ rich result mulai 7 Mei 2026.
 - Cakupan: dokumentasi SOP dan indeks saja. Tidak ada perubahan layout, template visual, artikel publik, kode website, data runtime, URL publik, aset, atau konfigurasi deployment.
 - Status: menunggu tinjauan Mas Bagus sebelum draf ini dinaikkan menjadi SOP final.
+
+### 2026-11-01 — Arah Empat SOP Artikel dan Kerangka Master Bisnis/Pengalaman
+
+- Mencatat persetujuan arah restrukturisasi produksi artikel dari tiga menjadi empat tahap: Perencanaan & Brief, Riset & Penulisan, Implementasi, serta Audit, Publikasi & Evaluasi.
+- Membuat [Rencana Restrukturisasi SOP](./03-GUIDELINES/PRODUKSI-ARTIKEL/00-RENCANA-RESTRUKTURISASI.md) tanpa menghapus atau mengganti tiga SOP yang sudah ada.
+- Menambahkan arah pengembangan ke masing-masing SOP yang ada dan memperbarui indeks SOP serta SOP repository.
+- Membuat [Business / Plan Master](./BUSINESS-PLAN-MASTER.md) sebagai kerangka induk untuk mengumpulkan hasil sharing model bisnis tanpa menduplikasi dokumen detail.
+- Membuat [Product & Experience Master](./PRODUCT-EXPERIENCE-MASTER.md) sebagai kerangka area standar pengalaman digital; token dan aturan visual final belum ditetapkan.
+- Memperbarui [Mulai dari Sini](./START-HERE.md) dengan protokol menangkap, mengklasifikasikan, merangkum, dan mengonsolidasikan hasil sesi sharing.
+- Memperbarui Katalog Master dan Daftar Pekerjaan agar seluruh tindak lanjut tetap terlihat.
+- Status: arah empat SOP dan kerangka Master disetujui; detail bisnis dan standar produk masih akan dibahas. Perubahan ini tidak menyatakan seluruh SOP final telah direstrukturisasi.
+- Cakupan: dokumentasi Markdown saja. Tidak ada perubahan HTML, CSS, JavaScript, data runtime, desain, URL publik, aset, atau konfigurasi deployment.
