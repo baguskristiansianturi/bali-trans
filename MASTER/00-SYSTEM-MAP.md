@@ -1,120 +1,88 @@
-# 00 — Bali Trans System Map
+# 00 — Peta Sistem Bali Trans
 
-Snapshot: `a8d4282293d98923ecf160f52d95fe6168dd905d`  
-Status: INITIAL INVENTORY
+**Versi penerapan yang dipetakan:** a8d4282293d98923ecf160f52d95fe6168dd905d  
+**Status:** INVENTARIS AWAL
 
-## 1. How the website is delivered
+## 1. Cara Website Dijalankan
 
-Bali Trans is currently a static website hosted through GitHub Pages. The repository uses two page-delivery patterns:
+Bali Trans saat ini merupakan website statis yang dihosting melalui GitHub Pages. Repository menggunakan dua pola penyajian halaman.
 
-### A. Main SPA
+### A. Aplikasi SPA Utama
 
-- Entry file: `index.html`
-- Main content mount: `#appContainer`
-- Routes are selected through query-string navigation and rendered by JavaScript.
-- Main route controller: `assets/js/navigation.js`
-- View renderers: `assets/js/views/`
-- Shared state and interactions: `assets/js/state.js`, `assets/js/interactions.js`
-- Shared header/footer: `assets/js/global-shell.js` and `assets/css/global-shell.css`
+- Berkas masuk: index.html
+- Tempat pemasangan konten utama: #appContainer
+- Alamat halaman dipilih melalui parameter URL dan ditampilkan oleh JavaScript.
+- Pengendali rute utama: assets/js/navigation.js
+- Pembentuk tampilan: assets/js/views/
+- Status dan interaksi bersama: assets/js/state.js, assets/js/interactions.js
+- Header/footer bersama: assets/js/global-shell.js dan assets/css/global-shell.css
 
-### B. Standalone HTML pages
+### B. Halaman HTML Mandiri
 
-- Public HTML entry points remain at repository root.
-- Page-specific CSS belongs under `assets/css/pages/`.
-- Page-specific JavaScript belongs under `assets/js/pages/`.
-- Existing public URLs must be preserved unless a URL migration is explicitly approved and tested.
-- Do not move root HTML files merely to make the folder structure look cleaner.
+- Berkas HTML publik tetap berada di folder utama repository.
+- CSS khusus halaman berada di assets/css/pages/.
+- JavaScript khusus halaman berada di assets/js/pages/.
+- Alamat publik yang sudah ada harus dipertahankan kecuali pemindahan alamat disetujui dan diuji.
+- Jangan memindahkan berkas HTML dari folder utama hanya demi merapikan folder.
 
-## 2. High-level component hierarchy
+## 2. Susunan Komponen Tingkat Tinggi
 
-```text
-BALI TRANS WEBSITE
-|
-+-- GLOBAL SHELL
-|   +-- Shared header / navbar
-|   +-- Header search panel
-|   +-- Account controls
-|   +-- Language and currency control
-|   +-- Mobile navigation panel
-|   +-- Shared footer
-|
-+-- SPA APPLICATION (index.html)
-|   +-- Homepage
-|   +-- Discovery / destinations
-|   +-- Catalog
-|   +-- Package and tour details
-|   +-- Blog listing and article detail
-|   +-- Cart and checkout prototype
-|   +-- Static information pages
-|   +-- Mobile bottom navigation
-|
-+-- STANDALONE PAGE FAMILIES
-|   +-- Transport services
-|   +-- Airport / port / intercity transfer
-|   +-- Private day tour
-|   +-- Car rental
-|   +-- Watersports
-|   +-- Booking / checkout
-|   +-- Invoice tools
-|
-+-- SHARED TECHNICAL SERVICES
-    +-- Data and content
-    +-- Routing and metadata
-    +-- State and interactions
-    +-- Locale
-    +-- Validation and browser smoke tests
-    +-- GitHub Pages deployment
-```
+| Kelompok | Isi |
+|---|---|
+| Kerangka global | Header/navbar, pencarian, akun, bahasa/mata uang, menu seluler, footer |
+| Aplikasi SPA | Halaman utama, destinasi, katalog, detail wisata, artikel, keranjang, checkout, halaman informasi, navigasi bawah |
+| Halaman mandiri | Transportasi, transfer bandara/pelabuhan/antarkota, wisata privat, sewa mobil, olahraga air, pemesanan, invoice |
+| Layanan teknis bersama | Data/konten, rute/metadata, status/interaksi, bahasa/wilayah, validasi browser, penerapan GitHub Pages |
 
-This is a responsibility map, not a claim that every item is already an independent code module.
+Peta ini menjelaskan pembagian tanggung jawab, bukan menyatakan bahwa setiap bagian sudah menjadi modul kode yang berdiri sendiri.
 
-## 3. Global shell exceptions
+## 3. Pengecualian Kerangka Global
 
-The shared shell is not universal on every page.
+Kerangka global tidak digunakan pada setiap halaman.
 
-Known exceptions:
-- `booking-form.html` is a focused booking form and is documented as the canonical shared booking-form design.
-- `bali-airport-transfer-checkout.html` is a focused checkout page.
-- `watersport-checkout.html` is a focused watersports checkout page.
-- The SPA checkout state applies `checkout-mode`; the shared shell/mobile navigation is intentionally hidden in that mode.
-- Verify the actual page source and workflow before adding the global shell to any checkout page.
+Pengecualian yang diketahui:
+- booking-form.html merupakan formulir pemesanan khusus dan acuan utama desain formulir bersama.
+- bali-airport-transfer-checkout.html merupakan halaman checkout khusus.
+- watersport-checkout.html merupakan halaman checkout khusus olahraga air.
+- Mode checkout SPA menggunakan checkout-mode; kerangka global dan navigasi bawah seluler sengaja disembunyikan.
+- Periksa sumber halaman dan alur sebenarnya sebelum menambahkan kerangka global ke halaman checkout.
 
-The exception list must be updated whenever a new page intentionally omits the shell.
+Perbarui daftar pengecualian ketika ada halaman baru yang sengaja tidak menggunakan kerangka global.
 
-## 4. Current shared shell components
+## 4. Komponen Kerangka Bersama Saat Ini
 
-| Component | Implementation source | Current mapping |
+| Komponen | Sumber penerapan | Pemetaan saat ini |
 |---|---|---|
-| Navbar / header | `assets/js/global-shell.js`, `assets/css/global-shell.css` | Implemented; desktop/mobile details recorded separately |
-| Header search | `assets/js/global-shell.js`, `assets/js/interactions.js`, `assets/css/global-shell.css` | Implemented; behaviour and result coverage need ongoing verification |
-| Account menu | `assets/js/global-shell.js`, account/static-page routes | UI exists; real authentication is not implemented |
-| Language/currency selector | `assets/js/global-shell.js`, `assets/js/locale.js` | UI exists; current options must not be assumed to include more languages/currencies |
-| Mobile menu | `assets/js/global-shell.js`, `assets/css/global-shell.css` | Implemented |
-| Footer | `assets/js/global-shell.js`, `assets/css/global-shell.css` | Implemented |
-| Mobile bottom navigation | `index.html`, SPA interactions | SPA-specific; not a universal standalone-page component |
-| Breadcrumb | `assets/js/views/detail.js` (Dolphin detail) and route SEO metadata | Page-specific/partial; no universal visual component established |
-| Hero | Page/view-specific renderers and standalone HTML | Multiple implementations; no single universal hero component established |
+| Navbar/header | assets/js/global-shell.js, assets/css/global-shell.css | Sudah diterapkan; rincian desktop/seluler dicatat terpisah |
+| Pencarian header | global-shell.js, interactions.js, global-shell.css | Sudah diterapkan; perilaku dan cakupan hasil perlu diperiksa |
+| Menu akun | global-shell.js dan rute akun | Antarmuka tersedia; autentikasi sebenarnya belum diterapkan |
+| Pemilih bahasa/mata uang | global-shell.js dan locale.js | Antarmuka tersedia; jangan menganggap semua bahasa/mata uang sudah didukung |
+| Menu seluler | global-shell.js dan global-shell.css | Sudah diterapkan |
+| Footer | global-shell.js dan global-shell.css | Sudah diterapkan |
+| Navigasi bawah seluler | index.html dan interaksi SPA | Khusus SPA; bukan komponen universal halaman mandiri |
+| Breadcrumb | Pembentuk detail Dolphin dan metadata SEO | Khusus/sebagian halaman; belum ada komponen visual universal |
+| Hero | Pembentuk tampilan khusus halaman | Beberapa penerapan; belum ada satu komponen universal |
 
-## 5. Core source-of-truth boundaries
+## 5. Batas Sumber Acuan Utama
 
-- SPA package/article/locale data: `assets/js/data.js`.
-- Destination master records: `content/bali-master-data.json`.
-- SPA routes and route metadata: `assets/js/navigation.js`.
-- Shared shell markup and route links: `assets/js/global-shell.js`.
-- Shared shell styling: `assets/css/global-shell.css`.
-- Page-family template index: `TEMPLATE-REGISTRY.md`.
-- Existing route inventory: `content/ROUTE_MASTER_MAPPING.md`.
+- Data paket/artikel/bahasa SPA: assets/js/data.js.
+- Data induk destinasi: content/bali-master-data.json.
+- Rute SPA dan metadata: assets/js/navigation.js.
+- Markup kerangka bersama dan tautan rute: assets/js/global-shell.js.
+- Gaya kerangka bersama: assets/css/global-shell.css.
+- Indeks pola halaman: TEMPLATE-REGISTRY.md.
+- Inventaris rute: content/ROUTE_MASTER_MAPPING.md.
 
-These sources have different consumers. Do not merge, duplicate or replace them without tracing dependencies.
+Setiap sumber memiliki pengguna berbeda. Jangan menggabungkan, menggandakan, atau menggantinya tanpa menelusuri ketergantungan kode.
 
-## 6. System-level constraints
+## 6. Batasan Tingkat Sistem
 
-- Static GitHub Pages hosting; no production backend is currently established.
-- No live inventory, server-side booking validation, real payment processing or secure account system is established.
-- Existing URLs and query routes are compatibility-sensitive.
-- Shared files have a larger impact radius and require regression checks.
-- A successful commit is not proof of successful deployment or visual correctness.
+- Website menggunakan hosting statis GitHub Pages; backend produksi belum tersedia.
+- Inventaris langsung, validasi pemesanan di server, pembayaran nyata, dan sistem akun aman belum tersedia.
+- Alamat halaman dan rute parameter yang sudah ada sensitif terhadap perubahan.
+- Berkas bersama berdampak ke banyak halaman dan memerlukan pengujian ulang.
+- Commit yang berhasil bukan bukti bahwa penerapan berhasil atau tampilan sudah benar.
 
-## 7. Update rule
+## 7. Aturan Pembaruan
 
-Whenever a page family, global component, route, source-of-truth data file or deployment workflow changes, update the corresponding master record in the same change set. If a change affects multiple components, list every affected component. Do not mark the map current until the changed implementation has been checked.
+Setiap perubahan pada kelompok halaman, komponen global, rute, berkas data acuan, atau alur penerapan harus diikuti pembaruan catatan Master terkait. Jika perubahan memengaruhi beberapa komponen, sebutkan semuanya. Jangan tandai peta ini terkini sebelum penerapan yang berubah benar-benar diperiksa.
