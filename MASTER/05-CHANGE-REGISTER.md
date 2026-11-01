@@ -62,10 +62,22 @@ Untuk setiap pembaruan Master, catat:
 
 ### 2026-11-01 — Aturan Fungsi Data dan Inventaris Destinasi Bali
 
-- Menambahkan [Master Destinasi Bali](./01-DATA/DESTINATION-MASTER.md) berdasarkan bagian Places of Interest pada sitemap Bali Golden Tour sebagai satu-satunya sumber inventaris tahap ini.
+- Menambahkan [Master Destinasi Bali](./01-DATA/DESTINATION-MASTER.md) berdasarkan bagian Places of Interest pada sitemap Bali Golden Tour sebagai acuan awal inventaris.
 - Mencatat nama destinasi dan memasangkan kategori utama serta wilayah wisata luas sebagai pengelompokan awal. Kelompok kabupaten/kota sumber hanya dipakai sebagai petunjuk pemeriksaan, bukan kategori BDM Trans.
 - Mencatat aturan pemisahan kategori baku, wilayah, label karakteristik tambahan, dan penanda kurasi seperti Popular Destination.
 - Menegaskan bahwa Master merupakan bahan dasar model bisnis, produk, layanan, data, dan fungsi informasi; bukan dokumen rancangan tampilan atau implementasi teknis pada tahap ini.
-- Menandai sejumlah penempatan wilayah dan nama destinasi yang masih perlu ditinjau bersama. Status dokumen adalah INVENTARIS AWAL — PERLU PENINJAUAN BERSAMA, bukan data final yang seluruhnya telah disahkan.
+- Menandai sejumlah penempatan wilayah dan nama destinasi yang masih perlu ditinjau bersama. Status dokumen pada tahap awal adalah INVENTARIS AWAL — PERLU PENINJAUAN BERSAMA, bukan data final yang seluruhnya telah disahkan.
 - Memperbarui indeks Master dan Daftar Pekerjaan agar tindak lanjut peninjauan destinasi tetap terlihat.
 - Cakupan: dokumentasi saja. Tidak ada perubahan pada kode website, data runtime, desain, alamat halaman, aset, atau konfigurasi penerapan.
+
+
+### 2026-11-01 — Perluasan Inventaris Pantai Bali
+
+- Memperluas [Master Destinasi Bali](./01-DATA/DESTINATION-MASTER.md) dari daftar awal Bali Golden Tour dengan penelusuran tambahan terhadap data Dinas Pariwisata Provinsi Bali, dokumen resmi daerah, dan direktori destinasi pantai.
+- Menambahkan inventaris pantai yang dikelompokkan menurut Bali Selatan, Bali Timur, Bali Utara, Bali Barat, serta kelompok pulau Nusa Penida, Nusa Lembongan, dan Nusa Ceningan.
+- Menambahkan catatan alias untuk mengurangi entri ganda, serta memisahkan objek pesisir yang bukan pantai sebagai kategori tersendiri.
+- Menegaskan bahwa inventaris ini berisi nama dan pengelompokan saja; bukan deskripsi destinasi, prioritas artikel, status populer, atau rekomendasi wisata.
+- Menandai nama/lokasi yang belum pasti sebagai perlu validasi. Inventaris tidak mengklaim setiap garis pantai kecil di Bali telah terdata.
+- Memperbarui Daftar Pekerjaan untuk melanjutkan audit nama, alias, dan wilayah.
+- Cakupan: dokumentasi Master saja. Tidak ada perubahan kode website, tampilan, fitur, data runtime, atau konfigurasi penerapan.
+- Commit dokumen destinasi: `fcf7a17c83b9371549f2b89b2636dadf799b697e`.
