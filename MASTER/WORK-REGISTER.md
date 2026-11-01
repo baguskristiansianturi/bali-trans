@@ -46,7 +46,8 @@ Gagasan yang belum disetujui untuk diterapkan tidak dimasukkan ke daftar pekerja
 
 | Tanggal | Perubahan | Status |
 |---|---|---|
-| 2026-11-01 | Membuat daftar awal pembahasan dan tindak lanjut bertahap dari diskusi Master pertama | AKTIF |\n| 2026-11-01 | Menambahkan strategi jendela informasi Bali dan kerangka Master Aktivitas & Pengalaman; audit aktivitas masih terbuka | AKTIF |
+| 2026-11-01 | Membuat daftar awal pembahasan dan tindak lanjut bertahap dari diskusi Master pertama | AKTIF |
+| 2026-11-01 | Menambahkan strategi jendela informasi Bali dan kerangka Master Aktivitas & Pengalaman; audit aktivitas masih terbuka | AKTIF |
 
 ---
 
@@ -71,7 +72,8 @@ Gagasan yang belum disetujui untuk diterapkan tidak dimasukkan ke daftar pekerja
 - [ ] Melanjutkan audit inventaris seluruh kategori destinasi (Beach, Waterfall, Mountain, Lake, Temple, Rice Terrace, Village, Forest, National Park, Mangrove, Cliff, Hill/Viewpoint, Landmark, Garden/Park, Hot Spring, Museum, Market, dan Farm/Plantation): memeriksa nama/alias, identitas lokasi, status objek, dan penempatan wilayah pada Master Destinasi Bali.
 - [ ] Meninjau serta menyepakati aturan wilayah wisata luas, alias, dan status data destinasi pada Master Destinasi Bali.
 - [ ] Melengkapi data pendukung destinasi (lokasi rinci, akses, fasilitas, biaya, jam operasional, dan sumber) setelah inventaris nama dan pengelompokan disepakati.
-- [x] Membuat kerangka [Master Aktivitas & Pengalaman](./01-DATA/ACTIVITY-EXPERIENCE-MASTER.md) dengan aturan pengelompokan, batas cakupan, dan format data.\n- [ ] Melakukan audit aktivitas wisata Bali secara bertahap: lengkapi aktivitas yang belum tercakup (termasuk cooking class, surfing lesson/school, dan pengalaman budaya/pembelajaran), verifikasi lokasi satu per satu, catat gambaran pengalaman, alias, serta data perencanaan yang memiliki sumber. Jangan mencari operator atau menyusun SOP pada tahap inventaris ini.
+- [x] Membuat kerangka [Master Aktivitas & Pengalaman](./01-DATA/ACTIVITY-EXPERIENCE-MASTER.md) dengan aturan pengelompokan, batas cakupan, dan format data.
+- [ ] Melakukan audit aktivitas wisata Bali secara bertahap: lengkapi aktivitas yang belum tercakup (termasuk cooking class, surfing lesson/school, dan pengalaman budaya/pembelajaran), verifikasi lokasi satu per satu, catat gambaran pengalaman, alias, serta data perencanaan yang memiliki sumber. Jangan mencari operator atau menyusun SOP pada tahap inventaris ini.
 - [ ] Master Harga & Kalkulator — **MENUNGGU DATA**; isi setelah logika kalkulator dan tarif dari Mas Bagus tersedia.
 - [ ] Referensi Metode Pembayaran.
 - [ ] Daftar Media & Aset — kepemilikan, lisensi, dan hak penggunaan.
