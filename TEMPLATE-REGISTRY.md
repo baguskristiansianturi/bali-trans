@@ -1,6 +1,6 @@
 # Bali Trans — Template & Component Registry
 
-Updated: 27 October 2026
+Updated: 1 November 2026
 
 This file is the canonical index of reusable layouts and shared components. When a page or component is approved, update its status and source path here. Do not create a new visual system for an existing page family.
 
@@ -21,8 +21,26 @@ This file is the canonical index of reusable layouts and shared components. When
 | Airport transfer / service booking form | `booking-form.html` | `assets/css/pages/booking-form.css`, `assets/js/pages/booking-form.js` | Canonical booking-form design; service adapter being expanded |
 | Tour detail — Bali Dolphin Tour | SPA renderer in `assets/js/views/detail.js` | `assets/css/styles.css`; SEO metadata/schema in `assets/js/navigation.js` | Template SEO layer implemented (heading/alt/meta/JSON-LD); production indexing remains blocked by site-wide noindex and client-rendered SPA architecture |
 | Private day-tour service page | `bali-private-day-tour.html` | `assets/css/pages/bali-private-day-tour.css`, `assets/js/pages/bali-private-day-tour-form.js` | Separate service-detail layout; keep scoped |
-| Article / destination detail | To be selected and approved | Dedicated article template assets to be recorded here | Not yet approved as canonical |
+| Destination hub | To be selected and approved | Destination catalog renderer/data and scoped styles to be recorded | Structure defined; visual template not yet approved |
+| Destination category catalog | To be selected and approved | Reuses destination catalog card/filter components with category context | Structure defined; visual template not yet approved |
+| Destination place detail | To be selected and approved | Destination place data from `MASTER/01-DATA/DESTINATION-MASTER.md`; dedicated place renderer/styles to be recorded | Separate destination template required; not yet approved |
+| Editorial article / blog detail | Existing SPA blog/article renderer to be audited | Article content data and dedicated article styling; exact source to be confirmed | Separate from destination place detail; canonical visual template not yet approved |
 | Search results | Existing search implementation to be audited before selection | Reuse existing result/filter components where appropriate | Canonical layout pending review |
+
+## Destination and editorial page-family contract
+
+These are separate page families and must not be collapsed into one generic “article/destination detail” template:
+
+1. **Destination Hub** — primary public catalog for all destinations. Intended information architecture: Hero → Search → sticky category carousel → destination results/cards → curated collections (e.g. Latest, Popular, Hidden Gems) → shared footer. Do not add a standalone “Explore by Region” section to the hub.
+2. **Destination Category Catalog** — filtered catalog for one destination category (e.g. Beaches, Temples, Waterfalls, Lakes). Reuse the catalog card/filter system and show a polished empty state when a category has no records; do not hide the category.
+3. **Destination Place Detail** — canonical page for one physical destination. Its source facts come from `MASTER/01-DATA/DESTINATION-MASTER.md`. Public hierarchy: `Home → Destinations → Category → Place`. Breadcrumb segments must link to their actual catalog pages. Category and region labels on cards may link to their respective catalog pages when those routes exist.
+4. **Editorial Article / Blog Detail** — independent editorial page, even when it discusses a destination already in the Master. Its breadcrumb follows the blog hierarchy, e.g. `Home → Blog → Article Title`. It may link to the related Destination Place Detail, but it must not masquerade as that destination page or inherit its breadcrumb.
+
+**Destination Master is a place-data inventory, not an article template, page layout specification, or article taxonomy.** Keep one destination record and reuse it in category catalogs, region catalogs, curated collections and search. Region is a secondary grouping, not a primary section on the Destination Hub. Latest/Popular/Hidden Gems are curated collections, not destination categories.
+
+**Editorial labels:** Do not assign “Guide”/“Panduan” by default. Use `Travel Information` for general travel information when appropriate, and add `Tips` only when practical tips are genuinely present. `Tips` is cross-topic (travel, shopping, transport, activities, etc.), not a destination category. Category (`Beach`) and region (`South Bali`) metadata remain distinct from editorial labels.
+
+Public URL patterns and router implementation must be checked against the current SPA before creating or changing routes. Clean URL proposals are not approved route migrations. Preserve existing public routes unless a migration is explicitly reviewed and tested.
 
 ## Shared booking form contract
 
