@@ -78,7 +78,79 @@ Sebelum melakukan edit, pastikan secara internal:
 
 Tidak perlu mengirim rencana panjang kepada Mas Bagus setiap kali. Ajukan pertanyaan hanya jika ada ambiguitas yang benar-benar menghalangi pekerjaan. Setelah lingkup jelas, kerjakan secara langsung dan terbatas.
 
-## 10. SOP khusus produksi artikel dan konten SEO
+## 9. Prinsip keputusan
+
+**Instruksi eksplisit Mas Bagus mengalahkan inisiatif asisten.** “Terlihat lebih baik”, “sekalian dirapikan”, atau “mungkin diperlukan” bukan alasan yang sah untuk mengubah hal lain. Jika tidak diminta, jangan ubah.
+
+## 10. SOP breadcrumb, hierarki halaman, dan navigasi
+
+Breadcrumb bukan hiasan dan bukan sekadar daftar nama halaman. Breadcrumb adalah petunjuk posisi konten di dalam struktur informasi website. Sebelum membuat atau mengubah breadcrumb, asisten WAJIB memeriksa struktur halaman, master taxonomy, jenis konten, relasi parent-child, route yang benar-benar tersedia, dan fungsi setiap tingkat.
+
+### 10.1 Tentukan jenis halaman terlebih dahulu
+
+Identifikasi apakah halaman yang dikerjakan adalah:
+- halaman utama/landing page;
+- halaman indeks atau listing (misalnya Blog, Destinations, kategori);
+- halaman detail artikel;
+- halaman detail destinasi;
+- halaman detail aktivitas/pengalaman;
+- halaman layanan, produk, atau booking.
+
+Jangan menyamakan **jenis konten** dengan **kategori konten** atau **objek yang dibahas**. Contoh: artikel blog tentang Pantai Kuta tetap merupakan artikel dalam bagian Blog; Pantai Kuta adalah destinasi yang dibahas; Beaches adalah kategori destinasi. Ketiganya memiliki fungsi berbeda dan tidak boleh dipertukarkan.
+
+### 10.2 Urutan breadcrumb harus mengikuti hierarki informasi
+
+Gunakan urutan dari konteks paling umum menuju item yang sedang dibuka. Untuk artikel yang membahas destinasi, pola yang digunakan adalah:
+
+`Home / Blog / Destinations / [Destination Category] / [Destination Name]`
+
+Contoh untuk artikel Pantai Kuta:
+
+`Home / Blog / Destinations / Beaches / Pantai Kuta`
+
+Makna tiap tingkat:
+1. **Home** — pintu kembali ke halaman utama website.
+2. **Blog** — bagian editorial tempat artikel diterbitkan.
+3. **Destinations** — kelompok/topik destinasi yang menjadi konteks artikel, bukan judul artikel.
+4. **Beaches** — kategori destinasi sesuai taxonomy master (misalnya Beaches, bukan dipilih berdasarkan tebakan).
+5. **Pantai Kuta** — destinasi spesifik yang sedang dibahas dan menjadi posisi halaman saat ini.
+
+Pola ini adalah hierarki informasi untuk artikel destinasi. Untuk jenis halaman lain, tentukan pola dari struktur master dan parent-child yang berlaku; jangan menyalin pola artikel destinasi secara membabi buta.
+
+### 10.3 Aturan sumber data dan taxonomy
+
+- Periksa `MASTER` dan data master yang relevan sebelum menentukan kategori, nama, atau parent.
+- Gunakan ID dan relasi taxonomy yang kanonis untuk menentukan kategori; label tampilan boleh berupa bentuk jamak/terjemahan yang ditetapkan di master.
+- Jangan mengarang kategori, parent, slug, nama destinasi, atau jalur navigasi.
+- Bedakan label editorial/display (misalnya “Pantai Kuta”) dari nama data destinasi (misalnya “Kuta Beach”) sesuai konvensi konten yang sudah dipakai.
+- Jika master data belum lengkap atau status halaman masih PLANNED/UNVERIFIED, breadcrumb boleh menjelaskan konteks hierarki hanya jika memang diperlukan dan datanya didukung. Jangan membuat tautan seolah-olah route sudah tersedia.
+- Jangan mengubah taxonomy master hanya untuk menyesuaikan satu breadcrumb tanpa kebutuhan dan persetujuan yang jelas.
+
+### 10.4 Fungsi tautan setiap item
+
+- Item ancestor hanya boleh berupa tautan jika route tujuan benar-benar ada, aktif, dan dapat dibuka.
+- Item yang belum memiliki route harus ditampilkan sebagai teks biasa; jangan membuat href palsu, `#` yang tampak seperti navigasi, atau route tebakan.
+- Item terakhir adalah current page/item dan harus ditandai sebagai posisi saat ini (misalnya `aria-current="page"`); secara default bukan tautan.
+- Pastikan tautan mengarah ke halaman parent yang benar, bukan selalu ke Home atau indeks Blog.
+- Jika breadcrumb bersifat informatif sementara karena parent page belum dibuat, jangan menyebutnya sebagai navigasi aktif.
+
+### 10.5 Checklist sebelum menyelesaikan breadcrumb
+
+Asisten harus memeriksa semua hal berikut:
+1. Apakah jenis halaman sudah dikenali dengan benar?
+2. Apakah urutannya bergerak dari konteks umum ke konteks spesifik?
+3. Apakah Blog/Editorial dibedakan dari Destinations/Services dan kategori objek?
+4. Apakah kategori dan parent berasal dari master data?
+5. Apakah nama item terakhir sesuai objek yang benar-benar dibahas?
+6. Apakah setiap tautan memiliki route aktif yang valid?
+7. Apakah current item ditandai dengan benar dan tidak diberi tautan palsu?
+8. Apakah breadcrumb konsisten dengan halaman sejenis?
+9. Apakah perubahan hanya menyentuh breadcrumb/data yang diminta, tanpa mengubah layout lain?
+10. Apakah hasil diuji pada URL halaman yang tepat setelah deployment?
+
+Jika satu jawaban belum dapat dipastikan, periksa repository/master data lebih dahulu. Jangan menebak lalu menunggu Mas Bagus menemukan kesalahannya.
+
+## 11. SOP khusus produksi artikel dan konten SEO
 
 Sebelum membuat, menulis, mengubah data, atau melakukan coding untuk artikel BDM Trans:
 
@@ -88,7 +160,3 @@ Sebelum membuat, menulis, mengubah data, atau melakukan coding untuk artikel BDM
 4. Coding harus menggunakan template dan arsitektur artikel yang benar-benar berlaku di repository; jangan membuat layout baru sebagai konsekuensi otomatis dari permintaan SEO.
 5. Perubahan artikel tetap tunduk pada aturan lingkup, diff, pengujian, commit, deployment, dan verifikasi dalam dokumen ini.
 6. Jika SOP artikel masih berstatus USULAN, gunakan sebagai kerangka kerja sementara dengan status tersebut; jangan menganggap semua aturan sebagai keputusan final sebelum Mas Bagus menyetujuinya.
-
-## 9. Prinsip keputusan
-
-**Instruksi eksplisit Mas Bagus mengalahkan inisiatif asisten.** “Terlihat lebih baik”, “sekalian dirapikan”, atau “mungkin diperlukan” bukan alasan yang sah untuk mengubah hal lain. Jika tidak diminta, jangan ubah.
