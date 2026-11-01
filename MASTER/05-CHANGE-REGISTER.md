@@ -58,3 +58,14 @@ Untuk setiap pembaruan Master, catat:
 - Nama berkas, folder, kode, dan istilah teknis tertentu tetap dipertahankan dalam bahasa Inggris jika diperlukan untuk menjaga kesesuaian dengan struktur repository.
 - Menetapkan bahasa Indonesia sebagai bahasa utama seluruh isi dokumentasi Master berikutnya.
 - Cakupan: dokumentasi saja; tidak ada perubahan pada website atau proses penerapannya.
+
+
+### 2026-11-01 — Aturan Fungsi Data dan Inventaris Destinasi Bali
+
+- Menambahkan [Master Destinasi Bali](./01-DATA/DESTINATION-MASTER.md) berdasarkan bagian Places of Interest pada sitemap Bali Golden Tour sebagai satu-satunya sumber inventaris tahap ini.
+- Mencatat nama destinasi dan memasangkan kategori utama serta wilayah wisata luas sebagai pengelompokan awal. Kelompok kabupaten/kota sumber hanya dipakai sebagai petunjuk pemeriksaan, bukan kategori BDM Trans.
+- Mencatat aturan pemisahan kategori baku, wilayah, label karakteristik tambahan, dan penanda kurasi seperti Popular Destination.
+- Menegaskan bahwa Master merupakan bahan dasar model bisnis, produk, layanan, data, dan fungsi informasi; bukan dokumen rancangan tampilan atau implementasi teknis pada tahap ini.
+- Menandai sejumlah penempatan wilayah dan nama destinasi yang masih perlu ditinjau bersama. Status dokumen adalah INVENTARIS AWAL — PERLU PENINJAUAN BERSAMA, bukan data final yang seluruhnya telah disahkan.
+- Memperbarui indeks Master dan Daftar Pekerjaan agar tindak lanjut peninjauan destinasi tetap terlihat.
+- Cakupan: dokumentasi saja. Tidak ada perubahan pada kode website, data runtime, desain, alamat halaman, aset, atau konfigurasi penerapan.
