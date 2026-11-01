@@ -9,7 +9,7 @@
   const home = './index.html';
   const routes = {
     home,
-    destinations: home + '?page=discovery&item=region%3Asouth',
+    destinations: home + '?page=destinations',
     tours: home + '?page=packages',
     guides: home + '?page=blog',
     about: home + '?page=about',
