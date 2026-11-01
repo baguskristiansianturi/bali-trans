@@ -160,3 +160,38 @@ Sebelum membuat, menulis, mengubah data, atau melakukan coding untuk artikel BDM
 4. Coding harus menggunakan template dan arsitektur artikel yang benar-benar berlaku di repository; jangan membuat layout baru sebagai konsekuensi otomatis dari permintaan SEO.
 5. Perubahan artikel tetap tunduk pada aturan lingkup, diff, pengujian, commit, deployment, dan verifikasi dalam dokumen ini.
 6. Jika SOP artikel masih berstatus USULAN, gunakan sebagai kerangka kerja sementara dengan status tersebut; jangan menganggap semua aturan sebagai keputusan final sebelum Mas Bagus menyetujuinya.
+
+
+## 12. SOP Destination Hub, kategori, dan sinkronisasi publikasi
+
+Destination Hub adalah katalog destinasi, bukan halaman artikel. Kartu destinasi hanya boleh membuka artikel yang benar-benar sudah dipublikasikan dan memiliki relasi ke satu record destinasi Master.
+
+### 12.1 Sumber data dan angka kategori
+
+- Master taxonomy dan identitas tempat: `content/bali-master-data.json`.
+- Artikel dan konten yang dirender: `BALI_BLOGS` di `assets/js/data.js`.
+- Artikel harus memiliki `publicationStatus: 'PUBLISHED'` dan `relatedDestinationId` yang cocok dengan ID destinasi Master.
+- Record Master yang dipakai sebagai destinasi publik harus bertipe `record_kind: 'place'`; record `area_group` atau `combined_place_activity` tidak boleh otomatis menjadi kartu destinasi tunggal.
+- Angka All Destinations dan setiap kategori dihitung otomatis dari relasi artikel berstatus PUBLISHED ke record Master. Jangan mengetik angka kategori secara manual atau menghitung seluruh inventaris Master sebagai jumlah destinasi terbit.
+- Kategori tetap dirender dari Master walaupun jumlah artikel terbitnya nol. Pilihan kategori kosong harus menampilkan empty state yang informatif, bukan menghilangkan kategori.
+
+### 12.2 Definisi Latest
+
+- Latest pada Destination Hub berarti destinasi yang paling baru ditambahkan ke data Master, bukan artikel yang paling baru diunggah atau diedit.
+- Untuk record baru, isi `master_added_at` dengan tanggal penambahan ke Master (format ISO `YYYY-MM-DD`). Jika data destinasi diperbarui secara substantif, isi `master_updated_at` tanpa mengubah `master_added_at`.
+- Urutkan koleksi Latest berdasarkan `master_added_at` terbaru. Untuk record lama yang belum memiliki timestamp, urutan posisi record di array Master menjadi fallback; record baru harus ditambahkan di bagian akhir sampai timestamp tersedia.
+- Latest tetap hanya menampilkan record yang memiliki artikel PUBLISHED dan relasi aktif. Record Master yang belum memiliki artikel tidak boleh membuka halaman yang belum ada.
+
+### 12.3 Checklist wajib setiap artikel destinasi diterbitkan, diperbarui, atau ditarik
+
+- [ ] Status publikasi artikel disetel dengan benar: PUBLISHED hanya setelah gerbang publikasi artikel lulus.
+- [ ] `relatedDestinationId` cocok dengan satu ID destinasi Master yang benar.
+- [ ] Record Master memiliki kategori utama `primary_category_id`, `record_kind: 'place'`, dan wilayah yang sesuai.
+- [ ] Tanggal `master_added_at` tersedia untuk destinasi baru; tanggal `master_updated_at` hanya berubah bila data Master berubah substantif.
+- [ ] Angka All Destinations dan kategori berubah otomatis sesuai status publikasi; tidak ada angka manual yang perlu disunting.
+- [ ] Tab kategori yang berisi destinasi menampilkan kartu yang benar dan tautan menuju artikel yang tepat.
+- [ ] Kategori dengan jumlah nol tetap terlihat dan menampilkan empty state.
+- [ ] Latest mengurutkan berdasarkan data Master, bukan tanggal unggah artikel.
+- [ ] Periksa hasil di mobile dan desktop serta uji tautan kartu setelah deployment.
+
+Checklist ini wajib dijalankan kembali setelah artikel destinasi baru diterbitkan, status publikasi berubah, relasi Master berubah, atau artikel ditarik dari publikasi.
