@@ -23,6 +23,7 @@ Dokumen berikut menjadi sumber konteks bisnis untuk keputusan halaman, konten, a
 | [Katalog Master](./MASTER-CATALOG.md) | Indeks pusat dokumen yang sudah ada, direncanakan, atau belum dibuat |
 | [Fondasi Produk](./PRODUCT-FOUNDATION.md) | Posisi pasar, pelanggan sasaran, nilai layanan, fungsi website, dan pembahasan terbuka |
 | [Master Layanan](./SERVICE-MASTER.md) | Kategori layanan dan jenis layanan saat ini |
+| [Master Destinasi Bali](./01-DATA/DESTINATION-MASTER.md) | Aturan fungsi data destinasi dan inventaris awal destinasi dari Bali Golden Tour |
 | [Daftar Ide Masa Depan](./FUTURE-IDEAS.md) | Konsep yang belum disetujui dan dipisahkan dari layanan aktif |
 | [Daftar Pekerjaan](./WORK-REGISTER.md) | Pembahasan dan dokumentasi yang belum selesai |
 | [Daftar Perubahan Master](./05-CHANGE-REGISTER.md) | Riwayat perubahan penting pada dokumen Master |
@@ -40,6 +41,10 @@ Folder ini juga menjadi peta yang dapat dibaca manusia untuk website Bali Trans 
 - kekurangan atau perbedaan yang perlu diselesaikan sebelum komponen dianggap sebagai standar final.
 
 Inventaris teknis awal mendokumentasikan penerapan yang sudah ada. Bagian ini terpisah dari dokumen pembahasan produk yang berangkat dari kebutuhan bisnis.
+
+## Batas Isi Master
+
+Master merupakan bahan dasar untuk membangun model bisnis dan pengetahuan produk: tujuan, pelanggan, produk, layanan, data destinasi, kategori, aturan fungsi data, dan informasi yang kelak dibutuhkan untuk konten. Master boleh mencatat fungsi dan hubungan informasi yang diperlukan, tetapi **tidak perlu mendahului pembahasan dengan rancangan tampilan, susunan visual, atau spesifikasi teknis website**. Pembahasan desain dan teknis dilakukan setelah isi bisnis dan produk cukup matang.
 
 ## Ini Bukan Kode Sumber
 
