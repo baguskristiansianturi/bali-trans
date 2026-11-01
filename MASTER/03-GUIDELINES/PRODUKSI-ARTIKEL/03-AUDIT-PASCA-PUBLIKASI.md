@@ -89,3 +89,19 @@ Artikel hanya boleh ditandai **SELESAI / APPROVED** jika:
 - [ ] Commit final dan URL publik dicatat.
 
 Jika seluruh persyaratan terpenuhi, tutup pekerjaan artikel dan lanjutkan ke topik berikutnya. Jika belum, artikel tetap berstatus NEEDS REVISION dan tidak dianggap final.
+
+## 8. Arah Pengembangan SOP — Audit, Publikasi, dan Evaluasi
+
+**Arah yang disepakati pada 2026-11-01:** dokumen ini akan menjadi **SOP 04 — Audit, Publikasi & Evaluasi** pada struktur empat tahap.
+
+Ruang lingkup target perlu menyatukan:
+- audit UI/UX dan kesesuaian terhadap standar Product & Experience Master yang sudah disetujui;
+- pemeriksaan konten, orisinalitas, sumber, fakta, SEO, aksesibilitas, performa, dan teknis;
+- pemeriksaan regresi pada halaman/komponen terkait;
+- verifikasi deployment dan URL publik;
+- persetujuan akhir Mas Bagus;
+- evaluasi awal setelah publikasi berdasarkan data aktual yang tersedia, dengan periode dan keterbatasan yang dicatat.
+
+Deployment berhasil, lolos tes otomatis, terindeks mesin pencari, dan disetujui secara visual adalah status yang berbeda. Jangan menyamakan satu status dengan status lainnya. Jangan mengklaim orisinalitas mutlak atau menjanjikan ranking.
+
+Lihat [Rencana Restrukturisasi Empat SOP](./00-RENCANA-RESTRUKTURISASI.md) dan [Product & Experience Master](../../PRODUCT-EXPERIENCE-MASTER.md).
