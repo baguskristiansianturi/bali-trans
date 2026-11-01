@@ -70,7 +70,7 @@
  .article-header { margin-bottom:20px; }
  .article-byline { gap:8px; }
  .article-featured { margin-bottom:22px; }
- .article-featured img { border-radius:13px; }
+ .article-featured img { border-radius:0; }
  .article-layout { display:block; }
  .article-toc { display:none; }
  .article-toc-mobile { display:block; margin:0 0 24px; padding:13px 15px; border:1px solid #e2e8f0; border-radius:12px; background:#f8fafc; }
