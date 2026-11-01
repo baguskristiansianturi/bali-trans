@@ -1,57 +1,57 @@
-# GLB-002 — Footer Master
+# GLB-002 — Master Footer
 
-Implementation status: IMPLEMENTED  
-Approval status: NOT RECORDED IN THIS MASTER  
-Canonical markup/logic: `assets/js/global-shell.js`  
-Canonical styling: `assets/css/global-shell.css`  
-Snapshot: `a8d4282293d98923ecf160f52d95fe6168dd905d`
+**Status penerapan:** SUDAH DITERAPKAN  
+**Status persetujuan:** BELUM DICATAT DI MASTER INI  
+**Sumber markup/logika utama:** `assets/js/global-shell.js`  
+**Sumber gaya utama:** `assets/css/global-shell.css`  
+**Versi yang diperiksa:** `a8d4282293d98923ecf160f52d95fe6168dd905d`
 
-## Purpose
+## Tujuan
 
-Provide a shared site footer for pages using the global shell.
+Menyediakan footer website bersama untuk halaman yang menggunakan kerangka global.
 
-## Current structure
+## Susunan Saat Ini
 
-1. Footer brand link and generated brand mark.
-2. Short Bali Trans introduction.
-3. Contact CTA: “Talk to our team”.
-4. Two highlight blocks:
-   - Explore Bali
-   - Private transport
-5. Five navigation groups:
-   - Discover
-   - Plan your trip
-   - Help & support
-   - About us
-   - Your account
-6. Planning note with instruction to confirm trip details, prices and availability.
-7. Copyright and booking-information note.
+1. Tautan merek footer dan penanda merek yang dibuat otomatis.
+2. Pengantar singkat Bali Trans.
+3. Tombol ajakan kontak: “Talk to our team”.
+4. Dua blok sorotan:
+   - Jelajahi Bali
+   - Transportasi privat
+5. Lima kelompok navigasi:
+   - Temukan
+   - Rencanakan perjalanan
+   - Bantuan & dukungan
+   - Tentang kami
+   - Akun Anda
+6. Catatan perencanaan yang meminta pelanggan mengonfirmasi detail perjalanan, harga, dan ketersediaan.
+7. Hak cipta dan catatan informasi pemesanan.
 
-## Current navigation groups
+## Kelompok Navigasi Saat Ini
 
-The exact link labels and targets are generated in `assets/js/global-shell.js`. Update the source there; do not create separate footer copies in page HTML.
+Label dan tujuan tautan yang tepat dibuat di `assets/js/global-shell.js`. Perbarui sumber tersebut; jangan membuat salinan footer terpisah di HTML masing-masing halaman.
 
-## Responsive rules observed in CSS
+## Aturan Responsif yang Terlihat di CSS
 
-- Default footer grid: one column.
-- Footer link groups: two columns by default.
-- From 768px: footer introduction and link area become a two-part layout; link groups use four columns.
-- From 1100px: link groups use five columns.
-- Footer bottom row changes from stacked to horizontal from 768px.
-- At narrow widths, spacing is reduced.
+- Susunan footer bawaan: satu kolom.
+- Kelompok tautan footer: dua kolom secara bawaan.
+- Mulai lebar 768px: pengantar footer dan area tautan menjadi dua bagian; kelompok tautan menggunakan empat kolom.
+- Mulai lebar 1100px: kelompok tautan menggunakan lima kolom.
+- Baris paling bawah footer berubah dari bertumpuk menjadi horizontal mulai 768px.
+- Pada layar sempit, jarak antarbagian diperkecil.
 
-These are current source rules, not a claim of completed physical-device QA.
+Ini adalah aturan yang tercatat pada sumber kode saat ini, bukan bukti bahwa pemeriksaan perangkat nyata sudah selesai.
 
-## Exceptions
+## Pengecualian
 
-Pages that intentionally omit the global shell do not display this footer. Checkout exceptions are listed in `MASTER/00-SYSTEM-MAP.md`.
+Halaman yang sengaja tidak menggunakan kerangka global tidak menampilkan footer ini. Pengecualian checkout dicatat di `MASTER/00-SYSTEM-MAP.md`.
 
-## Change impact
+## Dampak Perubahan
 
-High impact. Footer links affect multiple page families. Check all footer routes, mobile column layout, tablet/desktop columns, and shell-exempt checkout pages after a change.
+Dampak tinggi. Tautan footer memengaruhi banyak kelompok halaman. Setelah perubahan, periksa semua rute footer, susunan kolom pada ponsel, tablet/desktop, dan halaman checkout yang tidak menggunakan kerangka global.
 
-## Known gaps
+## Kekurangan yang Diketahui
 
-- The current footer structure and labels are recorded as implementation facts; do not assume every label or group is the final locked business-approved content.
-- Payment logos/icons are not identified as a confirmed part of the current shared footer source.
-- Do not add a floating WhatsApp CTA or other unrequested global CTA.
+- Susunan dan label footer saat ini dicatat sebagai fakta penerapan; jangan menganggap semua label atau kelompok sudah menjadi isi bisnis final yang disetujui.
+- Logo/ikon pembayaran belum teridentifikasi sebagai bagian yang dipastikan tersedia pada sumber footer bersama saat ini.
+- Jangan menambahkan tombol WhatsApp mengambang atau tombol ajakan global lain yang tidak diminta.
