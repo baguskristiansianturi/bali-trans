@@ -1,18 +1,18 @@
-# 04 — Customer Experience
+# 04 — Pengalaman Pelanggan
 
-**Status:** NOT STARTED — discovery topics identified.
+**Status:** BELUM DIMULAI — topik pembahasan telah diidentifikasi.
 
-This domain records the customer experience before, during and after a booking.
+Kelompok ini mencatat pengalaman pelanggan sebelum, selama, dan setelah melakukan pemesanan.
 
-| Planned record | Status | Required coverage |
+| Dokumen yang direncanakan | Status | Cakupan yang dibutuhkan |
 |---|---|---|
-| Customer Personas & Needs | DISCUSSION | Families, couples, groups, domestic and international travellers |
-| Customer Journey Map | NOT STARTED | Discovery, consideration, enquiry, booking, travel and post-trip |
-| Enquiry & Sales Conversation Flow | NOT STARTED | WhatsApp, forms, response expectations and qualification |
-| Booking Journey | NOT STARTED | Search, selection, details, confirmation and payment |
-| Customer Support Standards | NOT STARTED | Channels, availability, response, complaints and escalation |
-| Service Recovery & Incident Handling | NOT STARTED | Delay, missed pick-up, vehicle issue, weather and dissatisfaction |
-| Feedback, Reviews & Reputation | NOT STARTED | Consent, collection, moderation and response |
-| Accessibility & Special Requests | NOT STARTED | Children, mobility, luggage, dietary and other requests |
+| Profil & Kebutuhan Pelanggan | PEMBAHASAN | Keluarga, pasangan, rombongan, wisatawan domestik dan internasional |
+| Peta Perjalanan Pelanggan | BELUM DIMULAI | Penemuan, pertimbangan, pertanyaan, pemesanan, perjalanan, setelah layanan |
+| Alur Pertanyaan & Penjualan | BELUM DIMULAI | WhatsApp, formulir, harapan waktu respons, penggalian kebutuhan |
+| Alur Pemesanan | BELUM DIMULAI | Pencarian, pemilihan, pengisian data, konfirmasi, pembayaran |
+| Standar Bantuan Pelanggan | BELUM DIMULAI | Saluran komunikasi, ketersediaan, respons, keluhan, eskalasi |
+| Pemulihan Layanan & Penanganan Insiden | BELUM DIMULAI | Keterlambatan, penjemputan terlewat, masalah kendaraan, cuaca, ketidakpuasan |
+| Masukan, Ulasan & Reputasi | BELUM DIMULAI | Persetujuan pelanggan, pengumpulan ulasan, moderasi, tanggapan |
+| Aksesibilitas & Permintaan Khusus | BELUM DIMULAI | Anak-anak, mobilitas, bagasi, kebutuhan makanan, permintaan lain |
 
-**Do not assume:** response-time promises, 24-hour support, accessibility capability or guaranteed outcomes until operationally agreed.
+**Jangan berasumsi:** janji waktu respons, bantuan 24 jam, kemampuan aksesibilitas, atau hasil yang dijamin sebelum kemampuan operasionalnya disepakati.
