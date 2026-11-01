@@ -150,19 +150,23 @@ Asisten harus memeriksa semua hal berikut:
 
 Jika satu jawaban belum dapat dipastikan, periksa repository/master data lebih dahulu. Jangan menebak lalu menunggu Mas Bagus menemukan kesalahannya.
 
-## 11. SOP khusus produksi artikel dan konten SEO
+## 11. SOP khusus produksi artikel dan konten SEO — tiga tahap wajib
 
-Sebelum membuat, menulis, mengubah data, atau melakukan coding untuk artikel BDM Trans:
+Produksi artikel wajib mengikuti tiga SOP terpisah di `MASTER/03-GUIDELINES/`:
 
-1. **Langkah pertama sebelum membuat artikel baru atau memperbarui artikel yang ada adalah membaca `MASTER/03-GUIDELINES/ARTICLE-PRODUCTION-SOP.md` dari awal sampai akhir.** Jangan mulai riset, menulis, mengubah data artikel, atau coding sebelum SOP tersebut diperiksa. Aturan ini berlaku untuk artikel kedua dan seterusnya, termasuk artikel Pantai Melasti dan destinasi lain.
-2. Wajib membaca DNA Informasi di `MASTER/PRODUCT-FOUNDATION.md` serta Master Destinasi, Master Aktivitas & Pengalaman, atau Data Master lain yang relevan.
-3. Wajib melakukan riset kata kunci dan analisis kompetitor pada hasil Google halaman pertama dan kedua sejauh dapat diakses; catat strategi, kekuatan, kelemahan, dan content gap sebelum menulis. Ikuti gaya editorial BDM Trans dan gunakan target pembaca dari Master. Naskah wajib minimal 800 kata isi artikel; kurang dari 800 kata otomatis gagal checklist dan tidak boleh dinyatakan selesai/publikasi. Wajib menyelesaikan sumber, Article Brief, outline, naskah, metadata, dan Image Manifest sesuai SOP sebelum coding.
-4. Coding harus menggunakan template dan arsitektur artikel yang benar-benar berlaku di repository; jangan membuat layout baru sebagai konsekuensi otomatis dari permintaan SEO.
-5. Terapkan standar media terbaru di SOP artikel: satu gambar utama tanpa caption, minimal dua gambar pendukung bercaption di tengah artikel, nama file deskriptif, alt text alami, dan fallback teks di dalam frame jika gambar gagal dimuat.
-6. Semua halaman yang menggunakan FAQ wajib memakai pola accordion bersama di SOP artikel: setiap pertanyaan berupa kartu mandiri ber-border lembut; seluruh jawaban tertutup saat awal; hanya satu jawaban terbuka; pertanyaan mengikuti ukuran teks body; jawaban satu tingkat lebih kecil; panel jawaban berlatar transparan lembut dengan transisi halus; dan memilih pertanyaan lain otomatis menutup jawaban sebelumnya. Kesimpulan tetap memakai ukuran teks body.
-7. Perubahan artikel tetap tunduk pada aturan lingkup, diff, pengujian, commit, deployment, dan verifikasi dalam dokumen ini.
-8. Standar gambar versi 0.2, FAQ versi 0.4, dan tautan sumber kontekstual versi 0.5 menjadi acuan Mas Bagus dan wajib diterapkan pada artikel berikutnya serta halaman lain yang menggunakan FAQ.
+1. **SOP 1 — Riset, Perencanaan, dan Naskah:** `ARTICLE-PRODUCTION-SOP.md`. Baca SOP dan master destinasi/aktivitas yang relevan terlebih dahulu; tetapkan lokasi, region, kategori, label, dan relasi; lakukan riset kata kunci, analisis kompetitor Google halaman pertama dan kedua sejauh dapat diakses, verifikasi sumber, lalu susun naskah lengkap.
+2. **SOP 2 — Penerapan Halaman dan Publikasi:** `ARTICLE-PAGE-IMPLEMENTATION-SOP.md`. Hanya boleh dimulai setelah naskah mendapat persetujuan eksplisit Mas Bagus.
+3. **SOP 3 — Audit Setelah Publikasi:** `ARTICLE-POST-PUBLISH-AUDIT-SOP.md`. Dilakukan setelah deployment berhasil dan URL GitHub Pages dapat dibuka.
 
+**Gerbang persetujuan wajib:** setelah SOP 1, kirim naskah kepada Mas Bagus. Jangan mengubah data artikel, coding, atau menerapkan halaman sebelum naskah disetujui. Setelah SOP 2, kirim URL live dan commit hash; SOP 3 mengaudit UI, UX, originalitas, fakta, SEO, dan teknis. Artikel baru dinyatakan selesai setelah checklist SOP 3 disetujui.
+
+Standar konten wajib yang tetap berlaku:
+- Minimal 800 kata isi artikel, tidak termasuk judul, metadata, sumber editorial, dan catatan riset. Jangan menambah kalimat pengisi demi mengejar jumlah kata.
+- Satu gambar utama tanpa caption dan minimal dua gambar pendukung bercaption; gunakan nama file deskriptif, alt text alami, kredit yang sesuai, dan fallback frame jika gambar gagal.
+- FAQ memakai accordion bersama: seluruh jawaban tertutup saat awal, satu panel terbuka, kartu mandiri ber-border lembut, jawaban satu tingkat lebih kecil dari body, panel jawaban berlatar lembut, transisi halus, dan kesimpulan tetap berukuran body.
+- Gaya isi menggunakan bold, italic, tanda kurung, kutipan, daftar, tabel, dan note panel secara selektif sesuai konteks. Note memakai border tipis, latar abu-abu lembut/transparan, padding proporsional, dan teks satu tingkat lebih kecil dari body; jangan berlebihan.
+- Tautan sumber harus menuju halaman artikel/laporan/dokumen/publikasi spesifik yang benar-benar mendukung klaim. Jangan menautkan homepage atau profil lembaga jika halaman bukti langsung tersedia. Tempatkan tautan pada anchor text kontekstual di paragraf; jangan tampilkan daftar sumber di akhir artikel.
+- Perubahan website tetap tunduk pada aturan lingkup, diff, pengujian, commit, deployment, dan verifikasi dalam SOP repository ini.
 
 ## 12. SOP Destination Hub, kategori, dan sinkronisasi publikasi
 
