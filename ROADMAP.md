@@ -1,6 +1,6 @@
 # Bali Trans — Roadmap
 
-Updated: 2026-10-25
+Updated: 2026-11-01
 Rule: preserve the approved homepage and existing approved page designs. Avoid broad redesigns while fixing specific functionality.
 
 ## P0 — Current release integrity
@@ -80,3 +80,16 @@ A change is not complete until source validation passes, deployment succeeds, th
 - [ ] Fix the existing Airport Transfer checkout direction-radio browser smoke failure and obtain a fully green validation run.
 - [ ] Decompose large active modules (`interactions.js`, `data.js`) only after dependency boundaries have regression coverage.
 - [ ] Complete manual Android and desktop visual QA after automated validation and deployment pass.
+
+
+## Destination information architecture and page-family separation — 1 November 2026
+
+- [x] Record the public hierarchy: **Destinations → Category → Place**.
+- [x] Record Region as a secondary geographic/editorial grouping with its own catalog destination where implemented, not a standalone section on the main Destination Hub.
+- [x] Record curated collections such as Latest, Popular and Hidden Gems as editorial groupings, separate from destination categories.
+- [x] Require clickable breadcrumbs that follow the actual page family: destination place pages use `Home → Destinations → Category → Place`; editorial articles use `Home → Blog → Article Title`.
+- [x] Separate the Destination Hub, Destination Category Catalog, Destination Place Detail and Editorial Article/Blog Detail as distinct page families and templates.
+- [x] Clarify editorial labels: do not call every article a Guide/Panduan; use Travel Information for general travel information and add Tips only when practical tips are genuinely included. Tips is a cross-topic label, not a destination category.
+- [ ] Audit current SPA routes, data sources and blog renderer before designing or implementing destination page templates.
+- [ ] Approve Destination Hub, Category Catalog and Place Detail templates separately from the Editorial Article template before scaling content or implementation.
+- [ ] Implement destination catalogs using one destination record reused across category, region, collection and search views; do not duplicate destination identity data.
