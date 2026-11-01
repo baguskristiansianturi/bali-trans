@@ -3,21 +3,22 @@
 | Keterangan | Catatan |
 |---|---|
 | ID Dokumen | DM-001 |
-| Status | INVENTARIS AWAL — PERLU PENINJAUAN BERSAMA |
+| Status | INVENTARIS DIPERLUAS — PERLU AUDIT DAN PENINJAUAN BERSAMA |
 | Tanggal pencatatan | 2026-11-01 |
-| Sumber inventaris | [Sitemap Bali Golden Tour](https://www.baligoldentour.com/sitemap.php) |
-| Cakupan | Hanya destinasi yang tercantum pada bagian Places of Interest di sumber tersebut |
+| Sumber inventaris | Bali Golden Tour sebagai acuan awal; diperluas dengan sumber resmi pemerintah dan direktori destinasi untuk kategori pantai |
+| Cakupan | Inventaris destinasi awal Bali Golden Tour dan perluasan khusus kategori Beach berdasarkan sumber tambahan yang dapat ditelusuri |
 | Tujuan | Menyediakan data dasar destinasi dan pengelompokan untuk pembahasan produk serta konten BDM Trans |
 
 > Dokumen ini adalah bahan dasar data bisnis dan konten. Dokumen ini bukan rancangan halaman, desain, breadcrumb visual, alamat URL final, atau spesifikasi teknis website.
 
 ## 1. Tujuan dan Batas Inventaris
 
-Inventaris ini mengambil nama tempat dari bagian **Places of Interest to Visit in Bali Islands** pada sitemap Bali Golden Tour. Sumber tersebut dipakai sebagai daftar kurasi awal karena mencantumkan destinasi yang dipilih oleh penyedia wisata lokal tersebut.
+Inventaris awal mengambil nama tempat dari bagian **Places of Interest to Visit in Bali Islands** pada sitemap Bali Golden Tour. Sesuai perluasan cakupan yang diminta, kategori pantai kemudian ditelusuri lebih luas menggunakan daftar destinasi pemerintah, dokumen daya tarik wisata kabupaten, dan direktori destinasi yang dapat diperiksa.
 
-- Tidak menambahkan tempat wisata dari sumber lain.
-- Tidak menganggap daftar ini sebagai seluruh destinasi yang ada di Bali.
-- Tidak menyalin deskripsi promosi, foto, atau materi pemasaran sumber.
+- Bali Golden Tour tetap menjadi acuan awal dan baseline kurasi, bukan satu-satunya sumber untuk perluasan kategori pantai.
+- Penambahan pantai dari sumber lain harus memiliki nama/identitas yang dapat ditelusuri; jangan mengarang tempat atau memasukkan setiap ruas garis pantai tanpa identitas destinasi.
+- Inventaris ini tidak mengklaim telah mencakup setiap pantai kecil atau garis pantai di Bali. Targetnya adalah seluruh pantai bernama/teridentifikasi yang dapat ditemukan dan diverifikasi sebagai lokasi atau destinasi.
+- Jangan menyalin deskripsi promosi, foto, atau materi pemasaran sumber.
 - Nama destinasi dipertahankan sedekat mungkin dengan penamaan sumber agar dapat ditelusuri.
 - Pengelompokan kabupaten/kota pada sitemap hanya dipakai untuk membantu pemeriksaan lokasi. Kabupaten/kota bukan kategori destinasi BDM Trans.
 - Pengelompokan wilayah BDM Trans dibuat luas dan mudah dipahami wisatawan.
@@ -272,6 +273,292 @@ Jika satu tempat memiliki lebih dari satu karakteristik, kategori utama dipilih 
 | Rambut Siwi Temple | Temple | Bali Barat | — |
 | Bunut Bolong | Natural Landmark / Tree | Bali Barat | — |
 
+
+
+## 4.10 Perluasan Inventaris Kategori Beach — Pantai di Bali
+
+**Status:** INVENTARIS DIPERLUAS — PERLU AUDIT NAMA, ALIAS, DAN WILAYAH.
+
+Bagian ini memperluas semua entri kategori **Beach** yang sudah muncul pada inventaris Bali Golden Tour, lalu menambahkan pantai bernama lain yang ditemukan dalam sumber resmi pemerintah, dokumen daerah, dan direktori destinasi. Daftar ini hanya memuat nama serta wilayah pengelompokan. Deskripsi wisata, fasilitas, harga, akses, popularitas, dan rekomendasi artikel tidak dibahas di sini.
+
+### Aturan wilayah untuk inventaris pantai
+
+- **Bali Selatan:** pesisir Badung bagian selatan dan Denpasar, termasuk kawasan Kuta, Canggu, Jimbaran, Bukit, Nusa Dua, Tanjung Benoa, dan Sanur.
+- **Bali Timur:** pesisir Gianyar bagian timur, Klungkung daratan, dan Karangasem.
+- **Bali Utara:** pesisir Kabupaten Buleleng.
+- **Bali Barat:** pesisir Tabanan bagian barat dan Jembrana.
+- **Nusa Penida, Nusa Lembongan, dan Nusa Ceningan:** dicatat sebagai kawasan pulau tersendiri. Jangan dipaksakan menjadi Bali Selatan/Timur/Utara/Barat.
+- Wilayah pada tabel adalah pengelompokan wisata yang disederhanakan, bukan kategori kabupaten/kota. Nama kabupaten hanya menjadi informasi pendukung untuk pemeriksaan.
+
+### A. Bali Selatan
+
+| Nama destinasi | Kategori baku | Wilayah | Catatan nama / pemeriksaan |
+|---|---|---|---|
+| Kuta Beach | Beach | Bali Selatan | Ada pada Bali Golden Tour dan sumber pemerintah |
+| Segara Beach Kuta | Beach | Bali Selatan | Nama pantai lokal tersendiri pada direktori |
+| Jerman Beach / Pantai Jerman | Beach | Bali Selatan | Alias: German Beach |
+| Tuban Beach | Beach | Bali Selatan | Perlu pemeriksaan batas nama dengan Kuta/Jerman |
+| Legian Beach | Beach | Bali Selatan | — |
+| Padma Beach | Beach | Bali Selatan | — |
+| Double Six Beach | Beach | Bali Selatan | — |
+| Seminyak Beach | Beach | Bali Selatan | — |
+| Petitenget Beach | Beach | Bali Selatan | — |
+| Batu Belig Beach | Beach | Bali Selatan | — |
+| Berawa Beach | Beach | Bali Selatan | — |
+| Nelayan Beach | Beach | Bali Selatan | Canggu |
+| Batu Bolong Beach | Beach | Bali Selatan | Canggu |
+| Echo Beach | Beach | Bali Selatan | Nama lain yang dipakai: Echo Beach Canggu |
+| Pererenan Beach | Beach | Bali Selatan | — |
+| Seseh Beach | Beach | Bali Selatan | Perlu pemeriksaan sumber tambahan |
+| Cemagi Beach | Beach | Bali Selatan | Perlu pemeriksaan sumber tambahan |
+| Jimbaran Beach | Beach | Bali Selatan | Alias kawasan: Jimbaran Bay |
+| Muaya Beach | Beach | Bali Selatan | Nama lokal pada pesisir Jimbaran; jangan otomatis digabung dengan seluruh Jimbaran Beach |
+| Kedonganan Beach | Beach | Bali Selatan | — |
+| Kelan Beach | Beach | Bali Selatan | — |
+| Tegal Wangi Beach | Beach | Bali Selatan | — |
+| Kubu Beach | Beach | Bali Selatan | Jimbaran |
+| Balangan Beach | Beach | Bali Selatan | — |
+| Dreamland Beach | Beach | Bali Selatan | Ejaan sumber Bali Golden Tour: Dream Land Beach |
+| Bingin Beach | Beach | Bali Selatan | — |
+| Padang Padang Beach | Beach | Bali Selatan | Nama lokasi lain: Labuan Sait; perlu pemastian alias |
+| Thomas Beach | Beach | Bali Selatan | — |
+| Suluban Beach | Beach | Bali Selatan | Alias: Blue Point Beach |
+| Impossibles Beach | Beach | Bali Selatan | — |
+| Nyang Nyang Beach | Beach | Bali Selatan | Variasi ejaan: Nyang-Nyang |
+| Nunggalan Beach | Beach | Bali Selatan | Variasi ejaan sumber: Nuggalan/Nunggalan |
+| Green Bowl Beach | Beach | Bali Selatan | — |
+| Gunung Payung Beach | Beach | Bali Selatan | Jangan tertukar dengan Pura Gunung Payung |
+| Melasti Beach | Beach | Bali Selatan | — |
+| Pandawa Beach | Beach | Bali Selatan | — |
+| Geger Beach | Beach | Bali Selatan | — |
+| Sawangan Beach | Beach | Bali Selatan | Nama lama yang juga ditemukan: Nikko Beach |
+| Nusa Dua Beach | Beach | Bali Selatan | Nama kawasan; cek agar tidak menggandakan pantai-pantai spesifik di dalamnya |
+| Mengiat Beach | Beach | Bali Selatan | — |
+| Samuh Beach | Beach | Bali Selatan | — |
+| Tanjung Benoa Beach | Beach | Bali Selatan | — |
+| Sanur Beach | Beach | Bali Selatan | Nama kawasan pantai; pantai-pantai spesifik di bawahnya tetap dapat dicatat terpisah |
+| Sindhu Beach | Beach | Bali Selatan | Bagian kawasan Sanur |
+| Mertasari Beach | Beach | Bali Selatan | Bagian kawasan Sanur |
+| Cemara Beach | Beach | Bali Selatan | Bagian kawasan Sanur |
+| Karang Beach | Beach | Bali Selatan | Bagian kawasan Sanur |
+| Matahari Terbit Beach | Beach | Bali Selatan | Bagian kawasan Sanur |
+| Serangan Beach | Beach | Bali Selatan | Perlu pemeriksaan nama pantai spesifik di Pulau Serangan |
+
+### B. Bali Timur
+
+| Nama destinasi | Kategori baku | Wilayah | Catatan nama / pemeriksaan |
+|---|---|---|---|
+| Siyut Beach | Beach | Bali Timur | Gianyar |
+| Lebih Beach | Beach | Bali Timur | Gianyar |
+| Cucukan Beach | Beach | Bali Timur | Gianyar |
+| Masceti Beach | Beach | Bali Timur | Gianyar |
+| Keramas Beach | Beach | Bali Timur | Gianyar |
+| Pering Beach | Beach | Bali Timur | Alias yang ditemukan: Segara Wilis |
+| Saba Beach | Beach | Bali Timur | Gianyar |
+| Purnama Beach | Beach | Bali Timur | Gianyar |
+| Rangkan Beach | Beach | Bali Timur | Gianyar |
+| Pabean Beach | Beach | Bali Timur | Gianyar |
+| Ketewel Beach | Beach | Bali Timur | Gianyar |
+| Kusamba Beach | Beach | Bali Timur | Klungkung daratan |
+| Watu Klotok Beach | Beach | Bali Timur | Klungkung daratan |
+| Goa Lawah Beach | Beach | Bali Timur | Klungkung daratan; nama destinasi perlu dibedakan dari Pura Goa Lawah |
+| Jumpai Beach | Beach | Bali Timur | Klungkung daratan |
+| Monggalan Beach | Beach | Bali Timur | Klungkung daratan |
+| Batu Tumpeng Beach | Beach | Bali Timur | Klungkung daratan |
+| Yeh Malet Beach | Beach | Bali Timur | Perlu pemeriksaan posisi tepat dan ejaan |
+| Candidasa Beach | Beach | Bali Timur | — |
+| Virgin Beach | Beach | Bali Timur | Alias: Pantai Perasi, Pasir Putih Beach, White Sand Beach; satu entri destinasi, bukan beberapa pantai |
+| Jasri Beach | Beach | Bali Timur | Karangasem |
+| Amed Beach | Beach | Bali Timur | Nama kawasan pesisir; teluk/pantai kecil Amed dapat menjadi entri terpisah jika nama lokasinya jelas |
+| Jemeluk Beach | Beach | Bali Timur | Alias: Jemeluk Bay; jangan digandakan dengan entri Jemeluk Beach Amed yang sudah ada |
+| Lipah Beach | Beach | Bali Timur | Amed |
+| Banyuning Beach | Beach | Bali Timur | Amed |
+| Selang Beach | Beach | Bali Timur | Amed |
+| Ibus Beach | Beach | Bali Timur | Amed; perlu pemeriksaan identitas lokasi |
+| Aas Beach | Beach | Bali Timur | Karangasem; perlu pemeriksaan identitas lokasi |
+| Tulamben Beach | Beach | Bali Timur | — |
+| Seraya Beach | Beach | Bali Timur | Perlu pemeriksaan nama lokasi spesifik |
+| Labuhan Amuk Beach | Beach | Bali Timur | Karangasem |
+| Blue Lagoon Beach (Padang Bai) | Beach | Bali Timur | Harus dibedakan dari Blue Lagoon di Nusa Ceningan |
+| Bias Tugel Beach | Beach | Bali Timur | Alias: Bias Tugel, Pantai Kecil; Padang Bai |
+
+### C. Bali Utara
+
+| Nama destinasi | Kategori baku | Wilayah | Catatan nama / pemeriksaan |
+|---|---|---|---|
+| Lovina Beach | Beach | Bali Utara | Kawasan pantai memanjang yang mencakup beberapa desa pesisir; jangan menggandakan setiap desa sebagai pantai terpisah tanpa nama pantai yang berbeda |
+| Pemaron Beach | Beach | Bali Utara | Bagian pesisir kawasan Lovina; perlu verifikasi sebagai nama destinasi mandiri |
+| Tukad Mungga Beach | Beach | Bali Utara | Bagian pesisir kawasan Lovina; perlu verifikasi sebagai nama destinasi mandiri |
+| Anturan Beach | Beach | Bali Utara | Bagian pesisir kawasan Lovina; perlu verifikasi sebagai nama destinasi mandiri |
+| Kalibukbuk Beach | Beach | Bali Utara | Bagian kawasan Lovina |
+| Kaliasem Beach | Beach | Bali Utara | Bagian kawasan Lovina |
+| Temukus Beach | Beach | Bali Utara | Bagian kawasan Lovina |
+| Banyualit Beach | Beach | Bali Utara | Bagian kawasan Lovina; perlu pemeriksaan nama |
+| Pemuteran Beach | Beach | Bali Utara | Pesisir barat laut Buleleng |
+| Batu Sungu Beach | Beach | Bali Utara | Nama tercantum pada direktori Bali.com |
+| Kerobokan Beach (Singaraja) | Beach | Bali Utara | Jangan tertukar dengan Kerobokan di Badung |
+| Penimbangan Beach | Beach | Bali Utara | Singaraja |
+| Air Sanih Beach | Beach | Bali Utara | Nama pantai dan kawasan pemandian perlu dibedakan |
+| Bondalem Beach | Beach | Bali Utara | Tejakula |
+| Pacung Beach | Beach | Bali Utara | Perlu verifikasi nama lokasi |
+| Tejakula Beach | Beach | Bali Utara | Nama kawasan; periksa kemungkinan tumpang tindih dengan pantai desa-desa sekitarnya |
+| Les Beach | Beach | Bali Utara | Perlu verifikasi sebagai nama destinasi |
+| Penuktukan Beach | Beach | Bali Utara | Perlu verifikasi sebagai nama destinasi |
+| Sambirenteng Beach | Beach | Bali Utara | — |
+| Tembok Beach | Beach | Bali Utara | — |
+| Sembiran Beach | Beach | Bali Utara | Perlu verifikasi nama pantai khusus |
+| Banyupoh Beach | Beach | Bali Utara | Kawasan wisata Batu Ampar |
+| Penyabangan Beach | Beach | Bali Utara | Kawasan wisata Batu Ampar |
+| Sumberkima Beach | Beach | Bali Utara | Perlu pemeriksaan nama pantai spesifik |
+| Pejarakan Beach | Beach | Bali Utara | Perlu pemeriksaan nama pantai spesifik |
+
+### D. Bali Barat
+
+| Nama destinasi | Kategori baku | Wilayah | Catatan nama / pemeriksaan |
+|---|---|---|---|
+| Nyanyi Beach | Beach | Bali Barat | Tabanan; posisinya dekat kawasan selatan-barat, wilayah kerja perlu konsistensi |
+| Kedungu Beach | Beach | Bali Barat | Tabanan |
+| Yeh Gangga Beach | Beach | Bali Barat | Sumber Bali.com mencatat Yeh Gangga 1 dan 2; perlu dipastikan apakah satu atau dua entri |
+| Pasut Beach | Beach | Bali Barat | Tabanan |
+| Soka Beach | Beach | Bali Barat | Tabanan |
+| Balian Beach | Beach | Bali Barat | Tabanan |
+| Yeh Leh Beach | Beach | Bali Barat | Jembrana; juga ditulis Yeh Le / Yeh Leh pada beberapa sumber |
+| Pangyangan Beach | Beach | Bali Barat | Jembrana |
+| Pengeragoan Beach | Beach | Bali Barat | Jembrana |
+| Gumbrih Beach | Beach | Bali Barat | Jembrana |
+| Pekutatan Beach | Beach | Bali Barat | Jembrana |
+| Medewi Beach | Beach | Bali Barat | — |
+| Yeh Sumbul Beach | Beach | Bali Barat | Jembrana |
+| Delod Berawah Beach | Beach | Bali Barat | Variasi ejaan: Delodberawah / Delodbrawah |
+| Perancak Beach | Beach | Bali Barat | — |
+| Baluk Rening Beach | Beach | Bali Barat | Variasi ejaan sumber: Baluk Kening |
+| Candikusuma Beach | Beach | Bali Barat | Variasi ejaan: Candi Kusuma |
+| Cupel Beach | Beach | Bali Barat | Jembrana |
+| Pebuahan Beach | Beach | Bali Barat | Jembrana |
+| Gilimanuk Bay / Teluk Gilimanuk | Beach / Coastal Bay | Bali Barat | Perlu keputusan apakah masuk kategori Beach atau Bay; jangan dipaksakan tanpa peninjauan |
+
+### E. Nusa Penida
+
+| Nama destinasi | Kategori baku | Wilayah | Catatan nama / pemeriksaan |
+|---|---|---|---|
+| Buyuk Beach | Beach | Nusa Penida | — |
+| Sampalan Beach | Beach | Nusa Penida | — |
+| Malibu Beach | Beach | Nusa Penida | — |
+| Toyapakeh Beach | Beach | Nusa Penida | — |
+| Gamat Bay / Gamat Beach | Beach | Nusa Penida | Satu entri; variasi nama perlu disimpan sebagai alias |
+| Crystal Bay | Beach | Nusa Penida | Alias: Pantai Segara Penida, Crystal Bay Beach |
+| Pandan Beach / Pandan Bay | Beach | Nusa Penida | — |
+| Payung Beach | Beach | Nusa Penida | Perlu verifikasi nama dan titik lokasi |
+| Rahwana Beach | Beach | Nusa Penida | Perlu verifikasi nama dan titik lokasi |
+| Sebele Beach / Isabella Beach | Beach | Nusa Penida | Alias perlu diperiksa |
+| Atuh Beach | Beach | Nusa Penida | — |
+| Diamond Beach | Beach | Nusa Penida | — |
+| Kelingking Beach | Beach | Nusa Penida | — |
+| Suwehan Beach | Beach | Nusa Penida | — |
+| Tembeling Beach | Beach | Nusa Penida | Berdekatan dengan kolam alami; kolam dapat menjadi label tambahan, bukan entri pantai kedua |
+| Lumangan Beach | Beach | Nusa Penida | Perlu pemeriksaan status dan identitas |
+| Bulian Beach | Beach | Nusa Penida | Perlu pemeriksaan status dan identitas |
+| Selegimpak Beach | Beach | Nusa Penida | Perlu pemeriksaan ejaan dan identitas |
+| Tanjung Sanghyang Beach | Beach | Nusa Penida | Perlu pemeriksaan; jangan tertukar dengan Tanjung Sanghyang/Mushroom Bay di Lembongan |
+| Kelingking Beach | Beach | Nusa Penida | Sudah tercatat satu kali; pengulangan di sumber lain bukan entri baru |
+
+### F. Nusa Lembongan
+
+| Nama destinasi | Kategori baku | Wilayah | Catatan nama / pemeriksaan |
+|---|---|---|---|
+| Jungutbatu Beach | Beach | Nusa Lembongan | Variasi penulisan: Jungut Batu / Jungutbatu |
+| Mahagiri Beach | Beach | Nusa Lembongan | Alias yang tercantum pada dokumen daerah: Pantai Pasir Putih; terkait kawasan Tanjung Ental |
+| Mushroom Bay | Beach | Nusa Lembongan | Alias: Mushroom Beach, Tanjung Sanghyang Beach |
+| Dream Beach | Beach | Nusa Lembongan | Alias pada dokumen daerah: Pantai Pemuntalan |
+| Song Lambung Beach | Beach | Nusa Lembongan | Alias yang ditemukan: Coconut Beach; perlu pemeriksaan |
+| Tamarind Beach / Tamarind Bay | Beach | Nusa Lembongan | Satu entri; simpan variasi nama |
+| Sandy Bay Beach | Beach | Nusa Lembongan | Perlu pemeriksaan nama baku |
+| Lebaoh Beach | Beach | Nusa Lembongan | — |
+| Tanjung Ental Beach | Beach | Nusa Lembongan | Perlu pemeriksaan hubungan nama dengan Mahagiri Beach |
+| Mangrove Beach | Beach | Nusa Lembongan | Jangan disamakan dengan kawasan hutan mangrove sebagai destinasi terpisah |
+| Selambung Beach | Beach | Nusa Lembongan | Nama tercantum pada direktori Bali.com |
+
+### G. Nusa Ceningan
+
+| Nama destinasi | Kategori baku | Wilayah | Catatan nama / pemeriksaan |
+|---|---|---|---|
+| Blue Lagoon | Beach / Coastal Cove | Nusa Ceningan | Harus dibedakan dari Blue Lagoon Beach di Padang Bai |
+| Secret Beach | Beach | Nusa Ceningan | — |
+| Secret Point Beach | Beach | Nusa Ceningan | Berbeda dari Secret Beach; perlu pemeriksaan titik lokasi |
+| Song Tepo Beach | Beach | Nusa Ceningan | — |
+
+### H. Objek pesisir yang tidak otomatis masuk kategori Beach
+
+Objek berikut ditemukan dalam sumber destinasi pantai, tetapi jenis utamanya bukan pantai berpasir atau teluk pantai yang dapat diperlakukan sebagai entri Beach tanpa pemeriksaan:
+
+| Nama objek | Kategori yang lebih tepat untuk sementara | Wilayah |
+|---|---|---|
+| Broken Beach / Pasih Uug | Coastal Landmark / Cliff | Nusa Penida |
+| Angel's Billabong | Natural Pool | Nusa Penida |
+| Devil's Tears | Coastal Landmark / Viewpoint | Nusa Lembongan |
+| Ceningan Cliffs | Cliff / Viewpoint | Nusa Ceningan |
+| Paluang Cliff | Cliff / Viewpoint | Nusa Penida |
+| Atuh Cliff | Cliff / Viewpoint | Nusa Penida |
+| Pasih Andus | Coastal Landmark / Blowhole | Nusa Penida |
+| Sundays Beach Club | Venue / Beach Club, bukan nama pantai | Bali Selatan |
+| Nusa Penida, Nusa Lembongan, Nusa Ceningan | Island / Region, bukan pantai | Kawasan kepulauan |
+
+Objek-objek ini tidak dihapus dari Master Destinasi. Hanya kategori utamanya yang tidak otomatis diubah menjadi Beach.
+
+### I. Aturan alias dan penggabungan data
+
+1. **Virgin Beach = Pantai Perasi = Pasir Putih = White Sand Beach** pada konteks pantai Karangasem: simpan satu destinasi induk dan nama lainnya sebagai alias.
+2. **Bias Tugel = Bias Tugel Beach = Pantai Kecil:** satu destinasi.
+3. **Jemeluk Beach = Jemeluk Bay:** satu destinasi, kecuali ditemukan bukti bahwa sumber menunjuk titik yang berbeda.
+4. **Mushroom Bay = Mushroom Beach = Tanjung Sanghyang Beach** di Nusa Lembongan: satu entri sementara, perlu validasi nama lokal.
+5. **Dream Beach = Pantai Pemuntalan** di Nusa Lembongan: satu entri sementara.
+6. **Blue Lagoon Padang Bai dan Blue Lagoon Nusa Ceningan:** dua destinasi berbeda; nama wilayah harus selalu ikut disimpan.
+7. **Kuta Beach, Legian Beach, dan Seminyak Beach:** jangan digabung hanya karena satu garis pantai panjang; masing-masing memiliki nama destinasi sendiri.
+8. **Lovina Beach:** perlakukan sebagai satu kawasan pantai utama. Nama desa pesisir di dalam kawasan tidak otomatis menjadi pantai terpisah.
+9. Jika nama yang sama muncul pada beberapa sumber, simpan satu entri induk dengan seluruh variasi nama dan referensi sumber.
+
+### J. Status pemeriksaan inventaris
+
+- **Terverifikasi pada sumber pemerintah/dokumen daerah:** nama tercantum pada data daya tarik wisata, dokumen kabupaten, atau situs Dinas Pariwisata.
+- **Ditemukan pada direktori destinasi:** nama tercantum pada direktori wisata yang dapat ditelusuri, tetapi perlu pemeriksaan lanjutan.
+- **Perlu validasi nama/lokasi:** identitas nama, alias, titik lokasi, atau status sebagai pantai mandiri masih belum pasti.
+- **Bukan kategori Beach:** objek pesisir tetap dicatat di Master dengan kategori utama yang lebih tepat.
+
+Status ini adalah status kualitas data, bukan status popularitas atau rekomendasi artikel.
+
+### K. Catatan sumber dan batas kelengkapan
+
+Sumber utama yang digunakan untuk perluasan kategori pantai:
+
+1. [Dinas Pariwisata Provinsi Bali — Data Daya Tarik Wisata dan Desa Wisata Tahun 2025](https://disparda.baliprov.go.id/data-daya-tarik-wisata-dan-desa-wisata-tahun-2025-provinsi-bali).
+2. [Dinas Pariwisata Provinsi Bali — daftar daya tarik wisata Badung](https://disparda.baliprov.go.id/badung).
+3. [Dinas Pariwisata Provinsi Bali — daftar daya tarik wisata Buleleng](https://disparda.baliprov.go.id/buleleng).
+4. [Dinas Pariwisata Provinsi Bali — daftar daya tarik wisata Jembrana](https://disparda.baliprov.go.id/jembrana).
+5. [Pemerintah Kabupaten Jembrana — Profil Kabupaten Jembrana](https://satudata.jembranakab.go.id/upload/20260121Profil2021.pdf).
+6. [Pemerintah Kabupaten Klungkung — Perda 2024](https://jdih.klungkungkab.go.id/storage/produk-hukum/peraturan-perundang-undangan/2024/perda/2024perda5105003.pdf).
+7. [Pemerintah Kabupaten Klungkung — RKPD 2021](https://klungkungkab.go.id/bankdata/file/RKPD_2021_Final.pdf).
+8. [Bali.com — Beaches and Coastlines halaman 1](https://bali.com/places/category/beaches-coastlines/), [halaman 2](https://bali.com/places/category/beaches-coastlines/page/2/), dan [halaman 3](https://bali.com/places/category/beaches-coastlines/page/3/).
+9. [Visit Bali — daftar pantai berdasarkan wilayah](https://visitbali.com/beaches).
+10. [Indonesia Travel — pantai-pantai tersembunyi di Bali](https://www.indonesia.travel/gb/en/travel-ideas/marine/6-secluded-white-beaches-invite-you-to-the-enchanting-island-of-bali).
+11. [Nusa Lembongan — daftar pantai dan atraksi](https://nusalembongan.org/attractions/).
+12. [Virgin Australia — pantai terkenal dan pantai yang kurang dikenal](https://www.virginaustralia.com/au/en/destinations/bali/things-to-do/best-beaches-in-bali/).
+13. [Bali Golden Tour — sitemap acuan awal](https://www.baligoldentour.com/sitemap.php).
+
+Daftar ini merupakan inventaris gabungan dari sumber-sumber tersebut, bukan klaim bahwa setiap pantai kecil di sepanjang garis pantai Bali sudah teridentifikasi. Penelusuran lanjutan dapat menambah nama yang memiliki bukti dan identitas jelas. Pantai yang sudah ditutup, aksesnya tidak lagi tersedia, atau statusnya tidak jelas tidak boleh dianggap siap dikunjungi hanya karena pernah muncul dalam daftar lama.
+
+## 5. Catatan Pemeriksaan dan Hal yang Perlu Ditinjau
+
+1. Pengelompokan wilayah wisata merupakan penyederhanaan untuk kebutuhan data BDM Trans, bukan pembagian administratif resmi.
+2. Wilayah pesisir Tabanan perlu konsistensi: pada inventaris kerja ini dikelompokkan ke Bali Barat untuk menghindari pemecahan wilayah yang terlalu kecil.
+3. Lovina merupakan kawasan pantai memanjang, bukan satu titik pantai kecil; desa-desa pesisir di dalamnya tidak otomatis menjadi entri terpisah.
+4. Kawasan kepulauan Nusa Penida, Nusa Lembongan, dan Nusa Ceningan dipertahankan sebagai kelompok lokasi tersendiri.
+5. Alias dan nama yang mirip harus diperiksa sebelum dibuat sebagai entri ganda.
+6. Popular Destination, Secret Beach, Family Friendly, Muslim Friendly, dan label audiens lainnya merupakan penanda kurasi/karakteristik yang terpisah dari kategori utama Beach dan wilayah. Belum ada penetapan status untuk setiap pantai.
+7. Pengelompokan berdasarkan anak-anak, wisatawan Muslim, pantai tersembunyi, dan tema lainnya merupakan pekerjaan pengayaan data berikutnya, bukan bagian dari identitas baku pantai.
+8. Penentuan destinasi baru/terbaru perlu menggunakan data tahun atau tanggal mulai dikenal/dibuka yang dapat diverifikasi. Jangan memakai label “terbaru” hanya karena artikel yang membahasnya baru diterbitkan.
+9. Prioritas pembuatan artikel akan ditentukan pada tahap terpisah. Inventaris lengkap tidak berarti semua entri harus segera dibuat artikelnya.
+
+
 ## 5. Catatan Pemeriksaan dan Hal yang Perlu Ditinjau
 
 1. **Sumber mengelompokkan berdasarkan kabupaten/kota.** BDM Trans menggunakan wilayah wisata yang lebih luas. Jangan membawa nama kabupaten menjadi kategori utama.
@@ -290,7 +577,8 @@ Jika satu tempat memiliki lebih dari satu karakteristik, kategori utama dipilih 
 - Simpan sumber rujukan dan tanggal pemeriksaan untuk setiap perubahan penting.
 - Pisahkan fakta lokasi dari kategori, wilayah, label karakteristik, dan status kurasi.
 - Jika ada usulan kategori atau wilayah baru, jelaskan alasan dan dampaknya kepada Mas Bagus sebelum menjadikannya aturan baku.
-- Jangan menambahkan destinasi baru dari luar sumber acuan selama tahap inventaris referensi Bali Golden Tour ini, kecuali Mas Bagus secara terpisah mengubah batas sumber.
+- Untuk perluasan kategori yang sedang dikerjakan, gunakan sumber tambahan yang dapat ditelusuri dan catat asal datanya. Bali Golden Tour tetap disimpan sebagai sumber acuan awal.
+- Jangan menganggap satu daftar pihak ketiga sebagai daftar final seluruh destinasi.
 - Perubahan inventaris tidak otomatis mengizinkan perubahan website.
 
 ## 7. Sumber Acuan
@@ -303,4 +591,5 @@ Jika satu tempat memiliki lebih dari satu karakteristik, kategori utama dipilih 
 
 | Tanggal | Perubahan | Status |
 |---|---|---|
-| 2026-11-01 | Membuat aturan fungsi data destinasi dan inventaris awal seluruh entri Places of Interest dari sitemap Bali Golden Tour; menambahkan pengelompokan kategori dan wilayah awal serta catatan yang perlu ditinjau | INVENTARIS AWAL — PERLU PENINJAUAN BERSAMA |
+| 2026-11-01 | Membuat aturan fungsi data destinasi dan inventaris awal dari sitemap Bali Golden Tour | INVENTARIS AWAL |
+| 2026-11-01 | Memperluas inventaris kategori Beach menggunakan sumber pemerintah, dokumen daerah, dan direktori destinasi; menambahkan aturan alias, pemisahan objek pesisir, dan pengelompokan wilayah | INVENTARIS DIPERLUAS — PERLU AUDIT DAN PENINJAUAN BERSAMA |
