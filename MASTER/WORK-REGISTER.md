@@ -51,3 +51,82 @@ Ideas not approved for implementation are kept out of the active checklist. See 
 ---
 
 **Reminder:** An unfinished item remains visible even when the team changes topic. Do not interpret an unchecked box as a commitment to work on it immediately.
+
+## 6. Master Catalog & Missing Documents
+
+The [Master Catalog](./MASTER-CATALOG.md) is the authoritative inventory of both existing records and documentation needs that have been identified but not yet written. Check the relevant domain index before creating a new document to avoid duplicates.
+
+### Foundation & Brand
+- [ ] Company Profile & Brand Master — identity, brand story, values, voice and naming.
+- [ ] Business Objectives & KPIs — define the website's primary purpose and measurable outcomes.
+- [ ] Customer & Market Research — validate personas, market priorities and willingness to pay.
+- [ ] Brand Transition Plan — decide Bali Trans / BDM Trans transition requirements and timing.
+
+### Business & Service Data
+- [ ] Fleet Master — resolve open questions and verify exact models, seat counts, luggage capacity and availability. See [Fleet Master](./01-DATA/FLEET-MASTER.md).
+- [ ] Service Detail Records — define scope and requirements for each service type.
+- [ ] Operating Area & Route Master.
+- [ ] Service Inclusions & Exclusions.
+- [ ] Destination Master — locations, access, facilities, fees, hours and sources.
+- [ ] Activity & Experience Master.
+- [ ] Pricing & Calculator Master — **WAITING FOR DATA**; populate only after the user's calculator logic and rates are ready.
+- [ ] Payment Method Reference.
+- [ ] Media & Asset Register — ownership, licenses and usage rights.
+
+### Rules & Policies
+- [ ] Operational Rules — service hours, waiting, delays, stops and overtime.
+- [ ] Driver Standards & SOP — responsibilities, training, conduct, work limits and compensation.
+- [ ] Safety & Emergency Standards.
+- [ ] Booking Rules.
+- [ ] Payment & Deposit Rules.
+- [ ] Cancellation & Refund Policy.
+- [ ] Waiting, Delay & Flight Monitoring Rules.
+- [ ] Customer Terms & Conditions.
+- [ ] Privacy & Data Handling Rules.
+- [ ] Muslim-Friendly Service Boundaries.
+
+### Content & Editorial
+- [ ] Content Strategy.
+- [ ] Editorial & Writing Guidelines.
+- [ ] Article & Destination Guide Template.
+- [ ] Travel Trends Research Standard.
+- [ ] SEO & Search Intent Guidelines.
+- [ ] Content Fact-Checking & Publication Checklist.
+- [ ] Multilingual Content Rules.
+- [ ] Muslim-Friendly Editorial Guidelines.
+- [ ] Social Media & Campaign Guidelines.
+
+### Customer Experience
+- [ ] Customer Personas & Needs.
+- [ ] Customer Journey Map.
+- [ ] Enquiry & Sales Conversation Flow.
+- [ ] Booking Journey.
+- [ ] Customer Support Standards.
+- [ ] Service Recovery & Incident Handling.
+- [ ] Feedback, Reviews & Reputation.
+- [ ] Accessibility & Special Requests.
+
+### Website & Technology
+- [ ] Page & Route Architecture.
+- [ ] Content Architecture and content types.
+- [ ] User Flow & Interaction Architecture.
+- [ ] Component & Template Contracts.
+- [ ] Design System audit and approved specification.
+- [ ] Data Model & Content Schema.
+- [ ] Pricing Engine Technical Specification — waiting for approved pricing logic.
+- [ ] Localization & Currency Architecture.
+- [ ] Integrations & External Services.
+- [ ] Security, Privacy & Permissions.
+- [ ] Testing & Quality Assurance.
+
+### Governance & Sources
+- [ ] Master Data Source Policy.
+- [ ] Fact Verification & Review Policy.
+- [ ] Content Claim & Publication Approval.
+- [ ] Data Freshness Register.
+- [ ] Privacy & Sensitive Information Classification.
+- [ ] Document Ownership & Change Control.
+- [ ] Legal & Regulatory Reference Register.
+- [ ] Incident / Correction Log.
+
+**Reminder:** this checklist is a discovery inventory, not a demand to complete every item in order. Add, split, defer or remove entries as the project becomes clearer. When Mas Bagus raises a new documentation need, register it even if its contents are not yet available.
