@@ -22,6 +22,14 @@ Komponen disebut global hanya jika benar-benar digunakan bersama oleh beberapa h
 
 Jangan menetapkan hero, breadcrumb, kartu, formulir, atau carousel khusus halaman sebagai komponen global sebelum memastikan halaman pengguna dan aturan bersama komponen tersebut.
 
+## Batas Global, Shared, dan Custom
+
+- Navbar dan footer adalah komponen global karena markup/logikanya dibuat dari satu sumber di `assets/js/global-shell.js` dan gayanya di `assets/css/global-shell.css`.
+- Booking form adalah alur shared dengan konfigurasi/adapter layanan; lihat `MASTER/SHARED/BOOKING-FORM.md`.
+- Hero, breadcrumb, CTA, FAQ, card, dan note tidak otomatis global hanya karena namanya sama atau tampilannya mirip. Catat sebagai custom sampai ada bukti beberapa pemakai nyata dengan struktur/perilaku sama dan satu sumber implementasi bersama.
+- Setiap komponen yang diekstrak menjadi global/shared harus memiliki sumber markup, style, perilaku, kontrak data, daftar pemakai, pengecualian, dan checklist regresi.
+- Perubahan global wajib memetakan seluruh halaman pemakai; jangan mengubah CSS global untuk memperbaiki satu halaman custom.
+
 ## Aturan Perangkat
 
 Rincian responsif hanya dicatat jika telah dikonfirmasi dari kode saat ini. Titik perubahan ukuran layar di CSS merupakan bukti adanya aturan gaya, bukan bukti bahwa tampilan sudah lulus pemeriksaan visual pada perangkat nyata.
