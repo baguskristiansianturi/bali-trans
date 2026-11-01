@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "project": "Bali Trans",
-  "updated_at": "2026-10-18",
+  "updated_at": "2026-11-01",
   "purpose": "Single source of truth for Bali destination taxonomy, article/page readiness, activity cross-links, and fact-checking. This is a candidate inventory, not a claim that every attraction, operator, service, or detail is verified.",
   "status_definitions": {
     "PLANNED": "Belum dibuat.",
@@ -36,7 +36,9 @@
         "Serangan"
       ],
       "route": "?page=discovery&item=region%3Asouth",
-      "page_status": "STRUCTURE_READY"
+      "page_status": "STRUCTURE_READY",
+      "group_type": "cardinal_region",
+      "catalog_status": "PLANNED"
     },
     {
       "id": "central",
@@ -60,7 +62,9 @@
         "Batukaru & Pupuan"
       ],
       "route": "?page=discovery&item=region%3Acentral",
-      "page_status": "STRUCTURE_READY"
+      "page_status": "STRUCTURE_READY",
+      "group_type": "cardinal_region",
+      "catalog_status": "PLANNED"
     },
     {
       "id": "east",
@@ -82,7 +86,9 @@
         "Mainland Klungkung"
       ],
       "route": "?page=discovery&item=region%3Aeast",
-      "page_status": "STRUCTURE_READY"
+      "page_status": "STRUCTURE_READY",
+      "group_type": "cardinal_region",
+      "catalog_status": "PLANNED"
     },
     {
       "id": "north",
@@ -102,7 +108,9 @@
         "Tejakula"
       ],
       "route": "?page=discovery&item=region%3Anorth",
-      "page_status": "STRUCTURE_READY"
+      "page_status": "STRUCTURE_READY",
+      "group_type": "cardinal_region",
+      "catalog_status": "PLANNED"
     },
     {
       "id": "west",
@@ -120,7 +128,9 @@
         "West Bali National Park"
       ],
       "route": "?page=discovery&item=region%3Awest",
-      "page_status": "STRUCTURE_READY"
+      "page_status": "STRUCTURE_READY",
+      "group_type": "cardinal_region",
+      "catalog_status": "PLANNED"
     },
     {
       "id": "nusa",
@@ -137,7 +147,9 @@
         "Nusa Ceningan"
       ],
       "route": "?page=discovery&item=region%3Anusa",
-      "page_status": "STRUCTURE_READY"
+      "page_status": "STRUCTURE_READY",
+      "group_type": "island_group",
+      "catalog_status": "PLANNED"
     }
   ],
   "administrative_areas": [
@@ -205,7 +217,14 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "beach",
+      "characteristic_tags": [
+        "coastal",
+        "nature"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "waterbom-bali",
@@ -223,7 +242,12 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "other-review",
+      "characteristic_tags": [],
+      "record_kind": "place",
+      "classification_status": "NEEDS_EDITORIAL_REVIEW",
+      "classification_note": "Jenis taman rekreasi air belum memiliki kategori khusus dalam daftar kategori destinasi Master; tinjau apakah Garden / Park atau kategori baru lebih tepat."
     },
     {
       "id": "legian-beach",
@@ -241,7 +265,14 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "beach",
+      "characteristic_tags": [
+        "coastal",
+        "nature"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "seminyak-beach",
@@ -260,7 +291,14 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "beach",
+      "characteristic_tags": [
+        "coastal",
+        "nature"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "petitenget-temple",
@@ -278,7 +316,14 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "temple",
+      "characteristic_tags": [
+        "culture",
+        "spiritual"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "canggu-beaches",
@@ -297,7 +342,15 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "beach",
+      "characteristic_tags": [
+        "coastal",
+        "nature"
+      ],
+      "record_kind": "area_group",
+      "classification_status": "NEEDS_EDITORIAL_REVIEW",
+      "classification_note": "Entri mewakili kawasan/beberapa pantai, bukan satu titik destinasi. Pertahankan sementara sebagai kelompok kawasan dan pecah menjadi record pantai individual setelah identitas ditinjau."
     },
     {
       "id": "berawa-beach",
@@ -316,7 +369,14 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "beach",
+      "characteristic_tags": [
+        "coastal",
+        "nature"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "pererenan-beach",
@@ -334,7 +394,14 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "beach",
+      "characteristic_tags": [
+        "coastal",
+        "nature"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "jimbaran-bay",
@@ -352,7 +419,12 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "other-review",
+      "characteristic_tags": [],
+      "record_kind": "place",
+      "classification_status": "NEEDS_EDITORIAL_REVIEW",
+      "classification_note": "Nama mengacu pada teluk/kawasan pesisir yang luas, bukan satu pantai spesifik. Perlu penentuan identitas destinasi dan cakupan."
     },
     {
       "id": "kedonganan-market",
@@ -370,7 +442,13 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "market",
+      "characteristic_tags": [
+        "culture"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "gwk",
@@ -389,7 +467,11 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "gate-landmark",
+      "characteristic_tags": [],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "uluwatu-temple",
@@ -407,7 +489,14 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "temple",
+      "characteristic_tags": [
+        "culture",
+        "spiritual"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "padang-padang-beach",
@@ -425,7 +514,14 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "beach",
+      "characteristic_tags": [
+        "coastal",
+        "nature"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "melasti-beach",
@@ -443,7 +539,14 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "beach",
+      "characteristic_tags": [
+        "coastal",
+        "nature"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "nusa-dua-beach",
@@ -461,7 +564,14 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "beach",
+      "characteristic_tags": [
+        "coastal",
+        "nature"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "tanjung-benoa",
@@ -481,7 +591,12 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "other-review",
+      "characteristic_tags": [],
+      "record_kind": "place",
+      "classification_status": "NEEDS_EDITORIAL_REVIEW",
+      "classification_note": "Nama mengacu pada kawasan/peninsula dengan beberapa aktivitas dan pantai; perlu diputuskan apakah ini destinasi kawasan atau tempat spesifik."
     },
     {
       "id": "sanur-beach",
@@ -501,7 +616,14 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "beach",
+      "characteristic_tags": [
+        "coastal",
+        "nature"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "serangan-island",
@@ -520,7 +642,12 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "other-review",
+      "characteristic_tags": [],
+      "record_kind": "place",
+      "classification_status": "NEEDS_EDITORIAL_REVIEW",
+      "classification_note": "Identitas utama berupa pulau/kawasan; kategori tempat utama perlu ditinjau."
     },
     {
       "id": "bajra-sandhi",
@@ -538,7 +665,14 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "monument",
+      "characteristic_tags": [
+        "culture",
+        "heritage"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "ubud-monkey-forest",
@@ -557,7 +691,13 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "forest",
+      "characteristic_tags": [
+        "nature"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "ubud-palace",
@@ -575,7 +715,14 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "palace-water-palace",
+      "characteristic_tags": [
+        "culture",
+        "heritage"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "campuhan-ridge",
@@ -594,7 +741,14 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "hill-viewpoint",
+      "characteristic_tags": [
+        "nature",
+        "viewpoint"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "tegalalang-terrace",
@@ -613,7 +767,14 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "rice-terrace",
+      "characteristic_tags": [
+        "nature",
+        "rice-field"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "tirta-empul",
@@ -631,7 +792,14 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "temple",
+      "characteristic_tags": [
+        "culture",
+        "spiritual"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "goa-gajah",
@@ -649,7 +817,14 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "temple",
+      "characteristic_tags": [
+        "culture",
+        "spiritual"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "tegenungan-waterfall",
@@ -667,7 +842,13 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "waterfall",
+      "characteristic_tags": [
+        "nature"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "tibumana-waterfall",
@@ -685,7 +866,13 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "waterfall",
+      "characteristic_tags": [
+        "nature"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "kanto-lampo-waterfall",
@@ -703,7 +890,13 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "waterfall",
+      "characteristic_tags": [
+        "nature"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "bali-zoo",
@@ -721,7 +914,13 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "garden-park",
+      "characteristic_tags": [
+        "nature"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "bali-bird-park",
@@ -739,7 +938,13 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "garden-park",
+      "characteristic_tags": [
+        "nature"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "mount-batur",
@@ -758,7 +963,15 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "mountain",
+      "characteristic_tags": [
+        "nature",
+        "highland",
+        "viewpoint"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "lake-batur",
@@ -777,7 +990,13 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "lake",
+      "characteristic_tags": [
+        "nature"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "penglipuran-village",
@@ -795,7 +1014,13 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "village",
+      "characteristic_tags": [
+        "culture"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "tukad-cepung",
@@ -813,7 +1038,13 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "waterfall",
+      "characteristic_tags": [
+        "nature"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "ulun-danu-beratan",
@@ -832,7 +1063,14 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "temple",
+      "characteristic_tags": [
+        "culture",
+        "spiritual"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "bali-botanic-garden",
@@ -851,7 +1089,13 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "garden-park",
+      "characteristic_tags": [
+        "nature"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "jatiluwih-terraces",
@@ -870,7 +1114,14 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "rice-terrace",
+      "characteristic_tags": [
+        "nature",
+        "rice-field"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "tanah-lot",
@@ -888,7 +1139,14 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "temple",
+      "characteristic_tags": [
+        "culture",
+        "spiritual"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "tirta-gangga",
@@ -906,7 +1164,14 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "palace-water-palace",
+      "characteristic_tags": [
+        "culture",
+        "heritage"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "taman-ujung",
@@ -924,7 +1189,14 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "palace-water-palace",
+      "characteristic_tags": [
+        "culture",
+        "heritage"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "lempuyang-temple",
@@ -942,7 +1214,14 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "temple",
+      "characteristic_tags": [
+        "culture",
+        "spiritual"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "besakih-temple",
@@ -960,7 +1239,14 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "temple",
+      "characteristic_tags": [
+        "culture",
+        "spiritual"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "amed-coast",
@@ -979,7 +1265,12 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "other-review",
+      "characteristic_tags": [],
+      "record_kind": "place",
+      "classification_status": "NEEDS_EDITORIAL_REVIEW",
+      "classification_note": "Nama mengacu pada kawasan pesisir yang mencakup beberapa titik. Tinjau apakah perlu dipecah menjadi pantai/bay spesifik."
     },
     {
       "id": "jemeluk-bay",
@@ -997,7 +1288,12 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "other-review",
+      "characteristic_tags": [],
+      "record_kind": "place",
+      "classification_status": "NEEDS_EDITORIAL_REVIEW",
+      "classification_note": "Identitas sebagai teluk/kawasan pesisir perlu dipastikan sebelum memilih Beach sebagai kategori utama."
     },
     {
       "id": "tulamben-liberty-wreck",
@@ -1015,7 +1311,12 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "other-review",
+      "characteristic_tags": [],
+      "record_kind": "place",
+      "classification_status": "NEEDS_EDITORIAL_REVIEW",
+      "classification_note": "Area wreck diving adalah lokasi aktivitas bawah laut, bukan kategori destinasi yang tersedia saat ini."
     },
     {
       "id": "candidasa",
@@ -1034,7 +1335,12 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "other-review",
+      "characteristic_tags": [],
+      "record_kind": "place",
+      "classification_status": "NEEDS_EDITORIAL_REVIEW",
+      "classification_note": "Nama kawasan/permukiman pesisir; tentukan tempat spesifik atau pertahankan sebagai kawasan editorial."
     },
     {
       "id": "padangbai-blue-lagoon",
@@ -1053,7 +1359,14 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "beach",
+      "characteristic_tags": [
+        "coastal",
+        "nature"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "sidemen-valley",
@@ -1072,7 +1385,12 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "other-review",
+      "characteristic_tags": [],
+      "record_kind": "place",
+      "classification_status": "NEEDS_EDITORIAL_REVIEW",
+      "classification_note": "Bentang alam lembah/kawasan, bukan satu kategori tempat dalam daftar saat ini. Tinjau apakah perlu kategori khusus."
     },
     {
       "id": "kerta-gosa",
@@ -1090,7 +1408,11 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "gate-landmark",
+      "characteristic_tags": [],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "goa-lawah",
@@ -1108,7 +1430,14 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "temple",
+      "characteristic_tags": [
+        "culture",
+        "spiritual"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "lovina",
@@ -1130,7 +1459,15 @@
         "https://visitnorthbali.bulelengkab.go.id/informasi/detail?kode=34010101&slug=pantai-lovina"
       ],
       "last_checked": "2026-10-18",
-      "notes": "Nama, karakter pesisir, posisi di Kabupaten Buleleng dan konteks dolphin watching didukung portal pariwisata nasional serta portal pariwisata Pemkab Buleleng. Perilaku operator, titik berangkat, harga, jadwal dan etika pengamatan lumba-lumba tetap perlu diperiksa terpisah."
+      "notes": "Nama, karakter pesisir, posisi di Kabupaten Buleleng dan konteks dolphin watching didukung portal pariwisata nasional serta portal pariwisata Pemkab Buleleng. Perilaku operator, titik berangkat, harga, jadwal dan etika pengamatan lumba-lumba tetap perlu diperiksa terpisah.",
+      "primary_category_id": "beach",
+      "characteristic_tags": [
+        "coastal",
+        "nature"
+      ],
+      "record_kind": "combined_place_activity",
+      "classification_status": "NEEDS_EDITORIAL_REVIEW",
+      "classification_note": "Entri menggabungkan Lovina Beach dengan aktivitas dolphin watching. Pertahankan kategori pantai sementara, tetapi pisahkan tempat dan aktivitas sebagai data berbeda pada audit berikutnya."
     },
     {
       "id": "banjar-hot-springs",
@@ -1152,7 +1489,11 @@
         "https://visitnorthbali.bulelengkab.go.id/uploads/konten/bank-data_daftar-nama-daya-tarik-wisata-kabupaten-buleleng_20251008_095505.pdf"
       ],
       "last_checked": "2026-10-18",
-      "notes": "Lokasi Air Panas Banjar dan pengelompokan wilayah didukung portal resmi pariwisata Buleleng. Jam buka, tiket dan kondisi fasilitas tidak ditetapkan dari sumber ini."
+      "notes": "Lokasi Air Panas Banjar dan pengelompokan wilayah didukung portal resmi pariwisata Buleleng. Jam buka, tiket dan kondisi fasilitas tidak ditetapkan dari sumber ini.",
+      "primary_category_id": "hot-spring",
+      "characteristic_tags": [],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "brahmavihara-arama",
@@ -1173,7 +1514,14 @@
         "https://visitnorthbali.bulelengkab.go.id/uploads/konten/bank-data_daftar-nama-daya-tarik-wisata-kabupaten-buleleng_20251008_095505.pdf"
       ],
       "last_checked": "2026-10-18",
-      "notes": "Keberadaan tempat dan konteks sebagai vihara didukung situs resmi pengelola serta daftar daya tarik wisata Kabupaten Buleleng. Jadwal kunjungan/retret perlu diperiksa di sumber pengelola."
+      "notes": "Keberadaan tempat dan konteks sebagai vihara didukung situs resmi pengelola serta daftar daya tarik wisata Kabupaten Buleleng. Jadwal kunjungan/retret perlu diperiksa di sumber pengelola.",
+      "primary_category_id": "vihara",
+      "characteristic_tags": [
+        "culture",
+        "spiritual"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "gitgit-waterfall",
@@ -1194,7 +1542,13 @@
         "https://visitnorthbali.bulelengkab.go.id/informasi/detail?kode=340111&slug=desa-wisata-gitgit"
       ],
       "last_checked": "2026-10-18",
-      "notes": "Lokasi di Desa Gitgit, Kecamatan Sukasada, Kabupaten Buleleng didukung portal resmi pariwisata kabupaten. Akses, tiket dan kondisi jalur perlu diperiksa ulang."
+      "notes": "Lokasi di Desa Gitgit, Kecamatan Sukasada, Kabupaten Buleleng didukung portal resmi pariwisata kabupaten. Akses, tiket dan kondisi jalur perlu diperiksa ulang.",
+      "primary_category_id": "waterfall",
+      "characteristic_tags": [
+        "nature"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "munduk",
@@ -1217,7 +1571,12 @@
         "https://visitnorthbali.bulelengkab.go.id/informasi/detail?kode=34010101&slug=air-terjun-melanting"
       ],
       "last_checked": "2026-10-18",
-      "notes": "Portal resmi Buleleng mencantumkan kawasan Munduk, Air Terjun Melanting dan Danau Tamblingan sebagai daya tarik wisata. Halaman ini masih menggabungkan beberapa titik; pecah menjadi record destinasi terpisah sebelum artikel rinci dibuat."
+      "notes": "Portal resmi Buleleng mencantumkan kawasan Munduk, Air Terjun Melanting dan Danau Tamblingan sebagai daya tarik wisata. Halaman ini masih menggabungkan beberapa titik; pecah menjadi record destinasi terpisah sebelum artikel rinci dibuat.",
+      "primary_category_id": "other-review",
+      "characteristic_tags": [],
+      "record_kind": "area_group",
+      "classification_status": "NEEDS_EDITORIAL_REVIEW",
+      "classification_note": "Entri menggabungkan beberapa air terjun dan kawasan dataran tinggi. Perlu dipecah menjadi record destinasi individual; jangan anggap satu tempat."
     },
     {
       "id": "wanagiri",
@@ -1238,7 +1597,14 @@
         "https://visitnorthbali.bulelengkab.go.id/konten?sb=ne&slug=article"
       ],
       "last_checked": "2026-10-18",
-      "notes": "Daftar resmi Kabupaten Buleleng memuat daya tarik di Desa Wanagiri termasuk Air Terjun Banyumala. 'Twin Lakes Viewpoint' dan 'Hidden Hills' perlu dipisahkan dan nama/aksesnya diverifikasi sebelum publikasi."
+      "notes": "Daftar resmi Kabupaten Buleleng memuat daya tarik di Desa Wanagiri termasuk Air Terjun Banyumala. 'Twin Lakes Viewpoint' dan 'Hidden Hills' perlu dipisahkan dan nama/aksesnya diverifikasi sebelum publikasi.",
+      "primary_category_id": "hill-viewpoint",
+      "characteristic_tags": [
+        "nature",
+        "viewpoint"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "menjangan",
@@ -1260,7 +1626,12 @@
         "https://www.visitbali.org/about-bali/national-parks/"
       ],
       "last_checked": "2026-10-18",
-      "notes": "Indonesia Travel dan Visit Bali menempatkan Pulau Menjangan dalam kawasan konservasi Taman Nasional Bali Barat. Penentuan kategori regional sebagai akses Bali Utara/Barat perlu disepakati secara editorial; jangan menyamakan pulau dengan Kabupaten Buleleng tanpa verifikasi batas administratif."
+      "notes": "Indonesia Travel dan Visit Bali menempatkan Pulau Menjangan dalam kawasan konservasi Taman Nasional Bali Barat. Penentuan kategori regional sebagai akses Bali Utara/Barat perlu disepakati secara editorial; jangan menyamakan pulau dengan Kabupaten Buleleng tanpa verifikasi batas administratif.",
+      "primary_category_id": "other-review",
+      "characteristic_tags": [],
+      "record_kind": "area_group",
+      "classification_status": "NEEDS_EDITORIAL_REVIEW",
+      "classification_note": "Entri menggabungkan Pulau Menjangan dengan Taman Nasional Bali Barat. Pisahkan identitas pulau, taman nasional, dan kawasan administratif/akses."
     },
     {
       "id": "gedong-kirtya",
@@ -1281,7 +1652,14 @@
         "https://pedalsepeda.bulelengkab.go.id/"
       ],
       "last_checked": "2026-10-18",
-      "notes": "Lokasi di Singaraja dan fungsi sebagai perpustakaan manuskrip lontar didukung sumber Dinas Kebudayaan/portal resmi Buleleng. Jam kunjungan yang ditampilkan di portal harus dicek lagi sebelum dipakai di artikel."
+      "notes": "Lokasi di Singaraja dan fungsi sebagai perpustakaan manuskrip lontar didukung sumber Dinas Kebudayaan/portal resmi Buleleng. Jam kunjungan yang ditampilkan di portal harus dicek lagi sebelum dipakai di artikel.",
+      "primary_category_id": "museum-library",
+      "characteristic_tags": [
+        "culture",
+        "heritage"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "sekumpul-waterfall",
@@ -1300,7 +1678,13 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "waterfall",
+      "characteristic_tags": [
+        "nature"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "aling-aling-waterfall",
@@ -1319,7 +1703,13 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "waterfall",
+      "characteristic_tags": [
+        "nature"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "pemuteran-beach",
@@ -1338,7 +1728,14 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "beach",
+      "characteristic_tags": [
+        "coastal",
+        "nature"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "pulaki-temple",
@@ -1356,7 +1753,14 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "temple",
+      "characteristic_tags": [
+        "culture",
+        "spiritual"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "yeh-sanih",
@@ -1374,7 +1778,12 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "other-review",
+      "characteristic_tags": [],
+      "record_kind": "place",
+      "classification_status": "NEEDS_EDITORIAL_REVIEW",
+      "classification_note": "Sumber menyebut natural spring; belum cukup untuk menyimpulkan bahwa tempat ini merupakan hot spring."
     },
     {
       "id": "medewi-beach",
@@ -1392,7 +1801,14 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "beach",
+      "characteristic_tags": [
+        "coastal",
+        "nature"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "rambut-siwi",
@@ -1410,7 +1826,14 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "temple",
+      "characteristic_tags": [
+        "culture",
+        "spiritual"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "bunut-bolong",
@@ -1428,7 +1851,11 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "gate-landmark",
+      "characteristic_tags": [],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "perancak",
@@ -1447,7 +1874,13 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "village",
+      "characteristic_tags": [
+        "culture"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "gilimanuk-bay",
@@ -1466,7 +1899,12 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "other-review",
+      "characteristic_tags": [],
+      "record_kind": "place",
+      "classification_status": "NEEDS_EDITORIAL_REVIEW",
+      "classification_note": "Teluk/kawasan pesisir luas; kategori destinasi spesifik belum ditentukan."
     },
     {
       "id": "west-bali-national-park",
@@ -1486,7 +1924,13 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "national-park",
+      "characteristic_tags": [
+        "nature"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "kelingking-beach",
@@ -1508,7 +1952,15 @@
         "https://tribratanews.bali.polri.go.id/artikel/view/pb-163144-polsek-nusa-penida-imbau-wisatawan"
       ],
       "last_checked": "2026-10-19",
-      "notes": "Individual destination article added and reviewed against the official Indonesia Travel Nusa Penida guide and Bali Police sea-safety notice; check current local access and safety signs before travel."
+      "notes": "Individual destination article added and reviewed against the official Indonesia Travel Nusa Penida guide and Bali Police sea-safety notice; check current local access and safety signs before travel.",
+      "primary_category_id": "beach",
+      "characteristic_tags": [
+        "coastal",
+        "nature"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL",
+      "island_region_id": "nusa-penida"
     },
     {
       "id": "broken-beach",
@@ -1526,7 +1978,15 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "cliff",
+      "characteristic_tags": [
+        "nature",
+        "viewpoint"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL",
+      "island_region_id": "nusa-penida"
     },
     {
       "id": "crystal-bay",
@@ -1548,7 +2008,15 @@
         "https://tribratanews.bali.polri.go.id/artikel/view/pb-163144-polsek-nusa-penida-imbau-wisatawan"
       ],
       "last_checked": "2026-10-19",
-      "notes": "Individual destination article added and reviewed against the official Indonesia Travel Nusa Penida guide and Bali Police sea-safety notice; check current local access and safety signs before travel."
+      "notes": "Individual destination article added and reviewed against the official Indonesia Travel Nusa Penida guide and Bali Police sea-safety notice; check current local access and safety signs before travel.",
+      "primary_category_id": "beach",
+      "characteristic_tags": [
+        "coastal",
+        "nature"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL",
+      "island_region_id": "nusa-penida"
     },
     {
       "id": "diamond-beach",
@@ -1570,7 +2038,15 @@
         "https://tribratanews.bali.polri.go.id/artikel/view/pb-163144-polsek-nusa-penida-imbau-wisatawan"
       ],
       "last_checked": "2026-10-19",
-      "notes": "Individual destination article added and reviewed against the official Indonesia Travel Nusa Penida guide and Bali Police sea-safety notice; check current local access and safety signs before travel."
+      "notes": "Individual destination article added and reviewed against the official Indonesia Travel Nusa Penida guide and Bali Police sea-safety notice; check current local access and safety signs before travel.",
+      "primary_category_id": "beach",
+      "characteristic_tags": [
+        "coastal",
+        "nature"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL",
+      "island_region_id": "nusa-penida"
     },
     {
       "id": "atuh-beach",
@@ -1592,7 +2068,15 @@
         "https://tribratanews.bali.polri.go.id/artikel/view/pb-163144-polsek-nusa-penida-imbau-wisatawan"
       ],
       "last_checked": "2026-10-19",
-      "notes": "Individual destination article added and reviewed against the official Indonesia Travel Nusa Penida guide and Bali Police sea-safety notice; check current local access and safety signs before travel."
+      "notes": "Individual destination article added and reviewed against the official Indonesia Travel Nusa Penida guide and Bali Police sea-safety notice; check current local access and safety signs before travel.",
+      "primary_category_id": "beach",
+      "characteristic_tags": [
+        "coastal",
+        "nature"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL",
+      "island_region_id": "nusa-penida"
     },
     {
       "id": "goa-giri-putri",
@@ -1610,7 +2094,15 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "temple",
+      "characteristic_tags": [
+        "culture",
+        "spiritual"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL",
+      "island_region_id": "nusa-penida"
     },
     {
       "id": "tembeling",
@@ -1629,7 +2121,13 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "other-review",
+      "characteristic_tags": [],
+      "record_kind": "area_group",
+      "classification_status": "NEEDS_EDITORIAL_REVIEW",
+      "classification_note": "Entri menggabungkan pantai, kolam alami, dan hutan. Tentukan satu identitas utama atau pisahkan record.",
+      "island_region_id": "nusa-penida"
     },
     {
       "id": "jungutbatu",
@@ -1648,7 +2146,14 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "village",
+      "characteristic_tags": [
+        "culture"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL",
+      "island_region_id": "nusa-lembongan"
     },
     {
       "id": "mushroom-bay",
@@ -1667,7 +2172,15 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "beach",
+      "characteristic_tags": [
+        "coastal",
+        "nature"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL",
+      "island_region_id": "nusa-lembongan"
     },
     {
       "id": "lembongan-mangroves",
@@ -1686,7 +2199,14 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "mangrove",
+      "characteristic_tags": [
+        "nature"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL",
+      "island_region_id": "nusa-lembongan"
     },
     {
       "id": "yellow-bridge",
@@ -1704,7 +2224,12 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "bridge",
+      "characteristic_tags": [],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL",
+      "island_region_id": "nusa-ceningan"
     },
     {
       "id": "blue-lagoon-ceningan",
@@ -1722,7 +2247,13 @@
       "fact_status": "UNVERIFIED",
       "source_urls": [],
       "last_checked": null,
-      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication."
+      "notes": "Candidate inventory item; verify exact location, access and relevant details before publication.",
+      "primary_category_id": "other-review",
+      "characteristic_tags": [],
+      "record_kind": "place",
+      "classification_status": "NEEDS_EDITORIAL_REVIEW",
+      "classification_note": "Laguna/pesisir; kategori Beach belum dipastikan dari inventaris yang tersedia.",
+      "island_region_id": "nusa-ceningan"
     },
     {
       "id": "banyumala-waterfall",
@@ -1743,7 +2274,13 @@
         "https://visitnorthbali.bulelengkab.go.id/uploads/konten/bank-data_daftar-nama-daya-tarik-wisata-kabupaten-buleleng_20251008_095505.pdf"
       ],
       "last_checked": "2026-10-18",
-      "notes": "Tercantum dalam daftar daya tarik wisata resmi Kabupaten Buleleng pada Desa Wanagiri. Detail akses dan status operasional tetap perlu diperiksa."
+      "notes": "Tercantum dalam daftar daya tarik wisata resmi Kabupaten Buleleng pada Desa Wanagiri. Detail akses dan status operasional tetap perlu diperiksa.",
+      "primary_category_id": "waterfall",
+      "characteristic_tags": [
+        "nature"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "lake-tamblingan",
@@ -1764,7 +2301,13 @@
         "https://visitnorthbali.bulelengkab.go.id/uploads/konten/bank-data_daftar-nama-daya-tarik-wisata-kabupaten-buleleng_20251008_095505.pdf"
       ],
       "last_checked": "2026-10-18",
-      "notes": "Tercantum dalam daftar daya tarik wisata resmi Kabupaten Buleleng. Periksa kembali aturan aktivitas, akses, dan fasilitas yang tersedia."
+      "notes": "Tercantum dalam daftar daya tarik wisata resmi Kabupaten Buleleng. Periksa kembali aturan aktivitas, akses, dan fasilitas yang tersedia.",
+      "primary_category_id": "lake",
+      "characteristic_tags": [
+        "nature"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "lake-buyan",
@@ -1784,7 +2327,13 @@
         "https://visitnorthbali.bulelengkab.go.id/uploads/konten/bank-data_daftar-nama-daya-tarik-wisata-kabupaten-buleleng_20251008_095505.pdf"
       ],
       "last_checked": "2026-10-18",
-      "notes": "Tercantum dalam daftar daya tarik wisata resmi Kabupaten Buleleng. Detail titik pandang, fasilitas dan aktivitas perlu dicek terpisah."
+      "notes": "Tercantum dalam daftar daya tarik wisata resmi Kabupaten Buleleng. Detail titik pandang, fasilitas dan aktivitas perlu dicek terpisah.",
+      "primary_category_id": "lake",
+      "characteristic_tags": [
+        "nature"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "melanting-waterfall",
@@ -1806,7 +2355,13 @@
         "https://visitnorthbali.bulelengkab.go.id/uploads/konten/bank-data_daftar-nama-daya-tarik-wisata-kabupaten-buleleng_20251008_095505.pdf"
       ],
       "last_checked": "2026-10-18",
-      "notes": "Nama dan lokasi di Desa Munduk didukung portal pariwisata resmi Buleleng. Harga, akses dan kondisi jalur belum dipastikan."
+      "notes": "Nama dan lokasi di Desa Munduk didukung portal pariwisata resmi Buleleng. Harga, akses dan kondisi jalur belum dipastikan.",
+      "primary_category_id": "waterfall",
+      "characteristic_tags": [
+        "nature"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "singsing-waterfall",
@@ -1827,7 +2382,13 @@
         "https://visitnorthbali.bulelengkab.go.id/uploads/konten/bank-data_daftar-nama-daya-tarik-wisata-kabupaten-buleleng_20251008_095505.pdf"
       ],
       "last_checked": "2026-10-18",
-      "notes": "Tercantum dalam daftar daya tarik wisata resmi Kabupaten Buleleng di Desa Temukus. Perlu pemeriksaan akses, ejaan, dan status kunjungan."
+      "notes": "Tercantum dalam daftar daya tarik wisata resmi Kabupaten Buleleng di Desa Temukus. Perlu pemeriksaan akses, ejaan, dan status kunjungan.",
+      "primary_category_id": "waterfall",
+      "characteristic_tags": [
+        "nature"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     },
     {
       "id": "kroya-waterfall",
@@ -1848,7 +2409,13 @@
         "https://visitnorthbali.bulelengkab.go.id/uploads/konten/bank-data_daftar-nama-daya-tarik-wisata-kabupaten-buleleng_20251008_095505.pdf"
       ],
       "last_checked": "2026-10-18",
-      "notes": "Tercantum dalam daftar daya tarik wisata resmi Kabupaten Buleleng di Desa Sambangan. Aktivitas melompat/seluncur tidak boleh diasumsikan aman atau diizinkan tanpa sumber yang jelas."
+      "notes": "Tercantum dalam daftar daya tarik wisata resmi Kabupaten Buleleng di Desa Sambangan. Aktivitas melompat/seluncur tidak boleh diasumsikan aman atau diizinkan tanpa sumber yang jelas.",
+      "primary_category_id": "waterfall",
+      "characteristic_tags": [
+        "nature"
+      ],
+      "record_kind": "place",
+      "classification_status": "PROVISIONAL"
     }
   ],
   "activity_categories": [
@@ -2103,5 +2670,263 @@
     "Show 'Baca selengkapnya' only for reviewed, ready articles. Show 'Sedang diperbarui' when a page exists but its article is incomplete.",
     "Do not use a region page as a substitute for a destination detail page when the destination has a dedicated guide.",
     "Page routes listed here describe the current query-based SPA. Keep URL changes consistent with the existing navigation system."
+  ],
+  "island_regions": [
+    {
+      "id": "nusa-penida",
+      "name": "Nusa Penida",
+      "parent_region_id": "nusa",
+      "slug": "nusa-penida",
+      "catalog_status": "PLANNED"
+    },
+    {
+      "id": "nusa-lembongan",
+      "name": "Nusa Lembongan",
+      "parent_region_id": "nusa",
+      "slug": "nusa-lembongan",
+      "catalog_status": "PLANNED"
+    },
+    {
+      "id": "nusa-ceningan",
+      "name": "Nusa Ceningan",
+      "parent_region_id": "nusa",
+      "slug": "nusa-ceningan",
+      "catalog_status": "PLANNED"
+    }
+  ],
+  "destination_categories": [
+    {
+      "id": "beach",
+      "name": "Beach",
+      "plural": "Beaches",
+      "description": "Pantai dan kawasan pantai yang memiliki identitas destinasi.",
+      "status": "PROVISIONAL_TAXONOMY"
+    },
+    {
+      "id": "temple",
+      "name": "Temple",
+      "plural": "Temples",
+      "description": "Pura dan tempat ibadah Hindu.",
+      "status": "PROVISIONAL_TAXONOMY"
+    },
+    {
+      "id": "waterfall",
+      "name": "Waterfall",
+      "plural": "Waterfalls",
+      "description": "Air terjun.",
+      "status": "PROVISIONAL_TAXONOMY"
+    },
+    {
+      "id": "rice-terrace",
+      "name": "Rice Terrace",
+      "plural": "Rice Terraces",
+      "description": "Terasering dan kawasan persawahan yang menjadi daya tarik.",
+      "status": "PROVISIONAL_TAXONOMY"
+    },
+    {
+      "id": "village",
+      "name": "Village",
+      "plural": "Villages",
+      "description": "Desa atau kawasan permukiman tradisional.",
+      "status": "PROVISIONAL_TAXONOMY"
+    },
+    {
+      "id": "forest",
+      "name": "Forest",
+      "plural": "Forests",
+      "description": "Hutan atau kawasan pepohonan.",
+      "status": "PROVISIONAL_TAXONOMY"
+    },
+    {
+      "id": "cliff",
+      "name": "Cliff",
+      "plural": "Cliffs",
+      "description": "Tebing dan bentang alam tebing.",
+      "status": "PROVISIONAL_TAXONOMY"
+    },
+    {
+      "id": "hill-viewpoint",
+      "name": "Hill / Viewpoint",
+      "plural": "Hills & Viewpoints",
+      "description": "Bukit, punggung bukit, dan titik pandang.",
+      "status": "PROVISIONAL_TAXONOMY"
+    },
+    {
+      "id": "lake",
+      "name": "Lake",
+      "plural": "Lakes",
+      "description": "Danau.",
+      "status": "PROVISIONAL_TAXONOMY"
+    },
+    {
+      "id": "mountain",
+      "name": "Mountain",
+      "plural": "Mountains",
+      "description": "Gunung dan kawasan pegunungan.",
+      "status": "PROVISIONAL_TAXONOMY"
+    },
+    {
+      "id": "garden-park",
+      "name": "Garden / Park",
+      "plural": "Gardens & Parks",
+      "description": "Kebun, taman, taman rekreasi, dan taman satwa; klasifikasi perlu disesuaikan dengan identitas tempat.",
+      "status": "PROVISIONAL_TAXONOMY"
+    },
+    {
+      "id": "market",
+      "name": "Market",
+      "plural": "Markets",
+      "description": "Pasar tradisional atau pasar khusus.",
+      "status": "PROVISIONAL_TAXONOMY"
+    },
+    {
+      "id": "museum-library",
+      "name": "Museum / Library",
+      "plural": "Museums & Libraries",
+      "description": "Museum, perpustakaan, dan tempat koleksi/warisan pengetahuan.",
+      "status": "PROVISIONAL_TAXONOMY"
+    },
+    {
+      "id": "vihara",
+      "name": "Vihara",
+      "plural": "Viharas",
+      "description": "Tempat ibadah Buddha.",
+      "status": "PROVISIONAL_TAXONOMY"
+    },
+    {
+      "id": "monument",
+      "name": "Monument",
+      "plural": "Monuments",
+      "description": "Monumen.",
+      "status": "PROVISIONAL_TAXONOMY"
+    },
+    {
+      "id": "palace-water-palace",
+      "name": "Palace / Water Palace",
+      "plural": "Palaces & Water Palaces",
+      "description": "Istana, puri, atau taman air bersejarah.",
+      "status": "PROVISIONAL_TAXONOMY"
+    },
+    {
+      "id": "hot-spring",
+      "name": "Hot Spring",
+      "plural": "Hot Springs",
+      "description": "Pemandian atau sumber air panas.",
+      "status": "PROVISIONAL_TAXONOMY"
+    },
+    {
+      "id": "gate-landmark",
+      "name": "Gate / Landmark",
+      "plural": "Landmarks",
+      "description": "Gerbang, monumen penanda, dan landmark.",
+      "status": "PROVISIONAL_TAXONOMY"
+    },
+    {
+      "id": "national-park",
+      "name": "National Park",
+      "plural": "National Parks",
+      "description": "Taman nasional.",
+      "status": "PROVISIONAL_TAXONOMY"
+    },
+    {
+      "id": "mangrove",
+      "name": "Mangrove",
+      "plural": "Mangroves",
+      "description": "Kawasan hutan mangrove.",
+      "status": "PROVISIONAL_TAXONOMY"
+    },
+    {
+      "id": "bridge",
+      "name": "Bridge",
+      "plural": "Bridges",
+      "description": "Jembatan yang menjadi daya tarik atau landmark.",
+      "status": "PROVISIONAL_TAXONOMY"
+    },
+    {
+      "id": "farm-plantation",
+      "name": "Farm / Plantation",
+      "plural": "Farms & Plantations",
+      "description": "Kebun, perkebunan, atau tempat budidaya.",
+      "status": "PROVISIONAL_TAXONOMY"
+    },
+    {
+      "id": "other-review",
+      "name": "Other / Review",
+      "plural": "Other Places",
+      "description": "Tempat atau kawasan yang kategori utamanya belum dapat ditetapkan dengan aman dan perlu ditinjau.",
+      "status": "REVIEW_CATEGORY"
+    }
+  ],
+  "destination_collections": [
+    {
+      "id": "latest",
+      "name": "Latest",
+      "slug": "latest",
+      "selection_rule": "MANUAL_EDITORIAL",
+      "destination_ids": [],
+      "status": "AWAITING_EDITORIAL_CURATION"
+    },
+    {
+      "id": "popular",
+      "name": "Popular",
+      "slug": "popular",
+      "selection_rule": "MANUAL_EDITORIAL",
+      "destination_ids": [],
+      "status": "AWAITING_EDITORIAL_CURATION"
+    },
+    {
+      "id": "hidden-gems",
+      "name": "Hidden Gems",
+      "slug": "hidden-gems",
+      "selection_rule": "MANUAL_EDITORIAL",
+      "destination_ids": [],
+      "status": "AWAITING_EDITORIAL_CURATION"
+    }
+  ],
+  "editorial_taxonomy": {
+    "content_types": [
+      {
+        "id": "travel-information",
+        "name": "Travel Information",
+        "description": "Artikel informatif tentang tempat, perjalanan, aktivitas, atau konteks wisata."
+      }
+    ],
+    "labels": [
+      {
+        "id": "tips",
+        "name": "Tips",
+        "description": "Saran praktis lintas topik: wisata, belanja, transportasi, aktivitas, akomodasi, dan lainnya."
+      },
+      {
+        "id": "shopping",
+        "name": "Shopping",
+        "description": "Artikel yang secara utama membahas belanja atau pengalaman berbelanja."
+      },
+      {
+        "id": "food-drink",
+        "name": "Food & Drink",
+        "description": "Informasi kuliner dan tempat makan."
+      },
+      {
+        "id": "transportation",
+        "name": "Transportation",
+        "description": "Informasi transportasi dan mobilitas."
+      }
+    ],
+    "rules": [
+      "Guide/Panduan bukan label default; gunakan hanya bila isi benar-benar berupa panduan komprehensif atau langkah demi langkah.",
+      "Travel Information digunakan untuk artikel informasi umum yang relevan.",
+      "Tips hanya ditambahkan bila artikel benar-benar memuat saran praktis.",
+      "Label editorial terpisah dari kategori destinasi dan region."
+    ]
+  },
+  "taxonomy_rules": [
+    "destinations[].primary_category_id adalah satu kategori utama tempat; satu destinasi hanya memiliki satu kategori utama.",
+    "destinations[].characteristic_tags adalah label karakteristik tambahan yang tidak menggantikan kategori utama.",
+    "destinations[].categories dipertahankan untuk kompatibilitas dan saat ini berisi tautan kategori aktivitas/tema, bukan kategori jenis tempat. Jangan gunakan sebagai kategori utama destinasi.",
+    "destinations[].region_id adalah pengelompokan geografis editorial; admin_area_id tetap menyimpan wilayah administratif.",
+    "destinations[].island_region_id memisahkan Nusa Penida, Nusa Lembongan, dan Nusa Ceningan tanpa menghapus grup induk Nusa Islands yang dipakai rute lama.",
+    "destination_collections adalah kurasi manual; jangan mengisi Popular atau Hidden Gems berdasarkan dugaan, dan jangan otomatis menyamakan Latest dengan tanggal input.",
+    "record_kind area_group atau combined_place_activity menandakan entri belum tentu satu tempat tunggal; tinjau sebelum membuat detail place page."
   ]
 }
