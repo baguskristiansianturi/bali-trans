@@ -1,19 +1,19 @@
-# 03 — Content & Editorial Guidelines
+# 03 — Panduan Konten & Editorial
 
-**Status:** NOT STARTED — identified as the governing source for future public content.
+**Status:** BELUM DIMULAI — telah diidentifikasi sebagai acuan untuk seluruh konten publik di masa depan.
 
-These guidelines instruct how articles, travel trends, destination guides, itinerary ideas, service copy, FAQs and campaign content are researched, written and reviewed.
+Panduan ini mengatur cara melakukan riset, menulis, dan memeriksa artikel, tren wisata, panduan destinasi, ide rencana perjalanan, teks layanan, FAQ, serta materi promosi.
 
-| Planned record | Status | Required coverage |
+| Dokumen yang direncanakan | Status | Cakupan yang dibutuhkan |
 |---|---|---|
-| Content Strategy | NOT STARTED | Audience, content purpose, topic clusters, distribution and outcomes |
-| Editorial & Writing Guidelines | NOT STARTED | Tone, language, structure, terminology, inclusivity and quality |
-| Article & Destination Guide Template | NOT STARTED | Standard article structure, facts, practical details and references |
-| Travel Trends Research Standard | NOT STARTED | Evidence, dates, source quality, uncertainty and trend validation |
-| SEO & Search Intent Guidelines | NOT STARTED | Search intent, metadata, internal links, structured content |
-| Content Fact-Checking & Publication Checklist | NOT STARTED | Claims, prices, operating hours, sources, rights and review date |
-| Multilingual Content Rules | NOT STARTED | Source language, translation, localization, currency and consistency |
-| Muslim-Friendly Editorial Guidelines | DISCUSSION | Halal terminology, prayer information, inclusion and claim boundaries |
-| Social Media & Campaign Guidelines | NOT STARTED | Platform formats, brand voice, claims and campaign review |
+| Strategi Konten | BELUM DIMULAI | Sasaran pembaca, tujuan konten, kelompok topik, distribusi, hasil |
+| Panduan Editorial & Penulisan | BELUM DIMULAI | Nada bahasa, bahasa yang digunakan, struktur, istilah, inklusivitas, mutu |
+| Pola Artikel & Panduan Destinasi | BELUM DIMULAI | Susunan artikel, fakta, informasi praktis, referensi |
+| Standar Riset Tren Wisata | BELUM DIMULAI | Bukti, tanggal, mutu sumber, ketidakpastian, pemeriksaan tren |
+| Panduan SEO & Tujuan Pencarian | BELUM DIMULAI | Tujuan pencarian, metadata, tautan internal, struktur informasi |
+| Daftar Periksa Fakta & Publikasi Konten | BELUM DIMULAI | Klaim, harga, jam operasional, sumber, hak media, tanggal pemeriksaan |
+| Aturan Konten Multibahasa | BELUM DIMULAI | Bahasa sumber, penerjemahan, penyesuaian lokal, mata uang, konsistensi |
+| Panduan Editorial Ramah Muslim | PEMBAHASAN | Istilah halal, informasi ibadah, inklusivitas, batas klaim |
+| Panduan Media Sosial & Kampanye | BELUM DIMULAI | Format platform, karakter merek, klaim, pemeriksaan kampanye |
 
-**Publication principle:** content must distinguish evergreen guidance from time-sensitive information. Trends must be supported by dated, credible evidence; do not invent statistics or present speculation as fact.
+**Prinsip publikasi:** bedakan panduan yang berlaku umum dari informasi yang cepat berubah. Tren harus didukung bukti yang memiliki tanggal dan sumber tepercaya. Jangan mengarang statistik atau menyajikan dugaan seolah-olah fakta.
