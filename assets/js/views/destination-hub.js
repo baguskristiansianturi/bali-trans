@@ -59,14 +59,6 @@
   function renderDestinationHubView() {
     return `
       <div class="destination-hub">
-        <div class="destination-hub__hero" role="img" aria-label="Pemandangan alam dan lanskap Pulau Bali">
-          <div class="destination-hub__hero-image"></div>
-          <div class="destination-hub__hero-shade"></div>
-          <div class="destination-hub__hero-copy">
-            <span class="destination-hub__eyebrow">BALI, INDONESIA</span>
-            <p>Island landscapes. Living culture. Unforgettable places.</p>
-          </div>
-        </div>
         <div class="destination-hub__intro destination-hub__container">
           <nav class="destination-hub__breadcrumb" aria-label="Breadcrumb">
             <a href="./index.html">Home</a><span aria-hidden="true">/</span><span aria-current="page">Destinations</span>
