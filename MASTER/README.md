@@ -25,6 +25,7 @@ Dokumen berikut menjadi sumber konteks bisnis untuk keputusan halaman, konten, a
 | [Master Layanan](./SERVICE-MASTER.md) | Kategori layanan dan jenis layanan saat ini |
 | [Master Destinasi Bali](./01-DATA/DESTINATION-MASTER.md) | Aturan fungsi data destinasi dan inventaris awal destinasi dari Bali Golden Tour |
 | [Master Aktivitas & Pengalaman](./01-DATA/ACTIVITY-EXPERIENCE-MASTER.md) | Inventaris aktivitas wisata, bentuk pengalaman, lokasi, dan data perencanaan |
+| [SOP Produksi Artikel & SEO Organik](./03-GUIDELINES/ARTICLE-PRODUCTION-SOP.md) | Alur wajib produksi, pemeriksaan, coding, dan publikasi artikel; status draf usulan |
 | [Daftar Ide Masa Depan](./FUTURE-IDEAS.md) | Konsep yang belum disetujui dan dipisahkan dari layanan aktif |
 | [Daftar Pekerjaan](./WORK-REGISTER.md) | Pembahasan dan dokumentasi yang belum selesai |
 | [Daftar Perubahan Master](./05-CHANGE-REGISTER.md) | Riwayat perubahan penting pada dokumen Master |
