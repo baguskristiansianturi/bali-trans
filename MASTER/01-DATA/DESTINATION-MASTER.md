@@ -826,3 +826,438 @@ Sumber pemerintah mengidentifikasi empat danau utama di Bali. Karena itu, invent
 - Daftar ini tidak menetapkan popularitas, kelayakan keluarga, Muslim-friendly, status akses, harga tiket, atau kelayakan aktivitas.
 - Penambahan inventaris tidak mengubah website dan tidak menyatakan bahwa setiap nama sudah siap dipasarkan sebagai produk wisata.
 
+
+
+
+## 13. Perluasan Inventaris Kategori Temple — Pura dan Situs Keagamaan
+
+**Status:** INVENTARIS DIPERLUAS — PERLU AUDIT IDENTITAS KOMPLEKS, NAMA LOKAL, DAN BATAS AREA.
+
+Cakupan kategori ini adalah pura dan situs keagamaan yang dikenal sebagai tempat kunjungan atau memiliki identitas destinasi yang dapat ditelusuri. Ini bukan daftar seluruh pura yang ada di Bali. Sumber umum menyebut jumlah pura di Bali sangat besar; inventaris destinasi wisata tidak boleh disamakan dengan daftar tempat suci seluruh desa.
+
+### A. Bali Selatan
+
+| Nama destinasi | Kategori baku | Wilayah | Catatan nama / pemeriksaan |
+|---|---|---|---|
+| Uluwatu Temple / Pura Luhur Uluwatu | Temple | Bali Selatan | Badung |
+| Taman Ayun Temple / Pura Taman Ayun | Temple | Bali Selatan | Mengwi, Badung |
+| Petitenget Temple / Pura Petitenget | Temple | Bali Selatan | Seminyak, Badung |
+| Sakenan Temple / Pura Sakenan | Temple | Bali Selatan | Serangan, Denpasar |
+| Jagatnatha Temple / Pura Agung Jagatnatha | Temple | Bali Selatan | Denpasar |
+| Blanjong Temple / Pura Blanjong | Temple | Bali Selatan | Sanur, Denpasar |
+| Geger Temple / Pura Geger Dalem Pemutih | Temple | Bali Selatan | Nusa Dua; nama kompleks dan nama lokal perlu validasi |
+| Goa Gong Temple | Temple | Bali Selatan | Nama dari daftar daya tarik; perlu validasi nama resmi dan titik lokasi |
+
+### B. Bali Tengah
+
+| Nama destinasi | Kategori baku | Wilayah | Catatan nama / pemeriksaan |
+|---|---|---|---|
+| Tirta Empul Temple / Pura Tirta Empul | Temple | Bali Tengah | Tampaksiring, Gianyar |
+| Gunung Kawi Temple / Pura Gunung Kawi | Temple | Bali Tengah | Tampaksiring; bedakan dari Gunung Kawi Sebatu |
+| Gunung Kawi Sebatu Temple / Pura Gunung Kawi Sebatu | Temple | Bali Tengah | Tegallalang, Gianyar |
+| Goa Gajah / Elephant Cave | Temple / Archaeological Site | Bali Tengah | Bedulu, Gianyar; kategori pendamping arkeologi dapat dicatat |
+| Batuan Temple / Pura Desa Batuan | Temple | Bali Tengah | Sukawati, Gianyar |
+| Saraswati Temple / Pura Taman Saraswati | Temple | Bali Tengah | Ubud; satu entri, variasi nama sebagai alias |
+| Pura Dalem Ubud | Temple | Bali Tengah | Ubud |
+| Kehen Temple / Pura Kehen | Temple | Bali Tengah | Bangli |
+| Batur Temple / Pura Ulun Danu Batur | Temple | Bali Tengah | Kintamani; bedakan dari Ulun Danu Beratan |
+| Pura Puseh Batuan | Temple | Bali Tengah | Perlu validasi apakah dikelola/ditampilkan sebagai entri terpisah dari kompleks Batuan |
+| Pura Luhur Batukaru | Temple | Bali Tengah | Tabanan |
+| Ulun Danu Beratan Temple | Temple | Bali Tengah | Bedugul, Tabanan |
+| Pura Luhur Pucak Mangu | Temple | Bali Tengah | Kawasan Petang/Plaga; titik dan akses perlu validasi |
+| Pura Mengening | Temple | Bali Tengah | Tampaksiring, Gianyar |
+| Pura Samuan Tiga | Temple | Bali Tengah | Bedulu, Gianyar |
+| Pura Penataran Sasih | Temple | Bali Tengah | Pejeng, Gianyar |
+| Pura Kebo Edan | Temple | Bali Tengah | Pejeng, Gianyar |
+| Pura Dalem Pingit Sebatu | Temple | Bali Tengah | Nama perlu validasi dan dibedakan dari Gunung Kawi Sebatu |
+
+### C. Bali Timur
+
+| Nama destinasi | Kategori baku | Wilayah | Catatan nama / pemeriksaan |
+|---|---|---|---|
+| Besakih Temple / Pura Agung Besakih | Temple | Bali Timur | Kompleks pura; satu kawasan induk dengan beberapa pura bagian |
+| Lempuyang Temple / Pura Lempuyang Luhur | Temple | Bali Timur | Kompleks pura; gerbang yang dikenal sebagai Gates of Heaven bukan entri pura terpisah |
+| Pasar Agung Temple / Pura Pasar Agung | Temple | Bali Timur | Karangasem; berhubungan dengan kawasan Gunung Agung |
+| Silayukti Temple / Pura Silayukti | Temple | Bali Timur | Padang Bai, Karangasem |
+| Goa Lawah Temple / Pura Goa Lawah | Temple | Bali Timur | Klungkung |
+| Bukit Jambul Temple / Pura Bukit Jambul | Temple | Bali Timur | Perlu validasi nama baku |
+| Andakasa Temple / Pura Andakasa | Temple | Bali Timur | Karangasem |
+| Gumang Temple / Pura Bukit Gumang | Temple | Bali Timur | Karangasem |
+| Tenganan Temple Sites | Temple | Bali Timur | Nama kawasan, belum satu identitas pura; perlu pecah berdasarkan nama resmi bila akan ditambahkan |
+| Pura Candidasa | Temple | Bali Timur | Nama dan identitas tempat perlu validasi |
+| Pura Penataran Agung Lempuyang | Temple | Bali Timur | Jangan digandakan bila merupakan bagian dari kompleks Lempuyang yang sama |
+
+### D. Bali Barat
+
+| Nama destinasi | Kategori baku | Wilayah | Catatan nama / pemeriksaan |
+|---|---|---|---|
+| Tanah Lot Temple / Pura Luhur Tanah Lot | Temple | Bali Barat | Tabanan; kelompok wilayah mengikuti inventaris pesisir barat |
+| Rambut Siwi Temple / Pura Rambut Siwi | Temple | Bali Barat | Jembrana |
+| Pura Luhur Srijong | Temple | Bali Barat | Tabanan; perlu validasi status sebagai destinasi |
+| Pura Gede Perancak | Temple | Bali Barat | Jembrana; perlu pemeriksaan nama dan sumber |
+| Pura Dang Kahyangan Jati | Temple | Bali Barat | Jembrana; nama perlu validasi |
+
+### E. Bali Utara
+
+| Nama destinasi | Kategori baku | Wilayah | Catatan nama / pemeriksaan |
+|---|---|---|---|
+| Beji Temple Sangsit / Pura Beji Sangsit | Temple | Bali Utara | Buleleng |
+| Meduwe Karang Temple / Pura Meduwe Karang | Temple | Bali Utara | Kubutambahan, Buleleng |
+| Ponjok Batu Temple / Pura Ponjok Batu | Temple | Bali Utara | Tejakula, Buleleng |
+| Pulaki Temple / Pura Pulaki | Temple | Bali Utara | Gerokgak, Buleleng |
+| Melanting Temple / Pura Melanting | Temple | Bali Utara | Pemuteran/Gerokgak; pastikan tidak tertukar dengan Melanting Waterfall |
+| Pabean Temple / Pura Pabean | Temple | Bali Utara | Kawasan Buleleng barat; perlu validasi |
+| Dalem Jagaraga Temple / Pura Dalem Jagaraga | Temple | Bali Utara | Buleleng; perlu validasi sebagai destinasi kunjungan |
+
+### F. Nusa Penida dan Nusa Lembongan
+
+| Nama destinasi | Kategori baku | Wilayah | Catatan nama / pemeriksaan |
+|---|---|---|---|
+| Goa Giri Putri Temple / Pura Goa Giri Putri | Temple | Nusa Penida | Kompleks pura dalam gua |
+| Dalem Ped Temple / Pura Dalem Ped | Temple | Nusa Penida | Kompleks pura; nama kawasan dan pura bagian perlu dibedakan |
+| Pura Puncak Mundi | Temple | Nusa Penida | Berada di kawasan Gunung Mundi |
+| Pura Batu Medawu | Temple | Nusa Penida | Perlu validasi nama dan titik lokasi |
+| Pura Segara Penida | Temple | Nusa Penida | Perlu validasi hubungan dengan nama kawasan Crystal Bay |
+| Pura Dalem Bungkut | Temple | Nusa Lembongan | Nama perlu validasi lokasi dan sumber |
+
+### Catatan kategori Temple
+
+1. Kompleks besar seperti Besakih dan Lempuyang harus dicatat sebagai kawasan induk. Pura bagian hanya dibuat menjadi entri tersendiri bila memiliki identitas, nama, dan fungsi kunjungan yang jelas.
+2. Gerbang foto, area parkir, pasar suvenir, dan titik pandang di sekitar pura bukan otomatis pura atau destinasi terpisah.
+3. Pura adalah tempat suci. Pencatatan sebagai destinasi tidak berarti semua area terbuka untuk wisatawan. Aturan kunjungan, pakaian, upacara, dan pembatasan akses merupakan data terpisah.
+4. Nama pura desa tidak dimasukkan secara massal hanya untuk mengejar jumlah. Prioritaskan nama yang memiliki sumber dan identitas kunjungan yang dapat diverifikasi.
+
+### Sumber Temple
+
+- [Discover Bali — Temples & Water Palaces](https://www.discoverbali.org/temples/)
+- [Indonesia Travel — Bali](https://www.indonesia.travel/id/id/destination/bali-nusa-tenggara/bali)
+- [Bali.com — Temples (Pura)](https://bali.com/temples-pura/)
+- [TARUBALI — RTRW Karangasem](https://tarubali.baliprov.go.id/karangasem)
+- [Ubud Authority — Peta destinasi dan tempat budaya](https://ubudauthority.com/en/carte)
+
+---
+
+## 14. Perluasan Inventaris Kategori Rice Terrace — Persawahan dan Terasering
+
+**Status:** INVENTARIS DIPERLUAS — PERLU AUDIT NAMA KAWASAN, SUBAK, DAN TITIK KUNJUNGAN.
+
+| Nama destinasi | Kategori baku | Wilayah | Catatan nama / pemeriksaan |
+|---|---|---|---|
+| Jatiluwih Rice Terraces | Rice Terrace | Bali Tengah | Tabanan; kawasan lanskap budaya dan sistem subak |
+| Tegallalang Rice Terraces | Rice Terrace | Bali Tengah | Gianyar; variasi ejaan: Tegalalang |
+| Pupuan Rice Terraces | Rice Terrace | Bali Barat | Tabanan; kawasan persawahan, bukan satu titik tunggal |
+| Belimbing Rice Terraces | Rice Terrace | Bali Barat | Tabanan |
+| Antosari Rice Fields | Rice Terrace | Bali Barat | Tabanan; perlu validasi nama destinasi khusus |
+| Wangaya Gede Rice Terraces | Rice Terrace | Bali Tengah | Tabanan; perlu validasi apakah berdiri sebagai entri tersendiri dari kawasan Batukaru |
+| Sidemen Rice Terraces | Rice Terrace | Bali Timur | Karangasem; kawasan persawahan lembah Sidemen |
+| Bukit Jambul Rice Terrace | Rice Terrace / Viewpoint | Bali Timur | Karangasem; satu entri dengan dua karakteristik |
+| Rendang Rice Terraces | Rice Terrace | Bali Timur | Karangasem; nama kawasan, perlu validasi titik kunjungan |
+| Sebatu Rice Fields | Rice Terrace | Bali Tengah | Gianyar; perlu validasi nama destinasi dan batas kawasan |
+| Pejeng Rice Fields | Rice Terrace | Bali Tengah | Gianyar; jangan dibuat sebagai titik wisata tanpa identitas khusus |
+| Manggis Rice Terraces | Rice Terrace | Bali Timur | Karangasem; perlu validasi |
+| Berina Rice Terrace | Rice Terrace | Bali Timur | Karangasem; nama pada inventaris awal, perlu validasi lokasi |
+| Kintamani Rice Fields | Rice Terrace | Bali Tengah | Bangli; kawasan luas, bukan satu titik |
+| Munduk Rice Fields | Rice Terrace | Bali Utara | Buleleng; kawasan persawahan lokal perlu validasi identitas destinasi |
+
+### Catatan Rice Terrace
+
+1. Nama seperti Sidemen, Pupuan, Kintamani, dan Munduk dapat menunjuk kawasan luas, bukan satu objek dengan pintu masuk tunggal. Simpan sebagai area destinasi sampai titik spesifik diketahui.
+2. Subak merupakan sistem pengelolaan irigasi dan lanskap budaya, bukan otomatis nama destinasi terpisah.
+3. Jatiluwih memiliki pengakuan UNESCO sebagai bagian dari lanskap budaya Bali; status tersebut tidak otomatis berlaku untuk semua sawah di Bali.
+4. Jangan menganggap setiap hamparan sawah sebagai produk wisata atau lokasi kunjungan publik.
+
+### Sumber Rice Terrace
+
+- [Indonesia Travel — Bali](https://www.indonesia.travel/id/id/destination/bali-nusa-tenggara/bali)
+- [Discover Bali — Tabanan](https://www.discoverbali.org/areas/tabanan/)
+- [Ubud Authority — Peta destinasi](https://ubudauthority.com/en/carte)
+- [TARUBALI — Dokumen tata ruang Provinsi Bali](https://tarubali.baliprov.go.id/)
+
+---
+
+## 15. Perluasan Inventaris Kategori Village — Desa dan Kawasan Tradisional
+
+**Status:** INVENTARIS DIPERLUAS — PERLU AUDIT IDENTITAS DESA, KAWASAN, DAN STATUS KUNJUNGAN.
+
+| Nama destinasi | Kategori baku | Wilayah | Catatan nama / pemeriksaan |
+|---|---|---|---|
+| Penglipuran Traditional Village | Village | Bali Tengah | Bangli |
+| Tenganan Pegringsingan Village | Village | Bali Timur | Karangasem; variasi nama: Tenganan |
+| Trunyan Village | Village | Bali Tengah | Bangli; berada di tepi Danau Batur |
+| Pengotan Village | Village | Bali Tengah | Bangli; perlu validasi status kunjungan |
+| Bayung Gede Village | Village | Bali Tengah | Kintamani, Bangli |
+| Batuan Village | Village | Bali Tengah | Gianyar |
+| Mas Village | Village | Bali Tengah | Gianyar; pusat kerajinan ukir kayu |
+| Celuk Village | Village | Bali Tengah | Gianyar; pusat kerajinan perak |
+| Tohpati Village | Village | Bali Selatan | Denpasar; dikenal dengan kerajinan tenun |
+| Kamasan Village | Village | Bali Timur | Klungkung; dikenal dengan seni lukis tradisional |
+| Gelgel Village | Village | Bali Timur | Klungkung; identitas sejarah dan budaya perlu dirujuk pada sumber lokal |
+| Sembiran Village | Village | Bali Utara | Buleleng; desa Bali Aga |
+| Julah Village | Village | Bali Utara | Buleleng; desa Bali Aga |
+| Sidatapa Village | Village | Bali Utara | Buleleng; desa Bali Aga |
+| Tigawasa Village | Village | Bali Utara | Buleleng; desa Bali Aga |
+| Cempaga Village | Village | Bali Utara | Buleleng; desa Bali Aga |
+| Munduk Village | Village | Bali Utara | Buleleng; kawasan dataran tinggi |
+| Pemuteran Village | Village | Bali Barat | Buleleng; kawasan pesisir dan konservasi laut |
+| Blimbingsari Village | Village | Bali Barat | Jembrana; identitas budaya dan sejarah perlu validasi |
+| Nyambu Village | Village | Bali Barat | Tabanan; perlu validasi sebagai destinasi kunjungan |
+| Jatiluwih Village | Village | Bali Tengah | Tabanan; bedakan desa administratif dengan entri lanskap persawahan Jatiluwih |
+| Kertalangu Cultural Village | Village / Cultural Park | Bali Selatan | Denpasar; perlu pemeriksaan status dan nama resmi |
+| Panglipuran / Penglipuran | Village | Bali Tengah | Alias ejaan; satu entri dengan Penglipuran Traditional Village |
+
+### Catatan Village
+
+1. Desa administratif tidak otomatis menjadi destinasi wisata. Entri di atas adalah kandidat kawasan/desa yang memiliki identitas budaya, kerajinan, lanskap, atau kunjungan yang dapat ditelusuri.
+2. Nama desa dan nama atraksi di dalam desa harus dibedakan. Contoh: Penglipuran Village dan Bamboo Forest Penglipuran adalah dua objek data berbeda yang memiliki hubungan lokasi.
+3. Desa Bali Aga adalah kelompok budaya/karakteristik, bukan kategori utama yang menggantikan Village.
+4. Status kunjungan, izin, dan etika berkunjung perlu diperiksa sebelum konten atau produk dibuat.
+
+### Sumber Village
+
+- [Indonesia Travel — Bali](https://www.indonesia.travel/id/id/destination/bali-nusa-tenggara/bali)
+- [Discover Bali — Destinations](https://www.discoverbali.org/)
+- [Ubud Authority — Peta destinasi](https://ubudauthority.com/en/carte)
+- [Dinas Pariwisata Provinsi Bali — Data daya tarik wisata](https://disparda.baliprov.go.id/data-daya-tarik-wisata-dan-desa-wisata-tahun-2025-provinsi-bali)
+
+---
+
+## 16. Perluasan Inventaris Kategori Forest, National Park, dan Mangrove
+
+**Status:** INVENTARIS DIPERLUAS — PERLU VALIDASI BATAS KAWASAN DAN NAMA OBJEK.
+
+### A. Forest
+
+| Nama destinasi | Kategori baku | Wilayah | Catatan nama / pemeriksaan |
+|---|---|---|---|
+| Sacred Monkey Forest Sanctuary / Mandala Suci Wenara Wana | Forest | Bali Tengah | Ubud, Gianyar; kawasan hutan dan situs pura |
+| Sangeh Monkey Forest | Forest | Bali Tengah | Badung |
+| Alas Kedaton Monkey Forest | Forest | Bali Tengah | Tabanan; bedakan hutan dari pura di dalam kawasan |
+| Penglipuran Bamboo Forest | Forest | Bali Tengah | Bangli; berhubungan dengan Penglipuran Village, tetapi objeknya berbeda |
+| Kintamani Pine Forest | Forest | Bali Tengah | Bangli; nama kawasan perlu validasi batas dan nama baku |
+| Wanagiri Forest | Forest | Bali Utara | Buleleng; perlu validasi identitas agar tidak tertukar dengan viewpoint Wanagiri |
+| Bali Botanical Garden Forest Area | Forest / Garden | Bali Tengah | Kebun Raya Bali; kategori utama yang dipakai di inventaris terpisah adalah Garden / Park |
+| West Bali Lowland Forest | Forest | Bali Barat | Bagian ekosistem Taman Nasional Bali Barat, bukan entri terpisah tanpa batas kawasan |
+| Bali Mangrove Forest | Mangrove | Bali Selatan | Tahura Ngurah Rai; gunakan nama kawasan resmi pada entri induk |
+| Nusa Lembongan Mangrove Forest | Mangrove | Nusa Lembongan | Kawasan mangrove Lembongan |
+
+### B. National Park
+
+| Nama destinasi | Kategori baku | Wilayah | Catatan nama / pemeriksaan |
+|---|---|---|---|
+| West Bali National Park / Taman Nasional Bali Barat | National Park | Bali Barat | Kawasan lintas Jembrana dan Buleleng; satu entri kawasan induk |
+| Bali Barat National Park — Menjangan Area | National Park / Island Area | Bali Barat | Menjangan merupakan bagian kawasan taman nasional; jangan menggandakan taman nasional |
+| Bali Barat National Park — Prapat Agung Peninsula | National Park / Peninsula | Bali Barat | Bagian kawasan taman nasional, bukan taman nasional kedua |
+
+### C. Mangrove
+
+| Nama destinasi | Kategori baku | Wilayah | Catatan nama / pemeriksaan |
+|---|---|---|---|
+| Tahura Ngurah Rai Mangrove Forest | Mangrove | Bali Selatan | Denpasar–Badung; kawasan konservasi mangrove |
+| Nusa Lembongan Mangrove Forest | Mangrove | Nusa Lembongan | Kawasan mangrove pulau |
+| Perancak Mangrove Area | Mangrove | Bali Barat | Jembrana; perlu validasi batas dan nama pengelolaan |
+| Bunyut Bolong Mangrove | Mangrove | Bali Barat | Nama kawasan belum terkonfirmasi; jangan disamakan dengan Bunut Bolong Tree Landmark |
+
+### Catatan Forest, National Park, dan Mangrove
+
+1. Hutan lindung, kawasan konservasi, taman nasional, dan tempat wisata di dalamnya dapat memiliki hubungan induk-anak. Jangan membuat beberapa entri taman nasional untuk tiap titik akses.
+2. Monkey Forest dapat memiliki kategori utama Forest dan label tambahan Wildlife / Cultural Site; keberadaan satwa bukan alasan untuk membuat kategori utama baru.
+3. Tahura Ngurah Rai adalah kawasan konservasi; jalur boardwalk atau titik masuk bukan otomatis destinasi induk berbeda.
+4. Mangrove Lembongan dan Tahura Ngurah Rai adalah kawasan berbeda dan tidak boleh disatukan.
+
+### Sumber Forest, National Park, dan Mangrove
+
+- [Indonesia Travel — Bali](https://www.indonesia.travel/id/id/destination/bali-nusa-tenggara/bali)
+- [Visit Bali — National Parks](https://www.visitbali.org/about-bali/national-parks/)
+- [Balai Taman Nasional Bali Barat](https://tnbalibarat.ksdae.kehutanan.go.id/)
+- [Balai KSDA Bali](https://ksdae.kehutanan.go.id/balai-ksda-tn/balai-ksda-bali/)
+- [Ubud Authority — Peta destinasi](https://ubudauthority.com/en/carte)
+
+---
+
+## 17. Perluasan Inventaris Kategori Cliff, Hill, Viewpoint, dan Landmark
+
+**Status:** INVENTARIS DIPERLUAS — PERLU AUDIT APAKAH NAMA MENUNJUK TITIK ATAU KAWASAN.
+
+### A. Cliff / Tebing
+
+| Nama destinasi | Kategori baku | Wilayah | Catatan nama / pemeriksaan |
+|---|---|---|---|
+| Tanah Barak Cliff | Cliff | Bali Selatan | Badung |
+| Karang Boma Cliff | Cliff / Viewpoint | Bali Selatan | Uluwatu, Badung |
+| Uluwatu Cliff | Cliff / Viewpoint | Bali Selatan | Nama kawasan umum; perlu titik khusus agar tidak menjadi duplikat Pura Uluwatu |
+| Tegal Wangi Cliff | Cliff / Coastal Viewpoint | Bali Selatan | Jimbaran, Badung |
+| Gunung Payung Cliff | Cliff | Bali Selatan | Badung; bedakan dari pantainya |
+| Balangan Cliff | Cliff / Viewpoint | Bali Selatan | Badung |
+| Paluang Cliff | Cliff | Nusa Penida | — |
+| Atuh Cliff | Cliff | Nusa Penida | Bedakan dari Atuh Beach |
+| Ceningan Cliffs | Cliff | Nusa Ceningan | Kawasan tebing, bukan satu titik tunggal |
+| Bukit Cinta Karangasem | Hill / Viewpoint | Bali Timur | Perlu validasi nama dan lokasi |
+| Sorga / Surga Cliff | Cliff / Viewpoint | Bali Timur | Nama perlu validasi; jangan digunakan sebagai entri final sebelum lokasi pasti |
+| Yeh Leh Cliff | Cliff | Bali Barat | Perlu validasi apakah merupakan nama destinasi resmi atau sebutan bentang pantai |
+
+### B. Hill / Viewpoint
+
+| Nama destinasi | Kategori baku | Wilayah | Catatan nama / pemeriksaan |
+|---|---|---|---|
+| Lahangan Sweet | Viewpoint | Bali Timur | Karangasem |
+| Bukit Asah | Hill / Viewpoint | Bali Timur | Karangasem |
+| Bukit Cinta | Hill / Viewpoint | Bali Timur | Karangasem; nama generik perlu koordinat agar tidak tertukar |
+| Bukit Jambul | Hill / Viewpoint | Bali Timur | Karangasem; terkait kawasan rice terrace |
+| Teletubbies Hill | Hill / Viewpoint | Nusa Penida | Nama populer untuk perbukitan savana |
+| Thousand Islands Viewpoint / Raja Lima | Viewpoint | Nusa Penida | Area pandang yang terkait kawasan Rumah Pohon Molenteng; perlu validasi batas objek |
+| Molenteng Tree House Viewpoint | Viewpoint | Nusa Penida | Terhubung dengan kawasan Raja Lima; bedakan landmark rumah pohon dari viewpoint |
+| Wanagiri Hidden Hill | Hill / Viewpoint | Bali Utara | Buleleng |
+| Handara Gate Viewpoint | Viewpoint / Landmark | Bali Tengah | Gate dan viewpoint terkait satu kawasan; jangan otomatis menggabungkan dengan objek lain |
+| Campuhan Ridge Walk | Hill / Nature Walk | Bali Tengah | Ubud; jalur punggung bukit, bukan gunung |
+| Campuhan Hill | Hill | Bali Tengah | Jangan dibuat terpisah dari Campuhan Ridge Walk tanpa bukti identitas lokasi lain |
+| Kintamani Viewpoint | Viewpoint | Bali Tengah | Nama kawasan generik; titik pandang spesifik perlu dicatat |
+| Pinggan Sunrise Viewpoint | Viewpoint | Bali Tengah | Bangli |
+| Sari Mountain Viewpoint | Viewpoint | Bali Tengah | Nama perlu validasi |
+| Bukit Belong | Hill / Viewpoint | Bali Timur | Klungkung; perlu validasi nama dan akses |
+| Bukit Teletubbies Nusa Lembongan | Hill / Viewpoint | Nusa Lembongan | Perlu validasi apakah berbeda dari nama serupa di Nusa Penida |
+
+### C. Gate / Landmark
+
+| Nama destinasi | Kategori baku | Wilayah | Catatan nama / pemeriksaan |
+|---|---|---|---|
+| Handara Gate | Gate / Landmark | Bali Tengah | Bedugul; landmark gerbang kawasan golf |
+| Gates of Heaven / Lempuyang Gate | Gate / Landmark | Bali Timur | Bagian dari kompleks Pura Lempuyang, bukan pura terpisah |
+| Candi Bentar Bali Gate at Taman Ujung | Gate / Landmark | Bali Timur | Gerbang bagian dari kompleks Taman Ujung; bukan entri terpisah kecuali ada kebutuhan titik lokasi |
+| Bajra Sandhi Monument | Monument | Bali Selatan | Denpasar |
+| Garuda Wisnu Kencana Statue | Monument / Cultural Landmark | Bali Selatan | Patung dan kawasan GWK perlu dibedakan sebagai landmark dan cultural park |
+| Bunut Bolong | Natural Landmark | Bali Barat | Jembrana; pohon berlubang dengan jalan yang melintas |
+| Yellow Bridge | Bridge / Landmark | Nusa Lembongan | Menghubungkan Nusa Lembongan dan Nusa Ceningan |
+| Tukad Bangkung Bridge | Bridge / Landmark | Bali Tengah | Badung; perlu validasi apakah dimasukkan sebagai destinasi kunjungan |
+| Bali Bombing Memorial | Monument / Memorial | Bali Selatan | Kuta; lokasi peringatan, kategori sensitif budaya dan sejarah |
+
+### Catatan Cliff, Hill, Viewpoint, dan Landmark
+
+1. Satu kawasan dapat memiliki beberapa titik pandang, tetapi hanya dipisahkan jika nama dan lokasinya memang dikenal sebagai titik berbeda.
+2. Nama generik seperti Bukit Cinta, Kintamani Viewpoint, atau Uluwatu Cliff membutuhkan titik lokasi untuk mencegah duplikasi.
+3. Landmark yang merupakan bagian dari kompleks utama tidak otomatis menjadi entri destinasi terpisah.
+4. Objek memorial dan situs sejarah memerlukan penanganan editorial yang hormat dan faktual.
+
+### Sumber Cliff, Hill, Viewpoint, dan Landmark
+
+- [Discover Bali — Destinations](https://www.discoverbali.org/)
+- [Ubud Authority — Peta destinasi](https://ubudauthority.com/en/carte)
+- [Visit Bali — All Destinations](https://visitbali.com/best-destinations)
+- [Indonesia Travel — Bali](https://www.indonesia.travel/id/id/destination/bali-nusa-tenggara/bali)
+
+---
+
+## 18. Perluasan Inventaris Kategori Garden / Park, Hot Spring, Museum, Market, dan Farm / Plantation
+
+**Status:** INVENTARIS DIPERLUAS — PERLU VALIDASI STATUS OPERASIONAL DAN IDENTITAS NAMA.
+
+### A. Garden / Park
+
+| Nama destinasi | Kategori baku | Wilayah | Catatan nama / pemeriksaan |
+|---|---|---|---|
+| Bali Botanic Garden / Kebun Raya Bali | Garden / Park | Bali Tengah | Bedugul, Tabanan |
+| Garuda Wisnu Kencana Cultural Park | Cultural Park | Bali Selatan | Badung; patung GWK merupakan landmark di dalam kawasan |
+| Taman Nusa | Cultural Park | Bali Tengah | Gianyar; status operasional dan nama terbaru perlu diperiksa |
+| Bali Orchid Garden | Garden | Bali Selatan | Denpasar; perlu validasi status kunjungan |
+| Big Garden Corner | Garden / Park | Bali Selatan | Denpasar; status operasional perlu diperiksa |
+| Taman Ujung Water Palace | Water Palace / Garden | Bali Timur | Karangasem |
+| Tirta Gangga Water Palace | Water Palace / Garden | Bali Timur | Karangasem |
+| Soekasada Ujung Garden | Water Palace / Garden | Bali Timur | Alias kawasan Taman Ujung; satu entri |
+| Alas Harum Bali | Agrotourism Park | Bali Tengah | Tegallalang; bedakan kawasan atraksi dengan kebun kopi generik |
+| Bali Bird Park | Wildlife Park | Bali Tengah | Gianyar |
+| Bali Zoo | Wildlife Park | Bali Tengah | Gianyar |
+| Bali Safari and Marine Park | Wildlife Park | Bali Timur | Gianyar timur; nama komersial dan status harus diperiksa |
+| Taman Pujaan Bangsa Margarana | Memorial Park | Bali Barat | Tabanan; kategori memorial/heritage |
+
+### B. Hot Spring
+
+| Nama destinasi | Kategori baku | Wilayah | Catatan nama / pemeriksaan |
+|---|---|---|---|
+| Banjar Hot Spring | Hot Spring | Bali Utara | Buleleng |
+| Angseri Hot Spring | Hot Spring | Bali Tengah | Tabanan |
+| Penatahan Hot Spring / Yeh Panes | Hot Spring | Bali Tengah | Tabanan; alias perlu diverifikasi |
+| Toya Devasya Hot Spring | Hot Spring | Bali Tengah | Kintamani, Bangli; nama komersial fasilitas pemandian air panas |
+| Batur Natural Hot Spring | Hot Spring | Bali Tengah | Kintamani; perlu audit apakah sama dengan fasilitas Toya Devasya atau lokasi lain |
+| Belulang Hot Spring | Hot Spring | Bali Barat | Tabanan; perlu validasi akses dan nama baku |
+| Mengeruda Hot Spring | Hot Spring | Bali Tengah | Nama dari sumber awal perlu validasi karena lokasi/identitasnya tidak boleh diasumsikan di Bali |
+| Yeh Panes Hot Spring | Hot Spring | Bali Tengah | Jangan digandakan dari Penatahan sebelum alias dipastikan |
+
+### C. Museum
+
+| Nama destinasi | Kategori baku | Wilayah | Catatan nama / pemeriksaan |
+|---|---|---|---|
+| Bali Museum / Museum Bali | Museum | Bali Selatan | Denpasar |
+| Subak Museum / Museum Subak | Museum | Bali Barat | Tabanan |
+| Neka Art Museum | Museum | Bali Tengah | Ubud, Gianyar |
+| Agung Rai Museum of Art (ARMA) | Museum | Bali Tengah | Ubud, Gianyar |
+| Puri Lukisan Museum | Museum | Bali Tengah | Ubud, Gianyar |
+| Blanco Renaissance Museum | Museum | Bali Tengah | Ubud, Gianyar |
+| Rudana Museum | Museum | Bali Tengah | Peliatan, Gianyar |
+| Museum Gedong Kirtya | Museum | Bali Utara | Singaraja, Buleleng |
+| Buleleng Museum | Museum | Bali Utara | Singaraja; nama dan status koleksi perlu validasi |
+| Semarajaya Museum | Museum | Bali Timur | Klungkung |
+| Kerta Gosa Museum / Bale Kambang | Museum / Heritage Site | Bali Timur | Kompleks Kerta Gosa; hindari entri ganda dengan Kerta Gosa |
+| Museum Gunungapi Batur | Museum | Bali Tengah | Kintamani; nama resmi dan status kunjungan perlu validasi |
+| Museum Yadnya | Museum | Bali Tengah | Mengwi, Badung; perlu validasi status operasional |
+| Museum Le Mayeur | Museum | Bali Selatan | Sanur, Denpasar; status operasional dan akses perlu diperiksa |
+
+### D. Market
+
+| Nama destinasi | Kategori baku | Wilayah | Catatan nama / pemeriksaan |
+|---|---|---|---|
+| Ubud Art Market / Pasar Seni Ubud | Market | Bali Tengah | Gianyar |
+| Sukawati Art Market / Pasar Seni Sukawati | Market | Bali Tengah | Gianyar |
+| Guwang Art Market / Pasar Seni Guwang | Market | Bali Tengah | Gianyar |
+| Kumbasari Market | Market | Bali Selatan | Denpasar |
+| Badung Market / Pasar Badung | Market | Bali Selatan | Denpasar |
+| Candi Kuning Market | Market | Bali Tengah | Bedugul, Tabanan |
+| Kuta Art Market | Market | Bali Selatan | Badung |
+| Sanur Night Market / Sindhu Night Market | Market | Bali Selatan | Alias kawasan Pasar Sindhu; satu entri sementara |
+| Gianyar Night Market / Pasar Senggol Gianyar | Market | Bali Tengah | Gianyar; nama resmi perlu validasi |
+| Klungkung Market / Pasar Umum Klungkung | Market | Bali Timur | Klungkung; perlu validasi nama yang dipakai untuk kunjungan |
+| Amlapura Market | Market | Bali Timur | Karangasem; perlu validasi identitas dan nama resmi |
+
+### E. Farm / Plantation / Agrotourism
+
+| Nama destinasi | Kategori baku | Wilayah | Catatan nama / pemeriksaan |
+|---|---|---|---|
+| Bali Pulina Agro Tourism | Farm / Plantation | Bali Tengah | Tegallalang, Gianyar |
+| Alas Harum Bali | Agrotourism Park | Bali Tengah | Tegallalang; satu entri kawasan atraksi |
+| Satria Agrowisata | Farm / Plantation | Bali Tengah | Gianyar; status operasional dan nama perlu diperiksa |
+| Abian Salak Agrotourism | Farm / Plantation | Bali Tengah | Nama perlu validasi lokasi dan status |
+| Munduk Coffee Plantation | Farm / Plantation | Bali Utara | Buleleng; perlu nama kebun spesifik bila tersedia |
+| Kintamani Coffee Plantation | Farm / Plantation | Bali Tengah | Kawasan produksi kopi, bukan satu tempat spesifik tanpa nama kebun |
+| Tenganan Ata / Traditional Salt Farm | Farm / Traditional Production | Bali Timur | Karangasem; nama objek dan lokasi produksi perlu validasi |
+| Amed Salt Farm | Farm / Traditional Production | Bali Timur | Karangasem; perlu pemeriksaan apakah ada lokasi kunjungan bernama khusus |
+| Seaweed Farm Lembongan | Farm / Aquaculture | Nusa Lembongan | Kegiatan budidaya; bukan otomatis fasilitas wisata yang aktif |
+| Bali Chocolate Factory | Farm / Factory | Bali Timur | Karangasem; nama usaha dan status perlu diverifikasi sebelum menjadi entri final |
+
+### Catatan Garden, Hot Spring, Museum, Market, dan Farm
+
+1. Nama fasilitas komersial dapat berubah, tutup, atau berganti pemilik. Status operasional tidak disimpulkan dari keberadaan nama di direktori lama.
+2. Taman Ujung dan Tirta Gangga dikategorikan sebagai Water Palace / Garden, bukan Palace kerajaan aktif.
+3. Pasar tradisional adalah destinasi kunjungan hanya jika identitas pasar dan akses publiknya dapat dikonfirmasi.
+4. Kebun kopi generik atau area produksi pertanian tidak otomatis menjadi destinasi agrowisata. Diperlukan nama usaha/lokasi atau bukti akses kunjungan.
+5. Fasilitas kebun binatang dan taman satwa menggunakan kategori Wildlife Park; bukan kategori Garden biasa.
+6. Nama Mengeruda Hot Spring perlu validasi lokasi administratif sebelum dimasukkan sebagai destinasi Bali. Jangan mengasumsikan nama itu berada di Bali hanya karena muncul dalam daftar awal.
+
+### Sumber Garden, Hot Spring, Museum, Market, dan Farm
+
+- [Indonesia Travel — Bali](https://www.indonesia.travel/id/id/destination/bali-nusa-tenggara/bali)
+- [Ubud Authority — Peta destinasi](https://ubudauthority.com/en/carte)
+- [Discover Bali — Tabanan](https://www.discoverbali.org/areas/tabanan/)
+- [Dinas Pariwisata Provinsi Bali — Data daya tarik wisata dan desa wisata 2025](https://disparda.baliprov.go.id/data-daya-tarik-wisata-dan-desa-wisata-tahun-2025-provinsi-bali)
+- [Visit Bali — All Destinations](https://visitbali.com/best-destinations)
+
+---
+
+## 19. Status dan Batas Perluasan Kategori Destinasi Lain
+
+- Kategori Temple, Rice Terrace, Village, Forest, National Park, Mangrove, Cliff, Hill / Viewpoint, Gate / Landmark, Garden / Park, Hot Spring, Museum, Market, dan Farm / Plantation telah memiliki inventaris kerja awal.
+- Inventaris Temple hanya mencakup situs yang dapat ditelusuri sebagai kandidat destinasi; bukan daftar seluruh pura di Bali.
+- Kategori Village dan Rice Terrace mencakup beberapa kawasan luas. Lokasi rinci atau titik kunjungan perlu dipisahkan ketika tersedia.
+- Kategori komersial seperti museum, pasar, kebun, taman, dan pemandian air panas membutuhkan pemeriksaan status operasional sebelum digunakan untuk publik.
+- Nama yang generik, mirip, atau berpotensi berada di luar Bali tetap ditandai perlu validasi.
+- Inventaris ini tidak menyatakan tempat-tempat tersebut sedang buka, memiliki fasilitas wisata, atau dapat dimasukkan ke dalam paket.
+- Kategori, wilayah, alias, kualitas sumber, status akses, dan status kurasi tetap merupakan atribut yang terpisah.
+- Tidak ada perubahan website atau keputusan desain/halaman sebagai akibat dari perluasan inventaris ini.
+
