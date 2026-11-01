@@ -1,36 +1,36 @@
-# SHR-001 — Shared Booking Form Master
+# SHR-001 — Master Formulir Pemesanan Bersama
 
-Implementation status: IMPLEMENTED as a reusable form and service adapters  
-Approval status: Canonical visual reference recorded in `TEMPLATE-REGISTRY.md`; verify final owner approval before treating every detail as LOCKED  
-Canonical HTML: `booking-form.html`  
-Canonical CSS: `assets/css/pages/booking-form.css`  
-Canonical JavaScript: `assets/js/pages/booking-form.js`  
-Related airport checkout: `bali-airport-transfer-checkout.html`, `assets/css/pages/bali-airport-transfer-checkout.css`, `assets/js/pages/bali-airport-transfer-checkout.js`
+**Status penerapan:** SUDAH DITERAPKAN sebagai formulir yang dapat digunakan ulang dan penyesuai layanan  
+**Status persetujuan:** Acuan visual utama tercatat di `TEMPLATE-REGISTRY.md`; periksa persetujuan final sebelum menganggap setiap detail sebagai ketentuan tetap  
+**HTML utama:** `booking-form.html`  
+**CSS utama:** `assets/css/pages/booking-form.css`  
+**JavaScript utama:** `assets/js/pages/booking-form.js`  
+**Checkout bandara terkait:** `bali-airport-transfer-checkout.html`, `assets/css/pages/bali-airport-transfer-checkout.css`, `assets/js/pages/bali-airport-transfer-checkout.js`
 
-## Purpose
+## Tujuan
 
-Reuse one booking-form visual structure while adapting fields, validation, summary and submission payload to the selected service.
+Menggunakan kembali satu susunan visual formulir pemesanan sambil menyesuaikan kolom, validasi, ringkasan, dan data pengiriman sesuai layanan yang dipilih.
 
-## Service modes recorded in TEMPLATE-REGISTRY.md
+## Mode Layanan yang Tercatat di TEMPLATE-REGISTRY.md
 
 - `airport-transfer`
 - `car-rental`
 - `full-day-tour`
 
-The Dolphin Tour adapter is activated by `tourId=lovina-dolphin-tour`. Other full-day tours must not inherit Dolphin Tour prices; they use a supplied estimate or a quote-pending state.
+Penyesuai Dolphin Tour diaktifkan melalui `tourId=lovina-dolphin-tour`. Wisata sehari penuh lainnya tidak boleh otomatis menggunakan harga Dolphin Tour; gunakan perkiraan yang diberikan atau status menunggu penawaran harga.
 
-## Reuse rules
+## Aturan Penggunaan Ulang
 
-- Reuse the canonical form structure and visual design.
-- Service adapters may change relevant fields, labels, validation, summary and WhatsApp payload.
-- Do not create a second visual design for each service without explicit approval.
-- Preserve the selected package, vehicle and extras when handing off from a tour page.
-- A request remains a request until the team confirms it.
+- Gunakan kembali susunan dan desain visual formulir utama.
+- Penyesuai layanan boleh mengubah kolom, label, validasi, ringkasan, dan data pesan WhatsApp yang memang relevan.
+- Jangan membuat desain visual kedua untuk setiap layanan tanpa persetujuan yang jelas.
+- Pertahankan paket, kendaraan, dan tambahan yang dipilih ketika pelanggan berpindah dari halaman wisata ke formulir.
+- Permintaan pelanggan tetap berstatus permintaan sampai dikonfirmasi oleh tim.
 
-## Important capability boundary
+## Batas Kemampuan yang Penting
 
-This is a static prototype and WhatsApp request handoff. Do not describe it as a live booking inventory, confirmed reservation or online payment system. The repository does not currently establish a production booking backend or payment processing.
+Ini merupakan prototipe statis dan pengalihan permintaan melalui WhatsApp. Jangan menyebutnya sebagai inventaris pemesanan langsung, reservasi yang sudah dikonfirmasi, atau sistem pembayaran daring. Repository saat ini belum menyediakan backend pemesanan produksi atau pemrosesan pembayaran.
 
-## Regression requirements
+## Persyaratan Pengujian Ulang
 
-When a service adapter changes, test the affected service and at least one existing service using the shared form. Preserve Airport Transfer behaviour and the approved form layout.
+Ketika penyesuai layanan berubah, uji layanan yang terdampak dan setidaknya satu layanan lain yang menggunakan formulir bersama. Pertahankan perilaku Airport Transfer dan tata letak formulir yang telah menjadi acuan.
