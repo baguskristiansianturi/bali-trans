@@ -29,3 +29,14 @@ For every master update, record:
 - No HTML, CSS, JavaScript, data, assets, routes or runtime behaviour changed.
 - Baseline implementation snapshot: `a8d4282293d98923ecf160f52d95fe6168dd905d`.
 - Verification: repository tree and referenced source/documentation inspected; no live UI change was part of this documentation-only update.
+
+### 2026-11-01 — Initial Product Foundation and Service Master records
+
+- Added [`PRODUCT-FOUNDATION.md`](./PRODUCT-FOUNDATION.md) with the discussed premium Muslim-friendly positioning, inclusive global target market, customer groups, Muslim-friendly support value, premium driver experience, pricing philosophy and website-as-travel-resource role.
+- Added [`SERVICE-MASTER.md`](./SERVICE-MASTER.md) with the current Private Transport category and four service types: Airport Transfer, Port Transfer, Intercity Transfer and Private Bali Tour.
+- Added [`FUTURE-IDEAS.md`](./FUTURE-IDEAS.md), recording Bali–Java Transfer strictly as a FUTURE IDEA, not an active service, page or implementation task.
+- Added [`WORK-REGISTER.md`](./WORK-REGISTER.md) to track unfinished discovery incrementally across topics.
+- Updated the Master index and session checkpoint to point to the new records.
+- Status: initial baseline recorded from the discussion; the website's fundamental purpose and several operational/commercial details remain open for further discovery and validation.
+- Scope: documentation only. No HTML, CSS, JavaScript, runtime data, routes, design, deployment configuration or live website behaviour changed.
+- Verification: new and updated Markdown files fetched from GitHub after writing; repository documentation links and status notes reviewed.
