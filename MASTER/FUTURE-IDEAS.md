@@ -1,36 +1,36 @@
-# Future Ideas Register — Bali Trans / BDM Trans
+# Daftar Ide Masa Depan — Bali Trans / BDM Trans
 
-> This register preserves ideas without presenting them as available services or approved implementation work.
+> Dokumen ini menyimpan ide tanpa menyajikannya seolah-olah sudah menjadi layanan yang tersedia atau pekerjaan penerapan yang disetujui.
 
-| Field | Record |
+| Keterangan | Catatan |
 |---|---|
-| Document ID | FI-001 |
-| Status | IDEA REGISTER |
-| First recorded | 2026-11-01 |
-| Last updated | 2026-11-01 |
+| ID Dokumen | FI-001 |
+| Status | DAFTAR IDE |
+| Pertama dicatat | 2026-11-01 |
+| Terakhir diperbarui | 2026-11-01 |
 
 ---
 
-## 💡 FI-001 — Bali–Java Transfer
+## 💡 FI-001 — Transfer Bali–Jawa
 
 <blockquote>
-**FUTURE IDEA — NOT IMPLEMENTED**
+**IDE MASA DEPAN — BELUM DITERAPKAN**
 </blockquote>
 
-**Concept:** Explore a private transfer service connecting Bali and Java.
+**Konsep:** Menjajaki layanan transfer privat yang menghubungkan Bali dan Jawa.
 
-**Current status:** Early idea only.
+**Status saat ini:** Masih berupa gagasan awal.
 
-**Not included in current scope:**
-- It is not one of the four current Private Transport service types.
-- No service page or website route should be created for it now.
-- No pricing, operational plan, vehicle policy or launch date has been established.
-- It is not an active work item or implementation PR.
+**Belum termasuk dalam cakupan saat ini:**
+- Belum menjadi salah satu dari empat jenis layanan Transportasi Privat yang aktif.
+- Belum boleh dibuatkan halaman layanan atau alamat halaman website.
+- Harga, rencana operasional, aturan kendaraan, dan tanggal peluncuran belum ditetapkan.
+- Belum menjadi pekerjaan aktif atau tugas penerapan kode.
 
-**Possible next step if reconsidered:** Discuss demand, route and crossing logistics, operating model, vehicle arrangements, pricing and customer requirements. Only after that discussion may it be promoted into the Service Master and Work Register.
+**Langkah berikutnya jika dibahas kembali:** Pelajari kebutuhan pasar, rute dan proses penyeberangan, model operasional, pengaturan kendaraan, harga, serta kebutuhan pelanggan. Hanya setelah pembahasan tersebut, ide ini dapat dipertimbangkan untuk dimasukkan ke Master Layanan dan Daftar Pekerjaan.
 
-## Change History
+## Riwayat Perubahan
 
-| Date | Change | Status |
+| Tanggal | Perubahan | Status |
 |---|---|---|
-| 2026-11-01 | Recorded Bali–Java Transfer as a future concept at Mas Bagus's request | FUTURE IDEA |
+| 2026-11-01 | Mencatat Transfer Bali–Jawa sebagai konsep masa depan atas permintaan Mas Bagus | IDE MASA DEPAN |
