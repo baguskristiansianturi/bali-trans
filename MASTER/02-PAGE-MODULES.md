@@ -14,7 +14,7 @@ Semua tampilan SPA dijalankan melalui index.html dan ditampilkan di dalam #appCo
 | Penjelajahan/destinasi | assets/js/views/discovery.js | Sudah ada |
 | Katalog/daftar paket | assets/js/views/catalog.js | Sudah ada |
 | Detail paket/wisata | assets/js/views/detail.js | Sudah ada; jalur umum dan khusus Dolphin |
-| Daftar artikel/detail artikel | assets/js/views/articles.js | Sudah ada; pola baku detail artikel belum disetujui |
+| Daftar artikel/detail artikel | assets/js/views/articles.js + assets/css/pages/article-detail.css | Sudah ada; baseline implementasi sementara Pantai Kuta didokumentasikan di `MASTER/03-GUIDELINES/PRODUKSI-ARTIKEL/02-IMPLEMENTASI-HALAMAN.md`; belum dianggap template universal untuk semua jenis halaman |
 | Keranjang | assets/js/views/cart.js | Tampilan prototipe |
 | Checkout | assets/js/views/checkout.js | Tampilan prototipe; kerangka global disembunyikan pada mode checkout |
 | Halaman informasi statis | assets/js/views/static-pages.js | Sudah ada; bantuan, hukum, kontak, tentang, akun, dan rute terkait |
@@ -69,7 +69,7 @@ Berkas HTML berikut merupakan pintu masuk publik di folder utama repository. Per
 - Formulir pemesanan Airport Transfer: acuan visual utama.
 - Detail Dolphin Tour: diterapkan melalui pembentuk tampilan detail SPA; jangan menganggap semua kelompok wisata memiliki pola final yang sama.
 - Halaman layanan wisata privat harian: tata letak mandiri yang terpisah.
-- Detail artikel/destinasi: pola baku belum disetujui.
+- Detail artikel: baseline sementara Pantai Kuta sudah dipetakan; perlu persetujuan dan dapat berubah melalui versi SOP Implementasi. Jangan menganggapnya template universal untuk jenis halaman lain.
 - Hasil pencarian: tata letak baku masih menunggu peninjauan.
 
 ## 4. Aturan Master Halaman
