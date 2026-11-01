@@ -3,7 +3,7 @@ function renderRelatedBlogGuides(blog) {
             const related = relatedIds.map(id => BALI_BLOGS.find(item => item.id === id)).filter(Boolean);
             if (!related.length) return '';
             const escapeHtml = value => String(value || '').replace(/[&<>"]/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[character]));
-            return '<section class="mt-10" aria-labelledby="related-guides-title"><h2 id="related-guides-title" class="text-xl font-extrabold text-slate-900 mb-4">Lanjutkan menjelajahi Bali</h2><div class="grid grid-cols-1 sm:grid-cols-2 gap-3">' + related.map(item => '<a href="?page=blog-read&amp;item=' + encodeURIComponent(item.id) + '" class="group rounded-2xl border border-slate-200 bg-white p-4 hover:border-teal-300 hover:bg-teal-50/30 transition"><span class="block text-[10px] font-extrabold uppercase tracking-wider text-teal-700 mb-2">' + escapeHtml(item.location || item.category) + '</span><span class="block font-bold text-slate-900 leading-snug group-hover:text-teal-800">' + escapeHtml(item.title) + '</span><span class="mt-2 block text-xs text-slate-500">' + escapeHtml(item.readTime) + ' · Baca panduan <span aria-hidden="true">→</span></span></a>').join('') + '</div></section>';
+            return '<section class="mt-10" aria-labelledby="related-guides-title"><h2 id="related-guides-title" class="text-xl font-extrabold text-slate-900 mb-4">Lanjutkan menjelajahi Bali</h2><div class="grid grid-cols-1 sm:grid-cols-2 gap-3">' + related.map(item => '<a href="?page=blog-read&amp;item=' + encodeURIComponent(item.id) + '" class="group rounded-2xl border border-slate-200 bg-white p-4 hover:border-teal-300 hover:bg-teal-50/30 transition"><span class="block text-[10px] font-extrabold uppercase tracking-wider text-teal-700 mb-2">' + escapeHtml(item.location || item.category) + '</span><span class="block font-bold text-slate-900 leading-snug group-hover:text-teal-800">' + escapeHtml(item.title) + '</span><span class="mt-2 block text-xs text-slate-500">' + escapeHtml(item.readTime) + ' · Baca artikel <span aria-hidden="true">→</span></span></a>').join('') + '</div></section>';
         }
 
         function renderArticleSources(sources) {
@@ -16,9 +16,9 @@ function renderRelatedBlogGuides(blog) {
             return `
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                     <div class="text-center max-w-2xl mx-auto mb-10">
-                        <span class="text-xs font-extrabold text-bali-orange uppercase tracking-wider">Bali Travel Guides & Tips</span>
+                        <span class="text-xs font-extrabold text-bali-orange uppercase tracking-wider">Travel Information & Tips</span>
                         <h1 class="text-3xl font-extrabold text-slate-900 mt-1">Plan Your Dream Trip to Bali</h1>
-                        <p class="text-slate-500 text-sm mt-2">Practical guides for choosing areas, planning routes and enjoying your time in Bali.</p>
+                        <p class="text-slate-500 text-sm mt-2">Travel information to help you understand places, activities and practical details for your Bali trip.</p>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -37,7 +37,7 @@ function renderRelatedBlogGuides(blog) {
                                         <p class="text-xs text-slate-500 leading-relaxed line-clamp-3 mb-4">${blog.snippet}</p>
                                     </div>
                                     <button onclick="navigateTo('blog-read', '${blog.id}')" class="text-xs font-extrabold text-bali-orange hover:underline self-start">
-                                        Read Full Guide →
+                                        Read Article →
                                     </button>
                                 </div>
                             </div>
@@ -66,7 +66,7 @@ function renderRelatedBlogGuides(blog) {
             const toc = [...articleContent.matchAll(/<h2\b[^>]*id="([^"]+)"[^>]*>([\s\S]*?)<\/h2>/gi)].map(match => ({
                 id: match[1], text: match[2].replace(/<[^>]*>/g, '').trim()
             }));
-            const tocMarkup = toc.length >= 5 ? '<nav class="article-toc" aria-label="Daftar isi"><p class="article-toc-title">Dalam panduan ini</p><ol>' + toc.map(item => '<li><a href="#' + escapeHtml(item.id) + '">' + escapeHtml(item.text) + '</a></li>').join('') + '</ol></nav>' : '';
+            const tocMarkup = toc.length >= 5 ? '<nav class="article-toc" aria-label="Daftar isi"><p class="article-toc-title">Dalam artikel ini</p><ol>' + toc.map(item => '<li><a href="#' + escapeHtml(item.id) + '">' + escapeHtml(item.text) + '</a></li>').join('') + '</ol></nav>' : '';
             const mobileToc = toc.length >= 5 ? '<details class="article-toc-mobile"><summary>Daftar isi artikel <span aria-hidden="true">＋</span></summary><ol>' + toc.map(item => '<li><a href="#' + escapeHtml(item.id) + '">' + escapeHtml(item.text) + '</a></li>').join('') + '</ol></details>' : '';
             const featured = '<figure class="article-featured"><img src="' + escapeHtml(blog.image) + '" alt="' + escapeHtml(blog.imageAlt || blog.title) + '" loading="' + escapeHtml(blog.imageLoading || 'lazy') + '" fetchpriority="' + (blog.imageLoading === 'eager' ? 'high' : 'auto') + '" width="1200" height="675"><figcaption>' + escapeHtml(blog.imageAlt || blog.title) + '</figcaption></figure>';
             return `
@@ -74,9 +74,8 @@ function renderRelatedBlogGuides(blog) {
                     <div class="article-detail-shell">
                         <nav class="article-breadcrumb" aria-label="Breadcrumb">
                             <a href="#" onclick="navigateTo('home');return false">Home</a><span aria-hidden="true">/</span>
-                            <span>Destinasi</span><span aria-hidden="true">/</span>
-                            <span>Beach</span><span aria-hidden="true">/</span>
-                            <span aria-current="page">${escapeHtml(blog.canonicalName || blog.title)}</span>
+                            <a href="#" onclick="navigateTo('blog');return false">Blog</a><span aria-hidden="true">/</span>
+                            <span aria-current="page">${escapeHtml(blog.title)}</span>
                         </nav>
                         <header class="article-header">
                             <div class="article-eyebrow">
@@ -100,13 +99,13 @@ function renderRelatedBlogGuides(blog) {
                             ${tocMarkup}
                             <div class="article-reading">
                                 ${articleContent}
-                                <p class="article-ending">Semoga panduan ini membantu merencanakan kunjungan yang lebih nyaman. Nikmati Pantai Kuta sesuai ritme perjalananmu dan selalu perhatikan kondisi pantai saat berada di sana.</p>
+                                <p class="article-ending">Semoga informasi ini membantu merencanakan kunjungan yang lebih nyaman. Nikmati Pantai Kuta sesuai ritme perjalananmu dan selalu perhatikan kondisi pantai saat berada di sana.</p>
                             </div>
                         </div>
                         <section class="article-topic-tags" aria-label="Topik artikel"><span>Topik</span><a href="#" onclick="navigateTo('blog');return false">Pantai Bali</a><a href="#" onclick="navigateTo('blog');return false">Wisata Bali</a><a href="#" onclick="navigateTo('blog');return false">Bali Selatan</a></section>
                         ${renderArticleSources(blog.sources)}
                         ${renderRelatedBlogGuides(blog)}
-                        <div class="article-back-link"><button type="button" onclick="navigateTo('blog')"><i class="fas fa-arrow-left" aria-hidden="true"></i> Kembali ke semua panduan</button></div>
+                        <div class="article-back-link"><button type="button" onclick="navigateTo('blog')"><i class="fas fa-arrow-left" aria-hidden="true"></i> Kembali ke semua artikel</button></div>
                     </div>
                 </article>
             `;
