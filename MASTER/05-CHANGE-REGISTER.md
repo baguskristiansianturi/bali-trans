@@ -102,3 +102,16 @@ Untuk setiap pembaruan Master, catat:
 - Nama generik, lokasi meragukan, serta fasilitas yang status operasionalnya belum dipastikan ditandai untuk validasi.
 - Memperbarui Katalog Master dan Daftar Pekerjaan.
 - Cakupan: dokumentasi Master saja. Tidak ada perubahan website, tampilan, fitur, atau konfigurasi deployment.
+
+
+### 2026-11-01 — DNA Informasi BDM Trans dan Kerangka Aktivitas & Pengalaman
+
+- Memperluas [Fondasi Produk](./PRODUCT-FOUNDATION.md) dengan arah strategis BDM Trans sebagai jendela bagi wisatawan untuk mengenal, memahami, dan merencanakan Bali.
+- Mencatat prinsip informasi: akurat, nyaman dibaca dengan bahasa santai dan ceria, diperkuat visual relevan, serta dilengkapi data praktis seperti lokasi, jarak/waktu tempuh, dan kisaran biaya yang diberi label perkiraan bila belum pasti.
+- Menegaskan bahwa manfaat informasi bagi pengunjung tetap menjadi tujuan meskipun mereka tidak membeli layanan; kepercayaan, kunjungan organik, dan SEO diharapkan tumbuh dari kegunaan konten.
+- Membuat [Master Aktivitas & Pengalaman](./01-DATA/ACTIVITY-EXPERIENCE-MASTER.md) sebagai kerangka untuk menginventarisasi aktivitas, gambaran pengalaman, lokasi, wilayah, alias, dan data perencanaan.
+- Menambahkan aturan agar aktivitas yang belum cocok dengan kelompok umum ditampung sementara pada Aktivitas Lainnya / Belum Dikelompokkan, bukan dipaksakan menjadi kategori baru.
+- Mencatat cooking class, surfing lesson/school, dan pengalaman budaya/pembelajaran sebagai contoh aktivitas yang perlu diperiksa; contoh tersebut belum menjadi inventaris terverifikasi.
+- Memperbarui indeks Data, Katalog Master, Daftar Pekerjaan, dan protokol Mulai dari Sini agar strategi menjadi acuan kerja berikutnya.
+- Batas cakupan: dokumentasi Master saja. Tidak ada pencarian operator, SOP pelaksanaan penyedia, penetapan paket/tarif jual, atau perubahan website, desain, data runtime, maupun konfigurasi deployment.
+- Pemeriksaan: berkas yang diperbarui akan dibaca kembali dari GitHub dan commit terakhir diverifikasi.
