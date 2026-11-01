@@ -1,87 +1,87 @@
-# Fleet Master — Bali Trans / BDM Trans
+# Master Armada — Bali Trans / BDM Trans
 
-| Field | Record |
+| Keterangan | Catatan |
 |---|---|
-| Document ID | DATA-FLEET-001 |
-| Status | DISCUSSION — INITIAL USER DATA CAPTURED; VALIDATION REQUIRED |
-| First recorded | 2026-11-01 |
-| Last updated | 2026-11-01 |
-| Pricing | NOT PROVIDED — WAITING FOR APPROVED CALCULATOR |
+| ID Dokumen | DATA-FLEET-001 |
+| Status | PEMBAHASAN — DATA AWAL DARI PENGGUNA SUDAH DICATAT; PERLU VALIDASI |
+| Pertama dicatat | 2026-11-01 |
+| Terakhir diperbarui | 2026-11-01 |
+| Harga | BELUM DIBERIKAN — MENUNGGU KALKULATOR YANG DISETUJUI |
 
-## 1. Initial fleet inventory supplied in discussion
+## 1. Daftar Armada Awal dari Hasil Diskusi
 
-### Regular
-- Toyota Calya (vehicle name was voice-transcribed as “Cayla”; model spelling needs confirmation).
+### Kategori Regular
+- Toyota Calya (nama kendaraan sebelumnya tertangkap sebagai “Cayla” melalui dikte suara; ejaan/model perlu dikonfirmasi).
 - Toyota Avanza.
 - Suzuki Ertiga.
 - Toyota Rush.
-- Mitsubishi Xpander (appears in both Regular and Premium lists; classification needs confirmation).
+- Mitsubishi Xpander (juga muncul dalam daftar Premium; pengelompokan perlu dikonfirmasi).
 
-Initial guidance supplied:
-- Described as a 6-seat vehicle category.
-- For comfort, especially airport transfers, recommend fewer than the maximum passenger count.
-- When all seats are in use, luggage capacity is described as approximately two medium suitcases.
-- Folding the rear seats may increase luggage space, subject to passenger and luggage configuration.
+Arahan awal yang diberikan:
+- Kategori ini disebut memiliki kapasitas 6 kursi.
+- Untuk kenyamanan, terutama perjalanan antar-jemput bandara, disarankan jumlah penumpang di bawah kapasitas maksimal.
+- Ketika seluruh kursi digunakan, ruang bagasi disebut hanya cukup untuk sekitar dua koper ukuran sedang.
+- Melipat kursi baris belakang dapat menambah ruang bagasi, bergantung pada susunan penumpang dan barang bawaan.
 
-### Premium
-- Mitsubishi Xpander (classification overlap with Regular needs confirmation).
+### Kategori Premium
+- Mitsubishi Xpander (tumpang tindih kategori dengan Regular perlu dikonfirmasi).
 - Toyota Innova Reborn.
 - Toyota Innova Zenix.
 - Toyota Fortuner.
-- Denza (exact model/variant not yet specified).
+- Denza (model/varian tepat belum disebutkan).
 - Toyota Alphard.
-- Lexus LM 500 (exact model naming/variant to verify).
+- Lexus LM 500 (nama model/varian tepat perlu diperiksa).
 
-Initial guidance supplied:
-- Maximum described capacity: 7 seats.
-- Comfort recommendation: 5 passengers.
+Arahan awal yang diberikan:
+- Kapasitas maksimal yang disebutkan: 7 kursi.
+- Rekomendasi kenyamanan: 5 penumpang.
 
-### Minivan
-- Toyota Hiace Premio — 11-seat configuration.
-- Toyota Hiace Commuter — 14-seat configuration.
+### Kategori Minivan
+- Toyota Hiace Premio — konfigurasi 11 kursi.
+- Toyota Hiace Commuter — konfigurasi 14 kursi.
 
-## 2. Unresolved questions
+## 2. Pertanyaan yang Belum Terjawab
 
-- [ ] Confirm whether Mitsubishi Xpander intentionally belongs to both Regular and Premium, or whether one entry is a duplicate.
-- [ ] Confirm whether the stated seat counts include the driver or refer only to passengers.
-- [ ] Confirm Toyota Calya spelling/model.
-- [ ] Identify the exact Denza model and Lexus LM 500 variant/year where relevant.
-- [ ] Confirm exact vehicle configurations and actual available units.
-- [ ] Define luggage capacity by vehicle and passenger count.
-- [ ] Confirm whether seat capacity varies between individual units.
+- [ ] Konfirmasi apakah Mitsubishi Xpander memang sengaja masuk kategori Regular dan Premium, atau salah satunya merupakan entri ganda.
+- [ ] Konfirmasi apakah jumlah kursi yang disebutkan termasuk pengemudi atau hanya penumpang.
+- [ ] Konfirmasi ejaan dan model Toyota Calya.
+- [ ] Sebutkan model Denza dan varian/tahun Lexus LM 500 yang dimaksud jika relevan.
+- [ ] Konfirmasi konfigurasi kendaraan yang sebenarnya dan unit yang tersedia.
+- [ ] Tentukan kapasitas bagasi berdasarkan jenis kendaraan dan jumlah penumpang.
+- [ ] Konfirmasi apakah kapasitas kursi berbeda antarunit kendaraan.
 
-## 3. Data required before public use
+## 3. Data yang Dibutuhkan Sebelum Dipublikasikan
 
-For each vehicle/unit, collect where available:
-- Make, model, variant, year and fleet identifier (internal only).
-- Category and service eligibility.
-- Total seats and passenger capacity, explicitly stating whether driver is included.
-- Practical luggage capacity by passenger count.
-- Air conditioning and other facilities.
-- Child-seat availability and requirements.
-- Accessibility or special equipment, if any.
-- Vehicle photos with usage rights.
-- Maintenance/roadworthiness verification and last-checked date.
-- Whether the unit is owned, partner-supplied or subject to availability.
+Untuk setiap kendaraan atau unit, kumpulkan jika tersedia:
+- Merek, model, varian, tahun, dan kode unit armada (kode unit hanya untuk catatan internal).
+- Kategori dan jenis layanan yang dapat menggunakan kendaraan tersebut.
+- Jumlah seluruh kursi dan kapasitas penumpang, dengan penjelasan apakah pengemudi ikut dihitung.
+- Kapasitas bagasi yang realistis berdasarkan jumlah penumpang.
+- Pendingin udara dan fasilitas lainnya.
+- Ketersediaan serta ketentuan kursi anak.
+- Aksesibilitas atau perlengkapan khusus jika ada.
+- Foto kendaraan beserta hak penggunaan fotonya.
+- Pemeriksaan kondisi kendaraan dan tanggal pemeriksaan terakhir.
+- Status kendaraan: milik sendiri, milik mitra, atau bergantung pada ketersediaan.
 
-## 4. Publication and recommendation rules
+## 4. Aturan Publikasi dan Rekomendasi
 
-- Do not publish a passenger capacity until the driver/passenger counting convention is clear.
-- Do not promise luggage capacity using a single suitcase count unless it has been checked against actual vehicle configuration.
-- A comfort recommendation is guidance, not a guaranteed seat or luggage specification.
-- Do not imply every listed model is always available; availability must be confirmed for the requested date.
-- Do not publish pricing until the approved pricing calculator and tariff data are supplied and validated.
-- Use current, rights-cleared vehicle images; illustrative reference images are not proof of actual fleet units.
+- Jangan mempublikasikan kapasitas penumpang sebelum jelas apakah pengemudi ikut dihitung.
+- Jangan menjanjikan kapasitas bagasi berdasarkan jumlah koper tertentu sebelum diperiksa dengan konfigurasi kendaraan sebenarnya.
+- Rekomendasi kenyamanan adalah panduan, bukan spesifikasi kursi atau bagasi yang dijamin.
+- Jangan menyiratkan bahwa semua model selalu tersedia; ketersediaan harus dikonfirmasi untuk tanggal yang diminta.
+- Jangan mempublikasikan harga sebelum kalkulator harga dan data tarif yang disetujui diberikan serta divalidasi.
+- Gunakan foto kendaraan terkini yang hak penggunaannya jelas; gambar ilustrasi bukan bukti bahwa unit tersebut benar-benar tersedia dalam armada.
 
-## 5. Related records
+## 5. Dokumen Terkait
 
-- [Service Master](../SERVICE-MASTER.md)
-- [Pricing & Calculator Master index](README.md)
-- [Operational Rules index](../02-RULES/README.md)
-- [Work Register](../WORK-REGISTER.md)
+- [Master Layanan](../SERVICE-MASTER.md)
+- [Indeks Data Bisnis dan Layanan](./README.md)
+- [Indeks Aturan Operasional](../02-RULES/README.md)
+- [Daftar Pekerjaan](../WORK-REGISTER.md)
 
-## 6. Change history
+## 6. Riwayat Perubahan
 
-| Date | Change | Status |
+| Tanggal | Perubahan | Status |
 |---|---|---|
-| 2026-11-01 | Captured initial Regular, Premium and Minivan inventory and usage guidance from user discussion | DISCUSSION — validation questions remain |
+| 2026-11-01 | Mencatat daftar awal kendaraan Regular, Premium, Minivan, serta arahan penggunaannya dari diskusi | PEMBAHASAN — pertanyaan validasi masih terbuka |
