@@ -12,7 +12,6 @@ Kelompok ini menyimpan data faktual yang digunakan untuk halaman layanan, artike
 | Rincian Setiap Layanan | BELUM DIMULAI | Cakupan, proses, durasi, persyaratan tiap layanan |
 | Master Wilayah Operasional & Rute | BELUM DIMULAI | Area penjemputan, destinasi, rute, jarak, batas layanan |
 | Fasilitas yang Termasuk & Tidak Termasuk | BELUM DIMULAI | Fasilitas termasuk, pilihan tambahan, pengecualian, syarat tiap layanan |
-| Master Destinasi | BELUM DIMULAI | Lokasi, akses, daya tarik, jam, biaya, fasilitas, sumber, pemeriksaan |
 | Master Aktivitas & Pengalaman | BELUM DIMULAI | Rincian aktivitas, operator, durasi, persyaratan, keselamatan, biaya |
 | Referensi Akomodasi/Wilayah | MASA DEPAN / PEMBAHASAN | Informasi area dan akomodasi jika diperlukan |
 | Master Harga & Kalkulator | MENUNGGU DATA | Rumus yang disetujui, variabel, biaya tambahan, pembulatan, contoh setelah kalkulator divalidasi |
