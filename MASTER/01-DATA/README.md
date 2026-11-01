@@ -8,11 +8,11 @@ Kelompok ini menyimpan data faktual yang digunakan untuk halaman layanan, artike
 |---|---|---|
 | [Master Layanan](../SERVICE-MASTER.md) | SUDAH ADA — dasar awal | Kelompok dan jenis layanan |
 | [Master Armada](./FLEET-MASTER.md) | PEMBAHASAN — data awal tercatat | Merek/model kendaraan, kelas, kursi, bagasi, fasilitas, kesesuaian, pemeriksaan |
-| [Master Destinasi Bali](./DESTINATION-MASTER.md) | INVENTARIS DIPERLUAS — perlu audit | Nama destinasi, kategori, wilayah, alias, identitas lokasi, sumber dan status pemeriksaan |\n| [Master Aktivitas & Pengalaman](./ACTIVITY-EXPERIENCE-MASTER.md) | KERANGKA AWAL — inventaris belum diverifikasi | Ragam aktivitas yang dapat dilakukan wisatawan, gambaran pengalaman, lokasi tersedia, wilayah, alias, serta data perencanaan seperti durasi, jarak, waktu tempuh, dan kisaran biaya bila tersedia |
+| [Master Destinasi Bali](./DESTINATION-MASTER.md) | INVENTARIS DIPERLUAS — perlu audit | Nama destinasi, kategori, wilayah, alias, identitas lokasi, sumber dan status pemeriksaan |
+| [Master Aktivitas & Pengalaman](./ACTIVITY-EXPERIENCE-MASTER.md) | KERANGKA AWAL — inventaris belum diverifikasi | Ragam aktivitas yang dapat dilakukan wisatawan, gambaran pengalaman, lokasi tersedia, wilayah, alias, serta data perencanaan seperti durasi, jarak, waktu tempuh, dan kisaran biaya bila tersedia |
 | Rincian Setiap Layanan | BELUM DIMULAI | Cakupan, proses, durasi, persyaratan tiap layanan |
 | Master Wilayah Operasional & Rute | BELUM DIMULAI | Area penjemputan, destinasi, rute, jarak, batas layanan |
 | Fasilitas yang Termasuk & Tidak Termasuk | BELUM DIMULAI | Fasilitas termasuk, pilihan tambahan, pengecualian, syarat tiap layanan |
-| [Master Aktivitas & Pengalaman](./ACTIVITY-EXPERIENCE-MASTER.md) | KERANGKA AWAL — perlu audit | Aktivitas, gambaran pengalaman, lokasi, wilayah, alias, dan data perencanaan; bukan inventaris operator atau SOP penyedia |
 | Referensi Akomodasi/Wilayah | MASA DEPAN / PEMBAHASAN | Informasi area dan akomodasi jika diperlukan |
 | Master Harga & Kalkulator | MENUNGGU DATA | Rumus yang disetujui, variabel, biaya tambahan, pembulatan, contoh setelah kalkulator divalidasi |
 | Referensi Metode Pembayaran | BELUM DIMULAI | Metode yang didukung, mata uang, proses, batasan |
