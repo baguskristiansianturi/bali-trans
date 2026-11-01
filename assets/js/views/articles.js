@@ -1,8 +1,8 @@
 function getArticlePublicUrl(blog) {
             if (!blog || !blog.id) return window.location.href;
-            const basePath = window.location.pathname
-                .replace(/\\/index\\.html$/i, '')
-                .replace(/\\/+$/, '');
+            let basePath = window.location.pathname;
+            if (basePath.endsWith('/index.html')) basePath = basePath.slice(0, -11);
+            while (basePath.endsWith('/')) basePath = basePath.slice(0, -1);
             return window.location.origin + basePath + '/blog/' + encodeURIComponent(blog.id) + '/';
         }
 
