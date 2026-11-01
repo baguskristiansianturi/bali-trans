@@ -105,8 +105,9 @@
                 imageFallbackLabel: 'Pantai Kuta — suasana matahari terbenam',
                 supportingImages: [
                     {
-                        fileName: 'pantai-kuta-bali-suasana-sore.jpg',
-                        src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Kuta_Beach_during_afternoon_.jpg',
+                        fileName: 'Kuta_Beach_during_afternoon_.jpg',
+                        recommendedFileName: 'pantai-kuta-bali-suasana-sore.jpg',
+                        src: 'https://upload.wikimedia.org/wikipedia/commons/b/b2/Kuta_Beach_during_afternoon_.jpg',
                         alt: 'Hamparan pasir dan garis pantai Pantai Kuta pada sore hari',
                         caption: 'Hamparan pasir dan garis pantai Kuta terlihat dari area tepi pantai pada sore hari.',
                         fallbackLabel: 'Pantai Kuta — suasana sore',
@@ -118,8 +119,9 @@
                         height: 3120
                     },
                     {
-                        fileName: 'pantai-kuta-bali-pemandangan-pantai.jpg',
-                        src: 'https://commons.wikimedia.org/wiki/Special:FilePath/Kuta_Beach.jpg',
+                        fileName: 'Kuta_Beach.jpg',
+                        recommendedFileName: 'pantai-kuta-bali-pemandangan-pantai.jpg',
+                        src: 'https://upload.wikimedia.org/wikipedia/commons/0/09/Kuta_Beach.jpg',
                         alt: 'Pemandangan Pantai Kuta Bali pada siang hari dengan garis pantai dan laut',
                         caption: 'Pemandangan Pantai Kuta pada siang hari, memperlihatkan garis pantai dan area laut yang terbuka.',
                         fallbackLabel: 'Pantai Kuta — pemandangan garis pantai',
