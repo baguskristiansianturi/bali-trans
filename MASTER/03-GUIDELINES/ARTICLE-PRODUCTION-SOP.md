@@ -1,7 +1,7 @@
 # SOP Produksi Artikel & SEO Organik — BDM Trans
 
 > **Status:** USULAN — DRAF UNTUK DITINJAU, BELUM DITETAPKAN SEBAGAI SOP FINAL  
-> **Versi:** 0.1  
+> **Versi:** 0.3  
 > **Tanggal penyusunan:** 2026-11-01  
 > **Pemilik keputusan:** Mas Bagus  
 > **Pelaksana alur kerja:** Aya bersama Mas Bagus  
@@ -230,6 +230,32 @@ Meta description harus unik, spesifik, akurat, dan membantu calon pembaca memaha
 
 Jangan menjadikan urutan ini cetakan kaku. Artikel sejarah, panduan aktivitas, dan panduan destinasi dapat memerlukan susunan berbeda. Struktur harus mengikuti kebutuhan pembaca.
 
+### 7.5 Standar konten dan komponen FAQ bersama
+
+FAQ adalah bagian untuk menjawab pertanyaan spesifik yang masih mungkin dimiliki pembaca setelah membaca isi utama. FAQ bukan tempat mengulang isi artikel atau menambahkan kata kunci secara paksa.
+
+**Standar konten:**
+- Pilih pertanyaan yang benar-benar membantu pembaca mengambil keputusan atau merencanakan kunjungan.
+- Jawaban langsung, ringkas, akurat, dan cukup konteks; hindari jawaban promosi.
+- Jawaban harus konsisten dengan isi utama dan sumber yang sudah diperiksa.
+- Jangan menambahkan klaim, harga, waktu, aturan, atau jaminan yang belum diverifikasi.
+- Jumlah pertanyaan mengikuti kebutuhan topik; tidak ada target jumlah demi SEO.
+- Jangan menjanjikan FAQ rich result. FAQ ditampilkan untuk pengalaman pembaca; Google tidak lagi menampilkan FAQ rich result sejak 7 Mei 2026.
+
+**Standar interaksi dan visual yang berlaku untuk semua desain website yang menggunakan FAQ:**
+1. Gunakan pola **accordion satu panel terbuka**. Saat halaman dimuat, seluruh jawaban tertutup.
+2. Ketika pertanyaan dipilih, jawaban pertanyaan itu terbuka. Jika pertanyaan lain dipilih, jawaban sebelumnya otomatis tertutup.
+3. Memilih pertanyaan yang sedang terbuka akan menutup jawabannya kembali.
+4. Pertanyaan harus berupa tombol yang dapat diakses keyboard, memiliki status `aria-expanded`, dan terhubung ke panel jawaban melalui `aria-controls`. Panel tertutup harus benar-benar tersembunyi dari pembaca layar.
+5. Ikon plus/minus atau indikator yang konsisten menunjukkan status tertutup/terbuka; animasi ringan boleh digunakan tanpa menghambat aksesibilitas.
+6. Gunakan tipografi, warna, border, radius, jarak, dan state hover/focus yang konsisten dengan sistem desain website: dasar putih, teks navy/gelap, border abu-abu lembut, aksen secukupnya.
+7. Pertanyaan dan jawaban harus mudah dipindai, area klik cukup besar untuk layar sentuh, dan layout responsif di mobile, tablet, serta desktop.
+8. Komponen harus reusable/shared. Halaman baru yang membutuhkan FAQ wajib menggunakan komponen atau pola bersama ini, bukan membuat variasi accordion sendiri tanpa persetujuan.
+9. Jangan mengubah isi atau urutan bagian halaman lain hanya karena komponen FAQ dipasang; ikuti urutan konten yang ditetapkan untuk tipe halaman tersebut.
+
+**Urutan akhir standar untuk artikel editorial:**
+Isi utama → FAQ → Kesimpulan → Tag/topik → Share this article → Rekomendasi artikel lain. Sumber referensi dan modul tambahan dapat ditempatkan setelah rekomendasi sesuai kebutuhan template, tanpa menyela urutan inti tersebut.
+
 ### 7.4 Standar keterbacaan
 
 **Batas minimum panjang artikel:** setiap artikel editorial yang diminta Mas Bagus wajib memiliki sekurang-kurangnya **800 kata isi artikel**. Judul, metadata SEO, daftar sumber, catatan riset, dan Image Manifest tidak dihitung sebagai bagian dari 800 kata. Artikel dengan 799 kata atau kurang **GAGAL** pada checklist dan tidak boleh dinyatakan selesai, lolos, atau siap publikasi. Jika topik belum memiliki cukup fakta bermutu untuk mencapai 800 kata, Aya harus memperluas riset dan nilai informasinya; dilarang menambah kalimat pengisi atau pengulangan hanya untuk mengejar jumlah kata.
@@ -453,6 +479,9 @@ Artikel hanya boleh berstatus SIAP TERBIT jika seluruh pemeriksaan wajib berikut
 - [ ] Harga, jarak, durasi, waktu tempuh, jam buka, dan informasi berubah diberi konteks/tanggal/status.
 - [ ] Fakta yang belum pasti tidak disajikan sebagai kepastian.
 - [ ] Bahasa alami, nyaman, dan mudah dipahami.
+- [ ] FAQ relevan dan ditempatkan sebelum kesimpulan.
+- [ ] FAQ menggunakan accordion satu panel terbuka; pertanyaan lain menutup jawaban sebelumnya.
+- [ ] Urutan akhir artikel adalah FAQ → Kesimpulan → Tag/topik → Share → Rekomendasi artikel.
 - [ ] Tidak ada keyword stuffing atau kalimat yang dipaksakan.
 
 ### B. SEO on-page
@@ -574,5 +603,6 @@ SOP ini tidak menyetujui layout, desain, template visual baru, perubahan URL, at
 | Tanggal | Versi | Perubahan | Status |
 |---|---|---|---|
 | 2026-11-01 | 0.1 | Draf alur produksi artikel, riset, orisinalitas, SEO, gambar, tautan, coding, publikasi, dan pemantauan organik berdasarkan riset Google Search Central dan Yoast | USULAN — MENUNGGU TINJAUAN |
-| 2026-11-01 | 0.2 | Menambahkan standar satu gambar utama tanpa caption, minimal dua gambar pendukung bercaption, penamaan file deskriptif, alt text alami, dan fallback frame saat gambar gagal dimuat | USULAN — ATURAN MEDIA DIKONFIRMASI MAS BAGUS |
+| 2026-11-01 | 0.2 | Menambahkan standar satu gambar utama tanpa caption, minimal dua gambar pendukung bercaption, penamaan file deskriptif, alt text alami, dan fallback frame saat gambar gagal dimuat | DIKONFIRMASI MAS BAGUS |
+| 2026-11-01 | 0.3 | Menetapkan pola FAQ accordion satu panel terbuka untuk semua halaman, serta urutan akhir artikel FAQ → Kesimpulan → Tag → Share → Rekomendasi | DIKONFIRMASI MAS BAGUS — UJI COBA PADA ARTIKEL PANTAI KUTA |
 
