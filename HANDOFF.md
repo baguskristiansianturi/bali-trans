@@ -90,3 +90,13 @@ Live preview: https://baguskristiansianturi.github.io/bali-trans/
 - Moved the former 309 KB `assets/js/app.js` to `assets/js/legacy/app.js` as an archive. `index.html` loads the active modular files and does not load the archived predecessor.
 - Preserved public root-level HTML paths. Moving those documents without a tested compatibility strategy could break links and relative assets, so standalone HTML files remain entry points while page CSS/controllers live under `assets/css/pages/` and `assets/js/pages/`.
 - Current validation is not fully green: JavaScript syntax and route/data checks pass, but Playwright fails on the existing Airport Transfer direction radio (`bt-form-grid` intercepts the click). The full suite must be rerun after that scoped failure is fixed.
+
+
+## Destination architecture and editorial taxonomy — 1 November 2026
+
+- Updated `TEMPLATE-REGISTRY.md`, `ROADMAP.md`, and `MASTER/03-GUIDELINES/ARTICLE-PRODUCTION-SOP.md` to separate the Destination Hub, Destination Category Catalog, Destination Place Detail and Editorial Article/Blog Detail page families.
+- Public destination hierarchy: Destinations → Category → Place. Region is a secondary grouping/catalog destination, not a separate main section on the Destination Hub. Curated collections (Latest, Popular, Hidden Gems) remain editorial groupings.
+- Breadcrumbs follow their actual page family. Destination place detail: Home → Destinations → Category → Place. Editorial article: Home → Blog → Article Title. Cross-links between the article and its related destination page are allowed, but the two page identities/templates remain separate.
+- Editorial labels must reflect article contents. Do not default to Guide/Panduan. Use Travel Information for general travel information and add Tips when practical tips are genuinely present; Tips can apply across travel, shopping, transport, activities and other topics.
+- Destination Master remains the source of place facts and analysis notes, not the article template or editorial taxonomy.
+- No website code, route, visual layout or public URL was changed in this documentation update. Destination templates and current SPA route mapping remain pending audit and approval.
