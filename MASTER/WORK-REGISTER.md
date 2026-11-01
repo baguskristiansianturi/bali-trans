@@ -47,7 +47,8 @@ Gagasan yang belum disetujui untuk diterapkan tidak dimasukkan ke daftar pekerja
 | Tanggal | Perubahan | Status |
 |---|---|---|
 | 2026-11-01 | Membuat daftar awal pembahasan dan tindak lanjut bertahap dari diskusi Master pertama | AKTIF |
-| 2026-11-01 | Menambahkan strategi jendela informasi Bali dan kerangka Master Aktivitas & Pengalaman; audit aktivitas masih terbuka | AKTIF |\n| 2026-11-01 | Menyusun draf SOP Produksi Artikel & SEO Organik v0.1; menunggu tinjauan dan persetujuan | AKTIF |
+| 2026-11-01 | Menambahkan strategi jendela informasi Bali dan kerangka Master Aktivitas & Pengalaman; audit aktivitas masih terbuka | AKTIF |
+| 2026-11-01 | Menyusun draf SOP Produksi Artikel & SEO Organik v0.1; menunggu tinjauan dan persetujuan | AKTIF |
 
 ---
 
@@ -91,7 +92,9 @@ Gagasan yang belum disetujui untuk diterapkan tidak dimasukkan ke daftar pekerja
 - [ ] Batas Layanan Ramah Muslim.
 
 ### Konten & Editorial
-- [x] Menyusun draf [SOP Produksi Artikel & SEO Organik](./03-GUIDELINES/ARTICLE-PRODUCTION-SOP.md) berdasarkan pedoman Google Search Central dan Yoast; status USULAN, perlu ditinjau dan disepakati sebelum menjadi SOP final.\n- [ ] Meninjau dan menyepakati SOP Produksi Artikel & SEO Organik, termasuk aturan orisinalitas, metadata, standar gambar, tautan, gerbang coding, dan publikasi.\n- [ ] Strategi Konten.
+- [x] Menyusun draf [SOP Produksi Artikel & SEO Organik](./03-GUIDELINES/ARTICLE-PRODUCTION-SOP.md) berdasarkan pedoman Google Search Central dan Yoast; status USULAN, perlu ditinjau dan disepakati sebelum menjadi SOP final.
+- [ ] Meninjau dan menyepakati SOP Produksi Artikel & SEO Organik, termasuk aturan orisinalitas, metadata, standar gambar, tautan, gerbang coding, dan publikasi.
+- [ ] Strategi Konten.
 - [ ] Panduan Editorial & Penulisan.
 - [ ] Pola Artikel & Panduan Destinasi.
 - [ ] Standar Riset Tren Wisata.
