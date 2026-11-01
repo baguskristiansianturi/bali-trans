@@ -416,7 +416,7 @@ Bagian ini memperluas semua entri kategori **Beach** yang sudah muncul pada inve
 
 | Nama destinasi | Kategori baku | Wilayah | Catatan nama / pemeriksaan |
 |---|---|---|---|
-| Nyanyi Beach | Beach | Bali Barat | Tabanan; posisinya dekat kawasan selatan-barat, wilayah kerja perlu konsistensi |
+
 | Kedungu Beach | Beach | Bali Barat | Tabanan |
 | Yeh Gangga Beach | Beach | Bali Barat | Sumber Bali.com mencatat Yeh Gangga 1 dan 2; perlu dipastikan apakah satu atau dua entri |
 | Pasut Beach | Beach | Bali Barat | Tabanan |
@@ -435,7 +435,7 @@ Bagian ini memperluas semua entri kategori **Beach** yang sudah muncul pada inve
 | Candikusuma Beach | Beach | Bali Barat | Variasi ejaan: Candi Kusuma |
 | Cupel Beach | Beach | Bali Barat | Jembrana |
 | Pebuahan Beach | Beach | Bali Barat | Jembrana |
-| Gilimanuk Bay / Teluk Gilimanuk | Beach / Coastal Bay | Bali Barat | Perlu keputusan apakah masuk kategori Beach atau Bay; jangan dipaksakan tanpa peninjauan |
+
 
 ### E. Nusa Penida
 
@@ -459,8 +459,8 @@ Bagian ini memperluas semua entri kategori **Beach** yang sudah muncul pada inve
 | Lumangan Beach | Beach | Nusa Penida | Perlu pemeriksaan status dan identitas |
 | Bulian Beach | Beach | Nusa Penida | Perlu pemeriksaan status dan identitas |
 | Selegimpak Beach | Beach | Nusa Penida | Perlu pemeriksaan ejaan dan identitas |
-| Tanjung Sanghyang Beach | Beach | Nusa Penida | Perlu pemeriksaan; jangan tertukar dengan Tanjung Sanghyang/Mushroom Bay di Lembongan |
-| Kelingking Beach | Beach | Nusa Penida | Sudah tercatat satu kali; pengulangan di sumber lain bukan entri baru |
+| Tanjung Sanghyang Beach | Beach | Nusa Lembongan | Nama yang digunakan untuk kawasan Mushroom Bay; perlu validasi alias lokal |
+
 
 ### F. Nusa Lembongan
 
@@ -500,6 +500,7 @@ Objek berikut ditemukan dalam sumber destinasi pantai, tetapi jenis utamanya buk
 | Paluang Cliff | Cliff / Viewpoint | Nusa Penida |
 | Atuh Cliff | Cliff / Viewpoint | Nusa Penida |
 | Pasih Andus | Coastal Landmark / Blowhole | Nusa Penida |
+| Gilimanuk Bay / Teluk Gilimanuk | Bay / Coastal Area | Bali Barat | Kawasan teluk; tidak otomatis menjadi kategori Beach |
 | Sundays Beach Club | Venue / Beach Club, bukan nama pantai | Bali Selatan |
 | Nusa Penida, Nusa Lembongan, Nusa Ceningan | Island / Region, bukan pantai | Kawasan kepulauan |
 
