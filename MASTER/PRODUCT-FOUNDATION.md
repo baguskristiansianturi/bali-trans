@@ -118,6 +118,30 @@ Dengan demikian, website memiliki dua fungsi yang saling melengkapi:
 1. **Fungsi komersial:** menjelaskan layanan dengan baik dan membantu pengunjung yang sesuai untuk bertanya atau memesan.
 2. **Fungsi sumber informasi wisata:** menyediakan informasi perencanaan yang bermanfaat dan membangun kepercayaan jangka panjang.
 
+## 7. DNA Informasi: BDM Trans sebagai Jendela Bali
+
+**Arah strategis yang disampaikan Mas Bagus — dicatat sebagai pedoman dasar pengembangan produk dan konten.**
+
+BDM Trans ingin menjadi **jendela bagi wisatawan untuk mengenal Bali**: penghubung yang membantu orang melihat, memahami, menemukan, dan merencanakan hal-hal yang dapat mereka lakukan di Pulau Bali. Aset pengetahuan utamanya adalah Bali itu sendiri—destinasi, tempat wisata, aktivitas, pengalaman, alam, budaya, dan informasi perjalanan yang relevan.
+
+Website tidak hanya berfungsi menjual transportasi atau paket wisata. Website perlu memberi manfaat nyata bahkan kepada pengunjung yang akhirnya tidak membeli layanan BDM Trans. Dengan demikian, BDM Trans membangun kepercayaan dan kegunaan jangka panjang; kunjungan organik dan SEO menjadi dampak yang diharapkan dari informasi yang benar-benar bermanfaat, bukan tujuan yang dicapai dengan konten kosong atau pengulangan kata kunci.
+
+### Prinsip penyajian informasi
+
+1. **Akurat dan dapat dipertanggungjawabkan.** Nama tempat, lokasi, jarak, waktu tempuh, harga, dan informasi lain harus memiliki sumber atau dasar yang jelas. Informasi yang belum pasti harus diberi status.
+2. **Nyaman dibaca.** Gunakan bahasa yang santai, ceria, bersahabat, dan mudah dipahami—bukan gaya kaku seperti buku pelajaran. Materi sejarah atau budaya tetap harus akurat, tetapi disampaikan dengan cara yang hidup dan mudah diikuti.
+3. **Visual yang relevan.** Foto, ilustrasi, peta, atau media lain nantinya dipilih untuk membantu orang membayangkan dan memahami tempat maupun pengalaman, bukan sekadar menjadi hiasan.
+4. **Kaya data yang berguna.** Hubungkan informasi dengan lokasi, wilayah, jarak, perkiraan waktu perjalanan, serta kisaran biaya bila datanya tersedia.
+5. **Mendukung perencanaan mandiri.** Informasi sebaiknya membantu wisatawan memperkirakan anggaran dan menyusun perjalanan, termasuk ketika mereka belum menggunakan layanan BDM Trans.
+6. **Transparan terhadap perkiraan.** Kisaran harga atau waktu boleh digunakan untuk membantu perencanaan jika data pasti belum tersedia, tetapi harus diberi label perkiraan, disertai konteks/tanggal pemeriksaan bila relevan, dan tidak ditampilkan seolah-olah tarif atau kondisi yang dijamin.
+7. **Bermanfaat sebelum berjualan.** Konten harus menjawab kebutuhan atau rasa ingin tahu wisatawan. Penawaran layanan BDM Trans dapat dihubungkan secara wajar ketika relevan, tanpa mengurangi kegunaan informasi bagi pengunjung.
+
+### Hubungan informasi
+
+Pengetahuan tentang Bali perlu saling terhubung. Sebagai contoh, informasi sebuah aktivitas dapat dihubungkan dengan lokasi tempat aktivitas itu tersedia, gambaran pengalaman, jarak atau waktu tempuh, dan kisaran biaya yang telah diperiksa. Informasi destinasi dapat pula menunjukkan aktivitas yang benar-benar tersedia di lokasi tersebut. Hubungan ini membantu wisatawan berpindah dari inspirasi menuju pemahaman dan perencanaan.
+
+**Batas penting:** strategi ini menetapkan arah dan mutu informasi, bukan rancangan tampilan website, struktur halaman, desain visual, atau spesifikasi teknis aplikasi. Hal-hal tersebut dibahas kemudian setelah kebutuhan bisnis, produk, data, dan konten dipahami.
+
 ## 7. Prinsip Komunikasi
 
 Semua teks website, artikel, halaman layanan, dan materi promosi ke depan harus:
@@ -143,7 +167,7 @@ Hal-hal berikut belum diputuskan sepenuhnya dan tidak boleh diasumsikan:
 
 | Tanggal | Perubahan | Status |
 |---|---|---|
-| 2026-11-01 | Mencatat arah pasar, posisi layanan, nilai pelayanan, dan fungsi website dari hasil diskusi | Dasar awal; persetujuan dan pengembangan dilakukan bertahap |
+| 2026-11-01 | Mencatat arah pasar, posisi layanan, nilai pelayanan, dan fungsi website dari hasil diskusi | Dasar awal; persetujuan dan pengembangan dilakukan bertahap |\n| 2026-11-01 | Menambahkan arah strategis BDM Trans sebagai jendela Bali dan prinsip informasi yang akurat, nyaman, visual, kaya data, serta berguna untuk perencanaan wisatawan | Arah strategis dicatat dari penjelasan Mas Bagus |
 
 ---
 
