@@ -712,10 +712,6 @@
                 {title:'Perancak Fishing Village',location:'West Bali · Coastal village',key:'place:perancak',terms:'perancak fishing village'},
                 {title:'Gilimanuk Bay',location:'West Bali · Coast, ferry gateway',key:'place:gilimanuk',terms:'gilimanuk bay ferry'},
                 {title:'West Bali National Park',location:'West Bali · Nature, wildlife',key:'place:west-bali-national-park',terms:'west bali national park'},
-                {title:'Kelingking Beach',location:'Nusa Penida · Cliff-top views',articleId:'nusa-penida-kelingking-beach',terms:'kelingking beach nusa penida t-rex cliff'},
-                {title:'Crystal Bay',location:'Nusa Penida · Coast, marine activities',articleId:'nusa-penida-crystal-bay',terms:'crystal bay nusa penida snorkelling diving sunset'},
-                {title:'Diamond Beach',location:'Nusa Penida · East coast',articleId:'nusa-penida-diamond-beach',terms:'diamond beach nusa penida stairs cliff safety'},
-                {title:'Atuh Beach',location:'Nusa Penida · East coast',articleId:'nusa-penida-atuh-beach',terms:'atuh beach nusa penida cliffs east coast'},
                 
                 {title:'Nusa Lembongan & Mangrove Forest',location:'Nusa Lembongan · Island, nature',key:'place:nusa-lembongan',terms:'nusa lembongan mangrove'},
                 {title:'Nusa Ceningan & Yellow Bridge',location:'Nusa Ceningan · Island',key:'place:nusa-ceningan',terms:'nusa ceningan yellow bridge'},
@@ -760,7 +756,7 @@
                 {terms:['ubud'],key:'place:ubud'},{terms:['rafting','white water'],key:'place:rafting'},{terms:['rice terrace','rice terraces'],key:'place:rice-terraces'},
                 {terms:['amed','jemeluk'],key:'place:amed'},{terms:['tulamben','usat liberty'],key:'place:tulamben'},{terms:['tirta gangga'],key:'place:tirta-gangga'},{terms:['taman ujung'],key:'place:taman-ujung'},{terms:['lempuyang'],key:'place:lempuyang'},{terms:['besakih'],key:'place:besakih'},{terms:['candidasa','padangbai'],key:'place:candidasa-padangbai'},{terms:['sidemen'],key:'place:sidemen'},
                 {terms:['medewi'],key:'place:medewi'},{terms:['rambut siwi'],key:'place:rambut-siwi'},{terms:['bunut bolong'],key:'place:bunut-bolong'},{terms:['perancak'],key:'place:perancak'},{terms:['gilimanuk'],key:'place:gilimanuk'},{terms:['west bali national park'],key:'place:west-bali-national-park'},
-                {terms:['kelingking beach','kelingking'],articleId:'nusa-penida-kelingking-beach'},{terms:['crystal bay'],articleId:'nusa-penida-crystal-bay'},{terms:['diamond beach'],articleId:'nusa-penida-diamond-beach'},{terms:['atuh beach'],articleId:'nusa-penida-atuh-beach'},{terms:['nusa lembongan','mangrove'],key:'place:nusa-lembongan'},{terms:['nusa ceningan','yellow bridge'],key:'place:nusa-ceningan'}
+                {terms:['nusa lembongan','mangrove'],key:'place:nusa-lembongan'},{terms:['nusa ceningan','yellow bridge'],key:'place:nusa-ceningan'}
             ];
             const match = destinations.filter(item => item.terms.some(term => q.includes(term))).sort((a,b) => Number(String(b.key || '').startsWith('place:')) - Number(String(a.key || '').startsWith('place:')))[0];
             if (match) { if (match.articleId) navigateTo('blog-read', match.articleId); else navigateTo('discovery', match.key); return; }
