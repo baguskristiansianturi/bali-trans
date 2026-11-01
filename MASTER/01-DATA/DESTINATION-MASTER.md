@@ -279,7 +279,7 @@ Jika satu tempat memiliki lebih dari satu karakteristik, kategori utama dipilih 
 
 **Status:** INVENTARIS DIPERLUAS — PERLU AUDIT NAMA, ALIAS, DAN WILAYAH.
 
-Bagian ini memperluas semua entri kategori **Beach** yang sudah muncul pada inventaris Bali Golden Tour, lalu menambahkan pantai bernama lain yang ditemukan dalam sumber resmi pemerintah, dokumen daerah, dan direktori destinasi. Daftar ini hanya memuat nama serta wilayah pengelompokan. Deskripsi wisata, fasilitas, harga, akses, popularitas, dan rekomendasi artikel tidak dibahas di sini.
+Bagian ini adalah daftar gabungan kerja kategori **Beach**: entri dari tabel Bali Golden Tour sebelumnya dipertahankan sebagai catatan sumber awal, lalu daftar ini menggabungkan pantai bernama lain yang ditemukan dalam sumber resmi pemerintah, dokumen daerah, dan direktori destinasi. Jika nama yang sama muncul pada tabel awal dan tabel gabungan, itu adalah pengulangan referensi sumber, bukan dua destinasi berbeda. Daftar ini hanya memuat nama serta wilayah pengelompokan. Deskripsi wisata, fasilitas, harga, akses, popularitas, dan rekomendasi artikel tidak dibahas di sini.
 
 ### Aturan wilayah untuk inventaris pantai
 
@@ -417,6 +417,7 @@ Bagian ini memperluas semua entri kategori **Beach** yang sudah muncul pada inve
 | Nama destinasi | Kategori baku | Wilayah | Catatan nama / pemeriksaan |
 |---|---|---|---|
 
+| Nyanyi Beach | Beach | Bali Barat | Tabanan |
 | Kedungu Beach | Beach | Bali Barat | Tabanan |
 | Yeh Gangga Beach | Beach | Bali Barat | Sumber Bali.com mencatat Yeh Gangga 1 dan 2; perlu dipastikan apakah satu atau dua entri |
 | Pasut Beach | Beach | Bali Barat | Tabanan |
