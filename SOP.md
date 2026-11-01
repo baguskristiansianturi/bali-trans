@@ -154,12 +154,13 @@ Jika satu jawaban belum dapat dipastikan, periksa repository/master data lebih d
 
 Sebelum membuat, menulis, mengubah data, atau melakukan coding untuk artikel BDM Trans:
 
-1. Wajib membaca `MASTER/03-GUIDELINES/ARTICLE-PRODUCTION-SOP.md`.
+1. **Langkah pertama sebelum membuat artikel baru atau memperbarui artikel yang ada adalah membaca `MASTER/03-GUIDELINES/ARTICLE-PRODUCTION-SOP.md` dari awal sampai akhir.** Jangan mulai riset, menulis, mengubah data artikel, atau coding sebelum SOP tersebut diperiksa. Aturan ini berlaku untuk artikel kedua dan seterusnya, termasuk artikel Pantai Melasti dan destinasi lain.
 2. Wajib membaca DNA Informasi di `MASTER/PRODUCT-FOUNDATION.md` serta Master Destinasi, Master Aktivitas & Pengalaman, atau Data Master lain yang relevan.
 3. Wajib melakukan riset kata kunci dan analisis kompetitor pada hasil Google halaman pertama dan kedua sejauh dapat diakses; catat strategi, kekuatan, kelemahan, dan content gap sebelum menulis. Ikuti gaya editorial BDM Trans dan gunakan target pembaca dari Master. Naskah wajib minimal 800 kata isi artikel; kurang dari 800 kata otomatis gagal checklist dan tidak boleh dinyatakan selesai/publikasi. Wajib menyelesaikan sumber, Article Brief, outline, naskah, metadata, dan Image Manifest sesuai SOP sebelum coding.
 4. Coding harus menggunakan template dan arsitektur artikel yang benar-benar berlaku di repository; jangan membuat layout baru sebagai konsekuensi otomatis dari permintaan SEO.
-5. Perubahan artikel tetap tunduk pada aturan lingkup, diff, pengujian, commit, deployment, dan verifikasi dalam dokumen ini.
-6. Jika SOP artikel masih berstatus USULAN, gunakan sebagai kerangka kerja sementara dengan status tersebut; jangan menganggap semua aturan sebagai keputusan final sebelum Mas Bagus menyetujuinya.
+5. Terapkan standar media terbaru di SOP artikel: satu gambar utama tanpa caption, minimal dua gambar pendukung bercaption di tengah artikel, nama file deskriptif, alt text alami, dan fallback teks di dalam frame jika gambar gagal dimuat.
+6. Perubahan artikel tetap tunduk pada aturan lingkup, diff, pengujian, commit, deployment, dan verifikasi dalam dokumen ini.
+7. Status dokumen detail boleh tetap USULAN untuk bagian yang belum disetujui. Namun, standar gambar dan fallback pada bagian 9.5–9.6 versi 0.2 telah dikonfirmasi Mas Bagus dan wajib diterapkan pada artikel berikutnya.
 
 
 ## 12. SOP Destination Hub, kategori, dan sinkronisasi publikasi
