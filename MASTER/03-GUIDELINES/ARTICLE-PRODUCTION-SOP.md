@@ -9,6 +9,49 @@
 
 ---
 
+
+
+## ALUR WAJIB TIGA SOP DAN GERBANG PERSETUJUAN
+
+Produksi setiap artikel wajib mengikuti tiga dokumen SOP yang terpisah dan berurutan:
+
+1. **SOP 1 — Riset, Perencanaan, dan Naskah:** dokumen ini. Baca master destinasi/aktivitas yang relevan, tentukan posisi destinasi (wilayah, kategori, label, dan relasinya), lakukan riset kata kunci, analisis SERP dan kompetitor Google halaman 1–2 sejauh dapat diakses, verifikasi sumber, lalu susun naskah lengkap untuk ditinjau Mas Bagus.
+2. **SOP 2 — Penerapan Halaman dan Publikasi:** `MASTER/03-GUIDELINES/ARTICLE-PAGE-IMPLEMENTATION-SOP.md`. SOP ini baru boleh dijalankan setelah naskah mendapat persetujuan eksplisit Mas Bagus.
+3. **SOP 3 — Audit Setelah Publikasi:** `MASTER/03-GUIDELINES/ARTICLE-POST-PUBLISH-AUDIT-SOP.md`. Dimulai setelah halaman berhasil dipublikasikan dan dapat diperiksa pada GitHub Pages.
+
+**Gerbang persetujuan tidak boleh dilewati:**
+- Setelah SOP 1, kirim naskah dan brief kepada Mas Bagus. Jangan mulai coding, memasukkan artikel ke data website, atau mengubah halaman sebelum ada persetujuan eksplisit.
+- Jika naskah belum disetujui, lakukan revisi hanya pada naskah/riset yang diminta. Jangan lanjut ke SOP 2.
+- Setelah SOP 2, berikan URL GitHub Pages agar Mas Bagus dapat melakukan pemeriksaan visual dan pengalaman pengguna. Lanjutkan SOP 3 untuk audit terstruktur.
+- Artikel dinyatakan selesai hanya setelah checklist SOP 3 diselesaikan dan seluruh temuan yang disepakati ditutup. Catat temuan yang tidak dapat diuji atau memerlukan akses/perangkat khusus; jangan menandainya lulus.
+
+SOP ini tetap menjadi sumber standar editorial, riset, fakta, orisinalitas, SEO, media, dan struktur isi. Ketentuan alur tiga SOP di atas mengatur urutan kerja dan mengesampingkan bagian lama yang dapat terbaca seolah-olah coding/publikasi boleh dimulai sebelum persetujuan naskah.
+
+## Standar Gaya Editorial dan Format Isi
+
+Artikel tidak boleh berupa deretan paragraf polos tanpa hierarki visual. Gunakan pemformatan secara selektif dan sesuai fungsi informasi:
+
+- **Bold/tebal:** untuk nama atau fakta penting, inti informasi, dan penegasan yang memang membantu pembaca memindai isi. Jangan menebalkan satu paragraf penuh atau setiap kemunculan kata kunci.
+- *Italic/miring:* untuk istilah asing, istilah lokal, judul karya, ungkapan, atau penekanan ringan bila sesuai konteks. Jangan menggunakan miring hanya sebagai dekorasi.
+- **Keterangan dalam kurung:** gunakan untuk konteks tambahan, padanan istilah, batasan, atau penjelasan singkat. Jangan menjejalkan informasi utama ke dalam tanda kurung.
+- **Kutipan:** gunakan blok kutipan hanya untuk pernyataan yang memang layak ditonjolkan; atribusi dan tautan harus menuju sumber langsung yang memuat kutipan/pernyataan tersebut.
+- **Note/catatan:** informasi tambahan, tips, peringatan, atau batasan yang penting tetapi bukan alur utama dapat ditempatkan dalam panel tersendiri. Panel memakai border tipis dan lembut, radius konsisten dengan sistem desain, padding proporsional, serta latar abu-abu sangat lembut/transparan seperti panel rekomendasi terkait yang digunakan pada halaman artikel. Ukuran teks panel satu tingkat lebih kecil dari body utama, tetap mudah dibaca dan memiliki kontras memadai.
+- Jangan membuat panel note untuk setiap paragraf. Gunakan hanya ketika pemisahan visual benar-benar membantu memahami informasi.
+- Jangan mengubah seluruh artikel menjadi daftar, callout, atau teks tebal. Pertahankan narasi editorial yang mengalir dan konsisten dengan tipografi website.
+
+Format tebal, miring, tanda kurung, kutipan, tautan, dan panel note harus dipilih berdasarkan konteks dan kebutuhan pembaca, bukan diterapkan secara mekanis pada setiap artikel.
+
+## Standar Tautan Sumber Langsung
+
+Setiap tautan sumber eksternal harus mengarah ke halaman spesifik yang benar-benar memuat, menyatakan, atau membuktikan fakta yang dirujuk. Jangan menautkan nama lembaga ke homepage jika bukti tersedia pada artikel, laporan, dokumen, halaman data, siaran pers, atau publikasi spesifik.
+
+- Tempelkan tautan pada anchor text yang alami dan menjelaskan sumber/pernyataan di dalam paragraf terkait.
+- Pastikan isi halaman tujuan mendukung klaim yang tepat; membuka halaman saja tidak cukup jika halaman itu tidak memuat bukti.
+- Utamakan sumber primer/penerbit yang bertanggung jawab atas informasi. Jika hanya ada sumber sekunder, nyatakan atribusinya dengan tepat.
+- Simpan URL spesifik dan klaim yang didukung dalam catatan sumber internal.
+- Jangan gunakan homepage, halaman kategori umum, atau profil lembaga sebagai pengganti bukti spesifik.
+- Tidak perlu menampilkan daftar sumber di akhir artikel; kredit foto tetap dekat dengan gambar.
+
 ## 1. Tujuan
 
 SOP ini menetapkan cara meneliti, menyusun, memeriksa, menerapkan ke website, dan menerbitkan artikel BDM Trans.
@@ -613,4 +656,5 @@ SOP ini tidak menyetujui layout, desain, template visual baru, perubahan URL, at
 | 2026-11-01 | 0.3 | Menetapkan pola FAQ accordion satu panel terbuka untuk semua halaman, serta urutan akhir artikel FAQ → Kesimpulan → Tag → Share → Rekomendasi | DIKONFIRMASI MAS BAGUS — UJI COBA PADA ARTIKEL PANTAI KUTA |
 | 2026-11-01 | 0.4 | Memperhalus kartu FAQ, menyelaraskan tipografi pertanyaan/jawaban/kesimpulan, mengaktifkan tautan topik, dan merekomendasikan hanya artikel relevan | REVISI BERDASARKAN TINJAUAN MAS BAGUS |
 | 2026-11-01 | 0.5 | Menghapus daftar sumber dari tampilan akhir artikel; memindahkan rujukan fakta ke tautan kontekstual di dalam paragraf dan menetapkan warna tautan konsisten tanpa bold | REVISI BERDASARKAN TINJAUAN MAS BAGUS |
+| 2026-11-01 | 0.6 | Menetapkan alur tiga SOP dengan persetujuan naskah sebelum coding, standar format editorial (bold, italic, kurung, note panel), serta tautan sumber menuju halaman bukti spesifik | REVISI BERDASARKAN ARAHAN MAS BAGUS — MENUNGGU TINJAUAN |
 
