@@ -24,7 +24,7 @@ function getArticlePublicUrl(blog) {
             const url = getArticlePublicUrl(blog);
             const encodedUrl = encodeURIComponent(url);
             const encodedTitle = encodeURIComponent(blog.title || 'Bali Trans article');
-            const message = encodeURIComponent((blog.title || 'Bali Trans article') + '\\n' + url);
+            const message = encodeURIComponent((blog.title || 'Bali Trans article') + '\n' + url);
             return '<section class="article-share" aria-labelledby="article-share-title">' +
                 '<div class="article-share__intro"><h2 id="article-share-title">Share this article</h2></div>' +
                 '<div class="article-share__actions">' +
