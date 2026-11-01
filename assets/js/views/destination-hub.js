@@ -131,7 +131,7 @@
       </div>`;
   }
 
-  function initDestinationHub() {
+  function initDestinationHub(initialFilter) {
     const root = document.querySelector('.destination-hub');
     if (!root) return;
     const filters = root.querySelector('#destinationHubFilters');
@@ -154,7 +154,8 @@
         }))
       ];
 
-      let selected = 'all';
+      const requestedFilter = initialFilter || new URLSearchParams(window.location.search).get('item') || 'all';
+      let selected = tabs.some(tab => tab.id === requestedFilter) ? requestedFilter : 'all';
       function paintTabs() {
         filters.innerHTML = tabs.map(tab => `
           <button type="button" class="destination-hub__filter${selected === tab.id ? ' is-active' : ''}" data-destination-filter="${escapeDestinationText(tab.id)}" aria-pressed="${selected === tab.id}">

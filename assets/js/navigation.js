@@ -94,7 +94,7 @@
                     break;
                 case 'destinations':
                     container.innerHTML = renderDestinationHubView();
-                    initDestinationHub();
+                    initDestinationHub(params);
                     break;
                 case 'discovery':
                     container.innerHTML = renderDiscoveryView(params || 'region:south');

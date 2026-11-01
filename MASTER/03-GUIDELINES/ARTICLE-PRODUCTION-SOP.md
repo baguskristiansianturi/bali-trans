@@ -1,7 +1,7 @@
 # SOP Produksi Artikel & SEO Organik — BDM Trans
 
 > **Status:** USULAN — DRAF UNTUK DITINJAU, BELUM DITETAPKAN SEBAGAI SOP FINAL  
-> **Versi:** 0.3  
+> **Versi:** 0.4  
 > **Tanggal penyusunan:** 2026-11-01  
 > **Pemilik keputusan:** Mas Bagus  
 > **Pelaksana alur kerja:** Aya bersama Mas Bagus  
@@ -242,7 +242,7 @@ FAQ adalah bagian untuk menjawab pertanyaan spesifik yang masih mungkin dimiliki
 - Jumlah pertanyaan mengikuti kebutuhan topik; tidak ada target jumlah demi SEO.
 - Jangan menjanjikan FAQ rich result. FAQ ditampilkan untuk pengalaman pembaca; Google tidak lagi menampilkan FAQ rich result sejak 7 Mei 2026.
 
-**Standar interaksi dan visual yang berlaku untuk semua desain website yang menggunakan FAQ:**
+**Standar interaksi, visual, dan tipografi yang berlaku untuk semua desain website yang menggunakan FAQ:**
 1. Gunakan pola **accordion satu panel terbuka**. Saat halaman dimuat, seluruh jawaban tertutup.
 2. Ketika pertanyaan dipilih, jawaban pertanyaan itu terbuka. Jika pertanyaan lain dipilih, jawaban sebelumnya otomatis tertutup.
 3. Memilih pertanyaan yang sedang terbuka akan menutup jawabannya kembali.
@@ -251,10 +251,14 @@ FAQ adalah bagian untuk menjawab pertanyaan spesifik yang masih mungkin dimiliki
 6. Gunakan tipografi, warna, border, radius, jarak, dan state hover/focus yang konsisten dengan sistem desain website: dasar putih, teks navy/gelap, border abu-abu lembut, aksen secukupnya.
 7. Pertanyaan dan jawaban harus mudah dipindai, area klik cukup besar untuk layar sentuh, dan layout responsif di mobile, tablet, serta desktop.
 8. Komponen harus reusable/shared. Halaman baru yang membutuhkan FAQ wajib menggunakan komponen atau pola bersama ini, bukan membuat variasi accordion sendiri tanpa persetujuan.
-9. Jangan mengubah isi atau urutan bagian halaman lain hanya karena komponen FAQ dipasang; ikuti urutan konten yang ditetapkan untuk tipe halaman tersebut.
+9. Setiap pertanyaan tampil sebagai kartu mandiri dengan border abu-abu lembut, radius konsisten, dan jarak antarkartu; jangan membungkus semua pertanyaan dalam satu border besar.
+10. Ukuran teks pertanyaan mengikuti ukuran teks isi utama (body). Jawaban dibuat satu tingkat lebih kecil, bukan terlalu kecil seperti catatan kaki. Kesimpulan tetap memakai ukuran teks body yang sama dengan isi artikel.
+11. Panel jawaban memiliki latar abu-abu/transparan yang sangat lembut, radius halus, dan transisi buka-tutup yang ringan. Hindari perubahan tinggi mendadak atau efek berlebihan.
+12. Label, tombol, jawaban, dan state terbuka harus tetap nyaman dibaca di mobile, tablet, dan desktop.
+13. Jangan mengubah isi atau urutan bagian halaman lain hanya karena komponen FAQ dipasang; ikuti urutan konten yang ditetapkan untuk tipe halaman tersebut.
 
 **Urutan akhir standar untuk artikel editorial:**
-Isi utama → FAQ → Kesimpulan → Tag/topik → Share this article → Rekomendasi artikel lain. Sumber referensi dan modul tambahan dapat ditempatkan setelah rekomendasi sesuai kebutuhan template, tanpa menyela urutan inti tersebut.
+Isi utama → FAQ → Kesimpulan → Topik terkait (tag) → Share this article → Artikel terkait. Sumber referensi dan modul tambahan dapat ditempatkan setelah rekomendasi sesuai kebutuhan template, tanpa menyela urutan inti tersebut.
 
 ### 7.4 Standar keterbacaan
 
@@ -605,4 +609,5 @@ SOP ini tidak menyetujui layout, desain, template visual baru, perubahan URL, at
 | 2026-11-01 | 0.1 | Draf alur produksi artikel, riset, orisinalitas, SEO, gambar, tautan, coding, publikasi, dan pemantauan organik berdasarkan riset Google Search Central dan Yoast | USULAN — MENUNGGU TINJAUAN |
 | 2026-11-01 | 0.2 | Menambahkan standar satu gambar utama tanpa caption, minimal dua gambar pendukung bercaption, penamaan file deskriptif, alt text alami, dan fallback frame saat gambar gagal dimuat | DIKONFIRMASI MAS BAGUS |
 | 2026-11-01 | 0.3 | Menetapkan pola FAQ accordion satu panel terbuka untuk semua halaman, serta urutan akhir artikel FAQ → Kesimpulan → Tag → Share → Rekomendasi | DIKONFIRMASI MAS BAGUS — UJI COBA PADA ARTIKEL PANTAI KUTA |
+| 2026-11-01 | 0.4 | Memperhalus kartu FAQ, menyelaraskan tipografi pertanyaan/jawaban/kesimpulan, mengaktifkan tautan topik, dan merekomendasikan hanya artikel relevan | REVISI BERDASARKAN TINJAUAN MAS BAGUS |
 

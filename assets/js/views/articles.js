@@ -14,18 +14,29 @@ function getArticlePublicUrl(blog) {
 
         function renderRelatedBlogGuides(blog) {
             const escapeHtml = value => String(value || '').replace(/[&<>"']/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character]));
-            const relatedIds = Array.isArray(blog.related) ? blog.related : [];
-            const preferred = relatedIds.map(id => BALI_BLOGS.find(item => item.id === id)).filter(item => item && item.id !== blog.id && item.publicationStatus === 'PUBLISHED');
-            const related = [...preferred, ...(Array.isArray(BALI_BLOGS) ? BALI_BLOGS.filter(item => item && item.id !== blog.id && item.publicationStatus === 'PUBLISHED' && !preferred.some(entry => entry.id === item.id)) : [])].slice(0, 3);
+            const allPublished = (Array.isArray(BALI_BLOGS) ? BALI_BLOGS : []).filter(item => item && item.id !== blog.id && item.publicationStatus === 'PUBLISHED');
+            const explicitIds = Array.isArray(blog.related) ? blog.related : [];
+            const explicit = explicitIds.map(id => allPublished.find(item => item.id === id)).filter(Boolean);
+            const currentTopics = (blog.topicTags || []).map(tag => typeof tag === 'string' ? tag : tag.label).filter(Boolean);
+            const score = item => {
+                let value = 0;
+                if (blog.destinationCategoryId && item.destinationCategoryId === blog.destinationCategoryId) value += 3;
+                if (blog.regionId && item.regionId === blog.regionId) value += 2;
+                const itemTopics = (item.topicTags || []).map(tag => typeof tag === 'string' ? tag : tag.label);
+                value += currentTopics.filter(topic => itemTopics.includes(topic)).length * 2;
+                return value;
+            };
+            const relevant = allPublished.filter(item => score(item) > 0 && !explicit.some(entry => entry.id === item.id)).sort((a, b) => score(b) - score(a));
+            const related = [...explicit, ...relevant].slice(0, 3);
             const cards = related.map(item => '<a class="article-recommended-card" href="' + getArticlePublicUrl(item) + '"><span class="article-recommended-card__eyebrow">' + escapeHtml(item.category || 'Travel Information') + '</span><strong>' + escapeHtml(item.title) + '</strong><span class="article-recommended-card__meta">' + escapeHtml(item.readTime || '') + ' · Baca artikel <span aria-hidden="true">→</span></span></a>').join('');
-            return '<section class="article-recommended" aria-labelledby="related-guides-title"><div class="article-recommended__heading"><span>KEEP READING</span><h2 id="related-guides-title">Artikel lainnya untuk dijelajahi</h2><p>Temukan cerita dan informasi lain untuk melengkapi rencana perjalananmu di Bali.</p></div>' + (cards ? '<div class="article-recommended__grid">' + cards + '</div>' : '<div class="article-recommended__empty">Artikel lainnya sedang disiapkan. Kunjungi halaman Blog untuk melihat pembaruan berikutnya.</div>') + '</section>';
+            return '<section class="article-recommended" aria-labelledby="related-guides-title"><div class="article-recommended__heading"><span>RECOMMENDED READING</span><h2 id="related-guides-title">Artikel terkait</h2><p>Pilihan bacaan lain yang memiliki topik atau konteks destinasi serupa.</p></div>' + (cards ? '<div class="article-recommended__grid">' + cards + '</div>' : '<div class="article-recommended__empty">Belum ada artikel lain yang cukup relevan untuk direkomendasikan. Bagian ini akan terisi saat artikel terkait diterbitkan.</div>') + '</section>';
         }
 
         function renderArticleFaq(blog) {
             const items = Array.isArray(blog.faq) ? blog.faq : [];
             if (!items.length) return '';
             const escapeHtml = value => String(value || '').replace(/[&<>"']/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character]));
-            return '<section class="article-faq" aria-labelledby="article-faq-title"><div class="article-faq__heading"><span>GOOD TO KNOW</span><h2 id="article-faq-title">Pertanyaan yang sering ditanyakan</h2><p>Jawaban singkat untuk membantu merencanakan kunjungan ke Pantai Kuta.</p></div><div class="article-faq__list">' + items.map((item, index) => {
+            return '<section class="article-faq" aria-labelledby="article-faq-title"><div class="article-faq__heading"><span>FAQ</span><h2 id="article-faq-title">Pertanyaan yang sering ditanyakan</h2><p>Informasi singkat untuk membantu merencanakan kunjungan.</p></div><div class="article-faq__list">' + items.map((item, index) => {
                 const answerId = 'article-faq-answer-' + index;
                 return '<div class="article-faq__item"><h3><button type="button" class="article-faq__trigger" aria-expanded="false" aria-controls="' + answerId + '" onclick="toggleArticleFaq(this)"><span>' + escapeHtml(item.question) + '</span><i class="fas fa-plus" aria-hidden="true"></i></button></h3><div class="article-faq__answer" id="' + answerId + '" hidden><p>' + escapeHtml(item.answer) + '</p></div></div>';
             }).join('') + '</div></section>';
@@ -41,24 +52,67 @@ function getArticlePublicUrl(blog) {
             const tags = Array.isArray(blog.topicTags) ? blog.topicTags : [];
             if (!tags.length) return '';
             const escapeHtml = value => String(value || '').replace(/[&<>"']/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character]));
-            return '<nav class="article-topic-tags" aria-label="Topik terkait"><span>Jelajahi topik</span>' + tags.map(tag => '<span class="article-topic-tag">' + escapeHtml(tag) + '</span>').join('') + '</nav>';
+            const basePath = window.location.pathname.split('/blog/')[0].replace(/\/?$/, '/');
+            return '<nav class="article-topic-tags" aria-label="Topik terkait"><span>Topik terkait:</span>' + tags.map(tag => {
+                const label = typeof tag === 'string' ? tag : tag.label;
+                const page = tag && tag.page;
+                const item = tag && tag.item;
+                if (!label || !['destinations', 'discovery'].includes(page)) return '';
+                const href = basePath + '?page=' + encodeURIComponent(page) + (item ? '&item=' + encodeURIComponent(item) : '');
+                return '<a class="article-topic-tag" href="' + escapeHtml(href) + '">' + escapeHtml(label) + '</a>';
+            }).join('') + '</nav>';
         }
 
         window.toggleArticleFaq = function (button) {
             if (!button) return;
-            const item = button.closest('.article-faq__item');
             const section = button.closest('.article-faq');
-            if (!item || !section) return;
+            if (!section) return;
             const wasOpen = button.getAttribute('aria-expanded') === 'true';
             section.querySelectorAll('.article-faq__trigger').forEach(trigger => {
                 trigger.setAttribute('aria-expanded', 'false');
                 const panel = document.getElementById(trigger.getAttribute('aria-controls'));
-                if (panel) panel.hidden = true;
+                const item = trigger.closest('.article-faq__item');
+                if (!panel) return;
+                if (item) item.classList.remove('is-open');
+                panel.classList.remove('is-open');
+                if (!panel.hidden) {
+                    const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                    if (reducedMotion) {
+                        panel.hidden = true;
+                        panel.style.maxHeight = '';
+                    } else {
+                        panel.style.maxHeight = panel.scrollHeight + 'px';
+                        void panel.offsetHeight;
+                        panel.style.maxHeight = '0px';
+                        panel.addEventListener('transitionend', function onClose(event) {
+                            if (event.propertyName !== 'max-height') return;
+                            panel.removeEventListener('transitionend', onClose);
+                            if (trigger.getAttribute('aria-expanded') !== 'true') {
+                                panel.hidden = true;
+                                panel.style.maxHeight = '';
+                            }
+                        });
+                    }
+                }
             });
             if (!wasOpen) {
                 button.setAttribute('aria-expanded', 'true');
                 const answer = document.getElementById(button.getAttribute('aria-controls'));
-                if (answer) answer.hidden = false;
+                const item = button.closest('.article-faq__item');
+                if (answer) {
+                    answer.hidden = false;
+                    answer.style.maxHeight = '0px';
+                    if (item) item.classList.add('is-open');
+                    requestAnimationFrame(() => {
+                        answer.classList.add('is-open');
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                    });
+                    answer.addEventListener('transitionend', function onOpen(event) {
+                        if (event.propertyName !== 'max-height') return;
+                        answer.removeEventListener('transitionend', onOpen);
+                        if (button.getAttribute('aria-expanded') === 'true') answer.style.maxHeight = 'none';
+                    });
+                }
             }
         };
 
