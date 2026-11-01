@@ -1,24 +1,36 @@
 # Bali Trans — Master Blueprint
 
-Status: INITIAL INVENTORY  \
+Status: INITIAL INVENTORY + INCREMENTAL PRODUCT FOUNDATION  \
 Last mapped: 2026-11-01  \
 Repository: `baguskristiansianturi/bali-trans`  \
 Default branch: `main`  \
-Implementation snapshot used for this inventory: `a8d4282293d98923ecf160f52d95fe6168dd905d`
+Implementation snapshot used for initial technical inventory: `a8d4282293d98923ecf160f52d95fe6168dd905d`
 
 ## Start every work session here
 
 **Required first read:** [`START-HERE.md`](./START-HERE.md).
 
-This is the team's session-start protocol and working agreement. When a new chat begins with a request to work on Bali Trans, read it before continuing. It explains the collaboration method, approval checkpoints, documentation sequence, website-protection boundary and current discovery checkpoint.
+This is the team's session-start protocol and working agreement. Read it before continuing project work. It explains the collaboration method, approval checkpoints, documentation sequence, website-protection boundary and current discovery checkpoint.
 
 Current working boundary: **Master discussion and documentation only. The existing website must not be changed unless separately and explicitly authorized.**
 
-## Purpose
+## Product and service discovery records
 
-This folder is the human-readable master map of the Bali Trans website. It is intended to be understandable in GitHub and in VS Code, including by a project team member who does not need to know the technical implementation details.
+These records are the business-first source of context for future page, content, journey, design and implementation decisions. They are intentionally developed incrementally.
 
-It records:
+| Document | Responsibility |
+|---|---|
+| [Product Foundation](./PRODUCT-FOUNDATION.md) | Market positioning, target customers, value proposition, website role and open discovery |
+| [Service Master](./SERVICE-MASTER.md) | Current service categories and their service types |
+| [Future Ideas](./FUTURE-IDEAS.md) | Unapproved or early concepts kept separate from active services |
+| [Work Register](./WORK-REGISTER.md) | Active unfinished discovery and documentation tasks |
+| [Master Change Register](./05-CHANGE-REGISTER.md) | Dated history of meaningful Master changes |
+
+**Important:** A future idea is not an active service or implementation task. An unchecked Work Register item remains open even when the team changes topic.
+
+## Technical blueprint
+
+This folder is also the human-readable map of the existing Bali Trans website. It records:
 - what components and page modules currently exist;
 - what each component is responsible for;
 - where its real implementation lives;
@@ -26,22 +38,31 @@ It records:
 - the current implementation and approval status;
 - known gaps or discrepancies that must be resolved before treating a component as a final standard.
 
-The initial inventory below documents the existing implementation. The business-first product discovery and approved product decisions are developed incrementally under the working protocol in `START-HERE.md`.
+The initial technical inventory documents the existing implementation. It is separate from the business-first product discovery records above.
 
 ## This is not source code
 
 Files in `MASTER/` are documentation only. They must not contain executable HTML, CSS, JavaScript, temporary scripts, or experimental code. The website continues to run from the existing implementation files.
 
-The master describes the implementation and approved decisions; it does not replace them.
+The Master describes the implementation and approved decisions; it does not replace them.
 
 ## Two connected layers
 
-1. **MASTER BLUEPRINT** — this folder: the map, component contracts, page relationships, status and change notes.
+1. **MASTER BLUEPRINT** — this folder: business decisions, service definitions, system maps, component contracts, page relationships, status and change notes.
 2. **IMPLEMENTATION** — the existing HTML, CSS, JavaScript, data and assets that actually run the website.
 
-A component is not considered synchronized merely because its documentation exists. When an approved implementation change is made, the corresponding master record must be updated in the same change set. A future automated consistency check may enforce this; no new runtime script is introduced as part of this initial documentation inventory.
+A component is not considered synchronized merely because its documentation exists. When an approved implementation change is made, the corresponding Master record must be updated in the same scoped change set.
 
 ## Status vocabulary
+
+Decision status:
+- **DISCUSSION** — being explored; not a decision.
+- **PROPOSED** — a candidate recommendation awaiting discussion or approval.
+- **AGREED** — explicitly accepted by the team for the current Master version.
+- **VALIDATION REQUIRED** — agreed provisionally but needs real-world or usability testing.
+- **REVISED** — replaced by a later decision; retain its history.
+- **REJECTED** — considered and not adopted.
+- **FUTURE IDEA** — an early concept that is not an active service or work commitment.
 
 Implementation status:
 - **IMPLEMENTED** — the referenced implementation exists in the repository.
@@ -51,47 +72,24 @@ Implementation status:
 - **ARCHIVED** — retained for historical/reference purposes and not treated as active implementation.
 - **NOT ESTABLISHED** — no shared implementation or approved rule has been identified yet.
 
-Approval status is separate:
-- **APPROVED** — explicitly approved by the team after discussion.
-- **LOCKED** — approved and protected from changes without explicit authorization.
-- **PENDING** — not yet approved as a reusable standard.
-- **NOT RECORDED** — repository evidence does not establish approval.
-
-Never infer APPROVED or LOCKED from the fact that code exists or a page is deployed.
-
-## Required fields for every component master
-
-Each component record should identify:
-1. Component ID and name.
-2. Purpose and responsibility.
-3. Implementation status and approval status.
-4. Canonical source files (HTML/JS/CSS/data/assets).
-5. Pages that use it.
-6. Explicit exceptions.
-7. Desktop, tablet and mobile behaviour as observed or approved.
-8. Interactions and functional rules.
-9. Dependencies and change impact.
-10. Known gaps and unresolved decisions.
-11. Last verified commit and change history.
-
-If a detail has not been verified, write **NOT VERIFIED**. Do not fill gaps with assumptions.
+Never infer approval from the fact that code exists or a page is deployed.
 
 ## Change and protection rules
 
-- Product and design decisions are made collaboratively and require explicit agreement before being recorded as approved.
-- The assistant may inspect, document and recommend; it may not silently change an approved standard.
-- A request to change a component must identify the component and scope.
-- Changes outside the requested component/page are prohibited unless explicitly approved.
-- If implementation and master disagree, record the discrepancy and stop before silently choosing one.
-- Keep future ideas as documentation notes only. Do not leave unused scripts, placeholder components or unconnected code in the deployed website.
-- Before deleting any file, verify imports, script tags, CSS links, routes, links/forms, workflows, tests and sitemap references.
+- Product and design decisions require explicit agreement before being recorded as approved.
+- Add information incrementally; do not force the team through a rigid waterfall.
+- Put each decision in the document that owns that subject.
+- Keep unresolved ideas clearly marked and separate from current services.
+- Record meaningful changes, their reason, date and approval status.
+- If implementation and Master disagree, record the discrepancy and discuss it.
+- Do not change website implementation during Master discovery without separate explicit authorization.
 
 ## Relationship to existing project documentation
 
 This folder complements, not replaces:
 - `ARCHITECTURE.md` — technical architecture boundaries.
 - `SOP.md` — repository change procedure.
-- `ROADMAP.md` — planned work and priorities.
+- `ROADMAP.md` — implementation/release roadmap.
 - `HANDOFF.md` — current working handoff and verified release state.
 - `TEMPLATE-REGISTRY.md` — canonical page templates and shared components.
 - `TEMPLATE-PLAYBOOK.md` — how templates are designed and reused.
@@ -100,18 +98,20 @@ This folder complements, not replaces:
 - `content/ROUTE_MASTER_MAPPING.md` — route mapping.
 - `content/bali-master-data.json` — destination master data.
 
-Do not copy entire SOPs or roadmaps into this folder. Link to their source documents.
+The Work Register is the cross-topic checklist for unfinished discovery and documentation. It complements the implementation roadmap; it does not replace it.
 
 ## Reading order
 
-1. `START-HERE.md` — required session protocol and current discovery checkpoint.
-2. `00-SYSTEM-MAP.md`
-3. `01-GLOBAL-COMPONENTS.md`
-4. `02-PAGE-MODULES.md`
-5. `03-TECHNICAL-MODULES.md`
-6. `04-STATUS-REGISTER.md`
-7. The relevant detailed record under `GLOBAL/` or `SHARED/`
+1. `START-HERE.md` — session protocol and current checkpoint.
+2. `PRODUCT-FOUNDATION.md` — relevant business and customer context.
+3. `SERVICE-MASTER.md` — current service structure.
+4. `FUTURE-IDEAS.md` — parked concepts, when relevant.
+5. `WORK-REGISTER.md` — unfinished work and next actions.
+6. `00-SYSTEM-MAP.md`
+7. `01-GLOBAL-COMPONENTS.md`
+8. `02-PAGE-MODULES.md`
+9. `03-TECHNICAL-MODULES.md`
+10. `04-STATUS-REGISTER.md`
+11. Relevant detailed records under `GLOBAL/` or `SHARED/`.
 
-## Initial scope
-
-The initial component inventory documents existing repository structures only. It does not refactor code, redesign pages, approve unfinished templates, create new page functionality, or implement planned features.
+--- 
