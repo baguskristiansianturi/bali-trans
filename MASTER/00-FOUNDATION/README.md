@@ -1,15 +1,15 @@
-# 00 — Foundation & Brand
+# 00 — Fondasi & Merek
 
-**Status:** ACTIVE DISCOVERY — some records exist; others are not started.
+**Status:** PEMBAHASAN AKTIF — sebagian dokumen sudah tersedia, sebagian lainnya belum dimulai.
 
-This domain defines what the business is, whom it serves, what it promises and what the website is intended to achieve.
+Kelompok ini menjelaskan identitas bisnis, pelanggan yang dilayani, nilai yang ditawarkan, serta tujuan website.
 
-| Planned record | Status | Required coverage |
+| Dokumen yang direncanakan | Status | Cakupan yang dibutuhkan |
 |---|---|---|
-| [Product Foundation](../PRODUCT-FOUNDATION.md) | EXISTS — discovery open | Positioning, audience, value, website role |
-| Company Profile & Brand Master | NOT STARTED | Legal/business identity, brand story, naming, voice, values, brand assets |
-| Business Objectives & KPIs | NOT STARTED | Primary website purpose, measurable outcomes, conversion and resource goals |
-| Customer & Market Research | DISCUSSION | Personas, needs, priority markets, evidence, willingness to pay |
-| Brand Transition Plan | NOT STARTED | Bali Trans/BDM Trans naming, timing, domains, public communication |
+| [Fondasi Produk](../PRODUCT-FOUNDATION.md) | SUDAH ADA — pembahasan masih terbuka | Posisi produk, sasaran pelanggan, nilai layanan, fungsi website |
+| Profil Perusahaan & Master Merek | BELUM DIMULAI | Identitas usaha, cerita merek, nama, suara komunikasi, nilai, aset merek |
+| Sasaran Bisnis & Indikator Keberhasilan | BELUM DIMULAI | Tujuan utama website, hasil yang ingin dicapai, ukuran konversi dan sasaran informasi |
+| Riset Pelanggan & Pasar | PEMBAHASAN | Profil pelanggan, kebutuhan, prioritas pasar, bukti riset, kesediaan membayar |
+| Rencana Peralihan Merek | BELUM DIMULAI | Peralihan nama Bali Trans/BDM Trans, waktu, domain, komunikasi publik |
 
-**Do not assume:** company registration details, certifications, market rankings, launch dates or brand-transition timing. These require confirmation.
+**Jangan berasumsi:** detail legalitas perusahaan, sertifikasi, peringkat pasar, tanggal peluncuran, atau waktu peralihan merek. Semua itu memerlukan konfirmasi.
