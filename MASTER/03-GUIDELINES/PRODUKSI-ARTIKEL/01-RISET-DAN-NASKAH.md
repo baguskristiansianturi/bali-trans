@@ -1,7 +1,7 @@
 # SOP Produksi Artikel & SEO Organik — BDM Trans
 
 > **Status:** USULAN — DRAF UNTUK DITINJAU, BELUM DITETAPKAN SEBAGAI SOP FINAL  
-> **Versi:** 0.7  
+> **Versi:** 0.8  
 > **Tanggal penyusunan:** 2026-11-01  
 > **Pemilik keputusan:** Mas Bagus  
 > **Pelaksana alur kerja:** Aya bersama Mas Bagus  
@@ -672,3 +672,8 @@ Dalam struktur target, dokumen ini menjadi **SOP 02 — Riset & Penulisan Naskah
 Riset dan naskah harus mengacu pada Business/Plan Master, Master Produk/Layanan, Master Destinasi/Aktivitas, serta data yang relevan. Jangan mengubah asumsi bisnis menjadi fakta atau janji publik. Rincian pemindahan isi dan penomoran file akan dilakukan setelah restrukturisasi diselaraskan; untuk sementara isi SOP yang ada tetap dipertahankan.
 
 Lihat [Rencana Restrukturisasi Empat SOP](./00-RENCANA-RESTRUKTURISASI.md) dan [Business/Plan Master](../../BUSINESS-PLAN-MASTER.md).
+
+
+### Catatan versi 0.8
+
+Mencatat pemisahan tahap Perencanaan & Brief sebagai arah restrukturisasi empat SOP. Isi lama tetap dipertahankan selama masa transisi.
