@@ -239,6 +239,74 @@
             }
             description.setAttribute('content', selected[1]);
 
+
+            // Article metadata is generated from the selected article; site-wide noindex remains unchanged during preview.
+            const previousArticleSchema = document.getElementById('bali-trans-article-schema');
+            if (previousArticleSchema) previousArticleSchema.remove();
+            if (viewName === 'blog-read') {
+                const article = BALI_BLOGS.find(item => item.id === params);
+                if (article) {
+                    const canonical = new URL(window.location.href);
+                    canonical.hash = '';
+                    Array.from(canonical.searchParams.keys()).forEach(function(key) {
+                        if (key !== 'page' && key !== 'item') canonical.searchParams.delete(key);
+                    });
+                    const canonicalUrl = canonical.href;
+                    const imageUrl = article.image || '';
+                    function setArticleMeta(selector, value) {
+                        let node = document.querySelector(selector);
+                        if (!node) {
+                            node = document.createElement('meta');
+                            const propertyMatch = selector.match(/property="([^"]+)"/);
+                            const nameMatch = selector.match(/name="([^"]+)"/);
+                            if (propertyMatch) node.setAttribute('property', propertyMatch[1]);
+                            if (nameMatch) node.setAttribute('name', nameMatch[1]);
+                            document.head.appendChild(node);
+                        }
+                        node.setAttribute('content', value || '');
+                    }
+                    setArticleMeta('meta[property="og:type"]', 'article');
+                    setArticleMeta('meta[property="og:title"]', document.title);
+                    setArticleMeta('meta[property="og:description"]', article.snippet || selected[1]);
+                    setArticleMeta('meta[property="og:url"]', canonicalUrl);
+                    if (imageUrl) setArticleMeta('meta[property="og:image"]', imageUrl);
+                    setArticleMeta('meta[name="twitter:card"]', imageUrl ? 'summary_large_image' : 'summary');
+                    setArticleMeta('meta[name="twitter:title"]', document.title);
+                    setArticleMeta('meta[name="twitter:description"]', article.snippet || selected[1]);
+                    if (imageUrl) setArticleMeta('meta[name="twitter:image"]', imageUrl);
+                    let canonicalLink = document.querySelector('link[rel="canonical"][data-bali-trans-seo="article"]');
+                    if (!canonicalLink) {
+                        canonicalLink = document.createElement('link');
+                        canonicalLink.setAttribute('rel', 'canonical');
+                        canonicalLink.setAttribute('data-bali-trans-seo', 'article');
+                        document.head.appendChild(canonicalLink);
+                    }
+                    canonicalLink.setAttribute('href', canonicalUrl);
+                    const schema = {
+                        '@context': 'https://schema.org',
+                        '@type': 'BlogPosting',
+                        headline: article.title,
+                        description: article.snippet || selected[1],
+                        image: imageUrl ? [imageUrl] : undefined,
+                        datePublished: article.dateISO,
+                        dateModified: article.dateISO,
+                        inLanguage: article.lang || 'en',
+                        author: { '@type': 'Organization', name: article.author || 'Bali Trans Editorial Team' },
+                        publisher: { '@type': 'Organization', name: 'Bali Trans' },
+                        mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
+                        url: canonicalUrl
+                    };
+                    const schemaNode = document.createElement('script');
+                    schemaNode.type = 'application/ld+json';
+                    schemaNode.id = 'bali-trans-article-schema';
+                    schemaNode.textContent = JSON.stringify(schema);
+                    document.head.appendChild(schemaNode);
+                }
+            } else {
+                const articleCanonical = document.querySelector('link[rel="canonical"][data-bali-trans-seo="article"]');
+                if (articleCanonical) articleCanonical.remove();
+            }
+
             // Detail-page SEO metadata is generated from the active package so the template can be reused.
             const seoNodes = document.querySelectorAll('[data-bali-trans-seo="detail"]');
             if (viewName !== 'detail' || !currentDetailPackage || currentDetailPackage.id === 'dolphin-tour-preview' || !document.querySelector('.dolphin-landing-page')) {
