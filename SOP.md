@@ -159,8 +159,9 @@ Sebelum membuat, menulis, mengubah data, atau melakukan coding untuk artikel BDM
 3. Wajib melakukan riset kata kunci dan analisis kompetitor pada hasil Google halaman pertama dan kedua sejauh dapat diakses; catat strategi, kekuatan, kelemahan, dan content gap sebelum menulis. Ikuti gaya editorial BDM Trans dan gunakan target pembaca dari Master. Naskah wajib minimal 800 kata isi artikel; kurang dari 800 kata otomatis gagal checklist dan tidak boleh dinyatakan selesai/publikasi. Wajib menyelesaikan sumber, Article Brief, outline, naskah, metadata, dan Image Manifest sesuai SOP sebelum coding.
 4. Coding harus menggunakan template dan arsitektur artikel yang benar-benar berlaku di repository; jangan membuat layout baru sebagai konsekuensi otomatis dari permintaan SEO.
 5. Terapkan standar media terbaru di SOP artikel: satu gambar utama tanpa caption, minimal dua gambar pendukung bercaption di tengah artikel, nama file deskriptif, alt text alami, dan fallback teks di dalam frame jika gambar gagal dimuat.
-6. Perubahan artikel tetap tunduk pada aturan lingkup, diff, pengujian, commit, deployment, dan verifikasi dalam dokumen ini.
-7. Status dokumen detail boleh tetap USULAN untuk bagian yang belum disetujui. Namun, standar gambar dan fallback pada bagian 9.5–9.6 versi 0.2 telah dikonfirmasi Mas Bagus dan wajib diterapkan pada artikel berikutnya.
+6. Semua halaman yang menggunakan FAQ wajib memakai pola accordion bersama di SOP artikel: seluruh jawaban tertutup saat awal, hanya satu jawaban terbuka, dan memilih pertanyaan lain otomatis menutup jawaban sebelumnya. Jangan membuat desain FAQ baru yang tidak konsisten.
+7. Perubahan artikel tetap tunduk pada aturan lingkup, diff, pengujian, commit, deployment, dan verifikasi dalam dokumen ini.
+8. Standar gambar versi 0.2 dan standar FAQ versi 0.3 telah dikonfirmasi Mas Bagus dan wajib diterapkan pada artikel berikutnya serta halaman lain yang menggunakan FAQ.
 
 
 ## 12. SOP Destination Hub, kategori, dan sinkronisasi publikasi
