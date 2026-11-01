@@ -1,4 +1,18 @@
-function renderRelatedBlogGuides(blog) {
+function getArticlePublicUrl(blog) {
+            if (!blog || !blog.id) return window.location.href;
+            const basePath = window.location.pathname
+                .replace(/\\/index\\.html$/i, '')
+                .replace(/\\/+$/, '');
+            return window.location.origin + basePath + '/blog/' + encodeURIComponent(blog.id) + '/';
+        }
+
+        function getCurrentArticlePublicUrl() {
+            const articleId = new URLSearchParams(window.location.search).get('item');
+            const blog = Array.isArray(BALI_BLOGS) ? BALI_BLOGS.find(item => item.id === articleId) : null;
+            return blog ? getArticlePublicUrl(blog) : window.location.href;
+        }
+
+        function renderRelatedBlogGuides(blog) {
             const relatedIds = Array.isArray(blog.related) ? blog.related : [];
             const related = relatedIds.map(id => BALI_BLOGS.find(item => item.id === id)).filter(Boolean);
             if (!related.length) return '';
@@ -7,10 +21,10 @@ function renderRelatedBlogGuides(blog) {
         }
 
         function renderArticleShare(blog) {
-            const url = window.location.href;
+            const url = getArticlePublicUrl(blog);
             const encodedUrl = encodeURIComponent(url);
             const encodedTitle = encodeURIComponent(blog.title || 'Bali Trans article');
-            const message = encodeURIComponent((blog.title || 'Bali Trans article') + ' — ' + url);
+            const message = encodeURIComponent((blog.title || 'Bali Trans article') + '\\n' + url);
             return '<section class="article-share" aria-labelledby="article-share-title">' +
                 '<div class="article-share__intro"><h2 id="article-share-title">Share this article</h2></div>' +
                 '<div class="article-share__actions">' +
@@ -49,7 +63,7 @@ function renderRelatedBlogGuides(blog) {
 
         window.shareCurrentArticle = function () {
             const title = document.querySelector('.article-detail-page h1')?.textContent || document.title;
-            const url = window.location.href;
+            const url = getCurrentArticlePublicUrl();
             if (navigator.share) {
                 navigator.share({ title, url }).catch(() => {});
                 return;
@@ -69,7 +83,7 @@ function renderRelatedBlogGuides(blog) {
                     }, 1800);
                 }
             };
-            const url = window.location.href;
+            const url = getCurrentArticlePublicUrl();
             if (navigator.clipboard && navigator.clipboard.writeText) {
                 navigator.clipboard.writeText(url).then(finish).catch(() => {
                     const field = document.createElement('textarea');
