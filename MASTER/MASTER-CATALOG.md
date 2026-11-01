@@ -61,3 +61,12 @@
 ## Daftar Pembahasan yang Belum Selesai
 
 Indeks setiap kelompok mencatat dokumen yang sudah ditemukan kebutuhannya beserta statusnya. Dokumen-dokumen tersebut boleh tetap belum lengkap selama pembahasan proyek berlangsung dan dapat dilanjutkan kapan saja.
+
+## Kerangka Master yang ditambahkan — 2026-11-01
+
+| Dokumen | Status | Kegunaan |
+|---|---|---|
+| [Business / Plan Master](./BUSINESS-PLAN-MASTER.md) | KERANGKA — dikembangkan melalui sharing | Indeks induk model bisnis; menghubungkan fondasi produk, pelanggan, pasar, layanan, pendapatan, biaya, operasi, pemasaran, pengalaman, KPI, dan risiko |
+| [Product & Experience Master](./PRODUCT-EXPERIENCE-MASTER.md) | KERANGKA DISETUJUI — detail belum ditetapkan | Area standar identitas visual, bahasa, layout, komponen, motion, responsivitas, aksesibilitas, dan performa |
+
+Kedua dokumen ini tidak menggantikan Master rinci yang sudah ada dan tidak boleh diisi dengan asumsi yang belum disepakati.
