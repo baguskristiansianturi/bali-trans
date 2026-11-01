@@ -123,6 +123,11 @@ This is a default sequence, not a rigid waterfall. Topics may be revisited or ex
 - When implementation is authorized, update the relevant Master record in the same scoped change set.
 - If the live implementation conflicts with a Master decision, document the discrepancy and discuss it. Do not silently alter either side.
 - Read and reconcile existing documentation; do not create duplicate or conflicting sources of truth.
+- Use [MASTER-CATALOG.md](./MASTER-CATALOG.md) and the domain indexes as the inventory of existing and planned knowledge records. If a document is missing but its need is known, keep it listed as NOT STARTED or WAITING FOR DATA and remind Mas Bagus when the relevant topic arises.
+- Use factual Master Data, operational/customer Rules, and Content/Editorial Guidelines as distinct sources. Do not mix a factual description with a policy or turn an editorial recommendation into a business rule.
+- Before drafting public articles, travel trends, destination guides, terms and conditions, service copy or FAQs, consult the relevant Master records and verify time-sensitive or externally sourced facts.
+- Treat internal/restricted information as non-public. Do not publish unverified claims, prices, capacity, certifications, guarantees or legal interpretations.
+- Pricing remains WAITING FOR DATA until the user's calculator logic and validated rates are supplied.
 
 ## 7. Protection of the existing website
 
@@ -178,3 +183,13 @@ Only Master documentation has been changed. The website implementation, visual d
 ---
 
 **Core rule:** Understand first. Discuss thoroughly. Propose clearly. Ask for agreement. Record accurately. Keep unfinished work visible. Implement only when explicitly authorized.
+
+## 11. Master knowledge catalog checkpoint — 2026-11-01
+
+The knowledge base now has a central [Master Catalog](./MASTER-CATALOG.md) and domain indexes for Foundation & Brand, Business & Service Data, Rules & Policies, Content & Editorial Guidelines, Customer Experience, Website & Technology, and Governance & Sources.
+
+The indexes intentionally list documents that do not yet exist. Their status must remain visible in the Work Register, and the assistant should remind Mas Bagus about relevant missing information when the discussion reaches that subject. The indexes are not claims that those documents are complete.
+
+The [Fleet Master](./01-DATA/FLEET-MASTER.md) captures initial vehicle information. Open clarifications include Xpander's category, the passenger-seat counting convention, vehicle model naming/variants and verified luggage capacity. Pricing is not to be populated until the user's calculator logic and validated prices are ready.
+
+For future articles, travel trends, destination guides, terms and conditions, service pages and code, consult the relevant Master Data, Rules, Guidelines and technical records. Verify changing external facts before publication. Keep internal rules separate from public-facing copy and never turn unverified assumptions into promises.
