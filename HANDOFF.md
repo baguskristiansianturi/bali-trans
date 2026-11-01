@@ -100,3 +100,13 @@ Live preview: https://baguskristiansianturi.github.io/bali-trans/
 - Editorial labels must reflect article contents. Do not default to Guide/Panduan. Use Travel Information for general travel information and add Tips when practical tips are genuinely present; Tips can apply across travel, shopping, transport, activities and other topics.
 - Destination Master remains the source of place facts and analysis notes, not the article template or editorial taxonomy.
 - No website code, route, visual layout or public URL was changed in this documentation update. Destination templates and current SPA route mapping remain pending audit and approval.
+
+
+## Destination grouping implementation — 1 November 2026
+
+- Added separate destination primary taxonomy to `content/bali-master-data.json`: each of the 87 existing records now has one `primary_category_id`, `characteristic_tags`, `record_kind` and `classification_status`; ambiguous and compound entries retain explicit review notes.
+- Preserved `destinations[].categories` as the existing activity/theme cross-link field for compatibility. It must not be mistaken for the primary physical place category.
+- Added three island-region identities (Nusa Penida, Nusa Lembongan, Nusa Ceningan) beneath the existing Nusa Islands parent group while preserving existing region IDs/routes.
+- Added manual curated collection definitions for Latest, Popular and Hidden Gems; memberships remain empty pending editorial selection.
+- Classified the Kuta blog article as Travel Information with Tips, linked its data to destination ID `kuta-beach`, and corrected its blog breadcrumb hierarchy. No visual layout or route migration was made.
+- The Destination Master remains the source for place analysis and validation notes; current taxonomy classifications are provisional and do not mean all destination facts are verified.
