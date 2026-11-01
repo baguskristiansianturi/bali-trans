@@ -5,7 +5,7 @@
 > **Tanggal penyusunan:** 2026-11-01  
 > **Pemilik keputusan:** Mas Bagus  
 > **Pelaksana alur kerja:** Aya bersama Mas Bagus  
-> **Berlaku untuk:** Artikel blog, panduan destinasi, panduan aktivitas, artikel informasi perjalanan, dan konten editorial panjang BDM Trans.
+> **Berlaku untuk:** Artikel blog, informasi perjalanan, artikel destinasi, artikel aktivitas, tips, dan konten editorial panjang BDM Trans.
 
 ---
 
@@ -154,6 +154,33 @@ Sebelum penulisan dinyatakan selesai, pastikan:
 **Makna target “100% original”:** standar editorial BDM Trans adalah tidak menyalin atau mendaur ulang artikel orang lain. Tidak ada alat pemeriksa plagiarisme yang dapat membuktikan orisinalitas 100% secara mutlak atau menjamin bebas dari kemiripan frasa umum. Gunakan pemeriksaan kemiripan sebagai alat bantu, lalu lakukan peninjauan manual terhadap sumber, kutipan, dan nilai tambah. Jangan membuat klaim sertifikasi orisinalitas yang tidak dapat dibuktikan.
 
 Penggunaan AI sebagai alat bantu tidak otomatis membuat artikel dilarang. Yang tidak boleh adalah memproduksi konten massal yang tidak orisinal, tidak diperiksa, atau tidak memberi nilai. Aya wajib melakukan verifikasi dan penyuntingan substantif; keluaran AI tidak boleh dianggap sebagai fakta atau pengalaman langsung tanpa bukti.
+
+## 7.0 Pisahkan jenis halaman, jenis artikel, dan label topik
+
+Artikel editorial dan halaman destinasi adalah dua jenis halaman yang berbeda. Keduanya dapat membahas tempat yang sama, tetapi tidak boleh disatukan menjadi satu template atau satu identitas konten.
+
+- **Destination Hub:** halaman katalog utama untuk menjelajahi seluruh destinasi.
+- **Destination Category:** katalog berdasarkan jenis tempat, misalnya Beaches, Temples, Waterfalls, Lakes, dan kategori lain.
+- **Destination Place Page:** halaman khusus satu tempat/destinasi, misalnya Kuta Beach. Halaman ini memakai data destinasi dari `MASTER/01-DATA/DESTINATION-MASTER.md` dan template destinasi, bukan template artikel.
+- **Article Page:** halaman editorial/blog yang membahas informasi, konteks, aktivitas, pengalaman, atau tips tentang satu atau beberapa tempat. Artikel dapat menautkan ke Destination Place Page yang relevan, tetapi tetap memiliki jalur navigasi blog sendiri.
+
+**Destination Master adalah sumber data tempat**, termasuk nama, kategori utama, region, karakteristik tambahan, dan catatan lokasi/verifikasi. Master bukan template artikel dan bukan naskah artikel. Artikel menggunakan Master sebagai referensi fakta destinasi, lalu melakukan riset editorial dan sumber eksternal sesuai SOP.
+
+### Prinsip klasifikasi artikel dan label
+
+1. Jangan otomatis memberi label **Guide** atau “Panduan” pada setiap artikel wisata. Kata *guide* berarti panduan dan hanya digunakan jika isi memang disusun sebagai panduan langkah demi langkah atau referensi komprehensif yang secara jelas memenuhi maksud tersebut.
+2. Untuk artikel umum yang menyampaikan pengetahuan atau keterangan tentang tempat/perjalanan, gunakan label editorial yang lebih netral seperti **Travel Information**.
+3. Gunakan **Tips** sebagai label lintas topik apabila artikel benar-benar memuat saran praktis. Tips dapat mencakup tips wisata, belanja, transportasi, akomodasi, aktivitas, dan topik lain; bukan kategori destinasi yang berdiri sendiri.
+4. Satu artikel dapat memiliki beberapa label yang relevan, misalnya `Travel Information` dan `Tips`. Jangan menambahkan label yang tidak didukung isi.
+5. Kategori tempat seperti `Beach` dan region seperti `South Bali` adalah metadata destinasi, bukan otomatis jenis artikel. Keduanya dapat ditampilkan sebagai tautan kontekstual menuju katalog destinasi/region yang sesuai jika halaman tujuan tersedia.
+6. Jangan menyebut artikel “istimewa”, “terbaik”, “lengkap”, atau “panduan” sebagai klaim promosi tanpa dasar editorial yang jelas. Biarkan kualitas isi terlihat melalui akurasi, kedalaman, dan manfaatnya.
+7. Artikel tentang Kuta Beach tetap merupakan artikel blog/editorial. Breadcrumb-nya mengikuti struktur Blog, misalnya `Home → Blog → [Judul Artikel]`; bukan `Home → Destinations → Beaches → Kuta Beach`. Tautan ke halaman destinasi Kuta Beach dapat disediakan terpisah.
+
+### Hubungan struktur publik destinasi
+
+Struktur publik utama adalah **Destinations → Category → Place**. Region merupakan pengelompokan editorial/geografis yang dapat memiliki katalog sendiri dan ditautkan melalui label region pada kartu destinasi; region bukan section utama tersendiri pada Destination Hub. Curated collections seperti Latest, Popular, dan Hidden Gems juga merupakan pengelompokan editorial, bukan kategori utama destinasi.
+
+Breadcrumb harus berupa tautan aktif untuk setiap tingkat yang memiliki halaman nyata. Jangan membuat breadcrumb atau label yang mengarah ke halaman yang belum tersedia. Satu destinasi disimpan sebagai satu record sumber dan dapat muncul di beberapa katalog/collection tanpa menduplikasi identitas datanya.
 
 ## 7. Gerbang 4 — Kerangka Struktur Artikel
 
