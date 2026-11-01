@@ -216,3 +216,12 @@ Mas Bagus dapat melakukan sesi sharing atau percakapan biasa tanpa harus langsun
 - Asisten tidak dapat memantau sisa kuota/kredit akun atau menjamin penyimpanan otomatis sebelum kuota habis. Karena itu, gunakan ringkasan sesi dan checkpoint konsolidasi secara berkala; jika Mas Bagus meminta “simpan ke Master”, lakukan pembaruan dokumentasi saat itu.
 - Repository adalah sumber permanen. Ingatan percakapan membantu kesinambungan, tetapi bukan pengganti catatan Master dan Work Register.
 - Jika akses repository tidak tersedia, siapkan ringkasan yang dapat dipindahkan dan jelaskan bahwa belum ada penyimpanan permanen ke repository.
+
+### Rujukan utama untuk sesi sharing
+
+- Kerangka model bisnis: [Business / Plan Master](./BUSINESS-PLAN-MASTER.md).
+- Dasar strategi yang sudah ada: [Fondasi Produk](./PRODUCT-FOUNDATION.md).
+- Kerangka pengalaman digital yang akan dibahas: [Product & Experience Master](./PRODUCT-EXPERIENCE-MASTER.md).
+- Daftar tindak lanjut dan topik yang belum selesai: [Daftar Pekerjaan](./WORK-REGISTER.md).
+
+Gunakan dokumen-dokumen tersebut sebagai tempat konsolidasi sesuai topiknya. Hindari menyalin semua pembahasan ke satu file jika detailnya memiliki rumah dokumentasi yang lebih tepat.
