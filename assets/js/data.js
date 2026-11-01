@@ -79,6 +79,7 @@
         const BALI_BLOGS = [
 {
                 id: 'pantai-kuta-bali',
+                publicationStatus: 'PUBLISHED',
                 title: 'Pantai Kuta Bali: Informasi Wisata, Aktivitas, dan Tips Berkunjung',
                 category: 'Travel Information',
                 destinationCategory: 'Beach',
