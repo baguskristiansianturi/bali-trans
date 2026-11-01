@@ -14,9 +14,9 @@ function renderRelatedBlogGuides(blog) {
             return '<section class="article-share" aria-labelledby="article-share-title">' +
                 '<div class="article-share__intro"><h2 id="article-share-title">Share this article</h2></div>' +
                 '<div class="article-share__actions">' +
-                '<button type="button" class="article-share__native" onclick="shareCurrentArticle()" aria-label="Share this article"><i class="fas fa-share-alt" aria-hidden="true"></i><span>Share</span></button>' +
+                '<button type="button" class="article-share__native" onclick="shareCurrentArticle()" aria-label="Share this article"><i class="fas fa-share-nodes" aria-hidden="true"></i><span>Share</span></button>' +
                 '<a href="https://wa.me/?text=' + message + '" target="_blank" rel="noopener noreferrer" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i><span>WhatsApp</span></a>' +
-                '<a href="https://twitter.com/intent/tweet?text=' + encodedTitle + '&url=' + encodedUrl + '" target="_blank" rel="noopener noreferrer" aria-label="Share on X"><i class="fab fa-x-twitter" aria-hidden="true"></i><span>X</span></a>' +
+                '<a href="https://twitter.com/intent/tweet?text=' + encodedTitle + '&url=' + encodedUrl + '" target="_blank" rel="noopener noreferrer" aria-label="Share on X"><svg class="article-share__brand-icon article-share__x-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-7.6L5.4 22H2.2l7.3-8.4L1.8 2h6.5l4.4 6.9L18.9 2zm-1.1 18h1.7L7.3 3.9H5.5L17.8 20z" fill="currentColor"/></svg><span>X</span></a>' +
                 '<a href="https://www.facebook.com/sharer/sharer.php?u=' + encodedUrl + '" target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i><span>Facebook</span></a>' +
                 '<a href="https://www.linkedin.com/sharing/share-offsite/?url=' + encodedUrl + '" target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i><span>LinkedIn</span></a>' +
                 '<button type="button" onclick="copyCurrentArticleLink(this)" aria-label="Copy article link"><i class="fas fa-link" aria-hidden="true"></i><span>Copy link</span></button>' +
