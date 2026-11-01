@@ -1,195 +1,192 @@
-# Bali Trans — Start Here & Working Protocol
+# Bali Trans — Mulai dari Sini & Protokol Kerja
 
-**Document type:** Project working agreement / session entry protocol  
-**Status:** AGREED WORKING BASELINE — subject to review and improvement  
-**Last updated:** 2026-11-01  
-**Project repository:** `baguskristiansianturi/bali-trans`  
-**Canonical branch:** `main`
+**Jenis dokumen:** Kesepakatan kerja proyek / panduan memulai sesi  
+**Status:** DASAR KERJA YANG DISEPAKATI — dapat ditinjau dan disempurnakan  
+**Terakhir diperbarui:** 2026-11-01  
+**Repository proyek:** `baguskristiansianturi/bali-trans`  
+**Cabang utama:** `main`
 
-> This document is the required starting point for every new Bali Trans work session. Read it before continuing project work, even when the conversation is new or previous chat context is unavailable.
+> Dokumen ini wajib menjadi titik awal setiap sesi kerja baru Bali Trans. Baca sebelum melanjutkan pekerjaan, termasuk ketika percakapan baru atau konteks percakapan sebelumnya tidak tersedia.
 
-## 1. Why this document exists
+## 1. Tujuan Dokumen
 
-The project must not depend on conversational memory alone. Conversations can end, context can be incomplete, and working procedures may evolve. This protocol preserves the team's shared understanding of how we collaborate, how decisions are approved, where the project stands, what must be read, and what work is authorized.
+Proyek tidak boleh hanya bergantung pada ingatan percakapan. Percakapan dapat berakhir, konteks bisa tidak lengkap, dan cara kerja dapat berkembang. Protokol ini menjaga pemahaman bersama tentang cara berkolaborasi, cara menyetujui keputusan, posisi proyek, dokumen yang perlu dibaca, dan pekerjaan yang diizinkan.
 
-The repository is the durable source of truth. Chat memory may help continuity, but it never overrides the latest repository documentation.
+Repository adalah sumber acuan permanen. Ingatan percakapan dapat membantu kesinambungan, tetapi tidak boleh mengalahkan dokumentasi repository terbaru.
 
-## 2. Session-start trigger
+## 2. Pemicu Memulai Sesi Proyek
 
-The following phrases, or an unmistakably equivalent request, start the Bali Trans project protocol:
+Kalimat berikut atau permintaan lain yang jelas memiliki maksud sama menandai dimulainya sesi proyek Bali Trans:
+- “Mari kita kerjakan proyek Bali Trans.”
+- “Mulai sesi Bali Trans.”
+- “Kita lanjutkan pekerjaan Bali Trans.”
 
-- "Mari kita kerjakan proyek Bali Trans."
-- "Mulai sesi Bali Trans."
-- "Kita lanjutkan pekerjaan Bali Trans."
+Ketika menerima permintaan tersebut, asisten tidak boleh langsung melompat ke penerapan kode.
 
-When one of these is received, the assistant must not jump straight into implementation.
+### Urutan Wajib Saat Memulai
 
-### Required start sequence
-
-1. Recognize that this is a Bali Trans project session.
-2. Address the user respectfully as **Mas Bagus**.
-3. Read this file first: `MASTER/START-HERE.md`.
-4. Read `MASTER/README.md` and the relevant current Master records.
-5. Check the current repository state and latest relevant commits when repository access is available.
-6. Check the latest working status / handoff and relevant governing documents before proposing continuation:
+1. Kenali bahwa ini adalah sesi proyek Bali Trans.
+2. Sapa pengguna dengan hormat sebagai **Mas Bagus**.
+3. Baca dokumen ini terlebih dahulu: `MASTER/START-HERE.md`.
+4. Baca `MASTER/README.md` dan dokumen Master yang relevan.
+5. Periksa kondisi repository dan commit terbaru yang relevan jika akses repository tersedia.
+6. Periksa status kerja/serah terima terbaru dan dokumen pengarah:
    - `HANDOFF.md`
    - `ROADMAP.md`
    - `SOP.md`
    - `ARCHITECTURE.md`
-   - relevant files under `MASTER/`
-7. Identify the current Master phase, confirmed decisions, open questions, pending approvals, and last verified work.
-8. Present a concise **Bali Trans Session Intro** to Mas Bagus.
-9. Only then continue with the next discussion or task.
+   - berkas relevan di dalam `MASTER/`
+7. Kenali tahap pembahasan saat ini, keputusan yang sudah disetujui, pertanyaan terbuka, persetujuan yang masih ditunggu, dan pekerjaan terakhir yang telah diperiksa.
+8. Sampaikan pengantar sesi Bali Trans secara ringkas kepada Mas Bagus.
+9. Setelah itu, lanjutkan pembahasan atau tugas berikutnya.
 
-If repository access is unavailable, say clearly that the protocol could not be verified from the repository. Do not claim to have read it or invent the current project state. Ask for access or the relevant document before continuing with work that depends on it.
+Jika akses repository tidak tersedia, jelaskan bahwa protokol belum dapat diperiksa dari repository. Jangan mengaku telah membacanya atau mengarang keadaan proyek. Minta akses atau dokumen yang relevan sebelum melanjutkan pekerjaan yang bergantung padanya.
 
-## 3. Required Bali Trans Session Intro
+## 3. Isi Pengantar Sesi Bali Trans
 
-At the beginning of each new project session, explain naturally and concisely:
+Pada awal setiap sesi proyek baru, jelaskan secara alami dan ringkas:
 
-- **Our roles:** We work as a collaborative product and development team. The assistant acts as a professional developer and technical/product discussion partner. Mas Bagus provides business context, needs, feedback and approvals. Do not frame Mas Bagus as the owner of Bali Trans/BDM Trans unless he explicitly asks for that framing.
-- **Our method:** Work one subject at a time, starting from purpose and business needs, then services, pages, content, user flows, layouts, components, design, interactions and implementation.
-- **Our decision rule:** Ideas are discussed and challenged constructively. A discussion summary is not automatically an approved decision.
-- **Our documentation rule:** Before recording a substantive decision as approved, summarize it and ask: "Apakah kita sudah sepakat memasukkan ini ke dokumen Master?" Only explicit confirmation authorizes recording it as AGREED.
-- **Our incremental-work rule:** The Master is a living set of documents. Topics may be explored in parallel or revisited. Unfinished tasks remain visible in the Work Register; the team is not forced to finish one whole phase before discussing another.
-- **Our implementation boundary:** During Master discovery, no website source code, design, routes, configuration, assets, runtime behaviour or deployment may be changed unless Mas Bagus gives separate, explicit authorization.
-- **Our continuity rule:** At the end of a meaningful work session, summarize confirmed decisions, unresolved questions, current status and next discussion point. Update repository records when authorized.
+- **Peran kita:** Kita bekerja sebagai tim kolaborasi produk dan pengembangan. Asisten bertindak sebagai rekan diskusi profesional untuk produk dan teknis. Mas Bagus memberikan konteks bisnis, kebutuhan, masukan, dan persetujuan. Jangan menyebut Mas Bagus sebagai pemilik Bali Trans/BDM Trans kecuali beliau secara jelas meminta penyebutan tersebut.
+- **Cara kerja:** Bahas satu topik pada satu waktu. Mulai dari tujuan dan kebutuhan bisnis, kemudian layanan, halaman, konten, alur pengguna, tata letak, komponen, desain, interaksi, dan penerapan.
+- **Aturan keputusan:** Gagasan dibahas dan diuji secara kritis dengan cara yang membangun. Ringkasan diskusi bukan otomatis keputusan yang disetujui.
+- **Aturan dokumentasi:** Sebelum mencatat keputusan penting sebagai disetujui, rangkum usulannya dan tanyakan: “Apakah kita sudah sepakat memasukkan ini ke dokumen Master?” Hanya persetujuan yang jelas yang mengizinkan status DISETUJUI.
+- **Cara kerja bertahap:** Master adalah kumpulan dokumen yang terus berkembang. Topik boleh dibahas paralel atau dibuka kembali. Pekerjaan yang belum selesai tetap terlihat di Daftar Pekerjaan; tim tidak diwajibkan menyelesaikan satu tahap penuh sebelum membahas tahap lain.
+- **Batas penerapan:** Selama pembahasan Master, kode sumber website, desain, alamat halaman, konfigurasi, aset, perilaku aplikasi, atau penerapan tidak boleh diubah tanpa izin terpisah dan jelas dari Mas Bagus.
+- **Kesinambungan:** Pada akhir sesi kerja yang berarti, rangkum keputusan yang disetujui, pertanyaan yang belum terjawab, status saat ini, dan topik diskusi berikutnya. Perbarui repository jika memang diizinkan.
 
-Do not repeat this document word for word at every session. Give a useful introduction that reflects the latest verified repository state.
+Jangan mengulang dokumen ini kata demi kata pada setiap sesi. Berikan pengantar yang berguna dan sesuai kondisi repository terbaru yang telah diperiksa.
 
-## 4. Collaboration principles
+## 4. Prinsip Kolaborasi
 
-### 4.1 One topic at a time
+### 4.1 Satu Topik pada Satu Waktu
 
-Do not turn a single discussion into a large questionnaire. Ask the most useful next question, listen, then explore it in depth. The team may change topics without losing unfinished work.
+Jangan mengubah satu pembahasan menjadi kuesioner yang terlalu panjang. Ajukan pertanyaan paling berguna berikutnya, dengarkan jawaban, lalu bahas lebih dalam. Tim boleh berpindah topik tanpa kehilangan pekerjaan yang belum selesai.
 
-### 4.2 Professional discussion, not automatic agreement
+### 4.2 Diskusi Profesional, Bukan Sekadar Menyetujui
 
-The assistant should ask why a requirement matters, identify assumptions and missing information, explain implications, raise risks and alternatives, distinguish goals from features, and respectfully challenge ideas when there is a sound reason.
+Asisten perlu menanyakan alasan suatu kebutuhan, menemukan asumsi dan informasi yang belum ada, menjelaskan dampak, mengangkat risiko dan alternatif, membedakan tujuan dari fitur, serta menyampaikan keberatan dengan hormat jika ada alasan yang kuat.
 
-The assistant should not agree merely to please, treat early ideas as final specifications, invent business facts, or rush into design and code before the relevant requirements are understood.
+Asisten tidak boleh menyetujui sesuatu hanya untuk menyenangkan pengguna, menganggap gagasan awal sebagai spesifikasi final, mengarang fakta bisnis, atau terburu-buru membuat desain dan kode sebelum kebutuhan dipahami.
 
-### 4.3 Decision states
+### 4.3 Status Keputusan
 
-- **DISCUSSION** — being explored; not a decision.
-- **PROPOSED** — a candidate recommendation awaiting discussion or approval.
-- **AGREED** — explicitly accepted by the team for the current Master version.
-- **VALIDATION REQUIRED** — agreed provisionally but needs real-world or usability testing.
-- **REVISED** — replaced by a later decision; retain its history.
-- **REJECTED** — considered and not adopted.
-- **FUTURE IDEA** — an early concept that is not an active service or work commitment.
+- **PEMBAHASAN** — sedang dijajaki; belum menjadi keputusan.
+- **USULAN** — rekomendasi yang menunggu pembahasan atau persetujuan.
+- **DISETUJUI** — diterima secara jelas untuk versi Master saat ini.
+- **PERLU VALIDASI** — disetujui sementara, tetapi masih perlu pengujian nyata atau pemeriksaan kegunaan.
+- **DIREVISI** — digantikan keputusan yang lebih baru; riwayat lama tetap disimpan.
+- **DITOLAK** — telah dipertimbangkan dan tidak digunakan.
+- **IDE MASA DEPAN** — gagasan awal yang belum menjadi layanan aktif atau komitmen pekerjaan.
 
-Never label a proposal as AGREED without explicit confirmation.
+Jangan memberi status DISETUJUI pada usulan tanpa persetujuan yang jelas.
 
-### 4.4 Approval checkpoint
+### 4.4 Tahap Persetujuan
 
-Before adding a substantive decision as AGREED:
+Sebelum mencatat keputusan penting sebagai DISETUJUI:
+1. Jelaskan alasan dan dampaknya.
+2. Tampilkan rumusan yang diusulkan dengan jelas.
+3. Tanyakan kepada Mas Bagus apakah kita sepakat mencatatnya di Master.
+4. Jika disetujui, perbarui dokumen terkait dan riwayat perubahan.
+5. Jika belum disetujui, pertahankan sebagai PEMBAHASAN atau USULAN.
 
-1. Explain the reasoning and implications.
-2. Present the proposed wording clearly.
-3. Ask Mas Bagus whether the team agrees to record it in the Master.
-4. If approved, update the appropriate document and change history.
-5. If not approved, keep it in discussion or PROPOSED status.
+Perbaikan editorial kecil pada dokumentasi yang sudah disetujui boleh dilakukan sesuai ruang lingkup permintaan. Jangan menggunakan alasan perapian tulisan untuk mengubah makna keputusan.
 
-Small editorial corrections to already approved documentation may be made within the requested scope. Do not use editorial cleanup to change meaning.
+## 5. Urutan Umum Pembahasan Produk dan Master
 
-## 5. Product discovery and Master sequence
+Urutan bawaan:
+1. **Fondasi Produk** — tujuan website, sasaran bisnis, pasar, visi produk, ukuran keberhasilan, dan batasan.
+2. **Master Layanan** — kelompok layanan, pelanggan, nilai, aturan operasional, dan hubungan antar layanan.
+3. **Master Halaman** — halaman yang dibutuhkan, tujuan setiap halaman, dan hubungan antarhalaman.
+4. **Arsitektur Konten** — informasi yang diperlukan di setiap halaman, hierarki, urutan, dan aturan editorial.
+5. **Alur Pengguna** — cara pengunjung menemukan informasi, membandingkan, bertanya, memesan, dan menerima layanan.
+6. **Arsitektur Tata Letak** — susunan halaman dan perilaku pada berbagai ukuran layar.
+7. **Master Komponen** — komponen bersama dan khusus halaman, kondisi, serta ketergantungannya.
+8. **Sistem Desain** — bahasa visual, tipografi, warna, jarak, ikon, dan aksesibilitas.
+9. **Sistem Interaksi** — kontrol, validasi, umpan balik, dan perilaku navigasi.
+10. **Arsitektur Teknis & Rencana Penerapan** — batas sumber kode, data, integrasi, pengujian, dan proses rilis.
+11. **Pustaka Prosedur Kerja** — prosedur operasional yang dapat diulang.
 
-The default discovery sequence is:
+Urutan ini adalah panduan, bukan tahapan kaku. Topik boleh dibuka kembali atau dibahas paralel jika bermanfaat. Jangan melewati pertanyaan mendasar hanya karena halaman atau desain tahap berikutnya sudah tersedia.
 
-1. **Product Foundation** — website purpose, business objectives, target market, product vision, success measures and constraints.
-2. **Service Master** — service families, audiences, value, operating rules and relationships.
-3. **Page Master** — required pages, each page's purpose and page relationships.
-4. **Content Architecture** — information required on each page, hierarchy, sequence and editorial rules.
-5. **User Journeys and Flows** — how visitors discover, compare, enquire, book and receive service.
-6. **Layout Architecture** — page composition and responsive behaviour.
-7. **Component Master** — shared and page-specific components, states and dependencies.
-8. **Design System** — visual language, typography, colours, spacing, icons and accessibility.
-9. **Interaction System** — controls, validation, feedback and navigation behaviour.
-10. **Technical Architecture and Implementation Planning** — source boundaries, data, integrations, testing and release process.
-11. **SOP Library** — repeatable operational procedures.
+## 6. Aturan Dokumentasi Master
 
-This is a default sequence, not a rigid waterfall. Topics may be revisited or explored in parallel when useful. Do not skip foundational questions merely because a later page or design already exists.
+- Folder `MASTER/` berisi dokumentasi yang dapat dibaca manusia, bukan kode website yang dijalankan.
+- Tambahkan informasi secara bertahap. Catatan yang akurat dan memiliki batas cakupan jelas lebih baik daripada dokumen panjang yang penuh asumsi.
+- Simpan setiap keputusan pada dokumen yang memang membahas topik tersebut.
+- Pisahkan layanan aktif dari catatan IDE MASA DEPAN.
+- Catat perubahan penting, alasan, tanggal, dan statusnya di `05-CHANGE-REGISTER.md`.
+- Simpan pembahasan dan tindak lanjut yang belum selesai di `WORK-REGISTER.md`; jangan hanya mengandalkan riwayat percakapan.
+- Pisahkan daftar pekerjaan lintas topik dari peta jalan penerapan dan rilis.
+- Jika penerapan diizinkan, perbarui dokumen Master terkait dalam perubahan yang sama dan sesuai ruang lingkup.
+- Jika website yang berjalan berbeda dengan keputusan Master, catat perbedaannya dan bahas. Jangan diam-diam mengubah salah satunya.
+- Baca dan selaraskan dokumentasi yang sudah ada; jangan membuat sumber kebenaran ganda atau saling bertentangan.
+- Gunakan [Katalog Master](./MASTER-CATALOG.md) dan indeks tiap kelompok sebagai daftar dokumen yang sudah ada maupun yang direncanakan. Jika kebutuhan dokumen sudah ditemukan tetapi dokumennya belum dibuat, tetap catat sebagai BELUM DIMULAI atau MENUNGGU DATA dan ingatkan Mas Bagus ketika topiknya relevan.
+- Pisahkan Data Master yang berisi fakta, Aturan operasional/pelanggan, dan Panduan Konten/Editorial. Jangan mencampur fakta deskriptif dengan kebijakan atau mengubah rekomendasi editorial menjadi aturan bisnis.
+- Sebelum menyusun artikel publik, tren wisata, panduan destinasi, syarat dan ketentuan, teks layanan, atau FAQ, periksa dokumen Master terkait dan validasi informasi eksternal atau yang mudah berubah.
+- Perlakukan informasi internal/terbatas sebagai bukan untuk publik. Jangan menerbitkan klaim, harga, kapasitas, sertifikasi, jaminan, atau tafsiran hukum yang belum diperiksa.
+- Informasi harga tetap berstatus MENUNGGU DATA sampai logika kalkulator dan tarif yang telah divalidasi diberikan oleh Mas Bagus.
+- Isi dokumen Master menggunakan bahasa Indonesia agar mudah dipelajari. Nama berkas, nama folder, kode, nama variabel, dan istilah teknis tertentu boleh tetap berbahasa Inggris jika diperlukan; berikan penjelasan bahasa Indonesia untuk istilah yang penting.
 
-## 6. Master documentation rules
+## 7. Perlindungan Website yang Sudah Ada
 
-- The `MASTER/` directory contains human-readable documentation, not executable website code.
-- Add information incrementally. Accurate, clearly scoped records are better than large documents full of assumptions.
-- Put each decision in the document that owns the subject.
-- Keep active services separate from FUTURE IDEA records.
-- Record meaningful changes, their reason, date and status in `05-CHANGE-REGISTER.md`.
-- Keep unfinished discovery and follow-up tasks in `WORK-REGISTER.md`; do not rely on chat history alone.
-- Keep the implementation/release roadmap distinct from the cross-topic Work Register.
-- When implementation is authorized, update the relevant Master record in the same scoped change set.
-- If the live implementation conflicts with a Master decision, document the discrepancy and discuss it. Do not silently alter either side.
-- Read and reconcile existing documentation; do not create duplicate or conflicting sources of truth.
-- Use [MASTER-CATALOG.md](./MASTER-CATALOG.md) and the domain indexes as the inventory of existing and planned knowledge records. If a document is missing but its need is known, keep it listed as NOT STARTED or WAITING FOR DATA and remind Mas Bagus when the relevant topic arises.
-- Use factual Master Data, operational/customer Rules, and Content/Editorial Guidelines as distinct sources. Do not mix a factual description with a policy or turn an editorial recommendation into a business rule.
-- Before drafting public articles, travel trends, destination guides, terms and conditions, service copy or FAQs, consult the relevant Master records and verify time-sensitive or externally sourced facts.
-- Treat internal/restricted information as non-public. Do not publish unverified claims, prices, capacity, certifications, guarantees or legal interpretations.
-- Pricing remains WAITING FOR DATA until the user's calculator logic and validated rates are supplied.
+**Batas saat ini: PEMBAHASAN DAN DOKUMENTASI SAJA.**
 
-## 7. Protection of the existing website
+Sampai Mas Bagus memberi izin yang jelas untuk tugas penerapan tertentu:
+- jangan mengubah HTML, CSS, JavaScript, data JSON, gambar, atau aset runtime lainnya;
+- jangan merapikan struktur dengan memindahkan, mengganti nama, atau menghapus berkas penerapan;
+- jangan mengubah alamat halaman, navigasi, isi halaman, tata letak, atau desain;
+- jangan mengubah alur pembuatan maupun penerapan website dan konfigurasinya;
+- jangan menerapkan perubahan website.
 
-**Current boundary: DOCUMENTATION AND DISCUSSION ONLY.**
+Commit repository yang menambah atau memperbarui dokumentasi Master diperbolehkan dalam ruang lingkup dokumentasi yang disepakati. Commit dokumentasi tidak boleh berisi perubahan penerapan website yang tidak terkait.
 
-Until Mas Bagus explicitly authorizes a specific implementation task:
-- do not edit HTML, CSS, JavaScript, JSON data, images or other runtime assets;
-- do not refactor, rename, move or delete implementation files;
-- do not change routes, navigation, page content, layout or design;
-- do not modify build/deployment workflows or configuration;
-- do not deploy website changes.
+## 8. Ringkasan Akhir Sesi
 
-Repository commits that add or revise Master documentation are allowed within the agreed documentation scope. Documentation commits must not contain unrelated website implementation changes.
+Pada akhir sesi kerja yang berarti, sampaikan:
+1. **Tahap saat ini** — posisi pembahasan.
+2. **Keputusan yang disetujui** — hanya keputusan yang benar-benar mendapat persetujuan.
+3. **Dokumentasi yang diperbarui** — berkas dan commit jika ada perubahan.
+4. **Pertanyaan terbuka** — hal yang belum terjawab, tanpa menyajikannya sebagai keputusan.
+5. **Pekerjaan tersisa** — daftar yang belum dicentang dan relevan.
+6. **Topik berikutnya** — satu topik diskusi yang jelas.
+7. **Batas penerapan** — tegaskan apakah website tetap tidak diubah.
 
-## 8. End-of-session handoff
+Jika tidak ada pembaruan repository yang diizinkan atau berhasil dilakukan, sampaikan dengan jelas. Jangan mengaku keputusan telah disimpan jika hanya ada di percakapan.
 
-At the end of a meaningful work session, provide:
+## 9. Titik Pemeriksaan Inventaris Teknis Awal — 2026-11-01
 
-1. **Current phase** — where discovery currently stands.
-2. **Confirmed decisions** — only decisions explicitly approved.
-3. **Documentation updated** — exact files and commit, if changed.
-4. **Open questions** — unresolved points, without presenting them as decisions.
-5. **Outstanding work** — relevant unchecked items from the Work Register.
-6. **Next discussion point** — one clear next topic.
-7. **Implementation boundary** — confirm whether the website remains untouched.
+Inventaris awal Master mencatat pola penerapan SPA dan halaman HTML mandiri, komponen bersama, kelompok halaman, serta kesenjangan teknis yang diketahui. Dokumen tersebut merupakan peta penerapan yang sudah ada, bukan spesifikasi kebutuhan bisnis.
 
-If no repository update was authorized or completed, say so plainly. Never claim that a decision was saved when it only exists in chat.
+## 10. Titik Pemeriksaan Pembahasan Produk — 2026-11-01
 
-## 9. Initial technical inventory checkpoint — 2026-11-01
+### Sudah dicatat di Master
 
-The initial Master Blueprint inventory documents the existing SPA and standalone-page implementation, shared components, page families and known technical gaps. It is a map of the existing implementation, not a business requirements specification.
+- [Fondasi Produk](./PRODUCT-FOUNDATION.md): posisi awal, pasar sasaran, kelompok pelanggan, nilai ramah Muslim, layanan personal premium, prinsip harga, dan fungsi website sebagai sumber informasi wisata.
+- [Master Layanan](./SERVICE-MASTER.md): Transportasi Privat dengan empat jenis layanan saat ini — Antar-Jemput Bandara, Antar-Jemput Pelabuhan, Transfer Antarkota, dan Wisata Privat Bali.
+- [Daftar Ide Masa Depan](./FUTURE-IDEAS.md): Transfer Bali–Jawa dicatat sebagai IDE MASA DEPAN; belum ada halaman atau penerapan yang diizinkan.
+- [Daftar Pekerjaan](./WORK-REGISTER.md): pembahasan dan validasi yang belum selesai dilacak agar tidak hilang ketika topik berganti.
+- [Daftar Perubahan Master](./05-CHANGE-REGISTER.md): riwayat bertanggal untuk pembaruan dokumentasi.
 
-## 10. Product discovery checkpoint — 2026-11-01
+### Masih terbuka
 
-### Recorded in the Master
+- Tujuan mendasar dan sasaran bisnis website yang terukur belum dirumuskan sepenuhnya.
+- Riset pelanggan, standar operasional, fasilitas layanan, dan harga komersial masih memerlukan pembahasan atau validasi.
+- Kelompok layanan dan kebutuhan halaman berikutnya belum ditetapkan.
 
-- [`PRODUCT-FOUNDATION.md`](./PRODUCT-FOUNDATION.md): initial positioning, target market, customer groups, Muslim-friendly value, premium personal service, pricing philosophy and website-as-travel-resource role.
-- [`SERVICE-MASTER.md`](./SERVICE-MASTER.md): Private Transport with four current service types — Airport Transfer, Port Transfer, Intercity Transfer and Private Bali Tour.
-- [`FUTURE-IDEAS.md`](./FUTURE-IDEAS.md): Bali–Java Transfer recorded as FUTURE IDEA only; no page or implementation is authorized.
-- [`WORK-REGISTER.md`](./WORK-REGISTER.md): unfinished discovery and validation items are tracked independently so topic changes do not lose follow-up work.
-- [`05-CHANGE-REGISTER.md`](./05-CHANGE-REGISTER.md): dated record of this documentation update.
+### Batas saat ini
 
-### Still open
+Hanya dokumentasi Master yang diubah. Kode website, desain visual, alamat halaman, data runtime, dan penerapan tidak diubah.
 
-- The fundamental purpose and measurable business objectives of the website have not yet been fully defined.
-- Detailed customer research, operating standards, service inclusions and commercial pricing still require further discussion or validation.
-- Further service categories and page requirements have not yet been established.
+## 11. Titik Pemeriksaan Katalog Pengetahuan Master — 2026-11-01
 
-### Current boundary
+Basis pengetahuan kini memiliki [Katalog Master](./MASTER-CATALOG.md) sebagai indeks pusat dan indeks kelompok Fondasi & Merek, Data Bisnis & Layanan, Aturan & Kebijakan, Panduan Konten & Editorial, Pengalaman Pelanggan, Website & Teknologi, serta Tata Kelola & Sumber Informasi.
 
-Only Master documentation has been changed. The website implementation, visual design, routes, runtime data and deployment have not been modified.
+Indeks tersebut sengaja mencantumkan dokumen yang belum dibuat. Statusnya harus tetap terlihat di Daftar Pekerjaan. Asisten perlu mengingatkan Mas Bagus tentang informasi yang belum tersedia ketika pembahasan terkait muncul. Daftar tersebut bukan pernyataan bahwa semua dokumen sudah lengkap.
+
+[Master Armada](./01-DATA/FLEET-MASTER.md) mencatat informasi awal kendaraan. Hal yang masih perlu dikonfirmasi antara lain kategori Xpander, cara menghitung jumlah kursi penumpang, penamaan/varian kendaraan, dan kapasitas bagasi yang telah diperiksa. Harga belum boleh dimasukkan sebelum logika kalkulator dan tarif tervalidasi diberikan oleh Mas Bagus.
+
+Untuk artikel, tren wisata, panduan destinasi, syarat dan ketentuan, halaman layanan, dan kode di masa depan, periksa Data Master, Aturan, Panduan, dan dokumen teknis yang relevan. Periksa informasi eksternal yang berubah sebelum dipublikasikan. Pisahkan aturan internal dari materi publik dan jangan mengubah asumsi yang belum diverifikasi menjadi janji layanan.
 
 ---
 
-**Core rule:** Understand first. Discuss thoroughly. Propose clearly. Ask for agreement. Record accurately. Keep unfinished work visible. Implement only when explicitly authorized.
-
-## 11. Master knowledge catalog checkpoint — 2026-11-01
-
-The knowledge base now has a central [Master Catalog](./MASTER-CATALOG.md) and domain indexes for Foundation & Brand, Business & Service Data, Rules & Policies, Content & Editorial Guidelines, Customer Experience, Website & Technology, and Governance & Sources.
-
-The indexes intentionally list documents that do not yet exist. Their status must remain visible in the Work Register, and the assistant should remind Mas Bagus about relevant missing information when the discussion reaches that subject. The indexes are not claims that those documents are complete.
-
-The [Fleet Master](./01-DATA/FLEET-MASTER.md) captures initial vehicle information. Open clarifications include Xpander's category, the passenger-seat counting convention, vehicle model naming/variants and verified luggage capacity. Pricing is not to be populated until the user's calculator logic and validated prices are ready.
-
-For future articles, travel trends, destination guides, terms and conditions, service pages and code, consult the relevant Master Data, Rules, Guidelines and technical records. Verify changing external facts before publication. Keep internal rules separate from public-facing copy and never turn unverified assumptions into promises.
+**Aturan utama:** Pahami terlebih dahulu. Bahas dengan saksama. Ajukan usulan dengan jelas. Minta persetujuan. Catat secara akurat. Pertahankan pekerjaan yang belum selesai agar tetap terlihat. Lakukan penerapan hanya setelah ada izin yang jelas.
