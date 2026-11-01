@@ -1,66 +1,66 @@
-# 04 — Master Status Register
+# 04 — Daftar Status Master
 
-Last mapped: 2026-11-01  
-Implementation snapshot: `a8d4282293d98923ecf160f52d95fe6168dd905d`
+**Pemetaan terakhir:** 2026-11-01  
+**Versi penerapan:** a8d4282293d98923ecf160f52d95fe6168dd905d
 
-## 1. Status meaning
+## 1. Arti Status
 
-| Status | Meaning |
+| Status | Arti |
 |---|---|
-| MAPPED | Current implementation and source location recorded |
-| PARTIALLY MAPPED | Some behaviour or dependencies still need inspection |
-| PENDING APPROVAL | Implementation exists, but reusable standard is not approved |
-| EXCEPTION | Deliberate difference from the common shell/template |
-| ARCHIVED | Retained code not treated as active implementation |
-| VERIFIED LIVE | Exact deployed page and behaviour were checked after deployment |
-| NOT VERIFIED LIVE | No current live verification evidence in this master |
+| SUDAH DIPETAKAN | Penerapan saat ini dan lokasi sumber sudah dicatat |
+| DIPETAKAN SEBAGIAN | Sebagian perilaku atau ketergantungan masih perlu diperiksa |
+| MENUNGGU PERSETUJUAN | Penerapan tersedia, tetapi standar penggunaan ulang belum disetujui |
+| PENGECUALIAN | Memiliki perbedaan yang disengaja dari kerangka/pola umum |
+| DIARSIPKAN | Kode disimpan tetapi tidak dianggap sebagai penerapan aktif |
+| TAYANG — SUDAH DIVERIFIKASI | Halaman dan perilaku yang benar-benar tayang telah diperiksa setelah penerapan |
+| TAYANG — BELUM DIVERIFIKASI | Belum ada bukti pemeriksaan langsung terbaru di Master ini |
 
-## 2. Initial component status
+## 2. Status Komponen Awal
 
-| Component | Implementation | Approval | Notes |
+| Komponen | Penerapan | Persetujuan | Catatan |
 |---|---|---|---|
-| Shared navbar/header | MAPPED | NOT RECORDED | Desktop primary nav discrepancy requires review |
-| Shared footer | MAPPED | NOT RECORDED | Current five link groups mapped |
-| SPA mobile bottom nav | MAPPED | NOT RECORDED | Four items in index.html |
-| Header search | PARTIALLY MAPPED | NOT RECORDED | Trace all handlers and result states before changes |
-| Locale selector | PARTIALLY MAPPED | NOT RECORDED | Current shell offers Indonesian and English |
-| Account controls | MAPPED | NOT RECORDED | Real authentication not implemented |
-| Breadcrumb | PARTIALLY MAPPED | NOT RECORDED | Visual breadcrumb is page-specific in Dolphin detail |
-| Hero | PARTIALLY MAPPED | NOT RECORDED | Several page-specific implementations |
-| Shared booking form | MAPPED | Canonical reference recorded | Verify final locked approval separately |
-| Article detail template | IMPLEMENTATION EXISTS | PENDING APPROVAL | TEMPLATE-REGISTRY says canonical template not yet approved |
-| Search-results template | IMPLEMENTATION EXISTS | PENDING REVIEW | Canonical layout pending review |
-| Homepage | IMPLEMENTED | APPROVED per HANDOFF | Preserve unless explicitly requested |
-| Legacy monolithic app.js | ARCHIVED | N/A | Kept under assets/js/legacy/ |
+| Navbar/header bersama | SUDAH DIPETAKAN | BELUM DICATAT | Perbedaan navigasi utama desktop perlu diperiksa |
+| Footer bersama | SUDAH DIPETAKAN | BELUM DICATAT | Lima kelompok tautan saat ini telah dipetakan |
+| Navigasi bawah SPA | SUDAH DIPETAKAN | BELUM DICATAT | Empat item di index.html |
+| Pencarian header | DIPETAKAN SEBAGIAN | BELUM DICATAT | Telusuri semua pengendali dan kondisi hasil sebelum perubahan |
+| Pemilih bahasa/wilayah | DIPETAKAN SEBAGIAN | BELUM DICATAT | Kerangka saat ini menawarkan bahasa Indonesia dan Inggris |
+| Kontrol akun | SUDAH DIPETAKAN | BELUM DICATAT | Autentikasi sebenarnya belum diterapkan |
+| Breadcrumb | DIPETAKAN SEBAGIAN | BELUM DICATAT | Tampilan breadcrumb khusus halaman pada detail Dolphin |
+| Hero | DIPETAKAN SEBAGIAN | BELUM DICATAT | Memiliki beberapa penerapan khusus halaman |
+| Formulir pemesanan bersama | SUDAH DIPETAKAN | Acuan utama tercatat | Periksa persetujuan final terpisah |
+| Pola detail artikel | PENERAPAN TERSEDIA | MENUNGGU PERSETUJUAN | Pola baku belum disetujui |
+| Pola hasil pencarian | PENERAPAN TERSEDIA | MENUNGGU PENINJAUAN | Tata letak baku masih menunggu peninjauan |
+| Halaman utama | SUDAH DITERAPKAN | DISETUJUI menurut HANDOFF | Pertahankan kecuali diminta jelas |
+| app.js monolitik lama | DIARSIPKAN | TIDAK BERLAKU | Disimpan di assets/js/legacy/ |
 
-## 3. Known exceptions
+## 3. Pengecualian yang Diketahui
 
-- Checkout pages may omit the global header/footer.
-- SPA checkout mode hides the global shell and mobile bottom navigation.
-- The SPA mobile bottom navigation is not a universal standalone-page component.
-- Standalone HTML page families retain root-level public URLs.
-- Dolphin Tour has a specific detail/landing-page renderer; do not assume every tour detail uses the same final layout.
+- Halaman checkout dapat tidak menggunakan header/footer global.
+- Mode checkout SPA menyembunyikan kerangka global dan navigasi bawah perangkat seluler.
+- Navigasi bawah SPA bukan komponen universal untuk halaman mandiri.
+- Kelompok halaman HTML mandiri mempertahankan alamat publik di folder utama.
+- Dolphin Tour memiliki pembentuk halaman detail/landing page khusus; jangan menganggap semua detail wisata menggunakan tata letak final yang sama.
 
-## 4. Known documentation/implementation gaps
+## 4. Kesenjangan Dokumentasi/Penerapan yang Diketahui
 
-1. `.bt-main-nav` has CSS rules but is not emitted in the currently inspected shared-header markup. Verify the intended desktop navigation against the deployed page before changing it.
-2. The current shared brand mark is a generated “B”; the approved final logo asset/specification is not recorded in this master.
-3. A universal visual breadcrumb component has not been established.
-4. A universal hero component has not been established.
-5. Physical-device visual QA on Android and desktop is still recorded as outstanding in project handoff/roadmap.
-6. Article/destination detail and search-results templates still have approval/review work recorded in TEMPLATE-REGISTRY.md and ROADMAP.md.
-7. This initial inventory does not prove every JS/CSS file is active. Usage must be checked before any deletion.
+1. .bt-main-nav memiliki aturan CSS tetapi tidak ditampilkan dalam markup header bersama yang diperiksa saat ini. Periksa navigasi desktop yang dimaksud terhadap halaman yang tayang sebelum mengubahnya.
+2. Penanda merek bersama saat ini berupa huruf “B” yang dibuat otomatis; aset/spesifikasi logo final yang disetujui belum dicatat di Master.
+3. Komponen visual breadcrumb universal belum ditetapkan.
+4. Komponen hero universal belum ditetapkan.
+5. Pemeriksaan visual langsung pada Android dan desktop masih tercatat sebagai pekerjaan tersisa di serah terima/peta jalan proyek.
+6. Pola detail artikel/destinasi dan hasil pencarian masih memiliki pekerjaan persetujuan/peninjauan di TEMPLATE-REGISTRY.md dan ROADMAP.md.
+7. Inventaris awal ini tidak membuktikan bahwa semua berkas JS/CSS masih aktif. Penggunaan harus diperiksa sebelum penghapusan apa pun.
 
-## 5. Future notes (documentation only; no code created)
+## 5. Catatan Masa Depan (Dokumentasi Saja; Tidak Ada Kode Dibuat)
 
-- Confirm and document the final desktop navigation arrangement.
-- Record the final logo source and usage rules when supplied/approved.
-- Map breadcrumb usage page by page before making it a shared component.
-- Map hero structures by page family.
-- Continue component-level mapping for cards, carousels, tabs, accordions, modals, forms and other repeated UI only after verifying their actual sources and callers.
+- Konfirmasi dan dokumentasikan susunan akhir navigasi desktop.
+- Catat sumber logo final dan aturan penggunaannya setelah diberikan/disetujui.
+- Petakan penggunaan breadcrumb per halaman sebelum menjadikannya komponen bersama.
+- Petakan susunan hero berdasarkan kelompok halaman.
+- Lanjutkan pemetaan komponen untuk kartu, carousel, tab, accordion, modal, formulir, dan elemen antarmuka berulang lainnya setelah sumber dan pemanggil sebenarnya dipastikan.
 
-These are notes, not implementation tasks or permission to change code.
+Catatan tersebut bukan tugas penerapan dan bukan izin untuk mengubah kode.
 
-## 6. Updating this register
+## 6. Cara Memperbarui Daftar Ini
 
-Update status only when supported by repository evidence or explicit approval from Mas Bagus. Add the commit SHA for each verified change. Do not mark a component complete because its file exists; distinguish implemented, approved, tested and deployed.
+Perbarui status hanya jika didukung bukti repository atau persetujuan jelas dari Mas Bagus. Tambahkan SHA commit untuk setiap perubahan yang telah diverifikasi. Jangan menandai komponen selesai hanya karena berkasnya tersedia; bedakan antara sudah diterapkan, disetujui, diuji, dan benar-benar tayang.
