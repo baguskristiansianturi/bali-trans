@@ -20,13 +20,13 @@ These records are the business-first source of context for future page, content,
 
 | Document | Responsibility |
 |---|---|
-| [Product Foundation](./PRODUCT-FOUNDATION.md) | Market positioning, target customers, value proposition, website role and open discovery |
+| [Master Catalog](./MASTER-CATALOG.md) | Central index of existing, planned and not-yet-created knowledge documents |\n| [Product Foundation](./PRODUCT-FOUNDATION.md) | Market positioning, target customers, value proposition, website role and open discovery |
 | [Service Master](./SERVICE-MASTER.md) | Current service categories and their service types |
 | [Future Ideas](./FUTURE-IDEAS.md) | Unapproved or early concepts kept separate from active services |
 | [Work Register](./WORK-REGISTER.md) | Active unfinished discovery and documentation tasks |
 | [Master Change Register](./05-CHANGE-REGISTER.md) | Dated history of meaningful Master changes |
 
-**Important:** A future idea is not an active service or implementation task. An unchecked Work Register item remains open even when the team changes topic.
+**Important:** A future idea is not an active service or implementation task. An unchecked Work Register item remains open even when the team changes topic. The [Master Catalog](./MASTER-CATALOG.md) and its domain indexes also track documents that have been identified but not yet created. Their absence must never be mistaken for forgotten work.
 
 ## Technical blueprint
 
@@ -115,3 +115,7 @@ The Work Register is the cross-topic checklist for unfinished discovery and docu
 11. Relevant detailed records under `GLOBAL/` or `SHARED/`.
 
 --- 
+
+## Master knowledge architecture
+
+The business knowledge base is organized into domain folders indexed by [Master Catalog](./MASTER-CATALOG.md): Foundation & Brand, Business & Service Data, Rules & Policies, Content & Editorial Guidelines, Customer Experience, Website & Technology, and Governance & Sources. Each domain index lists planned records and their current status, including documents that are not yet started. Existing root-level records are retained and linked; they are not duplicated or moved merely to make the folder tree look uniform.
