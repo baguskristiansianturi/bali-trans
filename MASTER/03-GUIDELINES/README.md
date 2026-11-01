@@ -33,3 +33,7 @@ Semua pekerjaan artikel wajib dimulai dari indeks folder [PRODUKSI-ARTIKEL](./PR
 ## Arah pengembangan SOP produksi artikel
 
 Mas Bagus menyetujui arah restrukturisasi menjadi empat tahap: Perencanaan & Brief, Riset & Penulisan, Implementasi, serta Audit, Publikasi & Evaluasi. Pemetaan rinci dan status transisi ada di [Rencana Restrukturisasi](./PRODUKSI-ARTIKEL/00-RENCANA-RESTRUKTURISASI.md). Tiga file SOP saat ini tetap dipertahankan sampai pemindahan isi dan penomoran final diselesaikan.
+
+## Arah pengembangan SOP produksi artikel
+
+Mas Bagus menyetujui arah restrukturisasi menjadi empat tahap: Perencanaan & Brief, Riset & Penulisan, Implementasi, serta Audit, Publikasi & Evaluasi. Pemetaan rinci dan status transisi ada di [Rencana Restrukturisasi](./PRODUKSI-ARTIKEL/00-RENCANA-RESTRUKTURISASI.md). Tiga file SOP saat ini tetap dipertahankan sampai pemindahan isi dan penomoran final diselesaikan.
