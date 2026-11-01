@@ -126,3 +126,13 @@ Daftar Pekerjaan menjadi daftar lintas topik untuk pembahasan dan dokumentasi ya
 ---
 
 **Catatan:** Nama berkas dan istilah teknis tertentu dipertahankan dalam bahasa Inggris agar sesuai dengan struktur kode. Penjelasan dan isi dokumentasi Master menggunakan bahasa Indonesia.
+
+## Arah pembahasan Master berikutnya — 2026-11-01
+
+Mas Bagus menyepakati bahwa sesi berikutnya dapat berupa sharing dan diskusi bisnis secara bertahap. Hasil diskusi perlu dikumpulkan dan diklasifikasikan sebelum dicatat sebagai keputusan final.
+
+- [Business / Plan Master](./BUSINESS-PLAN-MASTER.md) menjadi kerangka induk pembahasan model bisnis. Dokumen detail yang sudah ada, seperti Fondasi Produk dan Master Layanan, tetap menjadi sumber rinci; jangan membuat salinan yang saling bertentangan.
+- [Product & Experience Master](./PRODUCT-EXPERIENCE-MASTER.md) menyimpan kerangka area standar pengalaman digital yang akan dibahas setelah kebutuhan bisnis/produk cukup dipahami. Detail visual dan interaksi belum ditetapkan.
+- SOP produksi artikel diarahkan menjadi empat tahap. Lihat [Rencana Restrukturisasi](./03-GUIDELINES/PRODUKSI-ARTIKEL/00-RENCANA-RESTRUKTURISASI.md).
+
+Website runtime, desain, konten publik, dan kode tidak diubah dalam fase diskusi Master ini.
