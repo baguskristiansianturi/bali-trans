@@ -63,7 +63,7 @@ Untuk setiap pembaruan Master, catat:
 ### 2026-11-01 — Aturan Fungsi Data dan Inventaris Destinasi Bali
 
 - Menambahkan [Master Destinasi Bali](./01-DATA/DESTINATION-MASTER.md) berdasarkan bagian Places of Interest pada sitemap Bali Golden Tour sebagai acuan awal inventaris.
-- Mencatat nama destinasi dan memasangkan kategori utama serta wilayah wisata luas sebagai pengelompokan awal. Kelompok kabupaten/kota sumber hanya dipakai sebagai petunjuk pemeriksaan, bukan kategori BDM Trans.
+- Mencatat nama destinasi dan memasangkan kategori utama serta wilayah wisata luas sebagai pengelompokan awal. Kelompok kabupaten/kota sumber hanya dipakai sebagai petunjuk pemeriksaan, bukan kategori Bali Trans.
 - Mencatat aturan pemisahan kategori baku, wilayah, label karakteristik tambahan, dan penanda kurasi seperti Popular Destination.
 - Menegaskan bahwa Master merupakan bahan dasar model bisnis, produk, layanan, data, dan fungsi informasi; bukan dokumen rancangan tampilan atau implementasi teknis pada tahap ini.
 - Menandai sejumlah penempatan wilayah dan nama destinasi yang masih perlu ditinjau bersama. Status dokumen pada tahap awal adalah INVENTARIS AWAL — PERLU PENINJAUAN BERSAMA, bukan data final yang seluruhnya telah disahkan.
@@ -104,9 +104,9 @@ Untuk setiap pembaruan Master, catat:
 - Cakupan: dokumentasi Master saja. Tidak ada perubahan website, tampilan, fitur, atau konfigurasi deployment.
 
 
-### 2026-11-01 — DNA Informasi BDM Trans dan Kerangka Aktivitas & Pengalaman
+### 2026-11-01 — DNA Informasi Bali Trans dan Kerangka Aktivitas & Pengalaman
 
-- Memperluas [Fondasi Produk](./PRODUCT-FOUNDATION.md) dengan arah strategis BDM Trans sebagai jendela bagi wisatawan untuk mengenal, memahami, dan merencanakan Bali.
+- Memperluas [Fondasi Produk](./PRODUCT-FOUNDATION.md) dengan arah strategis Bali Trans sebagai jendela bagi wisatawan untuk mengenal, memahami, dan merencanakan Bali.
 - Mencatat prinsip informasi: akurat, nyaman dibaca dengan bahasa santai dan ceria, diperkuat visual relevan, serta dilengkapi data praktis seperti lokasi, jarak/waktu tempuh, dan kisaran biaya yang diberi label perkiraan bila belum pasti.
 - Menegaskan bahwa manfaat informasi bagi pengunjung tetap menjadi tujuan meskipun mereka tidak membeli layanan; kepercayaan, kunjungan organik, dan SEO diharapkan tumbuh dari kegunaan konten.
 - Membuat [Master Aktivitas & Pengalaman](./01-DATA/ACTIVITY-EXPERIENCE-MASTER.md) sebagai kerangka untuk menginventarisasi aktivitas, gambaran pengalaman, lokasi, wilayah, alias, dan data perencanaan.
