@@ -1,4 +1,4 @@
-# Daftar Ide Masa Depan — Bali Trans / BDM Trans
+# Daftar Ide Masa Depan — Bali Trans / Bali Trans
 
 > Dokumen ini menyimpan ide tanpa menyajikannya seolah-olah sudah menjadi layanan yang tersedia atau pekerjaan penerapan yang disetujui.
 
