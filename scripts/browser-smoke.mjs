@@ -131,7 +131,7 @@ try {
   await checkRoute('North Bali region', '?page=discovery&item=region%3Anorth', 'Explore North Bali');
   await checkRoute('valid package detail', '?page=detail&item=lovina-dolphin-tour', 'Bali Dolphin Tour');
   await checkRoute('article list', '?page=blog', 'Plan Your Dream Trip to Bali');
-  await checkRoute('article detail', '?page=blog-read&item=blog-1', 'A Practical First-Time Guide to Bali');
+  await checkRoute('article detail', '?page=blog-read&item=pantai-kuta-bali', 'Pantai Kuta Bali');
   if (await page.locator('#article-sources-title').count() !== 1) throw new Error('Existing article detail is missing its source list');
   await checkRoute('Nusa Islands region', '?page=discovery&item=region%3Anusa', 'Explore the Nusa Islands');
   await checkRoute('Kelingking Beach article', '?page=blog-read&item=nusa-penida-kelingking-beach', 'Kelingking Beach: Viewpoints, Access and Safety');
