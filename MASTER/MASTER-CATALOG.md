@@ -1,4 +1,4 @@
-# Katalog Master — Bali Trans / BDM Trans
+# Katalog Master — Bali Trans / Bali Trans
 
 > Indeks pusat basis pengetahuan proyek. Katalog ini mencatat dokumen yang sudah tersedia maupun dokumen yang kebutuhannya sudah ditemukan tetapi belum ditulis. Dokumen yang belum dibuat tetap menjadi pekerjaan yang terlihat, bukan pekerjaan yang terlupakan.
 
