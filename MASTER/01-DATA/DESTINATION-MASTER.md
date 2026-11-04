@@ -7,7 +7,7 @@
 | Tanggal pencatatan | 2026-11-01 |
 | Sumber inventaris | Bali Golden Tour sebagai acuan awal; diperluas dengan sumber resmi pemerintah dan direktori destinasi untuk kategori Beach, Waterfall, Mountain, dan Lake |
 | Cakupan | Inventaris destinasi awal Bali Golden Tour dan perluasan kategori Beach, Waterfall, Mountain, dan Lake berdasarkan sumber tambahan yang dapat ditelusuri |
-| Tujuan | Menyediakan data dasar destinasi dan pengelompokan untuk pembahasan produk serta konten BDM Trans |
+| Tujuan | Menyediakan data dasar destinasi dan pengelompokan untuk pembahasan produk serta konten Bali Trans |
 
 > Dokumen ini adalah bahan dasar data bisnis dan konten. Dokumen ini bukan rancangan halaman, desain, breadcrumb visual, alamat URL final, atau spesifikasi teknis website.
 
@@ -20,8 +20,8 @@ Inventaris awal mengambil nama tempat dari bagian **Places of Interest to Visit 
 - Inventaris ini tidak mengklaim telah mencakup setiap pantai kecil atau garis pantai di Bali. Targetnya adalah seluruh pantai bernama/teridentifikasi yang dapat ditemukan dan diverifikasi sebagai lokasi atau destinasi.
 - Jangan menyalin deskripsi promosi, foto, atau materi pemasaran sumber.
 - Nama destinasi dipertahankan sedekat mungkin dengan penamaan sumber agar dapat ditelusuri.
-- Pengelompokan kabupaten/kota pada sitemap hanya dipakai untuk membantu pemeriksaan lokasi. Kabupaten/kota bukan kategori destinasi BDM Trans.
-- Pengelompokan wilayah BDM Trans dibuat luas dan mudah dipahami wisatawan.
+- Pengelompokan kabupaten/kota pada sitemap hanya dipakai untuk membantu pemeriksaan lokasi. Kabupaten/kota bukan kategori destinasi Bali Trans.
+- Pengelompokan wilayah Bali Trans dibuat luas dan mudah dipahami wisatawan.
 - Jika penempatan wilayah atau nama sumber tampak keliru, tandai untuk pemeriksaan; jangan mengubah fakta sumber secara diam-diam.
 
 ## 2. Aturan Fungsi Data Destinasi
@@ -118,14 +118,14 @@ Daftar koleksi Latest, Popular, dan Hidden Gems sudah disiapkan sebagai definisi
 ## 4. Inventaris Destinasi dari Bali Golden Tour
 
 **Cara membaca tabel:**
-- Kolom “Kelompok pada sumber” hanya menunjukkan bagian kabupaten/kota tempat sumber menaruh tautan; ini bukan kategori BDM Trans.
-- Kolom “Kategori BDM — awal” dan “Wilayah BDM — awal” adalah pengelompokan kerja awal untuk ditinjau.
+- Kolom “Kelompok pada sumber” hanya menunjukkan bagian kabupaten/kota tempat sumber menaruh tautan; ini bukan kategori Bali Trans.
+- Kolom “Kategori Bali Trans — awal” dan “Wilayah Bali Trans — awal” adalah pengelompokan kerja awal untuk ditinjau.
 - Penempatan wilayah masih berstatus awal apabila perlu pemeriksaan lebih rinci.
 - Nama berulang atau ejaan yang tidak konsisten pada sumber ditandai, bukan diam-diam dihapus.
 
 ### 4.1 Badung
 
-| Nama pada sumber | Kategori BDM — awal | Wilayah BDM — awal | Catatan |
+| Nama pada sumber | Kategori Bali Trans — awal | Wilayah Bali Trans — awal | Catatan |
 |---|---|---|---|
 | Uluwatu Temple | Temple | Bali Selatan | — |
 | Taman Ayun Temple | Temple | Bali Selatan | — |
@@ -142,7 +142,7 @@ Daftar koleksi Latest, Popular, dan Hidden Gems sudah disiapkan sebagai definisi
 
 ### 4.2 Tabanan
 
-| Nama pada sumber | Kategori BDM — awal | Wilayah BDM — awal | Catatan |
+| Nama pada sumber | Kategori Bali Trans — awal | Wilayah Bali Trans — awal | Catatan |
 |---|---|---|---|
 | Tanah Lot Temple | Temple | Bali Selatan | Kawasan pesisir barat daya; wilayah perlu konsistensi dengan pembagian regional yang dipilih |
 | Ulun Danu Beratan Temple | Temple | Bali Tengah | — |
@@ -160,7 +160,7 @@ Daftar koleksi Latest, Popular, dan Hidden Gems sudah disiapkan sebagai definisi
 
 ### 4.3 Bangli
 
-| Nama pada sumber | Kategori BDM — awal | Wilayah BDM — awal | Catatan |
+| Nama pada sumber | Kategori Bali Trans — awal | Wilayah Bali Trans — awal | Catatan |
 |---|---|---|---|
 | Kintamani Village | Village | Bali Tengah | — |
 | Penglipuran Village | Village | Bali Tengah | Muncul dua kali pada sitemap; dicatat satu kali sebagai satu destinasi |
@@ -176,7 +176,7 @@ Daftar koleksi Latest, Popular, dan Hidden Gems sudah disiapkan sebagai definisi
 
 ### 4.4 Karangasem
 
-| Nama pada sumber | Kategori BDM — awal | Wilayah BDM — awal | Catatan |
+| Nama pada sumber | Kategori Bali Trans — awal | Wilayah Bali Trans — awal | Catatan |
 |---|---|---|---|
 | Bukit Jambul Rice Terrace | Rice Terrace / Viewpoint | Bali Timur | — |
 | Besakih Temple | Temple | Bali Timur | — |
@@ -201,7 +201,7 @@ Daftar koleksi Latest, Popular, dan Hidden Gems sudah disiapkan sebagai definisi
 
 ### 4.5 Gianyar
 
-| Nama pada sumber | Kategori BDM — awal | Wilayah BDM — awal | Catatan |
+| Nama pada sumber | Kategori Bali Trans — awal | Wilayah Bali Trans — awal | Catatan |
 |---|---|---|---|
 | Ubud Monkey Forest | Forest | Bali Tengah | — |
 | Tegalalang Rice Terrace | Rice Terrace | Bali Tengah | — |
@@ -225,7 +225,7 @@ Daftar koleksi Latest, Popular, dan Hidden Gems sudah disiapkan sebagai definisi
 
 ### 4.6 Klungkung dan kawasan kepulauan
 
-| Nama pada sumber | Kategori BDM — awal | Wilayah BDM — awal | Catatan |
+| Nama pada sumber | Kategori Bali Trans — awal | Wilayah Bali Trans — awal | Catatan |
 |---|---|---|---|
 | Goa Lawah Temple | Temple | Bali Timur | Klungkung daratan |
 | Kerta Gosa | Heritage Landmark / Palace | Bali Timur | — |
@@ -249,7 +249,7 @@ Daftar koleksi Latest, Popular, dan Hidden Gems sudah disiapkan sebagai definisi
 
 ### 4.7 Buleleng
 
-| Nama pada sumber | Kategori BDM — awal | Wilayah BDM — awal | Catatan |
+| Nama pada sumber | Kategori Bali Trans — awal | Wilayah Bali Trans — awal | Catatan |
 |---|---|---|---|
 | Handara Gate | Gate / Landmark | Bali Tengah | Kawasan Bedugul; perlu konsistensi batas wilayah |
 | Wanagiri Hidden Hill | Hill / Viewpoint | Bali Tengah | Kawasan dataran tinggi |
@@ -276,7 +276,7 @@ Daftar koleksi Latest, Popular, dan Hidden Gems sudah disiapkan sebagai definisi
 
 ### 4.8 Denpasar
 
-| Nama pada sumber | Kategori BDM — awal | Wilayah BDM — awal | Catatan |
+| Nama pada sumber | Kategori Bali Trans — awal | Wilayah Bali Trans — awal | Catatan |
 |---|---|---|---|
 | Bajra Sandhi Monument | Monument | Bali Selatan | — |
 | Jagat Natha Temple | Temple | Bali Selatan | — |
@@ -285,7 +285,7 @@ Daftar koleksi Latest, Popular, dan Hidden Gems sudah disiapkan sebagai definisi
 
 ### 4.9 Jembrana
 
-| Nama pada sumber | Kategori BDM — awal | Wilayah BDM — awal | Catatan |
+| Nama pada sumber | Kategori Bali Trans — awal | Wilayah Bali Trans — awal | Catatan |
 |---|---|---|---|
 | Medewi Beach | Beach | Bali Barat | — |
 | West Bali National Park | National Park | Bali Barat | — |
@@ -573,7 +573,7 @@ Daftar ini merupakan inventaris gabungan dari sumber-sumber tersebut, bukan klai
 
 ## 5. Catatan Pemeriksaan dan Hal yang Perlu Ditinjau
 
-1. Pengelompokan wilayah wisata merupakan penyederhanaan untuk kebutuhan data BDM Trans, bukan pembagian administratif resmi.
+1. Pengelompokan wilayah wisata merupakan penyederhanaan untuk kebutuhan data Bali Trans, bukan pembagian administratif resmi.
 2. Wilayah pesisir Tabanan perlu konsistensi: pada inventaris kerja ini dikelompokkan ke Bali Barat untuk menghindari pemecahan wilayah yang terlalu kecil.
 3. Lovina merupakan kawasan pantai memanjang, bukan satu titik pantai kecil; desa-desa pesisir di dalamnya tidak otomatis menjadi entri terpisah.
 4. Kawasan kepulauan Nusa Penida, Nusa Lembongan, dan Nusa Ceningan dipertahankan sebagai kelompok lokasi tersendiri.
@@ -586,7 +586,7 @@ Daftar ini merupakan inventaris gabungan dari sumber-sumber tersebut, bukan klai
 
 ## 5. Catatan Pemeriksaan dan Hal yang Perlu Ditinjau
 
-1. **Sumber mengelompokkan berdasarkan kabupaten/kota.** BDM Trans menggunakan wilayah wisata yang lebih luas. Jangan membawa nama kabupaten menjadi kategori utama.
+1. **Sumber mengelompokkan berdasarkan kabupaten/kota.** Bali Trans menggunakan wilayah wisata yang lebih luas. Jangan membawa nama kabupaten menjadi kategori utama.
 2. **Klungkung mencakup daratan dan pulau.** Goa Lawah dan Kerta Gosa ditempatkan pada Bali Timur; tempat-tempat yang berada di Nusa Penida atau Nusa Lembongan dikelompokkan menurut kawasan kepulauannya, bukan dipaksakan ke Bali Selatan atau Bali Timur.
 3. **Kawasan Bedugul berada di dataran tinggi perbatasan administratif.** Handara Gate dan Wanagiri Hidden Hill perlu diputuskan konsisten apakah masuk Bali Tengah atau Bali Utara dalam kamus wilayah akhir.
 4. **Batas Bali Tengah, Selatan, dan Barat perlu disepakati sebagai pengelompokan wisata, bukan pembagian administratif resmi.** Penempatan awal di tabel dapat diperbaiki tanpa mengubah nama destinasi.
