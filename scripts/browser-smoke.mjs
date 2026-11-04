@@ -91,6 +91,14 @@ try {
   await page.locator('#mobileMenuButton').click();
   if (await page.locator('#mobileMenuPanel').isVisible()) throw new Error('Mobile navigation did not close when toggled');
   console.log('PASS homepage uses the shared shell with functional locale, search and mobile overlays');
+  await page.goto('http://127.0.0.1:4173/admin/', { waitUntil: 'domcontentloaded' });
+  await page.waitForSelector('#login-form');
+  if (!(await page.locator('.auth-brand').innerText()).includes('BALI TRANS')) throw new Error('Admin application must use the Bali Trans identity');
+  if (!(await page.locator('#auth-screen').isVisible()) || !(await page.locator('#login-form').isVisible())) throw new Error('Admin application must open on its protected sign-in screen');
+  const adminLayout = await page.evaluate(() => ({ width: document.documentElement.scrollWidth, viewport: window.innerWidth, manifest: document.querySelector('link[rel="manifest"]')?.getAttribute('href') }));
+  if (adminLayout.width > adminLayout.viewport + 2 || adminLayout.manifest !== './manifest.webmanifest') throw new Error('Admin app mobile layout or install manifest is invalid: ' + JSON.stringify(adminLayout));
+  await page.waitForFunction(() => navigator.serviceWorker && navigator.serviceWorker.getRegistrations().then(items => items.length > 0));
+  console.log('PASS mobile admin app sign-in, Bali Trans branding, install manifest and service worker');
   await checkRoute('destination hub', '?page=destinations', 'Explore Bali’s Destinations');
   await page.waitForSelector('.destination-hub__filter[data-destination-filter="all"]');
   await page.waitForFunction(() => document.querySelector('.destination-hub__card'));
@@ -497,14 +505,6 @@ try {
   console.log('PASS English/Indonesian switching, persisted locale, and single shared header');
 
   if (pageErrors.length) throw new Error('Browser JavaScript errors: ' + pageErrors.join(' | '));
-  await page.goto('http://127.0.0.1:4173/admin/', { waitUntil: 'domcontentloaded' });
-  await page.waitForSelector('#login-form');
-  if (!(await page.locator('.auth-brand').innerText()).includes('BALI TRANS')) throw new Error('Admin application must use the Bali Trans identity');
-  if (!(await page.locator('#auth-screen').isVisible()) || !(await page.locator('#login-form').isVisible())) throw new Error('Admin application must open on its protected sign-in screen');
-  const adminLayout = await page.evaluate(() => ({ width: document.documentElement.scrollWidth, viewport: window.innerWidth, manifest: document.querySelector('link[rel="manifest"]')?.getAttribute('href') }));
-  if (adminLayout.width > adminLayout.viewport + 2 || adminLayout.manifest !== './manifest.webmanifest') throw new Error('Admin app mobile layout or install manifest is invalid: ' + JSON.stringify(adminLayout));
-  await page.waitForFunction(() => navigator.serviceWorker && navigator.serviceWorker.getRegistrations().then(items => items.length > 0));
-  console.log('PASS mobile admin app sign-in, Bali Trans branding, install manifest and service worker');
   console.log('PASS no uncaught browser JavaScript errors');
 } finally {
   await browser.close();
