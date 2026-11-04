@@ -46,7 +46,7 @@ Jika akses repository tidak tersedia, jelaskan bahwa protokol belum dapat diperi
 
 Pada awal setiap sesi proyek baru, jelaskan secara alami dan ringkas:
 
-- **Peran kita:** Kita bekerja sebagai tim kolaborasi produk dan pengembangan. Asisten bertindak sebagai rekan diskusi profesional untuk produk dan teknis. Mas Bagus memberikan konteks bisnis, kebutuhan, masukan, dan persetujuan. Jangan menyebut Mas Bagus sebagai pemilik Bali Trans/BDM Trans kecuali beliau secara jelas meminta penyebutan tersebut.
+- **Peran kita:** Kita bekerja sebagai tim kolaborasi produk dan pengembangan. Asisten bertindak sebagai rekan diskusi profesional untuk produk dan teknis. Mas Bagus memberikan konteks bisnis, kebutuhan, masukan, dan persetujuan. Jangan menyebut Mas Bagus sebagai pemilik Bali Trans/Bali Trans kecuali beliau secara jelas meminta penyebutan tersebut.
 - **Cara kerja:** Bahas satu topik pada satu waktu. Mulai dari tujuan dan kebutuhan bisnis, kemudian layanan, halaman, konten, alur pengguna, tata letak, komponen, desain, interaksi, dan penerapan.
 - **Aturan keputusan:** Gagasan dibahas dan diuji secara kritis dengan cara yang membangun. Ringkasan diskusi bukan otomatis keputusan yang disetujui.
 - **Aturan dokumentasi:** Sebelum mencatat keputusan penting sebagai disetujui, rangkum usulannya dan tanyakan: “Apakah kita sudah sepakat memasukkan ini ke dokumen Master?” Hanya persetujuan yang jelas yang mengizinkan status DISETUJUI.
@@ -129,9 +129,9 @@ Urutan ini adalah panduan, bukan tahapan kaku. Topik boleh dibuka kembali atau d
 
 ### Pedoman Strategis Konten dan Pengetahuan Bali
 
-Sebelum melakukan riset destinasi, aktivitas, artikel, panduan, atau materi informasi, baca bagian **DNA Informasi: BDM Trans sebagai Jendela Bali** di [Fondasi Produk](./PRODUCT-FOUNDATION.md). Gunakan [Master Destinasi Bali](./01-DATA/DESTINATION-MASTER.md) dan [Master Aktivitas & Pengalaman](./01-DATA/ACTIVITY-EXPERIENCE-MASTER.md) sebagai sumber data terkait.
+Sebelum melakukan riset destinasi, aktivitas, artikel, panduan, atau materi informasi, baca bagian **DNA Informasi: Bali Trans sebagai Jendela Bali** di [Fondasi Produk](./PRODUCT-FOUNDATION.md). Gunakan [Master Destinasi Bali](./01-DATA/DESTINATION-MASTER.md) dan [Master Aktivitas & Pengalaman](./01-DATA/ACTIVITY-EXPERIENCE-MASTER.md) sebagai sumber data terkait.
 
-Arah dasarnya: BDM Trans membantu wisatawan mengenal dan merencanakan Bali melalui informasi yang akurat, nyaman dibaca, didukung visual relevan dan data praktis. Jangan membuat konten hanya demi SEO; manfaat bagi pembaca adalah dasar nilai organik jangka panjang. Perkiraan harga, jarak, atau waktu harus diberi label dan konteks yang sesuai. Master ini adalah pedoman pengetahuan dan strategi, bukan izin untuk mengubah desain atau implementasi website.
+Arah dasarnya: Bali Trans membantu wisatawan mengenal dan merencanakan Bali melalui informasi yang akurat, nyaman dibaca, didukung visual relevan dan data praktis. Jangan membuat konten hanya demi SEO; manfaat bagi pembaca adalah dasar nilai organik jangka panjang. Perkiraan harga, jarak, atau waktu harus diberi label dan konteks yang sesuai. Master ini adalah pedoman pengetahuan dan strategi, bukan izin untuk mengubah desain atau implementasi website.
 
 ## 7. Perlindungan Website yang Sudah Ada
 
