@@ -1,11 +1,11 @@
-# SOP Produksi Artikel & SEO Organik — BDM Trans
+# SOP Produksi Artikel & SEO Organik — Bali Trans
 
 > **Status:** USULAN — DRAF UNTUK DITINJAU, BELUM DITETAPKAN SEBAGAI SOP FINAL  
 > **Versi:** 0.8  
 > **Tanggal penyusunan:** 2026-11-01  
 > **Pemilik keputusan:** Mas Bagus  
 > **Pelaksana alur kerja:** Aya bersama Mas Bagus  
-> **Berlaku untuk:** Artikel blog, informasi perjalanan, artikel destinasi, artikel aktivitas, tips, dan konten editorial panjang BDM Trans.
+> **Berlaku untuk:** Artikel blog, informasi perjalanan, artikel destinasi, artikel aktivitas, tips, dan konten editorial panjang Bali Trans.
 
 ---
 
@@ -58,11 +58,11 @@ Setiap tautan sumber eksternal harus mengarah ke halaman spesifik yang benar-ben
 
 ## 1. Tujuan
 
-SOP ini menetapkan cara meneliti, menyusun, memeriksa, menerapkan ke website, dan menerbitkan artikel BDM Trans.
+SOP ini menetapkan cara meneliti, menyusun, memeriksa, menerapkan ke website, dan menerbitkan artikel Bali Trans.
 
 Prinsip utama: **artikel dibuat untuk membantu manusia terlebih dahulu; SEO memastikan informasi tersebut dapat ditemukan, dipahami, dan diakses mesin pencari.**
 
-BDM Trans sedang berada pada fase pilot setelah vakum. Karena anggaran iklan belum tersedia, pekerjaan konten diarahkan untuk membangun aset organik secara bertahap. Prioritasnya bukan jumlah artikel atau kecepatan produksi, melainkan artikel yang akurat, orisinal, berguna untuk merencanakan perjalanan, dan layak diperbarui dalam jangka panjang.
+Bali Trans sedang berada pada fase pilot setelah vakum. Karena anggaran iklan belum tersedia, pekerjaan konten diarahkan untuk membangun aset organik secara bertahap. Prioritasnya bukan jumlah artikel atau kecepatan produksi, melainkan artikel yang akurat, orisinal, berguna untuk merencanakan perjalanan, dan layak diperbarui dalam jangka panjang.
 
 SOP ini menjadi gerbang wajib sebelum Aya:
 1. memulai penulisan artikel;
@@ -88,13 +88,13 @@ SOP ini menjadi gerbang wajib sebelum Aya:
 Sebelum menulis atau coding artikel, Aya wajib:
 
 1. Membaca SOP ini dari awal sampai bagian yang relevan.
-2. Membaca bagian **DNA Informasi: BDM Trans sebagai Jendela Bali** di `MASTER/PRODUCT-FOUNDATION.md`.
+2. Membaca bagian **DNA Informasi: Bali Trans sebagai Jendela Bali** di `MASTER/PRODUCT-FOUNDATION.md`.
 3. Membuka dokumen Data Master yang relevan, misalnya:
    - `MASTER/01-DATA/DESTINATION-MASTER.md`
    - `MASTER/01-DATA/ACTIVITY-EXPERIENCE-MASTER.md`
    - Master Layanan atau data terkait bila artikel membahas layanan.
 4. Memeriksa status data: terverifikasi, perlu validasi, perkiraan, atau belum tersedia.
-5. Memeriksa artikel dan halaman yang sudah ada agar tidak membuat artikel duplikat atau bersaing dengan halaman BDM Trans sendiri.
+5. Memeriksa artikel dan halaman yang sudah ada agar tidak membuat artikel duplikat atau bersaing dengan halaman Bali Trans sendiri.
 6. Memeriksa aturan editorial, sumber, media, dan website yang relevan.
 
 **Aturan:** Master menjadi sumber konteks internal, bukan pengganti riset eksternal. Jika data penting belum ada atau saling bertentangan, tandai sebagai pertanyaan riset; jangan mengarang atau mengubah statusnya diam-diam.
@@ -111,13 +111,13 @@ Sebelum membuat outline, buat *Article Brief* yang mencatat:
 - Variasi frasa, sinonim, istilah lokal, dan pertanyaan terkait.
 - Wilayah atau destinasi yang menjadi fokus.
 - Artikel internal yang sudah ada dan peluang hubungan topik.
-- Nilai unik yang dapat diberikan BDM Trans.
+- Nilai unik yang dapat diberikan Bali Trans.
 - Data yang perlu diverifikasi dan sumber yang dibutuhkan.
 - Tujuan tindakan pembaca yang wajar setelah membaca, jika ada.
 
-Lakukan pemeriksaan hasil pencarian untuk memahami maksud pencarian dan jenis informasi yang sudah tersedia. Jangan meniru struktur atau menyalin kalimat pesaing. Cari celah informasi yang dapat dijawab lebih baik oleh BDM Trans.
+Lakukan pemeriksaan hasil pencarian untuk memahami maksud pencarian dan jenis informasi yang sudah tersedia. Jangan meniru struktur atau menyalin kalimat pesaing. Cari celah informasi yang dapat dijawab lebih baik oleh Bali Trans.
 
-Hindari dua artikel BDM Trans yang menargetkan maksud pencarian dan topik utama yang sama tanpa alasan editorial yang jelas (*keyword cannibalization*).
+Hindari dua artikel Bali Trans yang menargetkan maksud pencarian dan topik utama yang sama tanpa alasan editorial yang jelas (*keyword cannibalization*).
 
 ### 4.1 Riset kata kunci dan SERP wajib
 
@@ -138,9 +138,9 @@ Setelah itu, buat *content gap analysis* yang menjelaskan:
 - informasi yang terlalu umum, kurang rinci, atau belum diperbarui;
 - konteks lokal, jarak, akses, perkiraan waktu, biaya, keselamatan, dan kebutuhan perencanaan yang masih kurang;
 - peluang visual, peta, tabel, kalkulasi, perbandingan, atau elemen interaktif yang benar-benar membantu;
-- sudut pandang orisinal yang akan digunakan BDM Trans.
+- sudut pandang orisinal yang akan digunakan Bali Trans.
 
-Artikel BDM Trans tidak boleh menyalin kalimat, urutan unik, tabel, atau cara penyampaian kompetitor. Jangan sekadar mengganti sinonim. Gunakan hasil analisis untuk memahami kebutuhan pembaca, lalu bangun struktur dan penjelasan sendiri. Targetnya bukan sekadar lebih panjang, melainkan lebih bermanfaat, akurat, mudah dipahami, dan lebih baik dalam pengalaman membaca.
+Artikel Bali Trans tidak boleh menyalin kalimat, urutan unik, tabel, atau cara penyampaian kompetitor. Jangan sekadar mengganti sinonim. Gunakan hasil analisis untuk memahami kebutuhan pembaca, lalu bangun struktur dan penjelasan sendiri. Targetnya bukan sekadar lebih panjang, melainkan lebih bermanfaat, akurat, mudah dipahami, dan lebih baik dalam pengalaman membaca.
 
 ### 4.3 Catatan riset wajib sebelum menulis
 
@@ -196,11 +196,11 @@ Sebelum penulisan dinyatakan selesai, pastikan:
 - Tidak ada parafrasa dekat yang hanya mengubah susunan kata.
 - Artikel memberi nilai tambah yang jelas dibandingkan sumber yang dibaca.
 - Informasi dari beberapa sumber disintesis dengan struktur dan penjelasan sendiri.
-- Sudut pandang atau kegunaan khas BDM Trans terlihat, misalnya hubungan destinasi dengan lokasi, akses, jarak, waktu tempuh, aktivitas, dan perkiraan biaya.
+- Sudut pandang atau kegunaan khas Bali Trans terlihat, misalnya hubungan destinasi dengan lokasi, akses, jarak, waktu tempuh, aktivitas, dan perkiraan biaya.
 - Fakta yang tidak diketahui tidak diisi dengan tebakan.
 - Tidak ada pengalaman pribadi, kunjungan, wawancara, atau keahlian penulis yang diklaim jika tidak benar-benar terjadi.
 
-**Makna target “100% original”:** standar editorial BDM Trans adalah tidak menyalin atau mendaur ulang artikel orang lain. Tidak ada alat pemeriksa plagiarisme yang dapat membuktikan orisinalitas 100% secara mutlak atau menjamin bebas dari kemiripan frasa umum. Gunakan pemeriksaan kemiripan sebagai alat bantu, lalu lakukan peninjauan manual terhadap sumber, kutipan, dan nilai tambah. Jangan membuat klaim sertifikasi orisinalitas yang tidak dapat dibuktikan.
+**Makna target “100% original”:** standar editorial Bali Trans adalah tidak menyalin atau mendaur ulang artikel orang lain. Tidak ada alat pemeriksa plagiarisme yang dapat membuktikan orisinalitas 100% secara mutlak atau menjamin bebas dari kemiripan frasa umum. Gunakan pemeriksaan kemiripan sebagai alat bantu, lalu lakukan peninjauan manual terhadap sumber, kutipan, dan nilai tambah. Jangan membuat klaim sertifikasi orisinalitas yang tidak dapat dibuktikan.
 
 Penggunaan AI sebagai alat bantu tidak otomatis membuat artikel dilarang. Yang tidak boleh adalah memproduksi konten massal yang tidak orisinal, tidak diperiksa, atau tidak memberi nilai. Aya wajib melakukan verifikasi dan penyuntingan substantif; keluaran AI tidak boleh dianggap sebagai fakta atau pengalaman langsung tanpa bukti.
 
@@ -273,7 +273,7 @@ Meta description harus unik, spesifik, akurat, dan membantu calon pembaca memaha
 3. **Isi utama:** susun bagian sesuai pertanyaan dan kebutuhan pencarian. Gunakan fakta, penjelasan, dan contoh yang telah diverifikasi.
 4. **Informasi praktis:** lokasi/wilayah, akses, jarak dan perkiraan waktu tempuh, durasi, biaya, jam kunjungan, atau hal lain jika relevan dan datanya tersedia.
 5. **Pertimbangan wisatawan:** pilihan, perbedaan, keterbatasan, kondisi yang perlu diketahui, atau saran yang didukung sumber.
-6. **Hubungan informasi:** tautkan ke destinasi, aktivitas, panduan, atau layanan BDM Trans yang benar-benar relevan.
+6. **Hubungan informasi:** tautkan ke destinasi, aktivitas, panduan, atau layanan Bali Trans yang benar-benar relevan.
 7. **Penutup:** rangkum jawaban atau bantu pembaca menentukan langkah berikutnya.
 8. **FAQ:** hanya jika ada pertanyaan nyata yang belum terjawab dengan jelas dalam isi utama. Jangan membuat FAQ untuk mengulang kata kunci.
 
@@ -322,11 +322,11 @@ Isi utama → FAQ → Kesimpulan → Topik terkait (tag) → Share this article 
 - Jangan memaksa kata kunci masuk ke kalimat yang terasa janggal.
 - Variasikan penyebutan dengan sinonim dan istilah terkait yang memang tepat.
 - Bacakan ulang artikel seolah-olah pembaca tidak memiliki pengetahuan awal tentang topik tersebut.
-- Gunakan gaya BDM Trans: ramah, hangat, ceria, santai, informatif, dan tidak kaku seperti brosur atau tulisan akademis.
+- Gunakan gaya Bali Trans: ramah, hangat, ceria, santai, informatif, dan tidak kaku seperti brosur atau tulisan akademis.
 - Tulis seolah sedang membantu wisatawan memahami Bali; jangan membuat klaim pengalaman pribadi atau kunjungan jika tidak benar-benar dilakukan.
 - Hindari bahasa promosi berlebihan, pengulangan, kalimat mesin, pembukaan bertele-tele, dan paragraf yang hanya mengulang informasi.
 - Jelaskan istilah lokal dan konteks budaya dengan hormat; jangan menyederhanakan atau menggeneralisasi budaya Bali.
-- Artikel informasi harus tetap berguna bagi pembaca yang tidak menggunakan layanan BDM Trans. CTA bersifat wajar dan tidak mendominasi isi.
+- Artikel informasi harus tetap berguna bagi pembaca yang tidak menggunakan layanan Bali Trans. CTA bersifat wajar dan tidak mendominasi isi.
 - Gunakan storytelling bila memperjelas suasana atau konteks, bukan untuk mengarang pengalaman.
 - Sesuaikan bahasa dengan target pembaca yang telah ditetapkan di Master; jangan membuat ulang persona atau mengubah target pasar tanpa keputusan baru.
 
@@ -351,7 +351,7 @@ Isi utama → FAQ → Kesimpulan → Topik terkait (tag) → Share this article 
 
 ### 8.3 Tautan internal
 
-- Tautkan ke artikel, destinasi, aktivitas, atau halaman layanan BDM Trans yang membantu pembaca melanjutkan pemahaman.
+- Tautkan ke artikel, destinasi, aktivitas, atau halaman layanan Bali Trans yang membantu pembaca melanjutkan pemahaman.
 - Gunakan anchor text yang deskriptif dan alami, bukan sekadar “klik di sini”.
 - Tempatkan tautan di dalam konteks yang relevan.
 - Jangan menambahkan tautan secara acak demi memenuhi jumlah.
@@ -523,7 +523,7 @@ Sesudah coding:
 Artikel hanya boleh berstatus SIAP TERBIT jika seluruh pemeriksaan wajib berikut lulus.
 
 ### A. Isi dan akurasi
-- [ ] Topik sesuai arah informasi BDM Trans.
+- [ ] Topik sesuai arah informasi Bali Trans.
 - [ ] Search intent dan target pembaca jelas.
 - [ ] Artikel menjawab pertanyaan utama sejak awal dan secara memadai.
 - [ ] Tidak ada copy-paste atau parafrasa dekat.
