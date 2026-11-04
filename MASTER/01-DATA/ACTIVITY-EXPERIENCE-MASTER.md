@@ -14,7 +14,7 @@
 
 ## 1. Tujuan Inventaris
 
-Bali merupakan aset pengalaman utama yang ingin diperkenalkan BDM Trans. Inventaris ini membantu memahami ragam kegiatan yang dapat dilakukan wisatawan, bukan hanya tempat yang dapat mereka kunjungi.
+Bali merupakan aset pengalaman utama yang ingin diperkenalkan Bali Trans. Inventaris ini membantu memahami ragam kegiatan yang dapat dilakukan wisatawan, bukan hanya tempat yang dapat mereka kunjungi.
 
 Aktivitas dan destinasi adalah dua jenis data berbeda:
 - **Destinasi / tempat wisata:** tempat fisik atau kawasan yang dapat dikunjungi.
@@ -62,7 +62,7 @@ Belum termasuk:
 - analisis cara kerja atau prosedur pelaksanaan oleh penyedia;
 - audit SOP, keselamatan operasional, perizinan, dan persyaratan teknis penyedia;
 - negosiasi, komisi, kontrak, atau hubungan pemasok;
-- penetapan paket, tarif jual BDM Trans, margin, atau strategi komersial final.
+- penetapan paket, tarif jual Bali Trans, margin, atau strategi komersial final.
 
 Informasi teknis yang dicatat sekarang hanya gambaran jenis pengalaman dan data yang membantu wisatawan memahami serta merencanakan aktivitas. Pembahasan operator dan pelaksanaan dapat dilakukan pada dokumen lain apabila kelak memang diperlukan.
 
@@ -142,8 +142,8 @@ Jangan membuat entri destinasi baru hanya karena ditemukan nama aktivitas. Sebal
 - Audit berikutnya perlu mengidentifikasi aktivitas lain yang belum tercakup, termasuk kelas memasak, pelajaran/sekolah surfing, serta pengalaman budaya dan pembelajaran.
 - Lokasi aktivitas harus ditelusuri dan dicatat secara terpisah; jangan mencampur lokasi yang berbeda.
 - Data durasi, jarak, waktu tempuh, dan kisaran biaya dilengkapi bertahap dengan sumber serta label kepastian.
-- Dokumen ini tidak menetapkan operator, prosedur pelaksanaan, paket, atau harga jual BDM Trans.
+- Dokumen ini tidak menetapkan operator, prosedur pelaksanaan, paket, atau harga jual Bali Trans.
 
 ---
 
-**Aturan penggunaan:** Gunakan dokumen ini sebagai dasar untuk mengetahui ragam aktivitas wisata Bali yang mungkin menjadi bagian dari pengetahuan produk BDM Trans. Periksa akurasi dan tanggal data sebelum informasi dipublikasikan.
+**Aturan penggunaan:** Gunakan dokumen ini sebagai dasar untuk mengetahui ragam aktivitas wisata Bali yang mungkin menjadi bagian dari pengetahuan produk Bali Trans. Periksa akurasi dan tanggal data sebelum informasi dipublikasikan.
