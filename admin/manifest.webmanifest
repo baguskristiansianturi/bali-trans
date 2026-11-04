@@ -1,0 +1,13 @@
+{
+  "name": "Bali Trans Admin",
+  "short_name": "BT Admin",
+  "description": "Aplikasi administrasi Bali Trans",
+  "lang": "id",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f4f7fa",
+  "theme_color": "#102d4d",
+  "icons": [{"src":"./icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}
