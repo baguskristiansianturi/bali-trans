@@ -1,4 +1,4 @@
-# Master Layanan — Bali Trans / Bali Trans
+# Master Layanan — Bali Trans
 
 > Dokumen ini mencatat susunan kelompok layanan yang berlaku saat ini. Dokumen terus dikembangkan; definisi layanan aktif harus selalu dipisahkan dari ide masa depan.
 
