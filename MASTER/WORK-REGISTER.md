@@ -1,4 +1,4 @@
-# Daftar Pekerjaan — Bali Trans / BDM Trans
+# Daftar Pekerjaan — Bali Trans / Bali Trans
 
 > Daftar hidup untuk pembahasan, dokumentasi, dan perencanaan penerapan yang belum selesai. Daftar ini bukan peta jalan yang kaku dan berurutan: topik dapat dibuka kembali atau dibahas paralel, sementara pekerjaan yang belum selesai tetap terlihat.
 
@@ -36,7 +36,7 @@
 
 - [ ] Menilai apakah fungsi website sebagai sumber informasi wisata perlu memiliki sasaran konten dan ukuran keberhasilan tersendiri.
 - [ ] Menentukan cara memverifikasi klaim ramah Muslim dan rekomendasi halal yang ditampilkan kepada publik.
-- [ ] Mengonfirmasi penamaan merek dan waktu peralihan publik dari Bali Trans ke BDM Trans.
+- [ ] Mengonfirmasi konsistensi identitas Bali Trans pada seluruh materi publik.
 
 ## 4. Ide yang Ditunda
 
@@ -62,7 +62,7 @@ Gagasan yang belum disetujui untuk diterapkan tidak dimasukkan ke daftar pekerja
 - [ ] Profil Perusahaan & Master Merek — identitas, cerita merek, nilai, karakter komunikasi, dan penamaan.
 - [ ] Sasaran Bisnis & Indikator Keberhasilan — tujuan utama website dan hasil yang dapat diukur.
 - [ ] Riset Pelanggan & Pasar — validasi profil pelanggan, prioritas pasar, dan kesediaan membayar.
-- [ ] Rencana Peralihan Merek — kebutuhan dan waktu peralihan Bali Trans/BDM Trans.
+- [ ] Pedoman Identitas Merek — kebutuhan dan waktu peralihan Bali Trans/Bali Trans.
 
 ### Data Bisnis & Layanan
 - [ ] Master Armada — selesaikan pertanyaan terbuka dan periksa model, jumlah kursi, bagasi, serta ketersediaan. Lihat [Master Armada](./01-DATA/FLEET-MASTER.md).
