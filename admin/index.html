@@ -52,8 +52,30 @@
 
       <section id="page-fleet" class="page">
         <div class="page-heading"><div><p class="eyebrow">DATA KENDARAAN</p><h1>Armada</h1><p class="muted">Daftar model kendaraan yang tersedia di katalog.</p></div><button id="refresh-fleet" class="outline">Muat ulang</button></div>
+        <section class="panel">
+          <h2>Tambah model kendaraan</h2>
+          <form id="vehicle-model-form" class="form-stack">
+            <label>Kategori<select id="vehicle-category" required></select></label>
+            <div class="two-col"><label>Merek<input id="vehicle-make" required placeholder="Toyota"></label><label>Model<input id="vehicle-model-name" required placeholder="Avanza"></label></div>
+            <div class="two-col"><label>Kapasitas penumpang<input id="vehicle-capacity" type="number" min="1" max="50" inputmode="numeric" placeholder="6"></label><label>Kapasitas bagasi<input id="vehicle-luggage" type="number" min="0" max="50" inputmode="numeric" placeholder="3"></label></div>
+            <label>Deskripsi singkat<textarea id="vehicle-description" rows="2" placeholder="Keterangan kendaraan"></textarea></label>
+            <button class="primary full" type="submit">Simpan model kendaraan</button>
+          </form>
+        </section>
+        <section class="panel">
+          <h2>Daftarkan unit kendaraan</h2>
+          <form id="vehicle-unit-form" class="form-stack">
+            <label>Model kendaraan<select id="unit-model" required></select></label>
+            <div class="two-col"><label>Kode unit<input id="unit-code" required placeholder="AVZ-01"></label><label>Nomor polisi<input id="unit-plate" placeholder="DK 1234 AB"></label></div>
+            <div class="two-col"><label>Tahun<input id="unit-year" type="number" min="1990" max="2035" inputmode="numeric" placeholder="2024"></label><label>Status<select id="unit-status"><option value="available">Tersedia</option><option value="unavailable">Tidak tersedia</option><option value="maintenance">Perawatan</option><option value="inactive">Nonaktif</option></select></label></div>
+            <button class="primary full" type="submit">Simpan unit kendaraan</button>
+          </form>
+        </section>
+        <div class="section-title"><h2>Model & foto kendaraan</h2></div>
         <div id="fleet-list" class="stack-list"><div class="loading">Memuat data armada…</div></div>
-        <div class="panel subtle-panel"><b>Pengembangan berikutnya</b><p class="muted">Form tambah unit kendaraan, galeri foto dari kamera/galeri HP, dan status ketersediaan akan dihubungkan pada tahap pengelolaan armada.</p></div>
+        <div class="section-title"><h2>Unit terdaftar</h2></div>
+        <div id="vehicle-unit-list" class="stack-list"></div>
+        <div class="panel subtle-panel"><b>Foto armada</b><p class="muted">Pilih foto dari galeri atau kamera HP. Format JPG, PNG, atau WebP, maksimal 5 MB per foto.</p></div>
       </section>
 
       <section id="page-tariffs" class="page">
