@@ -1,4 +1,4 @@
-# Business / Plan Master — Bali Trans / BDM Trans
+# Business / Plan Master — Bali Trans / Bali Trans
 
 > **Status:** KERANGKA KERJA — dikembangkan melalui sesi diskusi bersama  
 > **Tanggal kerangka:** 2026-11-01  
