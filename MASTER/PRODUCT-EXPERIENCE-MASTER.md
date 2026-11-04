@@ -1,4 +1,4 @@
-# Product & Experience Master — Bali Trans / Bali Trans
+# Product & Experience Master — Bali Trans
 
 > **Status:** KERANGKA YANG DISETUJUI UNTUK DIKEMBANGKAN — standar detail belum ditetapkan  
 > **Tanggal kerangka:** 2026-11-01  
