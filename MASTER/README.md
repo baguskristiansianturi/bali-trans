@@ -1,4 +1,4 @@
-# Cetak Biru Master — Bali Trans / BDM Trans
+# Cetak Biru Master — Bali Trans / Bali Trans
 
 **Status:** INVENTARIS AWAL + FONDASI PRODUK BERTAHAP  
 **Pemetaan terakhir:** 2026-11-01  
