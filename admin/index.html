@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#102d4d">
+  <meta name="description" content="Aplikasi administrasi Bali Trans.">
+  <title>Bali Trans Admin</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./admin.css">
+</head>
+<body>
+  <main id="auth-screen" class="auth-screen">
+    <div class="auth-brand"><span class="brand-mark">BT</span><div><strong>BALI TRANS</strong><small>ADMIN APPLICATION</small></div></div>
+    <section class="auth-card">
+      <p class="eyebrow">RUANG KERJA ADMIN</p>
+      <h1 id="auth-title">Selamat datang</h1>
+      <p class="muted" id="auth-copy">Masuk untuk mengelola operasional Bali Trans dari HP.</p>
+      <form id="login-form">
+        <label>Email<input id="login-email" type="email" autocomplete="username" value="sbaguskristian@gmail.com" required></label>
+        <label>Password<input id="login-password" type="password" autocomplete="current-password" required minlength="8"></label>
+        <button class="primary full" type="submit">Masuk ke aplikasi</button>
+      </form>
+      <form id="signup-form" class="hidden">
+        <label>Email<input id="signup-email" type="email" autocomplete="email" value="sbaguskristian@gmail.com" required></label>
+        <label>Password<input id="signup-password" type="password" autocomplete="new-password" minlength="8" required></label>
+        <button class="primary full" type="submit">Buat akun admin</button>
+      </form>
+      <p id="auth-message" class="notice hidden" role="status"></p>
+      <button id="toggle-auth" class="text-button" type="button">Belum punya akun? Daftar di sini</button>
+    </section>
+    <p class="auth-foot">Akses terbatas untuk petugas yang terdaftar.</p>
+  </main>
+
+  <div id="app" class="app hidden">
+    <header class="app-header">
+      <div class="header-brand"><span class="brand-mark small">BT</span><div><strong>BALI TRANS</strong><small>ADMIN</small></div></div>
+      <button id="logout" class="icon-button" aria-label="Keluar">↗</button>
+    </header>
+    <main class="app-main">
+      <section id="page-home" class="page active">
+        <div class="welcome"><p class="eyebrow">RINGKASAN OPERASIONAL</p><h1>Dashboard</h1><p class="muted">Pantau aktivitas dan kelola layanan dari satu tempat.</p></div>
+        <div class="stat-grid">
+          <article class="stat-card"><span>Model kendaraan</span><strong id="stat-models">—</strong><small>Dalam katalog</small></article>
+          <article class="stat-card"><span>Aturan tarif</span><strong id="stat-tariffs">—</strong><small>Semua aturan</small></article>
+          <article class="stat-card"><span>Permintaan masuk</span><strong id="stat-bookings">—</strong><small>Data pemesanan</small></article>
+        </div>
+        <section class="panel"><div class="panel-heading"><div><p class="eyebrow">AKSES CEPAT</p><h2>Kelola operasional</h2></div></div><div class="quick-grid"><button data-go="fleet" class="quick-action"><span>🚘</span><b>Armada</b><small>Model kendaraan</small></button><button data-go="tariffs" class="quick-action"><span>▤</span><b>Tarif</b><small>Harga layanan</small></button><button data-go="bookings" class="quick-action"><span>▣</span><b>Pemesanan</b><small>Permintaan pelanggan</small></button></div></section>
+        <p class="sync-note"><i></i> Data dimuat langsung dari server saat aplikasi dibuka.</p>
+      </section>
+
+      <section id="page-fleet" class="page">
+        <div class="page-heading"><div><p class="eyebrow">DATA KENDARAAN</p><h1>Armada</h1><p class="muted">Daftar model kendaraan yang tersedia di katalog.</p></div><button id="refresh-fleet" class="outline">Muat ulang</button></div>
+        <div id="fleet-list" class="stack-list"><div class="loading">Memuat data armada…</div></div>
+        <div class="panel subtle-panel"><b>Pengembangan berikutnya</b><p class="muted">Form tambah unit kendaraan, galeri foto dari kamera/galeri HP, dan status ketersediaan akan dihubungkan pada tahap pengelolaan armada.</p></div>
+      </section>
+
+      <section id="page-tariffs" class="page">
+        <div class="page-heading"><div><p class="eyebrow">PENGATURAN HARGA</p><h1>Tarif layanan</h1><p class="muted">Atur harga berdasarkan layanan, kendaraan, dan zona.</p></div></div>
+        <section class="panel">
+          <h2>Tambah aturan tarif</h2>
+          <form id="tariff-form" class="form-stack">
+            <label>Layanan<select id="tariff-service" required></select></label>
+            <label>Model kendaraan<select id="tariff-model" required></select></label>
+            <label>Zona layanan<select id="tariff-zone" required></select></label>
+            <label>Nama aturan<input id="tariff-name" required placeholder="Contoh: Avanza full day"></label>
+            <div class="two-col"><label>Harga dasar (Rp)<input id="tariff-amount" type="number" min="0" step="1000" required inputmode="numeric" placeholder="700000"></label><label>Termasuk jam<input id="tariff-hours" type="number" min="1" step="1" inputmode="numeric" placeholder="12"></label></div>
+            <label>Catatan (opsional)<textarea id="tariff-notes" rows="2" placeholder="Keterangan tarif"></textarea></label>
+            <button class="primary full" type="submit">Simpan aturan tarif</button>
+          </form>
+        </section>
+        <div class="section-title"><h2>Aturan tersimpan</h2><span id="tariff-count" class="count">0</span></div>
+        <div id="tariff-list" class="stack-list"></div>
+      </section>
+
+      <section id="page-bookings" class="page">
+        <div class="page-heading"><div><p class="eyebrow">PERMINTAAN PELANGGAN</p><h1>Pemesanan</h1><p class="muted">Tinjau permintaan perjalanan yang masuk.</p></div><button id="refresh-bookings" class="outline">Muat ulang</button></div>
+        <div id="booking-list" class="stack-list"><div class="loading">Memuat pemesanan…</div></div>
+      </section>
+
+      <section id="page-account" class="page">
+        <p class="eyebrow">PENGATURAN AKUN</p><h1>Akun admin</h1>
+        <section class="panel account-panel"><span class="account-avatar">BT</span><div><b id="account-email">—</b><p class="muted">Akun dengan hak akses admin</p></div></section>
+        <button id="logout-bottom" class="outline full">Keluar dari aplikasi</button>
+        <p class="muted small-copy">Bali Trans Admin · Versi awal</p>
+      </section>
+    </main>
+    <nav class="bottom-nav" aria-label="Navigasi utama">
+      <button class="nav-item active" data-page="home"><span>⌂</span><small>Home</small></button>
+      <button class="nav-item" data-page="fleet"><span>▣</span><small>Armada</small></button>
+      <button class="nav-item" data-page="tariffs"><span>▤</span><small>Tarif</small></button>
+      <button class="nav-item" data-page="bookings"><span>▧</span><small>Pesanan</small></button>
+      <button class="nav-item" data-page="account"><span>○</span><small>Akun</small></button>
+    </nav>
+  </div>
+  <div id="toast" class="toast" role="status"></div>
+  <script type="module" src="./admin.js"></script>
+</body>
+</html>
