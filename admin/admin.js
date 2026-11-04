@@ -7,6 +7,7 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 const $ = (id) => document.getElementById(id);
 let catalog = { services: [], categories: [], models: [], zones: [], tariffs: [], discounts: [] };
 let bookings = [];
+let fleetData = { models: [], vehicles: [], photos: [] };
 let isSignup = false;
 let toastTimer;
 
@@ -61,9 +62,10 @@ async function api(action, data = {}) {
 }
 async function loadAll() {
   try {
-    const [nextCatalog, nextBookings] = await Promise.all([api("catalog"), api("list_bookings")]);
+    const [nextCatalog, nextBookings, nextFleet] = await Promise.all([api("catalog"), api("list_bookings"), api("fleet")]);
     catalog = nextCatalog;
     bookings = nextBookings.bookings || [];
+    fleetData = nextFleet;
     renderDashboard();
     renderFleet();
     renderTariffs();
@@ -84,15 +86,19 @@ function renderDashboard() {
 }
 function renderFleet() {
   const root = $("fleet-list");
-  if (!catalog.models.length) {
-    root.innerHTML = '<div class="empty">Belum ada model kendaraan di katalog.</div>';
-    return;
-  }
-  root.innerHTML = catalog.models.map(model => {
+  const models = fleetData.models || [];
+  $("vehicle-category").innerHTML = catalog.categories.map(x => '<option value="' + safe(x.id) + '">' + safe(x.name) + '</option>').join("");
+  $("unit-model").innerHTML = models.map(x => '<option value="' + safe(x.id) + '">' + safe(x.make) + ' ' + safe(x.model) + '</option>').join("");
+  if (!models.length) root.innerHTML = '<div class="empty">Belum ada model kendaraan. Tambahkan model pertama di atas.</div>';
+  else root.innerHTML = models.map(model => {
     const category = model.vehicle_categories?.name || "Armada";
     const capacity = model.passenger_capacity ? model.passenger_capacity + " penumpang" : "Kapasitas belum diisi";
-    return '<article class="data-card"><h3>' + safe(model.make) + ' ' + safe(model.model) + '</h3><p>' + safe(category) + ' · ' + safe(capacity) + '</p><div class="data-meta"><span class="tag">' + (model.is_active ? "Aktif" : "Nonaktif") + '</span><span class="tag">' + safe(model.luggage_capacity || "—") + ' bagasi</span></div></article>';
+    const photos = (fleetData.photos || []).filter(p => p.vehicle_model_id === model.id);
+    const gallery = photos.length ? '<div class="photo-grid">' + photos.map(p => '<figure><img src="' + safe(p.public_url) + '" alt="' + safe(p.alt_text || (model.make + " " + model.model)) + '" loading="lazy"><button type="button" class="photo-delete" data-delete-photo="' + safe(p.id) + '" aria-label="Hapus foto">×</button></figure>').join("") + '</div>' : '<p class="muted">Belum ada foto untuk model ini.</p>';
+    return '<article class="data-card"><h3>' + safe(model.make) + ' ' + safe(model.model) + '</h3><p>' + safe(category) + ' · ' + safe(capacity) + '</p><div class="data-meta"><span class="tag">' + (model.is_active ? "Aktif" : "Nonaktif") + '</span><span class="tag">' + safe(model.luggage_capacity || "—") + ' bagasi</span><span class="tag">' + photos.length + ' foto</span></div>' + gallery + '<form class="photo-upload" data-model-id="' + safe(model.id) + '"><input type="file" name="file" accept="image/jpeg,image/png,image/webp" capture="environment" required><button class="outline" type="submit">Unggah foto</button></form></article>';
   }).join("");
+  const units = fleetData.vehicles || [];
+  $("vehicle-unit-list").innerHTML = units.length ? units.map(v => '<article class="data-card"><h3>' + safe(v.unit_code) + ' · ' + safe(v.vehicle_models?.make || "") + ' ' + safe(v.vehicle_models?.model || "") + '</h3><p>' + safe(v.registration_number || "Nomor polisi belum diisi") + ' · ' + safe(v.year_of_manufacture || "Tahun —") + '</p><div class="data-meta"><span class="tag">' + safe(v.operational_status) + '</span></div></article>').join("") : '<div class="empty">Belum ada unit kendaraan yang didaftarkan.</div>';
 }
 function fillTariffForm() {
   const fill = (id, rows, label) => {
@@ -179,6 +185,84 @@ $("signup-form").addEventListener("submit", async event => {
     button.disabled = false;
     button.textContent = "Buat akun admin";
   }
+});
+$("vehicle-model-form").addEventListener("submit", async event => {
+  event.preventDefault();
+  const button = event.submitter;
+  button.disabled = true;
+  button.textContent = "Menyimpan…";
+  try {
+    await api("save_vehicle_model", {
+      category_id: $("vehicle-category").value,
+      make: $("vehicle-make").value.trim(),
+      model: $("vehicle-model-name").value.trim(),
+      passenger_capacity: $("vehicle-capacity").value || null,
+      luggage_capacity: $("vehicle-luggage").value || null,
+      description: $("vehicle-description").value.trim(),
+      is_active: true
+    });
+    event.target.reset();
+    await loadAll();
+    toast("Model kendaraan berhasil disimpan.");
+  } catch (error) { toast(error.message); }
+  finally { button.disabled = false; button.textContent = "Simpan model kendaraan"; }
+});
+$("vehicle-unit-form").addEventListener("submit", async event => {
+  event.preventDefault();
+  const button = event.submitter;
+  button.disabled = true;
+  button.textContent = "Menyimpan…";
+  try {
+    await api("save_vehicle", {
+      vehicle_model_id: $("unit-model").value,
+      unit_code: $("unit-code").value.trim(),
+      registration_number: $("unit-plate").value.trim(),
+      year_of_manufacture: $("unit-year").value || null,
+      operational_status: $("unit-status").value,
+      is_active: true
+    });
+    event.target.reset();
+    await loadAll();
+    toast("Unit kendaraan berhasil disimpan.");
+  } catch (error) { toast(error.message); }
+  finally { button.disabled = false; button.textContent = "Simpan unit kendaraan"; }
+});
+$("fleet-list").addEventListener("submit", async event => {
+  const form = event.target.closest(".photo-upload");
+  if (!form) return;
+  event.preventDefault();
+  const button = form.querySelector("button");
+  const input = form.querySelector('input[type="file"]');
+  const file = input.files?.[0];
+  if (!file) return toast("Pilih foto terlebih dahulu.");
+  if (file.size > 5 * 1024 * 1024) return toast("Ukuran foto maksimal 5 MB.");
+  button.disabled = true;
+  button.textContent = "Mengunggah…";
+  try {
+    const { data: { session } } = await supabase.auth.getSession();
+    const data = new FormData();
+    data.append("action", "upload_vehicle_photo");
+    data.append("vehicle_model_id", form.dataset.modelId);
+    data.append("alt_text", file.name);
+    data.append("file", file);
+    const response = await fetch(API_URL, { method: "POST", headers: { "Authorization": "Bearer " + session.access_token, "apikey": SUPABASE_KEY }, body: data });
+    const result = await response.json().catch(() => ({}));
+    if (!response.ok) throw new Error(result.message || result.details || result.error || "Upload gagal.");
+    await loadAll();
+    toast("Foto kendaraan berhasil diunggah.");
+  } catch (error) { toast(error.message); }
+  finally { button.disabled = false; button.textContent = "Unggah foto"; }
+});
+$("fleet-list").addEventListener("click", async event => {
+  const button = event.target.closest("[data-delete-photo]");
+  if (!button) return;
+  if (!window.confirm("Hapus foto kendaraan ini?")) return;
+  button.disabled = true;
+  try {
+    await api("delete_vehicle_photo", { photo_id: button.dataset.deletePhoto });
+    await loadAll();
+    toast("Foto dihapus.");
+  } catch (error) { toast(error.message); }
 });
 $("tariff-form").addEventListener("submit", async event => {
   event.preventDefault();
