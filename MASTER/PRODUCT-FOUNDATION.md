@@ -1,4 +1,4 @@
-# Fondasi Produk — Bali Trans / BDM Trans
+# Fondasi Produk — Bali Trans / Bali Trans
 
 > **Tujuan dokumen:** Menyimpan konteks bisnis dan dasar pemikiran strategis yang menjadi arahan untuk definisi layanan, perencanaan halaman, alur pengguna, konten, desain, dan penulisan materi. Dokumen ini terus berkembang dan dapat diperbarui seiring bertambahnya informasi.
 
@@ -16,7 +16,7 @@
 
 ### Layanan Wisata Premium yang Ramah bagi Wisatawan Muslim
 
-BDM Trans diarahkan untuk melayani **pasar menengah atas hingga kelas atas** melalui perpaduan:
+Bali Trans diarahkan untuk melayani **pasar menengah atas hingga kelas atas** melalui perpaduan:
 
 1. **Dukungan perjalanan ramah Muslim** — pengemudi Muslim yang memahami kebutuhan praktis wisatawan Muslim.
 2. **Layanan personal premium** — bantuan yang penuh perhatian dan proaktif agar perjalanan lebih mudah dan berkesan.
@@ -57,7 +57,7 @@ Informasi layanan dan website perlu menjawab kebutuhan praktis kelompok-kelompok
 
 Sebagian wisatawan Muslim mungkin memiliki pertanyaan praktis ketika berwisata di Bali, misalnya mencari makanan halal, mengatur waktu salat, dan menemukan masjid atau fasilitas ibadah selama perjalanan.
 
-BDM Trans ingin mengurangi beban perencanaan tersebut melalui pengemudi yang dapat membantu dengan pengetahuan lokal dan rekomendasi praktis yang relevan.
+Bali Trans ingin mengurangi beban perencanaan tersebut melalui pengemudi yang dapat membantu dengan pengetahuan lokal dan rekomendasi praktis yang relevan.
 
 Nilai layanan yang direncanakan:
 - Merekomendasikan pilihan tempat makan yang sesuai kebutuhan halal di sepanjang rute.
@@ -65,13 +65,13 @@ Nilai layanan yang direncanakan:
 - Mengetahui dan merekomendasikan masjid atau fasilitas ibadah jika tersedia.
 - Mempertimbangkan kebutuhan tersebut ketika menyusun rute dan waktu perjalanan.
 
-Komunikasikan hal ini secara positif dan penuh hormat. Materi website tidak boleh menyiratkan bahwa Bali, masyarakat Hindu, atau pelaku usaha non-Muslim pada dasarnya tidak ramah. Jelaskan kemudahan tambahan yang diberikan BDM Trans tanpa merendahkan agama atau komunitas mana pun.
+Komunikasikan hal ini secara positif dan penuh hormat. Materi website tidak boleh menyiratkan bahwa Bali, masyarakat Hindu, atau pelaku usaha non-Muslim pada dasarnya tidak ramah. Jelaskan kemudahan tambahan yang diberikan Bali Trans tanpa merendahkan agama atau komunitas mana pun.
 
 Dukungan ramah Muslim harus disampaikan sebagai fitur layanan yang inklusif. Jangan menyiratkan adanya sertifikasi, jaminan status halal, atau kewenangan keagamaan kecuali klaim tersebut telah diperiksa dan dibuktikan secara terpisah.
 
 ## 4. Nilai Layanan Personal Premium
 
-BDM Trans ingin membedakan layanan pengemudinya dari layanan transportasi biasa yang hanya mengantar pelanggan dari satu titik ke titik lain.
+Bali Trans ingin membedakan layanan pengemudinya dari layanan transportasi biasa yang hanya mengantar pelanggan dari satu titik ke titik lain.
 
 Budaya layanan yang dituju adalah penuh perhatian dan proaktif. Bergantung pada jenis layanan dan pilihan pelanggan, pengemudi diharapkan:
 - Mendampingi pelanggan menuju area objek wisata atau titik kunjungan jika sesuai, bukan selalu meninggalkan pelanggan untuk mencari jalan sendiri.
@@ -86,11 +86,11 @@ Hal-hal tersebut merupakan standar layanan yang dituju. Perusahaan harus menetap
 
 ## 5. Prinsip Penetapan Harga
 
-BDM Trans tidak bermaksud bersaing terutama melalui harga paling murah.
+Bali Trans tidak bermaksud bersaing terutama melalui harga paling murah.
 
 Harga yang lebih tinggi daripada penawaran kendaraan dan pengemudi biasa dapat dibenarkan apabila benar-benar didukung oleh mutu layanan yang lebih tinggi, prosedur operasional yang lebih baik, kemampuan pengemudi, kompensasi pengemudi yang adil, serta waktu yang digunakan untuk membantu pelanggan.
 
-Contoh yang pernah dibahas adalah penawaran pasar sekitar Rp500.000 dibandingkan kemungkinan penawaran BDM Trans sekitar Rp800.000 untuk kategori kendaraan yang sebanding. **Contoh ini hanya ilustrasi posisi pasar, bukan tarif yang telah disetujui atau harga untuk dipublikasikan.**
+Contoh yang pernah dibahas adalah penawaran pasar sekitar Rp500.000 dibandingkan kemungkinan penawaran Bali Trans sekitar Rp800.000 untuk kategori kendaraan yang sebanding. **Contoh ini hanya ilustrasi posisi pasar, bukan tarif yang telah disetujui atau harga untuk dipublikasikan.**
 
 Harga harus didukung oleh:
 - cakupan dan fasilitas layanan yang jelas;
@@ -102,7 +102,7 @@ Tujuannya bukan meyakinkan setiap wisatawan yang hanya mencari harga terendah un
 
 ## 6. Tujuan Website Selain Mendapatkan Pesanan
 
-Website harus tetap berguna bagi pengunjung yang belum langsung memesan layanan BDM Trans.
+Website harus tetap berguna bagi pengunjung yang belum langsung memesan layanan Bali Trans.
 
 Website diharapkan menjadi sumber informasi perencanaan perjalanan yang dapat dipercaya melalui materi seperti:
 - contoh rencana perjalanan dan susunan jadwal;
@@ -111,20 +111,20 @@ Website diharapkan menjadi sumber informasi perencanaan perjalanan yang dapat di
 - informasi praktis wisata ramah Muslim;
 - ide paket wisata dan inspirasi perjalanan.
 
-Pengunjung dapat menggunakan informasi tersebut untuk merencanakan perjalanan sendiri atau membandingkan penyedia layanan. Hal ini tetap bernilai: informasi yang berguna dapat membangun pengenalan dan kepercayaan, sehingga wisatawan mungkin kembali kepada BDM Trans ketika anggaran atau kebutuhannya berubah.
+Pengunjung dapat menggunakan informasi tersebut untuk merencanakan perjalanan sendiri atau membandingkan penyedia layanan. Hal ini tetap bernilai: informasi yang berguna dapat membangun pengenalan dan kepercayaan, sehingga wisatawan mungkin kembali kepada Bali Trans ketika anggaran atau kebutuhannya berubah.
 
 Dengan demikian, website memiliki dua fungsi yang saling melengkapi:
 
 1. **Fungsi komersial:** menjelaskan layanan dengan baik dan membantu pengunjung yang sesuai untuk bertanya atau memesan.
 2. **Fungsi sumber informasi wisata:** menyediakan informasi perencanaan yang bermanfaat dan membangun kepercayaan jangka panjang.
 
-## 7. DNA Informasi: BDM Trans sebagai Jendela Bali
+## 7. DNA Informasi: Bali Trans sebagai Jendela Bali
 
 **Arah strategis yang disampaikan Mas Bagus — dicatat sebagai pedoman dasar pengembangan produk dan konten.**
 
-BDM Trans ingin menjadi **jendela bagi wisatawan untuk mengenal Bali**: penghubung yang membantu orang melihat, memahami, menemukan, dan merencanakan hal-hal yang dapat mereka lakukan di Pulau Bali. Aset pengetahuan utamanya adalah Bali itu sendiri—destinasi, tempat wisata, aktivitas, pengalaman, alam, budaya, dan informasi perjalanan yang relevan.
+Bali Trans ingin menjadi **jendela bagi wisatawan untuk mengenal Bali**: penghubung yang membantu orang melihat, memahami, menemukan, dan merencanakan hal-hal yang dapat mereka lakukan di Pulau Bali. Aset pengetahuan utamanya adalah Bali itu sendiri—destinasi, tempat wisata, aktivitas, pengalaman, alam, budaya, dan informasi perjalanan yang relevan.
 
-Website tidak hanya berfungsi menjual transportasi atau paket wisata. Website perlu memberi manfaat nyata bahkan kepada pengunjung yang akhirnya tidak membeli layanan BDM Trans. Dengan demikian, BDM Trans membangun kepercayaan dan kegunaan jangka panjang; kunjungan organik dan SEO menjadi dampak yang diharapkan dari informasi yang benar-benar bermanfaat, bukan tujuan yang dicapai dengan konten kosong atau pengulangan kata kunci.
+Website tidak hanya berfungsi menjual transportasi atau paket wisata. Website perlu memberi manfaat nyata bahkan kepada pengunjung yang akhirnya tidak membeli layanan Bali Trans. Dengan demikian, Bali Trans membangun kepercayaan dan kegunaan jangka panjang; kunjungan organik dan SEO menjadi dampak yang diharapkan dari informasi yang benar-benar bermanfaat, bukan tujuan yang dicapai dengan konten kosong atau pengulangan kata kunci.
 
 ### Prinsip penyajian informasi
 
@@ -132,9 +132,9 @@ Website tidak hanya berfungsi menjual transportasi atau paket wisata. Website pe
 2. **Nyaman dibaca.** Gunakan bahasa yang santai, ceria, bersahabat, dan mudah dipahami—bukan gaya kaku seperti buku pelajaran. Materi sejarah atau budaya tetap harus akurat, tetapi disampaikan dengan cara yang hidup dan mudah diikuti.
 3. **Visual yang relevan.** Foto, ilustrasi, peta, atau media lain nantinya dipilih untuk membantu orang membayangkan dan memahami tempat maupun pengalaman, bukan sekadar menjadi hiasan.
 4. **Kaya data yang berguna.** Hubungkan informasi dengan lokasi, wilayah, jarak, perkiraan waktu perjalanan, serta kisaran biaya bila datanya tersedia.
-5. **Mendukung perencanaan mandiri.** Informasi sebaiknya membantu wisatawan memperkirakan anggaran dan menyusun perjalanan, termasuk ketika mereka belum menggunakan layanan BDM Trans.
+5. **Mendukung perencanaan mandiri.** Informasi sebaiknya membantu wisatawan memperkirakan anggaran dan menyusun perjalanan, termasuk ketika mereka belum menggunakan layanan Bali Trans.
 6. **Transparan terhadap perkiraan.** Kisaran harga atau waktu boleh digunakan untuk membantu perencanaan jika data pasti belum tersedia, tetapi harus diberi label perkiraan, disertai konteks/tanggal pemeriksaan bila relevan, dan tidak ditampilkan seolah-olah tarif atau kondisi yang dijamin.
-7. **Bermanfaat sebelum berjualan.** Konten harus menjawab kebutuhan atau rasa ingin tahu wisatawan. Penawaran layanan BDM Trans dapat dihubungkan secara wajar ketika relevan, tanpa mengurangi kegunaan informasi bagi pengunjung.
+7. **Bermanfaat sebelum berjualan.** Konten harus menjawab kebutuhan atau rasa ingin tahu wisatawan. Penawaran layanan Bali Trans dapat dihubungkan secara wajar ketika relevan, tanpa mengurangi kegunaan informasi bagi pengunjung.
 
 ### Hubungan informasi
 
@@ -161,14 +161,14 @@ Hal-hal berikut belum diputuskan sepenuhnya dan tidak boleh diasumsikan:
 - Standar layanan premium dan tanggung jawab pengemudi perlu dirumuskan secara operasional.
 - Informasi ramah Muslim, rekomendasi halal, dan batas bantuan terkait ibadah perlu diperiksa.
 - Tarif akhir, harga setiap kategori kendaraan, dan fasilitas layanan belum ditetapkan melalui dokumen ini.
-- Penamaan merek dan peralihan publik dari Bali Trans ke BDM Trans harus mengikuti keputusan peluncuran yang disepakati secara terpisah.
+- Gunakan identitas Bali Trans pada seluruh materi publik dan dokumentasi proyek.
 
 ## 10. Riwayat Perubahan
 
 | Tanggal | Perubahan | Status |
 |---|---|---|
 | 2026-11-01 | Mencatat arah pasar, posisi layanan, nilai pelayanan, dan fungsi website dari hasil diskusi | Dasar awal; persetujuan dan pengembangan dilakukan bertahap |
-| 2026-11-01 | Menambahkan arah strategis BDM Trans sebagai jendela Bali dan prinsip informasi yang akurat, nyaman, visual, kaya data, serta berguna untuk perencanaan wisatawan | Arah strategis dicatat dari penjelasan Mas Bagus |
+| 2026-11-01 | Menambahkan arah strategis Bali Trans sebagai jendela Bali dan prinsip informasi yang akurat, nyaman, visual, kaya data, serta berguna untuk perencanaan wisatawan | Arah strategis dicatat dari penjelasan Mas Bagus |
 
 ---
 
