@@ -1,4 +1,4 @@
-# Master Armada — Bali Trans / Bali Trans
+# Master Armada — Bali Trans
 
 | Keterangan | Catatan |
 |---|---|
