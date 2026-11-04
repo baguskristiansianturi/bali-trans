@@ -126,7 +126,7 @@ try {
   await checkRoute('terms and conditions', '?page=terms', 'Terms and conditions');
   await checkRoute('privacy policy', '?page=privacy', 'Privacy policy');
   await checkRoute('partner enquiries', '?page=partners', 'Local partners');
-  await checkRoute('account access', '?page=account', 'Account access');
+  await checkRoute('account access', '?page=account', 'Welcome back');
   await checkRoute('package catalogue', '?page=packages', 'Tours & Activities');
   await checkRoute('North Bali region', '?page=discovery&item=region%3Anorth', 'Explore North Bali');
   await checkRoute('valid package detail', '?page=detail&item=lovina-dolphin-tour', 'Bali Dolphin Tour');
@@ -497,6 +497,14 @@ try {
   console.log('PASS English/Indonesian switching, persisted locale, and single shared header');
 
   if (pageErrors.length) throw new Error('Browser JavaScript errors: ' + pageErrors.join(' | '));
+  await page.goto('http://127.0.0.1:4173/admin/', { waitUntil: 'domcontentloaded' });
+  await page.waitForSelector('#login-form');
+  if (!(await page.locator('.auth-brand').innerText()).includes('BALI TRANS')) throw new Error('Admin application must use the Bali Trans identity');
+  if (!(await page.locator('#auth-screen').isVisible()) || !(await page.locator('#login-form').isVisible())) throw new Error('Admin application must open on its protected sign-in screen');
+  const adminLayout = await page.evaluate(() => ({ width: document.documentElement.scrollWidth, viewport: window.innerWidth, manifest: document.querySelector('link[rel="manifest"]')?.getAttribute('href') }));
+  if (adminLayout.width > adminLayout.viewport + 2 || adminLayout.manifest !== './manifest.webmanifest') throw new Error('Admin app mobile layout or install manifest is invalid: ' + JSON.stringify(adminLayout));
+  await page.waitForFunction(() => navigator.serviceWorker && navigator.serviceWorker.getRegistrations().then(items => items.length > 0));
+  console.log('PASS mobile admin app sign-in, Bali Trans branding, install manifest and service worker');
   console.log('PASS no uncaught browser JavaScript errors');
 } finally {
   await browser.close();
